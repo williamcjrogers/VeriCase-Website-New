@@ -45,11 +45,11 @@ export const Navigation = () => {
         <img 
           src="/vericase-logo.svg" 
           alt="VeriCase Logo" 
-          className="absolute left-2 sm:left-4 md:left-6 top-1/2 transform -translate-y-1/2 h-8 sm:h-10 md:h-12 w-auto"
+          className="absolute left-1 sm:left-4 md:left-6 top-1/2 transform -translate-y-1/2 h-6 sm:h-10 md:h-12 w-auto"
         />
         
         {/* Animated Text - centered with mobile padding */}
-        <div className="text-center px-12 sm:px-16 md:px-0">
+        <div className="text-center px-8 sm:px-16 md:px-0">
           <span 
             className="transition-all duration-700 ease-in-out"
             style={{ 
@@ -57,9 +57,9 @@ export const Navigation = () => {
               fontWeight: '500',
               fontStyle: 'italic',
               letterSpacing: '0.08em',
-              fontSize: 'clamp(0.875rem, 2.5vw, 2.5rem)',
+              fontSize: 'clamp(0.7rem, 2.2vw, 2.5rem)',
               color: '#1a1a1a',
-              lineHeight: '1.2'
+              lineHeight: '1.3'
             }}
           >
             {currentText}
