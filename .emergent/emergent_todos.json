@@ -1,7 +1,7 @@
 [
   {
     "content": "Update CSS variables in index.css with VeriCase brand colors and design tokens",
-    "status": "pending"
+    "status": "in_progress"
   },
   {
     "content": "Import Inter font from Google Fonts in index.css",
