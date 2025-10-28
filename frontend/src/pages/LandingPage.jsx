@@ -13,10 +13,17 @@ import { AIAssistant } from '@/components/editor/AIAssistant';
 export const LandingPage = () => {
   const { user } = useAuth();
   const { isEditMode } = useEditMode();
+  const [hasToken, setHasToken] = useState(false);
+
+  useEffect(() => {
+    setHasToken(!!localStorage.getItem('token'));
+  }, []);
+
+  const showToolbar = user || hasToken;
 
   return (
     <div className="relative">
-      {user && <EditToolbar />}
+      {showToolbar && <EditToolbar />}
       {isEditMode && <AIAssistant />}
       
       <Navigation />
