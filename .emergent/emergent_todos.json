@@ -1,50 +1,42 @@
 [
   {
-    "content": "Update CSS variables in index.css with VeriCase brand colors and design tokens",
+    "content": "Complete redesign with vibrant colors and generous spacing",
     "status": "completed"
   },
   {
-    "content": "Import Inter font from Google Fonts in index.css",
+    "content": "Update CSS with Space Grotesk and Manrope fonts",
     "status": "completed"
   },
   {
-    "content": "Create Navigation component with logo, nav links, and functional Login button (Dialog)",
+    "content": "Rebuild Hero section with correct messaging and Chronology Lens image",
     "status": "completed"
   },
   {
-    "content": "Create Hero section with 3-column layout (text, visual, stats) and CSS-based Chronology Lens",
+    "content": "Create 8-card Value Propositions section (business outcomes focus)",
     "status": "completed"
   },
   {
-    "content": "Create Evidence Gap section with headline and body text",
+    "content": "Create How It Works section with 4 steps",
     "status": "completed"
   },
   {
-    "content": "Create VeriCase Difference section with 3x2 feature grid",
+    "content": "Create Benefits section for 3 audiences",
     "status": "completed"
   },
   {
-    "content": "Create Intelligent Evidence Hub section with 2-column layout (content + visual)",
+    "content": "Update Navigation with better spacing and styling",
     "status": "completed"
   },
   {
-    "content": "Create Construction Add-In dark section with Gantt visualization",
+    "content": "Update Footer with proper styling",
     "status": "completed"
   },
   {
-    "content": "Create Accessible section with 3-column audience cards",
+    "content": "Change all $ to £ symbols",
     "status": "completed"
   },
   {
-    "content": "Create Footer component with logo, links, and copyright",
-    "status": "completed"
-  },
-  {
-    "content": "Test responsive behavior across mobile/tablet/desktop breakpoints",
-    "status": "completed"
-  },
-  {
-    "content": "Verify all interactive elements have proper hover/focus states and data-testid attributes",
+    "content": "Remove technical PST jargon from hero",
     "status": "completed"
   }
 ]
