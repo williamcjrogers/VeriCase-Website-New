@@ -1,42 +1,50 @@
 [
   {
-    "content": "Complete redesign with vibrant colors and generous spacing",
-    "status": "completed"
+    "content": "Install backend dependencies: emergentintegrations, PyJWT, passlib",
+    "status": "pending"
   },
   {
-    "content": "Update CSS with Space Grotesk and Manrope fonts",
-    "status": "completed"
+    "content": "Create MongoDB models: User, ContentBlock, ChatHistory",
+    "status": "pending"
   },
   {
-    "content": "Rebuild Hero section with correct messaging and Chronology Lens image",
-    "status": "completed"
+    "content": "Build authentication system (register, login, JWT, password hashing)",
+    "status": "pending"
   },
   {
-    "content": "Create 8-card Value Propositions section (business outcomes focus)",
-    "status": "completed"
+    "content": "Create content management API endpoints (CRUD operations)",
+    "status": "pending"
   },
   {
-    "content": "Create How It Works section with 4 steps",
-    "status": "completed"
+    "content": "Integrate Emergent LLM key and build AI assistant endpoints",
+    "status": "pending"
   },
   {
-    "content": "Create Benefits section for 3 audiences",
-    "status": "completed"
+    "content": "Install frontend dependencies: react-router-dom, react-quill, zustand, axios",
+    "status": "pending"
   },
   {
-    "content": "Update Navigation with better spacing and styling",
-    "status": "completed"
+    "content": "Create admin panel layout with React Router",
+    "status": "pending"
   },
   {
-    "content": "Update Footer with proper styling",
-    "status": "completed"
+    "content": "Build login/register UI components",
+    "status": "pending"
   },
   {
-    "content": "Change all $ to £ symbols",
-    "status": "completed"
+    "content": "Create content editor with click-to-edit functionality",
+    "status": "pending"
   },
   {
-    "content": "Remove technical PST jargon from hero",
-    "status": "completed"
+    "content": "Build AI chat sidebar component",
+    "status": "pending"
+  },
+  {
+    "content": "Implement live preview iframe with real-time updates",
+    "status": "pending"
+  },
+  {
+    "content": "Connect frontend to backend APIs and test complete flow",
+    "status": "pending"
   }
 ]
