@@ -1,27 +1,23 @@
-import { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Toaster } from '@/components/ui/sonner';
-import { LandingPage } from '@/pages/LandingPage';
-import { Login } from '@/pages/Login';
-import { AuthProvider } from '@/context/AuthContext';
-import { ContentProvider } from '@/context/ContentContext';
-import { EditModeProvider } from '@/context/EditModeContext';
+import '@/App.css';
+import { Navigation } from '@/components/sections/Navigation';
+import { Hero } from '@/components/sections/Hero';
+import { ValuePropositions } from '@/components/sections/ValuePropositions';
+import { HowItWorks } from '@/components/sections/HowItWorks';
+import { Benefits } from '@/components/sections/Benefits';
+import { SiteFooter } from '@/components/sections/SiteFooter';
 
 function App() {
   return (
-    <BrowserRouter>
-      <AuthProvider>
-        <ContentProvider>
-          <EditModeProvider>
-            <Routes>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/login" element={<Login />} />
-            </Routes>
-            <Toaster />
-          </EditModeProvider>
-        </ContentProvider>
-      </AuthProvider>
-    </BrowserRouter>
+    <div className="App">
+      <Navigation />
+      <main>
+        <Hero />
+        <ValuePropositions />
+        <HowItWorks />
+        <Benefits />
+      </main>
+      <SiteFooter />
+    </div>
   );
 }
 
