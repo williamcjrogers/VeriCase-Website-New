@@ -27,7 +27,7 @@ export const Login = () => {
         await login(email, password);
         toast.success('Logged in!');
       }
-      navigate('/admin');
+      navigate('/');
     } catch (error) {
       toast.error(error.response?.data?.detail || 'Authentication failed');
     } finally {
