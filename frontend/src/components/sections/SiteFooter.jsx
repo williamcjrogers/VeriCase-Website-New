@@ -9,9 +9,9 @@ export const SiteFooter = () => {
           <div className="lg:col-span-1">
             <div className="mb-6">
               <img 
-                src="/Logoinwhite.png" 
+                src="/Logo2-Copy.png" 
                 alt="VeriCase" 
-                className="h-10"
+                className="h-12"
               />
             </div>
             <p className="text-sm leading-relaxed text-gray-400 mb-6">
