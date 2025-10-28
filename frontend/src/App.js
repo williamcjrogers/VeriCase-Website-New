@@ -1,23 +1,20 @@
-import '@/App.css';
-import { Navigation } from '@/components/sections/Navigation';
-import { Hero } from '@/components/sections/Hero';
-import { ValuePropositions } from '@/components/sections/ValuePropositions';
-import { HowItWorks } from '@/components/sections/HowItWorks';
-import { Benefits } from '@/components/sections/Benefits';
-import { SiteFooter } from '@/components/sections/SiteFooter';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Toaster } from '@/components/ui/sonner';
+import { LandingPage } from '@/pages/LandingPage';
+import { Login } from '@/pages/Login';
+import { AuthProvider } from '@/context/AuthContext';
 
 function App() {
   return (
-    <div className="App">
-      <Navigation />
-      <main>
-        <Hero />
-        <ValuePropositions />
-        <HowItWorks />
-        <Benefits />
-      </main>
-      <SiteFooter />
-    </div>
+    <BrowserRouter>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+        <Toaster />
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 

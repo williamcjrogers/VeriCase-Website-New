@@ -1,6 +1,11 @@
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '@/context/AuthContext';
 import { Button } from '@/components/ui/button';
 
 export const Navigation = () => {
+  const navigate = useNavigate();
+  const { user, logout } = useAuth();
+
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200 backdrop-blur-sm bg-white/90" data-testid="navigation-header">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
@@ -21,6 +26,30 @@ export const Navigation = () => {
           </nav>
 
           <div className="flex items-center gap-4">
+            {user ? (
+              <>
+                <span className="text-sm text-gray-600">Welcome, {user.full_name}</span>
+                <Button 
+                  variant="ghost"
+                  onClick={() => {
+                    logout();
+                    navigate('/');
+                  }}
+                  className="text-gray-700"
+                >
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <Button 
+                variant="ghost" 
+                className="font-semibold text-gray-700 hover:text-teal-600"
+                onClick={() => navigate('/login')}
+              >
+                Login
+              </Button>
+            )}
+            
             <Button 
               size="lg"
               className="font-semibold text-white shadow-sm transition-all duration-200 hover:scale-105 hover:shadow-lg px-8"
