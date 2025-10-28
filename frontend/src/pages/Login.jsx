@@ -40,7 +40,7 @@ export const Login = () => {
       <Card className="w-full max-w-md p-8">
         <div className="text-center mb-8">
           <img 
-            src="/NewLogo.jpg" 
+            src="/Logo-Vector.png" 
             alt="VeriCase" 
             className="h-16 mx-auto mb-4"
           />
