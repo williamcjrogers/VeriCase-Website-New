@@ -32,10 +32,10 @@ export const Benefits = () => {
   ];
 
   return (
-    <section className="py-20 md:py-28 lg:py-32 bg-white" data-testid="benefits-section">
+    <section className="py-12 md:py-16 lg:py-20 bg-white" data-testid="benefits-section">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="text-center mb-16 md:mb-20 space-y-4 md:space-y-6">
+        <div className="text-center mb-12 md:mb-16 space-y-3 md:space-y-4">
           <h2 
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900"
             data-testid="benefits-heading"

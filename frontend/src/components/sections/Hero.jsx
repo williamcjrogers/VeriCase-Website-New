@@ -1,86 +1,133 @@
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Zap } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export const Hero = () => {
   return (
-    <section 
-      className="relative py-24 md:py-32 lg:py-40 overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #E6F7F7 0%, #FFFFFF 100%)' }}
+    <section
+      className="relative py-16 md:py-20 lg:py-24 overflow-hidden bg-gradient-to-br from-gray-50 to-white"
       data-testid="hero-section"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="space-y-8 md:space-y-10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-gray-200">
-              <Zap className="w-4 h-4 text-orange-500" />
-              <span className="text-sm font-semibold text-gray-700">Records, Records... VeriCase</span>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Content */}
+          <div className="space-y-6 text-center lg:text-left">
+            {/* PST Evidence System Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-50 border border-teal-200 rounded-full">
+              <span className="text-xs font-bold uppercase tracking-wider text-teal-700">The Evidence Intelligence Platform</span>
+            </div>
+
+            {/* Main Headline */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight text-gray-900">
+              Turn Years of Evidence Into <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-blue-600">Winning Arguments</span> in Minutes
+            </h1>
+
+            {/* Description */}
+            <p className="text-lg md:text-xl leading-relaxed text-gray-600 max-w-2xl">
+              VeriCase transforms how construction disputes are won. Our AI processes millions of documents, emails, and data points to build forensic-grade chronologies that prove your case beyond doubt.
+            </p>
+
+            {/* Statistics */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
+              <div className="text-center lg:text-left">
+                <div className="text-3xl font-black text-teal-600">40%</div>
+                <div className="text-sm text-gray-600 mt-1">of disputes fail due to poor documentation</div>
+              </div>
+              <div className="text-center lg:text-left">
+                <div className="text-3xl font-black text-teal-600">£7.8bn</div>
+                <div className="text-sm text-gray-600 mt-1">Annual UK construction disputes</div>
+              </div>
+              <div className="text-center lg:text-left">
+                <div className="text-3xl font-black text-teal-600">14.8mo</div>
+                <div className="text-sm text-gray-600 mt-1">Average resolution time</div>
+              </div>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight text-gray-900">
-              Make Time Your <span className="text-gradient-teal">Ally</span>, Not Your Enemy.
-            </h1>
-            
-            <p className="text-xl md:text-2xl font-semibold text-teal-600">
-              From Chaos to Clarity in Construction Disputes
-            </p>
-            
-            <p className="text-lg leading-relaxed text-gray-600 max-w-2xl">
-              Extract mass data instantly. Build true chronologies nobody else can. Respond to rebuttals 
-              with auto-selected evidence. Uncover years of contemporaneous records—all in one intelligent platform.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
               <Button 
                 size="lg"
-                className="font-semibold text-white shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-xl px-10 py-7 text-lg group"
-                style={{ background: 'linear-gradient(180deg, #069494 0%, #057676 100%)' }}
+                className="font-semibold text-white shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-xl px-10 py-7 text-lg group bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700"
               >
-                See VeriCase in Action
+                See Live Demo
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button 
-                size="lg"
+                size="lg" 
                 variant="outline"
-                className="font-semibold border-2 border-teal-600 text-teal-600 hover:bg-teal-50 transition-all duration-200 px-10 py-7 text-lg"
+                className="font-semibold border-2 border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-teal-600 hover:text-teal-600 transition-all duration-200 px-10 py-7 text-lg"
               >
-                How It Works
+                Calculate Your ROI
               </Button>
-            </div>
-            
-            <div className="flex items-center gap-6 pt-6 text-sm text-gray-600">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-teal-500 rounded-full"></div>
-                <span>Instant Deployment</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-coral-500 rounded-full"></div>
-                <span>UK-Based Support</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                <span>GDPR Compliant</span>
-              </div>
             </div>
           </div>
 
-          <div className="relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-              <img 
-                src="https://customer-assets.emergentagent.com/job_smart-evidence/artifacts/vly647vf_ChronologyLens1jpg.jpg"
-                alt="VeriCase Chronology Lens"
-                className="w-full h-auto"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-teal-900/10 to-transparent"></div>
-            </div>
+          {/* Right Visual - Chronology Lens */}
+          <div>
+            {/* Chronology Lens Box */}
+            <div className="relative bg-white rounded-2xl shadow-xl p-8 border border-gray-200">
+              <div className="text-center mb-6">
+                <h3 className="text-xl font-bold text-gray-900">The Chronology Lens™ Live</h3>
+                <p className="text-sm text-gray-600 mt-1">Processing real construction data</p>
+              </div>
             
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-6 border border-gray-200">
-              <div className="text-4xl font-bold text-teal-600 mb-1">80%</div>
-              <div className="text-sm text-gray-600">Faster evidence review</div>
+            <div className="grid grid-cols-3 gap-4 items-center">
+              {/* Input Sources */}
+              <div className="space-y-3">
+                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Your Evidence</p>
+                <div className="space-y-2">
+                  <div className="px-3 py-2 bg-gray-100 rounded text-xs text-gray-700 font-medium">
+                    <span className="text-teal-600">📧</span> 47,832 Emails
+                  </div>
+                  <div className="px-3 py-2 bg-gray-100 rounded text-xs text-gray-700 font-medium">
+                    <span className="text-teal-600">📄</span> 3,421 Contracts
+                  </div>
+                  <div className="px-3 py-2 bg-gray-100 rounded text-xs text-gray-700 font-medium">
+                    <span className="text-teal-600">📊</span> 892 Site Reports
+                  </div>
+                  <div className="px-3 py-2 bg-gray-100 rounded text-xs text-gray-700 font-medium">
+                    <span className="text-teal-600">📷</span> 12,453 Photos
+                  </div>
+                  <div className="px-3 py-2 bg-gray-100 rounded text-xs text-gray-700 font-medium">
+                    <span className="text-teal-600">🔧</span> P6 Schedule
+                  </div>
+                </div>
+              </div>
+              
+              {/* ChronoLens Vertical in the middle */}
+              <div className="flex flex-col items-center justify-center">
+                <img 
+                  src="/ChronoLensVertical.jpg" 
+                  alt="The Chronology Lens Process" 
+                  className="h-64 w-auto"
+                />
+              </div>
+              
+              {/* Timeline Output */}
+              <div className="space-y-3">
+                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Forensic Timeline</p>
+                <div className="relative">
+                  <div className="absolute left-2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-teal-500 to-blue-500"></div>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-4 bg-teal-500 rounded-full shadow-sm"></div>
+                      <div className="px-3 py-1 bg-teal-50 border border-teal-200 rounded text-xs font-medium">Jan 12 — Contract Var CV-042</div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-4 bg-teal-500 rounded-full shadow-sm"></div>
+                      <div className="px-3 py-1 bg-teal-50 border border-teal-200 rounded text-xs font-medium">Jan 28 — Weather Event</div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-4 bg-teal-500 rounded-full shadow-sm"></div>
+                      <div className="px-3 py-1 bg-teal-50 border border-teal-200 rounded text-xs font-medium">Feb 15 — Design RFI-2134</div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-4 bg-red-500 rounded-full shadow-sm"></div>
+                      <div className="px-3 py-1 bg-red-50 border border-red-200 rounded text-xs font-medium">Mar 03 — Critical Path Impact</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            
-            <div className="absolute -top-6 -right-6 bg-white rounded-xl shadow-xl p-6 border border-gray-200">
-              <div className="text-4xl font-bold text-coral-500 mb-1">£M</div>
-              <div className="text-sm text-gray-600">Saved in disputes</div>
             </div>
           </div>
         </div>

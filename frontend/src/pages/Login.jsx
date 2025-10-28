@@ -40,9 +40,9 @@ export const Login = () => {
       <Card className="w-full max-w-md p-8">
         <div className="text-center mb-8">
           <img 
-            src="https://customer-assets.emergentagent.com/job_smart-evidence/artifacts/3mjzkyva_Logo2.jpg" 
+            src="/NewLogo.jpg" 
             alt="VeriCase" 
-            className="h-12 mx-auto mb-4"
+            className="h-16 mx-auto mb-4"
           />
           <h1 className="text-2xl font-bold text-gray-900">{isRegister ? 'Create Account' : 'Welcome Back'}</h1>
         </div>

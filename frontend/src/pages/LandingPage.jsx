@@ -1,8 +1,11 @@
 import { Navigation } from '@/components/sections/Navigation';
 import { Hero } from '@/components/sections/Hero';
-import { ValuePropositions } from '@/components/sections/ValuePropositions';
+import { EvidenceGap } from '@/components/sections/EvidenceGap';
+import { Difference } from '@/components/sections/Difference';
+import { ConstructionAddIn } from '@/components/sections/ConstructionAddIn';
+import { EvidenceHub } from '@/components/sections/EvidenceHub';
 import { HowItWorks } from '@/components/sections/HowItWorks';
-import { Benefits } from '@/components/sections/Benefits';
+import { Accessible } from '@/components/sections/Accessible';
 import { SiteFooter } from '@/components/sections/SiteFooter';
 
 export const LandingPage = () => {
@@ -11,9 +14,12 @@ export const LandingPage = () => {
       <Navigation />
       <main>
         <Hero />
-        <ValuePropositions />
+        <EvidenceGap />
+        <Difference />
+        <ConstructionAddIn />
+        <EvidenceHub />
         <HowItWorks />
-        <Benefits />
+        <Accessible />
       </main>
       <SiteFooter />
     </>

@@ -1,0 +1,141 @@
+<svg width="1200" height="700" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <linearGradient id="vcTickGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#1E3A8A"/>
+    </linearGradient>
+    <symbol id="VeriCaseLogo" viewBox="0 0 900 200" preserveAspectRatio="xMinYMid meet">
+      <g font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif"
+         font-weight="800" font-size="150" fill="#1E293B">
+        <text x="0" y="145" letter-spacing="0">VeriCase</text>
+      </g>
+      <path d="M 75 60 C 110 20, 150 5, 185 5 C 210 5, 225 15, 240 30"
+            fill="none" stroke="url(#vcTickGrad)" stroke-width="18"
+            stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="VeriCaseLogoLight" viewBox="0 0 900 200" preserveAspectRatio="xMinYMid meet">
+      <g font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif"
+         font-weight="800" font-size="150" fill="#FFFFFF">
+        <text x="0" y="145" letter-spacing="0">VeriCase</text>
+      </g>
+      <path d="M 75 60 C 110 20, 150 5, 185 5 C 210 5, 225 15, 240 30"
+            fill="none" stroke="url(#vcTickGrad)" stroke-width="18"
+            stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+
+  <defs>
+    <style>
+      .text { font-family: 'Inter', sans-serif; }
+      .section-title { font-size: 36px; font-weight: 700; fill: #1E293B; text-anchor: middle; }
+      .section-subtitle { font-size: 20px; fill: #64748B; text-anchor: middle; }
+      .feature-card { fill: #FFFFFF; stroke: #E2E8F0; rx: 10; ry: 10; transition: all 0.3s; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.05));}
+      .feature-title { font-size: 22px; font-weight: bold; fill: #1E293B; }
+      .feature-desc { font-size: 16px; fill: #64748B; line-height: 1.5; }
+    </style>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#F8FAFC"/>
+
+  <g transform="translate(600, 60)" class="text">
+    <text x="0" y="0" class="section-title">The VeriCase Difference</text>
+    <text x="0" y="35" class="section-subtitle">Existing platforms overwhelm with complexity or miss the forensic detail.</text>
+     <text x="0" y="65" class="section-subtitle">We provide the right balance for evidence-based disputes.</text>
+  </g>
+
+  <g transform="translate(50, 180)" class="text">
+    
+    <g transform="translate(0, 0)">
+      <rect width="350" height="220" class="feature-card"/>
+      <g transform="translate(20, 20)">
+         <path d="M5 4 V20 M12 4 V20 M19 4 V20" stroke="#0D9488" stroke-width="2" fill="none"/>
+         <path d="M2 8 H22 M2 16 H22" stroke="#0D9488" stroke-width="2" fill="none" stroke-dasharray="4"/>
+         <circle cx="5" cy="8" r="4" fill="#0D9488"/>
+         <circle cx="19" cy="16" r="4" fill="#0D9488"/>
+      </g>
+      <text x="20" y="70" class="feature-title">Chronology Lens™</text>
+      <text x="20" y="100" class="feature-desc">
+        <tspan x="20" dy="0">Ditch the fragmented threads. Merge multiple PST</tspan>
+        <tspan x="20" dy="1.5em">files into a single, time-ordered strip across all</tspan>
+        <tspan x="20" dy="1.5em">participants and custodians.</tspan>
+      </text>
+    </g>
+
+    <g transform="translate(375, 0)">
+      <rect width="350" height="220" class="feature-card"/>
+      <g transform="translate(20, 20)">
+         <circle cx="12" cy="12" r="3" fill="#0D9488"/>
+         <ellipse cx="12" cy="12" rx="10" ry="5" stroke="#0D9488" fill="none" stroke-width="2"/>
+         <ellipse cx="12" cy="12" rx="5" ry="10" stroke="#0D9488" fill="none" stroke-width="2"/>
+      </g>
+      <text x="20" y="70" class="feature-title">Message-Level Granularity</text>
+      <text x="20" y="100" class="feature-desc">
+        <tspan x="20" dy="0">We split out every email message (not just threads).</tspan>
+        <tspan x="20" dy="1.5em">See the atomic details of communication so you</tspan>
+        <tspan x="20" dy="1.5em">always know exactly who said what, when.</tspan>
+      </text>
+    </g>
+
+    <g transform="translate(750, 0)">
+      <rect width="350" height="220" class="feature-card"/>
+      <g transform="translate(20, 20)">
+        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="#0D9488" transform="scale(1.2) translate(-2,-2)"/>
+        <rect x="6" y="7" width="6" height="4" fill="#1E293B"/>
+        <rect x="14" y="12" width="8" height="4" fill="#1E293B"/>
+      </g>
+      <text x="20" y="70" class="feature-title">Programme Awareness</text>
+      <text x="20" y="100" class="feature-desc">
+        <tspan x="20" dy="0">(Construction Add-In). Link emails and evidence</tspan>
+        <tspan x="20" dy="1.5em">directly to baseline activities and delay events</tspan>
+        <tspan x="20" dy="1.5em">from your project schedule.</tspan>
+      </text>
+    </g>
+
+    <g transform="translate(0, 250)">
+      <rect width="350" height="220" class="feature-card"/>
+      <g transform="translate(20, 20)">
+        <circle cx="10" cy="10" r="8" stroke="#0D9488" stroke-width="2" fill="none"/>
+        <line x1="16" y1="16" x2="22" y2="22" stroke="#0D9488" stroke-width="2"/>
+        <path d="M6 6 L10 10 L14 6" stroke="#1E293B" stroke-width="1" fill="none"/>
+      </g>
+      <text x="20" y="70" class="feature-title">Smart Search & Tagging</text>
+      <text x="20" y="100" class="feature-desc">
+        <tspan x="20" dy="0">Full-text + OCR, faceted filters, auto-tag</tspan>
+        <tspan x="20" dy="1.5em">suggestions, and AI-powered search to find</tspan>
+        <tspan x="20" dy="1.5em">pivotal facts instantly.</tspan>
+      </text>
+    </g>
+
+    <g transform="translate(375, 250)">
+      <rect width="350" height="220" class="feature-card"/>
+      <g transform="translate(20, 20)">
+        <path d="M5 21 H19 C20.1 21 21 20.1 21 19 V5 C21 3.9 20.1 3 19 3 H5 C3.9 3 3 3.9 3 5 V19 C3 20.1 3.9 21 5 21 Z" stroke="#0D9488" stroke-width="2" fill="none"/>
+         <path d="M7 12 L10 15 L17 8" stroke="#0D9488" stroke-width="3" fill="none"/>
+      </g>
+      <text x="20" y="70" class="feature-title">Audit-Ready Exports</text>
+      <text x="20" y="100" class="feature-desc">
+        <tspan x="20" dy="0">Generate defensible, bundle-ready exports with</tspan>
+        <tspan x="20" dy="1.5em">one click. All exports are Bates numbered and</tspan>
+        <tspan x="20" dy="1.5em">hashed for integrity.</tspan>
+      </text>
+    </g>
+
+    <g transform="translate(750, 250)">
+      <rect width="350" height="220" class="feature-card"/>
+      <g transform="translate(20, 20)">
+        <path d="M20.41 9.94 l-9.5-9.5 c-0.78-0.78-2.05-0.78-2.83 0 L3.5 5.02 c-0.78 0.78-0.78 2.05 0 2.83 l9.5 9.5 c0.78 0.78 2.05 0.78 2.83 0 l4.58-4.58 c0.78-0.78 0.78-2.05 0-2.83 z" stroke="#0D9488" stroke-width="2" fill="none"/>
+        <circle cx="7.5" cy="7.5" r="1.5" fill="#0D9488"/>
+      </g>
+      <text x="20" y="70" class="feature-title">Accessible Pricing</text>
+      <text x="20" y="100" class="feature-desc">
+        <tspan x="20" dy="0">Subscription per matter, not per GB. Affordable</tspan>
+        <tspan x="20" dy="1.5em">for consultants, contractors, and small to medium</tspan>
+        <tspan x="20" dy="1.5em">legal firms.</tspan>
+      </text>
+    </g>
+
+  </g>
+
+<use href="#VeriCaseLogo" transform="translate(470,8)" width="260" />
+</svg>

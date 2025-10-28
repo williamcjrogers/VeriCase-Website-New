@@ -35,6 +35,15 @@ h1, h2, h3, h4, h5, h6 {
         --color-gray-900: #0F172A;
         --color-white: #FFFFFF;
         
+        /* VeriCase Component Colors */
+        --vericase-primary-dark: #1E293B;
+        --vericase-accent-teal: #06A69E;
+        --vericase-text-secondary: #64748B;
+        --vericase-bg-light: #F0F9FF;
+        --vericase-border: #E2E8F0;
+        --vericase-surface: #FFFFFF;
+        --vericase-caption: #CBD5E1;
+        
         /* Shadcn Theme Variables */
         --background: 0 0% 100%;
         --foreground: 222 47% 11%;

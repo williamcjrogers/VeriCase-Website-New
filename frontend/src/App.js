@@ -1,12 +1,12 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from '@/context/AuthContext';
 import { Toaster } from '@/components/ui/sonner';
 import { LandingPage } from '@/pages/LandingPage';
 import { Login } from '@/pages/Login';
-import { AuthProvider } from '@/context/AuthContext';
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <AuthProvider>
         <Routes>
           <Route path="/" element={<LandingPage />} />
@@ -14,7 +14,7 @@ function App() {
         </Routes>
         <Toaster />
       </AuthProvider>
-    </BrowserRouter>
+    </Router>
   );
 }
 

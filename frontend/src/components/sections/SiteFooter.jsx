@@ -1,3 +1,5 @@
+import { Linkedin, Twitter, Youtube } from 'lucide-react';
+
 export const SiteFooter = () => {
   return (
     <footer className="py-16 md:py-20 bg-gray-900 text-gray-300" data-testid="site-footer">
@@ -5,20 +7,32 @@ export const SiteFooter = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Logo and Tagline */}
           <div className="lg:col-span-1">
-            <img 
-              src="https://customer-assets.emergentagent.com/job_smart-evidence/artifacts/3mjzkyva_Logo2.jpg" 
-              alt="VeriCase Logo" 
-              className="h-12 w-auto mb-6 brightness-0 invert"
-            />
-            <p className="text-sm leading-relaxed text-gray-400">
-              The intelligent evidence platform for complex construction disputes.
+            <div className="mb-6">
+              <div className="text-3xl font-bold flex items-center" style={{ fontFamily: 'Inter, sans-serif' }}>
+                <span className="text-blue-400">Veri</span><span className="text-white">Case</span>
+              </div>
+            </div>
+            <p className="text-sm leading-relaxed text-gray-400 mb-6">
+              The evidence intelligence platform that turns years of complex construction documentation into winning arguments. Trusted by the industry's leading contractors, consultants, and legal teams.
             </p>
+            {/* Social Links */}
+            <div className="flex gap-3">
+              <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-teal-600 rounded-lg flex items-center justify-center transition-colors duration-200">
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-teal-600 rounded-lg flex items-center justify-center transition-colors duration-200">
+                <Twitter className="w-5 h-5" />
+              </a>
+              <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-teal-600 rounded-lg flex items-center justify-center transition-colors duration-200">
+                <Youtube className="w-5 h-5" />
+              </a>
+            </div>
           </div>
 
-          {/* Platform Links */}
+          {/* Product Links */}
           <div>
-            <h4 className="font-bold text-base mb-6 text-white">Platform</h4>
-            <ul className="space-y-4">
+            <h4 className="font-bold text-base mb-6 text-white">Product</h4>
+            <ul className="space-y-3">
               <li>
                 <a href="#features" className="text-sm hover:text-teal-400 transition-colors duration-200">
                   Features
@@ -34,26 +48,46 @@ export const SiteFooter = () => {
                   Security
                 </a>
               </li>
+              <li>
+                <a href="#pricing" className="text-sm hover:text-teal-400 transition-colors duration-200">
+                  Pricing
+                </a>
+              </li>
+              <li>
+                <a href="#roadmap" className="text-sm hover:text-teal-400 transition-colors duration-200">
+                  Roadmap
+                </a>
+              </li>
             </ul>
           </div>
 
           {/* Solutions Links */}
           <div>
             <h4 className="font-bold text-base mb-6 text-white">Solutions</h4>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               <li>
-                <a href="#construction" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Construction Disputes
+                <a href="#delay-analysis" className="text-sm hover:text-teal-400 transition-colors duration-200">
+                  Delay Analysis
+                </a>
+              </li>
+              <li>
+                <a href="#quantum" className="text-sm hover:text-teal-400 transition-colors duration-200">
+                  Quantum Assessment
+                </a>
+              </li>
+              <li>
+                <a href="#adjudication" className="text-sm hover:text-teal-400 transition-colors duration-200">
+                  Adjudication
+                </a>
+              </li>
+              <li>
+                <a href="#arbitration" className="text-sm hover:text-teal-400 transition-colors duration-200">
+                  Arbitration
                 </a>
               </li>
               <li>
                 <a href="#litigation" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Commercial Litigation
-                </a>
-              </li>
-              <li>
-                <a href="#forensics" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Forensic Analysis
+                  Litigation
                 </a>
               </li>
             </ul>
@@ -62,7 +96,7 @@ export const SiteFooter = () => {
           {/* Company Links */}
           <div>
             <h4 className="font-bold text-base mb-6 text-white">Company</h4>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               <li>
                 <a href="#about" className="text-sm hover:text-teal-400 transition-colors duration-200">
                   About Us
@@ -74,13 +108,18 @@ export const SiteFooter = () => {
                 </a>
               </li>
               <li>
+                <a href="#partners" className="text-sm hover:text-teal-400 transition-colors duration-200">
+                  Partners
+                </a>
+              </li>
+              <li>
                 <a href="#contact" className="text-sm hover:text-teal-400 transition-colors duration-200">
                   Contact
                 </a>
               </li>
               <li>
-                <a href="#privacy" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Privacy Policy
+                <a href="#blog" className="text-sm hover:text-teal-400 transition-colors duration-200">
+                  Blog
                 </a>
               </li>
             </ul>
@@ -90,7 +129,7 @@ export const SiteFooter = () => {
         {/* Copyright */}
         <div className="pt-8 border-t border-gray-800 text-center">
           <p className="text-sm text-gray-400">
-            &copy; {new Date().getFullYear()} VeriCase. All rights reserved. UK Company.
+            © {new Date().getFullYear()} VeriCase Ltd. All rights reserved. Company No. 14789532 | VAT No. GB 445 2891 47
           </p>
         </div>
       </div>

@@ -1,0 +1,112 @@
+<svg width="1400" height="300" viewBox="0 0 1400 300" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <style>
+      /* Approximating the UI font style */
+      .title { font-family: 'Inter', Arial, sans-serif; font-size: 20px; fill: #263238; font-weight: 600; }
+      .label { font-family: 'Inter', Arial, sans-serif; font-size: 14px; fill: #37474F; text-anchor: middle; font-weight: 500; }
+      /* Styling for connectors */
+      .process-connector { stroke: #11C7A3; stroke-width: 3; }
+      .flow-path { stroke: #B0BEC5; stroke-width: 3; stroke-dasharray: 8 4; fill: none; }
+    </style>
+    <marker id="arrowheadTeal" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#11C7A3" />
+    </marker>
+        <marker id="arrowheadGray" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#B0BEC5" />
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1400" height="300" fill="#FFFFFF"/>
+
+  <text x="50" y="40" class="title">The Problem: Fragmented Data</text>
+  <text x="450" y="40" class="title">The Process: The Chronology Lens™</text>
+  <text x="1100" y="40" class="title">The Result: Forensic Chronology</text>
+
+  <g transform="translate(50, 70)">
+    <circle cx="40" cy="30" r="6" fill="#37474F"/>
+    <circle cx="60" cy="55" r="7" fill="#11C7A3"/>
+    <circle cx="30" cy="80" r="5" fill="#11C7A3"/>
+    <circle cx="80" cy="20" r="7" fill="#37474F"/>
+    <circle cx="100" cy="60" r="5" fill="#37474F"/>
+    <circle cx="130" cy="35" r="6" fill="#11C7A3"/>
+    <circle cx="110" cy="95" r="7" fill="#37474F"/>
+    <circle cx="70" cy="110" r="5" fill="#11C7A3"/>
+    <circle cx="150" cy="75" r="6" fill="#37474F"/>
+    <circle cx="50" cy="130" r="6" fill="#37474F"/>
+    <circle cx="130" cy="120" r="5" fill="#11C7A3"/>
+    <circle cx="160" cy="25" r="5" fill="#11C7A3"/>
+    <circle cx="20" cy="150" r="6" fill="#37474F"/>
+    <circle cx="90" cy="145" r="7" fill="#11C7A3"/>
+  </g>
+
+  <path d="M 250 150 C 300 150, 350 150, 390 150" class="flow-path" marker-end="url(#arrowheadGray)"/>
+
+  <g transform="translate(400, 80)">
+
+    <g transform="translate(50, 25)">
+      <circle cx="50" cy="50" r="45" stroke="#37474F" stroke-width="3" fill="none"/>
+      <line x1="20" y1="30" x2="80" y2="30" stroke="#37474F" stroke-width="2" stroke-dasharray="5 3"/>
+      <line x1="20" y1="70" x2="80" y2="70" stroke="#37474F" stroke-width="2" stroke-dasharray="5 3"/>
+      <circle cx="30" cy="50" r="6" fill="#11C7A3"/>
+      <circle cx="50" cy="50" r="6" fill="#11C7A3"/>
+      <circle cx="70" cy="50" r="6" fill="#11C7A3"/>
+      <text x="50" y="125" class="label">1. Alignment</text>
+    </g>
+
+    <line x1="160" y1="75" x2="210" y2="75" class="process-connector" marker-end="url(#arrowheadTeal)"/>
+
+    <g transform="translate(220, 25)">
+       <circle cx="50" cy="50" r="45" fill="#37474F"/>
+       <g stroke="#11C7A3" stroke-width="2.5">
+           <line x1="50" y1="50" x2="50" y2="15"/>
+           <line x1="50" y1="50" x2="79.8" y2="27.5"/>
+           <line x1="50" y1="50" x2="79.8" y2="72.5"/>
+           <line x1="50" y1="50" x2="50" y2="85"/>
+           <line x1="50" y1="50" x2="20.2" y2="72.5"/>
+           <line x1="50" y1="50" x2="20.2" y2="27.5"/>
+       </g>
+       <circle cx="50" cy="50" r="8" fill="#11C7A3"/>
+       <circle cx="50" cy="50" r="4" fill="#37474F"/>
+       <text x="50" y="125" class="label">2. Focus & Filter</text>
+    </g>
+
+    <line x1="330" y1="75" x2="380" y2="75" class="process-connector" marker-end="url(#arrowheadTeal)"/>
+
+    <g transform="translate(390, 25)">
+      <circle cx="50" cy="50" r="45" stroke="#37474F" stroke-width="3" fill="none"/>
+      <line x1="5" y1="50" x2="95" y2="50" stroke="#11C7A3" stroke-width="10"/>
+      <path d="M 25 30 A 30 30 0 0 1 75 30" stroke="#37474F" stroke-width="4" fill="none"/>
+      <path d="M 25 70 A 30 30 0 0 0 75 70" stroke="#37474F" stroke-width="4" fill="none"/>
+      <text x="50" y="125" class="label">3. Focused Timeline</text>
+    </g>
+  </g>
+
+  <path d="M 940 150 C 990 150, 1040 150, 1090 150" class="flow-path" marker-end="url(#arrowheadGray)"/>
+
+  <g transform="translate(1100, 70)">
+    <line x1="20" y1="0" x2="20" y2="180" stroke="#37474F" stroke-width="3"/>
+
+    <g transform="translate(0, 10)">
+        <circle cx="20" cy="10" r="7" fill="#11C7A3"/>
+        <rect x="40" y="2" width="150" height="16" fill="#E0E0E0" rx="4"/>
+    </g>
+    <g transform="translate(0, 40)">
+        <circle cx="20" cy="10" r="7" fill="#11C7A3"/>
+        <rect x="40" y="2" width="120" height="16" fill="#E0E0E0" rx="4"/>
+    </g>
+    <g transform="translate(0, 70)">
+        <circle cx="20" cy="10" r="7" fill="#11C7A3"/>
+        <rect x="40" y="2" width="180" height="16" fill="#E0E0E0" rx="4"/>
+    </g>
+    <g transform="translate(0, 100)">
+        <circle cx="20" cy="10" r="7" fill="#11C7A3"/>
+        <rect x="40" y="2" width="100" height="16" fill="#E0E0E0" rx="4"/>
+    </g>
+    <g transform="translate(0, 130)">
+        <circle cx="20" cy="10" r="7" fill="#11C7A3"/>
+        <rect x="40" y="2" width="160" height="16" fill="#E0E0E0" rx="4"/>
+    </g>
+
+  </g>
+</svg>
