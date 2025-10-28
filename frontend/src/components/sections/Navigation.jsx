@@ -53,16 +53,14 @@ export const Navigation = () => {
 
           {/* CTA Buttons */}
           <div className="flex items-center gap-4">
-            {!user && (
-              <Button 
-                variant="ghost" 
-                className="font-semibold text-gray-700 hover:text-teal-600"
-                onClick={() => navigate('/login')}
-                data-testid="navbar-login-btn"
-              >
-                Login
-              </Button>
-            )}
+            <Button 
+              variant="ghost" 
+              className="font-semibold text-gray-700 hover:text-teal-600"
+              onClick={() => navigate('/login')}
+              data-testid="navbar-login-btn"
+            >
+              Login
+            </Button>
             
             <Button 
               size="lg"
