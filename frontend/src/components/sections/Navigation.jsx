@@ -44,6 +44,10 @@ export const Navigation = () => {
           src="/NewLogo.jpg" 
           alt="VeriCase Logo" 
           className="absolute left-4 md:left-6 top-1/2 transform -translate-y-1/2 h-12"
+          style={{ 
+            mixBlendMode: 'multiply',
+            opacity: 0.95
+          }}
         />
         
         {/* Animated Text - centered */}
