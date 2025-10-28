@@ -39,11 +39,20 @@ export const Login = () => {
     <div className="min-h-screen flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #E6F7F7 0%, #FFFFFF 100%)' }}>
       <Card className="w-full max-w-md p-8">
         <div className="text-center mb-8">
-          <img 
-            src="/Logo-Vector.png" 
-            alt="VeriCase" 
-            className="h-16 mx-auto mb-4"
-          />
+          <div 
+            className="h-16 mx-auto mb-4 inline-block"
+            style={{ 
+              backgroundColor: '#FAFAFA',
+              borderRadius: '4px',
+              padding: '4px'
+            }}
+          >
+            <img 
+              src="/Logo-Vector.png" 
+              alt="VeriCase" 
+              className="h-full"
+            />
+          </div>
           <h1 className="text-2xl font-bold text-gray-900">{isRegister ? 'Create Account' : 'Welcome Back'}</h1>
         </div>
         
