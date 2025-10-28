@@ -53,16 +53,16 @@ export const Navigation = () => {
 
           {/* CTA Buttons */}
           <div className="flex items-center gap-4">
-            {!user ? (
+            {!user && (
               <Button 
                 variant="ghost" 
-                className="hidden md:inline-flex font-semibold text-gray-700 hover:text-teal-600"
+                className="font-semibold text-gray-700 hover:text-teal-600"
                 onClick={() => navigate('/login')}
                 data-testid="navbar-login-btn"
               >
                 Login
               </Button>
-            ) : null}
+            )}
             
             <Button 
               size="lg"
