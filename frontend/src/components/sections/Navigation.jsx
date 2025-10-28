@@ -1,22 +1,10 @@
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '@/context/AuthContext';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger, DialogFooter } from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { toast } from 'sonner';
 
 export const Navigation = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [open, setOpen] = useState(false);
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-    toast.success('Login feature will be connected soon!');
-    setOpen(false);
-    setEmail('');
-    setPassword('');
-  };
+  const navigate = useNavigate();
+  const { user } = useAuth();
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200 backdrop-blur-sm bg-white/90" data-testid="navigation-header">
