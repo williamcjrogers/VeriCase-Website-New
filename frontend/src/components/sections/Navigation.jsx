@@ -53,61 +53,16 @@ export const Navigation = () => {
 
           {/* CTA Buttons */}
           <div className="flex items-center gap-4">
-            <Dialog open={open} onOpenChange={setOpen}>
-              <DialogTrigger asChild>
-                <Button 
-                  variant="ghost" 
-                  className="hidden md:inline-flex font-semibold text-gray-700 hover:text-teal-600"
-                  data-testid="navbar-login-btn"
-                >
-                  Login
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-md" data-testid="login-dialog">
-                <DialogHeader>
-                  <DialogTitle data-testid="login-dialog-title">Welcome Back</DialogTitle>
-                  <DialogDescription data-testid="login-dialog-description">
-                    Enter your credentials to access your VeriCase account.
-                  </DialogDescription>
-                </DialogHeader>
-                <form onSubmit={handleLogin} className="space-y-4 py-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="your@email.com"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      data-testid="login-email-input"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="password">Password</Label>
-                    <Input
-                      id="password"
-                      type="password"
-                      placeholder="••••••••"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      required
-                      data-testid="login-password-input"
-                    />
-                  </div>
-                  <DialogFooter>
-                    <Button 
-                      type="submit" 
-                      className="w-full font-semibold text-white transition-all duration-200 hover:scale-[1.02]"
-                      style={{ background: 'linear-gradient(180deg, #069494 0%, #057676 100%)' }}
-                      data-testid="login-submit-btn"
-                    >
-                      Sign In
-                    </Button>
-                  </DialogFooter>
-                </form>
-              </DialogContent>
-            </Dialog>
+            {!user ? (
+              <Button 
+                variant="ghost" 
+                className="hidden md:inline-flex font-semibold text-gray-700 hover:text-teal-600"
+                onClick={() => navigate('/login')}
+                data-testid="navbar-login-btn"
+              >
+                Login
+              </Button>
+            ) : null}
             
             <Button 
               size="lg"
