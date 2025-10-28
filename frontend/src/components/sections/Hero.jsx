@@ -70,7 +70,7 @@ export const Hero = () => {
                       <span className="italic" style={{ color: '#666666', fontFamily: 'Playfair Display, Georgia, serif', fontWeight: 400 }}>The</span>
                       <span style={{ color: '#1a1a1a', fontFamily: 'Playfair Display, Georgia, serif', fontWeight: 400 }}>Chronology</span>
                       <span style={{ color: '#0066cc', fontFamily: 'Playfair Display, Georgia, serif', fontWeight: 700 }}>Lens</span>
-                      <span style={{ color: '#666666', fontSize: '0.5em', verticalAlign: 'super' }}>™</span>
+                      <span style={{ color: '#666666', fontSize: '0.6em', verticalAlign: 'super', position: 'relative', top: '-0.2em', fontWeight: 600 }}>™</span>
                       <span className="ml-2" style={{ color: '#1a1a1a', fontFamily: 'Playfair Display, Georgia, serif', fontWeight: 400 }}>Live</span>
                     </h3>
                     <p className="text-sm text-gray-600 mt-1">Processing real construction data</p>
