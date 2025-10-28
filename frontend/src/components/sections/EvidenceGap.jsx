@@ -2,15 +2,15 @@ import { Clock, PoundSterling, FileText, TrendingDown, Database, FileSpreadsheet
 
 export const EvidenceGap = () => {
   const documentTypes = [
-    { name: 'PST Archives', icon: Database, bgColor: '#EFF6FF', iconColor: '#3B82F6' },
-    { name: 'Excel Sheets', icon: FileSpreadsheet, bgColor: '#F0FDF4', iconColor: '#10B981' },
-    { name: 'PDF Reports', icon: FileText, bgColor: '#FEF2F2', iconColor: '#EF4444' },
-    { name: 'Email Threads', icon: MessageCircle, bgColor: '#FAF5FF', iconColor: '#A855F7' },
-    { name: 'Site Photos', icon: Image, bgColor: '#FDF2F8', iconColor: '#EC4899' },
-    { name: 'CAD Files', icon: FileX, bgColor: '#FFF7ED', iconColor: '#F97316' },
-    { name: 'Contracts', icon: FileText, bgColor: '#F0FDFA', iconColor: '#14B8A6' },
-    { name: 'WhatsApp', icon: MessageCircle, bgColor: '#ECFDF5', iconColor: '#059669' },
-    { name: 'Meeting Minutes', icon: FileText, bgColor: '#F8FAFC', iconColor: '#64748B' }
+    { name: 'PST Archives', icon: Database, bgColor: '#F3F4F6', iconColor: '#6B7280' },
+    { name: 'Excel Sheets', icon: FileSpreadsheet, bgColor: '#F9FAFB', iconColor: '#4B5563' },
+    { name: 'PDF Reports', icon: FileText, bgColor: '#F5F5F7', iconColor: '#374151' },
+    { name: 'Email Threads', icon: MessageCircle, bgColor: '#FAFAFA', iconColor: '#6B7280' },
+    { name: 'Site Photos', icon: Image, bgColor: '#F7F7F9', iconColor: '#4B5563' },
+    { name: 'CAD Files', icon: FileX, bgColor: '#F9FAFB', iconColor: '#374151' },
+    { name: 'Contracts', icon: FileText, bgColor: '#F4F5F7', iconColor: '#0D9488' },
+    { name: 'WhatsApp', icon: MessageCircle, bgColor: '#F6F7F9', iconColor: '#059669' },
+    { name: 'Meeting Minutes', icon: FileText, bgColor: '#FAFAFB', iconColor: '#64748B' }
   ];
 
   return (
