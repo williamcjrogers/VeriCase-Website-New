@@ -2,15 +2,15 @@ import { Clock, PoundSterling, FileText, TrendingDown, Database, FileSpreadsheet
 
 export const EvidenceGap = () => {
   const documentTypes = [
-    { name: 'PST Archives', icon: Database, color: 'from-blue-500 to-blue-600' },
-    { name: 'Excel Sheets', icon: FileSpreadsheet, color: 'from-green-500 to-green-600' },
-    { name: 'PDF Reports', icon: FileText, color: 'from-red-500 to-red-600' },
-    { name: 'Email Threads', icon: MessageCircle, color: 'from-purple-500 to-purple-600' },
-    { name: 'Site Photos', icon: Image, color: 'from-pink-500 to-pink-600' },
-    { name: 'CAD Files', icon: FileX, color: 'from-orange-500 to-orange-600' },
-    { name: 'Contracts', icon: FileText, color: 'from-teal-500 to-teal-600' },
-    { name: 'WhatsApp', icon: MessageCircle, color: 'from-green-600 to-green-700' },
-    { name: 'Meeting Minutes', icon: FileText, color: 'from-gray-600 to-gray-700' }
+    { name: 'PST Archives', icon: Database, bgColor: '#EFF6FF', iconColor: '#3B82F6' },
+    { name: 'Excel Sheets', icon: FileSpreadsheet, bgColor: '#F0FDF4', iconColor: '#10B981' },
+    { name: 'PDF Reports', icon: FileText, bgColor: '#FEF2F2', iconColor: '#EF4444' },
+    { name: 'Email Threads', icon: MessageCircle, bgColor: '#FAF5FF', iconColor: '#A855F7' },
+    { name: 'Site Photos', icon: Image, bgColor: '#FDF2F8', iconColor: '#EC4899' },
+    { name: 'CAD Files', icon: FileX, bgColor: '#FFF7ED', iconColor: '#F97316' },
+    { name: 'Contracts', icon: FileText, bgColor: '#F0FDFA', iconColor: '#14B8A6' },
+    { name: 'WhatsApp', icon: MessageCircle, bgColor: '#ECFDF5', iconColor: '#059669' },
+    { name: 'Meeting Minutes', icon: FileText, bgColor: '#F8FAFC', iconColor: '#64748B' }
   ];
 
   return (
@@ -23,13 +23,17 @@ export const EvidenceGap = () => {
               {documentTypes.map((item, index) => (
                 <div 
                   key={item.name}
-                  className="relative bg-gray-50 border border-gray-200 rounded-lg p-4 text-center hover:bg-gray-100 hover:border-gray-300 transition-all duration-200 shadow-sm"
+                  className="relative rounded-xl p-4 text-center hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md border border-gray-100"
+                  style={{ backgroundColor: item.bgColor }}
                 >
                   <div className="relative z-10">
-                    <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-gray-200 flex items-center justify-center">
-                      <item.icon className="w-5 h-5 text-gray-600" />
+                    <div 
+                      className="w-11 h-11 mx-auto mb-2 rounded-lg flex items-center justify-center"
+                      style={{ backgroundColor: `${item.iconColor}15` }}
+                    >
+                      <item.icon className="w-6 h-6" style={{ color: item.iconColor }} />
                     </div>
-                    <span className="text-xs font-semibold text-gray-700 block">{item.name}</span>
+                    <span className="text-xs font-semibold text-gray-800 block">{item.name}</span>
                   </div>
                 </div>
               ))}
