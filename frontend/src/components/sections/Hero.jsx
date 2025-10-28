@@ -65,10 +65,16 @@ export const Hero = () => {
           <div>
             {/* Chronology Lens Box */}
             <div className="relative bg-white rounded-2xl shadow-xl p-8 border border-gray-200">
-              <div className="text-center mb-6">
-                <h3 className="text-xl font-bold text-gray-900">The Chronology Lens™ Live</h3>
-                <p className="text-sm text-gray-600 mt-1">Processing real construction data</p>
-              </div>
+                  <div className="text-center mb-6">
+                    <h3 className="text-xl flex items-baseline justify-center gap-1">
+                      <span className="italic" style={{ color: '#666666', fontFamily: 'Playfair Display, Georgia, serif', fontWeight: 400 }}>The</span>
+                      <span style={{ color: '#1a1a1a', fontFamily: 'Playfair Display, Georgia, serif', fontWeight: 400 }}>Chronology</span>
+                      <span style={{ color: '#0066cc', fontFamily: 'Playfair Display, Georgia, serif', fontWeight: 700 }}>Lens</span>
+                      <span style={{ color: '#666666', fontSize: '0.5em', verticalAlign: 'super' }}>™</span>
+                      <span className="ml-2" style={{ color: '#1a1a1a', fontFamily: 'Playfair Display, Georgia, serif', fontWeight: 400 }}>Live</span>
+                    </h3>
+                    <p className="text-sm text-gray-600 mt-1">Processing real construction data</p>
+                  </div>
             
             <div className="grid grid-cols-3 gap-4 items-center">
               {/* Input Sources */}
