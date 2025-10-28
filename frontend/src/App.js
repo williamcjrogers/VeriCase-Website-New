@@ -1,25 +1,37 @@
-import '@/App.css';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from '@/components/ui/sonner';
-import { Navigation } from '@/components/sections/Navigation';
-import { Hero } from '@/components/sections/Hero';
-import { ValuePropositions } from '@/components/sections/ValuePropositions';
-import { HowItWorks } from '@/components/sections/HowItWorks';
-import { Benefits } from '@/components/sections/Benefits';
-import { SiteFooter } from '@/components/sections/SiteFooter';
+import { LandingPage } from '@/pages/LandingPage';
+import { AdminPanel } from '@/pages/AdminPanel';
+import { Login } from '@/pages/Login';
+import { AuthProvider, useAuth } from '@/context/AuthContext';
+import { ContentProvider } from '@/context/ContentContext';
+
+const ProtectedRoute = ({ children }) => {
+  const { user } = useAuth();
+  return user ? children : <Navigate to="/login" />;
+};
 
 function App() {
   return (
-    <div className="App">
-      <Navigation />
-      <main>
-        <Hero />
-        <ValuePropositions />
-        <HowItWorks />
-        <Benefits />
-      </main>
-      <SiteFooter />
-      <Toaster />
-    </div>
+    <BrowserRouter>
+      <AuthProvider>
+        <ContentProvider>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute>
+                  <AdminPanel />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+          <Toaster />
+        </ContentProvider>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 
