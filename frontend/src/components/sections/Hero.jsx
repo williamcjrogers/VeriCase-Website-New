@@ -18,12 +18,12 @@ export const Hero = () => {
 
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight text-gray-900">
-              Your Evidence Is <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-blue-600">£Millions Strong</span> But You Can't Prove It
+              Transform Complex Evidence Into <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-blue-600">Compelling Legal Arguments</span>
             </h1>
 
             {/* Description */}
             <p className="text-lg md:text-xl leading-relaxed text-gray-600 max-w-2xl">
-              Until now. VeriCase weaponizes every PST file, email thread, and site report into an unbreakable chain of evidence. While your opponents drown in discovery, you'll build bulletproof chronologies that demolish their case — in hours, not months.
+              VeriCase brings unprecedented clarity to construction disputes. Our forensic-grade AI analyzes millions of documents, emails, and project data to construct irrefutable chronologies that strengthen your position. What once took months of manual review now takes hours — with superior accuracy and court-ready precision.
             </p>
 
             {/* Statistics */}
