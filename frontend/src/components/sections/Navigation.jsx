@@ -1,10 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext';
+import { useEditMode } from '@/context/EditModeContext';
 import { Button } from '@/components/ui/button';
+import { Edit3, X } from 'lucide-react';
 
 export const Navigation = () => {
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
+  const { isEditMode, setIsEditMode } = useEditMode();
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200 backdrop-blur-sm bg-white/90" data-testid="navigation-header">
@@ -53,23 +56,59 @@ export const Navigation = () => {
 
           {/* CTA Buttons */}
           <div className="flex items-center gap-4">
-            <Button 
-              variant="ghost" 
-              className="font-semibold text-gray-700 hover:text-teal-600"
-              onClick={() => navigate('/login')}
-              data-testid="navbar-login-btn"
-            >
-              Login
-            </Button>
-            
-            <Button 
-              size="lg"
-              className="font-semibold text-white shadow-sm transition-all duration-200 hover:scale-105 hover:shadow-lg px-8"
-              style={{ background: 'linear-gradient(180deg, #069494 0%, #057676 100%)' }}
-              data-testid="header-request-demo-btn"
-            >
-              Request Demo
-            </Button>
+            {user ? (
+              <>
+                <span className="text-sm text-gray-600">{user.email}</span>
+                {!isEditMode ? (
+                  <Button 
+                    onClick={() => setIsEditMode(true)}
+                    className="font-semibold text-white"
+                    style={{ background: 'linear-gradient(180deg, #069494 0%, #057676 100%)' }}
+                  >
+                    <Edit3 className="w-4 h-4 mr-2" />
+                    Edit Page
+                  </Button>
+                ) : (
+                  <Button 
+                    onClick={() => setIsEditMode(false)}
+                    variant="outline"
+                  >
+                    <X className="w-4 h-4 mr-2" />
+                    Exit Edit
+                  </Button>
+                )}
+                <Button 
+                  variant="ghost"
+                  onClick={() => {
+                    logout();
+                    navigate('/');
+                  }}
+                  className="text-gray-700"
+                >
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button 
+                  variant="ghost" 
+                  className="font-semibold text-gray-700 hover:text-teal-600"
+                  onClick={() => navigate('/login')}
+                  data-testid="navbar-login-btn"
+                >
+                  Login
+                </Button>
+                
+                <Button 
+                  size="lg"
+                  className="font-semibold text-white shadow-sm transition-all duration-200 hover:scale-105 hover:shadow-lg px-8"
+                  style={{ background: 'linear-gradient(180deg, #069494 0%, #057676 100%)' }}
+                  data-testid="header-request-demo-btn"
+                >
+                  Request Demo
+                </Button>
+              </>
+            )}
           </div>
         </div>
       </div>
