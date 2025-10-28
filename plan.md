@@ -16,6 +16,7 @@
 - MongoDB storage for all edits
 - Image replacement functionality
 - Section deletion capability
+- **Navigation Login button now fully visible and functional**
 - Complete build delivered
 
 ## 2) Objectives
@@ -41,6 +42,7 @@
 - ✅ Added image replacement on hover
 - ✅ Added section deletion on hover
 - ✅ Auto-save on blur to MongoDB
+- ✅ **Fixed Navigation Login button visibility (removed hidden md:inline-flex class)**
 
 ## 3) Design System (Current)
 
@@ -120,7 +122,8 @@
 - ✅ Better spacing in nav links (space-x-10)
 - ✅ Gradient CTA buttons with hover scale effects
 - ✅ Dark footer with proper contrast
-- ✅ Login button redirects to /login page (not mocked dialog)
+- ✅ **Login button redirects to /login page (not mocked dialog)**
+- ✅ **Login button always visible (removed hidden md:inline-flex class)**
 
 ### Phase 2 — AI-Powered Content Editor ✅ COMPLETED
 
@@ -194,6 +197,7 @@
   - Redirect to homepage after login
 - ✅ Implemented AuthContext with React Context API
 - ✅ Added logout functionality in EditToolbar
+- ✅ **Fixed Navigation component to show Login button on all screen sizes**
 
 **Live On-Page Editing:**
 - ✅ Created EditModeContext for edit state management
@@ -283,7 +287,7 @@ uvicorn              # ASGI server
 │   │   └── Login.jsx ✅
 │   ├── components/
 │   │   ├── sections/ (existing landing page sections) ✅
-│   │   │   ├── Navigation.jsx ✅
+│   │   │   ├── Navigation.jsx (Login button always visible) ✅
 │   │   │   ├── Hero.jsx (with EditableText, EditableImage, DeletableSection) ✅
 │   │   │   ├── ValuePropositions.jsx ✅
 │   │   │   ├── HowItWorks.jsx ✅
@@ -412,7 +416,7 @@ response = await chat.send_message(UserMessage(text=message))
 
 ### First Time Setup:
 1. Navigate to https://smart-evidence.preview.emergentagent.com
-2. Click "Login" in navigation
+2. **Click "Login" button in navigation (now always visible)**
 3. Click "Register" link
 4. Fill in: Full Name, Email, Password
 5. Click "Create Account"
@@ -470,6 +474,7 @@ response = await chat.send_message(UserMessage(text=message))
 - ✅ Image replacement works on hover
 - ✅ Section deletion works with confirmation
 - ✅ AI chat provides brainstorming and content help
+- ✅ **Login button visible and functional on all screen sizes**
 
 ## 10) Timeline (Actual)
 
@@ -483,7 +488,10 @@ response = await chat.send_message(UserMessage(text=message))
 - Frontend (contexts + components): 45 min
 - Integration and fixes: 15 min
 
-**Total**: ~5 hours (much faster than initial 12-17 hour estimate)
+**Bug Fixes**: ~15 min
+- Navigation Login button visibility fix
+
+**Total**: ~5.25 hours (much faster than initial 12-17 hour estimate)
 
 ## 11) Current Status Summary
 
@@ -499,6 +507,7 @@ response = await chat.send_message(UserMessage(text=message))
 - AI "Improve" button on hover
 - Floating AI chat assistant
 - Auto-save on blur
+- **Login button always visible in navigation**
 
 **Live URLs**:
 - Landing page: https://smart-evidence.preview.emergentagent.com
@@ -518,6 +527,7 @@ response = await chat.send_message(UserMessage(text=message))
 - ✅ "I wanted to edit live on screen" → Click-to-edit functionality implemented
 - ✅ "Delete whitespace, replace images" → Hover-based image replacement and section deletion
 - ✅ "AI integration to bounce ideas" → Floating AI chat + "AI Improve" on hover
+- ✅ "Where's the Login button?" → Now always visible in navigation
 
 ## 12) Future Enhancements (Optional)
 
@@ -569,9 +579,16 @@ response = await chat.send_message(UserMessage(text=message))
 ## 14) Next Steps (If Needed)
 
 ### Immediate:
-1. Test the editor: Register at /login, click "Edit Page", try editing Hero text
-2. Test AI: Click "AI Improve" on headline, chat with AI assistant
-3. Provide feedback on what works and what needs improvement
+1. **Test the editor**: 
+   - Visit https://smart-evidence.preview.emergentagent.com
+   - Click "Login" button in navigation (now always visible)
+   - Register via "Register" link
+   - After login, click "Edit Page" button (top-right)
+   - Try editing Hero text by clicking on it
+   - Test "AI Improve" on headline
+   - Chat with AI assistant (sparkle icon bottom-right)
+
+2. **Provide feedback** on what works and what needs improvement
 
 ### Short-term (If Requested):
 1. Make all sections editable (not just Hero)
@@ -587,6 +604,8 @@ response = await chat.send_message(UserMessage(text=message))
 
 ---
 
-**Project Status**: ✅ **COMPLETE** (Both Phase 1 and Phase 2 delivered)
+**Project Status**: ✅ **COMPLETE** (Both Phase 1 and Phase 2 delivered, all bugs fixed)
 
 **Ready for**: User testing, feedback, and iterative improvements
+
+**Latest Fix**: Navigation Login button now always visible (removed `hidden md:inline-flex` class)
