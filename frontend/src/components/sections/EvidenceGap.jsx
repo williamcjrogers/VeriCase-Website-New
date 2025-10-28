@@ -14,26 +14,26 @@ export const EvidenceGap = () => {
   ];
 
   return (
-    <section className="py-16 lg:py-20 bg-white" data-testid="evidence-gap-section">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section className="py-12 sm:py-16 lg:py-20 bg-white" data-testid="evidence-gap-section">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Left: Problem Visualization */}
-          <div className="relative">
-            <div className="grid grid-cols-3 gap-3">
+          <div className="relative order-2 lg:order-1">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3">
               {documentTypes.map((item, index) => (
                 <div 
                   key={item.name}
-                  className="relative rounded-xl p-4 text-center hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md border border-gray-100"
+                  className="relative rounded-lg sm:rounded-xl p-2 sm:p-3 md:p-4 text-center hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md border border-gray-100"
                   style={{ backgroundColor: item.bgColor }}
                 >
                   <div className="relative z-10">
                     <div 
-                      className="w-11 h-11 mx-auto mb-2 rounded-lg flex items-center justify-center"
+                      className="w-8 h-8 sm:w-10 md:w-11 sm:h-10 md:h-11 mx-auto mb-1 sm:mb-2 rounded-md sm:rounded-lg flex items-center justify-center"
                       style={{ backgroundColor: `${item.iconColor}15` }}
                     >
-                      <item.icon className="w-6 h-6" style={{ color: item.iconColor }} />
+                      <item.icon className="w-4 h-4 sm:w-5 md:w-6 sm:h-5 md:h-6" style={{ color: item.iconColor }} />
                     </div>
-                    <span className="text-xs font-semibold text-gray-800 block">{item.name}</span>
+                    <span className="text-[10px] sm:text-xs font-semibold text-gray-800 block leading-tight">{item.name}</span>
                   </div>
                 </div>
               ))}
@@ -41,15 +41,15 @@ export const EvidenceGap = () => {
           </div>
 
           {/* Right: Problem Statement */}
-          <div>
+          <div className="order-1 lg:order-2">
             <h2 
-              className="text-4xl lg:text-5xl font-black mb-6 text-gray-900 leading-tight"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 sm:mb-6 text-gray-900 leading-tight"
               data-testid="evidence-gap-heading"
             >
               The Hidden Cost of Fragmented Evidence in Construction Disputes
             </h2>
             <p 
-              className="text-lg lg:text-xl leading-relaxed text-gray-600 mb-8"
+              className="text-base sm:text-lg lg:text-xl leading-relaxed text-gray-600 mb-6 sm:mb-8"
               data-testid="evidence-gap-description"
             >
               With construction disputes averaging £5.2 million and taking over a year to resolve, 
@@ -58,51 +58,51 @@ export const EvidenceGap = () => {
             </p>
 
             {/* Statistics Grid */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-gradient-to-br from-teal-50 to-white rounded-xl p-5 border border-teal-200">
-                <div className="flex items-center gap-3">
-                  <div className="w-14 h-14 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
-                    <Clock className="w-7 h-7 text-white" />
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              <div className="bg-gradient-to-br from-teal-50 to-white rounded-lg sm:rounded-xl p-3 sm:p-5 border border-teal-200">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <div className="w-10 h-10 sm:w-12 md:w-14 sm:h-12 md:h-14 bg-gradient-to-br from-teal-500 to-teal-600 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
+                    <Clock className="w-5 h-5 sm:w-6 md:w-7 sm:h-6 md:h-7 text-white" />
                   </div>
                   <div>
-                    <div className="text-2xl font-black text-teal-600">14.8 Months</div>
-                    <div className="text-xs text-gray-600 mt-1">Average resolution time</div>
+                    <div className="text-lg sm:text-xl md:text-2xl font-black text-teal-600">14.8mo</div>
+                    <div className="text-[10px] sm:text-xs text-gray-600">Resolution time</div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-teal-50 to-white rounded-xl p-5 border border-teal-200">
-                <div className="flex items-center gap-3">
-                  <div className="w-14 h-14 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
-                    <PoundSterling className="w-7 h-7 text-white" />
+              <div className="bg-gradient-to-br from-teal-50 to-white rounded-lg sm:rounded-xl p-3 sm:p-5 border border-teal-200">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <div className="w-10 h-10 sm:w-12 md:w-14 sm:h-12 md:h-14 bg-gradient-to-br from-teal-500 to-teal-600 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
+                    <PoundSterling className="w-5 h-5 sm:w-6 md:w-7 sm:h-6 md:h-7 text-white" />
                   </div>
                   <div>
-                    <div className="text-2xl font-black text-teal-600">£5.2M</div>
-                    <div className="text-xs text-gray-600 mt-1">Average dispute value</div>
+                    <div className="text-lg sm:text-xl md:text-2xl font-black text-teal-600">£5.2M</div>
+                    <div className="text-[10px] sm:text-xs text-gray-600">Avg dispute</div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl p-5 border border-blue-200">
-                <div className="flex items-center gap-3">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
-                    <TrendingDown className="w-7 h-7 text-white" />
+              <div className="bg-gradient-to-br from-blue-50 to-white rounded-lg sm:rounded-xl p-3 sm:p-5 border border-blue-200">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <div className="w-10 h-10 sm:w-12 md:w-14 sm:h-12 md:h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
+                    <TrendingDown className="w-5 h-5 sm:w-6 md:w-7 sm:h-6 md:h-7 text-white" />
                   </div>
                   <div>
-                    <div className="text-2xl font-black text-blue-600">68%</div>
-                    <div className="text-xs text-gray-600 mt-1">Document-intensive delays</div>
+                    <div className="text-lg sm:text-xl md:text-2xl font-black text-blue-600">68%</div>
+                    <div className="text-[10px] sm:text-xs text-gray-600">Doc delays</div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl p-5 border border-blue-200">
-                <div className="flex items-center gap-3">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
-                    <FileText className="w-7 h-7 text-white" />
+              <div className="bg-gradient-to-br from-blue-50 to-white rounded-lg sm:rounded-xl p-3 sm:p-5 border border-blue-200">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <div className="w-10 h-10 sm:w-12 md:w-14 sm:h-12 md:h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
+                    <FileText className="w-5 h-5 sm:w-6 md:w-7 sm:h-6 md:h-7 text-white" />
                   </div>
                   <div>
-                    <div className="text-2xl font-black text-blue-600">40%</div>
-                    <div className="text-xs text-gray-600 mt-1">Fail due to poor docs</div>
+                    <div className="text-lg sm:text-xl md:text-2xl font-black text-blue-600">40%</div>
+                    <div className="text-[10px] sm:text-xs text-gray-600">Fail (poor docs)</div>
                   </div>
                 </div>
               </div>

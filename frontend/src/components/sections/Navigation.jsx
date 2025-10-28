@@ -2,11 +2,13 @@ import { Button } from '@/components/ui/button';
 import { useAuth } from '@/context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
 
 export const Navigation = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [currentText, setCurrentText] = useState('"Records"');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   useEffect(() => {
     const sequence = [
@@ -35,7 +37,7 @@ export const Navigation = () => {
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200 backdrop-blur-sm bg-white/95" data-testid="navigation-header">
       {/* Tagline Banner */}
-      <div className="w-full py-3 md:py-4 relative" style={{ 
+      <div className="w-full py-2 md:py-3 lg:py-4 relative" style={{ 
         background: 'linear-gradient(135deg, #F5F5F0 0%, #E8E6E1 50%, #F5F5F0 100%)',
         borderBottom: '1px solid #D4D2CB'
       }}>
@@ -43,11 +45,11 @@ export const Navigation = () => {
         <img 
           src="/NewLogo.jpg" 
           alt="VeriCase Logo" 
-          className="absolute left-4 md:left-6 top-1/2 transform -translate-y-1/2 h-12"
+          className="absolute left-2 sm:left-4 md:left-6 top-1/2 transform -translate-y-1/2 h-8 sm:h-10 md:h-12"
         />
         
-        {/* Animated Text - centered */}
-        <div className="text-center">
+        {/* Animated Text - centered with mobile padding */}
+        <div className="text-center px-12 sm:px-16 md:px-0">
           <span 
             className="transition-all duration-700 ease-in-out"
             style={{ 
@@ -55,7 +57,7 @@ export const Navigation = () => {
               fontWeight: '500',
               fontStyle: 'italic',
               letterSpacing: '0.08em',
-              fontSize: 'clamp(1.25rem, 3vw, 2.5rem)',
+              fontSize: 'clamp(0.875rem, 2.5vw, 2.5rem)',
               color: '#1a1a1a',
               lineHeight: '1.2'
             }}
@@ -69,22 +71,36 @@ export const Navigation = () => {
       <div className="w-full" style={{ backgroundColor: '#2C3E50' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
           {/* Main Navigation */}
-          <div className="flex items-center justify-between h-16 w-full">
-            <nav className="flex items-center space-x-10" data-testid="nav-links">
-              <a href="#platform" className="text-white font-semibold hover:text-teal-300 transition-colors duration-200">Platform</a>
-              <a href="#construction" className="text-white font-semibold hover:text-teal-300 transition-colors duration-200">Construction Focus</a>
-              <a href="#pricing" className="text-white font-semibold hover:text-teal-300 transition-colors duration-200">Pricing</a>
-              <a href="#about" className="text-white font-semibold hover:text-teal-300 transition-colors duration-200">About Us</a>
+          <div className="flex items-center justify-between h-14 md:h-16 w-full">
+            {/* Mobile menu button */}
+            <button
+              className="md:hidden text-white"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+
+            {/* Desktop navigation */}
+            <nav className="hidden md:flex items-center space-x-6 lg:space-x-10" data-testid="nav-links">
+              <a href="#platform" className="text-white text-sm lg:text-base font-semibold hover:text-teal-300 transition-colors duration-200">Platform</a>
+              <a href="#construction" className="text-white text-sm lg:text-base font-semibold hover:text-teal-300 transition-colors duration-200">Construction Focus</a>
+              <a href="#pricing" className="text-white text-sm lg:text-base font-semibold hover:text-teal-300 transition-colors duration-200">Pricing</a>
+              <a href="#about" className="text-white text-sm lg:text-base font-semibold hover:text-teal-300 transition-colors duration-200">About Us</a>
             </nav>
 
-            <div className="flex items-center gap-3">
+            {/* Mobile navigation on small screens */}
+            <nav className="flex md:hidden items-center space-x-2" data-testid="mobile-nav-links">
+              <a href="#platform" className="text-white text-xs font-semibold">Platform</a>
+            </nav>
+
+            <div className="flex items-center gap-2 md:gap-3">
               {user ? (
                 <>
-                  <span className="text-sm text-white">Welcome, {user.full_name}</span>
+                  <span className="hidden md:inline text-sm text-white">Welcome, {user.full_name}</span>
                   <Button 
-                    size="lg"
+                    size="sm"
                     variant="outline"
-                    className="font-semibold border-2 border-white text-white hover:bg-white hover:text-gray-900"
+                    className="text-xs md:text-sm font-semibold border-2 border-white text-white hover:bg-white hover:text-gray-900"
                     onClick={logout}
                   >
                     Logout
@@ -93,19 +109,20 @@ export const Navigation = () => {
               ) : (
                 <>
                   <Button 
-                    size="lg"
+                    size="sm"
                     variant="outline"
-                    className="font-semibold border-2 border-white text-white hover:bg-white hover:text-gray-900"
+                    className="text-xs md:text-sm font-semibold border-2 border-white text-white hover:bg-white hover:text-gray-900"
                     onClick={() => navigate('/login')}
                   >
                     Login
                   </Button>
                   <Button 
-                    size="lg"
-                    className="font-semibold text-white shadow-sm transition-all duration-200 hover:scale-105 hover:shadow-lg px-8 bg-teal-600 hover:bg-teal-700"
+                    size="sm"
+                    className="text-xs md:text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:scale-105 hover:shadow-lg px-4 md:px-8 bg-teal-600 hover:bg-teal-700"
                     onClick={() => navigate('/login')}
                   >
-                    Get Started
+                    <span className="hidden sm:inline">Get Started</span>
+                    <span className="sm:hidden">Start</span>
                   </Button>
                 </>
               )}
