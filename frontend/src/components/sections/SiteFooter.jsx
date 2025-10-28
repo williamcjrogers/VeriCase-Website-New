@@ -8,9 +8,11 @@ export const SiteFooter = () => {
           {/* Logo and Tagline */}
           <div className="lg:col-span-1">
             <div className="mb-6">
-              <div className="text-3xl font-bold flex items-center" style={{ fontFamily: 'Inter, sans-serif' }}>
-                <span className="text-blue-400">Veri</span><span className="text-white">Case</span>
-              </div>
+              <img 
+                src="/Logoinwhite.png" 
+                alt="VeriCase" 
+                className="h-10"
+              />
             </div>
             <p className="text-sm leading-relaxed text-gray-400 mb-6">
               The evidence intelligence platform that turns years of complex construction documentation into winning arguments. Trusted by the industry's leading contractors, consultants, and legal teams.
