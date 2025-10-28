@@ -1,0 +1,50 @@
+[
+  {
+    "content": "Update CSS variables in index.css with VeriCase brand colors and design tokens",
+    "status": "pending"
+  },
+  {
+    "content": "Import Inter font from Google Fonts in index.css",
+    "status": "pending"
+  },
+  {
+    "content": "Create Navigation component with logo, nav links, and functional Login button (Dialog)",
+    "status": "pending"
+  },
+  {
+    "content": "Create Hero section with 3-column layout (text, visual, stats) and CSS-based Chronology Lens",
+    "status": "pending"
+  },
+  {
+    "content": "Create Evidence Gap section with headline and body text",
+    "status": "pending"
+  },
+  {
+    "content": "Create VeriCase Difference section with 3x2 feature grid",
+    "status": "pending"
+  },
+  {
+    "content": "Create Intelligent Evidence Hub section with 2-column layout (content + visual)",
+    "status": "pending"
+  },
+  {
+    "content": "Create Construction Add-In dark section with Gantt visualization",
+    "status": "pending"
+  },
+  {
+    "content": "Create Accessible section with 3-column audience cards",
+    "status": "pending"
+  },
+  {
+    "content": "Create Footer component with logo, links, and copyright",
+    "status": "pending"
+  },
+  {
+    "content": "Test responsive behavior across mobile/tablet/desktop breakpoints",
+    "status": "pending"
+  },
+  {
+    "content": "Verify all interactive elements have proper hover/focus states and data-testid attributes",
+    "status": "pending"
+  }
+]
