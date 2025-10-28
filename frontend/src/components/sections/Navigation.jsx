@@ -43,9 +43,9 @@ export const Navigation = () => {
       }}>
         {/* Logo on the far left edge */}
         <img 
-          src="/vericase-logo.svg" 
+          src="/Logo2-Copy.png" 
           alt="VeriCase Logo" 
-          className="absolute left-1 sm:left-4 md:left-6 top-1/2 transform -translate-y-1/2 h-6 sm:h-10 md:h-12 w-auto"
+          className="absolute left-2 sm:left-4 md:left-6 top-1/2 transform -translate-y-1/2 h-8 sm:h-10 md:h-12"
         />
         
         {/* Animated Text - centered with mobile padding */}

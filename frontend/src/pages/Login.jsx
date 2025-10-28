@@ -40,9 +40,9 @@ export const Login = () => {
       <Card className="w-full max-w-md p-8">
         <div className="text-center mb-8">
           <img 
-            src="/vericase-logo.svg" 
+            src="/Logo2-Copy.png" 
             alt="VeriCase" 
-            className="h-16 w-auto mx-auto mb-4"
+            className="h-16 mx-auto mb-4"
           />
           <h1 className="text-2xl font-bold text-gray-900">{isRegister ? 'Create Account' : 'Welcome Back'}</h1>
         </div>
