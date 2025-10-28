@@ -42,20 +42,11 @@ export const Navigation = () => {
         borderBottom: '1px solid #D4D2CB'
       }}>
         {/* Logo on the far left edge */}
-        <div 
+        <img 
+          src="/Logo2-Copy.png" 
+          alt="VeriCase Logo" 
           className="absolute left-2 sm:left-4 md:left-6 top-1/2 transform -translate-y-1/2 h-8 sm:h-10 md:h-12"
-          style={{ 
-            backgroundColor: '#F0EDE8',
-            borderRadius: '4px',
-            padding: '2px'
-          }}
-        >
-          <img 
-            src="/Logo-Vector.png" 
-            alt="VeriCase Logo" 
-            className="h-full"
-          />
-        </div>
+        />
         
         {/* Animated Text - centered with mobile padding */}
         <div className="text-center px-12 sm:px-16 md:px-0">
