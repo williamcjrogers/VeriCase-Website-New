@@ -46,5 +46,9 @@
   {
     "content": "Connect frontend to backend APIs",
     "status": "completed"
+  },
+  {
+    "content": "Fix Navigation Login button visibility (remove hidden class)",
+    "status": "completed"
   }
 ]
