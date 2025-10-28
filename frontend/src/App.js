@@ -2,11 +2,9 @@ import '@/App.css';
 import { Toaster } from '@/components/ui/sonner';
 import { Navigation } from '@/components/sections/Navigation';
 import { Hero } from '@/components/sections/Hero';
-import { EvidenceGap } from '@/components/sections/EvidenceGap';
-import { Difference } from '@/components/sections/Difference';
-import { EvidenceHub } from '@/components/sections/EvidenceHub';
-import { ConstructionAddIn } from '@/components/sections/ConstructionAddIn';
-import { Accessible } from '@/components/sections/Accessible';
+import { ValuePropositions } from '@/components/sections/ValuePropositions';
+import { HowItWorks } from '@/components/sections/HowItWorks';
+import { Benefits } from '@/components/sections/Benefits';
 import { SiteFooter } from '@/components/sections/SiteFooter';
 
 function App() {
@@ -15,11 +13,9 @@ function App() {
       <Navigation />
       <main>
         <Hero />
-        <EvidenceGap />
-        <Difference />
-        <EvidenceHub />
-        <ConstructionAddIn />
-        <Accessible />
+        <ValuePropositions />
+        <HowItWorks />
+        <Benefits />
       </main>
       <SiteFooter />
       <Toaster />
