@@ -43,11 +43,6 @@ export const Login = () => {
             src="/NewLogo.jpg" 
             alt="VeriCase" 
             className="h-16 mx-auto mb-4"
-            style={{ 
-              mixBlendMode: 'soft-light',
-              opacity: 0.75,
-              filter: 'contrast(0.9) saturate(0.8)'
-            }}
           />
           <h1 className="text-2xl font-bold text-gray-900">{isRegister ? 'Create Account' : 'Welcome Back'}</h1>
         </div>
