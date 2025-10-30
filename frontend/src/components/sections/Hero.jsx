@@ -21,7 +21,7 @@ export const Hero = () => {
 
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-gray-900" style={{ letterSpacing: '-0.02em', fontFamily: "'Playfair Display', Georgia, serif" }}>
-              Transform Complex Evidence Into <span style={{ color: '#B8860B', fontStyle: 'italic', fontWeight: 700 }}>Compelling Legal Arguments</span>
+              Transform Complex Evidence Into <span style={{ color: '#8B7355', fontStyle: 'italic', fontWeight: 700 }}>Compelling Legal Arguments</span>
             </h1>
 
             {/* Description */}
