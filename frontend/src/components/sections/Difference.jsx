@@ -75,6 +75,7 @@ export const Difference = () => {
           <h2 
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 sm:mb-6 text-gray-900"
             data-testid="difference-heading"
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
           >
             The Complete Evidence Intelligence Platform
           </h2>
@@ -82,7 +83,7 @@ export const Difference = () => {
             className="text-base sm:text-lg lg:text-xl max-w-3xl mx-auto text-gray-600"
             data-testid="difference-subtitle"
           >
-            VeriCase isn't just another document management system. It's the first platform that truly understands construction disputes, turning chaos into clarity with forensic-grade AI processing.
+            Analytical ingestion, domain-aware structuring, and collaborative preparation combine to deliver forensic-grade chronologies from complex evidence environments. VeriCase shortens the path from raw communications to credible, defensible outputs.
           </p>
         </div>
 

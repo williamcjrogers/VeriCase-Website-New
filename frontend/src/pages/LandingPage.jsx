@@ -1,6 +1,7 @@
 import { Navigation } from '@/components/sections/Navigation';
 import { Hero } from '@/components/sections/Hero';
 import { EvidenceGap } from '@/components/sections/EvidenceGap';
+import { Collaboration } from '@/components/sections/Collaboration';
 import { Difference } from '@/components/sections/Difference';
 import { ConstructionAddIn } from '@/components/sections/ConstructionAddIn';
 import { EvidenceHub } from '@/components/sections/EvidenceHub';
@@ -15,6 +16,7 @@ export const LandingPage = () => {
       <main>
         <Hero />
         <EvidenceGap />
+        <Collaboration />
         <Difference />
         <ConstructionAddIn />
         <EvidenceHub />
