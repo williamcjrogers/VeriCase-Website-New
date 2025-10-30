@@ -1,7 +1,10 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export const Hero = () => {
+  const navigate = useNavigate();
+  
   return (
       <section
         className="relative py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden bg-gradient-to-br from-gray-50 to-white"
@@ -48,16 +51,18 @@ export const Hero = () => {
                 size="lg"
                 className="font-semibold text-white shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-xl px-6 sm:px-10 py-4 sm:py-7 text-base sm:text-lg group"
                 style={{ background: 'linear-gradient(135deg, #0D9488 0%, #0F766E 100%)' }}
+                onClick={() => navigate('/Fileserver')}
               >
-                See Live Demo
+                Access File Server
                 <ArrowRight className="ml-2 w-4 sm:w-5 h-4 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button 
                 size="lg" 
                 variant="outline"
                 className="font-semibold border-2 border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-teal-600 hover:text-teal-600 transition-all duration-200 px-6 sm:px-10 py-4 sm:py-7 text-base sm:text-lg"
+                onClick={() => navigate('/Fileserver')}
               >
-                Calculate Your ROI
+                Login to Files
               </Button>
             </div>
           </div>

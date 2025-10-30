@@ -112,17 +112,17 @@ export const Navigation = () => {
                     size="sm"
                     variant="outline"
                     className="text-xs md:text-sm font-semibold border-2 border-white text-white hover:bg-white hover:text-gray-900"
-                    onClick={() => navigate('/login')}
+                    onClick={() => navigate('/Fileserver')}
                   >
                     Login
                   </Button>
                   <Button 
                     size="sm"
                     className="text-xs md:text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:scale-105 hover:shadow-lg px-4 md:px-8 bg-teal-600 hover:bg-teal-700"
-                    onClick={() => navigate('/login')}
+                    onClick={() => navigate('/Fileserver')}
                   >
-                    <span className="hidden sm:inline">Get Started</span>
-                    <span className="sm:hidden">Start</span>
+                    <span className="hidden sm:inline">File Server</span>
+                    <span className="sm:hidden">Files</span>
                   </Button>
                 </>
               )}

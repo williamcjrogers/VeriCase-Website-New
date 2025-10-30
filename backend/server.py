@@ -183,6 +183,23 @@ async def ai_improve(data: AIImprove, current_user=Depends(get_current_user)):
     response = await chat.send_message(UserMessage(text=f"Improve this text: {data.text}"))
     return {"improved": response}
 
+# Fileserver redirect endpoint
+@app.get("/Fileserver")
+def fileserver_redirect():
+    """Redirect to Egnyte file server login"""
+    return RedirectResponse(
+        url="https://vericase.egnyte.com/subDomainLogin.do#login",
+        status_code=307  # Temporary redirect that preserves the request method
+    )
+
+@app.get("/fileserver")
+def fileserver_redirect_lowercase():
+    """Redirect to Egnyte file server login (case-insensitive)"""
+    return RedirectResponse(
+        url="https://vericase.egnyte.com/subDomainLogin.do#login",
+        status_code=307
+    )
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8001)
