@@ -17,8 +17,8 @@ export const Hero = () => {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight text-gray-900">
-              Transform Complex Evidence Into <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-blue-600">Compelling Legal Arguments</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-gray-900" style={{ letterSpacing: '-0.02em', fontFamily: "'Playfair Display', Georgia, serif" }}>
+              Transform Complex Evidence Into <span style={{ color: '#B8860B', fontStyle: 'italic', fontWeight: 700 }}>Compelling Legal Arguments</span>
             </h1>
 
             {/* Description */}
@@ -46,7 +46,8 @@ export const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 justify-center lg:justify-start">
               <Button 
                 size="lg"
-                className="font-semibold text-white shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-xl px-6 sm:px-10 py-4 sm:py-7 text-base sm:text-lg group bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700"
+                className="font-semibold text-white shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-xl px-6 sm:px-10 py-4 sm:py-7 text-base sm:text-lg group"
+                style={{ background: 'linear-gradient(135deg, #0D9488 0%, #0F766E 100%)' }}
               >
                 See Live Demo
                 <ArrowRight className="ml-2 w-4 sm:w-5 h-4 sm:h-5 group-hover:translate-x-1 transition-transform" />
