@@ -16,7 +16,7 @@ export const EvidenceHub = () => {
             </p>
             <h2 
               className="text-4xl lg:text-5xl font-bold leading-tight"
-              style={{ color: 'var(--vericase-primary-dark)' }}
+              style={{ color: 'var(--vericase-primary-dark)', fontFamily: "'Playfair Display', Georgia, serif" }}
             >
               Beyond Email: The Comprehensive Evidence Hub.
             </h2>

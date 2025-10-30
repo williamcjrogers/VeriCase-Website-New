@@ -33,6 +33,7 @@ export const HowItWorks = () => {
           <h2 
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900"
             data-testid="how-it-works-heading"
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
           >
             How VeriCase <span className="text-gradient-teal">Works</span>
           </h2>

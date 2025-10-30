@@ -39,6 +39,7 @@ export const Benefits = () => {
           <h2 
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900"
             data-testid="benefits-heading"
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
           >
             Built For <span className="text-gradient-teal">Every Dispute</span>
           </h2>

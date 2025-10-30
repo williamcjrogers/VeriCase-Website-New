@@ -68,6 +68,7 @@ export const ValuePropositions = () => {
           <h2 
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900"
             data-testid="value-props-heading"
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
           >
             What VeriCase Does <span className="text-gradient-teal">For You</span>
           </h2>

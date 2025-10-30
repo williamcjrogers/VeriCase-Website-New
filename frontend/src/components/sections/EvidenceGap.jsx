@@ -45,6 +45,7 @@ export const EvidenceGap = () => {
             <h2 
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 sm:mb-6 text-gray-900 leading-tight"
               data-testid="evidence-gap-heading"
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
             >
               The Hidden Cost of Fragmented Evidence in Construction Disputes
             </h2>

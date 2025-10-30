@@ -28,7 +28,7 @@ export const Accessible = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <h2 
           className="text-4xl lg:text-5xl font-bold text-center mb-16"
-          style={{ color: 'var(--vericase-primary-dark)' }}
+          style={{ color: 'var(--vericase-primary-dark)', fontFamily: "'Playfair Display', Georgia, serif" }}
           data-testid="accessible-heading"
         >
           Accessible for Every Dispute

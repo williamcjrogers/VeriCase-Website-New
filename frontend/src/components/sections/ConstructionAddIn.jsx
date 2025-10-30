@@ -21,6 +21,7 @@ export const ConstructionAddIn = () => {
             </p>
             <h2 
               className="text-4xl lg:text-5xl font-bold leading-tight text-white"
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
             >
               Built for the Nuance of Construction Disputes
             </h2>
