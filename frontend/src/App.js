@@ -5,7 +5,7 @@ import { LandingPage } from '@/pages/LandingPage';
 import { Login } from '@/pages/Login';
 import { useEffect } from 'react';
 
-// Component to handle external redirect
+// Component to handle external redirect to Egnyte
 const ExternalRedirect = ({ url }) => {
   useEffect(() => {
     window.location.href = url;

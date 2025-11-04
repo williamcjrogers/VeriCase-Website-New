@@ -22,15 +22,20 @@ export const Login = () => {
     try {
       if (isRegister) {
         await register(email, password, fullName);
-        toast.success('Account created!');
+        toast.success('Account created! Redirecting to app...');
       } else {
         await login(email, password);
-        toast.success('Logged in!');
+        toast.success('Logged in! Redirecting to app...');
       }
-      navigate('/');
+      
+      // Redirect to VeriCase wizard for initial setup
+      setTimeout(() => {
+        const token = localStorage.getItem('token');
+        const appUrl = process.env.REACT_APP_APP_URL || 'http://localhost:8010/ui/';
+        window.location.href = `${appUrl}wizard.html?token=${token}`;
+      }, 1000);
     } catch (error) {
       toast.error(error.response?.data?.detail || 'Authentication failed');
-    } finally {
       setLoading(false);
     }
   };

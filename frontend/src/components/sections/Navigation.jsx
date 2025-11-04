@@ -99,6 +99,18 @@ export const Navigation = () => {
                   <span className="hidden md:inline text-sm text-white">Welcome, {user.full_name}</span>
                   <Button 
                     size="sm"
+                    className="text-xs md:text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:scale-105 hover:shadow-lg px-4 md:px-8 bg-teal-600 hover:bg-teal-700"
+                    onClick={() => {
+                      // Redirect to deployed VeriCase app with auth token
+                      const token = localStorage.getItem('token');
+                      const appUrl = process.env.REACT_APP_APP_URL || 'http://localhost:8010/ui/';
+                      window.location.href = `${appUrl}index.html?token=${token}`;
+                    }}
+                  >
+                    Open App
+                  </Button>
+                  <Button 
+                    size="sm"
                     variant="outline"
                     className="text-xs md:text-sm font-semibold border-2 border-white text-white hover:bg-white hover:text-gray-900"
                     onClick={logout}
@@ -112,17 +124,17 @@ export const Navigation = () => {
                     size="sm"
                     variant="outline"
                     className="text-xs md:text-sm font-semibold border-2 border-white text-white hover:bg-white hover:text-gray-900"
-                    onClick={() => navigate('/Fileserver')}
+                    onClick={() => navigate('/login')}
                   >
                     Login
                   </Button>
                   <Button 
                     size="sm"
                     className="text-xs md:text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:scale-105 hover:shadow-lg px-4 md:px-8 bg-teal-600 hover:bg-teal-700"
-                    onClick={() => navigate('/Fileserver')}
+                    onClick={() => navigate('/login')}
                   >
-                    <span className="hidden sm:inline">File Server</span>
-                    <span className="sm:hidden">Files</span>
+                    <span className="hidden sm:inline">Get Started</span>
+                    <span className="sm:hidden">Start</span>
                   </Button>
                 </>
               )}
