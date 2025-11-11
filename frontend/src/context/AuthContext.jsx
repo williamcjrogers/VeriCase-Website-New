@@ -6,6 +6,7 @@ const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
 const API_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
+console.debug('AuthContext using API_URL:', API_URL);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -42,7 +43,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const register = async (email, password, full_name) => {
-    const { data } = await axios.post(`${API_URL}/api/auth/register`, { email, password, full_name });
+    const { data } = await axios.post(`${API_URL}/api/auth/register`, { email, password, display_name: full_name });
     localStorage.setItem('token', data.access_token);
     axios.defaults.headers.common['Authorization'] = `Bearer ${data.access_token}`;
     await fetchUser();

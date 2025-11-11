@@ -51,18 +51,10 @@ export const Hero = () => {
                 size="lg"
                 className="font-semibold text-white shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-xl px-6 sm:px-10 py-4 sm:py-7 text-base sm:text-lg group"
                 style={{ background: 'linear-gradient(135deg, #0D9488 0%, #0F766E 100%)' }}
-                onClick={() => navigate('/Fileserver')}
+                onClick={() => window.open('https://files.veri-case.com', '_blank')}
               >
-                Access File Server
+                Access Secure Portal
                 <ArrowRight className="ml-2 w-4 sm:w-5 h-4 sm:h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline"
-                className="font-semibold border-2 border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-teal-600 hover:text-teal-600 transition-all duration-200 px-6 sm:px-10 py-4 sm:py-7 text-base sm:text-lg"
-                onClick={() => navigate('/Fileserver')}
-              >
-                Login to Files
               </Button>
             </div>
           </div>

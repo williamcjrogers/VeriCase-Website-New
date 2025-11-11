@@ -1,4 +1,4 @@
-# VeriCase Landing Page - Complete Design System Guidelines
+![1762825958995](image/design_guidelines/1762825958995.png)# VeriCase Landing Page - Complete Design System Guidelines
 
 ## 🎯 Design Philosophy
 

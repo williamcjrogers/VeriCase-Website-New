@@ -101,10 +101,10 @@ export const Navigation = () => {
                     size="sm"
                     className="text-xs md:text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:scale-105 hover:shadow-lg px-4 md:px-8 bg-teal-600 hover:bg-teal-700"
                     onClick={() => {
-                      // Redirect to deployed VeriCase app with auth token
+                      // Redirect to VeriCase application dashboard
                       const token = localStorage.getItem('token');
                       const appUrl = process.env.REACT_APP_APP_URL || 'http://localhost:8010/ui/';
-                      window.location.href = `${appUrl}index.html?token=${token}`;
+                      window.location.href = `${appUrl}dashboard.html?token=${token}`;
                     }}
                   >
                     Open App
@@ -124,14 +124,20 @@ export const Navigation = () => {
                     size="sm"
                     variant="outline"
                     className="text-xs md:text-sm font-semibold border-2 border-white text-white hover:bg-white hover:text-gray-900"
-                    onClick={() => navigate('/login')}
+                    onClick={() => {
+                      const appUrl = process.env.REACT_APP_APP_URL || 'http://localhost:8010/ui/';
+                      window.location.href = `${appUrl}login.html`;
+                    }}
                   >
                     Login
                   </Button>
                   <Button 
                     size="sm"
                     className="text-xs md:text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:scale-105 hover:shadow-lg px-4 md:px-8 bg-teal-600 hover:bg-teal-700"
-                    onClick={() => navigate('/login')}
+                    onClick={() => {
+                      const appUrl = process.env.REACT_APP_APP_URL || 'http://localhost:8010/ui/';
+                      window.location.href = `${appUrl}signup.html`;
+                    }}
                   >
                     <span className="hidden sm:inline">Get Started</span>
                     <span className="sm:hidden">Start</span>

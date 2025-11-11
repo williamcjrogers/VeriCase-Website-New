@@ -1,42 +1,23 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '@/context/AuthContext';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Card } from '@/components/ui/card';
-import { toast } from 'sonner';
 
 export const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [fullName, setFullName] = useState('');
   const [isRegister, setIsRegister] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const { login, register } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      if (isRegister) {
-        await register(email, password, fullName);
-        toast.success('Account created! Redirecting to app...');
-      } else {
-        await login(email, password);
-        toast.success('Logged in! Redirecting to app...');
-      }
-      
-      // Redirect to VeriCase wizard for initial setup
-      setTimeout(() => {
-        const token = localStorage.getItem('token');
-        const appUrl = process.env.REACT_APP_APP_URL || 'http://localhost:8010/ui/';
-        window.location.href = `${appUrl}wizard.html?token=${token}`;
-      }, 1000);
-    } catch (error) {
-      toast.error(error.response?.data?.detail || 'Authentication failed');
-      setLoading(false);
+  const handleRedirect = () => {
+    // Redirect to VeriCase signup/login pages (with admin approval flow)
+    const appUrl = process.env.REACT_APP_APP_URL || 
+                  (window.location.hostname === 'localhost' ? 'http://localhost:8010/ui/' : 'https://app.veri-case.com/ui/');
+    
+    if (isRegister) {
+      // Redirect to signup page for registration with admin approval
+      window.location.href = `${appUrl}signup.html`;
+    } else {
+      // Redirect to login page
+      window.location.href = `${appUrl}login.html`;
     }
   };
 
@@ -49,52 +30,32 @@ export const Login = () => {
             alt="VeriCase" 
             className="h-16 mx-auto mb-4"
           />
-          <h1 className="text-2xl font-bold text-gray-900">{isRegister ? 'Create Account' : 'Welcome Back'}</h1>
+          <h1 className="text-2xl font-bold text-gray-900">{isRegister ? 'Create Account' : 'Welcome to VeriCase'}</h1>
+          <p className="text-sm text-gray-600 mt-2">Access the Dispute Intelligence Platform</p>
         </div>
         
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {isRegister && (
-            <div>
-              <Label htmlFor="fullName">Full Name</Label>
-              <Input
-                id="fullName"
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
-                required
-              />
-            </div>
-          )}
-          <div>
-            <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-          <div>
-            <Label htmlFor="password">Password</Label>
-            <Input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
+        <div className="space-y-4">
           <Button 
-            type="submit" 
-            className="w-full text-white"
+            className="w-full text-white text-base py-6"
             style={{ background: 'linear-gradient(180deg, #069494 0%, #057676 100%)' }}
-            disabled={loading}
+            onClick={handleRedirect}
           >
-            {loading ? 'Please wait...' : (isRegister ? 'Create Account' : 'Login')}
+            {isRegister ? 'Create New Account' : 'Login to VeriCase'}
           </Button>
-        </form>
+          
+          <div className="text-center text-sm text-gray-600 py-4">
+            {isRegister ? (
+              <>
+                <p className="mb-2">New accounts require admin approval</p>
+                <p className="text-xs text-gray-500">You'll receive an email once approved</p>
+              </>
+            ) : (
+              <p>Secure access to your evidence and cases</p>
+            )}
+          </div>
+        </div>
         
-        <div className="mt-4 text-center text-sm text-gray-600">
+        <div className="mt-6 text-center text-sm text-gray-600 pt-4 border-t border-gray-200">
           {isRegister ? 'Already have an account?' : 'Need an account?'}
           <button
             onClick={() => setIsRegister(!isRegister)}
