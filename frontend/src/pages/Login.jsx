@@ -26,7 +26,7 @@ export const Login = () => {
       <Card className="w-full max-w-md p-8">
         <div className="text-center mb-8">
           <img 
-            src="/Logo2-Copy.png" 
+            src="/assets/LOGOTOBEUSED.png" 
             alt="VeriCase" 
             className="h-16 mx-auto mb-4"
           />
