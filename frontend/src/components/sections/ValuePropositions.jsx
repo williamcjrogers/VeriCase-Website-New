@@ -61,7 +61,7 @@ export const ValuePropositions = () => {
   ];
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-white" data-testid="value-props-section">
+    <section id="pricing" className="py-12 md:py-16 lg:py-20 bg-white" data-testid="value-props-section">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16 space-y-3 md:space-y-4">

@@ -2,7 +2,7 @@ import { Linkedin, Twitter, Youtube } from 'lucide-react';
 
 export const SiteFooter = () => {
   return (
-    <footer className="py-16 md:py-20 bg-gray-900 text-gray-300" data-testid="site-footer">
+    <footer id="about" className="py-16 md:py-20 bg-gray-900 text-gray-300" data-testid="site-footer">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Logo and Tagline */}

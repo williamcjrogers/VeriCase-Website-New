@@ -66,6 +66,7 @@ export const Difference = () => {
 
   return (
     <section 
+      id="platform"
       className="py-12 sm:py-16 md:py-24 lg:py-32"
       style={{ backgroundColor: 'var(--vericase-bg-light)' }}
       data-testid="difference-section"

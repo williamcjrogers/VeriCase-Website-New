@@ -5,6 +5,7 @@ import { GanttChart } from '../visuals/GanttChart';
 export const ConstructionAddIn = () => {
   return (
     <section 
+      id="construction"
       className="py-24 lg:py-32"
       style={{ backgroundColor: 'var(--vericase-primary-dark)' }}
       data-testid="construction-section"
