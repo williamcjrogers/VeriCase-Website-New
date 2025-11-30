@@ -1,10 +1,4 @@
 import { Button } from '@/components/ui/button';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 import { useAuth } from '@/context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -126,36 +120,26 @@ export const Navigation = () => {
                 </>
               ) : (
                 <>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <Button 
-                        size="sm"
-                        variant="outline"
-                        className="text-xs md:text-sm font-semibold border-2 border-white text-white hover:bg-white hover:text-gray-900"
-                      >
-                        Login
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                      <DropdownMenuItem 
-                        className="cursor-pointer"
-                        onClick={() => {
-                          const appUrl = process.env.REACT_APP_APP_URL || 'http://localhost:8010/ui/';
-                          window.location.href = `${appUrl}login.html`;
-                        }}
-                      >
-                        Analysis
-                      </DropdownMenuItem>
-                      <DropdownMenuItem 
-                        className="cursor-pointer"
-                        onClick={() => {
-                          window.location.href = 'https://vericase.egnyte.com/subDomainLogin.do#login';
-                        }}
-                      >
-                        Files
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                  <Button 
+                    size="sm"
+                    variant="outline"
+                    className="text-xs md:text-sm font-semibold border-2 border-white text-white hover:bg-white hover:text-gray-900"
+                    onClick={() => {
+                      window.location.href = 'http://18.130.216.34:8010';
+                    }}
+                  >
+                    Analysis Login
+                  </Button>
+                  <Button 
+                    size="sm"
+                    variant="outline"
+                    className="text-xs md:text-sm font-semibold border-2 border-white text-white hover:bg-white hover:text-gray-900"
+                    onClick={() => {
+                      window.location.href = 'https://files.veri-case.com';
+                    }}
+                  >
+                    File Login
+                  </Button>
                   <Button 
                     size="sm"
                     className="text-xs md:text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:scale-105 hover:shadow-lg px-4 md:px-8 bg-teal-600 hover:bg-teal-700"

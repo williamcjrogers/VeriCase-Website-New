@@ -47,15 +47,13 @@ export const EvidenceGap = () => {
               data-testid="evidence-gap-heading"
               style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
             >
-              The Hidden Cost of Fragmented Evidence in Construction Disputes
+              The £13 Billion Evidence Crisis
             </h2>
             <p 
-              className="text-base sm:text-lg lg:text-xl leading-relaxed text-gray-600 mb-6 sm:mb-8"
+              className="text-base sm:text-lg lg:text-xl leading-relaxed text-gray-600 mb-6 sm:mb-8 italic border-l-4 border-teal-500 pl-4"
               data-testid="evidence-gap-description"
             >
-              With construction disputes averaging £5.2 million and taking over a year to resolve, 
-              the ability to quickly find and present compelling evidence is critical. Yet most 
-              firms still rely on manual processes that miss vital connections.
+              "A £50 million claim lands on your desk. The project spanned six years. Half the original team has moved on. The evidence that will determine victory or defeat is scattered across thousands of locations. You have 90 days."
             </p>
 
             {/* Statistics Grid */}
@@ -66,8 +64,8 @@ export const EvidenceGap = () => {
                     <Clock className="w-5 h-5 sm:w-6 md:w-7 sm:h-6 md:h-7 text-white" />
                   </div>
                   <div>
-                    <div className="text-lg sm:text-xl md:text-2xl font-black text-teal-600">14.8mo</div>
-                    <div className="text-[10px] sm:text-xs text-gray-600">Resolution time</div>
+                    <div className="text-lg sm:text-xl md:text-2xl font-black text-teal-600">91%</div>
+                    <div className="text-[10px] sm:text-xs text-gray-600">Projects delayed</div>
                   </div>
                 </div>
               </div>
@@ -78,8 +76,8 @@ export const EvidenceGap = () => {
                     <PoundSterling className="w-5 h-5 sm:w-6 md:w-7 sm:h-6 md:h-7 text-white" />
                   </div>
                   <div>
-                    <div className="text-lg sm:text-xl md:text-2xl font-black text-teal-600">£5.2M</div>
-                    <div className="text-[10px] sm:text-xs text-gray-600">Avg dispute</div>
+                    <div className="text-lg sm:text-xl md:text-2xl font-black text-teal-600">£27.7M</div>
+                    <div className="text-[10px] sm:text-xs text-gray-600">Avg dispute value</div>
                   </div>
                 </div>
               </div>
@@ -90,8 +88,8 @@ export const EvidenceGap = () => {
                     <TrendingDown className="w-5 h-5 sm:w-6 md:w-7 sm:h-6 md:h-7 text-white" />
                   </div>
                   <div>
-                    <div className="text-lg sm:text-xl md:text-2xl font-black text-blue-600">68%</div>
-                    <div className="text-[10px] sm:text-xs text-gray-600">Doc delays</div>
+                    <div className="text-lg sm:text-xl md:text-2xl font-black text-blue-600">80%</div>
+                    <div className="text-[10px] sm:text-xs text-gray-600">Litigation cost is review</div>
                   </div>
                 </div>
               </div>
@@ -102,8 +100,8 @@ export const EvidenceGap = () => {
                     <FileText className="w-5 h-5 sm:w-6 md:w-7 sm:h-6 md:h-7 text-white" />
                   </div>
                   <div>
-                    <div className="text-lg sm:text-xl md:text-2xl font-black text-blue-600">40%</div>
-                    <div className="text-[10px] sm:text-xs text-gray-600">Fail (poor docs)</div>
+                    <div className="text-lg sm:text-xl md:text-2xl font-black text-blue-600">3M+</div>
+                    <div className="text-[10px] sm:text-xs text-gray-600">Emails per project</div>
                   </div>
                 </div>
               </div>

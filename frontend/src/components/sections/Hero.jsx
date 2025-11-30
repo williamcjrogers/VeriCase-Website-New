@@ -26,22 +26,22 @@ export const Hero = () => {
 
             {/* Description */}
             <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-600 max-w-2xl mx-auto lg:mx-0">
-              VeriCase brings unprecedented clarity to construction disputes. Our forensic-grade AI analyzes millions of documents, emails, and project data to construct irrefutable chronologies that strengthen your position. What once took months of manual review now takes hours — with superior accuracy and court-ready precision.
+              VeriCase approaches the evidence crisis differently. We don't just manage documents; we reconstruct truth. Where others see data graveyards, we see evidence goldmines. Our forensic-grade AI transforms scattered records into winning legal strategies.
             </p>
 
             {/* Statistics */}
             <div className="grid grid-cols-3 gap-3 sm:gap-6 pt-4">
               <div className="text-center lg:text-left">
-                <div className="text-2xl sm:text-3xl font-black text-teal-600">40%</div>
-                <div className="text-xs sm:text-sm text-gray-600 mt-1">of disputes fail</div>
+                <div className="text-2xl sm:text-3xl font-black text-teal-600">91%</div>
+                <div className="text-xs sm:text-sm text-gray-600 mt-1">Projects delayed</div>
               </div>
               <div className="text-center lg:text-left">
-                <div className="text-2xl sm:text-3xl font-black text-teal-600">£7.8bn</div>
-                <div className="text-xs sm:text-sm text-gray-600 mt-1">Annual disputes</div>
+                <div className="text-2xl sm:text-3xl font-black text-teal-600">£13bn</div>
+                <div className="text-xs sm:text-sm text-gray-600 mt-1">Annual industry loss</div>
               </div>
               <div className="text-center lg:text-left">
-                <div className="text-2xl sm:text-3xl font-black text-teal-600">14.8mo</div>
-                <div className="text-xs sm:text-sm text-gray-600 mt-1">Resolution time</div>
+                <div className="text-2xl sm:text-3xl font-black text-teal-600">3-4yr</div>
+                <div className="text-xs sm:text-sm text-gray-600 mt-1">Dispute lifecycle</div>
               </div>
             </div>
             

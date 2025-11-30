@@ -18,15 +18,13 @@ export const EvidenceHub = () => {
               className="text-4xl lg:text-5xl font-bold leading-tight"
               style={{ color: 'var(--vericase-primary-dark)', fontFamily: "'Playfair Display', Georgia, serif" }}
             >
-              Beyond Email: The Comprehensive Evidence Hub.
+              Records, Records, Records.
             </h2>
             <p 
               className="text-lg leading-relaxed"
               style={{ color: 'var(--vericase-text-secondary)' }}
             >
-              Disputes rely on more than just PST files. Manage contracts, site reports, images, and large 
-              datasets within VeriCase. Our integrated, intelligent DMS ensures every file is secure, searchable, 
-              and ready for analysis.
+              The construction industry has long known the three lessons of disputes: the importance of records, records, and records. VeriCase ensures you don't learn these lessons the hard way. Our intelligent hub manages contracts, site reports, images, and large datasets, ensuring every file is secure, searchable, and ready for analysis.
             </p>
 
             {/* Features */}

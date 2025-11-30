@@ -30,11 +30,11 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route 
             path="/Fileserver" 
-            element={<ExternalRedirect url="https://vericase.egnyte.com/subDomainLogin.do#login" />} 
+            element={<ExternalRedirect url="https://files.veri-case.com" />} 
           />
           <Route 
             path="/fileserver" 
-            element={<ExternalRedirect url="https://vericase.egnyte.com/subDomainLogin.do#login" />} 
+            element={<ExternalRedirect url="https://files.veri-case.com" />} 
           />
         </Routes>
         <Toaster />

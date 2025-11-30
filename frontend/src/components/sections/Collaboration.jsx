@@ -7,13 +7,13 @@ export const Collaboration = () => {
         {/* Section Header */}
         <div className="text-center mb-12 lg:mb-16">
           <p className="text-xs font-bold uppercase tracking-wider text-teal-700 mb-4">
-            UNIFIED EVIDENCE WORKSPACE
+            UNIFIED COLLABORATION
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 text-gray-900 leading-tight" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
             From Email Fragmentation to Shared Evidence Command
           </h2>
           <p className="text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Critical records are dispersed across years of unstructured communications, attachments, and minutes. VeriCase configures complex evidence environments into shared, dispute-ready workspaces—replacing correspondence overload with collaborative preparation that preserves context and accelerates clarity.
+            Critical records are dispersed across years of unstructured communications. VeriCase breaks down the silos that cripple dispute resolution. For the first time, project teams, legal counsel, barristers, and experts unite in a single collaborative workspace with sector-aware intelligence.
           </p>
         </div>
 

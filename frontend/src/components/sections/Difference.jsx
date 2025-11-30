@@ -77,13 +77,13 @@ export const Difference = () => {
             data-testid="difference-heading"
             style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
           >
-            The Complete Evidence Intelligence Platform
+            Dispute Intelligence From Day One
           </h2>
           <p 
             className="text-base sm:text-lg lg:text-xl max-w-3xl mx-auto text-gray-600"
             data-testid="difference-subtitle"
           >
-            Analytical ingestion, domain-aware structuring, and collaborative preparation combine to deliver forensic-grade chronologies from complex evidence environments. VeriCase shortens the path from raw communications to credible, defensible outputs.
+            Moving beyond reactive analysis to proactive Lifecycle Intelligence. VeriCase captures patterns from project inception, creating continuous intelligence rather than retrospective analysis.
           </p>
         </div>
 
