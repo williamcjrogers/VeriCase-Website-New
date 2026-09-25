@@ -12,19 +12,19 @@ export const EvidenceHub = () => {
               className="text-xs font-bold uppercase tracking-wider"
               style={{ color: 'var(--vericase-accent-teal)' }}
             >
-              INTELLIGENT DOCUMENT MANAGEMENT
+              ONE SEARCHABLE RECORD
             </p>
             <h2 
               className="text-4xl lg:text-5xl font-bold leading-tight"
               style={{ color: 'var(--vericase-primary-dark)', fontFamily: "'Playfair Display', Georgia, serif" }}
             >
-              Records, Records, Records.
+              Records, records, records.
             </h2>
             <p 
               className="text-lg leading-relaxed"
               style={{ color: 'var(--vericase-text-secondary)' }}
             >
-              The construction industry has long known the three lessons of disputes: the importance of records, records, and records. VeriCase ensures you don't learn these lessons the hard way. Our intelligent hub manages contracts, site reports, images, and large datasets, ensuring every file is secure, searchable, and ready for analysis.
+              A party to a dispute, it has long been said, learns three lessons, often too late: the importance of records, the importance of records and the importance of records.<sup className="text-xs align-super"><a href="#abrahamson-note" aria-label="Source of the quotation">1</a></sup> VeriCase exists so that you need not learn them the hard way. Contracts, site reports, photographs and correspondence sit in one searchable record, ready for analysis.
             </p>
 
             {/* Features */}
@@ -47,13 +47,13 @@ export const EvidenceHub = () => {
                     className="text-xl font-semibold mb-2"
                     style={{ color: 'var(--vericase-primary-dark)' }}
                   >
-                    Automatic OCR & Full-Text Indexing
+                    OCR and Full-Text Indexing
                   </h3>
                   <p 
                     className="text-sm leading-relaxed"
                     style={{ color: 'var(--vericase-text-secondary)' }}
                   >
-                    Ensure all documents, including scanned images, are fully searchable.
+                    Scanned documents and images are made text-searchable alongside every email and attachment.
                   </p>
                 </div>
               </div>
@@ -76,17 +76,20 @@ export const EvidenceHub = () => {
                     className="text-xl font-semibold mb-2"
                     style={{ color: 'var(--vericase-primary-dark)' }}
                   >
-                    AI-Powered Tagging & Mass Data Querying
+                    Tags, Mentions and Plain-English Research
                   </h3>
                   <p 
                     className="text-sm leading-relaxed"
                     style={{ color: 'var(--vericase-text-secondary)' }}
                   >
-                    Leverage AI to categorize documents and perform complex queries across your entire evidence repository.
+                    Tag evidence, mention colleagues to open a discussion on the document itself, and ask questions of the whole record with answers cited to source.
                   </p>
                 </div>
               </div>
             </div>
+            <p id="abrahamson-note" className="text-xs leading-relaxed" style={{ color: 'var(--vericase-text-secondary)' }}>
+              1. After Max W. Abrahamson, <em>Engineering Law and the I.C.E. Contracts</em> (first published 1965).
+            </p>
           </div>
 
           {/* Visual - Right */}
@@ -99,7 +102,7 @@ export const EvidenceHub = () => {
                   borderBottom: '1px solid var(--vericase-border)'
                 }}
               >
-                Document Intelligence & AI Classification
+                Evidence preview (illustrative)
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -177,7 +180,7 @@ export const EvidenceHub = () => {
                     className="font-semibold text-sm"
                     style={{ color: 'var(--vericase-primary-dark)' }}
                   >
-                    AI Insights & Tags
+                    Tags and properties
                   </div>
                   
                   <div>
@@ -185,7 +188,7 @@ export const EvidenceHub = () => {
                       className="text-xs mb-1"
                       style={{ color: 'var(--vericase-text-secondary)' }}
                     >
-                      Entities Detected:
+                      Mentioned:
                     </div>
                     <div 
                       className="text-sm font-medium"
@@ -200,7 +203,7 @@ export const EvidenceHub = () => {
                       className="text-xs mb-2"
                       style={{ color: 'var(--vericase-text-secondary)' }}
                     >
-                      Suggested Tags:
+                      Tags:
                     </div>
                     <div className="flex flex-wrap gap-2">
                       <Badge 
@@ -235,7 +238,7 @@ export const EvidenceHub = () => {
                       className="text-sm font-bold"
                       style={{ color: 'var(--vericase-accent-teal)' }}
                     >
-                      Complete & Indexed
+                      Complete and indexed
                     </div>
                   </div>
                 </div>

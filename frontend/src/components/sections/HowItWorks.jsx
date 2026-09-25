@@ -1,27 +1,28 @@
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { DEMO_MAILTO } from '@/lib/site';
 
 export const HowItWorks = () => {
   const steps = [
     {
       number: '01',
       title: 'Upload Your Records',
-      description: 'Drag and drop PST files, emails, documents, and project data. VeriCase ingests everything instantly.'
+      description: 'Upload PST, MSG and EML archives, documents, spreadsheets and photographs. VeriCase parses every message and attachment, and removes duplicates.'
     },
     {
       number: '02',
-      title: 'Intelligent Processing',
-      description: 'Our AI indexes, tags, and organizes every record. Building a forensic chronology in minutes.'
+      title: 'Build the Chronology',
+      description: 'Every record is indexed, with scanned documents read by OCR, and the Chronology Lens brings every thread into one order of events.'
     },
     {
       number: '03',
       title: 'Review & Collaborate',
-      description: 'Navigate your timeline, auto-select evidence, and discuss claims with your team—all in one platform.'
+      description: 'Research the record in plain English, tag and discuss evidence with your team, and structure your Heads of Claim in one workspace.'
     },
     {
       number: '04',
-      title: 'Win Your Case',
-      description: 'Export evidence bundles, respond to rebuttals rapidly, and present irrefutable chronologies.'
+      title: 'Present Your Case',
+      description: 'Answer the other side point by point in Rebuttal Mode, and export bundles and chronologies in which every entry is cited to its source.'
     }
   ];
 
@@ -38,7 +39,7 @@ export const HowItWorks = () => {
             How VeriCase <span className="text-gradient-teal">Works</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            From data chaos to courtroom clarity in four simple steps.
+            From mailbox exports to a cited chronology, in four steps.
           </p>
         </div>
 
@@ -66,14 +67,16 @@ export const HowItWorks = () => {
 
         {/* CTA */}
         <div className="text-center">
-          <Button 
+          <Button
+            asChild
             size="lg"
             className="font-semibold text-white shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-xl px-6 sm:px-8 md:px-10 py-4 sm:py-6 md:py-7 text-base sm:text-lg group"
             style={{ background: 'linear-gradient(180deg, #069494 0%, #057676 100%)' }}
-            data-testid="how-it-works-cta"
           >
-            Start Your Free Trial
-            <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+            <a href={DEMO_MAILTO} data-testid="how-it-works-cta">
+              Book a demonstration
+              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+            </a>
           </Button>
         </div>
       </div>

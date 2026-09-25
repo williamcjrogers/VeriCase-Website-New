@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Navigation } from '@/components/sections/Navigation';
 import { Hero } from '@/components/sections/Hero';
 import { EvidenceGap } from '@/components/sections/EvidenceGap';
@@ -9,10 +10,16 @@ import { Accessible } from '@/components/sections/Accessible';
 import { SiteFooter } from '@/components/sections/SiteFooter';
 
 export const LandingPage = () => {
+  // Scroll to a section when arriving from another page with a hash, e.g. /#platform.
+  useEffect(() => {
+    const id = window.location.hash.slice(1);
+    if (id) document.getElementById(id)?.scrollIntoView();
+  }, []);
+
   return (
     <>
       <Navigation />
-      <main>
+      <main id="main">
         <Hero />
         <EvidenceGap />
         <Collaboration />

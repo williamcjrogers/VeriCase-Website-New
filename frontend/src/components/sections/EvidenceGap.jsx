@@ -1,15 +1,24 @@
-import { Clock, PoundSterling, FileText, TrendingDown, Database, FileSpreadsheet, Image, MessageCircle, FileX } from 'lucide-react';
+import { Clock, PoundSterling, FileText, BarChart3, Scale, Database, FileSpreadsheet, Image, Mail, ScanText } from 'lucide-react';
+import { STATS } from '@/content/stats';
+import { NoteRef, SourceNotes } from '@/components/SourceNotes';
+
+const GAP_STATS = [
+  { key: 'majorProjects', icon: BarChart3, tone: 'teal' },
+  { key: 'sumsInDispute', icon: PoundSterling, tone: 'teal' },
+  { key: 'referrals', icon: Scale, tone: 'blue' },
+  { key: 'adjudication', icon: Clock, tone: 'blue' },
+];
 
 export const EvidenceGap = () => {
   const documentTypes = [
     { name: 'PST Archives', icon: Database, bgColor: '#EEF2F8', iconColor: '#5B7C99' },
-    { name: 'Excel Sheets', icon: FileSpreadsheet, bgColor: '#E8F5E9', iconColor: '#689F7A' },
+    { name: 'MSG and EML Files', icon: Mail, bgColor: '#F3F0F8', iconColor: '#8B7AA6' },
     { name: 'PDF Reports', icon: FileText, bgColor: '#FAF5F0', iconColor: '#A68B6E' },
-    { name: 'Email Threads', icon: MessageCircle, bgColor: '#F3F0F8', iconColor: '#8B7AA6' },
-    { name: 'Site Photos', icon: Image, bgColor: '#FFF0F5', iconColor: '#B5848C' },
-    { name: 'CAD Files', icon: FileX, bgColor: '#F8F5EE', iconColor: '#C19B6C' },
+    { name: 'Spreadsheets', icon: FileSpreadsheet, bgColor: '#E8F5E9', iconColor: '#689F7A' },
+    { name: 'Word Documents', icon: FileText, bgColor: '#EEF2F8', iconColor: '#5B7C99' },
+    { name: 'Site Photographs', icon: Image, bgColor: '#FFF0F5', iconColor: '#B5848C' },
+    { name: 'Scanned Records', icon: ScanText, bgColor: '#F8F5EE', iconColor: '#A68B6E' },
     { name: 'Contracts', icon: FileText, bgColor: '#E8F7F5', iconColor: '#6B9B94' },
-    { name: 'WhatsApp', icon: MessageCircle, bgColor: '#E6F4EA', iconColor: '#7A9F84' },
     { name: 'Meeting Minutes', icon: FileText, bgColor: '#F5F5F8', iconColor: '#8A8AA6' }
   ];
 
@@ -33,7 +42,7 @@ export const EvidenceGap = () => {
                     >
                       <item.icon className="w-4 h-4 sm:w-5 md:w-6 sm:h-5 md:h-6" style={{ color: item.iconColor }} />
                     </div>
-                    <span className="text-[10px] sm:text-xs font-semibold text-gray-800 block leading-tight">{item.name}</span>
+                    <span className="text-xs font-semibold text-gray-800 block leading-tight">{item.name}</span>
                   </div>
                 </div>
               ))}
@@ -47,65 +56,39 @@ export const EvidenceGap = () => {
               data-testid="evidence-gap-heading"
               style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
             >
-              The £13 Billion Evidence Crisis
+              The record decides the dispute
             </h2>
             <p 
               className="text-base sm:text-lg lg:text-xl leading-relaxed text-gray-600 mb-6 sm:mb-8 italic border-l-4 border-teal-500 pl-4"
               data-testid="evidence-gap-description"
             >
-              "A £50 million claim lands on your desk. The project spanned six years. Half the original team has moved on. The evidence that will determine victory or defeat is scattered across thousands of locations. You have 90 days."
+              "A £50 million claim lands on your desk. The project spanned six years. Half the original team has moved on. The evidence that will decide the outcome is scattered across thousands of locations. You have 90 days."
+              <span className="block mt-2 not-italic text-xs text-gray-500">An illustrative scenario.</span>
             </p>
 
             {/* Statistics Grid */}
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              <div className="bg-gradient-to-br from-teal-50 to-white rounded-lg sm:rounded-xl p-3 sm:p-5 border border-teal-200">
-                <div className="flex items-center gap-2 sm:gap-3">
-                  <div className="w-10 h-10 sm:w-12 md:w-14 sm:h-12 md:h-14 bg-gradient-to-br from-teal-500 to-teal-600 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
-                    <Clock className="w-5 h-5 sm:w-6 md:w-7 sm:h-6 md:h-7 text-white" />
-                  </div>
-                  <div>
-                    <div className="text-lg sm:text-xl md:text-2xl font-black text-teal-600">91%</div>
-                    <div className="text-[10px] sm:text-xs text-gray-600">Projects delayed</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-teal-50 to-white rounded-lg sm:rounded-xl p-3 sm:p-5 border border-teal-200">
-                <div className="flex items-center gap-2 sm:gap-3">
-                  <div className="w-10 h-10 sm:w-12 md:w-14 sm:h-12 md:h-14 bg-gradient-to-br from-teal-500 to-teal-600 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
-                    <PoundSterling className="w-5 h-5 sm:w-6 md:w-7 sm:h-6 md:h-7 text-white" />
-                  </div>
-                  <div>
-                    <div className="text-lg sm:text-xl md:text-2xl font-black text-teal-600">£27.7M</div>
-                    <div className="text-[10px] sm:text-xs text-gray-600">Avg dispute value</div>
+              {GAP_STATS.map(({ key, icon: Icon, tone }, index) => (
+                <div
+                  key={key}
+                  className={`bg-gradient-to-br ${tone === 'teal' ? 'from-teal-50 border-teal-200' : 'from-blue-50 border-blue-200'} to-white rounded-lg sm:rounded-xl p-3 sm:p-5 border`}
+                >
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className={`w-10 h-10 sm:w-12 md:w-14 sm:h-12 md:h-14 bg-gradient-to-br ${tone === 'teal' ? 'from-teal-500 to-teal-600' : 'from-blue-500 to-blue-600'} rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm`}>
+                      <Icon className="w-5 h-5 sm:w-6 md:w-7 sm:h-6 md:h-7 text-white" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <div className={`text-lg sm:text-xl md:text-2xl font-black ${tone === 'teal' ? 'text-teal-700' : 'text-blue-700'}`}>
+                        {STATS[key].figure}
+                        <NoteRef n={index + 1} idPrefix="gap-source" />
+                      </div>
+                      <div className="text-xs text-gray-600 leading-snug">{STATS[key].short}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-blue-50 to-white rounded-lg sm:rounded-xl p-3 sm:p-5 border border-blue-200">
-                <div className="flex items-center gap-2 sm:gap-3">
-                  <div className="w-10 h-10 sm:w-12 md:w-14 sm:h-12 md:h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
-                    <TrendingDown className="w-5 h-5 sm:w-6 md:w-7 sm:h-6 md:h-7 text-white" />
-                  </div>
-                  <div>
-                    <div className="text-lg sm:text-xl md:text-2xl font-black text-blue-600">80%</div>
-                    <div className="text-[10px] sm:text-xs text-gray-600">Litigation cost is review</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-blue-50 to-white rounded-lg sm:rounded-xl p-3 sm:p-5 border border-blue-200">
-                <div className="flex items-center gap-2 sm:gap-3">
-                  <div className="w-10 h-10 sm:w-12 md:w-14 sm:h-12 md:h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
-                    <FileText className="w-5 h-5 sm:w-6 md:w-7 sm:h-6 md:h-7 text-white" />
-                  </div>
-                  <div>
-                    <div className="text-lg sm:text-xl md:text-2xl font-black text-blue-600">3M+</div>
-                    <div className="text-[10px] sm:text-xs text-gray-600">Emails per project</div>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
+            <SourceNotes keys={GAP_STATS.map((stat) => stat.key)} idPrefix="gap-source" className="mt-4" />
           </div>
         </div>
       </div>

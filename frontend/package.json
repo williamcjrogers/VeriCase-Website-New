@@ -58,7 +58,8 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test"
+    "test": "craco test",
+    "lint:copy": "node scripts/lint-copy.mjs"
   },
   "browserslist": {
     "production": [

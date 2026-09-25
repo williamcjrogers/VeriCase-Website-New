@@ -1,55 +1,55 @@
-import { Clock, Search, Target, Lock, FileDown, CheckCircle } from 'lucide-react';
+import { Clock, Search, Target, Hash, FileDown, CheckCircle } from 'lucide-react';
 
 export const Difference = () => {
   const features = [
     {
       icon: Clock,
       title: "The Chronology Lens™",
-      description: "Our proprietary AI technology creates a single, court-ready timeline from millions of documents, automatically linking events, communications, and evidence.",
+      description: "Brings thousands of email threads, documents and attachments into one time-ordered chronology across every participant, with each entry linked to its source.",
       benefits: [
-        "Processes 50,000+ documents per hour",
-        "99.7% accuracy in date extraction",
-        "Automatic cross-reference linking"
+        "Processes 50,000+ documents per hour*",
+        "99.7% accuracy in date extraction*",
+        "Every entry linked to its source"
       ]
     },
     {
       icon: Search,
-      title: "Natural Language Intelligence",
-      description: "Ask complex questions in plain English. Our AI understands construction terminology, legal concepts, and industry context to find exactly what you need.",
+      title: "Research With Citations",
+      description: "Ask a question of the record in plain English and receive a report in which every point is cited to the emails and documents it relies on.",
       benefits: [
-        "Context-aware search results",
-        "Multi-language support",
-        "Semantic understanding"
+        "Numbered citations to source",
+        "A Query Plan shows what was understood",
+        "Create a bundle from the citations"
       ]
     },
     {
       icon: Target,
-      title: "Auto-Evidence Selection",
-      description: "For any claim or defense, our AI automatically identifies and ranks the most relevant supporting documents from your entire repository.",
+      title: "Claims and Rebuttal",
+      description: "Structure Heads of Claim with citations linked to the evidence by message ID. In Rebuttal Mode, the opponent's submission is divided into numbered points, each paired with suggested evidence.",
       benefits: [
-        "Relevance scoring algorithm",
-        "Missing evidence alerts",
-        "Counter-argument detection"
+        "Heads of Claim structure",
+        "Citations by message ID",
+        "Opposing points answered in turn"
       ]
     },
     {
-      icon: Lock,
-      title: "Forensic-Grade Security",
-      description: "Court-admissible audit trails, blockchain verification, and military-grade encryption ensure your evidence remains tamper-proof and legally defensible.",
+      icon: Hash,
+      title: "Evidential Integrity",
+      description: "Each item is hashed when it is ingested and every action on it is recorded, so its provenance can be shown if authenticity is challenged. Admissibility and weight remain matters for the tribunal.",
       benefits: [
-        "ISO 27001 certified",
+        "Cryptographic hash on ingestion",
         "Complete audit trail",
-        "Hash verification"
+        "Role-based access"
       ]
     },
     {
       icon: FileDown,
-      title: "One-Click Reporting",
-      description: "Generate expert reports, Scott Schedules, and court bundles automatically. Export in any format with complete references and appendices.",
+      title: "Bundles and Exports",
+      description: "Create evidence bundles from search results or a research report, with a manifest listing the message ID, hash and source path of every item.",
       benefits: [
-        "30+ report templates",
-        "Auto-pagination & indexing",
-        "CPR compliant formats"
+        "Bundles from cited results",
+        "Manifest of IDs, hashes and paths",
+        "Duplicates removed before review"
       ]
     }
   ];
@@ -68,13 +68,13 @@ export const Difference = () => {
             data-testid="difference-heading"
             style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
           >
-            Dispute Intelligence From Day One
+            What VeriCase Does
           </h2>
           <p 
             className="text-base sm:text-lg lg:text-xl max-w-3xl mx-auto text-gray-600"
             data-testid="difference-subtitle"
           >
-            Moving beyond reactive analysis to proactive Lifecycle Intelligence. VeriCase captures patterns from project inception, creating continuous intelligence rather than retrospective analysis.
+            VeriCase ingests a project's correspondence and documents, brings every thread into one order of events, and lets your team research, draft and rebut with every point cited to its source.
           </p>
         </div>
 
@@ -89,7 +89,7 @@ export const Difference = () => {
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-500 to-blue-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
               
               <div className="w-12 h-12 sm:w-14 md:w-16 sm:h-14 md:h-16 rounded-lg sm:rounded-xl bg-gradient-to-br from-teal-50 to-blue-50 flex items-center justify-center mb-4 sm:mb-6">
-                <feature.icon className="w-6 h-6 sm:w-7 md:w-8 sm:h-7 md:h-8 text-teal-600" />
+                <feature.icon className="w-6 h-6 sm:w-7 md:w-8 sm:h-7 md:h-8 text-teal-600" aria-hidden="true" />
               </div>
               
               <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">
@@ -114,6 +114,9 @@ export const Difference = () => {
             </div>
           ))}
         </div>
+        <p className="mt-8 text-center text-xs text-gray-500" data-testid="benchmark-note">
+          * Internal benchmark by VeriCase; test conditions are available on request.
+        </p>
       </div>
     </section>
   );

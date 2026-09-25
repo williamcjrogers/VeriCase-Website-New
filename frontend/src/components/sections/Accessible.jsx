@@ -4,18 +4,18 @@ export const Accessible = () => {
   const audiences = [
     {
       icon: Scale,
-      title: "Law Firms & Arbitrators",
-      description: "Gain a competitive edge with faster, more accurate evidence review and analysis."
+      title: "Law Firms & Counsel",
+      description: "Receive a chronology and a claim or reply whose every citation resolves to the source document."
     },
     {
       icon: Calculator,
       title: "Claims Consultants & Experts",
-      description: "Build irrefutable claims supported by meticulously organized digital evidence."
+      description: "Build the narrative on contemporaneous records, and see who knew what, and when."
     },
     {
       icon: Building,
       title: "Contractors & In-House Counsel",
-      description: "Proactively manage project risks and resolve disputes efficiently."
+      description: "Turn the archives left by departed staff into a record your advisers can use."
     }
   ];
 

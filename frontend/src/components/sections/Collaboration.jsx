@@ -13,7 +13,7 @@ export const Collaboration = () => {
             From Email Fragmentation to Shared Evidence Command
           </h2>
           <p className="text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Critical records are dispersed across years of unstructured communications. VeriCase breaks down the silos that cripple dispute resolution. For the first time, project teams, legal counsel, barristers, and experts unite in a single collaborative workspace with sector-aware intelligence.
+            Critical records are dispersed across years of unstructured communications. VeriCase brings project teams, solicitors, counsel and experts into one workspace, where discussion takes place on the evidence itself rather than in separate email chains.
           </p>
         </div>
 
@@ -28,20 +28,20 @@ export const Collaboration = () => {
             
             <ul className="space-y-3 text-gray-700">
               <li className="flex items-start gap-3">
-                <span className="text-gray-400 mt-1">—</span>
+                <span className="text-gray-400 mt-1" aria-hidden="true">×</span>
                 <span className="text-sm leading-relaxed">Evidence scattered across custodians, years of email chains, and fragmented archives</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-gray-400 mt-1">—</span>
+                <span className="text-gray-400 mt-1" aria-hidden="true">×</span>
                 <span className="text-sm leading-relaxed">Loss of project knowledge over multi-year lifecycles and staff turnover</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-gray-400 mt-1">—</span>
+                <span className="text-gray-400 mt-1" aria-hidden="true">×</span>
                 <span className="text-sm leading-relaxed">Debating evidence merit in reply-all threads without structured workflow</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-gray-400 mt-1">—</span>
-                <span className="text-sm leading-relaxed">No audit trail of who reviewed, approved, or dismissed evidence—and why</span>
+                <span className="text-gray-400 mt-1" aria-hidden="true">×</span>
+                <span className="text-sm leading-relaxed">No record of who reviewed, approved or dismissed evidence, or why</span>
               </li>
             </ul>
           </div>
@@ -82,7 +82,7 @@ export const Collaboration = () => {
             </div>
             <h4 className="text-lg font-bold text-gray-900 mb-3">Contextual Discussion Threads</h4>
             <p className="text-sm text-gray-600 leading-relaxed">
-              Evidence-attached conversations replace email chains. Every decision—propose, review, accept, dismiss—is documented with full context and accessible to authorized team members.
+              Mention a colleague on a document and a discussion opens on that document. Each decision to propose, review, accept or set aside evidence is recorded in context and visible to authorised team members.
             </p>
           </div>
 
@@ -92,7 +92,7 @@ export const Collaboration = () => {
             </div>
             <h4 className="text-lg font-bold text-gray-900 mb-3">Heads-of-Claim Structuring</h4>
             <p className="text-sm text-gray-600 leading-relaxed">
-              Workspace sections aligned to claim categories. Evidence mapped and filtered by issue, party, period, and contractual context—enabling precise analysis by all team members.
+              Workspace sections aligned to Heads of Claim. Evidence is mapped and filtered by issue, party, period and contractual context, so every team member works from the same analysis.
             </p>
           </div>
 

@@ -1,8 +1,11 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from '@/context/AuthContext';
 import { Toaster } from '@/components/ui/sonner';
 import { LandingPage } from '@/pages/LandingPage';
 import { Login } from '@/pages/Login';
+import { Cookies } from '@/pages/Cookies';
+import { NotFound } from '@/pages/NotFound';
+import { CookieConsent } from '@/components/CookieConsent';
 import { useEffect } from 'react';
 
 // Component to handle external redirect to Egnyte
@@ -28,6 +31,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/cookies" element={<Cookies />} />
           <Route 
             path="/Fileserver" 
             element={<ExternalRedirect url="https://files.veri-case.com" />} 
@@ -36,7 +40,9 @@ function App() {
             path="/fileserver" 
             element={<ExternalRedirect url="https://files.veri-case.com" />} 
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
+        <CookieConsent />
         <Toaster />
       </AuthProvider>
     </Router>

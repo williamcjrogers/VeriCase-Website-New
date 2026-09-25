@@ -1,10 +1,12 @@
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { ArrowRight, Mail, FileText, ClipboardList, Camera } from 'lucide-react';
+import { STATS } from '@/content/stats';
+import { DEMO_MAILTO } from '@/lib/site';
+import { NoteRef, SourceNotes } from '@/components/SourceNotes';
+
+const HERO_STATS = ['majorProjects', 'sumsInDispute', 'adjudication'];
 
 export const Hero = () => {
-  const navigate = useNavigate();
-  
   return (
       <section
         className="relative py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden bg-gradient-to-br from-gray-50 to-white"
@@ -14,7 +16,6 @@ export const Hero = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Left Content */}
           <div className="space-y-6 text-center lg:text-left">
-            {/* PST Evidence System Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-50 border border-teal-200 rounded-full">
               <span className="text-xs font-bold uppercase tracking-wider text-teal-700">The Evidence Intelligence Platform</span>
             </div>
@@ -26,35 +27,38 @@ export const Hero = () => {
 
             {/* Description */}
             <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-600 max-w-2xl mx-auto lg:mx-0">
-              VeriCase approaches the evidence crisis differently. We don't just manage documents; we reconstruct truth. Where others see data graveyards, we see evidence goldmines. Our forensic-grade AI transforms scattered records into winning legal strategies.
+              VeriCase turns years of project email and documents into a single, cited chronology, so every point in a claim or defence can be traced to the record.
             </p>
 
             {/* Statistics */}
             <div className="grid grid-cols-3 gap-3 sm:gap-6 pt-4">
-              <div className="text-center lg:text-left">
-                <div className="text-2xl sm:text-3xl font-black text-teal-600">91%</div>
-                <div className="text-xs sm:text-sm text-gray-600 mt-1">Projects delayed</div>
-              </div>
-              <div className="text-center lg:text-left">
-                <div className="text-2xl sm:text-3xl font-black text-teal-600">£13bn</div>
-                <div className="text-xs sm:text-sm text-gray-600 mt-1">Annual industry loss</div>
-              </div>
-              <div className="text-center lg:text-left">
-                <div className="text-2xl sm:text-3xl font-black text-teal-600">3-4yr</div>
-                <div className="text-xs sm:text-sm text-gray-600 mt-1">Dispute lifecycle</div>
-              </div>
+              {HERO_STATS.map((key, index) => (
+                <div key={key} className="text-center lg:text-left">
+                  <div className="text-2xl sm:text-3xl font-black text-teal-600">
+                    {STATS[key].figure}
+                    <NoteRef n={index + 1} idPrefix="hero-source" />
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-600 mt-1">{STATS[key].short}</div>
+                </div>
+              ))}
             </div>
-            
+            <SourceNotes keys={HERO_STATS} idPrefix="hero-source" className="text-left max-w-2xl mx-auto lg:mx-0" />
+
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 justify-center lg:justify-start">
-              <Button 
+              <Button
+                asChild
                 size="lg"
                 className="font-semibold text-white shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-xl px-6 sm:px-10 py-4 sm:py-7 text-base sm:text-lg group"
                 style={{ background: 'linear-gradient(135deg, #0D9488 0%, #0F766E 100%)' }}
-                onClick={() => window.open('https://files.veri-case.com', '_blank')}
               >
-                Access Secure Portal
-                <ArrowRight className="ml-2 w-4 sm:w-5 h-4 sm:h-5 group-hover:translate-x-1 transition-transform" />
+                <a href={DEMO_MAILTO} data-testid="hero-cta">
+                  Book a demonstration
+                  <ArrowRight className="ml-2 w-4 sm:w-5 h-4 sm:h-5 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="font-semibold px-6 sm:px-10 py-4 sm:py-7 text-base sm:text-lg">
+                <a href="#how-it-works">See how it works</a>
               </Button>
             </div>
           </div>
@@ -69,9 +73,8 @@ export const Hero = () => {
                       <span style={{ color: '#1a1a1a', fontFamily: 'Playfair Display, Georgia, serif', fontWeight: 400 }}>Chronology</span>
                       <span style={{ color: '#0066cc', fontFamily: 'Playfair Display, Georgia, serif', fontWeight: 700 }}>Lens</span>
                       <span style={{ color: '#666666', fontSize: '0.6em', verticalAlign: 'super', position: 'relative', top: '-0.2em', fontWeight: 600 }}>™</span>
-                      <span className="ml-2" style={{ color: '#1a1a1a', fontFamily: 'Playfair Display, Georgia, serif', fontWeight: 400 }}>Live</span>
                     </h3>
-                    <p className="text-xs md:text-sm text-gray-600 mt-1">Processing real construction data</p>
+                    <p className="text-xs md:text-sm text-gray-600 mt-1">Illustrative example with fictional data</p>
                   </div>
             
             <div className="grid grid-cols-3 gap-4 items-center">
@@ -80,16 +83,16 @@ export const Hero = () => {
                 <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Your Evidence</p>
                 <div className="space-y-2">
                   <div className="px-3 py-2 bg-gray-100 rounded text-xs text-gray-700 font-medium">
-                    <span className="text-teal-600">📧</span> 47,832 Emails
+                    <Mail className="inline w-3.5 h-3.5 mr-1 text-teal-700" aria-hidden="true" />47,832 emails
                   </div>
                   <div className="px-3 py-2 bg-gray-100 rounded text-xs text-gray-700 font-medium">
-                    <span className="text-teal-600">📄</span> 3,421 Contracts
+                    <FileText className="inline w-3.5 h-3.5 mr-1 text-teal-700" aria-hidden="true" />3,421 contract documents
                   </div>
                   <div className="px-3 py-2 bg-gray-100 rounded text-xs text-gray-700 font-medium">
-                    <span className="text-teal-600">📊</span> 892 Site Reports
+                    <ClipboardList className="inline w-3.5 h-3.5 mr-1 text-teal-700" aria-hidden="true" />892 site reports
                   </div>
                   <div className="px-3 py-2 bg-gray-100 rounded text-xs text-gray-700 font-medium">
-                    <span className="text-teal-600">📷</span> 12,453 Photos
+                    <Camera className="inline w-3.5 h-3.5 mr-1 text-teal-700" aria-hidden="true" />12,453 photographs
                   </div>
                 </div>
               </div>
@@ -98,32 +101,32 @@ export const Hero = () => {
               <div className="flex flex-col items-center justify-center">
                 <img 
                   src="/ChronoLensVertical.jpg" 
-                  alt="The Chronology Lens Process" 
+                  alt="The Chronology Lens: alignment, focus and filter, focused timeline" 
                   className="h-64 w-auto"
                 />
               </div>
               
               {/* Timeline Output */}
               <div className="space-y-3">
-                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Forensic Timeline</p>
+                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Cited chronology</p>
                 <div className="relative">
                   <div className="absolute left-2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-teal-500 to-blue-500"></div>
                   <div className="space-y-2">
                     <div className="flex items-center gap-2">
                       <div className="w-4 h-4 bg-teal-500 rounded-full shadow-sm"></div>
-                      <div className="px-3 py-1 bg-teal-50 border border-teal-200 rounded text-xs font-medium">Jan 12 — Contract Var CV-042</div>
+                      <div className="px-3 py-1 bg-teal-50 border border-teal-200 rounded text-xs font-medium">12 Jan: Change instruction CV-042</div>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="w-4 h-4 bg-teal-500 rounded-full shadow-sm"></div>
-                      <div className="px-3 py-1 bg-teal-50 border border-teal-200 rounded text-xs font-medium">Jan 28 — Weather Event</div>
+                      <div className="px-3 py-1 bg-teal-50 border border-teal-200 rounded text-xs font-medium">28 Jan: Notice of delay</div>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="w-4 h-4 bg-teal-500 rounded-full shadow-sm"></div>
-                      <div className="px-3 py-1 bg-teal-50 border border-teal-200 rounded text-xs font-medium">Feb 15 — Design RFI-2134</div>
+                      <div className="px-3 py-1 bg-teal-50 border border-teal-200 rounded text-xs font-medium">15 Feb: Design RFI-2134</div>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="w-4 h-4 bg-red-500 rounded-full shadow-sm"></div>
-                      <div className="px-3 py-1 bg-red-50 border border-red-200 rounded text-xs font-medium">Mar 03 — Variation Instruction</div>
+                      <div className="px-3 py-1 bg-red-50 border border-red-200 rounded text-xs font-medium">3 Mar: Revised programme</div>
                     </div>
                   </div>
                 </div>
@@ -145,20 +148,20 @@ export const Hero = () => {
               <div className="flex items-center justify-around gap-2 text-center">
                 <div className="flex-1">
                   <div className="text-2xl font-bold text-teal-600 mb-1">47K+</div>
-                  <div className="text-[10px] text-gray-600">Documents</div>
+                  <div className="text-xs text-gray-600">Documents</div>
                 </div>
-                <div className="text-teal-500">→</div>
+                <div className="text-teal-600" aria-hidden="true">→</div>
                 <div className="flex-1">
                   <img 
                     src="/ChronoLensVertical.jpg" 
-                    alt="Process" 
+                    alt="The Chronology Lens process" 
                     className="h-16 w-auto mx-auto opacity-80"
                   />
                 </div>
-                <div className="text-teal-500">→</div>
+                <div className="text-teal-600" aria-hidden="true">→</div>
                 <div className="flex-1">
                   <div className="text-2xl font-bold text-teal-600 mb-1">1</div>
-                  <div className="text-[10px] text-gray-600">Timeline</div>
+                  <div className="text-xs text-gray-600">Chronology</div>
                 </div>
               </div>
             </div>

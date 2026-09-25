@@ -1,4 +1,28 @@
-import { Linkedin, Twitter, Youtube } from 'lucide-react';
+import { COMPANY, CONTACT_EMAIL, DEMO_MAILTO, SIGN_IN_URL } from '@/lib/site';
+
+const FOOTER_COLUMNS = [
+  {
+    heading: 'Platform',
+    links: [
+      { label: 'What VeriCase does', href: '/#platform' },
+      { label: 'How it works', href: '/#how-it-works' }
+    ]
+  },
+  {
+    heading: 'Company',
+    links: [
+      { label: 'Book a demonstration', href: DEMO_MAILTO },
+      { label: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
+      { label: 'Sign in', href: SIGN_IN_URL }
+    ]
+  },
+  {
+    heading: 'Legal',
+    links: [
+      { label: 'Cookies', href: '/cookies' }
+    ]
+  }
+];
 
 export const SiteFooter = () => {
   return (
@@ -7,126 +31,44 @@ export const SiteFooter = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Logo and Tagline */}
           <div className="lg:col-span-1">
-            <div className="mb-6">
-              <img 
-                src="/VeriCase.png" 
-                alt="VeriCase" 
-                className="h-12"
+            <div className="mb-6 inline-block rounded-lg bg-white px-4 py-3">
+              <img
+                src="/assets/LOGOTOBEUSED.png"
+                alt="VeriCase"
+                className="h-8 w-auto"
               />
             </div>
-            <p className="text-sm leading-relaxed text-gray-400 mb-6">
-              The evidence intelligence platform that turns years of complex construction documentation into winning arguments. Trusted by the industry's leading contractors, consultants, and legal teams.
+            <p className="text-sm leading-relaxed text-gray-400">
+              The evidence intelligence platform for construction disputes: evidence, chronology, claims and rebuttal, with every point cited to its source.
             </p>
-            {/* Social Links */}
-            <div className="flex gap-3">
-              <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-teal-600 rounded-lg flex items-center justify-center transition-colors duration-200">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-teal-600 rounded-lg flex items-center justify-center transition-colors duration-200">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-teal-600 rounded-lg flex items-center justify-center transition-colors duration-200">
-                <Youtube className="w-5 h-5" />
-              </a>
+          </div>
+
+          {FOOTER_COLUMNS.map((column) => (
+            <div key={column.heading}>
+              <h2 className="font-bold text-base mb-6 text-white">{column.heading}</h2>
+              <ul className="space-y-3">
+                {column.links.map((link) => (
+                  <li key={link.label}>
+                    <a href={link.href} className="text-sm hover:text-teal-400 transition-colors duration-200">
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
-
-          {/* Product Links */}
-          <div>
-            <h4 className="font-bold text-base mb-6 text-white">Product</h4>
-            <ul className="space-y-3">
-              <li>
-                <a href="#features" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Features
-                </a>
-              </li>
-              <li>
-                <a href="#integrations" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Integrations
-                </a>
-              </li>
-              <li>
-                <a href="#security" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Security
-                </a>
-              </li>
-              <li>
-                <a href="#pricing" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <a href="#roadmap" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Roadmap
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Solutions Links */}
-          <div>
-            <h4 className="font-bold text-base mb-6 text-white">Solutions</h4>
-            <ul className="space-y-3">
-              <li>
-                <a href="#quantum" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Quantum Assessment
-                </a>
-              </li>
-              <li>
-                <a href="#adjudication" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Adjudication
-                </a>
-              </li>
-              <li>
-                <a href="#arbitration" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Arbitration
-                </a>
-              </li>
-              <li>
-                <a href="#litigation" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Litigation
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Company Links */}
-          <div>
-            <h4 className="font-bold text-base mb-6 text-white">Company</h4>
-            <ul className="space-y-3">
-              <li>
-                <a href="#about" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="#careers" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a href="#partners" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Partners
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Contact
-                </a>
-              </li>
-              <li>
-                <a href="#blog" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Blog
-                </a>
-              </li>
-            </ul>
-          </div>
+          ))}
         </div>
 
-        {/* Copyright */}
-        <div className="pt-8 border-t border-gray-800 text-center">
+        {/* Legal disclosures */}
+        <div className="pt-8 border-t border-gray-800 text-center space-y-2">
           <p className="text-sm text-gray-400">
-            © {new Date().getFullYear()} VeriCase Ltd. All rights reserved. Company No. 14789532 | VAT No. GB 445 2891 47
+            © {new Date().getFullYear()} {COMPANY.name}. All rights reserved.
+          </p>
+          <p className="text-xs text-gray-500" data-testid="company-disclosure">
+            {COMPANY.name} is registered in England and Wales (company number {COMPANY.number}). Registered office: {COMPANY.registeredOffice}.
+          </p>
+          <p className="text-xs text-gray-500">
+            VeriCase™ and Chronology Lens™ are trade marks of {COMPANY.name}.
           </p>
         </div>
       </div>
