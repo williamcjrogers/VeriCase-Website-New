@@ -2,7 +2,7 @@ import { createContext, useCallback, useContext, useMemo, useRef, useState } fro
 import { ChevronLeft, ChevronRight, Paperclip } from 'lucide-react';
 import { Sheet, SheetContent, SheetDescription, SheetTitle } from '@/components/ui/sheet';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
-import { HASHES, addressLabel, kindLabel, personLabel, recordById } from '@/content/sampleMatter';
+import { HASHES, addressLabel, kindLabel, personLabel, recordById } from '@/content/records';
 import { Gated } from '@/components/editorial/Gated';
 import { formatDate, truncateHash } from '@/lib/format';
 
@@ -76,7 +76,7 @@ function SourceSheet({ state, setState, onClose, invoker }) {
               <SheetTitle className="font-mono text-[0.9375rem] font-medium tracking-[0.02em] text-white">
                 {r.id} · {kindLabel(r)}
               </SheetTitle>
-              <SheetDescription className="mt-0.5 text-[0.8125rem] text-white/90">
+              <SheetDescription className="mt-0.5 text-[0.8125rem] text-white">
                 Sample matter (fictional). {r.subject}
               </SheetDescription>
             </div>

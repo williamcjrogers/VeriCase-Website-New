@@ -139,12 +139,10 @@ export default function ResearchDemo() {
         </div>
       </div>
 
-      {/* The reference is set in full white: MockWindow's own text-white/90 gives 4.13:1 on
-          azure-500 at 12 px (PENDING shared change to MockWindow.jsx). Below 360 px it gives
-          way to the title. */}
+      {/* Below 360 px the matter reference gives way to the title. */}
       <MockWindow
         title={UI.window}
-        right={<span className="text-white max-[359px]:hidden">{MATTER.reference}</span>}
+        right={<span className="max-[359px]:hidden">{MATTER.reference}</span>}
         className="rs-window"
         bodyClassName="rs-canvas"
       >

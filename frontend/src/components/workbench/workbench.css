@@ -8,10 +8,6 @@
 .wb-root :focus-visible,
 .wb-pop :focus-visible { outline: 3px solid var(--vc-azure-500); outline-offset: 2px; box-shadow: none; }
 
-/* Below 360 px the window's title needs the room its three dots take (see the report: a shared
-   change to MockWindow would do this for every mock). */
-@media (max-width: 359px) { .wb-root > div:first-child > div > span:first-child { display: none; } }
-
 /* Mono labels: sentence case in the source, capitals by CSS. */
 .wb-label {
   font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;

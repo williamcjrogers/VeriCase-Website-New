@@ -1,3 +1,4 @@
+import { MEDIA } from '@/content/media';
 import { STATS } from '@/content/stats';
 
 // Numbered notes are cited in the text with [[note:n]] (a brass superscript that opens a Popover).
@@ -84,8 +85,10 @@ export const LETTERED_NOTES = [
   {
     k: 'B',
     title: 'Imagery.',
-    body:
-      'Photographs and video captioned as illustrative, and the scanned diary page shown as EV-0144, are AI-generated. They do not depict a VeriCase client, project, person or matter.',
+    // Until the EV-0144 scan image is approved, the page is drawn in code (note A covers it).
+    body: MEDIA.diaryPage.src
+      ? 'Photographs and video captioned as illustrative, and the scanned diary page shown as EV-0144, are AI-generated. They do not depict a VeriCase client, project, person or matter.'
+      : 'Photographs and video captioned as illustrative are AI-generated. They do not depict a VeriCase client, project, person or matter.',
   },
   {
     k: 'C',

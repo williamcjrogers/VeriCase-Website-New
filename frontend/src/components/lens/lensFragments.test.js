@@ -5,13 +5,6 @@ import { STOPS, stageOf, INITIAL_X } from './lensStages';
 import { COVER } from '../../content/home';
 import { WORKBENCH } from '../../content/sampleMatter';
 
-// The app resolves "@/" to src; the test runner does not, so the modules are mapped here.
-jest.mock('@/content/home', () => require('../../content/home'), { virtual: true });
-jest.mock('@/content/sampleMatter', () => require('../../content/sampleMatter'), { virtual: true });
-jest.mock('@/content/sampleEvidence.json', () => require('../../content/sampleEvidence.json'), { virtual: true });
-jest.mock('@/content/sampleHashes.json', () => require('../../content/sampleHashes.json'), { virtual: true });
-jest.mock('@/lib/format', () => require('../../lib/format'), { virtual: true });
-
 const t = Object.fromEntries(FRAGMENTS.map((f) => [f.id, f.t]));
 const desktop = FRAGMENTS;
 const mobile = FRAGMENTS.filter((f) => !f.desktopOnly);

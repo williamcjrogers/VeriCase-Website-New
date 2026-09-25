@@ -30,6 +30,12 @@ if (config.enableHealthCheck) {
 }
 
 const webpackConfig = {
+  // The test runner resolves the same "@/" alias as the build.
+  jest: {
+    configure: {
+      moduleNameMapper: { '^@/(.*)$': '<rootDir>/src/$1' },
+    },
+  },
   webpack: {
     alias: {
       '@': path.resolve(__dirname, 'src'),

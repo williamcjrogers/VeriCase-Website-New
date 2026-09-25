@@ -23,7 +23,7 @@ const WithChips = ({ text }) =>
 export const DiscussionMock = () => {
   const [ref, inView] = useInViewOnce({ threshold: 0.3 });
   return (
-    <MockWindow title={WORKBENCH.window} right={<span className="hidden text-white sm:inline">Fig. 6</span>} className="cb-root">
+    <MockWindow title={WORKBENCH.window} right={<span className="hidden sm:inline">Fig. 6</span>} className="cb-root">
       <div ref={ref} className={cn('relative grid md:grid-cols-2', inView && 'is-in')}>
         <span aria-hidden="true" className="draw-x absolute inset-x-0 top-[3.25rem] z-[1] hidden h-px bg-brass-400 duration-300 md:block" />
 

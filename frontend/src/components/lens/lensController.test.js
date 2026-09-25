@@ -3,8 +3,6 @@
 import { bezier, mountLens, moveDuration, nextStop, playDuration, prevStop } from './lensController';
 import { stageOf } from './lensStages';
 
-jest.mock('@/components/lens/lensStages', () => require('./lensStages'), { virtual: true });
-
 const VALUE_TEXT = ['Stage 0', 'Stage 1', 'Stage 2', 'Stage 3', 'Stage 4', 'Stage 5'];
 const MARKS = [6, 14, 24, 34, 44, 50, 56, 64, 72];
 

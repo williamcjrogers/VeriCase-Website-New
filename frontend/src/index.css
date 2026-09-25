@@ -128,6 +128,8 @@
     border-radius: 2px;
     cursor: pointer;
   }
+  /* Citation buttons are atomic boxes in any case; inline-flex keeps them measured as such. */
+  button.superscript-ref { display: inline-flex; align-items: flex-start; }
   .superscript-ref.is-note { color: var(--vc-brass-700); }
   .on-ink .superscript-ref.is-note, .superscript-ref.is-note.on-ink-ref { color: var(--vc-brass-400); }
   .on-ink .on-paper .superscript-ref.is-note { color: var(--vc-brass-700); }
@@ -209,6 +211,11 @@
     font-weight: 500;
   }
   .skip-link:focus { top: 0.75rem; }
+
+  /* Container side padding: 16 px, 24 px from 640 px and 40 px from 1024 px. (Tailwind applies
+     the container's padding keys only at the container's own screens, and it has just one.) */
+  @media (min-width: 640px) { .container { padding-left: 1.5rem; padding-right: 1.5rem; } }
+  @media (min-width: 1024px) { .container { padding-left: 2.5rem; padding-right: 2.5rem; } }
 
   /* Buttons: 2 px radius, 44 px targets, one weight. Primary is azure-700 (white on it 6.77:1). */
   .vc-btn {
@@ -412,6 +419,7 @@
     animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transition-property: none !important;
     scroll-behavior: auto !important;
   }
   /* Final states from first paint, without waiting for fonts-ready or JavaScript */

@@ -87,7 +87,7 @@ export function LensWorkbench({ bundleLink }) {
   };
 
   return (
-    <MockWindow title={WORKBENCH.window} right={<span className="hidden text-white sm:inline">Fig. 3</span>} className="wb-root flex h-full flex-col" bodyClassName="flex min-h-0 flex-1 flex-col">
+    <MockWindow title={WORKBENCH.window} right={<span className="hidden sm:inline">Fig. 3</span>} className="wb-root flex h-full flex-col" bodyClassName="flex min-h-0 flex-1 flex-col">
       <MockTabs value={tab} onValueChange={setTab} className="flex min-h-0 flex-1 flex-col">
         <MockTabList label="Workbench" className="wb-tabs">
           <MockTab value="lens" className="wb-tab">

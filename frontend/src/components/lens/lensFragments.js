@@ -3,18 +3,11 @@
 // percentages of the field: `d` for the desktop cast (5:4), `m` for the mobile cast (4:5).
 // EV-0144 and N-1 are desktop only; CSS removes them below 640 px from first paint.
 import { COVER } from '@/content/home';
-import { LENS_ROWS, NOISE, PARTIES, WORKBENCH, recordById } from '@/content/sampleMatter';
+import { LENS_ROWS, NOISE, PARTIES, recordById } from '@/content/records';
 import { fill, formatDate } from '@/lib/format';
 
-// PENDING shared change: these processing labels are in the spec (3.3, "Fragment processing
-// labels") but not yet in src/content/home.js. Proposed home: COVER.fig.chips.
-export const PENDING_CHIPS = {
-  thread: 'Thread {n} · {count} messages',
-  references: 'Threaded by References header',
-  ocr: 'Scanned page read by OCR',
-  attachment: 'Attachment extracted: {file}',
-  placed: 'Placed in order: {date}',
-};
+// The processing labels (spec 3.3, "Fragment processing labels").
+const CHIPS = COVER.fig.chips;
 
 // Column heads over the chronology, and the name of the stage rail (small UI strings).
 export const HEADS = { date: 'Date', time: 'Time', parties: 'Parties', exhibit: 'Exhibit' };
@@ -36,9 +29,9 @@ export const FRAGMENTS = [
     d: [3, 8, -3],
     m: [3, 2, -3],
     effect: 'straighten',
-    chip: fill(PENDING_CHIPS.thread, { n: 1, count: thread.length }),
+    chip: fill(CHIPS.thread, { n: 1, count: thread.length }),
   },
-  { id: 'EV-0138', kind: 'email', t: 14, d: [12, 46, 2], m: [7, 44, 2], chip: PENDING_CHIPS.references },
+  { id: 'EV-0138', kind: 'email', t: 14, d: [12, 46, 2], m: [7, 44, 2], chip: CHIPS.references },
   {
     id: 'EV-0139',
     kind: 'email',
@@ -47,10 +40,10 @@ export const FRAGMENTS = [
     m: [20, 17, -1.5],
     effect: 'fold',
     gate: 'G5_quoted',
-    chip: fill(WORKBENCH.quotedChip, { n: recordById('EV-0139').quoted.length }),
+    chip: fill(CHIPS.quoted, { n: recordById('EV-0139').quoted.length }),
   },
   // The thumbnail's label hangs beside it, so it leaves once the lens has passed the page (`until`).
-  { id: 'EV-0144', kind: 'scan', t: 34, until: 50, d: [32, 62, 3], m: null, effect: 'scan', chip: PENDING_CHIPS.ocr, desktopOnly: true },
+  { id: 'EV-0144', kind: 'scan', t: 34, until: 50, d: [32, 62, 3], m: null, effect: 'scan', chip: CHIPS.ocr, desktopOnly: true },
   { id: 'N-3', kind: 'nearDuplicate', t: 44, d: [42, 47, 4], m: [37, 31, 4], effect: 'duplicate', aside: true, gate: noise('N-3').gate, chip: noise('N-3').fate },
   { id: 'N-1', kind: 'autoReply', t: 50, d: [50, 70, -4], m: null, effect: 'fade', aside: true, gate: noise('N-1').gate, chip: noise('N-1').fate, desktopOnly: true },
   { id: 'N-2', kind: 'otherProject', t: 56, d: [56, 10, -2], m: [52, 4, -2], effect: 'exclude', aside: true, chip: noise('N-2').fate },
@@ -61,7 +54,7 @@ export const FRAGMENTS = [
     d: [64, 44, 2.5],
     m: [55, 52, 2.5],
     effect: 'attachment',
-    chip: fill(PENDING_CHIPS.attachment, { file: recordById('EV-0147').attachments[0] }),
+    chip: fill(CHIPS.attachment, { file: recordById('EV-0147').attachments[0] }),
   },
   {
     id: 'EV-0151',
@@ -69,7 +62,7 @@ export const FRAGMENTS = [
     t: 72,
     d: [70, 72, -1],
     m: [55, 77, -1],
-    chip: fill(PENDING_CHIPS.placed, { date: formatDate(recordById('EV-0151').date) }),
+    chip: fill(CHIPS.placed, { date: formatDate(recordById('EV-0151').date) }),
   },
 ].map((f) => ({ ...f, card: cardOf(f) }));
 

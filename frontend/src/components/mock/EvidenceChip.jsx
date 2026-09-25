@@ -1,4 +1,4 @@
-import { recordPhrase } from '@/content/sampleMatter';
+import { recordPhrase } from '@/content/records';
 import { useSourceSheet } from '@/components/mock/SourceSheet';
 import { cn } from '@/lib/utils';
 

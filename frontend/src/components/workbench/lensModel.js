@@ -3,12 +3,11 @@
 import { NOISE, PARTIES, PERIOD_PRESETS, RECORDS, WORKBENCH, addressLabel, personLabel } from '@/content/sampleMatter';
 import { fill, formatDate, plural } from '@/lib/format';
 
-// PENDING shared change (content/sampleMatter.js, WORKBENCH): the keyword marker of spec 3.5 and
-// the per-keyword split of excludedByKeyword (14), so that removing a keyword can be counted.
-export const KEYWORD_MARKER = '{n} items excluded by keyword';
-export const KEYWORD_COUNTS = { newsletter: 9, canteen: 1, parking: 4 };
-// PENDING shared change: singular forms of the two markers.
-const ONE = { [WORKBENCH.hiddenMarker]: '1 entry hidden by filter', [KEYWORD_MARKER]: '1 item excluded by keyword' };
+// The keyword marker of spec 3.5 and the per-keyword split of the 14 items it excludes.
+export const KEYWORD_MARKER = WORKBENCH.keywordMarker;
+export const KEYWORD_COUNTS = WORKBENCH.excludedByEachKeyword;
+// Singular forms of the two markers.
+const ONE = { [WORKBENCH.hiddenMarker]: WORKBENCH.hiddenMarkerOne, [KEYWORD_MARKER]: WORKBENCH.keywordMarkerOne };
 
 // "{n} entries hidden by filter", with its singular form.
 export const marker = (template, n) => (n === 1 && ONE[template]) || fill(template, { n });
