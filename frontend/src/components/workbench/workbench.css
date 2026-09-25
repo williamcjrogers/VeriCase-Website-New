@@ -1,0 +1,490 @@
+/* Chapter II, Fig. 3: the Chronology Lens workbench and File Manager. Every class is prefixed
+   wb-. The workbench is a lazily loaded chunk, so this file loads with it. */
+
+/* Hidden panels and collapsed content stay hidden whatever display a class gives them. */
+.wb-root [hidden] { display: none !important; }
+
+/* Radix controls drop the global outline for a thin ring: restore the 3 px outline. */
+.wb-root :focus-visible,
+.wb-pop :focus-visible { outline: 3px solid var(--vc-azure-500); outline-offset: 2px; box-shadow: none; }
+
+/* Below 360 px the window's title needs the room its three dots take (see the report: a shared
+   change to MockWindow would do this for every mock). */
+@media (max-width: 359px) { .wb-root > div:first-child > div > span:first-child { display: none; } }
+
+/* Mono labels: sentence case in the source, capitals by CSS. */
+.wb-label {
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vc-graphite);
+}
+.wb-mono { font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-size: 0.75rem; font-variant-numeric: tabular-nums slashed-zero; white-space: nowrap; }
+
+/* Window tabs: Chronology Lens and File Manager. */
+.wb-tabs { display: flex; flex: none; align-items: stretch; gap: 0.25rem; height: 2.75rem; padding: 0 0.5rem; background: var(--vc-paper); border-bottom: 1px solid var(--vc-rule); }
+.wb-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--vc-graphite);
+  transition: color 150ms var(--ease-settle);
+}
+.wb-tab:hover, .wb-tab[aria-selected='true'] { color: var(--vc-navy); }
+.wb-tab svg { color: var(--vc-azure-700); }
+.wb-tab::after {
+  content: '';
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: -1px;
+  height: 2px;
+  background: var(--vc-azure-500);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms var(--ease-settle);
+}
+.wb-tab[aria-selected='true']::after { transform: none; }
+
+/* The Lens tab: the ledger rail from 1024 px, and the main column. */
+.wb-lens { display: flex; flex: 1 1 auto; flex-direction: column; min-height: 0; background: var(--vc-parchment); }
+@media (min-width: 1024px) { .wb-lens { display: grid; grid-template-columns: 13.5rem minmax(0, 1fr); } }
+.wb-main { position: relative; display: flex; flex: 1 1 auto; flex-direction: column; min-width: 0; min-height: 0; }
+
+/* The ingestion ledger. Leaders are an empty inline box with a dotted rule, clipped by the
+   label, so they run from the end of the label's last line to the figure. */
+.wb-rail { display: none; }
+@media (min-width: 1024px) {
+  .wb-rail { display: block; min-height: 0; overflow-y: auto; padding: 1rem 0.875rem 1.25rem 1rem; background: var(--vc-paper); border-right: 1px solid var(--vc-rule); }
+}
+.wb-archive {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--vc-navy);
+  overflow-wrap: anywhere;
+}
+.wb-rail .wb-archive { padding-bottom: 0.75rem; border-bottom: 1px solid var(--vc-rule); }
+.wb-ledger { display: grid; gap: 0.7rem; margin: 0; font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-size: 0.75rem; line-height: 1.45; }
+.wb-ledger-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; column-gap: 0.375rem; }
+.wb-ledger-row dt { overflow: hidden; color: var(--vc-ink); }
+.wb-ledger-row dt::after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+  margin-left: 0.3rem;
+  margin-right: calc(-100% - 0.3rem);
+  border-bottom: 1px dotted var(--vc-brass-400);
+}
+.wb-ledger-row dd { margin: 0; font-weight: 500; color: var(--vc-navy); font-variant-numeric: tabular-nums; }
+
+.wb-ledger-fold { flex: none; background: var(--vc-paper); border-bottom: 1px solid var(--vc-rule); }
+@media (min-width: 1024px) { .wb-ledger-fold { display: none; } }
+.wb-fold-trigger {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0 1rem;
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--vc-navy);
+}
+
+/* Collapsible height (Radix sets the variable). */
+.wb-collapse { overflow: hidden; }
+.wb-collapse[data-state='open'] { animation: wb-open 200ms var(--ease-settle); }
+.wb-collapse[data-state='closed'] { animation: wb-close 200ms var(--ease-exit); }
+@keyframes wb-open { from { height: 0; } to { height: var(--radix-collapsible-content-height); } }
+@keyframes wb-close { from { height: var(--radix-collapsible-content-height); } to { height: 0; } }
+
+/* Toolbar */
+.wb-toolbar { flex: none; padding: 0.75rem 1rem 0.8125rem; background: var(--vc-paper); border-bottom: 1px solid var(--vc-rule); }
+
+/* Cards or Table: the active view sits under the Lens band. */
+.wb-seg { position: relative; display: inline-grid; grid-auto-columns: minmax(0, 1fr); grid-auto-flow: column; gap: 0; height: 2.25rem; padding: 0; border: 1px solid var(--vc-rule-strong); border-radius: 2px; background: var(--vc-paper); }
+.wb-lensband {
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  left: 0;
+  width: 50%;
+  background: var(--vc-azure-50);
+  border-left: 2px solid var(--vc-azure-500);
+  border-right: 2px solid var(--vc-azure-500);
+  transition: transform 240ms var(--ease-glide);
+}
+.wb-seg[data-value='table'] .wb-lensband { transform: translateX(100%); }
+/* Bezel ticks: two brass marks at the top and bottom of each edge. */
+.wb-lensband::before,
+.wb-lensband::after { content: ''; position: absolute; left: -2px; right: -2px; height: 3px; border-left: 2px solid var(--vc-brass-400); border-right: 2px solid var(--vc-brass-400); }
+.wb-lensband::before { top: -3px; }
+.wb-lensband::after { bottom: -3px; }
+
+/* Filter chips that open popovers: the key in mono above the value. */
+.wb-filter {
+  display: inline-grid;
+  grid-template-columns: minmax(0, auto) auto;
+  align-items: center;
+  column-gap: 0.625rem;
+  max-width: 100%;
+  min-height: 2.75rem;
+  padding: 0.3rem 0.5rem 0.3rem 0.625rem;
+  text-align: left;
+  background: var(--vc-parchment-300);
+  border: 1px solid var(--vc-rule-strong);
+  border-radius: 2px;
+  transition: border-color 150ms var(--ease-settle), background-color 150ms var(--ease-settle);
+}
+.wb-filter .chip-key { grid-column: 1; grid-row: 1; }
+.wb-filter .chip-value { grid-column: 1; grid-row: 2; }
+.wb-filter-caret { grid-column: 2; grid-row: 1 / span 2; width: 1rem; height: 1rem; color: var(--vc-graphite); transition: transform 200ms var(--ease-settle); }
+.wb-filter:hover { border-color: var(--vc-navy); }
+.wb-filter[data-state='open'] { background: var(--vc-azure-50); border-color: var(--vc-azure-500); }
+.wb-filter[data-state='open'] .wb-filter-caret { transform: rotate(180deg); }
+
+/* Removable chips: excluded keywords, tags and mentions. */
+.wb-keyword {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-height: 1.75rem;
+  padding: 0 0.375rem 0 0.625rem;
+  font-size: 0.8125rem;
+  line-height: 1.2;
+  color: var(--vc-ink);
+  background: var(--vc-parchment-300);
+  border: 1px solid var(--vc-rule-strong);
+  border-radius: 2px;
+  transition: border-color 150ms var(--ease-settle);
+}
+.wb-keyword svg { color: var(--vc-graphite); }
+.wb-keyword:hover { border-color: var(--vc-navy); }
+.wb-keyword:hover svg { color: var(--vc-navy); }
+
+/* Buttons inside the mock are a size down from the page's. */
+.wb-btn { min-height: 2.25rem; padding: 0.375rem 0.75rem; font-size: 0.8125rem; }
+.wb-btn svg { flex: none; }
+
+/* Popover options (date windows and the Smart Filter). */
+.wb-option { display: flex; align-items: center; gap: 0.625rem; min-height: 2.25rem; padding: 0.25rem 0.375rem; font-size: 0.875rem; color: var(--vc-ink); border-radius: 2px; cursor: pointer; }
+.wb-option:hover { background: var(--vc-parchment); }
+.wb-radio svg { width: 0.5rem; height: 0.5rem; }
+
+/* The list of entries scrolls inside the window; the drawer lies over it. */
+.wb-listwrap { position: relative; flex: 1 1 auto; min-height: 0; }
+.wb-list { height: 100%; overflow-y: auto; }
+
+/* Cards view: a date column, a spine with a node at each entry, and the card. */
+.wb-cards { list-style: none; margin: 0; padding: 1rem 1rem 0.25rem 0.75rem; }
+.wb-entry, .wb-gap { position: relative; display: grid; grid-template-columns: 1.5rem minmax(0, 1fr); column-gap: 0.25rem; padding-bottom: 0.75rem; }
+@media (min-width: 640px) { .wb-entry, .wb-gap { grid-template-columns: 6.25rem 1.5rem minmax(0, 1fr); } }
+.wb-when { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.5rem; grid-column: 2; grid-row: 1; margin-bottom: 0.375rem; font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-variant-numeric: tabular-nums slashed-zero; }
+.wb-date { font-size: 0.75rem; font-weight: 500; color: var(--vc-navy); }
+.wb-time { font-size: 0.75rem; color: var(--vc-graphite); }
+.wb-node { position: relative; grid-column: 1; grid-row: 1 / span 2; justify-self: center; width: 1px; }
+.wb-card { position: relative; grid-column: 2; grid-row: 2; min-width: 0; }
+@media (min-width: 640px) {
+  .wb-when { display: block; grid-column: 1; grid-row: 1; margin: 0; padding-top: 0.75rem; text-align: right; }
+  .wb-when > span { display: block; }
+  .wb-node { grid-column: 2; grid-row: 1; }
+  .wb-card { grid-column: 3; grid-row: 1; }
+}
+.wb-node::before { content: ''; position: absolute; top: 0; bottom: -0.75rem; left: 0; width: 1px; background: var(--vc-rule); }
+.wb-node::after {
+  content: '';
+  position: absolute;
+  top: 0.25rem;
+  left: -4px;
+  width: 9px;
+  height: 9px;
+  background: var(--vc-paper);
+  border: 1.5px solid var(--vc-azure-500);
+  border-radius: 50%;
+  transition: background-color 150ms var(--ease-settle);
+}
+@media (min-width: 640px) { .wb-node::after { top: 1rem; } }
+.wb-cards > li:first-child .wb-node::before { top: 0.5rem; }
+.wb-cards > li:last-child .wb-node::before { bottom: auto; height: 0.5rem; }
+.wb-entry[data-selected] .wb-node::after { background: var(--vc-azure-500); }
+
+/* A run of entries hidden by a filter: the spine turns dashed and says how many. */
+.wb-gap::before { content: ''; position: absolute; top: 0; bottom: 0; left: 0.75rem; border-left: 1px dashed var(--vc-rule-strong); }
+@media (min-width: 640px) { .wb-gap::before { left: 7.25rem; } }
+.wb-gap-label {
+  grid-column: 2;
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.625rem;
+  padding: 0 0.5rem;
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  color: var(--vc-graphite);
+  background: var(--vc-paper);
+  border: 1px dashed var(--vc-rule-strong);
+  border-radius: 2px;
+}
+@media (min-width: 640px) { .wb-gap .wb-gap-label { grid-column: 3; } }
+.wb-gap-flat { display: block; padding: 0; }
+.wb-gap-flat::before { display: none; }
+
+.wb-card {
+  padding: 0.625rem 0.875rem 0.75rem;
+  background: var(--vc-paper);
+  border: 1px solid var(--vc-rule);
+  border-top: 2px solid var(--vc-azure-500);
+  border-radius: 2px;
+  transition: border-color 150ms var(--ease-settle), background-color 150ms var(--ease-settle);
+}
+.wb-card:hover { border-color: var(--vc-rule-strong); border-top-color: var(--vc-azure-500); }
+.wb-entry[data-selected] .wb-card { background: var(--vc-azure-50); border-color: var(--vc-azure-500); }
+.wb-card-top { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.625rem; }
+.wb-parties { font-size: 0.8125rem; line-height: 1.35; color: var(--vc-graphite); }
+.wb-raise { position: relative; z-index: 1; }
+
+/* The subject opens the drawer; in a card it stretches over the whole card. */
+.wb-open { display: inline; margin: 0; padding: 0; text-align: left; font-size: 0.875rem; font-weight: 500; line-height: 1.35; color: var(--vc-navy); background: none; border: 0; cursor: pointer; border-radius: 2px; }
+.wb-open:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.wb-card .wb-open { display: block; margin-top: 0.375rem; font-size: 0.9375rem; }
+.wb-card .wb-open::after { content: ''; position: absolute; inset: 0; }
+.wb-excerpt { margin-top: 0.25rem; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1rem; line-height: 1.45; color: var(--vc-ink); }
+[data-marked] .wb-open { color: var(--vc-graphite); text-decoration: line-through; text-decoration-thickness: 1px; }
+
+.wb-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.375rem 0.75rem; margin-top: 0.5rem; }
+.wb-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.375rem;
+  padding: 0 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--vc-ink);
+  background: var(--vc-parchment-300);
+  border: 1px solid var(--vc-rule-strong);
+  border-radius: 2px;
+}
+.wb-attach { display: inline-flex; align-items: center; gap: 0.3rem; font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-size: 0.75rem; color: var(--vc-graphite); overflow-wrap: anywhere; }
+.wb-flag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.375rem;
+  padding: 0 0.4rem;
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--vc-graphite);
+  background: var(--vc-paper);
+  border: 1px solid var(--vc-graphite);
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+/* As received / As authored on the entry with quoted history. */
+.wb-fold { display: flex; flex-wrap: wrap; align-items: center; gap: 0.375rem 0.625rem; margin-top: 0.625rem; }
+.wb-mini { display: inline-flex; gap: 0; padding: 2px; border: 1px solid var(--vc-rule-strong); border-radius: 2px; background: var(--vc-paper); }
+.wb-folded {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.5rem;
+  padding: 0 0.5rem;
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: var(--vc-ink);
+  background: var(--vc-parchment-300);
+  border: 1px solid var(--vc-rule-strong);
+  border-radius: 2px;
+}
+.wb-quoted { display: grid; gap: 0.5rem; margin: 0.625rem 0 0; padding: 0 0 0 0.75rem; list-style: none; font-size: 0.8125rem; line-height: 1.45; color: var(--vc-graphite); border-left: 2px solid var(--vc-rule); }
+.wb-quoted-by { font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-size: 0.75rem; color: var(--vc-graphite); }
+
+/* Table view (from 768 px) and the file list. */
+.wb-table { width: 100%; border-collapse: collapse; font-size: 0.8125rem; line-height: 1.4; background: var(--vc-paper); }
+.wb-table th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--vc-graphite);
+  background: var(--vc-paper);
+  box-shadow: inset 0 -1px 0 var(--vc-rule-strong);
+}
+.wb-th-icon svg { display: inline-block; vertical-align: -2px; }
+.wb-table td { padding: 0.5625rem 0.75rem; vertical-align: top; color: var(--vc-ink); border-bottom: 1px solid var(--vc-rule); }
+.wb-list .wb-table tbody tr { cursor: pointer; transition: background-color 150ms var(--ease-settle); }
+.wb-list .wb-table tbody tr:hover { background: var(--vc-parchment); }
+.wb-table tr[data-selected] { background: var(--vc-azure-50); }
+.wb-list .wb-table tr[data-selected]:hover { background: var(--vc-azure-50); }
+.wb-table tr[data-selected] td:first-child { box-shadow: inset 2px 0 0 var(--vc-azure-500); }
+.wb-table td .wb-mono { padding-top: 0.125rem; }
+.wb-gap-row td { padding: 0.3125rem 0.75rem; background: var(--vc-parchment); border-bottom: 1px dashed var(--vc-rule-strong); }
+.wb-gap-row .wb-gap-label { min-height: 1.5rem; }
+
+/* Table view below 768 px: stacked cards with labelled fields. */
+.wb-stack { display: grid; gap: 0.5rem; margin: 0; padding: 0.75rem; list-style: none; }
+.wb-stack-item { padding: 0.625rem 0.75rem; background: var(--vc-paper); border: 1px solid var(--vc-rule); border-radius: 2px; }
+.wb-stack-item[data-selected] { background: var(--vc-azure-50); border-color: var(--vc-azure-500); }
+.wb-stack-item dl { margin: 0; }
+.wb-stack-item dl > div { display: grid; grid-template-columns: 6rem minmax(0, 1fr); gap: 0.5rem; padding: 0.1875rem 0; }
+.wb-stack-item dt,
+.wb-props dt { padding-top: 0.125rem; font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--vc-graphite); }
+.wb-stack-item dd,
+.wb-props dd { min-width: 0; margin: 0; font-size: 0.8125rem; line-height: 1.45; color: var(--vc-ink); overflow-wrap: anywhere; }
+
+/* Keyword marker at the foot of the list. */
+.wb-kw {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.25rem 1rem 1rem;
+  padding-top: 0.625rem;
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  color: var(--vc-graphite);
+  border-top: 1px solid var(--vc-rule);
+}
+@media (min-width: 640px) { .wb-cards + .wb-kw { margin-left: 8.75rem; } }
+
+/* The entry drawer: over the list from 1024 px; below that it takes the list's place. */
+.wb-drawer { position: absolute; inset: 0; z-index: 5; display: flex; flex-direction: column; min-height: 0; background: var(--vc-paper); animation: wb-drawer-in 240ms var(--ease-settle) both; }
+@media (min-width: 1024px) {
+  .wb-drawer { left: auto; width: min(24rem, 66%); border-left: 1px solid var(--vc-rule-strong); box-shadow: -20px 0 32px -26px rgb(26 37 80 / 0.4); }
+}
+@media (max-width: 1023px) {
+  .wb-main[data-drawer] > .wb-toolbar,
+  .wb-main[data-drawer] > .wb-ledger-fold { display: none; }
+  .wb-main[data-drawer] .wb-list { visibility: hidden; }
+}
+@keyframes wb-drawer-in { from { opacity: 0; transform: translateX(12px); } to { opacity: 1; transform: none; } }
+.wb-drawer-head { flex: none; padding: 0.5rem 0.75rem 0.75rem 1rem; background: var(--vc-azure-50); border-bottom: 1px solid var(--vc-rule); }
+.wb-drawer-title { margin-top: 0.125rem; font-family: 'IBM Plex Sans', 'IBM Plex Sans Fallback', Arial, sans-serif; font-size: 1rem; font-weight: 500; line-height: 1.35; color: var(--vc-navy); outline: none; }
+.wb-drawer-meta { margin-top: 0.25rem; font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-size: 0.75rem; line-height: 1.45; color: var(--vc-graphite); }
+.wb-drawer-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 0 1rem 1rem; }
+.wb-section { padding: 0.75rem 0 0.875rem; border-bottom: 1px solid var(--vc-rule); }
+.wb-section:last-child { border-bottom: 0; }
+.wb-pre {
+  margin: 0;
+  padding: 0.625rem 0.75rem;
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: var(--vc-ink);
+  background: var(--vc-parchment);
+  border: 1px solid var(--vc-rule);
+  border-radius: 2px;
+}
+.wb-html { padding: 0.75rem 0.875rem; font-size: 0.875rem; line-height: 1.55; color: var(--vc-ink); background: #fff; border: 1px solid var(--vc-rule); border-radius: 2px; }
+.wb-html blockquote { margin: 0.75rem 0 0; padding-left: 0.75rem; color: var(--vc-graphite); border-left: 2px solid var(--vc-rule-strong); }
+.wb-html-page { font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1rem; background: var(--vc-paper); }
+.wb-props > div { display: grid; grid-template-columns: 6.25rem minmax(0, 1fr); gap: 0.625rem; padding: 0.25rem 0; }
+.wb-input {
+  display: block;
+  width: 100%;
+  min-height: 2.5rem;
+  padding: 0.5rem 0.625rem;
+  font-size: 0.875rem;
+  color: var(--vc-ink);
+  background: var(--vc-paper);
+  border: 1px solid var(--vc-rule-strong);
+  border-radius: 2px;
+}
+.wb-input::placeholder { color: var(--vc-graphite); opacity: 1; }
+.wb-empty { font-size: 0.8125rem; font-style: italic; color: var(--vc-graphite); }
+.wb-suggest {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  min-height: 1.75rem;
+  padding: 0 0.5rem 0 0.375rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--vc-azure-700);
+  background: var(--vc-paper);
+  border: 1px dashed var(--vc-azure-700);
+  border-radius: 2px;
+  transition: background-color 150ms var(--ease-settle);
+}
+.wb-suggest:hover { background: var(--vc-azure-50); }
+.wb-created,
+.wb-result { margin-top: 0.625rem; padding: 0.5rem 0.75rem 0.375rem; font-size: 0.8125rem; line-height: 1.45; color: var(--vc-ink); }
+.wb-created { background: var(--vc-azure-50); border-left: 2px solid var(--vc-azure-500); }
+.wb-result { background: var(--vc-parchment); border-left: 2px solid var(--vc-graphite); }
+
+/* File Manager */
+.wb-files-head { display: flex; flex: none; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 1rem; min-height: 3.25rem; padding: 0.5rem 1rem; background: var(--vc-paper); border-bottom: 1px solid var(--vc-rule); }
+.wb-files-title { font-family: 'IBM Plex Sans', 'IBM Plex Sans Fallback', Arial, sans-serif; font-size: 0.9375rem; font-weight: 500; color: var(--vc-navy); }
+.wb-switch { height: 1.5rem; width: 2.75rem; }
+.wb-switch > span { width: 1.25rem; height: 1.25rem; }
+.wb-switch[data-state='checked'] > span { transform: translateX(1.25rem); }
+.wb-kpis { display: grid; flex: none; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; background: var(--vc-paper); border-bottom: 1px solid var(--vc-rule-strong); }
+@media (min-width: 640px) { .wb-kpis { grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(0, 1.2fr); } }
+.wb-kpi { padding: 0.625rem 1rem 0.75rem; border-top: 1px solid var(--vc-rule); }
+.wb-kpi:nth-child(odd) { border-right: 1px solid var(--vc-rule); }
+@media (min-width: 640px) { .wb-kpi { border-top: 0; border-right: 1px solid var(--vc-rule); } .wb-kpi:last-child { border-right: 0; } }
+.wb-kpi dt { font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-size: 0.75rem; line-height: 1.3; letter-spacing: 0.06em; text-transform: uppercase; color: var(--vc-graphite); }
+.wb-kpi dd { margin: 0.3rem 0 0; font-size: 1.5rem; font-weight: 600; line-height: 1.1; color: var(--vc-navy); }
+.wb-kpi-total { grid-column: 1 / -1; background: var(--vc-parchment); }
+@media (min-width: 640px) { .wb-kpi-total { grid-column: auto; } }
+.wb-kpi-total dd { color: var(--vc-azure-700); }
+.wb-files-list { flex: 1 1 auto; min-height: 0; overflow-y: auto; background: var(--vc-parchment); }
+.wb-files-table { display: none; }
+@media (min-width: 768px) { .wb-files-table { display: table; } .wb-files-stack { display: none; } }
+.wb-filename { font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-size: 0.8125rem; color: var(--vc-navy); overflow-wrap: anywhere; }
+.wb-noise {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.25rem;
+  margin-left: 0.5rem;
+  padding: 0 0.375rem;
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--vc-graphite);
+  border: 1px solid var(--vc-graphite);
+  border-radius: 2px;
+}
+.wb-noise-note { margin-left: 0.4rem; font-size: 0.75rem; color: var(--vc-graphite); }
+.wb-noise-row { background: var(--vc-parchment); }
+
+/* Entrances: the workbench and each row fade in once (opacity only). */
+@keyframes wb-fade { from { opacity: 0; } to { opacity: 1; } }
+.wb-fade { animation: wb-fade 160ms var(--ease-settle) both; }
+.wb-row-in { animation: wb-fade 200ms var(--ease-settle) both; }
+
+/* Under reduced motion the global rule gives every property a 0.01 ms transition. Visibility is
+   inherited, so when the drawer closes each element of the list would still read as hidden for
+   that moment and focus could not return to the entry; the list takes no transitions at all. */
+@media (prefers-reduced-motion: reduce) {
+  .wb-list,
+  .wb-list * { transition-property: none; }
+}

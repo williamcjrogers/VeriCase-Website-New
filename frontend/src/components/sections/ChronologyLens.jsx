@@ -1,11 +1,95 @@
+import { lazy } from 'react';
 import { ChapterHeader } from '@/components/editorial/ChapterHeader';
-import { LENS_CHAPTER } from '@/content/home';
+import { FailRecover } from '@/components/editorial/FailRecover';
+import { Figure } from '@/components/editorial/Figure';
+import { Gated, isShown } from '@/components/editorial/Gated';
+import { LazyMount } from '@/components/editorial/LazyMount';
+import { Plate } from '@/components/editorial/Plate';
+import { FrameSkeleton } from '@/components/workbench/FrameSkeleton';
+import { ChronologyLens as LensGlyph, EmailArchive, ExcludedProject, NearDuplicate, QuoteFold, Thread } from '@/components/icons';
+import { CHAPTERS, LENS_CHAPTER as C } from '@/content/home';
+import { MEDIA } from '@/content/media';
+import { onSectionClick } from '@/lib/navigate';
 
-// Stub: replaced by the full chapter.
+const LensWorkbench = lazy(() => import(/* webpackChunkName: "workbench" */ '@/components/mock/LensWorkbench').then((m) => ({ default: m.LensWorkbench })));
+
+// Create bundle in Fig. 3 points to the chapter where the bundle is made.
+const research = CHAPTERS.find((ch) => ch.id === 'research');
+const BUNDLE_LINK = { href: `#${research.id}`, label: `Chapter ${research.numeral}: ${research.title}` };
+
+// One height per breakpoint for the workbench and its skeleton, so nothing moves when it loads.
+const FIG_HEIGHT = 'h-[860px] md:h-[740px] lg:h-[680px]';
+
+// The domain glyphs this chapter's list names. (Imported by name: DomainIcon's lookup would bring
+// all twelve glyphs into the first chunk.)
+const GLYPHS = { EmailArchive, Thread, QuoteFold, NearDuplicate, ExcludedProject, ChronologyLens: LensGlyph };
+
+// A glyph in the list's margin, by the name the copy deck gives it.
+const Glyph = ({ name }) => {
+  const Icon = GLYPHS[name];
+  return Icon ? <Icon className="absolute left-0 top-[1.375rem] text-azure-700" /> : null;
+};
+
+// The six operations as a ruled list, each with its domain glyph in the margin.
+const Operations = () => (
+  <dl className="max-w-measure border-t border-rule">
+    {C.items
+      .filter((item) => isShown(item.gate))
+      .map((item) => (
+        <div key={item.title} className="relative border-b border-rule py-5 pl-11 sm:pl-12">
+          <dt className="font-display text-[1.3125rem] font-medium leading-snug text-navy">
+            <Glyph name={item.icon} />
+            {item.title}
+          </dt>
+          <dd className="mt-1.5 text-body text-ink">{item.gate ? <Gated id={item.gate}>{item.text}</Gated> : item.text}</dd>
+        </div>
+      ))}
+  </dl>
+);
+
+// Chapter II: ingestion, threading, quoted text and noise, then the Lens workbench (Fig. 3).
 export const ChronologyLens = () => (
   <section id="chronology-lens" aria-labelledby="chronology-lens-title" className="bg-parchment py-16 md:py-24 lg:py-32">
     <div className="container">
-      <ChapterHeader id="chronology-lens" numeral={LENS_CHAPTER.numeral} eyebrow={LENS_CHAPTER.eyebrow} title={LENS_CHAPTER.h2} lead={LENS_CHAPTER.lead} />
+      <ChapterHeader id="chronology-lens" numeral={C.numeral} eyebrow={C.eyebrow} title={C.h2} lead={C.lead} />
+
+      <div className="mt-12 grid grid-cols-12 gap-x-6">
+        <FailRecover fail={C.fail} recover={C.recover} recoverGate={C.recoverGate} className="col-span-12 lg:col-span-9 lg:col-start-3 xl:col-span-8 xl:col-start-3" />
+      </div>
+
+      <div className="mt-14 grid grid-cols-12 gap-x-6 lg:mt-16">
+        <div className="col-span-12 lg:col-span-6 lg:col-start-3">
+          <Operations />
+        </div>
+        <div className="hidden lg:col-span-3 lg:col-start-10 lg:block xl:col-span-4 xl:col-start-9">
+          <div className="lg:sticky lg:top-24">
+            <Plate
+              src={MEDIA.archiveAisle.src}
+              lqip={MEDIA.archiveAisle.lqip}
+              ratio={MEDIA.archiveAisle.ratio}
+              sizes="(min-width: 1280px) 384px, 22vw"
+              alt={C.plate.alt}
+              caption={C.plate.caption}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-16 grid grid-cols-12 gap-x-6 lg:mt-20">
+        <Figure summary={C.fig.summary} caption={C.fig.caption} className="col-span-12 xl:col-span-10 xl:col-start-3">
+          <LazyMount className={FIG_HEIGHT} skeleton={<FrameSkeleton />}>
+            <LensWorkbench bundleLink={BUNDLE_LINK} />
+          </LazyMount>
+        </Figure>
+      </div>
+
+      <div className="mt-10 grid grid-cols-12 gap-x-6 lg:mt-12">
+        <p className="col-span-12 lg:col-span-9 lg:col-start-3">
+          <a href={C.next.href} onClick={onSectionClick(C.next.href.slice(1))} className="group inline-flex min-h-[44px] items-center gap-2 text-small font-medium text-azure-700 hover:text-navy">
+            <span className="underline decoration-1 underline-offset-4 group-hover:decoration-2">{C.next.label}</span>
+          </a>
+        </p>
+      </div>
     </div>
   </section>
 );
