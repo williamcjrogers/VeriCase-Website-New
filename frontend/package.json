@@ -61,7 +61,7 @@
   },
   "scripts": {
     "start": "craco start",
-    "build": "node scripts/compute-sample-hashes.mjs && craco build && node scripts/prerender.mjs && node scripts/lint-copy.mjs --built",
+    "build": "node scripts/compute-sample-hashes.mjs && node scripts/lint-copy.mjs && craco build && node scripts/prerender.mjs && node scripts/lint-copy.mjs --built",
     "build:app": "craco build",
     "test": "craco test",
     "lint:copy": "node scripts/lint-copy.mjs",
