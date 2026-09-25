@@ -1,0 +1,631 @@
+/* Fig. 1, the Chronology Lens. The field holds two layers clipped at the lens: the ordered
+   chronology to its left and the record as received to its right. The lens position is
+   --lens-x (a percentage) and --lx (the same number without a unit), set on the field for the
+   prerendered mid state here and for reduced motion in index.css. Once loaded, the controller
+   writes the five places that use them directly, so no frame restyles the whole field. The
+   field is a size container, so the figure adapts to its own width, not to the viewport. */
+
+.lens { margin: 0; }
+.lens-frame {
+  --pad: 14px;
+  position: relative;
+  overflow: hidden;
+  container: lens-frame / inline-size;
+  background: var(--vc-paper);
+  border: 1px solid rgb(133 122 98 / 0.7);
+  border-radius: 4px;
+  box-shadow: var(--shadow-paper);
+  color: var(--vc-ink);
+}
+
+/* Title bar: the app family's blue strip, white text at 4.69:1. */
+.lens-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 32px;
+  padding: 7px var(--pad);
+  background: var(--vc-azure-500);
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 18px;
+}
+/* On narrow screens the title wraps between its two halves, never inside "(fictional)". */
+.lens-bar-title { min-width: 0; }
+.lens-bar-part { white-space: nowrap; }
+.lens-bar-fig { flex-shrink: 0; font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-size: 0.75rem; letter-spacing: 0.04em; }
+
+/* ---- The field ------------------------------------------------------------------------ */
+.lens-field {
+  --lx: 40;
+  --lens-x: 40%;
+  position: relative;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  container: lens / inline-size;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.lens[data-ready] .lens-field { cursor: ew-resize; }
+.lens-field[data-dragging] { cursor: grabbing; }
+
+/* ---- The chronology (left of the lens) ------------------------------------------------ */
+.lens-ordered {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--pad) 4px;
+  background: var(--vc-paper);
+  clip-path: inset(0 calc(100% - var(--lens-x)) 0 0);
+}
+.lens-head,
+.lens .row {
+  display: grid;
+  grid-template-columns: 6.6rem 2.6rem minmax(0, 1fr) 18%;
+  column-gap: 12px;
+}
+.lens-head {
+  flex: none;
+  align-items: end;
+  height: 32px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--vc-rule-strong);
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vc-graphite);
+}
+.lens-list { flex: 1; min-height: 0; display: grid; grid-auto-rows: minmax(0, 1fr); margin: 0; padding: 0; list-style: none; }
+.lens .row {
+  grid-template-rows: auto auto;
+  grid-template-areas: 'date time parties stamp' '. . excerpt hash';
+  align-content: center;
+  row-gap: 3px;
+  min-height: 0;
+  border-bottom: 1px solid var(--vc-rule);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 240ms var(--ease-settle), transform 240ms var(--ease-settle);
+}
+.lens .row[data-processed] { opacity: 1; transform: none; }
+.row-date,
+.row-time {
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-size: 0.8125rem;
+  line-height: 18px;
+  font-variant-numeric: tabular-nums slashed-zero;
+  white-space: nowrap;
+}
+.row-date { grid-area: date; color: var(--vc-ink); }
+.row-time { grid-area: time; color: var(--vc-graphite); }
+.row-parties {
+  grid-area: parties;
+  overflow: hidden;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 18px;
+  color: var(--vc-graphite);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.row-excerpt {
+  grid-area: excerpt;
+  overflow: hidden;
+  font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif;
+  font-size: 0.9375rem;
+  line-height: 20px;
+  color: var(--vc-navy);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.lens .row .stamp { grid-area: stamp; justify-self: start; align-self: center; opacity: 0; }
+.lens .row .hash {
+  grid-area: hash;
+  align-self: start;
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-size: 0.75rem;
+  line-height: 18px;
+  letter-spacing: 0.02em;
+  color: var(--vc-graphite);
+  opacity: 0;
+  transition: opacity 200ms var(--ease-settle);
+}
+/* Stage 5: the exhibits are stamped in turn and their hashes appear, as plain characters. The
+   resting style is the stamp's end state, so it never depends on the animation's fill. */
+.lens[data-stage='5'] .row .stamp { opacity: 1; transform: rotate(-2deg); animation: stamp 180ms var(--ease-settle) calc(var(--k) * 60ms) both; }
+.lens[data-stage='5'] .row .hash { opacity: 1; transition-delay: calc(140ms + var(--k) * 60ms); }
+
+/* The set-aside tray: each part appears as its item is set aside. It stops short of the handle's
+   resting place at 100%, so the two never overlap. */
+.lens-tray {
+  flex: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  height: 38px;
+  margin: 0;
+  padding-right: 9rem;
+  border-top: 1px dashed var(--vc-rule-strong);
+  font-size: 0.8125rem;
+  line-height: 18px;
+  color: var(--vc-graphite);
+}
+.lens-list .row:last-child { border-bottom: 0; }
+.lens-tray-seg { opacity: 0; transition: opacity 240ms var(--ease-settle); }
+.lens-tray-item { white-space: nowrap; }
+.lens-tray-seg[data-processed] { opacity: 1; }
+.lens-tray-label {
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---- The record as received (right of the lens) --------------------------------------- */
+.lens-raw {
+  position: absolute;
+  inset: 0;
+  background: var(--vc-parchment-300);
+  clip-path: inset(0 0 0 var(--lens-x));
+}
+/* At stage 5 the lens has passed everything: the desk is wholly behind it. */
+.lens[data-stage='5'] .lens-raw { visibility: hidden; }
+.frag {
+  --rot: var(--r);
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 28%;
+  margin: 0;
+  transform: rotate(var(--rot));
+  transform-origin: 20% 15%;
+  transition: transform 320ms var(--ease-settle);
+}
+.frag[data-kind='scan'] { width: 18%; }
+.frag-paper { position: relative; }
+.frag-sheet {
+  position: absolute;
+  inset: 0;
+  background: var(--vc-paper);
+  border: 1px solid var(--vc-rule);
+  box-shadow: 0 1px 0 rgb(26 37 80 / 0.05), 0 8px 18px -10px rgb(26 37 80 / 0.34);
+  transform-origin: top;
+  transition: transform 300ms var(--ease-settle);
+}
+.frag-content { position: relative; padding: 7px 8px 8px; }
+.frag-meta,
+.frag-from,
+.frag-subject,
+.frag-quoted > div,
+.frag-scan-label { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.frag-meta {
+  height: 16px;
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-size: 0.75rem;
+  line-height: 16px;
+  letter-spacing: -0.01em;
+  color: var(--vc-graphite);
+}
+.frag-from { height: 16px; font-size: 0.75rem; line-height: 16px; color: var(--vc-graphite); }
+.frag-subject { height: 17px; font-size: 0.75rem; font-weight: 500; line-height: 17px; color: var(--vc-navy); }
+.frag-text {
+  display: -webkit-box;
+  height: 32px;
+  margin-top: 2px;
+  overflow: hidden;
+  font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif;
+  font-size: 0.8125rem;
+  line-height: 16px;
+  color: var(--vc-ink);
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.frag-quote-wrap { position: relative; margin-top: 6px; }
+.frag-quoted {
+  padding: 3px 0 3px 7px;
+  border-left: 2px solid var(--vc-rule-strong);
+  font-size: 0.75rem;
+  line-height: 15px;
+  color: var(--vc-graphite);
+  transform-origin: top;
+  transition: transform 280ms var(--ease-settle), opacity 180ms var(--ease-settle);
+}
+.frag-att {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 100%;
+  margin-top: 6px;
+  padding: 2px 6px;
+  overflow: hidden;
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-size: 0.75rem;
+  line-height: 16px;
+  color: var(--vc-ink);
+  white-space: nowrap;
+  background: var(--vc-parchment-300);
+  border: 1px solid var(--vc-rule-strong);
+  border-radius: 2px;
+  transform-origin: top right;
+  transition: transform 300ms var(--ease-settle), opacity 220ms var(--ease-settle);
+}
+.frag-clip {
+  position: absolute;
+  top: -7px;
+  right: 14px;
+  color: var(--vc-graphite);
+  opacity: 0;
+  transform: translateY(6px) rotate(-8deg);
+  transition: opacity 220ms var(--ease-settle) 120ms, transform 300ms var(--ease-settle) 120ms;
+}
+
+/* The label each item gains as it is processed: azure for the working record, graphite for
+   what is set aside. Colour is never the only cue: the words say what happened. */
+.frag-chip,
+.frag-fold {
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 15px;
+  letter-spacing: -0.01em;
+  color: var(--vc-azure-700);
+  background: var(--vc-azure-50);
+  border: 1px solid rgb(31 94 150 / 0.4);
+  border-radius: 2px;
+}
+.frag-chip {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  max-width: calc(100% - 12px);
+  padding: 3px 6px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 200ms var(--ease-settle), transform 200ms var(--ease-settle);
+}
+.frag.is-aside .frag-chip { color: var(--vc-graphite); background: var(--vc-parchment); border-color: var(--vc-rule-strong); }
+.frag-fold {
+  position: absolute;
+  inset: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 22px;
+  padding: 0 6px;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 200ms var(--ease-settle) 120ms;
+}
+.frag-ghost {
+  position: absolute;
+  inset: 0;
+  background: rgb(252 250 245 / 0.5);
+  border: 1px dashed var(--vc-azure-500);
+  opacity: 0;
+  transform: translate(-12px, -12px);
+  transition: opacity 240ms var(--ease-settle);
+}
+
+/* What processing does to each item. */
+.frag[data-processed] .frag-chip { opacity: 1; transform: none; }
+.frag[data-effect='straighten'][data-processed] { --rot: 0deg; }
+.frag[data-effect='fold'] { --fold: 0.806; }
+.frag[data-effect='fold'][data-processed] .frag-quoted { opacity: 0; transform: scaleY(0); }
+.frag[data-effect='fold'][data-processed] .frag-fold { opacity: 1; }
+.frag[data-effect='fold'][data-processed] .frag-sheet { transform: scaleY(var(--fold)); }
+/* Set aside: the item fades into the desk (to about 35%) under a veil of the desk's colour,
+   while its label, which says why, stays at full strength. */
+.frag-scrim { position: absolute; inset: 0; background: rgb(236 228 211 / 0.66); opacity: 0; transition: opacity 260ms var(--ease-settle); }
+.frag.is-aside[data-processed] .frag-scrim { opacity: 1; }
+.frag.is-aside[data-processed] .frag-sheet { box-shadow: none; }
+.frag[data-effect='duplicate'][data-processed] { transform: translate(12px, 12px) rotate(var(--rot)); }
+.frag[data-effect='duplicate'][data-processed] .frag-ghost { opacity: 1; }
+.frag[data-effect='exclude'][data-processed] { transform: translateX(12px) rotate(var(--rot)); }
+.frag[data-effect='attachment'][data-processed] .frag-att { opacity: 0; transform: translate(10px, -8px) scale(0.7); }
+.frag[data-effect='attachment'][data-processed] .frag-clip { opacity: 1; transform: none; }
+
+/* The scanned diary page, and the line that reads it once. */
+.frag-scan { position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: #f4f2ec; }
+.frag-scan-label { height: 16px; margin-top: 5px; font-size: 0.75rem; line-height: 16px; color: var(--vc-graphite); }
+.frag[data-kind='scan'] .frag-content { padding: 5px 5px 6px; }
+/* The thumbnail is narrow, so its label hangs beside it, where the lens has not yet reached,
+   above the items next to it. */
+.frag[data-kind='scan'][data-processed] { z-index: 1; }
+.frag[data-kind='scan'] .frag-chip { top: 38%; right: auto; bottom: auto; left: calc(100% - 10px); width: max-content; max-width: 13rem; }
+.frag-chip-until[data-processed] .frag-chip { opacity: 0; transition-duration: 160ms; }
+.frag-scanline { position: absolute; inset: 0; opacity: 0; pointer-events: none; }
+.frag-scanline::before { content: ''; position: absolute; inset: 0 0 auto; height: 2px; background: var(--vc-azure-500); }
+.frag[data-effect='scan'][data-fresh] .frag-scanline { animation: lens-scan 620ms var(--ease-glide) both; }
+@keyframes lens-scan {
+  0% { opacity: 1; transform: translateY(0); }
+  88% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(100%); }
+}
+.diary { display: block; width: 100%; height: 100%; }
+.diary-bed { fill: #f4f2ec; }
+.diary-page { fill: #fdfcf8; stroke: var(--vc-rule); stroke-width: 0.6; }
+.diary-box { fill: none; stroke: var(--vc-graphite); stroke-width: 0.5; opacity: 0.6; }
+.diary-rules { fill: none; stroke: var(--vc-azure-300); stroke-width: 0.5; opacity: 0.75; }
+.diary-margin { fill: none; stroke: var(--vc-brass-400); stroke-width: 0.5; opacity: 0.7; }
+.diary-ink { fill: none; stroke: var(--vc-azure-700); stroke-width: 0.62; stroke-linecap: round; stroke-linejoin: round; opacity: 0.82; }
+.diary-pencil { fill: none; stroke: var(--vc-graphite); stroke-width: 0.55; stroke-linecap: round; opacity: 0.6; }
+.diary-ocr rect { fill: var(--vc-azure-50); }
+.diary-ocr { opacity: 0; transition: opacity 300ms var(--ease-settle) 420ms; }
+.frag[data-effect='scan'][data-processed] .diary-ocr { opacity: 1; }
+
+/* Thread lines, drawn over the pile as the messages are joined. */
+.lens-threads { position: absolute; inset: 0; overflow: visible; pointer-events: none; }
+.lens-thread line { stroke: var(--vc-azure-500); stroke-width: 1.5; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 360ms var(--ease-settle); }
+.lens-thread circle { fill: var(--vc-paper); stroke: var(--vc-azure-500); stroke-width: 1.5; opacity: 0; transition: opacity 200ms var(--ease-settle); }
+.lens-thread[data-processed] line { stroke-dashoffset: 0; }
+.lens-thread[data-processed] circle { opacity: 1; }
+
+/* ---- The lens: band, stage label and handle -------------------------------------------- */
+.lens-track { position: absolute; inset: 0; z-index: 2; transform: translateX(var(--lens-x)); pointer-events: none; }
+.lens-band {
+  position: absolute;
+  inset-block: 0;
+  left: -12px;
+  width: 24px;
+  background: rgb(231 239 248 / 0.5);
+  border-inline: 2px solid var(--vc-azure-500);
+}
+.lens-bezel { position: absolute; inset: 0; width: 100%; height: 100%; }
+.lens-bezel path { fill: none; stroke: var(--vc-brass-400); stroke-width: 1; }
+/* Both labels stay centred on the lens and inside the field (the clamp works in container units). */
+.lens-stage-chip,
+.lens-handle {
+  position: absolute;
+  left: 0;
+  transform: translateX(clamp(calc(6px - var(--lx) * 1cqw), -50%, calc((100 - var(--lx)) * 1cqw - 100% - 6px)));
+}
+.lens-stage-chip {
+  top: 6px;
+  padding: 4px 7px 3px;
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #fff;
+  background: var(--vc-azure-700);
+  border-radius: 2px;
+}
+.lens-stage-chip > span { display: none; }
+.lens-field[data-stage='0'] .lens-stage-chip > [data-s='0'],
+.lens-field[data-stage='1'] .lens-stage-chip > [data-s='1'],
+.lens-field[data-stage='2'] .lens-stage-chip > [data-s='2'],
+.lens-field[data-stage='3'] .lens-stage-chip > [data-s='3'],
+.lens-field[data-stage='4'] .lens-stage-chip > [data-s='4'],
+.lens-field[data-stage='5'] .lens-stage-chip > [data-s='5'] { display: inline; }
+.lens-handle {
+  bottom: 9px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 11px 0 8px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--vc-navy);
+  background: var(--vc-paper);
+  border: 1px solid var(--vc-azure-500);
+  border-radius: 2px;
+  box-shadow: 0 1px 0 rgb(26 37 80 / 0.06), 0 6px 16px -8px rgb(26 37 80 / 0.4);
+  pointer-events: auto;
+  cursor: grab;
+}
+.lens-handle svg { color: var(--vc-azure-700); }
+.lens-handle:hover { border-color: var(--vc-azure-700); }
+/* A 44 px target around the visible handle. */
+.lens-handle::before { content: ''; position: absolute; inset: -7px -3px; }
+.lens-field[data-dragging] .lens-handle { cursor: grabbing; }
+
+/* ---- Under the field: narration, then the cited finding -------------------------------- */
+.lens-cite-strip { position: relative; height: 48px; border-top: 1px solid var(--vc-rule); }
+.lens-narration,
+.lens-cite { position: absolute; inset: 0; display: flex; align-items: center; margin: 0; padding: 0 var(--pad); }
+.lens-narration { font-size: 0.8125rem; line-height: 18px; color: var(--vc-graphite); transition: opacity 180ms var(--ease-settle); }
+.lens-narration > span { display: none; }
+.lens-narration-stage {
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--vc-brass-700);
+}
+.lens[data-stage='0'] .lens-narration > [data-s='0'],
+.lens[data-stage='1'] .lens-narration > [data-s='1'],
+.lens[data-stage='2'] .lens-narration > [data-s='2'],
+.lens[data-stage='3'] .lens-narration > [data-s='3'],
+.lens[data-stage='4'] .lens-narration > [data-s='4'] { display: block; }
+.lens-cite {
+  display: block;
+  padding-block: 2px;
+  align-content: center;
+  font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif;
+  font-size: 0.9375rem;
+  line-height: 22px;
+  color: var(--vc-navy);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 240ms var(--ease-settle), visibility 0s linear 240ms;
+}
+.lens-cite .ev-chip { min-height: 20px; margin-inline: 1px; vertical-align: 1px; font-size: 0.75rem; }
+.lens[data-stage='5'] .lens-narration { opacity: 0; }
+.lens[data-stage='5'] .lens-cite { opacity: 1; visibility: visible; transition: opacity 260ms var(--ease-settle) 180ms, visibility 0s; }
+
+/* ---- Stage rail and the Play control --------------------------------------------------- */
+.lens-rail {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 8px;
+  height: 38px;
+  padding: 0 4px 0 6px;
+  border-top: 1px solid var(--vc-rule);
+}
+.lens-stops { display: flex; align-items: stretch; min-width: 0; }
+.lens-stop,
+.lens-play {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.lens-stop {
+  position: relative;
+  padding: 0 8px;
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--vc-graphite);
+  transition: color 150ms var(--ease-settle);
+}
+.lens-stop::after {
+  content: '';
+  position: absolute;
+  inset: auto 8px 0;
+  height: 2px;
+  background: var(--vc-azure-500);
+  transform: scaleX(0);
+  transition: transform 200ms var(--ease-settle);
+}
+.lens-stop:hover { color: var(--vc-navy); }
+.lens-stop[aria-current='step'] { color: var(--vc-azure-700); }
+.lens-stop[aria-current='step']::after { transform: none; }
+.lens-stop:disabled,
+.lens-play:disabled { cursor: default; }
+.lens-play {
+  align-self: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 10px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--vc-azure-700);
+  border: 1px solid var(--vc-rule-strong);
+  border-radius: 2px;
+  transition: background-color 150ms var(--ease-settle), border-color 150ms var(--ease-settle);
+}
+.lens-play:not(:disabled):hover { background: var(--vc-azure-50); border-color: var(--vc-azure-700); }
+.lens-play > span { display: none; align-items: center; gap: 6px; }
+.lens-play[data-mode='play'] > [data-m='play'],
+.lens-play[data-mode='pause'] > [data-m='pause'],
+.lens-play[data-mode='replay'] > [data-m='replay'] { display: inline-flex; }
+
+/* ---- Footer: the counts, and the tick once every entry is linked to its source --------- */
+.lens-foot {
+  display: flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 5px var(--pad);
+  border-top: 1px solid var(--vc-rule);
+  background: var(--vc-parchment);
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-size: 0.75rem;
+  line-height: 18px;
+  color: var(--vc-graphite);
+}
+.lens-foot p { margin: 0; }
+.lens-verified { display: inline-flex; align-items: center; gap: 5px; color: var(--vc-ink); white-space: nowrap; }
+.lens-tick { clip-path: inset(0 100% 0 0); }
+.lens[data-stage='5'] .lens-tick { clip-path: inset(0); transition: clip-path 300ms var(--ease-settle) 260ms; }
+
+.lens-caption { margin-top: 12px; max-width: 68ch; font-size: 0.875rem; line-height: 1.5; color: var(--vc-graphite); }
+
+/* ---- Coarse pointers: 44 px controls ---------------------------------------------------- */
+@media (pointer: coarse) {
+  .lens-rail { height: 46px; }
+  .lens-play { height: 44px; }
+}
+
+/* ---- Narrow desktop cast (the field between about 460 and 560 px, at 1024 to 1279 px) ---- */
+@container lens (max-width: 560px) {
+  .lens-head,
+  .lens .row { grid-template-columns: 6.6rem minmax(0, 1fr) 4.5rem; column-gap: 10px; }
+  .lens .row { grid-template-areas: 'date parties stamp' 'time excerpt hash'; row-gap: 1px; }
+  .lens-head-time { display: none; }
+  .frag-from,
+  .frag-time { display: none; }
+  .lens-tray { line-height: 17px; }
+  .frag[data-effect='fold'] { --fold: 0.769; }
+}
+
+/* The cite sentence needs a third line in a narrow frame. */
+@container lens-frame (max-width: 560px) {
+  .lens-cite-strip { height: 68px; }
+}
+
+/* ---- The mobile cast (below 640 px): a 4:5 field, five rows and seven items ------------- */
+@media (max-width: 639px) {
+  .lens-frame { --pad: 10px; }
+  .lens-field { aspect-ratio: 4 / 5; }
+  .lens-bar { font-size: 0.8125rem; }
+  .frag { --rot: var(--mr); left: var(--mx); top: var(--my); width: 42%; }
+  .lens-head { height: 30px; }
+  .lens-head,
+  .lens .row { grid-template-columns: 6rem minmax(0, 1fr) 4rem; column-gap: 8px; }
+  .lens .row { grid-template-areas: 'date parties stamp' 'time excerpt hash' '. excerpt .'; grid-template-rows: auto auto auto; row-gap: 0; }
+  .row-date,
+  .row-time { font-size: 0.75rem; }
+  .row-excerpt { font-size: 0.875rem; line-height: 18px; white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; align-self: start; }
+  .lens .row .stamp { align-self: start; }
+  .lens-tray { height: 46px; font-size: 0.75rem; line-height: 15px; }
+  .lens-cite-strip { height: 84px; }
+  .lens-cite { font-size: 0.875rem; line-height: 20px; }
+  .lens-narration { font-size: 0.75rem; }
+  /* Two rows of four 44 px controls: six stages, then Play across the last two places. */
+  .lens-rail { position: relative; display: block; height: auto; padding: 0; }
+  .lens-stops { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .lens-stop { height: 44px; padding: 0 4px; }
+  .lens-play { position: absolute; right: 6px; bottom: 4px; width: calc(50% - 12px); height: 36px; }
+  .lens-play::before { content: ''; position: absolute; inset: -5px -1px; }
+  .lens-foot { padding-block: 7px; }
+  .lens-handle { bottom: 8px; }
+}
+
+/* The narrowest frames (320 px screens): a fifth line for the cite sentence, and stage labels
+   that still fit their quarter of the rail. */
+@container lens-frame (max-width: 330px) {
+  .lens-cite-strip { height: 104px; }
+  .lens-stop { padding: 0 2px; letter-spacing: 0.02em; }
+}
+
+/* ---- Reduced motion: stage 5 from first paint, until the visitor moves the lens --------- */
+/* index.css sets --lens-x to 100% and shows the rows, stamps, hashes and cite sentence; the
+   rest of the final state is set here, so it is right before the controller has loaded. */
+@media (prefers-reduced-motion: reduce) {
+  .lens:not([data-user]) .lens-field { --lx: 100; }
+  .lens:not([data-user]) .lens-raw { visibility: hidden; }
+  .lens:not([data-user]) .lens-stage-chip > [data-s],
+  .lens:not([data-user]) .lens-narration > [data-s] { display: none; }
+  .lens:not([data-user]) .lens-stage-chip > [data-s='5'] { display: inline; }
+  .lens:not([data-user]) .lens-cite { visibility: visible; }
+  .lens:not([data-user]) .lens-tray-seg { opacity: 1; }
+  .lens:not([data-user]) .lens-tick { clip-path: none; }
+  .lens:not([data-user]) .lens-stop[aria-current] { color: var(--vc-graphite); }
+  .lens:not([data-user]) .lens-stop[aria-current]::after { transform: scaleX(0); }
+  .lens:not([data-user]) .lens-stop[data-stop='100'] { color: var(--vc-azure-700); }
+  .lens:not([data-user]) .lens-stop[data-stop='100']::after { transform: none; }
+}
