@@ -91,9 +91,6 @@ export const Hero = () => {
                   <div className="px-3 py-2 bg-gray-100 rounded text-xs text-gray-700 font-medium">
                     <span className="text-teal-600">📷</span> 12,453 Photos
                   </div>
-                  <div className="px-3 py-2 bg-gray-100 rounded text-xs text-gray-700 font-medium">
-                    <span className="text-teal-600">🔧</span> P6 Schedule
-                  </div>
                 </div>
               </div>
               
@@ -126,7 +123,7 @@ export const Hero = () => {
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="w-4 h-4 bg-red-500 rounded-full shadow-sm"></div>
-                      <div className="px-3 py-1 bg-red-50 border border-red-200 rounded text-xs font-medium">Mar 03 — Critical Path Impact</div>
+                      <div className="px-3 py-1 bg-red-50 border border-red-200 rounded text-xs font-medium">Mar 03 — Variation Instruction</div>
                     </div>
                   </div>
                 </div>

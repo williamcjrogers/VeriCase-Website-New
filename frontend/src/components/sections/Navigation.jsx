@@ -83,7 +83,6 @@ export const Navigation = () => {
             {/* Desktop navigation */}
             <nav className="hidden md:flex items-center space-x-6 lg:space-x-10" data-testid="nav-links">
               <a href="#platform" className="text-white text-sm lg:text-base font-semibold hover:text-teal-300 transition-colors duration-200">Platform</a>
-              <a href="#construction" className="text-white text-sm lg:text-base font-semibold hover:text-teal-300 transition-colors duration-200">Construction Focus</a>
               <a href="#pricing" className="text-white text-sm lg:text-base font-semibold hover:text-teal-300 transition-colors duration-200">Pricing</a>
               <a href="#about" className="text-white text-sm lg:text-base font-semibold hover:text-teal-300 transition-colors duration-200">About Us</a>
             </nav>
@@ -129,16 +128,6 @@ export const Navigation = () => {
                     }}
                   >
                     Analysis Login
-                  </Button>
-                  <Button 
-                    size="sm"
-                    variant="outline"
-                    className="text-xs md:text-sm font-semibold border-2 border-white text-white hover:bg-white hover:text-gray-900"
-                    onClick={() => {
-                      window.location.href = 'https://files.veri-case.com';
-                    }}
-                  >
-                    File Login
                   </Button>
                   <Button 
                     size="sm"

@@ -68,11 +68,6 @@ export const SiteFooter = () => {
             <h4 className="font-bold text-base mb-6 text-white">Solutions</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#delay-analysis" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Delay Analysis
-                </a>
-              </li>
-              <li>
                 <a href="#quantum" className="text-sm hover:text-teal-400 transition-colors duration-200">
                   Quantum Assessment
                 </a>

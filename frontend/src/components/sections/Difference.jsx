@@ -1,4 +1,4 @@
-import { Clock, Search, Target, GitBranch, Lock, FileDown, CheckCircle } from 'lucide-react';
+import { Clock, Search, Target, Lock, FileDown, CheckCircle } from 'lucide-react';
 
 export const Difference = () => {
   const features = [
@@ -30,16 +30,6 @@ export const Difference = () => {
         "Relevance scoring algorithm",
         "Missing evidence alerts",
         "Counter-argument detection"
-      ]
-    },
-    {
-      icon: GitBranch,
-      title: "Programme Integration",
-      description: "Direct integration with Primavera P6, MS Project, and Asta Powerproject. Link evidence to activities and visualize delay impacts automatically.",
-      benefits: [
-        "Real-time schedule sync",
-        "Critical path analysis",
-        "As-planned vs as-built"
       ]
     },
     {
@@ -88,11 +78,11 @@ export const Difference = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-8">
           {features.map((feature, index) => (
             <div 
               key={index}
-              className="group bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
+              className="group w-full md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4rem)/3)] bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
               data-testid={`feature-card-${index}`}
             >
               {/* Top gradient bar on hover */}

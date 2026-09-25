@@ -149,7 +149,7 @@ export const EvidenceHub = () => {
                           borderRadius: '3px'
                         }}
                       >
-                        Potential delay to Activity A102 if not resolved within 48hrs.
+                        Drainage at Pier 7 needs attention within 48hrs.
                       </p>
                     </div>
                   </div>
@@ -213,13 +213,13 @@ export const EvidenceHub = () => {
                         className="text-white text-xs"
                         style={{ backgroundColor: 'var(--vericase-accent-teal)' }}
                       >
-                        Potential Delay
+                        Drainage
                       </Badge>
                       <Badge 
                         className="text-white text-xs"
                         style={{ backgroundColor: 'var(--vericase-primary-dark)' }}
                       >
-                        Activity A102
+                        Pier 7
                       </Badge>
                     </div>
                   </div>
