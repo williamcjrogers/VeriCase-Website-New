@@ -97,14 +97,25 @@
                     (e.__SV = 1));
             })(document, window.posthog || []);
             // Analytics load only after the visitor consents (see CookieConsent.jsx).
-            window.vcLoadAnalytics = function () {
-                if (window.__vcAnalyticsLoaded) return;
-                window.__vcAnalyticsLoaded = true;
-                posthog.init("phc_yJW1VjHGGwmCbbrtczfqqNxgBDbhlhOWcdzcIJEOTFE", {
-                    api_host: "https://us.i.posthog.com",
-                    person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
-                });
-            };
+            // The posthog.init call below is held here and replayed by
+            // window.vcLoadAnalytics() once the visitor allows analytics.
+            (function () {
+                var snippetInit = posthog.init;
+                var pending = null;
+                posthog.init = function () {
+                    pending = arguments;
+                };
+                window.vcLoadAnalytics = function () {
+                    if (window.__vcAnalyticsLoaded || !pending) return;
+                    window.__vcAnalyticsLoaded = true;
+                    posthog.init = snippetInit;
+                    snippetInit.apply(posthog, pending);
+                };
+            })();
+            posthog.init("phc_yJW1VjHGGwmCbbrtczfqqNxgBDbhlhOWcdzcIJEOTFE", {
+                api_host: "https://us.i.posthog.com",
+                person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
+            });
             try {
                 if (window.localStorage.getItem("vc-analytics-consent") === "granted") {
                     window.vcLoadAnalytics();
