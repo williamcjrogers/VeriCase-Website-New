@@ -1,0 +1,187 @@
+/* Fig. 8, Rebuttal Mode as a Scott Schedule. A ruled table at 768 px and above; below that,
+   each paragraph of the Response becomes a card (the table keeps its roles, so it is still read
+   as a table). Loaded with the schedule's chunk. */
+
+.cr-scott { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 0.9375rem; line-height: 1.55; color: var(--vc-ink); }
+.cr-scott-caption {
+  caption-side: top;
+  padding: 0 0 0.875rem;
+  text-align: left;
+  font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif;
+  font-size: 1.1875rem;
+  line-height: 1.3;
+  color: var(--vc-navy);
+}
+.cr-col-response { width: 25%; }
+.cr-col-reply { width: 33%; }
+.cr-col-evidence { width: 24%; }
+.cr-col-decision { width: 18%; }
+
+.cr-scott thead th {
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vc-graphite);
+  background: var(--vc-parchment-300);
+  border-top: 1px solid var(--vc-rule-strong);
+  border-bottom: 1px solid var(--vc-rule-strong);
+}
+.cr-scott thead th + th { border-left: 1px solid var(--vc-rule); }
+.cr-scott td { padding: 1rem 0.75rem 1.125rem; vertical-align: top; border-bottom: 1px solid var(--vc-rule); }
+.cr-scott td:not(.cr-response) { border-left: 1px solid var(--vc-rule); }
+.cr-scott .cr-point:last-of-type tr:last-child td,
+.cr-scott .cr-point:last-of-type .cr-response,
+.cr-scott .cr-point:last-of-type .cr-evidence { border-bottom-color: var(--vc-rule-strong); }
+.cr-row.is-suggested td { background: rgb(236 228 211 / 0.35); }
+
+/* Labels for each cell, shown only when the rows are cards. */
+.cr-label {
+  display: none;
+  margin-bottom: 0.375rem;
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vc-graphite);
+}
+.cr-mini {
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vc-graphite);
+}
+.cr-suggested { margin-bottom: 0.375rem; color: var(--vc-brass-700); }
+
+/* Response: the paragraph number in mono, the Employer's words in italic. */
+.cr-para { font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-weight: 500; font-size: 0.8125rem; color: var(--vc-brass-700); }
+.cr-response-text { margin-top: 0.25rem; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-style: italic; font-size: 1.0625rem; line-height: 1.5; color: var(--vc-navy); }
+
+/* Proposed reply */
+.cr-text { position: relative; }
+.cr-text .ev-chip { vertical-align: 0.05em; }
+.cr-text.is-rejected { color: var(--vc-graphite); }
+.cr-text.is-fresh { animation: cr-fade 200ms var(--ease-settle) both; }
+/* A blackline: inserted words double-underlined (so they never read as links), deleted ones struck. */
+.cr-ins { text-decoration-line: underline; text-decoration-style: double; text-decoration-color: var(--vc-azure-500); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.cr-del { text-decoration-line: line-through; text-decoration-color: var(--vc-graphite); }
+/* The strike-through is drawn over the text, left to right, when a point is newly rejected. */
+.cr-strike {
+  position: absolute;
+  inset: 0;
+  color: transparent;
+  text-decoration-line: line-through;
+  text-decoration-color: var(--vc-graphite);
+  text-decoration-thickness: 1.5px;
+  pointer-events: none;
+  transform-origin: left center;
+}
+.cr-strike .ev-chip { color: transparent; background: transparent; border-color: transparent; }
+.cr-strike.is-drawing { animation: cr-strike 300ms var(--ease-settle) both; }
+.cr-before { margin-top: 0.875rem; padding-left: 0.75rem; border-left: 2px solid var(--vc-rule); }
+.cr-before-text { margin-top: 0.25rem; font-size: 0.875rem; line-height: 1.5; color: var(--vc-graphite); }
+.cr-reason { margin-top: 0.75rem; font-size: 0.875rem; line-height: 1.5; color: var(--vc-ink); }
+.cr-audit { margin-top: 0.875rem; font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-size: 0.8125rem; line-height: 1.45; color: var(--vc-graphite); }
+.cr-audit li + li { margin-top: 0.25rem; }
+.cr-audit-demo { animation: cr-fade 200ms var(--ease-settle) both; }
+
+/* Editing */
+.cr-field {
+  display: block;
+  width: 100%;
+  min-height: 9.5rem;
+  padding: 0.5rem 0.625rem;
+  font: inherit;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--vc-ink);
+  background: #fff;
+  border: 1px solid var(--vc-rule-strong);
+  border-radius: 2px;
+  resize: vertical;
+}
+.cr-field[aria-invalid='true'] { border-color: var(--vc-signal); box-shadow: inset 0 0 0 1px var(--vc-signal); }
+.cr-hint { display: flex; gap: 0.375rem; margin-top: 0.5rem; font-size: 0.8125rem; line-height: 1.45; color: var(--vc-graphite); }
+.cr-hint.is-error { color: var(--vc-signal); font-weight: 500; }
+.cr-edit-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+
+/* Evidence, ranked */
+.cr-ranked { display: grid; gap: 0.875rem; }
+.cr-ranked-item { display: grid; grid-template-columns: 1.125rem minmax(0, 1fr); gap: 0.375rem; }
+.cr-rank { padding-top: 0.25rem; font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-weight: 500; font-size: 0.8125rem; color: var(--vc-brass-700); }
+.cr-ranked-head { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.5rem; }
+.cr-ranked-date { font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-size: 0.75rem; color: var(--vc-graphite); }
+.cr-reasons { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.375rem; }
+.cr-reasons .chip { padding: 0.2rem 0.45rem; }
+.cr-reasons .chip-value { font-size: 0.8125rem; }
+
+/* Decision: the stamp, then the controls */
+.cr-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.2rem 0.5rem;
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.cr-stamp.is-accepted { color: var(--vc-ink); transform: rotate(-2deg); }
+.cr-stamp.is-edited { color: var(--vc-azure-700); }
+.cr-stamp.is-rejected { color: var(--vc-signal); }
+.cr-controls { display: flex; flex-direction: column; align-items: stretch; gap: 0.375rem; margin-top: 0.875rem; }
+.cr-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  min-height: 2rem;
+  padding: 0.25rem 0.625rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.2;
+  color: var(--vc-navy);
+  background: var(--vc-paper);
+  border: 1px solid var(--vc-rule-strong);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 150ms var(--ease-settle), border-color 150ms var(--ease-settle);
+}
+.cr-btn:hover { background: var(--vc-parchment-300); border-color: var(--vc-navy); }
+.cr-btn.is-primary { color: #fff; background: var(--vc-azure-700); border-color: var(--vc-azure-700); }
+.cr-btn.is-primary:hover { background: var(--vc-navy); border-color: var(--vc-navy); }
+
+@keyframes cr-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes cr-strike { from { transform: scaleX(0); } to { transform: none; } }
+
+/* Cards below 768 px: Response, then Reply, then Evidence, then the Decision controls. */
+@media (max-width: 767px) {
+  .cr-scott, .cr-scott tbody, .cr-scott tr, .cr-scott td { display: block; width: auto; }
+  .cr-scott colgroup { display: none; }
+  .cr-scott thead { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .cr-scott-caption { display: block; }
+  .cr-point { border: 1px solid var(--vc-rule-strong); border-radius: 2px; background: var(--vc-paper); }
+  .cr-point + .cr-point { margin-top: 1rem; }
+  .cr-scott td, .cr-scott td:not(.cr-response) { padding: 0.875rem 0.875rem 1rem; border-left: 0; border-bottom: 1px solid var(--vc-rule); }
+  .cr-scott .cr-point tr:last-child td:last-child { border-bottom: 0; }
+  .cr-label { display: block; }
+  .cr-response { background: var(--vc-parchment-300); }
+  .cr-controls { flex-direction: row; flex-wrap: wrap; }
+  .cr-btn { min-height: 44px; padding-inline: 0.875rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cr-text.is-fresh, .cr-audit-demo, .cr-strike.is-drawing { animation: none; }
+}

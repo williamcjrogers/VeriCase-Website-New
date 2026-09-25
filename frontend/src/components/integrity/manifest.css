@@ -1,0 +1,75 @@
+/* Fig. 10, the manifest, on parchment: a real table in mono with tabular figures and parchment-300
+   zebra rows at 1024 px and above; below that (where six mono columns would break message IDs
+   and paths mid-word), each row is a card of terms and values and the digests wrap by character.
+   Loaded with the manifest's chunk. */
+
+.ri-manifest-caption { padding-bottom: 0.875rem; text-align: left; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1.1875rem; line-height: 1.3; color: var(--vc-navy); }
+.ri-manifest-table { display: none; }
+.ri-manifest-table caption { caption-side: top; }
+.ri-manifest-table thead th {
+  padding: 0.625rem 0.75rem;
+  text-align: left;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--vc-graphite);
+  background: var(--vc-paper);
+  border-top: 1px solid var(--vc-rule-strong);
+  border-bottom: 1px solid var(--vc-rule-strong);
+}
+.ri-manifest-table tbody :is(th, td) { padding: 0.8125rem 0.75rem; vertical-align: top; text-align: left; font-weight: 400; color: var(--vc-ink); background: var(--vc-paper); border-bottom: 1px solid var(--vc-rule); }
+.ri-manifest-table tbody tr:nth-child(even) :is(th, td) { background: var(--vc-parchment-300); }
+.ri-manifest-table tbody tr:last-child :is(th, td) { border-bottom-color: var(--vc-rule-strong); }
+.ri-manifest-table tbody th { font-weight: 500; color: var(--vc-brass-700); }
+.ri-col-0 { width: 4rem; }
+.ri-col-1 { width: 7rem; }
+.ri-col-2 { width: 9.5rem; }
+.ri-col-4 { width: 12rem; }
+@media (min-width: 1024px) {
+  .ri-manifest-table {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+    font-size: 0.8125rem;
+    line-height: 1.45;
+    font-variant-numeric: tabular-nums slashed-zero;
+  }
+  .ri-manifest-cards { display: none; }
+}
+.ri-wrap { overflow-wrap: anywhere; }
+.ri-digest { display: grid; gap: 0.125rem; }
+.ri-digest code { color: var(--vc-navy); }
+.ri-digest-full { word-break: break-all; }
+.ri-digest-actions { display: flex; align-items: center; gap: 0.125rem; margin-left: -0.3rem; }
+.ri-text-btn {
+  min-height: 28px;
+  padding: 0 0.3rem;
+  font-family: 'IBM Plex Sans', 'IBM Plex Sans Fallback', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 0.8125rem;
+  color: var(--vc-azure-700);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.ri-text-btn:hover { text-decoration-thickness: 2px; }
+.ri-icon-btn { display: inline-grid; place-items: center; width: 28px; height: 28px; color: var(--vc-azure-700); border-radius: 2px; }
+.ri-icon-btn:hover { background: var(--vc-azure-50); }
+
+.ri-cards { display: grid; gap: 0.75rem; }
+@media (min-width: 640px) { .ri-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; } }
+.ri-card { padding: 0.875rem 1rem 1rem; background: var(--vc-paper); border: 1px solid var(--vc-rule-strong); border-radius: 2px; }
+.ri-card dl { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.75rem 1.5rem; }
+.ri-card dl > div { grid-column: 1 / -1; min-width: 0; }
+.ri-card dl > .ri-card-seq { grid-column: 1; }
+.ri-card dl > .ri-card-exhibit { grid-column: 2; }
+.ri-card dt { font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-weight: 500; font-size: 0.75rem; line-height: 1.3; letter-spacing: 0.06em; text-transform: uppercase; color: var(--vc-graphite); }
+.ri-card dd { margin-top: 0.25rem; font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-size: 0.8125rem; line-height: 1.45; color: var(--vc-ink); font-variant-numeric: tabular-nums slashed-zero; }
+.ri-card-seq dd { font-weight: 500; color: var(--vc-brass-700); }
+.ri-card .ri-digest code { word-break: break-all; }
