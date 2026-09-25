@@ -1,18 +1,24 @@
-import { useRef } from 'react';
-import { toast } from 'sonner';
+import { useEffect, useRef, useState } from 'react';
 import { Copy, Mail } from 'lucide-react';
 import { CONTACT_EMAIL, DEMO_MAILTO } from '@/lib/site';
 import { CTA_LABEL, CTA_MICROCOPY, DEMONSTRATION } from '@/content/home';
 import { cn } from '@/lib/utils';
 
 // "Book a demonstration": a mailto with the subject and body prefilled, an optional
-// "Copy email address" button and the confidentiality microcopy. No form submits anything.
+// "Copy email address" button (confirmed in a status line beside it) and the confidentiality
+// microcopy. No form submits anything.
 export const DemoCTA = ({ onInk = false, withCopy = false, microcopy = CTA_MICROCOPY, className, align = 'start' }) => {
   const plain = useRef(null);
+  const [copied, setCopied] = useState(false);
+  useEffect(() => {
+    if (!copied) return undefined;
+    const t = setTimeout(() => setCopied(false), 4000);
+    return () => clearTimeout(t);
+  }, [copied]);
   const copy = async () => {
     try {
       await navigator.clipboard.writeText(CONTACT_EMAIL);
-      toast(DEMONSTRATION.copied);
+      setCopied(true);
     } catch {
       // Clipboard unavailable: select the plain address so it can be copied by hand.
       const el = plain.current;
@@ -37,6 +43,11 @@ export const DemoCTA = ({ onInk = false, withCopy = false, microcopy = CTA_MICRO
             <Copy className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
             {DEMONSTRATION.copy}
           </button>
+        )}
+        {withCopy && (
+          <span role="status" className={cn('text-caption font-medium', onInk ? 'text-azure-300' : 'text-azure-700')}>
+            {copied ? DEMONSTRATION.copied : ''}
+          </span>
         )}
       </div>
       {microcopy && <p className={cn('max-w-[34rem] text-caption', onInk ? 'text-mist' : 'text-graphite')}>{microcopy}</p>}

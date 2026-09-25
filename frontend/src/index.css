@@ -112,14 +112,12 @@
   /* Superscripts: brass site notes and azure product citations share one form. The <sup
      class="vc-sup"> wrapper raises and scales the marker; the marker itself only styles it. */
   .vc-sup { vertical-align: super; font-size: 0.68em; line-height: 0; }
+  /* Inline, not inline-block, so a line never breaks between a word and its marker. */
   .superscript-ref {
     position: relative;
-    display: inline-flex;
-    align-items: flex-start;
-    justify-content: center;
-    min-width: 1.35em;
-    margin: 0;
-    padding: 0 0.15em;
+    display: inline;
+    margin: 0 0 0 0.05em;
+    padding: 0 0.1em;
     font-family: 'IBM Plex Sans', 'IBM Plex Sans Fallback', Arial, sans-serif;
     font-weight: 600;
     font-size: 1em;
@@ -136,7 +134,7 @@
   .superscript-ref.is-cite { color: var(--vc-azure-700); }
   .superscript-ref:hover { text-decoration: underline; text-underline-offset: 2px; }
   /* Enlarge the hit area to about 24 x 24 px without moving the text. */
-  .superscript-ref::after { content: ''; position: absolute; inset: -7px -5px; }
+  .superscript-ref::after { content: ''; position: absolute; inset: -7px -7px; }
 
   /* Product citation chip inside mocks: [EV-0138] */
   .ev-chip {
@@ -291,16 +289,37 @@
 
   /* Plates. Below 768 px an art-directed plate takes its mobile ratio. */
   @media (max-width: 767px) { .vc-plate-art { aspect-ratio: var(--ratio-mobile) !important; } }
-  /* Until a plate's image is supplied: a quiet ruled stand-in of the same size. */
+  /* Until a plate's image is supplied (previews only): a hatched stand-in of the same size, framed
+     like a print awaiting its plate, and labelled for gate G10. */
   .vc-plate-standin {
     background-color: var(--vc-parchment-300);
-    background-image:
-      linear-gradient(var(--vc-rule) 1px, transparent 1px),
-      linear-gradient(90deg, var(--vc-rule) 1px, transparent 1px);
-    background-size: 32px 32px;
-    background-position: -1px -1px;
+    background-image: repeating-linear-gradient(135deg, rgb(133 122 98 / 0.12) 0 1px, transparent 1px 11px);
   }
-  .on-ink .vc-plate-standin { background-color: #18214A; background-image: linear-gradient(rgb(185 191 208 / 0.14) 1px, transparent 1px), linear-gradient(90deg, rgb(185 191 208 / 0.14) 1px, transparent 1px); }
+  .vc-plate-standin::before {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgb(133 122 98 / 0.35);
+  }
+  .vc-plate-standin::after {
+    content: 'Image awaiting approval (G10)';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0.35rem 0.6rem;
+    font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--vc-graphite);
+    background: var(--vc-parchment-300);
+    border: 1px solid rgb(133 122 98 / 0.35);
+  }
+  .on-ink .vc-plate-standin { background-color: #141C3C; background-image: repeating-linear-gradient(135deg, rgb(185 191 208 / 0.08) 0 1px, transparent 1px 11px); }
+  .on-ink .vc-plate-standin::before { border-color: rgb(185 191 208 / 0.25); }
+  .on-ink .vc-plate-standin::after { color: var(--vc-mist); background: #141C3C; border-color: rgb(185 191 208 / 0.25); }
 
   /* Skeleton for lazily mounted demonstrations: the same size, no shimmer. */
   .vc-skeleton { background: var(--vc-paper); border: 1px solid var(--vc-rule); border-radius: 4px; }
@@ -364,7 +383,7 @@
   .fonts-ready .masthead-rule { animation: rule-draw 300ms var(--ease-settle) 860ms forwards; }
 
   /* Reveal once in view (Reveal / useInViewOnce). Content stays visible without JavaScript:
-     it is hidden only once the inline script has set html.js. */
+     it is hidden only once the app bundle has set html.js. */
   .reveal { transition: opacity 400ms var(--ease-settle), transform 400ms var(--ease-settle); }
   .js .reveal:not(.is-in) { opacity: 0; transform: translateY(12px); }
 

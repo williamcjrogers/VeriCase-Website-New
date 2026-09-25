@@ -1,11 +1,15 @@
-import { useEffect } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Toaster } from '@/components/ui/sonner';
 import { LandingPage } from '@/pages/LandingPage';
 import { Login } from '@/pages/Login';
 import { Cookies } from '@/pages/Cookies';
 import { NotFound } from '@/pages/NotFound';
-import { CookieConsent } from '@/components/CookieConsent';
+
+// Neither renders anything before hydration, so both load as their own chunks once the page
+// has mounted (rendering a lazy component during the prerender would leave a client-only
+// boundary for hydration to report).
+const CookieConsent = lazy(() => import('@/components/CookieConsent').then((m) => ({ default: m.CookieConsent })));
+const Toaster = lazy(() => import('@/components/ui/sonner').then((m) => ({ default: m.Toaster })));
 
 // The routes the site serves. index.html uses the same list to decide whether the prerendered
 // markup belongs to the page being opened (see public/index.html and src/index.js).
@@ -29,6 +33,8 @@ const ExternalRedirect = ({ url }) => {
 
 // The router is injected so that the build can prerender with a StaticRouter.
 function App({ Router = BrowserRouter, routerProps = {} }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   return (
     <Router {...routerProps}>
       <Routes>
@@ -39,8 +45,12 @@ function App({ Router = BrowserRouter, routerProps = {} }) {
         <Route path="/fileserver" element={<ExternalRedirect url="https://files.veri-case.com" />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <CookieConsent />
-      <Toaster position="bottom-center" offset="calc(var(--consent-h, 0px) + 16px)" />
+      {mounted && (
+        <Suspense fallback={null}>
+          <CookieConsent />
+          <Toaster position="bottom-center" offset="calc(var(--consent-h, 0px) + 16px)" />
+        </Suspense>
+      )}
     </Router>
   );
 }

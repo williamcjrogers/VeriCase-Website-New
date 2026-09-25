@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { IS_PREVIEW } from '@/content/gates';
 import { cn } from '@/lib/utils';
 
 // A photographic plate: a <picture> in a fixed aspect-ratio box with a blurred placeholder
 // behind it, lazy by default, captioned "Plate n. … Illustrative image (AI-generated)."
-// Until an image is supplied (`src` omitted) the box keeps its size and shows a quiet stand-in.
+// Until an image is supplied (`src` omitted) the box keeps its size and, on previews only, shows
+// a quiet stand-in marked for gate G10; a production build never shows a stand-in.
 export const Plate = ({
   src, // base path without width, e.g. '/media/plate-archive'
   widths = [640, 960, 1440],
@@ -22,6 +24,7 @@ export const Plate = ({
   onInk = false,
 }) => {
   const [loaded, setLoaded] = useState(false);
+  if (!src && !IS_PREVIEW) return null;
   const set = (base, ws) => ws.map((w) => `${base}-${w}.webp ${w}w`).join(', ');
   const style = { aspectRatio: ratio, ...(lqip ? { backgroundImage: `url(${lqip})`, backgroundSize: 'cover' } : {}) };
   return (
@@ -44,7 +47,7 @@ export const Plate = ({
             />
           </picture>
         ) : (
-          <div className="vc-plate-standin absolute inset-0" role="img" aria-label={alt} />
+          <div className="vc-plate-standin absolute inset-0" role="img" aria-label={alt} data-gate="G10" />
         )}
       </div>
       {caption && <figcaption className={cn('mt-3 text-caption', onInk ? 'text-mist' : 'text-graphite', captionClassName)}>{caption}</figcaption>}

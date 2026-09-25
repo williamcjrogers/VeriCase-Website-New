@@ -1,0 +1,144 @@
+/* Chapter I: the matter card, the notice ruler (Fig. 2), Schedule 1 and the context strip.
+   Motion runs once when each part enters view; the final state shows without JavaScript and
+   under reduced motion. */
+
+/* The file cover: a paper sheet with a brass tab at its top-left corner. */
+.clk-cover { position: relative; }
+.clk-cover::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 28px;
+  width: 64px;
+  height: 6px;
+  background: var(--vc-brass-400);
+}
+
+/* The ruler. Horizontal positions are percentages of the axis; vertical ones are fixed. */
+.clk-ruler { position: relative; height: 290px; }
+.clk-axis { position: absolute; left: 0; right: 0; top: 150px; height: 1px; background: var(--vc-rule-strong); }
+.clk-ticks { position: absolute; left: 0; right: 0; top: 142px; width: 100%; height: 16px; overflow: visible; }
+.clk-monday {
+  position: absolute;
+  top: 164px;
+  transform: translateX(-50%);
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-size: 0.6875rem;
+  line-height: 1;
+  color: var(--vc-graphite);
+  white-space: nowrap;
+}
+.clk-axis-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--vc-graphite);
+}
+.clk-dot {
+  position: absolute;
+  top: 150px;
+  width: 9px;
+  height: 9px;
+  margin: -4.5px 0 0 -4.5px;
+  border-radius: 999px;
+  background: var(--vc-navy);
+  box-shadow: 0 0 0 3px var(--vc-paper);
+}
+.clk-stem { position: absolute; width: 1px; background: var(--vc-rule-strong); }
+.clk-stem.is-above { top: 136px; height: 14px; }
+.clk-stem.is-below { top: 150px; height: 40px; }
+
+/* Brackets are dimension lines ending at the notice date. */
+.clk-bracket { position: absolute; height: 9px; border-top: 1.5px solid var(--vc-navy); transform-origin: left; }
+.clk-bracket::before, .clk-bracket::after { content: ''; position: absolute; top: -5px; width: 1.5px; height: 9px; background: var(--vc-navy); }
+.clk-bracket::before { left: 0; }
+.clk-bracket::after { right: 0; }
+.clk-bracket.is-dashed { border-top-style: dashed; }
+.clk-bracket-label {
+  position: absolute;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--vc-navy);
+  white-space: nowrap;
+}
+
+/* Pin labels are buttons that open the source. */
+.clk-pin {
+  position: absolute;
+  display: block;
+  width: 9.5rem;
+  padding: 0.3rem 0.45rem;
+  text-align: left;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 150ms var(--ease-settle);
+}
+.clk-pin:hover { background: var(--vc-azure-50); }
+.clk-pin.is-above { bottom: calc(290px - 136px); }
+.clk-pin.is-below { top: 192px; }
+.clk-pin.is-right { transform: translateX(-100%); text-align: right; }
+
+/* Motion: brackets draw in turn, pins fade in; once. */
+.js .clk-draw .clk-bracket { transform: scaleX(0); transition: transform 400ms var(--ease-settle); }
+.js .clk-draw .clk-bracket.is-dashed { transition-delay: 150ms; }
+.js .clk-draw .clk-fade { opacity: 0; transition: opacity 200ms var(--ease-settle); }
+.js .clk-draw.is-in .clk-bracket { transform: scaleX(1); }
+.js .clk-draw.is-in .clk-fade { opacity: 1; }
+.js .clk-draw.is-in .clk-fade:nth-child(2) { transition-delay: 60ms; }
+.js .clk-draw.is-in .clk-fade:nth-child(3) { transition-delay: 120ms; }
+.js .clk-draw.is-in .clk-fade:nth-child(4) { transition-delay: 180ms; }
+.js .clk-draw.is-in .clk-bracket { transition-delay: 200ms; }
+.js .clk-draw.is-in .clk-bracket.is-dashed { transition-delay: 350ms; }
+
+/* Mobile: a compact ruler with numbered markers and the events listed beneath. */
+.clk-mini { position: relative; height: 118px; }
+.clk-mini .clk-axis { top: 80px; }
+.clk-mini .clk-ticks { top: 72px; }
+.clk-mini .clk-monday { top: 96px; font-size: 0.625rem; }
+.clk-num {
+  position: absolute;
+  top: 80px;
+  display: grid;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  margin: -8.5px 0 0 -8.5px;
+  border-radius: 999px;
+  background: var(--vc-navy);
+  color: #fff;
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-size: 0.625rem;
+  font-weight: 500;
+  line-height: 1;
+  box-shadow: 0 0 0 2px var(--vc-paper);
+}
+.clk-mini .clk-bracket-label { font-size: 0.75rem; }
+
+/* Schedule 1: hairlines that draw once, row by row. */
+.js .clk-rows .clk-row-rule { transform: scaleX(0); transform-origin: left; transition: transform 400ms var(--ease-settle); }
+.js .clk-rows.is-in .clk-row-rule { transform: scaleX(1); }
+.clk-timebar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.1rem 0.45rem;
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--vc-signal);
+  border: 1px solid var(--vc-signal);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .clk-draw .clk-bracket, .js .clk-rows .clk-row-rule { transform: none !important; }
+  .js .clk-draw .clk-fade { opacity: 1 !important; }
+}

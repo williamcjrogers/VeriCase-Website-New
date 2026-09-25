@@ -3,6 +3,9 @@ import { createRoot, hydrateRoot } from 'react-dom/client';
 import '@/index.css';
 import App from '@/App';
 
+// Content that reveals itself on scroll is hidden only once this bundle runs (see index.css).
+document.documentElement.classList.add('js');
+
 const el = document.getElementById('root');
 const app = (
   <React.StrictMode>
