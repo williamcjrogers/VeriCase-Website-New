@@ -9,9 +9,9 @@ export const APP_URL = process.env.REACT_APP_APP_URL || 'https://app.veri-case.c
 
 export const SIGN_IN_URL = `${APP_URL}login.html`;
 
+// As registered at Companies House (VERICASE LTD, checked 25 September 2026).
 export const COMPANY = {
   name: 'VeriCase Ltd',
-  number: '14789532',
-  // Registered office to be supplied by the owner before publication.
-  registeredOffice: '[to be supplied]',
+  number: '16562435',
+  registeredOffice: '85 Great Portland Street, London, England, W1W 7LT',
 };
