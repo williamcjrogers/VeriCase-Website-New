@@ -1,88 +1,408 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+/* The Working Record: base styles, tokens and the few bespoke animations.
+   The @font-face rules live in public/index.html, beside the preloads, so the font URLs are
+   the same files the preloads fetch (Latin subsets in /public/fonts, OFL licensed). */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
+@layer base {
+  :root {
+    --vc-ink-950: #0E1630; --vc-navy: #1A2550; --vc-ink: #232C4A; --vc-graphite: #535A6E; --vc-mist: #B9BFD0;
+    --vc-azure-50: #E7EFF8; --vc-azure-300: #9CC4EA; --vc-azure-500: #2D78B7; --vc-azure-700: #1F5E96;
+    --vc-parchment: #F5F0E6; --vc-parchment-300: #ECE4D3; --vc-paper: #FCFAF5;
+    --vc-rule: #D8CDB6; --vc-rule-strong: #857A62; --vc-brass-400: #BF9B58; --vc-brass-700: #7A5A28;
+    --vc-signal: #A8352A; --vc-signal-300: #EE8E7E;
+    --ease-settle: cubic-bezier(0.2, 0, 0, 1); --ease-exit: cubic-bezier(0.4, 0, 1, 1); --ease-glide: cubic-bezier(0.45, 0, 0.2, 1);
+    --shadow-paper: 0 1px 0 rgba(26, 37, 80, 0.06), 0 12px 32px -16px rgba(26, 37, 80, 0.22);
+    --shadow-lift: 0 1px 0 rgba(26, 37, 80, 0.08), 0 24px 48px -24px rgba(26, 37, 80, 0.35);
+    --header-h: 64px;
+    /* shadcn tokens (HSL triplets) */
+    --background: 40 43% 93%; --foreground: 226 36% 21%;
+    --card: 43 54% 97%; --card-foreground: 226 36% 21%;
+    --popover: 43 54% 97%; --popover-foreground: 226 36% 21%;
+    --primary: 208 66% 35%; --primary-foreground: 0 0% 100%;
+    --secondary: 41 40% 88%; --secondary-foreground: 226 36% 21%;
+    --muted: 41 40% 88%; --muted-foreground: 224 14% 38%;
+    --accent: 212 55% 94%; --accent-foreground: 228 51% 21%;
+    --destructive: 5 60% 41%; --destructive-foreground: 0 0% 100%;
+    --border: 41 30% 78%; --input: 41 15% 45%; --ring: 207 61% 45%;
+    --radius: 0.25rem;
+  }
+  @media (max-width: 1023px) { :root { --header-h: 56px; } }
+
+  /* One offset mechanism only: no element also carries scroll-margin-top. */
+  html {
+    scroll-padding-top: calc(var(--header-h) + 16px);
+    scroll-padding-bottom: var(--consent-h, 0px);
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
     margin: 0;
-    font-family: 'Manrope', sans-serif;
+    background: var(--vc-parchment);
+    color: var(--vc-ink);
+    font-family: 'IBM Plex Sans', 'IBM Plex Sans Fallback', Arial, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    font-synthesis: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    padding-bottom: var(--consent-h, 0px);
+    overflow-x: clip;
+  }
+  /* Paper grain, drawn procedurally so it tiles without seams and costs no request. */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.10  0 0 0 0 0.14  0 0 0 0 0.31  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-size: 240px 240px;
+    opacity: 0.07;
+    mix-blend-mode: multiply;
+  }
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif;
+    font-optical-sizing: auto;
+    color: var(--vc-navy);
+    font-weight: 500;
+  }
+  .mono, code, kbd, samp {
+    font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+    font-variant-numeric: tabular-nums slashed-zero;
+  }
+  :focus-visible { outline: 3px solid var(--vc-azure-500); outline-offset: 2px; }
+  ::selection { background: var(--vc-azure-50); color: var(--vc-navy); }
+
+  /* Dark grounds: case room, footer, hash-check panel, demonstration panel */
+  .on-ink { color: var(--vc-parchment); --ring: 209 65% 76%; }
+  .on-ink :is(h1, h2, h3, h4) { color: var(--vc-parchment); }
+  .on-ink :focus-visible { outline-color: var(--vc-azure-300); }
+  /* Paper panels inside a dark ground (Rebuttal table, Day 28 card) */
+  .on-ink .on-paper { color: var(--vc-ink); --ring: 207 61% 45%; }
+  .on-ink .on-paper :is(h1, h2, h3, h4) { color: var(--vc-navy); }
+  .on-ink .on-paper :focus-visible { outline-color: var(--vc-azure-500); }
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', sans-serif;
+@layer components {
+  /* Mono label and eyebrow: sentence case in the content files, capitals by CSS. */
+  .eyebrow {
+    font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.3;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--vc-brass-700);
+  }
+  .on-ink .eyebrow { color: var(--vc-brass-400); }
+  .on-ink .on-paper .eyebrow { color: var(--vc-brass-700); }
+
+  /* Double hairline: 1 px, 3 px gap, 1 px. */
+  .double-rule {
+    height: 5px;
+    border-top: 1px solid var(--vc-rule);
+    border-bottom: 1px solid var(--vc-rule);
+  }
+  .on-ink .double-rule { border-color: rgb(191 155 88 / 0.55); }
+  .double-rule.is-brass { border-color: var(--vc-brass-400); }
+
+  /* Superscripts: brass site notes and azure product citations share one form. The <sup
+     class="vc-sup"> wrapper raises and scales the marker; the marker itself only styles it. */
+  .vc-sup { vertical-align: super; font-size: 0.68em; line-height: 0; }
+  .superscript-ref {
+    position: relative;
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 1.35em;
+    margin: 0;
+    padding: 0 0.15em;
+    font-family: 'IBM Plex Sans', 'IBM Plex Sans Fallback', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 1em;
+    line-height: 1;
+    text-decoration: none;
+    background: none;
+    border: 0;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  .superscript-ref.is-note { color: var(--vc-brass-700); }
+  .on-ink .superscript-ref.is-note, .superscript-ref.is-note.on-ink-ref { color: var(--vc-brass-400); }
+  .on-ink .on-paper .superscript-ref.is-note { color: var(--vc-brass-700); }
+  .superscript-ref.is-cite { color: var(--vc-azure-700); }
+  .superscript-ref:hover { text-decoration: underline; text-underline-offset: 2px; }
+  /* Enlarge the hit area to about 24 x 24 px without moving the text. */
+  .superscript-ref::after { content: ''; position: absolute; inset: -7px -5px; }
+
+  /* Product citation chip inside mocks: [EV-0138] */
+  .ev-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    padding: 0 0.4em;
+    font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+    font-weight: 500;
+    font-size: 0.8125rem;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    color: var(--vc-azure-700);
+    background: var(--vc-azure-50);
+    border: 1px solid rgb(31 94 150 / 0.4);
+    border-radius: 2px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 150ms var(--ease-settle), border-color 150ms var(--ease-settle);
+  }
+  .ev-chip:hover { background: #DCE8F5; border-color: var(--vc-azure-700); }
+
+  /* Exhibit stamp: a brass-edged mono tab. */
+  .ev-stamp {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    padding: 0.1em 0.45em;
+    font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: var(--vc-brass-700);
+    background: var(--vc-paper);
+    border: 1px solid var(--vc-brass-400);
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .on-ink .ev-stamp { background: transparent; color: var(--vc-brass-400); }
+  .stamp-in { animation: stamp 180ms var(--ease-settle) both; }
+
+  /* Beige chips in the app family: key in mono above a sans value. */
+  .chip {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 1px;
+    padding: 0.3rem 0.55rem;
+    background: var(--vc-parchment-300);
+    border: 1px solid var(--vc-rule-strong);
+    border-radius: 2px;
+    text-align: left;
+  }
+  .chip-key { font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-size: 0.75rem; color: var(--vc-brass-700); line-height: 1.2; }
+  .chip-value { font-size: 0.875rem; color: var(--vc-ink); line-height: 1.3; }
+
+  /* Where the record fails / Where VeriCase comes in */
+  .fail-rule { border-left: 2px dashed var(--vc-graphite); }
+  .recover-rule { border-left: 2px solid var(--vc-azure-500); }
+  .on-ink .fail-rule { border-left-color: var(--vc-mist); }
+  .on-ink .recover-rule { border-left-color: var(--vc-azure-300); }
+
+  /* Skip link */
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -100px;
+    z-index: 100;
+    padding: 0.6rem 1rem;
+    background: var(--vc-navy);
+    color: #fff;
+    border-radius: 2px;
+    font-weight: 500;
+  }
+  .skip-link:focus { top: 0.75rem; }
+
+  /* Buttons: 2 px radius, 44 px targets, one weight. Primary is azure-700 (white on it 6.77:1). */
+  .vc-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0.625rem 1.125rem;
+    font-family: 'IBM Plex Sans', 'IBM Plex Sans Fallback', Arial, sans-serif;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 150ms var(--ease-settle), border-color 150ms var(--ease-settle), color 150ms var(--ease-settle);
+  }
+  .vc-btn:disabled, .vc-btn[aria-disabled='true'] { cursor: not-allowed; opacity: 0.55; }
+  .vc-btn-primary { background: var(--vc-azure-700); border-color: var(--vc-azure-700); color: #fff; }
+  .vc-btn-primary:hover { background: var(--vc-navy); border-color: var(--vc-navy); }
+  .vc-btn-secondary { background: transparent; border-color: var(--vc-rule-strong); color: var(--vc-navy); }
+  .vc-btn-secondary:hover { background: var(--vc-parchment-300); border-color: var(--vc-navy); }
+  .vc-btn-quiet { min-height: 44px; padding-inline: 0.625rem; background: transparent; color: var(--vc-azure-700); }
+  .vc-btn-quiet:hover { background: var(--vc-azure-50); }
+  .vc-btn-compact { padding-inline: 0.75rem; }
+  /* On ink and navy: the parchment button with navy text, and a mist outline for the second. */
+  .vc-btn-primary.vc-btn-on-ink { background: var(--vc-parchment); border-color: var(--vc-parchment); color: var(--vc-navy); }
+  .vc-btn-primary.vc-btn-on-ink:hover { background: #fff; border-color: #fff; }
+  .vc-btn-secondary.vc-btn-secondary-on-ink { border-color: var(--vc-mist); color: var(--vc-parchment); }
+  .vc-btn-secondary.vc-btn-secondary-on-ink:hover { background: rgb(245 240 230 / 0.08); border-color: var(--vc-parchment); }
+  .on-ink .vc-btn-quiet { color: var(--vc-azure-300); }
+  .on-ink .vc-btn-quiet:hover { background: rgb(156 196 234 / 0.1); }
+  .on-ink .on-paper .vc-btn-quiet { color: var(--vc-azure-700); }
+
+  /* Text links in running copy */
+  .vc-link { color: var(--vc-azure-700); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  .vc-link:hover { text-decoration-thickness: 2px; }
+  .on-ink .vc-link { color: var(--vc-azure-300); }
+  .on-ink .on-paper .vc-link { color: var(--vc-azure-700); }
+
+  /* Owner gates, shown only on previews. A production build with an open gate fails. */
+  .vc-gate { position: relative; outline: 1px dashed rgb(168 53 42 / 0.6); outline-offset: 3px; border-radius: 1px; }
+  .vc-gate-tag {
+    display: inline-block;
+    margin-left: 0.4em;
+    padding: 0.05em 0.35em;
+    font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+    font-weight: 500;
+    font-size: 0.625rem;
+    font-style: normal;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+    vertical-align: 0.2em;
+    color: #fff;
+    background: var(--vc-signal);
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .vc-gate-block { display: block; }
+  .vc-gate-block > .vc-gate-tag { position: absolute; top: -0.7rem; right: 0.5rem; z-index: 2; margin: 0; }
+  .vc-placeholder {
+    padding: 0 0.25em;
+    font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+    font-size: 0.85em;
+    font-style: normal;
+    color: var(--vc-signal);
+    background: rgb(168 53 42 / 0.07);
+    border: 1px dashed rgb(168 53 42 / 0.6);
+    border-radius: 2px;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+  .on-ink .vc-placeholder { color: var(--vc-signal-300); background: rgb(238 142 126 / 0.1); border-color: rgb(238 142 126 / 0.7); }
+  .on-ink .on-paper .vc-placeholder { color: var(--vc-signal); background: rgb(168 53 42 / 0.07); border-color: rgb(168 53 42 / 0.6); }
+
+  /* Plates. Below 768 px an art-directed plate takes its mobile ratio. */
+  @media (max-width: 767px) { .vc-plate-art { aspect-ratio: var(--ratio-mobile) !important; } }
+  /* Until a plate's image is supplied: a quiet ruled stand-in of the same size. */
+  .vc-plate-standin {
+    background-color: var(--vc-parchment-300);
+    background-image:
+      linear-gradient(var(--vc-rule) 1px, transparent 1px),
+      linear-gradient(90deg, var(--vc-rule) 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-position: -1px -1px;
+  }
+  .on-ink .vc-plate-standin { background-color: #18214A; background-image: linear-gradient(rgb(185 191 208 / 0.14) 1px, transparent 1px), linear-gradient(90deg, rgb(185 191 208 / 0.14) 1px, transparent 1px); }
+
+  /* Skeleton for lazily mounted demonstrations: the same size, no shimmer. */
+  .vc-skeleton { background: var(--vc-paper); border: 1px solid var(--vc-rule); border-radius: 4px; }
+  .on-ink .vc-skeleton { background: rgb(252 250 245 / 0.04); border-color: rgb(185 191 208 / 0.2); }
+
+  /* Verification tick that reveals itself left to right, once. */
+  .vc-tick-draw { clip-path: inset(0 100% 0 0); animation: tick-draw 360ms var(--ease-settle) 80ms forwards; }
+
+  /* The note popover and the sheets */
+  .vc-note-pop { max-height: min(60vh, 28rem); overflow-y: auto; }
+  .vc-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 2px;
+    color: inherit;
+    opacity: 1;
+  }
+  .vc-close:hover { background: rgb(26 37 80 / 0.06); }
+  .vc-close.on-azure { color: #fff; }
+  .vc-close.on-azure:hover { background: rgb(255 255 255 / 0.14); }
+
+  /* Kinetic masthead (CSS only). Words are legible at every moment. */
+  .masthead { position: relative; overflow: clip; padding-block: 0.12em 0.18em; }
+  .masthead .slip { display: inline-block; position: relative; isolation: isolate; }
+  .masthead .slip::before {
+    content: '';
+    position: absolute;
+    inset: -0.04em -0.16em -0.02em;
+    z-index: -1;
+    background: var(--vc-paper);
+    border: 1px solid var(--vc-rule);
+    box-shadow: var(--shadow-paper);
+  }
+  .masthead .slip:nth-of-type(1) { transform: translate(-6px, 10px) rotate(-2deg); }
+  .masthead .slip:nth-of-type(2) { transform: translate(4px, -6px) rotate(1.5deg); }
+  .masthead .slip:nth-of-type(3) { transform: translate(-2px, 8px) rotate(-1deg); }
+  .fonts-ready .masthead .slip { animation: word-settle 240ms var(--ease-settle) calc(120ms + var(--i) * 220ms) forwards; }
+  .fonts-ready .masthead .slip::before { animation: slip-fade 240ms var(--ease-settle) calc(120ms + var(--i) * 220ms) forwards; }
+  .masthead-lens { position: absolute; inset: 0; pointer-events: none; }
+  .masthead-lens::before {
+    content: '';
+    position: absolute;
+    inset-block: 0;
+    right: 100%;
+    width: 24px;
+    background: rgb(231 239 248 / 0.55);
+    border-right: 2px solid var(--vc-azure-500);
+  }
+  .fonts-ready .masthead-lens { animation: lens-sweep 800ms var(--ease-glide) forwards; }
+  .masthead-rule {
+    display: block;
+    height: 1px;
+    margin-top: 0.12em;
+    background: var(--vc-brass-400);
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+  .fonts-ready .masthead-rule { animation: rule-draw 300ms var(--ease-settle) 860ms forwards; }
+
+  /* Reveal once in view (Reveal / useInViewOnce). Content stays visible without JavaScript:
+     it is hidden only once the inline script has set html.js. */
+  .reveal { transition: opacity 400ms var(--ease-settle), transform 400ms var(--ease-settle); }
+  .js .reveal:not(.is-in) { opacity: 0; transform: translateY(12px); }
+
+  /* Hairline that draws once */
+  .draw-x { transform-origin: left; transition: transform 400ms var(--ease-settle); }
+  .js .draw-x { transform: scaleX(0); }
+  .js .is-in .draw-x, .js .draw-x.is-in { transform: scaleX(1); }
 }
 
-@layer base {
-    :root {
-        /* VeriCase Brand Colors - VIBRANT */
-        --color-teal-50: #E6F7F7;
-        --color-teal-500: #069494;
-        --color-teal-600: #057676;
-        --color-coral-500: #FF7F50;
-        --color-coral-600: #E6673A;
-        --color-orange-500: #FD5901;
-        
-        /* Neutral Colors */
-        --color-gray-50: #F8FAFC;
-        --color-gray-100: #F1F5F9;
-        --color-gray-200: #E2E8F0;
-        --color-gray-500: #64748B;
-        --color-gray-600: #475569;
-        --color-gray-700: #334155;
-        --color-gray-900: #0F172A;
-        --color-white: #FFFFFF;
-        
-        /* VeriCase Component Colors */
-        --vericase-primary-dark: #1E293B;
-        --vericase-accent-teal: #06A69E;
-        --vericase-text-secondary: #64748B;
-        --vericase-bg-light: #F0F9FF;
-        --vericase-border: #E2E8F0;
-        --vericase-surface: #FFFFFF;
-        --vericase-caption: #CBD5E1;
-        
-        /* Shadcn Theme Variables */
-        --background: 0 0% 100%;
-        --foreground: 222 47% 11%;
-        --card: 0 0% 100%;
-        --card-foreground: 222 47% 11%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 222 47% 11%;
-        --primary: 180 100% 29%;
-        --primary-foreground: 0 0% 100%;
-        --secondary: 16 100% 66%;
-        --secondary-foreground: 0 0% 100%;
-        --muted: 210 40% 96%;
-        --muted-foreground: 215 16% 47%;
-        --accent: 210 40% 96%;
-        --accent-foreground: 222 47% 11%;
-        --destructive: 0 84% 60%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 214 32% 91%;
-        --input: 214 32% 91%;
-        --ring: 180 100% 29%;
-        --radius: 0.75rem;
-    }
-}
+@keyframes word-settle { to { transform: none; } }
+@keyframes slip-fade { to { opacity: 0; } }
+@keyframes lens-sweep { from { transform: translateX(0); } to { transform: translateX(calc(100% + 26px)); } }
+@keyframes rule-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes stamp { from { opacity: 0; transform: rotate(-2deg) scale(1.06); } to { opacity: 1; transform: rotate(-2deg) scale(1); } }
+@keyframes tick-draw { to { clip-path: inset(0 0 0 0); } }
+@keyframes note-flash { 0%, 60% { background-color: var(--vc-parchment-300); } 100% { background-color: transparent; } }
+.note-flash { animation: note-flash 1.2s var(--ease-settle); }
 
-@layer base {
-    * {
-        @apply border-border;
-    }
-    body {
-        @apply bg-white text-gray-600;
-    }
-}
+/* Lens casts: decided by CSS, never by matchMedia, so the prerender and hydration match */
+@media (max-width: 639px) { .lens [data-desktop-only] { display: none !important; } }
+@media (min-width: 640px) { .lens [data-mobile-only] { display: none !important; } }
 
-/* Custom utility classes */
-@layer utilities {
-    .text-gradient-teal {
-        background: linear-gradient(135deg, #069494 0%, #057676 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* Final states from first paint, without waiting for fonts-ready or JavaScript */
+  .masthead .slip { transform: none; }
+  .masthead .slip::before { opacity: 0; }
+  .masthead-rule { transform: none; }
+  .masthead-lens { display: none; }
+  .js .reveal:not(.is-in) { opacity: 1; transform: none; }
+  .js .draw-x { transform: none; }
+  .vc-tick-draw { clip-path: none; animation: none; }
+  .lens:not([data-user]) .lens-field { --lens-x: 100%; }
+  .lens:not([data-user]) :is(.row, .stamp, .hash, .lens-cite) { opacity: 1 !important; transform: none !important; }
 }

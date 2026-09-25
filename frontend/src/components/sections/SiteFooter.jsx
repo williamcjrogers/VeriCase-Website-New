@@ -1,74 +1,126 @@
-import { COMPANY, CONTACT_EMAIL, DEMO_MAILTO, SIGN_IN_URL } from '@/lib/site';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { ChevronDown } from 'lucide-react';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { Logo } from '@/components/brand/Logo';
+import { Rich } from '@/components/editorial/Rich';
+import { BRAND_LINE, CHAPTERS, END_MATTER, FOOTER } from '@/content/home';
+import { COMPANY, CONTACT_EMAIL, DEMO_MAILTO, SIGN_IN_URL, SITE } from '@/lib/site';
+import { onSectionClick, sectionHref } from '@/lib/navigate';
+import { cn } from '@/lib/utils';
 
-const FOOTER_COLUMNS = [
-  {
-    heading: 'Platform',
-    links: [
-      { label: 'What VeriCase does', href: '/#platform' },
-      { label: 'How it works', href: '/#how-it-works' }
-    ]
-  },
-  {
-    heading: 'Company',
-    links: [
-      { label: 'Book a demonstration', href: DEMO_MAILTO },
-      { label: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
-      { label: 'Sign in', href: SIGN_IN_URL }
-    ]
-  },
-  {
-    heading: 'Legal',
-    links: [
-      { label: 'Cookies', href: '/cookies' }
-    ]
-  }
-];
+// The prerendered page carries this year; the client moves it on if a new year has begun.
+const BUILD_YEAR = 2026;
+
+const linkClass = 'text-azure-300 underline-offset-4 hover:underline focus-visible:underline';
+
+// A column heading on wide screens; below 768 px a 48 px disclosure button. The links stay in
+// the document either way, so they work without JavaScript and are always indexed.
+const Column = ({ title, children }) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <Collapsible open={open} onOpenChange={setOpen} className="border-b border-mist/20 md:border-0">
+      <h2 className="eyebrow hidden md:block">{title}</h2>
+      <CollapsibleTrigger className="flex h-12 w-full items-center justify-between text-left md:hidden">
+        <span className="eyebrow">{title}</span>
+        <ChevronDown className={cn('h-5 w-5 text-mist transition-transform duration-200', open && 'rotate-180')} strokeWidth={1.5} aria-hidden="true" />
+      </CollapsibleTrigger>
+      <CollapsibleContent forceMount className="max-md:data-[state=closed]:hidden">
+        <ul className="space-y-1 pb-4 md:mt-4 md:space-y-2 md:pb-0">{children}</ul>
+      </CollapsibleContent>
+    </Collapsible>
+  );
+};
+
+const Item = ({ children }) => <li className="text-small leading-relaxed">{children}</li>;
 
 export const SiteFooter = () => {
+  const { pathname } = useLocation();
+  const onHome = pathname === '/';
+  const [year, setYear] = useState(BUILD_YEAR);
+  useEffect(() => setYear(new Date().getFullYear()), []);
+  const openCookies = () => window.dispatchEvent(new Event('vc-open-cookie-settings'));
+
+  const contents = [...CHAPTERS.filter((c) => c.numeral), ...END_MATTER.filter((m) => m.id === 'platform' || m.id === 'notes')];
+  const about = END_MATTER.find((m) => m.id === 'about');
+
   return (
-    <footer id="about" className="py-16 md:py-20 bg-gray-900 text-gray-300" data-testid="site-footer">
-      <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          {/* Logo and Tagline */}
-          <div className="lg:col-span-1">
-            <div className="mb-6 inline-block rounded-lg bg-white px-4 py-3">
-              <img
-                src="/assets/LOGOTOBEUSED.png"
-                alt="VeriCase"
-                className="h-8 w-auto"
-              />
-            </div>
-            <p className="text-sm leading-relaxed text-gray-400">
-              The evidence intelligence platform for construction disputes: evidence, chronology, claims and rebuttal, with every point cited to its source.
-            </p>
+    <footer className="on-ink bg-ink-950 text-parchment">
+      <div className="container py-16 md:py-20">
+        <div className="grid gap-10 md:grid-cols-12 md:gap-6">
+          <div className="md:col-span-12 lg:col-span-5">
+            <a href={onHome ? '#top' : '/'} onClick={onHome ? onSectionClick('top') : undefined} aria-label="VeriCase home" className="inline-flex h-11 items-center">
+              <Logo tone="reversed" decorative className="h-8 w-auto" />
+            </a>
+            <p className="mt-5 max-w-[30rem] text-small text-mist">{FOOTER.descriptor}</p>
+            <p className="mt-4 font-display text-[1.25rem] italic text-parchment">{BRAND_LINE}</p>
           </div>
 
-          {FOOTER_COLUMNS.map((column) => (
-            <div key={column.heading}>
-              <h2 className="font-bold text-base mb-6 text-white">{column.heading}</h2>
-              <ul className="space-y-3">
-                {column.links.map((link) => (
-                  <li key={link.label}>
-                    <a href={link.href} className="text-sm hover:text-teal-400 transition-colors duration-200">
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className="grid md:col-span-12 md:grid-cols-3 md:gap-6 lg:col-span-7">
+            <Column title={FOOTER.heads.contents}>
+              {contents.map((c) => (
+                <Item key={c.id}>
+                  <a href={sectionHref(c.id, onHome)} onClick={onHome ? onSectionClick(c.id) : undefined} className={linkClass}>
+                    {c.numeral && <span className="mono mr-2 text-meta text-brass-400">{c.numeral}</span>}
+                    {c.title}
+                  </a>
+                </Item>
+              ))}
+            </Column>
+            <Column title={FOOTER.heads.company}>
+              <Item>
+                <a href={sectionHref(about.id, onHome)} onClick={onHome ? onSectionClick(about.id) : undefined} className={linkClass}>
+                  {FOOTER.company.about}
+                </a>
+              </Item>
+              <Item>
+                <a href={DEMO_MAILTO} className={linkClass}>
+                  {FOOTER.company.demo}
+                </a>
+              </Item>
+              <Item>
+                <a href={`mailto:${CONTACT_EMAIL}`} className={linkClass}>
+                  {CONTACT_EMAIL}
+                </a>
+              </Item>
+              <Item>
+                <a href={SIGN_IN_URL} className={linkClass}>
+                  {FOOTER.company.signIn}
+                </a>
+              </Item>
+            </Column>
+            <Column title={FOOTER.heads.cookies}>
+              <Item>
+                <button type="button" onClick={openCookies} className={cn(linkClass, 'text-left')}>
+                  {FOOTER.cookies.settings}
+                </button>
+              </Item>
+              {SITE.legalPages.cookies && (
+                <Item>
+                  <a href="/cookies" className={linkClass}>
+                    {FOOTER.cookies.notice}
+                  </a>
+                </Item>
+              )}
+              {SITE.legalPages.privacy && (
+                <Item>
+                  <a href="/privacy" className={linkClass}>
+                    Privacy notice
+                  </a>
+                </Item>
+              )}
+            </Column>
+          </div>
         </div>
 
-        {/* Legal disclosures */}
-        <div className="pt-8 border-t border-gray-800 text-center space-y-2">
-          <p className="text-sm text-gray-400">
-            © {new Date().getFullYear()} {COMPANY.name}. All rights reserved.
-          </p>
-          <p className="text-xs text-gray-500" data-testid="company-disclosure">
-            {COMPANY.name} is registered in England and Wales (company number {COMPANY.number}). Registered office: {COMPANY.registeredOffice}.
-          </p>
-          <p className="text-xs text-gray-500">
-            VeriCase™ and Chronology Lens™ are trade marks of {COMPANY.name}.
+        <div className="mt-14 border-t border-mist/25 pt-6 text-meta text-mist">
+          {FOOTER.legal.map((line) => (
+            <p key={line} className="mt-2 max-w-[62rem] first:mt-0">
+              <Rich text={line} onInk />
+            </p>
+          ))}
+          <p className="mt-2">
+            © {year} {COMPANY.name}.
           </p>
         </div>
       </div>

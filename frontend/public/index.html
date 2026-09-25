@@ -3,37 +3,95 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="description" content="VeriCase turns years of project email and documents into a single, cited chronology for construction disputes: evidence, chronology, claims and rebuttal, with every point traced to the record." />
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-        <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-        <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+        <title>VeriCase | Evidence and chronology for construction disputes</title>
+        <meta name="description" content="The pre-litigation evidence workspace for UK construction disputes: project email turned into a cited chronology, cited answers and numbered bundles." />
+        <link rel="canonical" href="https://veri-case.com/" />
+        <meta name="theme-color" content="#1A2550" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="VeriCase" />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:url" content="https://veri-case.com/" />
+        <meta property="og:title" content="Years of project correspondence. One cited chronology." />
+        <meta property="og:description" content="Project email in order, questions answered with numbered citations, sources bundled. For construction solicitors, counsel, experts and claims teams." />
+        <meta property="og:image" content="https://veri-case.com/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="VeriCase: three dated entries of project correspondence under the Chronology Lens, each with an exhibit reference." />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Years of project correspondence. One cited chronology." />
+        <meta name="twitter:description" content="Project email in order, questions answered with numbered citations, sources bundled. For construction solicitors, counsel, experts and claims teams." />
+        <meta name="twitter:image" content="https://veri-case.com/og-image.png" />
+        <meta name="twitter:image:alt" content="VeriCase: three dated entries of project correspondence under the Chronology Lens, each with an exhibit reference." />
+        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" sizes="48x48" />
+        <link rel="icon" href="%PUBLIC_URL%/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
+        <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest" />
+        <link rel="preload" href="%PUBLIC_URL%/fonts/newsreader-roman.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="%PUBLIC_URL%/fonts/newsreader-italic.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="%PUBLIC_URL%/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin />
+        <style>
+            @font-face {
+              font-family: 'Newsreader';
+              font-style: normal;
+              font-weight: 400 600;
+              font-display: swap;
+              src: url('%PUBLIC_URL%/fonts/newsreader-roman.woff2') format('woff2-variations'), url('%PUBLIC_URL%/fonts/newsreader-roman.woff2') format('woff2');
+            }
+            @font-face {
+              font-family: 'Newsreader';
+              font-style: italic;
+              font-weight: 400;
+              font-display: swap;
+              src: url('%PUBLIC_URL%/fonts/newsreader-italic.woff2') format('woff2-variations'), url('%PUBLIC_URL%/fonts/newsreader-italic.woff2') format('woff2');
+            }
+            @font-face { font-family: 'IBM Plex Sans'; font-style: normal; font-weight: 400; font-display: swap; src: url('%PUBLIC_URL%/fonts/plex-sans-400.woff2') format('woff2'); }
+            @font-face { font-family: 'IBM Plex Sans'; font-style: italic; font-weight: 400; font-display: swap; src: url('%PUBLIC_URL%/fonts/plex-sans-400-italic.woff2') format('woff2'); }
+            @font-face { font-family: 'IBM Plex Sans'; font-style: normal; font-weight: 500; font-display: swap; src: url('%PUBLIC_URL%/fonts/plex-sans-500.woff2') format('woff2'); }
+            @font-face { font-family: 'IBM Plex Sans'; font-style: normal; font-weight: 600; font-display: swap; src: url('%PUBLIC_URL%/fonts/plex-sans-600.woff2') format('woff2'); }
+            @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('%PUBLIC_URL%/fonts/plex-mono-400.woff2') format('woff2'); }
+            @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('%PUBLIC_URL%/fonts/plex-mono-500.woff2') format('woff2'); }
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-        <title>VeriCase - Evidence Intelligence Platform</title>
+            /* Metric-matched fallbacks (values from @capsizecss/core), so the swap causes no layout shift. */
+            @font-face { font-family: 'Newsreader Fallback'; src: local('Georgia'); ascent-override: 76.4676%; descent-override: 27.5699%; size-adjust: 96.1192%; }
+            @font-face { font-family: 'IBM Plex Sans Fallback'; src: local('Arial'), local('ArialMT'); ascent-override: 101.3184%; descent-override: 27.183%; line-gap-override: 0%; size-adjust: 101.1663%; }
+            @font-face { font-family: 'IBM Plex Mono Fallback'; src: local('Courier New'), local('CourierNewPSMT'); ascent-override: 102.5167%; descent-override: 27.5045%; size-adjust: 99.9837%; }
+        </style>
+        <script>
+            // Motion hooks for CSS: "js" once scripts run, "fonts-ready" once the web fonts have
+            // loaded (or after one second), so the masthead never animates in a fallback face.
+            (function (d) {
+                var h = d.documentElement;
+                h.className += " js";
+                var ready = function () {
+                    if (!/\bfonts-ready\b/.test(h.className)) h.className += " fonts-ready";
+                };
+                if (d.fonts && d.fonts.ready) d.fonts.ready.then(ready, ready);
+                setTimeout(ready, 1000);
+            })(document);
+        </script>
     </head>
     <body>
-        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <noscript>The demonstrations on this site need JavaScript. The text, notes and links work without it.</noscript>
         <div id="root"></div>
-        <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+        <script>
+            // The build prerenders "/" into index.html and the 404 page into 404.html, marking
+            // #root with data-prerendered. Markup that does not belong to the address being
+            // opened is cleared before it paints; src/index.js then renders the right page.
+            // Keep the list of routes in step with KNOWN_ROUTES in src/App.js.
+            (function () {
+                var root = document.getElementById("root");
+                var pre = root.getAttribute("data-prerendered");
+                if (!pre) return;
+                var path = location.pathname.replace(/\/index\.html$/, "/");
+                if (path.length > 1) path = path.replace(/\/+$/, "");
+                var known = ["/", "/login", "/cookies", "/fileserver"];
+                var belongs = pre === "*" ? known.indexOf(path.toLowerCase()) < 0 : pre === path;
+                if (!belongs) {
+                    root.textContent = "";
+                    root.removeAttribute("data-prerendered");
+                }
+            })();
+        </script>
         <script>
             !(function (t, e) {
                 var o, n, p, r;
@@ -109,7 +167,10 @@
                     if (window.__vcAnalyticsLoaded || !pending) return;
                     window.__vcAnalyticsLoaded = true;
                     posthog.init = snippetInit;
-                    snippetInit.apply(posthog, pending);
+                    // No session is recorded anywhere on the site.
+                    var args = Array.prototype.slice.call(pending);
+                    args[1] = Object.assign({}, args[1], { disable_session_recording: true });
+                    snippetInit.apply(posthog, args);
                 };
             })();
             posthog.init("phc_yJW1VjHGGwmCbbrtczfqqNxgBDbhlhOWcdzcIJEOTFE", {
