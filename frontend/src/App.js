@@ -1,9 +1,9 @@
 import { Suspense, lazy, useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LandingPage } from '@/pages/LandingPage';
-import { Login } from '@/pages/Login';
 import { Cookies } from '@/pages/Cookies';
 import { NotFound } from '@/pages/NotFound';
+import { SIGN_IN_URL } from '@/lib/site';
 
 // Neither renders anything before hydration, so both load as their own chunks once the page
 // has mounted (rendering a lazy component during the prerender would leave a client-only
@@ -15,8 +15,8 @@ const Toaster = lazy(() => import('@/components/ui/sonner').then((m) => ({ defau
 // markup belongs to the page being opened (see public/index.html and src/index.js).
 export const KNOWN_ROUTES = ['/', '/login', '/cookies', '/fileserver', '/Fileserver'];
 
-// Hands the visitor on to the file server.
-const ExternalRedirect = ({ url }) => {
+// Hands the visitor on to the app's sign-in page or the file server.
+const ExternalRedirect = ({ url, label }) => {
   useEffect(() => {
     window.location.href = url;
   }, [url]);
@@ -25,7 +25,7 @@ const ExternalRedirect = ({ url }) => {
     <div className="flex min-h-screen items-center justify-center bg-parchment">
       <div className="text-center" role="status">
         <div className="mx-auto mb-4 h-10 w-10 animate-spin rounded-full border-2 border-rule border-t-azure-500" aria-hidden="true" />
-        <p className="text-caption text-graphite">Redirecting to the file server…</p>
+        <p className="text-caption text-graphite">{label}</p>
       </div>
     </div>
   );
@@ -39,10 +39,10 @@ function App({ Router = BrowserRouter, routerProps = {} }) {
     <Router {...routerProps}>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<ExternalRedirect url={SIGN_IN_URL} label="Redirecting to sign in…" />} />
         <Route path="/cookies" element={<Cookies />} />
-        <Route path="/Fileserver" element={<ExternalRedirect url="https://files.veri-case.com" />} />
-        <Route path="/fileserver" element={<ExternalRedirect url="https://files.veri-case.com" />} />
+        <Route path="/Fileserver" element={<ExternalRedirect url="https://files.veri-case.com" label="Redirecting to the file server…" />} />
+        <Route path="/fileserver" element={<ExternalRedirect url="https://files.veri-case.com" label="Redirecting to the file server…" />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       {mounted && (

@@ -174,6 +174,16 @@ if (!BUILT) {
     for (const n of source.matchAll(/<NoteRef\s+n=\{(\d+)\}/g)) cited.add(Number(n[1]));
   }
 
+  // The plates draw their own text and load lazily, so the rendered-HTML check never sees it: the
+  // copy rules, and the sample matter's own rules, apply to their sources in full (comments aside).
+  for (const file of walk(join(root, 'src/components/plates'), (p) => /\.(js|jsx)$/.test(p))) {
+    const rel = relative(root, file);
+    const source = readFileSync(file, 'utf8')
+      .replace(/\/\*[\s\S]*?\*\//g, (c) => c.replace(/[^\n]/g, ''))
+      .replace(/(^|[^:])\/\/.*$/gm, '$1');
+    source.split('\n').forEach((line, i) => applyRules(`${rel}:${i + 1}`, line, [...TEXT_RULES, ...SAMPLE_RULES]));
+  }
+
   for (const n of cited) if (!NOTE_NUMBERS.has(n)) fail('src/content/notes.js', `note ${n} is cited but does not exist`);
   for (const [token, where] of tokens) report(where, `owner to supply {{${token}}}`);
   for (const g of GATES.filter((x) => x.status === 'open')) report('src/content/gates.js', `open gate ${g.gate} (${g.id}): ${g.label}`);

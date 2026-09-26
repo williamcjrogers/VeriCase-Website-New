@@ -1,3 +1,4 @@
+import { lazy } from 'react';
 import { TriangleAlert } from 'lucide-react';
 import { ChapterHeader } from '@/components/editorial/ChapterHeader';
 import { FailRecover } from '@/components/editorial/FailRecover';
@@ -16,6 +17,9 @@ import { cn } from '@/lib/utils';
 import '@/components/clock/clock.css';
 
 const { matter, ruler, schedule, context, plate, next } = CLOCK;
+
+// Plate 1, drawn in code, loads as its own chunk as the chapter comes near.
+const BracketDetail = lazy(() => import(/* webpackChunkName: "plate-bracket" */ '@/components/plates/BracketDetail').then((m) => ({ default: m.BracketDetail })));
 
 // The time-bar marker: signal colour, always with a word and an icon.
 const TimeBar = () => (
@@ -123,14 +127,15 @@ export const TheClock = () => (
   <section id="clock" aria-labelledby="clock-title" className="bg-parchment">
     <Plate
       src={MEDIA.residentialFrame.src}
+      drawing={BracketDetail}
       mobileSrc={MEDIA.residentialFrame.mobileSrc}
       lqip={MEDIA.residentialFrame.lqip}
       ratio={MEDIA.residentialFrame.ratio}
       ratioMobile={MEDIA.residentialFrame.ratioMobile}
       widths={[960, 1440, 1920]}
       sizes="100vw"
-      alt={plate.alt}
-      caption={plate.caption}
+      alt={MEDIA.residentialFrame.src ? plate.alt : plate.drawn.alt}
+      caption={MEDIA.residentialFrame.src ? plate.caption : plate.drawn.caption}
       captionClassName="container mt-3"
     />
 

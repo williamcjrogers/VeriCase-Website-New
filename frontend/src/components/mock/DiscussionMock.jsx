@@ -1,9 +1,9 @@
 import { Fragment } from 'react';
 import { MockWindow } from '@/components/mock/MockWindow';
 import { EvidenceChip } from '@/components/mock/EvidenceChip';
-import { APP_WINDOW, addressLabel, recordById } from '@/content/records';
+import { APP_WINDOW, partyOf, recordById } from '@/content/records';
 import { DISCUSSION as D } from '@/content/matter/discussion';
-import { formatDate } from '@/lib/format';
+import { formatDate, keepDates } from '@/lib/format';
 import { useInViewOnce } from '@/hooks/useInViewOnce';
 import { cn } from '@/lib/utils';
 import { DISCUSSION_ID } from '@/components/claims/ids';
@@ -16,7 +16,23 @@ const HEAD = 'flex min-h-[3.25rem] flex-wrap items-center gap-x-2 gap-y-1 px-4 p
 
 // Comment text, with any exhibit reference as a chip that opens its source.
 const WithChips = ({ text }) =>
-  text.split(EV).map((part, i) => (EV.test(part) ? <EvidenceChip key={i} id={part} list={CITED} /> : <Fragment key={i}>{part}</Fragment>));
+  text.split(EV).map((part, i) => (EV.test(part) ? <EvidenceChip key={i} id={part} list={CITED} /> : <Fragment key={i}>{keepDates(part)}</Fragment>));
+
+// A correspondent: the role, then the address on its own line, which may break only after "@".
+const Address = ({ party }) => {
+  const { role, email } = partyOf(party);
+  const [local, domain] = email.split('@');
+  return (
+    <span className="block">
+      <span className="block">{role}</span>
+      <span className="block font-mono text-[0.8125rem] text-graphite">
+        &lt;{local}@
+        <wbr />
+        {domain}&gt;
+      </span>
+    </span>
+  );
+};
 
 // Fig. 6: a discussion among the legal team, anchored to the document it concerns. One brass
 // rule joins the document's header to the discussion's heading, and draws once in view.
@@ -24,7 +40,7 @@ const WithChips = ({ text }) =>
 export const DiscussionMock = () => {
   const [ref, inView] = useInViewOnce({ threshold: 0.3 });
   return (
-    <MockWindow title={APP_WINDOW} right={<span className="hidden sm:inline">Fig. 6</span>} className="cb-root">
+    <MockWindow title={APP_WINDOW} className="cb-root">
       <div ref={ref} className={cn('relative grid md:grid-cols-2', inView && 'is-in')}>
         <span aria-hidden="true" className="draw-x absolute inset-x-0 top-[3.25rem] z-[1] hidden h-px bg-brass-400 duration-300 md:block" />
 
@@ -32,22 +48,22 @@ export const DiscussionMock = () => {
           <p className={HEAD}>
             <EvidenceChip id={D.doc} list={CITED} />
             <span className="text-meta text-graphite">{docParties}</span>
-            <span className="font-mono text-meta text-graphite">{docDate}</span>
+            <span className="font-mono text-meta text-graphite">{keepDates(docDate)}</span>
           </p>
           <dl className="border-t border-rule px-4 pt-3 text-meta sm:px-5 md:border-t-0">
             {[
-              ['From', addressLabel(doc.from)],
-              ['To', doc.to.map(addressLabel).join('; ')],
+              ['From', <Address party={doc.from} />],
+              ['To', doc.to.map((p) => <Address key={p} party={p} />)],
               ['Date', `${formatDate(doc.date)}, ${doc.time}`],
               ['Subject', doc.subject],
             ].map(([k, v]) => (
               <div key={k} className="grid grid-cols-[4.75rem_minmax(0,1fr)] gap-2 py-0.5">
                 <dt className="font-mono text-label uppercase text-graphite">{k}</dt>
-                <dd className="min-w-0 break-words text-ink">{v}</dd>
+                <dd className="min-w-0 text-ink">{v}</dd>
               </div>
             ))}
           </dl>
-          <p className="px-4 pb-6 pt-4 font-display text-[1.125rem] leading-relaxed text-ink sm:px-5">{doc.authored}</p>
+          <p className="px-4 pb-6 pt-4 font-display text-[1.125rem] leading-relaxed text-ink sm:px-5">{keepDates(doc.authored)}</p>
         </article>
 
         <div className="bg-paper">

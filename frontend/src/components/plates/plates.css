@@ -51,3 +51,17 @@
 .on-ink .dw-t-strong, .on-ink .dw-t-title { fill: var(--vc-parchment); }
 .on-ink .dw-t-dim, .on-ink .dw-t-rev { fill: var(--vc-brass-400); }
 .on-ink .dw-t-issue { fill: var(--vc-azure-300); }
+
+/* Annotation density by width: the full set from 1024 px, a sparser, larger set from 768 px. */
+.dw-mid { display: none; }
+@media (min-width: 768px) and (max-width: 1023px) {
+  .dw-wide { display: none; }
+  .dw-mid { display: inline; }
+}
+
+/* The note for the element in issue takes the azure of the element itself. */
+.dw-note-issue .dw-thin { stroke: var(--vc-azure-500); }
+.dw-note-issue .dw-fill-thin { fill: var(--vc-azure-500); }
+.dw-note-issue .dw-t { fill: var(--vc-azure-700); }
+.on-ink .dw-note-issue .dw-thin { stroke: var(--vc-azure-300); }
+.on-ink .dw-note-issue .dw-t { fill: var(--vc-azure-300); }

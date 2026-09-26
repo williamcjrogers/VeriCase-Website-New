@@ -84,11 +84,19 @@ export const LETTERED_NOTES = [
   },
   {
     k: 'B',
-    title: 'Imagery.',
-    // Until the EV-0144 scan image is approved, the page is drawn in code (note A covers it).
-    body: MEDIA.diaryPage.src
-      ? 'Photographs and video captioned as illustrative, and the scanned diary page shown as EV-0144, are AI-generated. They do not depict a VeriCase client, project, person or matter.'
-      : 'Photographs and video captioned as illustrative are AI-generated. They do not depict a VeriCase client, project, person or matter.',
+    title: 'Plates and imagery.',
+    // The plates are drawn in code unless an approved photograph replaces one (gate G10); the
+    // AI-generated sentence appears only when some photograph, film or the EV-0144 scan is in use.
+    body: [
+      'The plates are illustrative drawings of the fictional sample matter, made in code for this page. They do not reproduce any real drawing, schedule or bundle.',
+      Object.values(MEDIA).some((m) => m && m.src)
+        ? MEDIA.diaryPage.src
+          ? 'Photographs and video captioned as illustrative, and the scanned diary page shown as EV-0144, are AI-generated. They do not depict a VeriCase client, project, person or matter.'
+          : 'Photographs and video captioned as illustrative are AI-generated. They do not depict a VeriCase client, project, person or matter.'
+        : '',
+    ]
+      .filter(Boolean)
+      .join(' '),
   },
   {
     k: 'C',

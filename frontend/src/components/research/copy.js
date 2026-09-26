@@ -19,5 +19,6 @@ export const UI = {
 
 export const liveUpdated = (n) => fill(REPORT.live.updated, { sources: plural(n, 'source') });
 export const liveBundle = (n) => fill(REPORT.live.bundle, { items: itemsLabel(n) });
-export const badgeLine = (n) => (n === 1 ? REPORT.badgeLineOne : fill(REPORT.badgeLine, { n }));
+export const badgeCount = (n) => fill(REPORT.badgeCount, { n });
+export const badgeLine = (n) => (n === 1 ? REPORT.badgeLineOne : REPORT.badgeLine);
 export const hiddenLine = (report) => report.hiddenText;

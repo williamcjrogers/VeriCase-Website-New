@@ -6,7 +6,8 @@ import { VerificationTick } from '@/components/editorial/VerificationTick';
 import { EvidenceChip } from '@/components/mock/EvidenceChip';
 import { CreateBundleDialog } from '@/components/mock/CreateBundleDialog';
 import { REPORT } from '@/content/matter/research';
-import { UI, badgeLine, hiddenLine } from '@/components/research/copy';
+import { UI, badgeCount, badgeLine, hiddenLine } from '@/components/research/copy';
+import { keepDates } from '@/lib/format';
 
 const ms = (n) => ({ '--d': `${n}ms` });
 
@@ -32,22 +33,25 @@ const Summary = ({ text, numbers, list }) => {
   const out = [];
   let last = 0;
   for (const m of text.matchAll(GROUP)) {
-    out.push(text.slice(last, m.index));
+    out.push(keepDates(text.slice(last, m.index)));
     const ids = m[2].match(/EV-\d{4}/g);
     out.push(<Cited key={m.index} word={m[1]} ids={ids} numbers={numbers} list={list} />);
     last = m.index + m[0].length;
   }
-  out.push(text.slice(last));
+  out.push(keepDates(text.slice(last)));
   return out;
 };
 
-// A finding's text, with its last word kept beside its citation.
+// A finding's text, with its last word (or the whole date, when it ends in one) kept beside its
+// citation, and every date held together.
+const LAST_DATE = /\d{2} (January|February|March|April|May|June|July|August|September|October|November|December) \d{4}\S*$/;
 const Finding = ({ finding, list }) => {
-  const at = finding.text.search(/\S+$/);
+  const date = finding.text.search(LAST_DATE);
+  const at = date >= 0 ? date : finding.text.search(/\S+$/);
   return (
     <>
-      {finding.text.slice(0, at)}
-      <Cited word={finding.text.slice(at)} ids={[finding.ev]} numbers={{ [finding.ev]: finding.n }} list={list} className="rs-cite" />
+      {keepDates(finding.text.slice(0, at))}
+      <Cited word={keepDates(finding.text.slice(at))} ids={[finding.ev]} numbers={{ [finding.ev]: finding.n }} list={list} className="rs-cite" />
     </>
   );
 };
@@ -125,7 +129,7 @@ export function AnalysisReport({ report, start = 0, enter = true, playing, bundl
               <Gated id={REPORT.badgeGate} block>
                 <span className="rs-valid-state">
                   <VerificationTick draw={playing} className="rs-valid-tick" />
-                  {REPORT.cards.passed}
+                  {badgeCount(report.cited)}
                 </span>
                 <span className="rs-valid-line">{badgeLine(report.cited)}</span>
               </Gated>

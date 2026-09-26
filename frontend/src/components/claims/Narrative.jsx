@@ -3,6 +3,7 @@ import { FileText } from 'lucide-react';
 import { Gated, isShown } from '@/components/editorial/Gated';
 import { EvidenceChip } from '@/components/mock/EvidenceChip';
 import { CLAIMS_BUILDER } from '@/content/matter/claims';
+import { keepDates } from '@/lib/format';
 
 const [SECTION_N, ...SECTION_WORDS] = CLAIMS_BUILDER.section.split(' ');
 const [EXPORT_LABEL, EXPORT_TEXT] = CLAIMS_BUILDER.exportBar.split(': ');
@@ -13,7 +14,7 @@ const TOKEN = /(\[\[ev:EV-\d{4}\]\])/;
 const Cited = ({ text, list }) =>
   text.split(TOKEN).map((part, i) => {
     const m = part.match(/^\[\[ev:(EV-\d{4})\]\]$/);
-    return m ? <EvidenceChip key={i} id={m[1]} list={list} /> : <Fragment key={i}>{part}</Fragment>;
+    return m ? <EvidenceChip key={i} id={m[1]} list={list} /> : <Fragment key={i}>{keepDates(part)}</Fragment>;
   });
 
 // The narrative for section 1.2, set as a pleading: paragraph numbers in the margin, the text in

@@ -28,10 +28,11 @@ export const personLabel = (key) => PARTIES[key].role;
 export const addressLabel = (key) => `${PARTIES[key].role} <${PARTIES[key].email}>`;
 export const kindLabel = (r) => (r.kind === 'email' ? 'Email' : 'Scanned PDF (OCR)');
 
-// Short description for aria-labels: "email of 12 March 2025".
+// Short description for aria-labels: "email of 12 March 2025". Accessible names keep ordinary
+// spaces: the no-break spaces that hold a printed date together have no place in them.
 export const recordPhrase = (id) => {
   const r = recordById(id);
-  return `${r.kind === 'email' ? 'email' : 'site diary page'} of ${formatDate(r.date)}`;
+  return `${r.kind === 'email' ? 'email' : 'site diary page'} of ${formatDate(r.date).replace(/\u00a0/g, ' ')}`;
 };
 
 // ---------------------------------------------------------------------------------------------

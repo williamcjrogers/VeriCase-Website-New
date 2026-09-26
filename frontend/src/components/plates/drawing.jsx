@@ -246,13 +246,14 @@ export const cloudPath = (x, y, w, h, arc = 16) => {
 
 export const RevCloud = ({ x, y, w, h, arc, className }) => <path d={cloudPath(x, y, w, h, arc)} className={cn('dw-rev', className)} />;
 
-// The revision triangle carrying its letter.
-export const RevTriangle = ({ x, y, letter, s = 22, size = 11 }) => {
+// The revision triangle carrying its letter. The side follows the letter's size, so the capital
+// sits clear of both sides, just above the base.
+export const RevTriangle = ({ x, y, letter, size = 11, s = size * 2.1 }) => {
   const h = (s * Math.sqrt(3)) / 2;
   return (
     <g>
       <path d={`M${r2(x)} ${r2(y - (2 * h) / 3)}L${r2(x + s / 2)} ${r2(y + h / 3)}L${r2(x - s / 2)} ${r2(y + h / 3)}Z`} className="dw-rev dw-rev-tri" />
-      <T x={x} y={y + h / 3 - s * 0.2} size={size} anchor="middle" className="dw-t-rev">
+      <T x={x} y={y + h / 3 - s * 0.08} size={size} anchor="middle" className="dw-t-rev">
         {letter}
       </T>
     </g>

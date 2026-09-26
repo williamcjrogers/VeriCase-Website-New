@@ -94,9 +94,9 @@ export const COVER = {
 export const CLOCK = {
   numeral: 'I',
   eyebrow: 'Chapter I · The clock',
-  h2: 'Every dispute comes down to what the record shows, and when.',
+  h2: 'Most disputes come down to what the record shows, and when.',
   lead:
-    'Many construction disputes run to fixed timetables. When a notice falls due or a referral arrives, the case is only as strong as the record you can find, read and cite in the time allowed. It is often said that the three lessons of construction disputes are records, records and records. The periods below are why.',
+    'Many construction disputes run to fixed timetables. When a notice falls due or a referral arrives, the case is only as strong as the record you can find, read and cite in the time allowed. It is often said that the three lessons of construction disputes are records, records and records. The periods below show why.',
   fail: 'The record exists, but it sits across mailboxes, custodians and years, in a form no one can read in order.',
   recover: 'VeriCase helps you put the record in order before the clock starts, and keeps each entry tied to its source.',
   matter: {
@@ -176,6 +176,11 @@ export const CLOCK = {
     number: 1,
     caption: 'Plate 1. A residential frame with its façade under way. Illustrative image (AI-generated). See note B.',
     alt: 'Illustrative image: a residential frame under construction, its façade partly clad.',
+    drawn: {
+      caption:
+        'Plate 1. Detail 7 of the façade drawings: a section at the slab edge through bracket type B, clouded as revision B. An illustrative drawing of the fictional sample matter. See note B.',
+      alt: 'Illustrative drawing: a section through the slab edge of a residential frame, showing bracket type B, a stainless steel bracket fixed to the slab edge through the insulation to carry the rail and the rainscreen panel, clouded as revision B.',
+    },
   },
   next: { label: 'Next: put the record in order', href: '#chronology-lens' },
 };
@@ -329,7 +334,7 @@ export const IN_BRIEF = {
   sub: 'VeriCase is deliberately lean: evidence, chronology, claims and rebuttal. Each line links to the chapter that shows it.',
   ledger: [
     { numeral: 'II', href: '#chronology-lens', title: 'Ingestion', text: 'PST, MSG, EML, PDF, DOC, DOCX, spreadsheets and images, with OCR. One record per message, threaded by header, with quoted text folded, near-duplicates set aside and attachments listed by type in File Manager.' },
-    { numeral: 'II', href: '#chronology-lens', title: 'The Chronology Lens™', text: 'One time-ordered view across every party, in Cards or Table view, with a project date window, Smart Filter, Exclude Keywords and Create Bundle.' },
+    { numeral: 'II', href: '#chronology-lens', title: 'The Chronology Lens™', text: 'One time-ordered view across every party, in Cards or Table view, with a project date window, Smart Filter, Exclude keywords and Create bundle.' },
     { numeral: 'III', href: '#research', title: 'Research', text: 'Plain-English questions, an editable Query Plan, and an Analysis Report with numbered citations, counts and a validation badge. Download PDF or create a bundle.' },
     { numeral: 'IV', href: '#claims', title: 'Claims builder', text: 'Heads of Claim, a narrative cited by message ID, an evidence finder, and Word or PDF export.' },
     { numeral: 'V', href: '#case-room', title: 'Rebuttal Mode', text: 'Numbered points, ranked evidence, reply points with mandatory citations, accept, edit or reject with an audit trail, and an export pairing each point with its reply and cited evidence.' },

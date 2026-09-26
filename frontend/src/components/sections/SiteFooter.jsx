@@ -60,9 +60,12 @@ export const SiteFooter = () => {
             <Column title={FOOTER.heads.contents}>
               {contents.map((c) => (
                 <Item key={c.id}>
-                  <a href={sectionHref(c.id, onHome)} onClick={onHome ? onSectionClick(c.id) : undefined} className={linkClass}>
-                    {c.numeral && <span className="mono mr-2 text-meta text-brass-400">{c.numeral}</span>}
-                    {c.title}
+                  <a href={sectionHref(c.id, onHome)} onClick={onHome ? onSectionClick(c.id) : undefined} className={`${linkClass} grid grid-cols-[2.25rem_minmax(0,1fr)] items-baseline`}>
+                    <span className="mono text-meta text-brass-400">
+                      {c.numeral}
+                      {c.numeral && <span className="sr-only">. </span>}
+                    </span>
+                    <span>{c.title}</span>
                   </a>
                 </Item>
               ))}

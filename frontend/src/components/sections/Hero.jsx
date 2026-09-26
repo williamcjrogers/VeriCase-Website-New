@@ -36,7 +36,7 @@ export const Hero = () => (
 
       <div className="mt-4 grid grid-cols-12 gap-x-6 lg:-mt-1">
         <div className="col-span-12 lg:col-span-6 lg:row-start-1">
-          <p className="eyebrow">{COVER.eyebrow}</p>
+          <p className="ch-note">{COVER.eyebrow}</p>
           <h1 id="top-title" tabIndex={-1} className="mt-3 text-display font-medium outline-none">
             <Sentences text={COVER.h1} />
           </h1>

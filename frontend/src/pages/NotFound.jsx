@@ -25,7 +25,7 @@ export const NotFound = () => {
           <div className="grid grid-cols-12 gap-x-6 gap-y-12">
             <div className="col-span-12 lg:col-span-5 lg:col-start-3">
               <div className="double-rule mb-5 max-w-[8rem]" aria-hidden="true" />
-              <p className="eyebrow">{NOT_FOUND.eyebrow}</p>
+              <p className="ch-note">{NOT_FOUND.eyebrow}</p>
               <h1 className="mt-4 text-display font-medium text-balance">{NOT_FOUND.h1}</h1>
               <p className="mt-6 max-w-measure text-lead text-ink">{NOT_FOUND.body}</p>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -36,7 +36,7 @@ export const NotFound = () => {
                   {CTA_LABEL}
                 </a>
               </div>
-              <h2 className="eyebrow mt-14">{NOT_FOUND.listHeading}</h2>
+              <h2 className="mt-14 font-display text-[1.3125rem] font-medium leading-snug text-navy">{NOT_FOUND.listHeading}</h2>
               <ol className="mt-3 divide-y divide-rule border-y border-rule">
                 {CHAPTERS.filter((c) => c.numeral).map((c) => (
                   <li key={c.id}>

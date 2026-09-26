@@ -120,9 +120,10 @@ export const QUESTIONS = [
 export const REPORT = {
   title: 'VeriCase Analysis Report',
   generated: 'Generated 16 January 2026, 10:12 · Sample matter (fictional)',
-  cards: { cited: 'Sources cited', analysed: 'Evidence analysed', validation: 'Validation', passed: 'Passed' },
-  badgeLine: '{n} of {n} citations resolve to items in this matter.',
-  badgeLineOne: '1 of 1 citation resolves to items in this matter.',
+  cards: { cited: 'Sources cited', analysed: 'Evidence analysed', validation: 'Citations checked' },
+  badgeCount: '{n} of {n}',
+  badgeLine: 'Each resolves to an item in this matter.',
+  badgeLineOne: 'It resolves to an item in this matter.',
   badgeGate: 'G5_badge',
   hidden: '{n} findings fall outside the plan and are not shown.',
   hiddenOne: '1 finding falls outside the plan and is not shown.',

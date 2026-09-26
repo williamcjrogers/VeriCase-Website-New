@@ -20,11 +20,14 @@ const Steps = () => (
       return (
         <li key={step.n} className="border-t border-rule-strong/40 pt-5">
           <Icon className="h-6 w-6 text-azure-700" />
-          <h3 className="mt-4 flex items-baseline gap-2.5 text-h3 font-medium text-navy">
-            <span className="font-mono text-[0.875rem] font-medium text-brass-700">{step.n}</span>
+          <h3 className="mt-4 flex items-baseline gap-2.5 font-display text-[1.3125rem] font-medium leading-snug text-navy">
+            <span className="font-mono text-[0.875rem] font-medium text-brass-700">
+              {step.n}
+              <span className="sr-only">.</span>
+            </span>{' '}
             {step.title}
           </h3>
-          <p className="mt-2.5 max-w-[40ch] text-small text-ink">{step.text}</p>
+          <p className="mt-2 max-w-[40ch] text-body text-ink">{step.text}</p>
         </li>
       );
     })}
@@ -49,7 +52,7 @@ export const Research = () => (
       <ChapterHeader id="research" numeral={RESEARCH.numeral} title={RESEARCH.h2} lead={RESEARCH.lead} />
 
       <div className="mt-12 grid grid-cols-12 gap-x-6">
-        <FailRecover className="col-span-12 lg:col-span-10 lg:col-start-3 xl:col-span-9 xl:col-start-3" fail={RESEARCH.fail} recover={RESEARCH.recover} />
+        <FailRecover className="col-span-12 lg:col-span-9 lg:col-start-3 xl:col-span-8 xl:col-start-3" fail={RESEARCH.fail} recover={RESEARCH.recover} />
       </div>
 
       <div className="mt-14 grid grid-cols-12 gap-x-6 md:mt-16">
@@ -57,9 +60,6 @@ export const Research = () => (
       </div>
 
       <div className="mt-16 grid grid-cols-12 gap-x-6 md:mt-20">
-        <p aria-hidden="true" className="hidden font-mono text-label font-medium uppercase text-brass-700 lg:col-span-2 lg:block lg:pt-0.5 lg:text-right">
-          Fig. {RESEARCH.fig.number}
-        </p>
         <Figure className="col-span-12 lg:col-span-10 lg:col-start-3" summary={RESEARCH.fig.summary} caption={RESEARCH.fig.caption}>
           <LazyMount skeleton={<DemoSkeleton />}>
             <ResearchDemo />

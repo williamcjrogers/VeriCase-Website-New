@@ -118,7 +118,7 @@ export function ClaimsBuilderMock({ labels }) {
   );
 
   return (
-    <MockWindow title={APP_WINDOW} right={<span className="hidden sm:inline">Fig. 5</span>} className="cb-root flex h-full flex-col" bodyClassName="flex min-h-0 flex-1 flex-col">
+    <MockWindow title={APP_WINDOW} className="cb-root flex h-full flex-col" bodyClassName="flex min-h-0 flex-1 flex-col">
       <div ref={desk} className="cb-desk">
         <div className="cb-pane cb-pane-tree">{tree}</div>
         <div className="cb-pane cb-pane-draft">
