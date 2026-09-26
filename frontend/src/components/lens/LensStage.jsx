@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { ChevronsLeftRight, Paperclip, Pause, Play, RotateCcw } from 'lucide-react';
 import { COVER } from '@/content/home';
+import { CaptionText } from '@/components/editorial/Figure';
 import { Rich } from '@/components/editorial/Rich';
 import { Gated } from '@/components/editorial/Gated';
 import { VerificationTick } from '@/components/editorial/VerificationTick';
@@ -87,7 +88,7 @@ export const LensStage = () => {
         <p className="lens-live sr-only" aria-live="polite" />
       </div>
       <figcaption id="fig1-cap" className="lens-caption">
-        {FIG.caption}
+        <CaptionText text={FIG.caption} />
       </figcaption>
     </figure>
   );
