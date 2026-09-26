@@ -380,7 +380,7 @@ That discipline is the brand. "Records, records, records" opens the page as kine
 - File Manager tab: "Attachments by type: PDF 64 · Images 52 · DOC and DOCX 19 · Spreadsheets 11" (146 in all), with a switch "Show Noise". Noise rows when shown: "image001.png (signature image)" · "logo.gif (signature image)", both labelled "Noise".
 - Drawer tabs: "Details" · "AI suggestions" · "Notes" · "Audit"
 - Drawer, AI suggestions: "Suggested tag: Notice · Suggested head: 1.2 Notice under clause 2.24" (each labelled "Suggested")
-- Not-relevant demonstration (on "Weekly canteen menu", 17 March 2025): button "Mark as Not Relevant". Result: "Not relevant: excluded from search with its 1 attachment (menu.pdf)". Button "Undo".
+- Not-relevant demonstration (on "Weekly canteen menu", 17 March 2025): button "Mark as Not Relevant". Result: "Not relevant: excluded from search with its attachment (menu.pdf)". Button "Undo".
 - Screen-reader summary: "Illustration: the sample matter in the Chronology Lens workbench, with eight entries from four parties in date order, controls for view, date window, Smart Filter, excluded keywords and Create bundle, and a File Manager view of attachments by type with a Show Noise switch."
 - Caption: "Fig. 3 · The Chronology Lens™ workbench and File Manager, illustrated with the sample matter. Counts are illustrative. See note A."
 - Next link: "Next: ask the record a question"
@@ -1356,7 +1356,7 @@ The bar, cite strip, rail and foot sit outside the field at fixed heights, so th
 
 ### 5.4 `ChronologyLens.jsx` (Chapter II)
 
-- **Structure:** `ChapterHeader` "II", `FailRecover`, the items as a ruled definition list with icons (EmailArchive, Thread, QuoteFold, NearDuplicate, ExcludedProject, ChronologyLens), Plate 2 (HF-05, 4:5, columns 9 to 12, at 1024 px and above only), then `LazyMount` around `LensWorkbench` (columns 3 to 12, fixed min-height 640 px on desktop and 820 px on mobile).
+- **Structure:** `ChapterHeader` "II", `FailRecover`, the items as a ruled definition list with icons (EmailArchive, Thread, QuoteFold, NearDuplicate, ExcludedProject, ChronologyLens), Plate 2 (HF-05, 4:5, columns 9 to 12, at 1024 px and above only), then `LazyMount` around `LensWorkbench` (columns 3 to 12). From 768 px the frame has a fixed height, with a fade and a count of the entries below the fold; below 768 px the list takes its own height, opens on four entries with "Show all", and the frame reserves the measured height of that opening view, so nothing shifts when it loads.
 - **LensWorkbench** is a `MockWindow` with a blue header, "VeriCase · Sample matter (fictional)", and shadcn Tabs for "Chronology Lens™" and "File Manager".
   - The Chronology Lens toolbar is a shadcn ToggleGroup for Cards or Table, Popovers for the date window and Smart Filter, removable keyword chips, party ToggleGroup chips and a Create bundle button with its popover. Hidden rows leave a marker row.
   - The left rail is the ingestion ledger (mono, right-aligned, brass leader dots).
