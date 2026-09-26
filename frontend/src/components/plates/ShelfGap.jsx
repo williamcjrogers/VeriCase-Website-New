@@ -37,7 +37,7 @@ const IN_R = IN_L + CLEAR * K;
 const SHELF = TOP + BOX_H * K; // top of the shelf
 const LIP_B = SHELF + LIP * K;
 const UP_T = 40; // the uprights run on beyond the view, cut by break lines
-const UP_B = LIP_B + 16;
+const UP_B = LIP_B + 12;
 
 const boxX = (i) => IN_L + (5 + i * PITCH) * K;
 
@@ -156,8 +156,8 @@ export const ShelfGap = ({
       <Leader
         points={[
           [gc, LIP_B],
-          [gc, LIP_B + 30],
-          [gc + 12, LIP_B + 30],
+          [gc, LIP_B + 32],
+          [gc + 12, LIP_B + 32],
         ]}
         text="Box 16: not on the shelf"
         size={S}
