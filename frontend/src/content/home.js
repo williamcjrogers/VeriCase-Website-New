@@ -206,6 +206,11 @@ export const LENS_CHAPTER = {
     number: 2,
     caption: 'Plate 2. The record as it is often kept. Illustrative image (AI-generated). See note B.',
     alt: 'Illustrative image: an aisle of archive boxes and lever-arch files.',
+    drawn: {
+      caption:
+        'Plate 2. The record as it is kept: sixteen months of correspondence in six mailboxes, one mark per message. An illustrative drawing of the fictional sample matter. See note B.',
+      alt: 'Illustrative drawing: the correspondence of the fictional sample matter as it is kept, one mark per message, in six lanes for the mailboxes of the Employer’s Agent, the Contractor’s Design Manager, Site Manager and Commercial Manager, the Façade Sub-Contractor’s Package Manager and the Supplier’s Sales Office, a week to a line from January 2024 to April 2025. Copies repeat faintly across mailboxes, and noise is drawn hollow. Near the foot, a bracket gathers the five weeks from 03 March 2025 in which the eight exhibits in issue, EV-0131 to EV-0153, are marked in blue.',
+    },
   },
   fig: {
     number: 3,
@@ -394,6 +399,10 @@ export const DEMONSTRATION = {
   plate: {
     caption: 'Plate {n}. A bundle, tabbed and tied. Illustrative image (AI-generated). See note B.',
     alt: 'Illustrative image: a tabbed bundle tied with legal ribbon.',
+    drawn: {
+      caption: 'Plate {n}. The bundle, tabbed and indexed. An illustrative drawing of the fictional sample matter. See note B.',
+      alt: 'Illustrative drawing: the bound bundle for the fictional sample matter, VC-SAMPLE-01, in spine and front elevation with six divider tabs, beside the first page of its index: items 001 to 006, EV-0131 of 03 March 2025 to EV-0151 of 28 March 2025. The tab for EV-0151, the notice under clause 2.24, is picked out.',
+    },
   },
 };
 

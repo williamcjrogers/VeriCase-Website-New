@@ -17,7 +17,7 @@ const DiscussionMock = lazy(() => import(/* webpackChunkName: "claims" */ '@/com
 // height is reserved only while the skeleton shows (at the size it takes on a 390 px phone and
 // the narrowest width of each larger breakpoint), and then it takes its own height.
 const BUILDER_HEIGHT = 'h-[800px] md:h-[608px] lg:h-[660px]';
-const DISCUSSION_HEIGHT = 'has-[>[data-skeleton]]:min-h-[900px] sm:has-[>[data-skeleton]]:min-h-[640px] md:has-[>[data-skeleton]]:min-h-[495px] lg:has-[>[data-skeleton]]:min-h-[383px]';
+const DISCUSSION_HEIGHT = 'has-[>[data-skeleton]]:min-h-[927px] sm:has-[>[data-skeleton]]:min-h-[677px] md:has-[>[data-skeleton]]:min-h-[518px] lg:has-[>[data-skeleton]]:min-h-[387px]';
 // Labels the builder takes from the copy deck (passed in, so its chunk does not import it).
 const LABELS = { tree: C.items[0].title, tabs: 'Claims builder' };
 

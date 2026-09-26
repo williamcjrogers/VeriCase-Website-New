@@ -57,10 +57,13 @@ scrim over imagery.
 
 Each motif does one job.
 
-1. Chapter openers: a large italic roman numeral in the margin, a mono eyebrow and a double
-   hairline that draws once.
+1. Section openers, set like a statute: a side note in the margin (the chapter's large italic
+   numeral over its own title, in italic), a double hairline that draws once, and a heading of
+   several sentences set one sentence per line. Below 1024 px the side note sits on one line
+   above the heading. There are no capitalised mono eyebrows above headings.
 2. "Where the record fails" (dashed graphite rule) and "Where VeriCase comes in" (solid azure).
-3. Figures in fixed-ratio paper frames, captioned "Fig. n · … See note A."
+3. Figures in fixed-ratio paper frames. Each figure's number appears once, at the start of its
+   own caption directly beneath it: "Fig. n. … See note A.", with the note linked.
 4. App-family mocks: an azure header strip with white text, a paper body, beige chips.
 5. Exhibit stamps: EV references in a brass-edged mono tab.
 6. The verification tick, the logo's swoosh, used only where something has been checked.
@@ -97,10 +100,13 @@ scroll is hidden only once the app bundle has run, so it is never lost if script
 - lucide-react at a 1.5 px stroke, plus twelve domain glyphs in
   `frontend/src/components/icons/` (24 px grid, 1.5 px strokes, round caps, no fills), used only
   in ruled lists.
-- Photographs are restrained documentary images of UK construction and archive settings: overcast
-  light, about 30% less saturation, shadows towards navy, highlights towards parchment. No
-  people, hands, legible text, logos or hi-vis. Each is captioned as illustrative and
-  AI-generated, and each needs the owner's approval (gate G10).
+- The plates are drawings made in code, in the language of the construction drawing and the court
+  bundle, drawn from the sample matter (docs/design/plates.md: the "Measured Record" standard).
+  Each is captioned as an illustrative drawing of the fictional sample matter.
+- A photograph replaces a plate only once approved (gate G10). Photographs are restrained
+  documentary images of UK construction and archive settings: overcast light, about 30% less
+  saturation, shadows towards navy, highlights towards parchment. No people, hands, legible text,
+  logos or hi-vis. Each is captioned as illustrative and AI-generated.
 
 ## 8. Accessibility
 
@@ -111,7 +117,9 @@ keyboard operation of every demonstration.
 
 ## 9. Copy
 
-British English; dates as DD Month YYYY; no em or en dashes; no unsubstantiated or banned claims;
-no real matter, party or place names. `frontend/scripts/lint-copy.mjs` enforces these rules on
+British English; dates as DD Month YYYY, never broken across lines (`formatDate` and
+`keepDates` join them with no-break spaces); no em or en dashes; no unsubstantiated or banned
+claims; no real matter, party or place names. Running text avoids a lone last word, headings
+balance their lines, and a citation chip keeps the punctuation that follows it. `frontend/scripts/lint-copy.mjs` enforces these rules on
 the sources and on the prerendered HTML, and a production build fails while any owner gate in
 `frontend/src/content/gates.js` is open.

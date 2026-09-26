@@ -40,7 +40,7 @@ const Steps = () => (
 const DemoSkeleton = () => (
   <div
     aria-hidden="true"
-    className="vc-skeleton h-[3150px] min-[360px]:h-[2870px] min-[390px]:h-[2700px] min-[430px]:h-[2300px] sm:h-[1880px] md:h-[1600px] lg:h-[1560px] xl:h-[1526px]"
+    className="vc-skeleton h-[3322px] min-[360px]:h-[2936px] min-[390px]:h-[2746px] min-[430px]:h-[2400px] sm:h-[1974px] md:h-[1724px] lg:h-[1657px] xl:h-[1553px]"
   />
 );
 

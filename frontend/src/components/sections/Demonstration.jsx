@@ -1,9 +1,12 @@
+import { lazy } from 'react';
 import { DemoCTA } from '@/components/editorial/DemoCTA';
 import { Gated } from '@/components/editorial/Gated';
 import { Plate } from '@/components/editorial/Plate';
 import { BRAND_LINE, DEMONSTRATION } from '@/content/home';
 import { MEDIA, PLATE_NUMBERS } from '@/content/media';
 import { fill } from '@/lib/format';
+
+const BundlePlate = lazy(() => import(/* webpackChunkName: "plate-bundle" */ '@/components/plates/BundlePlate').then((m) => ({ default: m.BundlePlate })));
 
 // The closing invitation: a navy panel set into the parchment, with the email request and,
 // from 1024 px, the tabbed bundle beside it.
@@ -24,16 +27,17 @@ export const Demonstration = () => (
           <DemoCTA onInk withCopy microcopy={DEMONSTRATION.microcopy} className="mt-9" />
           <p className="mt-10 font-display text-[1.375rem] italic text-parchment">{BRAND_LINE}</p>
         </div>
-        <div className="hidden p-6 lg:col-span-5 lg:block lg:p-10 lg:pl-0">
+        <div className="hidden p-6 lg:col-span-5 lg:flex lg:items-center lg:p-10 lg:pl-0">
           <Plate
             src={MEDIA.bundle.src}
+            drawing={BundlePlate}
             lqip={MEDIA.bundle.lqip}
             ratio={MEDIA.bundle.ratio}
             sizes="(min-width: 1024px) 36vw, 0px"
-            alt={DEMONSTRATION.plate.alt}
-            caption={fill(DEMONSTRATION.plate.caption, { n: PLATE_NUMBERS.demonstration })}
+            alt={MEDIA.bundle.src ? DEMONSTRATION.plate.alt : DEMONSTRATION.plate.drawn.alt}
+            caption={fill(MEDIA.bundle.src ? DEMONSTRATION.plate.caption : DEMONSTRATION.plate.drawn.caption, { n: PLATE_NUMBERS.demonstration })}
             onInk
-            className="lg:mt-10"
+            className="w-full"
           />
         </div>
       </div>

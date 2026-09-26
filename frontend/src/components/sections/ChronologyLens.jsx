@@ -11,6 +11,7 @@ import { ChronologyLens as LensGlyph, EmailArchive, ExcludedProject, NearDuplica
 import { CHAPTERS, LENS_CHAPTER as C } from '@/content/home';
 import { MEDIA } from '@/content/media';
 
+const ArchiveField = lazy(() => import(/* webpackChunkName: "plate-archive" */ '@/components/plates/ArchiveField').then((m) => ({ default: m.ArchiveField })));
 const LensWorkbench = lazy(() => import(/* webpackChunkName: "workbench" */ '@/components/mock/LensWorkbench').then((m) => ({ default: m.LensWorkbench })));
 
 // Create bundle in Fig. 3 points to the chapter where the bundle is made.
@@ -65,11 +66,12 @@ export const ChronologyLens = () => (
           <div className="lg:sticky lg:top-24">
             <Plate
               src={MEDIA.archiveAisle.src}
+              drawing={ArchiveField}
               lqip={MEDIA.archiveAisle.lqip}
               ratio={MEDIA.archiveAisle.ratio}
               sizes="(min-width: 1280px) 384px, 22vw"
-              alt={C.plate.alt}
-              caption={C.plate.caption}
+              alt={MEDIA.archiveAisle.src ? C.plate.alt : C.plate.drawn.alt}
+              caption={MEDIA.archiveAisle.src ? C.plate.caption : C.plate.drawn.caption}
             />
           </div>
         </div>

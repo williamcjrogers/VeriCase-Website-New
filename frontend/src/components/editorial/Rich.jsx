@@ -9,16 +9,33 @@ import { keepDates } from '@/lib/format';
 //   (the number comes from `cites`, a map of exhibit to citation number) · *italic* · {{TOKEN}}
 const TOKEN = /(\[\[(?:note|ev|c):[^\]]+\]\]|\*[^*\n]+\*|\{\{[A-Z0-9_]+\}\})/g;
 
+// Punctuation that must stay on the line of the chip before it (a line never starts ", and").
+const TRAILING = /^[.,;:]/;
+
 export function Rich({ text, cites, citeList, onInk = false }) {
   if (!text) return null;
   const parts = String(text).split(TOKEN);
+  // A chip keeps the punctuation that follows it: move it from the next part into the chip's span.
+  for (let i = 0; i < parts.length - 1; i += 1) {
+    if (/^\[\[ev:EV-\d{4}\]\]$/.test(parts[i]) && TRAILING.test(parts[i + 1] || '')) {
+      parts[i] = `${parts[i]}${parts[i + 1][0]}`;
+      parts[i + 1] = parts[i + 1].slice(1);
+    }
+  }
   return (
     <>
       {parts.map((part, i) => {
         if (!part) return null;
         let m = part.match(/^\[\[note:(\d+)\]\]$/);
         if (m) return <NoteRef key={i} n={Number(m[1])} onInk={onInk} />;
-        m = part.match(/^\[\[ev:(EV-\d{4})\]\]$/);
+        m = part.match(/^\[\[ev:(EV-\d{4})\]\]([.,;:]?)$/);
+        if (m && m[2])
+          return (
+            <span key={i} className="whitespace-nowrap">
+              <EvidenceChip id={m[1]} list={citeList} />
+              {m[2]}
+            </span>
+          );
         if (m) return <EvidenceChip key={i} id={m[1]} list={citeList} />;
         m = part.match(/^\[\[c:(EV-\d{4})\]\]$/);
         if (m) {
