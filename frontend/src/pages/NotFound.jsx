@@ -1,10 +1,12 @@
-import { useEffect } from 'react';
+import { lazy, useEffect } from 'react';
 import { SiteHeader } from '@/components/sections/SiteHeader';
 import { SiteFooter } from '@/components/sections/SiteFooter';
 import { Plate } from '@/components/editorial/Plate';
 import { CHAPTERS, CTA_LABEL, NOT_FOUND } from '@/content/home';
 import { MEDIA } from '@/content/media';
 import { DEMO_MAILTO } from '@/lib/site';
+
+const ShelfGap = lazy(() => import(/* webpackChunkName: "plate-shelf" */ '@/components/plates/ShelfGap').then((m) => ({ default: m.ShelfGap })));
 
 const HOME_TITLE = 'VeriCase | Evidence and chronology for construction disputes';
 
@@ -51,11 +53,12 @@ export const NotFound = () => {
             <div className="col-span-12 lg:col-span-5 lg:col-start-8">
               <Plate
                 src={MEDIA.shelfGap.src}
+                drawing={ShelfGap}
                 lqip={MEDIA.shelfGap.lqip}
                 ratio={MEDIA.shelfGap.ratio}
                 sizes="(min-width: 1024px) 40vw, 100vw"
-                alt={NOT_FOUND.plate.alt}
-                caption={NOT_FOUND.plate.caption}
+                alt={MEDIA.shelfGap.src ? NOT_FOUND.plate.alt : NOT_FOUND.plate.drawn.alt}
+                caption={MEDIA.shelfGap.src ? NOT_FOUND.plate.caption : NOT_FOUND.plate.drawn.caption}
               />
             </div>
           </div>

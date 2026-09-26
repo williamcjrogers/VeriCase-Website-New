@@ -383,6 +383,10 @@ export const FOUNDER = {
   plate: {
     caption: 'Plate {n}. A site office desk. Illustrative image (AI-generated). See note B.',
     alt: 'Illustrative image: a site diary and printed correspondence on a desk.',
+    drawn: {
+      caption: 'Plate {n}. The Change to bracket type B, valued and checked. An illustrative drawing of the fictional sample matter. See note B.',
+      alt: 'Illustrative drawing: a valuation of the Change to bracket type B, Levels 3 to 6, in the fictional sample matter, ruled by hand as a schedule. Five items are priced by quantity, unit and rate: stainless brackets type B, the omission of aluminium brackets type A shown in brackets, thermal isolator pads, anchors, and extra labour to fix, for a total of £15,120. Each amount carries a checking tick and the total is ringed.',
+    },
   },
 };
 
@@ -445,5 +449,12 @@ export const NOT_FOUND = {
   body: 'The page you asked for does not exist, or has moved. The contents below will take you back to the record.',
   home: 'Return to the home page',
   listHeading: 'Contents',
-  plate: { caption: 'A gap in the shelf. Illustrative image (AI-generated).', alt: 'Illustrative image: a gap in a shelf of archive boxes.' },
+  plate: {
+    caption: 'A gap in the shelf. Illustrative image (AI-generated).',
+    alt: 'Illustrative image: a gap in a shelf of archive boxes.',
+    drawn: {
+      caption: 'A gap in the shelf. An illustrative drawing of the fictional sample matter.',
+      alt: 'Illustrative drawing: an elevation of a bay of archive shelving holding the box files for the fictional sample matter, Boxes 13 to 19, one a month from December 2024 to June 2025. Box 16 is not on the shelf: a dashed outline marks where it should stand, the gap is dimensioned at 85 millimetres, and the title block records the shelf as found.',
+    },
+  },
 };

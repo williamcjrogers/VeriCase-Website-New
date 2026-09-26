@@ -62,7 +62,7 @@ const slots = (x) => {
 const tick = (x, y, s = 5) => `M${r2(x - s)} ${r2(y + s)}L${r2(x + s)} ${r2(y - s)}`;
 
 export const ShelfGap = ({
-  label = 'Illustrative drawing: an elevation of a bay of archive shelving holding box files 13 to 19 for the fictional sample matter, one a month from December 2024 to June 2025, measured as found. Box 16 is missing: its outline is drawn in the empty space, dimensioned at 85 millimetres, with the note Box 16: not on the shelf.',
+  label = 'Illustrative drawing: an elevation of a bay of archive shelving holding the box files for the fictional sample matter, Boxes 13 to 19, one a month from December 2024 to June 2025. Box 16 is not on the shelf: a dashed outline marks where it should stand, the gap is dimensioned at 85 millimetres, and the title block records the shelf as found.',
 }) => {
   // Boxes: outlines, label panels, dividers and finger holes, gathered into a few paths.
   let outlines = '';

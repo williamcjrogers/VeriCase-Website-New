@@ -34,7 +34,7 @@ const tick = (x, b) => `M${r2(x)} ${r2(b - 4)}L${r2(x + 2.6)} ${r2(b - 0.8)}L${r
 const ring = (cx, cy, rx, ry) => `M${r2(cx - rx)} ${r2(cy)}A${r2(rx)} ${r2(ry)} 0 1 0 ${r2(cx + rx)} ${r2(cy)}A${r2(rx)} ${r2(ry)} 0 1 0 ${r2(cx - rx)} ${r2(cy)}Z`;
 
 export const Valuation = ({
-  label = 'Illustrative drawing: a valuation of the Change to bracket type B in the fictional sample matter, ruled by hand as a schedule of items with quantity, unit, rate and amount: stainless brackets type B, the omission of aluminium brackets type A, thermal isolator pads, anchors and fixing, totalling £15,120, each extension ticked and the total ringed by a checking surveyor.',
+  label = 'Illustrative drawing: a valuation of the Change to bracket type B, Levels 3 to 6, in the fictional sample matter, ruled by hand as a schedule. Five items are priced by quantity, unit and rate: stainless brackets type B, the omission of aluminium brackets type A shown in brackets, thermal isolator pads, anchors, and extra labour to fix, for a total of £15,120. Each amount carries a checking tick and the total is ringed.',
 }) => {
   // Vertical rhythm: text starts 21 units below a rule and stops 12 units above the next one.
   const HEAD_TOP = 24;

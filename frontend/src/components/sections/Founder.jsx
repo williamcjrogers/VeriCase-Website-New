@@ -1,3 +1,4 @@
+import { lazy } from 'react';
 import { ChapterHeader } from '@/components/editorial/ChapterHeader';
 import { Declaration } from '@/components/editorial/Declaration';
 import { Gated } from '@/components/editorial/Gated';
@@ -6,6 +7,8 @@ import { Rich } from '@/components/editorial/Rich';
 import { FOUNDER } from '@/content/home';
 import { MEDIA, PLATE_NUMBERS } from '@/content/media';
 import { fill } from '@/lib/format';
+
+const Valuation = lazy(() => import(/* webpackChunkName: "plate-valuation" */ '@/components/plates/Valuation').then((m) => ({ default: m.Valuation })));
 
 // Who is behind it: the founder, the practitioners' equity, and the declaration of interest,
 // which always comes before the United Infrastructure account.
@@ -48,11 +51,12 @@ export const Founder = () => (
           ) : (
             <Plate
               src={MEDIA.siteOffice.src}
+              drawing={Valuation}
               lqip={MEDIA.siteOffice.lqip}
               ratio={MEDIA.siteOffice.ratio}
               sizes="(min-width: 1024px) 30vw, (min-width: 640px) 60vw, 100vw"
-              alt={FOUNDER.plate.alt}
-              caption={fill(FOUNDER.plate.caption, { n: PLATE_NUMBERS.founder })}
+              alt={MEDIA.siteOffice.src ? FOUNDER.plate.alt : FOUNDER.plate.drawn.alt}
+              caption={fill(MEDIA.siteOffice.src ? FOUNDER.plate.caption : FOUNDER.plate.drawn.caption, { n: PLATE_NUMBERS.founder })}
               className="lg:sticky lg:top-[calc(var(--header-h)+2rem)]"
             />
           )}
