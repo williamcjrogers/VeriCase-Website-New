@@ -8,7 +8,7 @@ import '@/components/plates/plates.css';
 
 const W = 600;
 const H = 400;
-const S = 16.8; // 10 px at the narrowest frame (358 px wide)
+const S = 17; // 10.1 px at the narrowest frame (358 px wide)
 const K = 0.6;
 
 // Millimetres.
