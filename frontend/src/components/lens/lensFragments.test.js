@@ -24,7 +24,8 @@ describe('Fig. 1 fragments', () => {
   });
 
   it('uses the processing labels of the copy deck', () => {
-    expect(FRAGMENTS.map((f) => f.chip)).toEqual([
+    // Dates are joined by no-break spaces; compare them as ordinary text.
+    expect(FRAGMENTS.map((f) => f.chip.replace(/\u00a0/g, ' '))).toEqual([
       'Thread 1 · 3 messages',
       'Threaded by References header',
       'Quoted history folded (3)',

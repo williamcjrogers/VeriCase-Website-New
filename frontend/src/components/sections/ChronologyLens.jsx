@@ -51,7 +51,7 @@ const Operations = () => (
 export const ChronologyLens = () => (
   <section id="chronology-lens" aria-labelledby="chronology-lens-title" className="bg-parchment py-16 md:py-24 lg:py-32">
     <div className="container">
-      <ChapterHeader id="chronology-lens" numeral={C.numeral} eyebrow={C.eyebrow} title={C.h2} lead={C.lead} />
+      <ChapterHeader id="chronology-lens" numeral={C.numeral} title={C.h2} lead={C.lead} />
 
       <div className="mt-12 grid grid-cols-12 gap-x-6">
         <FailRecover fail={C.fail} recover={C.recover} recoverGate={C.recoverGate} className="col-span-12 lg:col-span-9 lg:col-start-3 xl:col-span-8 xl:col-start-3" />

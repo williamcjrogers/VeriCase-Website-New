@@ -135,7 +135,7 @@ export const TheClock = () => (
     />
 
     <div className="container pb-16 pt-16 md:pb-24 md:pt-24 lg:pt-28">
-      <ChapterHeader id="clock" numeral={CLOCK.numeral} eyebrow={CLOCK.eyebrow} title={CLOCK.h2} lead={CLOCK.lead} />
+      <ChapterHeader id="clock" numeral={CLOCK.numeral} title={CLOCK.h2} lead={CLOCK.lead} />
 
       <div className="mt-12 grid grid-cols-12 gap-x-6">
         <FailRecover fail={CLOCK.fail} recover={CLOCK.recover} className="col-span-12 lg:col-span-9 lg:col-start-3 xl:col-span-8 xl:col-start-3" />

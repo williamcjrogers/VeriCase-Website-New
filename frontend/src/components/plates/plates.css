@@ -1,0 +1,53 @@
+/* The plates (docs/design/plates.md). Strokes do not scale, so linework is equally crisp at
+   every width; colour comes only from the site tokens. */
+.dw { display: block; width: 100%; height: 100%; }
+.dw path, .dw rect, .dw circle, .dw line, .dw polyline, .dw polygon, .dw ellipse { vector-effect: non-scaling-stroke; }
+
+.dw-sheet { fill: var(--vc-paper); }
+.dw-cut { fill: none; stroke: var(--vc-navy); stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+.dw-line { fill: none; stroke: var(--vc-navy); stroke-width: 1; stroke-linejoin: round; stroke-linecap: round; }
+.dw-thin { fill: none; stroke: var(--vc-graphite); stroke-width: 0.75; stroke-linecap: round; }
+.dw-grid { fill: none; stroke: var(--vc-graphite); stroke-width: 0.75; stroke-dasharray: 22 5 3 5; opacity: 0.75; }
+.dw-hidden { fill: none; stroke: var(--vc-navy); stroke-width: 0.75; stroke-dasharray: 6 4; }
+.dw-hatch { fill: none; stroke: var(--vc-rule-strong); stroke-width: 0.5; opacity: 0.85; }
+.dw-stipple { stroke-width: 1.4; stroke-linecap: round; opacity: 0.7; }
+.dw-dim { fill: none; stroke: var(--vc-brass-700); stroke-width: 0.75; }
+.dw-rev { fill: none; stroke: var(--vc-brass-700); stroke-width: 1; stroke-linejoin: round; }
+.dw-issue { stroke: var(--vc-azure-500); }
+.dw-fill-issue { fill: var(--vc-azure-500); stroke: none; }
+.dw-fill-line { fill: var(--vc-navy); stroke: none; }
+.dw-fill-thin { fill: var(--vc-graphite); stroke: none; }
+.dw-fill-paper { fill: var(--vc-paper); stroke: none; }
+.dw-fill-tint { fill: var(--vc-parchment-300); stroke: none; }
+.dw-fill-issue-tint { fill: var(--vc-azure-50); stroke: none; }
+
+.dw-t { font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-weight: 400; fill: var(--vc-graphite); }
+.dw-t-strong { fill: var(--vc-navy); }
+.dw-t-dim, .dw-t-rev { fill: var(--vc-brass-700); }
+.dw-t-issue { fill: var(--vc-azure-700); }
+.dw-t-label { letter-spacing: 0.08em; text-transform: uppercase; fill: var(--vc-graphite); }
+.dw-t-title { font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-style: italic; fill: var(--vc-navy); }
+
+/* Two compositions: the portrait one below 768 px. */
+.dw-m { display: none; }
+@media (max-width: 767px) {
+  .dw-d { display: none; }
+  .dw-m { display: block; }
+}
+
+/* On ink (the demonstration panel): parchment linework, mist annotation, brass-400 measurement. */
+.on-ink .dw-sheet { fill: transparent; }
+.on-ink .dw-cut, .on-ink .dw-line, .on-ink .dw-hidden { stroke: var(--vc-parchment); }
+.on-ink .dw-thin, .on-ink .dw-grid { stroke: var(--vc-mist); }
+.on-ink .dw-hatch { stroke: var(--vc-mist); opacity: 0.45; }
+.on-ink .dw-dim, .on-ink .dw-rev { stroke: var(--vc-brass-400); }
+.on-ink .dw-issue { stroke: var(--vc-azure-300); }
+.on-ink .dw-fill-issue { fill: var(--vc-azure-300); }
+.on-ink .dw-fill-line { fill: var(--vc-parchment); }
+.on-ink .dw-fill-thin { fill: var(--vc-mist); }
+.on-ink .dw-fill-paper { fill: var(--vc-ink-950); }
+.on-ink .dw-fill-tint { fill: rgb(252 250 245 / 0.06); }
+.on-ink .dw-t, .on-ink .dw-t-label { fill: var(--vc-mist); }
+.on-ink .dw-t-strong, .on-ink .dw-t-title { fill: var(--vc-parchment); }
+.on-ink .dw-t-dim, .on-ink .dw-t-rev { fill: var(--vc-brass-400); }
+.on-ink .dw-t-issue { fill: var(--vc-azure-300); }

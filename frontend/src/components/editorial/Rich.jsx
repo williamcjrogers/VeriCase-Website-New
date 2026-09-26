@@ -2,14 +2,12 @@ import { Fragment } from 'react';
 import { NoteRef } from '@/components/editorial/NoteRef';
 import { Placeholder } from '@/components/editorial/Gated';
 import { EvidenceChip } from '@/components/mock/EvidenceChip';
+import { keepDates } from '@/lib/format';
 
 // Renders copy-deck strings with their inline markup:
 //   [[note:n]] site note · [[ev:EV-0131]] citation chip · [[c:EV-0131]] numbered citation
 //   (the number comes from `cites`, a map of exhibit to citation number) · *italic* · {{TOKEN}}
 const TOKEN = /(\[\[(?:note|ev|c):[^\]]+\]\]|\*[^*\n]+\*|\{\{[A-Z0-9_]+\}\})/g;
-// A date ("12 March 2025") never breaks across lines.
-const DATE = /\b(\d{2}) (January|February|March|April|May|June|July|August|September|October|November|December) (\d{4})\b/g;
-export const keepDates = (text) => String(text).replace(DATE, '$1\u00a0$2\u00a0$3');
 
 export function Rich({ text, cites, citeList, onInk = false }) {
   if (!text) return null;

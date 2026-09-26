@@ -41,7 +41,7 @@ const Schedule = () => (
 export const ClaimsBuilder = () => (
   <section id="claims" aria-labelledby="claims-title" className="bg-parchment py-16 md:py-24 lg:py-32">
     <div className="container">
-      <ChapterHeader id="claims" numeral={C.numeral} eyebrow={C.eyebrow} title={C.h2} lead={C.lead} />
+      <ChapterHeader id="claims" numeral={C.numeral} title={C.h2} lead={C.lead} />
 
       <div className="mt-12 grid grid-cols-12 gap-x-6">
         <FailRecover fail={C.fail} recover={C.recover} className="col-span-12 lg:col-span-9 lg:col-start-3 xl:col-span-8 xl:col-start-3" />
@@ -54,16 +54,20 @@ export const ClaimsBuilder = () => (
       </div>
 
       <div className="mt-16 grid grid-cols-12 gap-x-6 lg:mt-20">
-        <Figure summary={C.fig.summary} caption={C.fig.caption} className="col-span-12 xl:col-span-10 xl:col-start-3">
-          <LazyMount className={BUILDER_HEIGHT} skeleton={<FrameSkeleton />}>
-            <ClaimsBuilderMock labels={LABELS} />
-          </LazyMount>
-          <div id={DISCUSSION_ID} role="group" aria-label={DISCUSSION.heading} className="mt-10 outline-none lg:mt-12">
-            <LazyMount className={DISCUSSION_HEIGHT} skeleton={<FrameSkeleton />}>
-              <DiscussionMock />
+        <div className="col-span-12 xl:col-span-10 xl:col-start-3">
+          <Figure summary={C.fig.summary} caption={C.fig.caption}>
+            <LazyMount className={BUILDER_HEIGHT} skeleton={<FrameSkeleton />}>
+              <ClaimsBuilderMock labels={LABELS} />
             </LazyMount>
-          </div>
-        </Figure>
+          </Figure>
+          <Figure summary={C.discussionFig.summary} caption={C.discussionFig.caption} className="mt-12 lg:mt-16">
+            <div id={DISCUSSION_ID} role="group" aria-label={DISCUSSION.heading} className="outline-none">
+              <LazyMount className={DISCUSSION_HEIGHT} skeleton={<FrameSkeleton />}>
+                <DiscussionMock />
+              </LazyMount>
+            </div>
+          </Figure>
+        </div>
       </div>
     </div>
   </section>

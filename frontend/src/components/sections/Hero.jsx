@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import { ArrowDown } from 'lucide-react';
 import { BRAND_LINE, COVER, CTA_MICROCOPY } from '@/content/home';
 import { DemoCTA } from '@/components/editorial/DemoCTA';
+import { Sentences } from '@/components/editorial/Sentences';
 import { Gated, isShown } from '@/components/editorial/Gated';
 import { LensStage } from '@/components/lens/LensStage';
 import { onSectionClick, sectionHref } from '@/lib/navigate';
@@ -37,7 +38,7 @@ export const Hero = () => (
         <div className="col-span-12 lg:col-span-6 lg:row-start-1">
           <p className="eyebrow">{COVER.eyebrow}</p>
           <h1 id="top-title" tabIndex={-1} className="mt-3 text-display font-medium outline-none">
-            {COVER.h1}
+            <Sentences text={COVER.h1} />
           </h1>
           <p className="mt-4 max-w-measure text-lead text-ink lg:mt-5">{COVER.subhead}</p>
           <p className="cover-brand mt-4 lg:mt-5">{BRAND_LINE}</p>

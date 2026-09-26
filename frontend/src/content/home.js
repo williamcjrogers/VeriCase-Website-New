@@ -59,7 +59,7 @@ export const COVER = {
     number: 1,
     bar: 'The Chronology Lens™ · Sample matter (fictional)',
     caption:
-      'Fig. 1 · The Chronology Lens™, illustrated with the sample matter. Names, message IDs and exhibit references are fictional. See note A.',
+      'Fig. 1. The Chronology Lens™, illustrated with the sample matter. Names, message IDs and exhibit references are fictional. See note A.',
     summaryDesktop:
       'Illustration: nine items of fictional correspondence and records are threaded, stripped of quoted history and, where they are a near-duplicate, an automatic reply or another project’s email, set aside. Six remain and take their places in date order, each with a citation to its source.',
     summaryMobile:
@@ -125,7 +125,7 @@ export const CLOCK = {
       { from: '2025-03-26', to: '2025-03-28', label: '2 days to notice', style: 'dashed' },
     ],
     line: 'Whether notice was given forthwith is for the adjudicator. The ruler shows only what the record says, and when.',
-    caption: 'Fig. 2 · Notice ruler for the sample matter. Dates only; this is not an analysis of delay. See note A.',
+    caption: 'Fig. 2. Notice ruler for the sample matter. Dates only; this is not an analysis of delay. See note A.',
   },
   schedule: {
     title: 'Schedule 1: Time limits that do not wait for the record',
@@ -206,7 +206,7 @@ export const LENS_CHAPTER = {
     number: 3,
     summary:
       'Illustration: the sample matter in the Chronology Lens workbench, with eight entries from four parties in date order, controls for view, date window, Smart Filter, excluded keywords and Create bundle, and a File Manager view of attachments by type with a Show Noise switch.',
-    caption: 'Fig. 3 · The Chronology Lens™ workbench and File Manager, illustrated with the sample matter. Counts are illustrative. See note A.',
+    caption: 'Fig. 3. The Chronology Lens™ workbench and File Manager, illustrated with the sample matter. Counts are illustrative. See note A.',
   },
   next: { label: 'Next: ask the record a question', href: '#research' },
 };
@@ -228,7 +228,7 @@ export const RESEARCH = {
     number: 4,
     summary:
       'Illustration: a plain-English question about the sample matter, the Query Plan derived from it and the resulting Analysis Report with six numbered citations. Each citation opens its fictional source. Create bundle adds the six cited items to a bundle.',
-    caption: 'Fig. 4 · Research, illustrated with the sample matter. The report, sources and bundle are fictional. See note A.',
+    caption: 'Fig. 4. Research, illustrated with the sample matter. The report, sources and bundle are fictional. See note A.',
   },
   cta: { line: 'See Research, the Chronology Lens™ and Rebuttal Mode on sample correspondence.' },
 };
@@ -249,10 +249,13 @@ export const CLAIMS = {
     { title: 'Discussion on the document', text: '@mention a colleague on a document and the discussion opens on that document, so the reasoning stays beside the evidence.' },
   ],
   fig: {
-    caption:
-      'Fig. 5 · Claims builder. Fig. 6 · Discussion anchored to a document. Both are illustrated with the sample matter, and participants are shown by role, not as people. See note A.',
+    caption: 'Fig. 5. The claims builder, illustrated with the sample matter. See note A.',
     summary:
-      'Illustration: the Heads of Claim for the sample matter, the narrative for section 1.2 with each paragraph cited by exhibit reference, and a discussion among the legal team anchored to the Site Manager’s email of 13 March 2025.',
+      'Illustration: the Heads of Claim for the sample matter, and the narrative for section 1.2 with each paragraph cited by exhibit reference.',
+  },
+  discussionFig: {
+    caption: 'Fig. 6. A discussion anchored to a document, illustrated with the sample matter. Participants are shown by role, not as people. See note A.',
+    summary: 'Illustration: a discussion among the legal team, anchored to the Site Manager’s email of 13 March 2025.',
   },
 };
 

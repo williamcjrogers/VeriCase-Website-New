@@ -54,7 +54,7 @@ export const InBrief = () => {
   return (
     <section id="platform" aria-labelledby="platform-title" className="bg-parchment-300 py-16 md:py-24 lg:py-32">
       <div className="container">
-        <ChapterHeader id="platform" eyebrow={IN_BRIEF.eyebrow} title={IN_BRIEF.h2} lead={IN_BRIEF.sub} />
+        <ChapterHeader id="platform" title={IN_BRIEF.h2} lead={IN_BRIEF.sub} />
 
         <div className="mt-12 grid grid-cols-12 gap-x-6">
           <ol className="col-span-12 grid gap-4 sm:grid-cols-2 lg:col-span-10 lg:col-start-3 lg:grid-cols-3 lg:gap-5">

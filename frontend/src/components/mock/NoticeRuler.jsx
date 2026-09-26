@@ -14,7 +14,7 @@ const EVIDENCE = ruler.pins.map((p) => p.ev);
 const dayIndex = (iso) => Math.round((Date.parse(`${iso}T00:00:00Z`) - START) / 86400000);
 const xOf = (i) => PAD + (i / (DAYS - 1)) * (100 - 2 * PAD);
 const MONDAYS = Array.from({ length: DAYS }, (_, i) => i).filter((i) => new Date(START + i * 86400000).getUTCDay() === 1);
-const dayMonth = (i) => formatDate(new Date(START + i * 86400000).toISOString().slice(0, 10)).replace(/ \d{4}$/, '');
+const dayMonth = (i) => formatDate(new Date(START + i * 86400000).toISOString().slice(0, 10)).replace(/\s\d{4}$/, '');
 // Keeps a clause reference on one line when a label wraps ("clause 2.24").
 const keepRefs = (s) => s.replace(/(clause|cl|s) (\d)/g, '$1\u00a0$2');
 

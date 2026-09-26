@@ -2,7 +2,7 @@ import { useId } from 'react';
 import { cn } from '@/lib/utils';
 
 // A figure: a prose summary for screen readers before the illustration, and a caption
-// "Fig. n · … See note A." beneath it. The frame can hold a fixed ratio or a min-height.
+// "Fig. n. … See note A." beneath it. The frame can hold a fixed ratio or a min-height.
 export const Figure = ({ summary, caption, children, className, frameClassName, as: Tag = 'figure', labelledBy }) => {
   const uid = useId();
   const sumId = `${uid}-sum`;

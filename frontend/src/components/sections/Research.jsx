@@ -46,7 +46,7 @@ const DemoSkeleton = () => (
 export const Research = () => (
   <section id="research" aria-labelledby="research-title" className="border-t border-rule bg-paper">
     <div className="container py-16 md:py-24 lg:py-32">
-      <ChapterHeader id="research" numeral={RESEARCH.numeral} eyebrow={RESEARCH.eyebrow} title={RESEARCH.h2} lead={RESEARCH.lead} />
+      <ChapterHeader id="research" numeral={RESEARCH.numeral} title={RESEARCH.h2} lead={RESEARCH.lead} />
 
       <div className="mt-12 grid grid-cols-12 gap-x-6">
         <FailRecover className="col-span-12 lg:col-span-10 lg:col-start-3 xl:col-span-9 xl:col-start-3" fail={RESEARCH.fail} recover={RESEARCH.recover} />

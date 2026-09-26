@@ -12,7 +12,7 @@ import { fill } from '@/lib/format';
 export const Founder = () => (
   <section id="about" aria-labelledby="about-title" className="bg-paper py-16 md:py-24 lg:py-32">
     <div className="container">
-      <ChapterHeader id="about" eyebrow={FOUNDER.eyebrow} title={FOUNDER.h2} />
+      <ChapterHeader id="about" title={FOUNDER.h2} />
 
       <div className="mt-12 grid grid-cols-12 gap-x-6 gap-y-12">
         <div className="col-span-12 lg:col-span-5 lg:col-start-3">
