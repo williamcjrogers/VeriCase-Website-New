@@ -5,7 +5,8 @@ import { Narrative } from '@/components/claims/Narrative';
 import { DECIDED, EvidenceFinder } from '@/components/claims/EvidenceFinder';
 import { MockTab, MockTabList, MockTabPanel, MockTabs } from '@/components/workbench/MockTabs';
 import { Gated, isShown } from '@/components/editorial/Gated';
-import { CLAIMS_BUILDER as B, WORKBENCH } from '@/content/sampleMatter';
+import { APP_WINDOW } from '@/content/records';
+import { CLAIMS_BUILDER as B } from '@/content/matter/claims';
 import '@/components/claims/claims.css';
 
 const WIDE = '(min-width: 1024px)';
@@ -117,7 +118,7 @@ export function ClaimsBuilderMock({ labels }) {
   );
 
   return (
-    <MockWindow title={WORKBENCH.window} right={<span className="hidden sm:inline">Fig. 5</span>} className="cb-root flex h-full flex-col" bodyClassName="flex min-h-0 flex-1 flex-col">
+    <MockWindow title={APP_WINDOW} right={<span className="hidden sm:inline">Fig. 5</span>} className="cb-root flex h-full flex-col" bodyClassName="flex min-h-0 flex-1 flex-col">
       <div ref={desk} className="cb-desk">
         <div className="cb-pane cb-pane-tree">{tree}</div>
         <div className="cb-pane cb-pane-draft">

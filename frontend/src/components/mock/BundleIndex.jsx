@@ -1,7 +1,7 @@
 import { useId } from 'react';
 import { ExhibitStamp } from '@/components/editorial/ExhibitStamp';
 import { EvidenceChip } from '@/components/mock/EvidenceChip';
-import { BUNDLE, bundleRows, itemsLabel } from '@/content/sampleMatter';
+import { BUNDLE, bundleRows, itemsLabel } from '@/content/matter/research';
 import { fill } from '@/lib/format';
 import { onSectionClick } from '@/lib/navigate';
 import { UI } from '@/components/research/copy';

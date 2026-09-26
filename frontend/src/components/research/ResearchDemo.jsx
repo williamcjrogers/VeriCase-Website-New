@@ -5,7 +5,8 @@ import { AnalysisReport, ReportPending } from '@/components/mock/AnalysisReport'
 import { BundleIndex } from '@/components/mock/BundleIndex';
 import { Gated, isShown } from '@/components/editorial/Gated';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
-import { BUNDLE, MATTER, QUESTIONS, REPORT, computeReport, planIsComplete } from '@/content/sampleMatter';
+import { MATTER } from '@/content/records';
+import { BUNDLE, QUESTIONS, REPORT, computeReport, planIsComplete } from '@/content/matter/research';
 import { UI, liveBundle, liveUpdated } from '@/components/research/copy';
 import '@/components/research/research.css';
 

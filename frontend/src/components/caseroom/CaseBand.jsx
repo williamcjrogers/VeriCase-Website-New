@@ -7,9 +7,7 @@ const AmbientVideo = lazy(() =>
   import(/* webpackChunkName: "ambient-video" */ '@/components/editorial/AmbientVideo').then((m) => ({ default: m.AmbientVideo }))
 );
 
-// PENDING shared change: `mobileSrc: null` in MEDIA.caseRoom (src/content/media.js), as
-// residentialFrame has, for a portrait poster on phones. Until then it reads as undefined and
-// the one poster serves every width.
+// Plate 3: the case-room film and its posters (a portrait poster on phones once mobileSrc is set).
 const media = MEDIA.caseRoom;
 
 // True once Plate 3 is approved, so that its caption is shown only with its image.

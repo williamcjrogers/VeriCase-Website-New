@@ -7,9 +7,8 @@ import { LazyMount } from '@/components/editorial/LazyMount';
 import { NoteRef } from '@/components/editorial/NoteRef';
 import { DomainIcon } from '@/components/icons';
 import { CaseBand, HAS_PLATE } from '@/components/caseroom/CaseBand';
-import { FIG8_SUMMARY } from '@/components/caseroom/pending';
 import { CASE_ROOM } from '@/content/home';
-import { DAY_GRID, SCOTT } from '@/content/sampleMatter';
+import { DAY_GRID, SCOTT, exportCountsText } from '@/content/matter/caseroom';
 import { useInViewOnce } from '@/hooks/useInViewOnce';
 import { fill } from '@/lib/format';
 import '@/components/caseroom/caseroom.css';
@@ -21,9 +20,8 @@ const ScottSchedule = lazy(() => import(/* webpackChunkName: "scott-schedule" */
 const STATION_VIEW = { threshold: 0, rootMargin: '0px 0px -45% 0px' };
 // The export strip: its sentence, then its counts as recorded, which the schedule recomputes
 // (from the same records) whenever the visitor changes a decision.
-const EXPORT_AT = SCOTT.exportStrip.search(/\d+ points?\b/);
-const EXPORT_LEAD = SCOTT.exportStrip.slice(0, EXPORT_AT).trim();
-const RECORDED_COUNTS = SCOTT.exportStrip.slice(EXPORT_AT).trim();
+const EXPORT_LEAD = SCOTT.exportLead;
+const RECORDED_COUNTS = exportCountsText(SCOTT.exportRecorded);
 // "Project time ends. Case time begins.": the second sentence is set in italic.
 const [KICK_FROM, KICK_TO] = CASE_ROOM.kicker.match(/[^.]+\./g).map((s) => s.trim());
 // The figure's text equivalent, one sentence per list item.
@@ -135,7 +133,7 @@ export const CaseRoom = () => {
                   Fig. 8
                 </p>
                 <p id="cr-fig8-summary" className="sr-only">
-                  {FIG8_SUMMARY}
+                  {CASE_ROOM.fig8Summary}
                 </p>
                 <LazyMount className="cr-scott-mount" skeleton={skeleton}>
                   <ScottSchedule onExportChange={setCounts} />

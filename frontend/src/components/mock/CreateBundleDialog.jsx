@@ -5,7 +5,7 @@ import { Dialog, DialogDescription, DialogOverlay, DialogPortal, DialogTitle, Di
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { BUNDLE, itemsLabel } from '@/content/sampleMatter';
+import { BUNDLE, itemsLabel } from '@/content/matter/research';
 import { fill } from '@/lib/format';
 import { UI } from '@/components/research/copy';
 

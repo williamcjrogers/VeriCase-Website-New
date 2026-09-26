@@ -7,6 +7,9 @@ import evidence from '@/content/sampleEvidence.json';
 import hashes from '@/content/sampleHashes.json';
 import { formatDate } from '@/lib/format';
 
+// The title bar of the app-family windows in the demonstrations.
+export const APP_WINDOW = 'VeriCase · Sample matter (fictional)';
+
 export const MATTER = evidence.matter;
 export const PARTIES = evidence.parties;
 export const RECORDS = evidence.records;

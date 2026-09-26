@@ -6,7 +6,7 @@ import { ChoiceToggle } from '@/components/workbench/ChoiceToggle';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Checkbox } from '@/components/ui/checkbox';
 import { TabbedBundle } from '@/components/icons';
-import { WORKBENCH } from '@/content/sampleMatter';
+import { WORKBENCH } from '@/content/matter/workbench';
 import { focusSection } from '@/lib/navigate';
 import { KINDS, WINDOWS, isDefault, smartSummary, windowByKey } from '@/components/workbench/lensModel';
 import { PARTY_ITEM, SEG_ITEM } from '@/components/workbench/styles';

@@ -7,7 +7,7 @@ import { LazyMount } from '@/components/editorial/LazyMount';
 import { DomainIcon } from '@/components/icons';
 import { PositioningDiagram } from '@/components/mock/PositioningDiagram';
 import { INTEGRITY } from '@/content/home';
-import { HASH_CHECK, MANIFEST } from '@/content/sampleMatter';
+import { HASH_CHECK, MANIFEST } from '@/content/matter/integrity';
 import { cn } from '@/lib/utils';
 import '@/components/integrity/integrity.css';
 

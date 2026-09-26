@@ -7,7 +7,7 @@ import { LazyMount } from '@/components/editorial/LazyMount';
 import { FrameSkeleton } from '@/components/workbench/FrameSkeleton';
 import { DISCUSSION_ID } from '@/components/claims/ids';
 import { CLAIMS as C } from '@/content/home';
-import { DISCUSSION } from '@/content/sampleMatter';
+import { DISCUSSION } from '@/content/matter/discussion';
 
 // Both figures load from one chunk, only as they come near the viewport.
 const ClaimsBuilderMock = lazy(() => import(/* webpackChunkName: "claims" */ '@/components/mock/ClaimsBuilderMock').then((m) => ({ default: m.ClaimsBuilderMock })));

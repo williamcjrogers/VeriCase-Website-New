@@ -2,7 +2,7 @@ import { Fragment, useId } from 'react';
 import { FileText } from 'lucide-react';
 import { Gated, isShown } from '@/components/editorial/Gated';
 import { EvidenceChip } from '@/components/mock/EvidenceChip';
-import { CLAIMS_BUILDER } from '@/content/sampleMatter';
+import { CLAIMS_BUILDER } from '@/content/matter/claims';
 
 const [SECTION_N, ...SECTION_WORDS] = CLAIMS_BUILDER.section.split(' ');
 const [EXPORT_LABEL, EXPORT_TEXT] = CLAIMS_BUILDER.exportBar.split(': ');

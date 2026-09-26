@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { AlertCircle, Check, Pencil, X } from 'lucide-react';
-import { SCOTT, recordById } from '@/content/sampleMatter';
+import { APP_WINDOW, recordById } from '@/content/records';
+import { SCOTT } from '@/content/matter/caseroom';
 import { Gated, isShown } from '@/components/editorial/Gated';
 import { MockWindow } from '@/components/mock/MockWindow';
 import { EvidenceChip } from '@/components/mock/EvidenceChip';
 import { CitedText, Redline } from '@/components/caseroom/CitedText';
 import { RECORDED_REPLIES, exportCounts, passesGuard } from '@/components/caseroom/scottModel';
-import { BEFORE_LABEL, LIVE_EDITED, LIVE_REJECTED, SUGGESTED_LABEL, WINDOW_TITLE } from '@/components/caseroom/pendingSchedule';
 import { formatDate } from '@/lib/format';
 import { cn } from '@/lib/utils';
 import '@/components/caseroom/scott.css';
@@ -103,7 +103,7 @@ const ReplyView = ({ reply }) => {
       </div>
       {edited && (
         <div className="cr-before">
-          <p className="cr-mini">{BEFORE_LABEL}</p>
+          <p className="cr-mini">{SCOTT.beforeLabel}</p>
           <p className="cr-before-text">
             <Redline before={reply.before} after={reply.text} side="before" />
           </p>
@@ -147,7 +147,7 @@ export const ScottSchedule = ({ onExportChange }) => {
   const decide = (reply, decision) => {
     if (reply.decision === decision) return;
     update(reply.key, { decision });
-    announce(decision === 'accepted' ? SCOTT.liveAccepted : LIVE_REJECTED);
+    announce(decision === 'accepted' ? SCOTT.liveAccepted : SCOTT.liveRejected);
   };
   const startEdit = (reply) => {
     setDraft(reply.text);
@@ -169,7 +169,7 @@ export const ScottSchedule = ({ onExportChange }) => {
     stopEdit(reply.key);
     if (text === reply.text) return;
     update(reply.key, { decision: 'edited', before: reply.text, text });
-    announce(LIVE_EDITED);
+    announce(SCOTT.liveEdited);
   };
   const onDraft = (e) => {
     setDraft(e.target.value);
@@ -177,7 +177,7 @@ export const ScottSchedule = ({ onExportChange }) => {
   };
 
   return (
-    <MockWindow title={WINDOW_TITLE} className="on-paper" bodyClassName="px-3 pb-4 pt-4 sm:px-5 sm:pb-5">
+    <MockWindow title={APP_WINDOW} className="on-paper" bodyClassName="px-3 pb-4 pt-4 sm:px-5 sm:pb-5">
       <table role="table" className="cr-scott">
         <caption className="cr-scott-caption">{SCOTT.caption}</caption>
         <colgroup>
@@ -209,7 +209,7 @@ export const ScottSchedule = ({ onExportChange }) => {
                       <span className="cr-label" aria-hidden="true">
                         {SCOTT.heads[1]}
                       </span>
-                      {reply.suggested && <p className="cr-mini cr-suggested">{SUGGESTED_LABEL}</p>}
+                      {reply.suggested && <p className="cr-mini cr-suggested">{SCOTT.suggestedLabel}</p>}
                       {isEditing ? (
                         <div>
                           <textarea

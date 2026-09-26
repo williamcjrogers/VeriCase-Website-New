@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useId, useMemo, useRef, useState } from 'react';
 import { RotateCcw, X } from 'lucide-react';
-import { HASHES, HASH_CHECK, recordById } from '@/content/sampleMatter';
+import { HASHES, recordById } from '@/content/records';
+import { HASH_CHECK } from '@/content/matter/integrity';
 import { VerificationTick } from '@/components/editorial/VerificationTick';
 import { diffTokens } from '@/components/integrity/diff';
 import { truncateHash } from '@/lib/format';

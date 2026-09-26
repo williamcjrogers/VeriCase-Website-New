@@ -5,7 +5,7 @@ import { Gated, isShown } from '@/components/editorial/Gated';
 import { VerificationTick } from '@/components/editorial/VerificationTick';
 import { EvidenceChip } from '@/components/mock/EvidenceChip';
 import { CreateBundleDialog } from '@/components/mock/CreateBundleDialog';
-import { REPORT } from '@/content/sampleMatter';
+import { REPORT } from '@/content/matter/research';
 import { UI, badgeLine, hiddenLine } from '@/components/research/copy';
 
 const ms = (n) => ({ '--d': `${n}ms` });

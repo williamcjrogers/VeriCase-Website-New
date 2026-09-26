@@ -1,6 +1,8 @@
 import { useId } from 'react';
 import { EvidenceChip } from '@/components/mock/EvidenceChip';
-import { CLAIMS_BUILDER, WORKBENCH, recordById } from '@/content/sampleMatter';
+import { recordById } from '@/content/records';
+import { WORKBENCH } from '@/content/matter/workbench';
+import { CLAIMS_BUILDER } from '@/content/matter/claims';
 import { formatDate } from '@/lib/format';
 
 const B = CLAIMS_BUILDER;

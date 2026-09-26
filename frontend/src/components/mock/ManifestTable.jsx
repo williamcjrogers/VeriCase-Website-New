@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react';
 import { toast } from 'sonner';
 import { Copy } from 'lucide-react';
-import { HASH_CHECK, MANIFEST, manifestRows } from '@/content/sampleMatter';
+import { HASH_CHECK, MANIFEST, manifestRows } from '@/content/matter/integrity';
 import { Gated } from '@/components/editorial/Gated';
 import { EvidenceChip } from '@/components/mock/EvidenceChip';
 import { truncateHash } from '@/lib/format';

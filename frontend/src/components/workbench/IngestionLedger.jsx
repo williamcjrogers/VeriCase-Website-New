@@ -3,7 +3,7 @@ import { ChevronDown } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { EmailArchive } from '@/components/icons';
 import { Gated } from '@/components/editorial/Gated';
-import { WORKBENCH } from '@/content/sampleMatter';
+import { WORKBENCH } from '@/content/matter/workbench';
 import { cn } from '@/lib/utils';
 
 // Ledger rows that describe a capability still to be confirmed carry that owner gate.

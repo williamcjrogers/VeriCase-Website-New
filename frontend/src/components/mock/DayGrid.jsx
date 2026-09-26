@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { DAY_GRID } from '@/content/sampleMatter';
+import { DAY_GRID } from '@/content/matter/caseroom';
 import { formatDate } from '@/lib/format';
 import { cn } from '@/lib/utils';
 import '@/components/caseroom/daygrid.css';

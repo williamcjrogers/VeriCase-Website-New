@@ -2,7 +2,7 @@ import { useId } from 'react';
 import { Switch } from '@/components/ui/switch';
 import { EvidenceChip } from '@/components/mock/EvidenceChip';
 import { Gated, isShown } from '@/components/editorial/Gated';
-import { WORKBENCH } from '@/content/sampleMatter';
+import { WORKBENCH } from '@/content/matter/workbench';
 
 const FM = WORKBENCH.fileManager;
 const TOTAL_LABEL = WORKBENCH.ledger[1][0]; // "Attachments extracted", as the ledger names it

@@ -46,6 +46,11 @@ export const AmbientVideo = ({ webm, mp4, poster, posterMobile, alt, labels, cla
     };
   }, [allowed]);
 
+  // The observer marks the band as near before the <video> exists; start it once it does.
+  useEffect(() => {
+    if (near && !userPaused.current) video.current?.play().catch(() => {});
+  }, [near]);
+
   const toggle = () => {
     const v = video.current;
     if (!v) return;

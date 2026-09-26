@@ -1,6 +1,8 @@
 // The Chronology Lens workbench (Fig. 3) as data: the entries of the sample matter, the filters
 // the toolbar applies to them, and every count the figure shows, computed rather than typed in.
-import { NOISE, PARTIES, PERIOD_PRESETS, RECORDS, WORKBENCH, addressLabel, personLabel } from '@/content/sampleMatter';
+import { NOISE, PARTIES, RECORDS, addressLabel, personLabel } from '@/content/records';
+import { WORKBENCH } from '@/content/matter/workbench';
+import { PERIOD_PRESETS } from '@/content/matter/research';
 import { fill, formatDate, plural } from '@/lib/format';
 
 // The keyword marker of spec 3.5 and the per-keyword split of the 14 items it excludes.

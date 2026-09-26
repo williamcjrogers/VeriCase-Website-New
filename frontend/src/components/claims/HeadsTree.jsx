@@ -1,7 +1,7 @@
 import { useId } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
-import { CLAIMS_BUILDER } from '@/content/sampleMatter';
+import { CLAIMS_BUILDER } from '@/content/matter/claims';
 import { plural } from '@/lib/format';
 
 // A head's number in mono brass beside its title.

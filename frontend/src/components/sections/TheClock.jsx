@@ -1,8 +1,9 @@
-import { ArrowDown, TriangleAlert } from 'lucide-react';
+import { TriangleAlert } from 'lucide-react';
 import { ChapterHeader } from '@/components/editorial/ChapterHeader';
 import { FailRecover } from '@/components/editorial/FailRecover';
 import { Figure } from '@/components/editorial/Figure';
 import { Gated } from '@/components/editorial/Gated';
+import { NextLink } from '@/components/editorial/NextLink';
 import { NoteRef } from '@/components/editorial/NoteRef';
 import { Plate } from '@/components/editorial/Plate';
 import { Rich } from '@/components/editorial/Rich';
@@ -11,7 +12,6 @@ import { useInViewOnce } from '@/hooks/useInViewOnce';
 import { CLOCK } from '@/content/home';
 import { MEDIA } from '@/content/media';
 import { STATS } from '@/content/stats';
-import { onSectionClick } from '@/lib/navigate';
 import { cn } from '@/lib/utils';
 import '@/components/clock/clock.css';
 
@@ -189,14 +189,7 @@ export const TheClock = () => (
               })}
             </ul>
           </Gated>
-          <a
-            href={next.href}
-            onClick={onSectionClick(next.href.slice(1))}
-            className="mt-14 inline-flex min-h-[44px] items-center gap-2 font-mono text-meta font-medium uppercase tracking-[0.06em] text-azure-700 hover:text-navy"
-          >
-            <ArrowDown className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
-            {next.label}
-          </a>
+          <NextLink href={next.href} label={next.label} className="mt-14" />
         </div>
       </div>
     </div>

@@ -9,7 +9,8 @@ import { EntryCards, EntryStack, EntryTable } from '@/components/workbench/LensE
 import { EntryDrawer } from '@/components/workbench/EntryDrawer';
 import { MockTab, MockTabList, MockTabPanel, MockTabs } from '@/components/workbench/MockTabs';
 import { DEFAULT_FILTERS, ENTRIES, KEYWORD_MARKER, computeLens, entryById, marker, notRelevantStatus } from '@/components/workbench/lensModel';
-import { DISCUSSION, WORKBENCH } from '@/content/sampleMatter';
+import { WORKBENCH } from '@/content/matter/workbench';
+import { DISCUSSION } from '@/content/matter/discussion';
 import { plural } from '@/lib/format';
 import '@/components/workbench/workbench.css';
 

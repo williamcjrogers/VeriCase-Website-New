@@ -4,12 +4,12 @@ import { FailRecover } from '@/components/editorial/FailRecover';
 import { Figure } from '@/components/editorial/Figure';
 import { Gated, isShown } from '@/components/editorial/Gated';
 import { LazyMount } from '@/components/editorial/LazyMount';
+import { NextLink } from '@/components/editorial/NextLink';
 import { Plate } from '@/components/editorial/Plate';
 import { FrameSkeleton } from '@/components/workbench/FrameSkeleton';
 import { ChronologyLens as LensGlyph, EmailArchive, ExcludedProject, NearDuplicate, QuoteFold, Thread } from '@/components/icons';
 import { CHAPTERS, LENS_CHAPTER as C } from '@/content/home';
 import { MEDIA } from '@/content/media';
-import { onSectionClick } from '@/lib/navigate';
 
 const LensWorkbench = lazy(() => import(/* webpackChunkName: "workbench" */ '@/components/mock/LensWorkbench').then((m) => ({ default: m.LensWorkbench })));
 
@@ -85,9 +85,7 @@ export const ChronologyLens = () => (
 
       <div className="mt-10 grid grid-cols-12 gap-x-6 lg:mt-12">
         <p className="col-span-12 lg:col-span-9 lg:col-start-3">
-          <a href={C.next.href} onClick={onSectionClick(C.next.href.slice(1))} className="group inline-flex min-h-[44px] items-center gap-2 text-small font-medium text-azure-700 hover:text-navy">
-            <span className="underline decoration-1 underline-offset-4 group-hover:decoration-2">{C.next.label}</span>
-          </a>
+          <NextLink href={C.next.href} label={C.next.label} />
         </p>
       </div>
     </div>

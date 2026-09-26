@@ -281,6 +281,8 @@ export const CASE_ROOM = {
       'We will not tell you how the sample matter ends. VeriCase does not decide disputes, and admissibility and weight are for the tribunal. What VeriCase does is help you put the record of what was known, and when, in front of the adjudicator, with each point cited to its source.',
     cta: 'See Rebuttal Mode working on sample correspondence.',
   },
+  fig8Summary:
+    'Illustration: the Employer’s Response in the sample matter, paragraphs 4.12 and 4.13, set out as a Scott Schedule. Each paragraph sits beside a proposed reply and the evidence ranked for it. The reply to 4.13 is accepted, the reply to 4.12 is edited with the text before and after retained, and a suggested point for 4.12 is rejected because its evidence does not support it.',
   caption: 'Fig. 7 · The adjudication timetable for the sample matter. Fig. 8 · Rebuttal Mode, illustrated with the sample matter. See note A.',
 };
 

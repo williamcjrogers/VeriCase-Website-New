@@ -1,7 +1,7 @@
 // Interface strings for Chapter III that the copy deck leaves to the component (labels, headings
 // and one empty state), and the templated live messages with their singular forms. Everything
 // else comes from the content files verbatim.
-import { REPORT, itemsLabel } from '@/content/sampleMatter';
+import { REPORT, itemsLabel } from '@/content/matter/research';
 import { fill, plural } from '@/lib/format';
 
 export const UI = {

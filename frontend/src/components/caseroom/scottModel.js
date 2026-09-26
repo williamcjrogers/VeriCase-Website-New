@@ -1,7 +1,7 @@
 // The Rebuttal Mode schedule as data: one entry per reply point, in the order of the Employer's
 // Response, as recorded in the sample matter, with the rules the schedule applies to it.
-import { RECORDS, SCOTT } from '@/content/sampleMatter';
-import { plural } from '@/lib/format';
+import { RECORDS } from '@/content/records';
+import { SCOTT, exportCountsText } from '@/content/matter/caseroom';
 
 const KNOWN = new Set(RECORDS.map((r) => r.id));
 const CITATION = new RegExp(SCOTT.guardPattern.source, 'g');
@@ -40,5 +40,5 @@ export function exportCounts(replies) {
   const points = new Set(replies.map((r) => r.para)).size;
   const standing = replies.filter((r) => r.decision !== 'rejected');
   const exhibits = new Set(standing.flatMap((r) => citationsIn(r.text)));
-  return `${plural(points, 'point')} · ${plural(standing.length, 'reply', 'replies')} · ${plural(exhibits.size, 'exhibit')}.`;
+  return exportCountsText({ points, replies: standing.length, exhibits: exhibits.size });
 }

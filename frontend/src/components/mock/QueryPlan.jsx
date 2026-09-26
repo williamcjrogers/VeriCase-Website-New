@@ -2,7 +2,7 @@ import { useId, useRef, useState } from 'react';
 import { ChevronDown, Plus, Search } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Gated } from '@/components/editorial/Gated';
-import { ALL_PARTIES, ALL_SOURCES, PERIOD_PRESETS, QUESTIONS, REPORT } from '@/content/sampleMatter';
+import { ALL_PARTIES, ALL_SOURCES, PERIOD_PRESETS, QUESTIONS, REPORT } from '@/content/matter/research';
 import { UI } from '@/components/research/copy';
 
 // The chips of a Query Plan, in the order the question is parsed.

@@ -1,7 +1,8 @@
 import { Fragment } from 'react';
 import { MockWindow } from '@/components/mock/MockWindow';
 import { EvidenceChip } from '@/components/mock/EvidenceChip';
-import { DISCUSSION as D, WORKBENCH, addressLabel, recordById } from '@/content/sampleMatter';
+import { APP_WINDOW, addressLabel, recordById } from '@/content/records';
+import { DISCUSSION as D } from '@/content/matter/discussion';
 import { formatDate } from '@/lib/format';
 import { useInViewOnce } from '@/hooks/useInViewOnce';
 import { cn } from '@/lib/utils';
@@ -23,7 +24,7 @@ const WithChips = ({ text }) =>
 export const DiscussionMock = () => {
   const [ref, inView] = useInViewOnce({ threshold: 0.3 });
   return (
-    <MockWindow title={WORKBENCH.window} right={<span className="hidden sm:inline">Fig. 6</span>} className="cb-root">
+    <MockWindow title={APP_WINDOW} right={<span className="hidden sm:inline">Fig. 6</span>} className="cb-root">
       <div ref={ref} className={cn('relative grid md:grid-cols-2', inView && 'is-in')}>
         <span aria-hidden="true" className="draw-x absolute inset-x-0 top-[3.25rem] z-[1] hidden h-px bg-brass-400 duration-300 md:block" />
 
