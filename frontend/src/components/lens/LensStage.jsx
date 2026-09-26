@@ -55,6 +55,7 @@ export const LensStage = () => {
         <span {...cast('mobile')}>{FIG.summaryMobile}</span>
       </p>
       <div className="lens-frame">
+        {/* The figure is numbered once, at the start of its caption beneath the frame. */}
         <div className="lens-bar">
           <span className="lens-bar-title">
             {FIG.bar.split(' · ').map((part, i) => (
@@ -64,7 +65,6 @@ export const LensStage = () => {
               </span>
             ))}
           </span>
-          <span className="lens-bar-fig">Fig. {FIG.number}</span>
         </div>
         <div className="lens-field" data-stage={INITIAL_STAGE}>
           <Chronology />
@@ -249,7 +249,8 @@ const Item = ({ f }) => {
   );
 };
 
-// The band, its stage label and the handle, carried across the field by --lens-x.
+// The band, its stage label and the handle, carried across the field by --lens-x. The label names
+// stages 0 to 4 only: at stage 5 the lens rests over the Exhibit column, and the rail marks Cite.
 const Lens = () => (
   <div className="lens-track">
     <div className="lens-band" aria-hidden="true">
@@ -263,7 +264,7 @@ const Lens = () => (
       </svg>
     </div>
     <span className="lens-stage-chip" aria-hidden="true">
-      {STAGES.map((s, i) => (
+      {STAGES.slice(0, 5).map((s, i) => (
         <span key={s} data-s={i}>
           {s}
         </span>

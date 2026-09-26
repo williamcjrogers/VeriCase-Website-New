@@ -18,12 +18,11 @@
   color: var(--vc-ink);
 }
 
-/* Title bar: the app family's blue strip, white text at 4.69:1. */
+/* Title bar: the app family's blue strip, white text at 4.69:1. It carries no figure number: the
+   figure is numbered once, at the start of its caption. */
 .lens-bar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
   min-height: 32px;
   padding: 7px var(--pad);
   background: var(--vc-azure-500);
@@ -35,7 +34,6 @@
 /* On narrow screens the title wraps between its two halves, never inside "(fictional)". */
 .lens-bar-title { min-width: 0; }
 .lens-bar-part { white-space: nowrap; }
-.lens-bar-fig { flex-shrink: 0; font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-size: 0.75rem; letter-spacing: 0.04em; }
 
 /* ---- The field ------------------------------------------------------------------------ */
 .lens-field {
@@ -408,8 +406,10 @@
 .lens-field[data-stage='1'] .lens-stage-chip > [data-s='1'],
 .lens-field[data-stage='2'] .lens-stage-chip > [data-s='2'],
 .lens-field[data-stage='3'] .lens-stage-chip > [data-s='3'],
-.lens-field[data-stage='4'] .lens-stage-chip > [data-s='4'],
-.lens-field[data-stage='5'] .lens-stage-chip > [data-s='5'] { display: inline; }
+.lens-field[data-stage='4'] .lens-stage-chip > [data-s='4'] { display: inline; }
+/* At stage 5 the lens rests at the right edge, where the label would cover the Exhibit column
+   head; the rail marks Cite, and the cite sentence appears beneath the field. */
+.lens-field[data-stage='5'] .lens-stage-chip { display: none; }
 .lens-handle {
   bottom: 9px;
   display: inline-flex;
@@ -431,7 +431,7 @@
 }
 .lens-handle svg { color: var(--vc-azure-700); }
 .lens-handle:hover { border-color: var(--vc-azure-700); }
-/* A 44 px target around the visible handle. */
+/* The target reaches past the visible 32 px handle: 46 px high here, 48 px on coarse pointers. */
 .lens-handle::before { content: ''; position: absolute; inset: -7px -3px; }
 .lens-field[data-dragging] .lens-handle { cursor: grabbing; }
 
@@ -548,9 +548,21 @@
   color: var(--vc-graphite);
 }
 .lens-foot p { margin: 0; }
-.lens-verified { display: inline-flex; align-items: center; gap: 5px; color: var(--vc-ink); white-space: nowrap; }
-.lens-tick { clip-path: inset(0 100% 0 0); }
-.lens[data-stage='5'] .lens-tick { clip-path: inset(0); transition: clip-path 300ms var(--ease-settle) 260ms; }
+/* The clause sits on the baseline of its text, with or without the tick beside it. */
+.lens-verified { display: inline-flex; align-items: baseline; color: var(--vc-ink); white-space: nowrap; }
+/* Until stage 5 the tick takes no room, so a clause wrapped onto its own line starts flush with the
+   line above. At stage 5 the clause makes room from where it stood (by transform), then the tick
+   draws. The resting styles are the end states, so nothing depends on an animation's fill. */
+.lens-foot .lens-tick { display: none; align-self: center; margin-right: 5px; }
+.lens[data-stage='5'] .lens-foot .lens-tick { display: inline-block; animation: lens-tick-draw 300ms var(--ease-settle) 260ms backwards; }
+.lens[data-stage='5'] .lens-verified { animation: lens-make-room 240ms var(--ease-settle) backwards; }
+@keyframes lens-tick-draw { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0); } }
+@keyframes lens-make-room { from { transform: translateX(calc(-1.1em - 5px)); } }
+/* Where the whole footer cannot share one line, the clause always takes its own, so the tick's
+   arrival never rewraps the footer or changes the figure's height. */
+@container lens-frame (max-width: 500px) {
+  .lens-verified { display: flex; }
+}
 
 .lens-caption { margin-top: 12px; max-width: 68ch; font-size: 0.875rem; line-height: 1.5; color: var(--vc-graphite); }
 
@@ -558,18 +570,29 @@
 @media (pointer: coarse) {
   .lens-rail { height: 46px; }
   .lens-play { height: 44px; }
+  /* The handle looks the same; its target grows, and stays 44 px or more after pixel snapping. */
+  .lens-handle::before { inset: -8px -4px; }
 }
 
-/* ---- Narrow desktop cast (the field between about 460 and 560 px, at 1024 to 1279 px) ---- */
+/* ---- Narrow desktop cast (the field between about 460 and 560 px: at 1024 to 1279 px, and on
+   short windows) ------------------------------------------------------------------------- */
 @container lens (max-width: 560px) {
   .lens-head,
   .lens .row { grid-template-columns: 6.6rem minmax(0, 1fr) 4.5rem; column-gap: 10px; }
-  .lens .row { grid-template-areas: 'date parties stamp' 'time excerpt hash'; row-gap: 1px; }
+  /* Each stamp is centred across its row's two lines, clear of the rules. */
+  .lens .row { grid-template-areas: 'date parties stamp' 'time excerpt stamp'; row-gap: 1px; }
   .lens-head-time { display: none; }
   .frag-from,
   .frag-time { display: none; }
   .lens-tray { line-height: 17px; }
   .frag[data-effect='fold'] { --fold: 0.769; }
+}
+/* These rows have no room for a hash under the stamp, so the narrow desktop cast leaves the hashes
+   out; the mobile cast, whose rows are taller, keeps them. */
+@media (min-width: 640px) {
+  @container lens (max-width: 560px) {
+    .lens .row .hash { display: none; }
+  }
 }
 
 /* The cite sentence needs a third line in a narrow frame. */
@@ -586,11 +609,11 @@
   .lens-head { height: 30px; }
   .lens-head,
   .lens .row { grid-template-columns: 6rem minmax(0, 1fr) 4rem; column-gap: 8px; }
-  .lens .row { grid-template-areas: 'date parties stamp' 'time excerpt hash' '. excerpt .'; grid-template-rows: auto auto auto; row-gap: 0; }
+  /* Three lines to a row: the stamp centred on the first two, the hash beside the third. */
+  .lens .row { grid-template-areas: 'date parties stamp' 'time excerpt stamp' '. excerpt hash'; grid-template-rows: auto auto auto; row-gap: 0; }
   .row-date,
   .row-time { font-size: 0.75rem; }
   .row-excerpt { font-size: 0.875rem; line-height: 18px; white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; align-self: start; }
-  .lens .row .stamp { align-self: start; }
   .lens-tray { height: 46px; font-size: 0.75rem; line-height: 15px; }
   .lens-cite-strip { height: 84px; }
   .lens-cite { font-size: 0.875rem; line-height: 20px; }
@@ -611,6 +634,11 @@
   .lens-cite-strip { height: 104px; }
   .lens-stop { padding: 0 2px; letter-spacing: 0.02em; }
 }
+/* Below a 320 px field, 4:5 would leave the rows too short for their three lines, so the field
+   keeps the height of the head, the tray and five 64 px rows. */
+@container lens-frame (max-width: 320px) {
+  .lens-field { aspect-ratio: auto; height: 400px; }
+}
 
 /* ---- Reduced motion: stage 5 from first paint, until the visitor moves the lens --------- */
 /* index.css sets --lens-x to 100% and shows the rows, stamps, hashes and cite sentence; the
@@ -618,12 +646,11 @@
 @media (prefers-reduced-motion: reduce) {
   .lens:not([data-user]) .lens-field { --lx: 100; }
   .lens:not([data-user]) .lens-raw { visibility: hidden; }
-  .lens:not([data-user]) .lens-stage-chip > [data-s],
+  .lens:not([data-user]) .lens-stage-chip,
   .lens:not([data-user]) .lens-narration > [data-s] { display: none; }
-  .lens:not([data-user]) .lens-stage-chip > [data-s='5'] { display: inline; }
   .lens:not([data-user]) .lens-cite { visibility: visible; }
   .lens:not([data-user]) .lens-tray-seg { opacity: 1; }
-  .lens:not([data-user]) .lens-tick { clip-path: none; }
+  .lens:not([data-user]) .lens-foot .lens-tick { display: inline-block; clip-path: none; }
   .lens:not([data-user]) .lens-stop[aria-current] { color: var(--vc-graphite); }
   .lens:not([data-user]) .lens-stop[aria-current]::after { transform: scaleX(0); }
   .lens:not([data-user]) .lens-stop[data-stop='100'] { color: var(--vc-azure-700); }

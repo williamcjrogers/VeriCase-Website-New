@@ -10,14 +10,16 @@
 }
 
 /* Fig. 1 keeps the desktop field width (588 px at full width) on tablets. From 1024 px it takes
-   columns 7 to 12, narrowing only on short windows so that the whole frame stays above the
-   cookie bar: frame height is 0.8 x width + 150 px, below a top edge of about 225 px. */
+   columns 7 to 12, narrowing on short windows so that the whole frame stays above the cookie
+   bar (frame height is 0.8 x width + 150 px, below a top edge of about 225 px), but never below
+   32rem, where the rows of the narrow cast still clear their rules. Below about 850 px of height
+   the foot of the frame therefore runs under the cookie bar until it is answered. */
 .cover-lens { width: 100%; max-width: 36.75rem; }
 @media (min-width: 1024px) {
   .cover-lens {
     max-width: none;
-    width: min(100%, max(28.75rem, calc((100vh - 444px) * 1.25)));
-    width: min(100%, max(28.75rem, calc((100svh - 444px) * 1.25)));
+    width: min(100%, max(32rem, calc((100vh - 444px) * 1.25)));
+    width: min(100%, max(32rem, calc((100svh - 444px) * 1.25)));
     justify-self: end;
   }
 }
