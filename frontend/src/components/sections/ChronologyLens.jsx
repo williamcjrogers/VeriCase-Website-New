@@ -19,7 +19,13 @@ const research = CHAPTERS.find((ch) => ch.id === 'research');
 const BUNDLE_LINK = { href: `#${research.id}`, label: `Chapter ${research.numeral}: ${research.title}` };
 
 // One height per breakpoint for the workbench and its skeleton, so nothing moves when it loads.
-const FIG_HEIGHT = 'h-[860px] md:h-[740px] lg:h-[680px]';
+// From 768 px the frame is fixed and the list scrolls inside it. Below 768 px the workbench takes
+// its own height, which wraps with the width: each step is a least height, the tallest opening
+// view in its range of widths (measured) plus 8 px, and the window fills it (grid), so the
+// skeleton and the loaded figure are the same height. Show all and the drawer grow it; another
+// view (File Manager, Table, a filter) marks the window wb-own and takes its own height.
+const FIG_HEIGHT =
+  'grid min-h-[1713px] min-[343px]:min-h-[1585px] min-[389px]:min-h-[1562px] min-[399px]:min-h-[1518px] min-[427px]:min-h-[1453px] min-[451px]:min-h-[1366px] min-[482px]:min-h-[1272px] min-[531px]:min-h-[1187px] sm:min-h-[1093px] has-[>.wb-own]:min-h-0 md:min-h-0 md:h-[740px] lg:h-[680px]';
 
 // The domain glyphs this chapter's list names. (Imported by name: DomainIcon's lookup would bring
 // all twelve glyphs into the first chunk.)

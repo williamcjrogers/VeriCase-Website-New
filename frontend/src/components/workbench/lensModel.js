@@ -3,13 +3,17 @@
 import { NOISE, PARTIES, RECORDS, addressLabel, personLabel } from '@/content/records';
 import { WORKBENCH } from '@/content/matter/workbench';
 import { PERIOD_PRESETS } from '@/content/matter/research';
-import { fill, formatDate, plural } from '@/lib/format';
+import { fill, formatDate, keepDates, plural } from '@/lib/format';
 
 // The keyword marker of spec 3.5 and the per-keyword split of the 14 items it excludes.
 export const KEYWORD_MARKER = WORKBENCH.keywordMarker;
 export const KEYWORD_COUNTS = WORKBENCH.excludedByEachKeyword;
-// Singular forms of the two markers.
-const ONE = { [WORKBENCH.hiddenMarker]: WORKBENCH.hiddenMarkerOne, [KEYWORD_MARKER]: WORKBENCH.keywordMarkerOne };
+// Singular forms of the markers and of the count under the list's fade.
+const ONE = {
+  [WORKBENCH.hiddenMarker]: WORKBENCH.hiddenMarkerOne,
+  [KEYWORD_MARKER]: WORKBENCH.keywordMarkerOne,
+  [WORKBENCH.moreEntries]: WORKBENCH.moreEntriesOne,
+};
 
 // "{n} entries hidden by filter", with its singular form.
 export const marker = (template, n) => (n === 1 && ONE[template]) || fill(template, { n });
@@ -19,8 +23,8 @@ const range = (from, to) => `${formatDate(from)} to ${formatDate(to)}`;
 // The date windows offered by the Date window popover: the project's own window first.
 export const WINDOWS = [
   { key: 'project', from: WORKBENCH.dateWindow.from, to: WORKBENCH.dateWindow.to, label: range(WORKBENCH.dateWindow.from, WORKBENCH.dateWindow.to) },
-  { key: 'march', from: PERIOD_PRESETS.march.from, to: PERIOD_PRESETS.march.to, label: PERIOD_PRESETS.march.label },
-  { key: 'early', from: PERIOD_PRESETS.early.from, to: PERIOD_PRESETS.early.to, label: PERIOD_PRESETS.early.label },
+  { key: 'march', from: PERIOD_PRESETS.march.from, to: PERIOD_PRESETS.march.to, label: keepDates(PERIOD_PRESETS.march.label) },
+  { key: 'early', from: PERIOD_PRESETS.early.from, to: PERIOD_PRESETS.early.to, label: keepDates(PERIOD_PRESETS.early.label) },
 ];
 export const windowByKey = (key) => WINDOWS.find((w) => w.key === key);
 
@@ -125,6 +129,18 @@ export function computeLens(f) {
   };
 }
 
+// Below 768 px the list opens on its first four entries. Every row after the fourth entry,
+// including a marker of entries hidden by filter, is `later` and waits for Show all.
+export const FIRST_ENTRIES = 4;
+export const markLater = (rows, first = FIRST_ENTRIES) => {
+  let seen = 0;
+  return rows.map((row) => {
+    const later = seen >= first;
+    if (row.type === 'entry') seen += 1;
+    return { ...row, later };
+  });
+};
+
 // What a Smart Filter chip says it is doing.
 export const smartSummary = (f) => {
   const kinds = KINDS.filter((k) => f.kinds.includes(k.key)).map((k) => k.label);
@@ -134,8 +150,12 @@ export const smartSummary = (f) => {
 };
 
 // The Not Relevant result and its announcement. For the canteen menu these are the copy-deck
-// strings; for any other entry the same sentence is composed from its own attachments.
-const attachmentClause = (e) => (e.attachments.length ? ` with its ${plural(e.attachments.length, 'attachment')} (${e.attachments.join(', ')})` : '');
+// strings; for any other entry the same sentence is composed from its own attachments: "with
+// its attachment (a.pdf)", or "with its 2 attachments (a.pdf, b.pdf)".
+const attachmentClause = (e) => {
+  const n = e.attachments.length;
+  return n ? ` with its ${n === 1 ? 'attachment' : `${n} attachments`} (${e.attachments.join(', ')})` : '';
+};
 export const notRelevantResult = (e) =>
   e.id === WORKBENCH.notRelevant.id ? WORKBENCH.notRelevant.result : `Not relevant: excluded from search${attachmentClause(e)}`;
 export const notRelevantStatus = (e) =>

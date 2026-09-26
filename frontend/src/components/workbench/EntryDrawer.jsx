@@ -6,7 +6,7 @@ import { DISCUSSION_ID } from '@/components/claims/ids';
 import { addressLabel, kindLabel, personLabel } from '@/content/records';
 import { WORKBENCH } from '@/content/matter/workbench';
 import { DISCUSSION } from '@/content/matter/discussion';
-import { formatDate } from '@/lib/format';
+import { formatDate, keepDates } from '@/lib/format';
 import { focusSection } from '@/lib/navigate';
 import { mentionRoles, notRelevantResult, textView } from '@/components/workbench/lensModel';
 import { MINI_ITEM } from '@/components/workbench/styles';
@@ -71,17 +71,34 @@ const HtmlView = ({ entry }) => {
   }
   return (
     <div className={r.kind === 'scan' ? 'wb-html wb-html-page' : 'wb-html'}>
-      <p>{r.authored}</p>
+      <p>{keepDates(r.authored)}</p>
       {r.quoted.map((q) => (
         <blockquote key={`${q.date}${q.time}`}>
           <p className="wb-quoted-by">
             {personLabel(q.from)} · {formatDate(q.date)}, {q.time}
           </p>
-          <p>{q.text}</p>
+          <p>{keepDates(q.text)}</p>
         </blockquote>
       ))}
     </div>
   );
+};
+
+// A date as keepDates joins it, found in the joined copy of a text.
+const JOINED_DATE = /\d{2}\u00a0\S+\u00a0\d{4}/g;
+
+// The Text view: the record's canonical text, the characters that are hashed. Its dates are kept
+// on one line by markup rather than by no-break spaces, so that a copy of the text still matches
+// its digest. (keepDates only swaps spaces, so the joined copy's offsets hold for the original.)
+const TextView = ({ text }) => {
+  const parts = [];
+  let at = 0;
+  for (const m of keepDates(text).matchAll(JOINED_DATE)) {
+    parts.push(text.slice(at, m.index), <span key={m.index} className="wb-keep">{text.slice(m.index, m.index + m[0].length)}</span>);
+    at = m.index + m[0].length;
+  }
+  parts.push(text.slice(at));
+  return <pre className="wb-pre">{parts}</pre>;
 };
 
 // Removable chips, used for tags and for mentions.
@@ -296,7 +313,7 @@ export const EntryDrawer = ({ entry, cites, onClose, tags, onTags, mentioned, on
             />
           }
         >
-          {mode === 'text' ? <pre className="wb-pre">{textView(entry)}</pre> : <HtmlView entry={entry} />}
+          {mode === 'text' ? <TextView text={textView(entry)} /> : <HtmlView entry={entry} />}
         </Group>
 
         <Group title={D.properties}>

@@ -6,7 +6,7 @@ import { EvidenceChip } from '@/components/mock/EvidenceChip';
 import { Gated, isShown } from '@/components/editorial/Gated';
 import { personLabel } from '@/content/records';
 import { WORKBENCH } from '@/content/matter/workbench';
-import { fill, formatDate } from '@/lib/format';
+import { fill, formatDate, keepDates } from '@/lib/format';
 import { QUOTED_ENTRY, marker } from '@/components/workbench/lensModel';
 import { MINI_ITEM } from '@/components/workbench/styles';
 
@@ -76,7 +76,7 @@ const QuotedFold = ({ quoted, authored, onAuthored }) => (
               <p className="wb-quoted-by">
                 {personLabel(q.from)} · {formatDate(q.date)}, {q.time}
               </p>
-              <p>{q.text}</p>
+              <p>{keepDates(q.text)}</p>
             </li>
           ))}
         </ol>
@@ -86,11 +86,12 @@ const QuotedFold = ({ quoted, authored, onAuthored }) => (
 );
 
 // One entry in Cards view: its date on the spine, and a card with exhibit, parties and subject.
-const EntryCard = ({ entry, cites, open, onOpen, tags, marked, authored, onAuthored }) => {
+// `later` rows (after the first four entries) wait for Show all below 768 px.
+const EntryCard = ({ entry, later, cites, open, onOpen, tags, marked, authored, onAuthored }) => {
   const uid = useId();
   const quoted = entry.id === QUOTED_ENTRY && isShown('G5_quoted') ? entry.record.quoted : null;
   return (
-    <li className="wb-entry wb-row-in" data-selected={open || undefined} data-marked={marked || undefined}>
+    <li className="wb-entry wb-row-in" data-later={later || undefined} data-selected={open || undefined} data-marked={marked || undefined}>
       <When entry={entry} id={`${uid}-when`} />
       <span className="wb-node" aria-hidden="true" />
       <div className="wb-card">
@@ -101,7 +102,7 @@ const EntryCard = ({ entry, cites, open, onOpen, tags, marked, authored, onAutho
           </span>
         </div>
         <OpenButton entry={entry} open={open} onOpen={onOpen} describedBy={`${uid}-when ${uid}-parties`} />
-        {entry.excerpt && <p className="wb-excerpt">{entry.excerpt}</p>}
+        {entry.excerpt && <p className="wb-excerpt">{keepDates(entry.excerpt)}</p>}
         {quoted && <QuotedFold quoted={quoted} authored={authored} onAuthored={onAuthored} />}
         <Meta entry={entry} tags={tags} marked={marked} />
       </div>
@@ -110,8 +111,8 @@ const EntryCard = ({ entry, cites, open, onOpen, tags, marked, authored, onAutho
 };
 
 // A marker row in Cards view, where filtered entries would have been.
-const Gap = ({ n, as: Tag = 'li', className = 'wb-gap' }) => (
-  <Tag className={className}>
+const Gap = ({ n, later, as: Tag = 'li', className = 'wb-gap' }) => (
+  <Tag className={className} data-later={later || undefined}>
     <span className="wb-gap-label">{hiddenLabel(n)}</span>
   </Tag>
 );
@@ -120,11 +121,12 @@ export const EntryCards = ({ rows, state }) => (
   <ol className="wb-cards" aria-label={LIST_LABEL}>
     {rows.map((row) =>
       row.type === 'hidden' ? (
-        <Gap key={row.key} n={row.n} />
+        <Gap key={row.key} n={row.n} later={row.later} />
       ) : (
         <EntryCard
           key={row.key}
           entry={row.entry}
+          later={row.later}
           cites={state.cites}
           open={state.openId === row.entry.id}
           onOpen={state.onOpen}
@@ -197,11 +199,17 @@ export const EntryTable = ({ rows, state }) => (
 export const EntryStack = ({ rows, state }) => (
   <ol className="wb-stack" aria-label={LIST_LABEL}>
     {rows.map((row) => {
-      if (row.type === 'hidden') return <Gap key={row.key} n={row.n} className="wb-gap wb-gap-flat" />;
+      if (row.type === 'hidden') return <Gap key={row.key} n={row.n} later={row.later} className="wb-gap wb-gap-flat" />;
       const { entry } = row;
       const marked = state.marked.includes(entry.id);
       return (
-        <li key={row.key} className="wb-stack-item wb-row-in" data-selected={state.openId === entry.id || undefined} data-marked={marked || undefined}>
+        <li
+          key={row.key}
+          className="wb-stack-item wb-row-in"
+          data-later={row.later || undefined}
+          data-selected={state.openId === entry.id || undefined}
+          data-marked={marked || undefined}
+        >
           <dl>
             <div>
               <dt>Date</dt>

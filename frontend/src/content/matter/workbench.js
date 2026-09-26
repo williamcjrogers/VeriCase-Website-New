@@ -30,6 +30,12 @@ export const WORKBENCH = {
   createBundleNote: 'Create bundle works as shown in Chapter III.',
   hiddenMarker: '{n} entries hidden by filter',
   hiddenMarkerOne: '1 entry hidden by filter',
+  // Below 768 px the list opens on its first entries, with a button for the rest. From 768 px it
+  // scrolls inside the frame, and a count under the fade says how many entries lie below.
+  showAll: 'Show all {n} entries',
+  showFewer: 'Show fewer entries',
+  moreEntries: '{n} more entries',
+  moreEntriesOne: '1 more entry',
   entries: ['EV-0131', 'EV-0133', 'EV-0138', 'EV-0139', 'EV-0144', 'EV-0147', 'EV-0151', 'EV-0153'],
   // Parties that each entry involves, for the party chips.
   entryParties: {
@@ -68,7 +74,7 @@ export const WORKBENCH = {
     title: 'Weekly canteen menu',
     date: '2025-03-17',
     attachment: 'menu.pdf',
-    result: 'Not relevant: excluded from search with its 1 attachment (menu.pdf)',
+    result: 'Not relevant: excluded from search with its attachment (menu.pdf)',
   },
   fileManager: {
     heading: 'Attachments by type',
@@ -94,6 +100,8 @@ export const WORKBENCH = {
   },
   status: {
     hidden: '{n} entries hidden by filter',
+    allShown: 'All {n} entries shown',
+    firstShown: 'First {m} of {n} entries shown',
     noiseShown: 'Noise shown: 2 attachments',
     notRelevant: 'Item marked Not Relevant; 1 attachment excluded from search',
   },
