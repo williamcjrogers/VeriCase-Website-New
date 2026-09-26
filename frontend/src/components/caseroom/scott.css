@@ -1,10 +1,13 @@
-/* Fig. 8, Rebuttal Mode as a Scott Schedule. A ruled table at 768 px and above; below that,
-   each paragraph of the Response becomes a card (the table keeps its roles, so it is still read
-   as a table). Loaded with the schedule's chunk. */
+/* Fig. 8, Rebuttal Mode as a Scott Schedule. Below 1280 px each paragraph of the Response is a
+   card: Response, then Reply, then Evidence, then the Decision. From 1280 px it is a ruled
+   schedule in three columns, Response, Proposed reply and Evidence, with each decision (its stamp
+   and one segmented group of Accept, Edit and Reject) under the reply it decides, so the reply
+   has the width. The table keeps its roles and its four cells a row throughout, so it is still
+   read as a table. Loaded with the schedule's chunk. */
 
-.cr-scott { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 0.9375rem; line-height: 1.55; color: var(--vc-ink); }
+.cr-scott { position: relative; display: block; width: 100%; font-size: 0.9375rem; line-height: 1.55; color: var(--vc-ink); }
 .cr-scott-caption {
-  caption-side: top;
+  display: block;
   padding: 0 0 0.875rem;
   text-align: left;
   font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif;
@@ -12,31 +15,7 @@
   line-height: 1.3;
   color: var(--vc-navy);
 }
-.cr-col-response { width: 25%; }
-.cr-col-reply { width: 33%; }
-.cr-col-evidence { width: 24%; }
-.cr-col-decision { width: 18%; }
-
-.cr-scott thead th {
-  padding: 0.5rem 0.75rem;
-  text-align: left;
-  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
-  font-weight: 500;
-  font-size: 0.75rem;
-  line-height: 1.3;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--vc-graphite);
-  background: var(--vc-parchment-300);
-  border-top: 1px solid var(--vc-rule-strong);
-  border-bottom: 1px solid var(--vc-rule-strong);
-}
-.cr-scott thead th + th { border-left: 1px solid var(--vc-rule); }
-.cr-scott td { padding: 1rem 0.75rem 1.125rem; vertical-align: top; border-bottom: 1px solid var(--vc-rule); }
-.cr-scott td:not(.cr-response) { border-left: 1px solid var(--vc-rule); }
-.cr-scott .cr-point:last-of-type tr:last-child td,
-.cr-scott .cr-point:last-of-type .cr-response,
-.cr-scott .cr-point:last-of-type .cr-evidence { border-bottom-color: var(--vc-rule-strong); }
+.cr-scott td { vertical-align: top; }
 .cr-row.is-suggested td { background: rgb(236 228 211 / 0.35); }
 
 /* Labels for each cell, shown only when the rows are cards. */
@@ -68,6 +47,10 @@
 /* Proposed reply */
 .cr-text { position: relative; }
 .cr-text .ev-chip { vertical-align: 0.05em; }
+/* A citation and the punctuation after it never part at a line end; after a closing citation
+   the punctuation is its own box, so the strike-through over a rejected reply stops at the chip. */
+.cr-cite { white-space: nowrap; }
+.cr-cite-end { display: inline-block; }
 .cr-text.is-rejected { color: var(--vc-graphite); }
 .cr-text.is-fresh { animation: cr-fade 200ms var(--ease-settle) both; }
 /* A blackline: inserted words double-underlined (so they never read as links), deleted ones struck. */
@@ -123,7 +106,8 @@
 .cr-reasons .chip { padding: 0.2rem 0.45rem; }
 .cr-reasons .chip-value { font-size: 0.8125rem; }
 
-/* Decision: the stamp, then the controls */
+/* Decision: the stamp, then Accept, Edit and Reject as one segmented group */
+.cr-decide { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1rem; }
 .cr-stamp {
   display: inline-flex;
   align-items: center;
@@ -142,7 +126,6 @@
 .cr-stamp.is-accepted { color: var(--vc-ink); transform: rotate(-2deg); }
 .cr-stamp.is-edited { color: var(--vc-azure-700); }
 .cr-stamp.is-rejected { color: var(--vc-signal); }
-.cr-controls { display: flex; flex-direction: column; align-items: stretch; gap: 0.375rem; margin-top: 0.875rem; }
 .cr-btn {
   display: inline-flex;
   align-items: center;
@@ -162,24 +145,89 @@
 .cr-btn:hover { background: var(--vc-parchment-300); border-color: var(--vc-navy); }
 .cr-btn.is-primary { color: #fff; background: var(--vc-azure-700); border-color: var(--vc-azure-700); }
 .cr-btn.is-primary:hover { background: var(--vc-navy); border-color: var(--vc-navy); }
+.cr-btn-icon { flex: none; width: 1rem; height: 1rem; }
+/* The group: one hairline box with a rule between its segments. A focused segment rises above its
+   neighbours, so its ring is never covered. */
+.cr-controls { display: inline-grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); background: var(--vc-paper); border: 1px solid var(--vc-rule-strong); border-radius: 2px; }
+.cr-controls .cr-btn { justify-content: center; min-width: 0; border: 0; border-radius: 0; }
+.cr-controls .cr-btn + .cr-btn { border-left: 1px solid var(--vc-rule-strong); }
+.cr-controls .cr-btn:hover { border-color: var(--vc-rule-strong); }
+.cr-controls .cr-btn:focus-visible { position: relative; z-index: 1; }
 
 @keyframes cr-fade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes cr-strike { from { transform: scaleX(0); } to { transform: none; } }
 
-/* Cards below 768 px: Response, then Reply, then Evidence, then the Decision controls. */
-@media (max-width: 767px) {
-  .cr-scott, .cr-scott tbody, .cr-scott tr, .cr-scott td { display: block; width: auto; }
-  .cr-scott colgroup { display: none; }
+/* Cards below 1280 px: Response, then Reply, then Evidence, then the Decision. */
+@media (max-width: 1279px) {
+  .cr-scott tbody, .cr-scott tr, .cr-scott td { display: block; }
   .cr-scott thead { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .cr-scott-caption { display: block; }
-  .cr-point { border: 1px solid var(--vc-rule-strong); border-radius: 2px; background: var(--vc-paper); }
+  .cr-point { background: var(--vc-paper); border: 1px solid var(--vc-rule-strong); border-radius: 2px; }
   .cr-point + .cr-point { margin-top: 1rem; }
-  .cr-scott td, .cr-scott td:not(.cr-response) { padding: 0.875rem 0.875rem 1rem; border-left: 0; border-bottom: 1px solid var(--vc-rule); }
+  .cr-scott td { padding: 0.875rem 0.875rem 1rem; border-bottom: 1px solid var(--vc-rule); }
   .cr-scott .cr-point tr:last-child td:last-child { border-bottom: 0; }
   .cr-label { display: block; }
   .cr-response { background: var(--vc-parchment-300); }
-  .cr-controls { flex-direction: row; flex-wrap: wrap; }
+  /* The group takes the card's width, in three equal segments; every control is a 44 px target. */
+  .cr-controls { flex: 1 1 100%; }
   .cr-btn { min-height: 44px; padding-inline: 0.875rem; }
+  .cr-controls .cr-btn { padding-inline: 0.5rem; }
+}
+/* On a wide card the evidence runs in two columns and the text keeps a reading measure. */
+@media (min-width: 640px) and (max-width: 1279px) {
+  .cr-scott td { padding: 1rem 1.25rem 1.125rem; }
+  .cr-response-text, .cr-text, .cr-before, .cr-reason, .cr-audit { max-width: 40rem; }
+  .cr-ranked { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 1.5rem; }
+  .cr-controls { flex: none; grid-auto-columns: minmax(6.5rem, 1fr); }
+  .cr-controls .cr-btn { padding-inline: 0.875rem; }
+}
+/* On the narrowest screens the words carry the controls, so the three segments fit. */
+@media (max-width: 359px) {
+  .cr-controls .cr-btn-icon { display: none; }
+}
+
+/* The schedule from 1280 px: three columns on a grid, the table's rows laid on shared tracks
+   (a reply, its decision, a suggested reply, its decision, then whatever the Response or the
+   Evidence needs beyond them), so each decision sits under its reply and a long Response or
+   Evidence cell never opens a gap between a reply and its decision. */
+@media (min-width: 1280px) {
+  .cr-scott { --cr-cols: 24% 46% 30%; }
+  .cr-scott thead, .cr-point { display: grid; grid-template-columns: var(--cr-cols); }
+  .cr-scott thead tr { display: grid; grid-column: 1 / -1; grid-template-columns: subgrid; }
+  .cr-scott thead th {
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+    font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.3;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--vc-graphite);
+    background: var(--vc-parchment-300);
+    border-top: 1px solid var(--vc-rule-strong);
+    border-bottom: 1px solid var(--vc-rule-strong);
+  }
+  .cr-scott thead th + th { border-left: 1px solid var(--vc-rule); }
+  /* The Decision heading is still read with each decision cell; on screen each decision sits
+     under its reply, and its stamp names it. */
+  .cr-scott thead th:last-child { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  .cr-point { grid-template-rows: repeat(4, auto) 1fr; border-bottom: 1px solid var(--vc-rule); }
+  .cr-point:last-of-type { border-bottom-color: var(--vc-rule-strong); }
+  .cr-point > tr { display: grid; grid-column: 1 / -1; grid-row: 1 / -1; grid-template-columns: subgrid; grid-template-rows: subgrid; }
+  .cr-point > tr + tr { grid-row: 3 / -1; }
+  .cr-scott td { padding: 1rem 0.75rem 1.125rem; }
+  .cr-response { grid-column: 1; grid-row: 1 / -1; }
+  .cr-evidence { grid-column: 3; grid-row: 1 / -1; border-left: 1px solid var(--vc-rule); }
+  .cr-reply, .cr-decision { grid-column: 2; border-left: 1px solid var(--vc-rule); }
+  .cr-reply { grid-row: 1; }
+  .cr-scott .cr-reply { padding-bottom: 0.875rem; }
+  .cr-decision { grid-row: 2; }
+  .cr-scott .cr-decision { padding-top: 0; }
+  .cr-point > tr:last-child > .cr-decision { grid-row: 2 / -1; }
+  .cr-point > tr + tr > .cr-reply { border-top: 1px solid var(--vc-rule); }
+  .cr-decide { justify-content: space-between; padding-top: 0.75rem; border-top: 1px dashed var(--vc-rule); }
+  .cr-controls { grid-auto-columns: auto; }
+  .cr-controls .cr-btn { min-height: 2.25rem; padding-inline: 0.625rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

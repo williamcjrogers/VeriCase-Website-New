@@ -145,7 +145,7 @@ export const HashCheck = () => {
         className="ri-field"
         value={text}
         onChange={(e) => edit(e.target.value)}
-        rows={9}
+        rows={10}
         spellCheck={false}
         autoCapitalize="off"
         autoComplete="off"

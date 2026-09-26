@@ -273,7 +273,6 @@ export const CASE_ROOM = {
   numeral: 'V',
   kicker: 'Project time ends. Case time begins.',
   cut: 'Case time',
-  eyebrow: 'Chapter V · Rebuttal Mode',
   h2: 'Their points, numbered. Your replies, cited.',
   lead:
     'Upload the other side’s submission. Rebuttal Mode divides it into numbered points, ranks the evidence that bears on each by content, date window and participants, and proposes reply points that must cite the evidence they rely on. A person accepts, edits or rejects each one, and every decision is recorded.',
@@ -294,14 +293,14 @@ export const CASE_ROOM = {
       'We will not tell you how the sample matter ends. VeriCase does not decide disputes, and admissibility and weight are for the tribunal. What VeriCase does is help you put the record of what was known, and when, in front of the adjudicator, with each point cited to its source.',
     cta: 'See Rebuttal Mode working on sample correspondence.',
   },
+  fig7Caption: 'Fig. 7. The grid shows the adjudication timetable for the sample matter. See note A.',
+  fig8Caption: 'Fig. 8. Rebuttal Mode is illustrated with the sample matter. See note A.',
   fig8Summary:
     'Illustration: the Employer’s Response in the sample matter, paragraphs 4.12 and 4.13, set out as a Scott Schedule. Each paragraph sits beside a proposed reply and the evidence ranked for it. The reply to 4.13 is accepted, the reply to 4.12 is edited with the text before and after retained, and a suggested point for 4.12 is rejected because its evidence does not support it.',
-  caption: 'Fig. 7 · The adjudication timetable for the sample matter. Fig. 8 · Rebuttal Mode, illustrated with the sample matter. See note A.',
 };
 
 export const INTEGRITY = {
   numeral: 'VI',
-  eyebrow: 'Chapter VI · Integrity and access',
   h2: 'The original stays original.',
   lead:
     'Raw email is held in immutable storage with a cryptographic hash for each message. Everything done to the evidence afterwards is recorded against it, and each person sees only what their role permits.',
@@ -330,7 +329,9 @@ export const INTEGRITY = {
       'Outside VeriCase: your advisers’ disclosure platform, and the tribunal',
     ],
   },
-  caption: 'Fig. 9 · Hash check on fictional text. Fig. 10 · Extract from a bundle manifest for the sample matter. Fig. 11 · Where VeriCase sits. See note A.',
+  fig9Caption: 'Fig. 9. The hash check runs on fictional text. See note A.',
+  fig10Caption: 'Fig. 10. The entries shown are an extract from a bundle manifest for the sample matter. See note A.',
+  fig11Caption: 'Fig. 11. The diagram shows where VeriCase sits. See note A.',
 };
 
 export const IN_BRIEF = {

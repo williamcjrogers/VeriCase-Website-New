@@ -35,7 +35,7 @@ export const RECORDED_REPLIES = SCOTT.rows.flatMap((row) => [
 
 // The export's counts for a set of reply points: the paragraphs answered, the replies that stand
 // (not rejected) and the distinct exhibits those replies cite. As recorded, this is the count
-// the content gives ("2 points · 2 replies · 5 exhibits.").
+// the content gives ("2 points · 2 replies · 5 exhibits").
 export function exportCounts(replies) {
   const points = new Set(replies.map((r) => r.para)).size;
   const standing = replies.filter((r) => r.decision !== 'rejected');

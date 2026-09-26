@@ -13,7 +13,8 @@ import '@/components/integrity/integrity.css';
 
 const HashCheck = lazy(() => import(/* webpackChunkName: "hash-check" */ '@/components/mock/HashCheck'));
 const ManifestTable = lazy(() => import(/* webpackChunkName: "manifest" */ '@/components/mock/ManifestTable'));
-const skeleton = <div className="vc-skeleton absolute inset-0" aria-hidden="true" />;
+// The frame reserves its figure's mounted height only while this shows (see integrity.css).
+const skeleton = <div className="vc-skeleton absolute inset-0" aria-hidden="true" data-skeleton />;
 
 // The controls behind the record, in a ruled list with their glyphs (never tiles). An item
 // subject to an owner gate is marked on previews and removed if the gate is struck.
@@ -44,32 +45,34 @@ const Controls = ({ className }) => (
   </ul>
 );
 
-// Fig. 9 in an ink panel: the title, what a hash is and the note are part of the page; the
-// instrument itself loads as it comes near.
+// Fig. 9: an ink panel holding the title, what a hash is, the instrument (which loads as it comes
+// near) and the note, with the caption beneath the panel.
 const HashPanel = ({ className }) => (
-  <figure className={cn('ri-panel on-ink', className)} aria-labelledby="ri-hash-title" aria-describedby="ri-hash-intro">
-    <p className="ri-fig-label">Fig. 9</p>
-    <h3 id="ri-hash-title" className="ri-panel-title">
-      {HASH_CHECK.title}
-    </h3>
-    <p id="ri-hash-intro" className="ri-panel-intro">
-      {HASH_CHECK.intro}
-    </p>
-    <LazyMount className="ri-hash-mount" skeleton={skeleton}>
-      <HashCheck />
-    </LazyMount>
-    <p className="ri-panel-note">{HASH_CHECK.note}</p>
-    <p className="ri-panel-meaning">{HASH_CHECK.meaning}</p>
+  <figure className={cn('ri-hash-fig', className)} aria-labelledby="ri-hash-caption" aria-describedby="ri-hash-intro">
+    <div className="ri-panel on-ink">
+      <h3 className="ri-panel-title">{HASH_CHECK.title}</h3>
+      <p id="ri-hash-intro" className="ri-panel-intro">
+        {HASH_CHECK.intro}
+      </p>
+      <LazyMount className="ri-hash-mount" skeleton={skeleton}>
+        <HashCheck />
+      </LazyMount>
+      <p className="ri-panel-note">{HASH_CHECK.note}</p>
+      <p className="ri-panel-meaning">{HASH_CHECK.meaning}</p>
+    </div>
+    <figcaption id="ri-hash-caption" className="ri-caption">
+      {INTEGRITY.fig9Caption}
+    </figcaption>
   </figure>
 );
 
 // Chapter VI: the original stays original. The controls beside a hash check the reader can
 // break with one keystroke, the bundle manifest that records each digest, what we do not
-// claim, and where VeriCase sits.
+// claim, and where VeriCase sits. Each figure's caption sits directly beneath it.
 export const RecordIntegrity = () => (
   <section id="integrity" aria-labelledby="integrity-title" className="bg-parchment py-16 md:py-24 lg:py-32">
     <div className="container">
-      <ChapterHeader id="integrity" numeral={INTEGRITY.numeral} eyebrow={INTEGRITY.eyebrow} title={INTEGRITY.h2}>
+      <ChapterHeader id="integrity" numeral={INTEGRITY.numeral} title={INTEGRITY.h2}>
         <p className="mt-5 max-w-measure text-lead text-ink">
           <Gated id={INTEGRITY.leadGate}>{INTEGRITY.lead}</Gated>
         </p>
@@ -79,46 +82,46 @@ export const RecordIntegrity = () => (
         <FailRecover fail={INTEGRITY.fail} recover={INTEGRITY.recover} className="col-span-12 lg:col-span-9 lg:col-start-3 xl:col-span-8 xl:col-start-3" />
       </div>
 
-      <div className="mt-16 grid grid-cols-12 gap-x-6 gap-y-14 lg:mt-24">
+      <div className="mt-14 grid grid-cols-12 gap-x-6 gap-y-12 lg:mt-24 lg:gap-y-14">
         <Controls className="col-span-12 md:col-span-10 lg:col-span-4 lg:col-start-3" />
         <HashPanel className="col-span-12 lg:col-span-6 lg:col-start-7" />
       </div>
 
-      <figure className="mt-20 grid grid-cols-12 gap-x-6 lg:mt-28" aria-labelledby="ri-fig10-label" aria-describedby="ri-manifest-line">
-        <p id="ri-fig10-label" className="ri-fig-label ri-margin-label-xl col-span-12 mb-4 xl:col-span-2 xl:mb-0">
-          Fig. 10
-        </p>
-        <div className="col-span-12 xl:col-span-10">
-          <LazyMount className="ri-manifest-mount" skeleton={skeleton}>
-            <ManifestTable />
-          </LazyMount>
+      <div className="mt-16 grid grid-cols-12 gap-x-6 lg:mt-28">
+        <div className="col-span-12 xl:col-span-10 xl:col-start-3">
+          <figure aria-labelledby="ri-manifest-caption" aria-describedby="ri-manifest-line">
+            <LazyMount className="ri-manifest-mount" skeleton={skeleton}>
+              <ManifestTable />
+            </LazyMount>
+            <figcaption id="ri-manifest-caption" className="ri-caption">
+              {INTEGRITY.fig10Caption}
+            </figcaption>
+          </figure>
           <p id="ri-manifest-line" className="ri-manifest-line">
             <Gated id={MANIFEST.hashGate}>{MANIFEST.line}</Gated>
           </p>
         </div>
-      </figure>
+      </div>
 
-      <div className="mt-16 grid grid-cols-12 gap-x-6 lg:mt-20">
+      <div className="mt-14 grid grid-cols-12 gap-x-6 lg:mt-20">
         <Declaration label={INTEGRITY.declaration.label} className="col-span-12 lg:col-span-8 lg:col-start-3">
           {INTEGRITY.declaration.text}
         </Declaration>
       </div>
 
-      <figure className="mt-20 grid grid-cols-12 gap-x-6 lg:mt-28" aria-labelledby="ri-pos-title" aria-describedby="ri-pos-text">
-        <p className="ri-fig-label ri-margin-label col-span-12 mb-4 lg:col-span-2 lg:mb-0">Fig. 11</p>
-        <div className="col-span-12 lg:col-span-10">
-          <h3 id="ri-pos-title" className="text-h3 font-semibold">
-            {INTEGRITY.positioning.h3}
-          </h3>
+      <div className="mt-16 grid grid-cols-12 gap-x-6 lg:mt-28">
+        <div className="col-span-12 lg:col-span-10 lg:col-start-3">
+          <h3 className="text-h3 font-medium">{INTEGRITY.positioning.h3}</h3>
           <p id="ri-pos-text" className="mt-4 max-w-measure text-body text-ink">
             {INTEGRITY.positioning.text}
           </p>
-          <PositioningDiagram />
+          <figure className="ri-pos-fig" aria-labelledby="ri-pos-caption" aria-describedby="ri-pos-text">
+            <PositioningDiagram />
+            <figcaption id="ri-pos-caption" className="ri-caption">
+              {INTEGRITY.fig11Caption}
+            </figcaption>
+          </figure>
         </div>
-      </figure>
-
-      <div className="mt-12 grid grid-cols-12 gap-x-6">
-        <p className="ri-caption col-span-12 lg:col-span-8 lg:col-start-3">{INTEGRITY.caption}</p>
       </div>
     </div>
   </section>

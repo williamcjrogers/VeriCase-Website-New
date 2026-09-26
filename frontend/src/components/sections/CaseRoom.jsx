@@ -5,12 +5,13 @@ import { FailRecover } from '@/components/editorial/FailRecover';
 import { Gated } from '@/components/editorial/Gated';
 import { LazyMount } from '@/components/editorial/LazyMount';
 import { NoteRef } from '@/components/editorial/NoteRef';
+import { Sentences } from '@/components/editorial/Sentences';
 import { DomainIcon } from '@/components/icons';
 import { CaseBand, HAS_PLATE } from '@/components/caseroom/CaseBand';
 import { CASE_ROOM } from '@/content/home';
 import { DAY_GRID, SCOTT, exportCountsText } from '@/content/matter/caseroom';
 import { useInViewOnce } from '@/hooks/useInViewOnce';
-import { fill } from '@/lib/format';
+import { fill, keepDates } from '@/lib/format';
 import '@/components/caseroom/caseroom.css';
 
 const DayGrid = lazy(() => import(/* webpackChunkName: "day-grid" */ '@/components/mock/DayGrid'));
@@ -22,11 +23,17 @@ const STATION_VIEW = { threshold: 0, rootMargin: '0px 0px -45% 0px' };
 // (from the same records) whenever the visitor changes a decision.
 const EXPORT_LEAD = SCOTT.exportLead;
 const RECORDED_COUNTS = exportCountsText(SCOTT.exportRecorded);
-// "Project time ends. Case time begins.": the second sentence is set in italic.
-const [KICK_FROM, KICK_TO] = CASE_ROOM.kicker.match(/[^.]+\./g).map((s) => s.trim());
 // The figure's text equivalent, one sentence per list item.
 const TEXT_EQUIVALENT = DAY_GRID.textEquivalent.match(/[^.]+\./g).map((s) => s.trim());
-const skeleton = <div className="vc-skeleton absolute inset-0" aria-hidden="true" />;
+// The frame reserves its figure's mounted height only while this shows (see caseroom.css).
+const skeleton = <div className="vc-skeleton absolute inset-0" aria-hidden="true" data-skeleton />;
+
+// A timetable label never breaks inside a date, between "Day" and its number, or before a
+// middle dot (so no line starts with one).
+const dayLabel = (text) =>
+  keepDates(text)
+    .replace(/\bDay (\d)/g, 'Day\u00a0$1')
+    .replace(/ · /g, '\u00a0· ');
 
 // One stop on the adjudication timetable: the day and date in mono over what happens. Below
 // 1024 px, where the day grid is not beside it, "Day n of 28" and a short bar stand in for it.
@@ -40,7 +47,7 @@ const Station = ({ anchor, day, heading, children }) => {
       </p>
       {heading && (
         <h3 className="cr-station-heading">
-          <span className="cr-when">{`${dayPart} · ${datePart}`}</span>
+          <span className="cr-when">{dayLabel(`${dayPart} · ${datePart}`)}</span>
           <span className="sr-only"> · </span>
           <span className="cr-what">{what}</span>
         </h3>
@@ -51,18 +58,14 @@ const Station = ({ anchor, day, heading, children }) => {
 };
 
 // Fig. 7 in the margin rail: the 28 days from referral, filled to the station reached, with the
-// extension and its note. The drawing is decorative; the list before it is the text equivalent.
+// extension, its note and the caption. The drawing is decorative; the list before it is the
+// text equivalent.
 const Timetable = ({ reached }) => (
-  <figure className="cr-fig7" aria-labelledby="cr-fig7-title">
-    <div className="cr-fig7-head">
-      <p className="cr-fig-label">Fig. 7</p>
-      <p className="cr-readout" aria-hidden="true">
-        {fill(DAY_GRID.dayOf, { n: reached })}
-      </p>
-    </div>
-    <p id="cr-fig7-title" className="cr-fig7-title">
-      {DAY_GRID.title}
+  <figure className="cr-fig7" aria-labelledby="cr-fig7-caption">
+    <p className="cr-readout" aria-hidden="true">
+      {fill(DAY_GRID.dayOf, { n: reached })}
     </p>
+    <p className="cr-fig7-title">{DAY_GRID.title}</p>
     <ol className="sr-only">
       {TEXT_EQUIVALENT.map((item) => (
         <li key={item}>{item}</li>
@@ -76,12 +79,16 @@ const Timetable = ({ reached }) => (
       <NoteRef n={DAY_GRID.extensionNote} onInk />
     </p>
     <p className="cr-note">{DAY_GRID.note}</p>
+    <figcaption id="cr-fig7-caption" className="cr-caption">
+      {CASE_ROOM.fig7Caption}
+    </figcaption>
   </figure>
 );
 
-// Chapter V, on ink: the cut from project time to case time, the header band, then the
-// adjudication timetable (Fig. 7) beside its three stations: the Response answered point by
-// point in Rebuttal Mode (Fig. 8), the Reply served, and the decision, which is the adjudicator's.
+// Chapter V, on ink: the cut from project time to case time, set at the masthead's scale to
+// answer the cover's "Records, records, records.", the header, then the adjudication timetable
+// (Fig. 7) beside its three stations: the Response answered point by point in Rebuttal Mode
+// (Fig. 8), the Reply served, and the decision, which is the adjudicator's.
 export const CaseRoom = () => {
   const [counts, setCounts] = useState(RECORDED_COUNTS);
   const [cutRef, cutIn] = useInViewOnce({ threshold: 0.6 });
@@ -101,11 +108,11 @@ export const CaseRoom = () => {
             <span className="cr-cut-rule double-rule is-brass draw-x" aria-hidden="true" />
           </div>
           <div className="grid grid-cols-12 gap-x-6">
-            <p className="cr-kicker col-span-12 lg:col-span-9 lg:col-start-3">
-              {KICK_FROM} <span className="italic">{KICK_TO}</span>
+            <p className="cr-kicker text-masthead col-span-12 lg:col-span-10 lg:col-start-3">
+              <Sentences text={CASE_ROOM.kicker} />
             </p>
           </div>
-          <ChapterHeader id="case-room" numeral={CASE_ROOM.numeral} eyebrow={CASE_ROOM.eyebrow} title={CASE_ROOM.h2} onInk className="cr-header">
+          <ChapterHeader id="case-room" numeral={CASE_ROOM.numeral} title={CASE_ROOM.h2} onInk className="cr-header">
             <p className="mt-5 max-w-measure text-lead text-parchment">
               <Gated id={CASE_ROOM.leadGate}>{CASE_ROOM.lead}</Gated>
             </p>
@@ -128,16 +135,16 @@ export const CaseRoom = () => {
 
           <div className="col-span-12 mt-16 lg:col-span-9 lg:col-start-4 lg:mt-0">
             <Station anchor={at14Ref} day={s14.day} heading={s14.heading}>
-              <figure className="cr-fig8" aria-labelledby="cr-fig8-label" aria-describedby="cr-fig8-summary">
-                <p id="cr-fig8-label" className="cr-fig-label">
-                  Fig. 8
-                </p>
+              <figure className="cr-fig8" aria-labelledby="cr-fig8-caption" aria-describedby="cr-fig8-summary">
                 <p id="cr-fig8-summary" className="sr-only">
                   {CASE_ROOM.fig8Summary}
                 </p>
                 <LazyMount className="cr-scott-mount" skeleton={skeleton}>
                   <ScottSchedule onExportChange={setCounts} />
                 </LazyMount>
+                <figcaption id="cr-fig8-caption" className="cr-caption">
+                  {CASE_ROOM.fig8Caption}
+                </figcaption>
               </figure>
             </Station>
 
@@ -153,7 +160,7 @@ export const CaseRoom = () => {
 
             <Station anchor={at28Ref} day={s28.day}>
               <div className="cr-day28 on-paper">
-                <p className="eyebrow">{CASE_ROOM.day28.stamp}</p>
+                <p className="eyebrow">{dayLabel(CASE_ROOM.day28.stamp)}</p>
                 <h3 className="cr-day28-title">{CASE_ROOM.day28.h3}</h3>
                 <p className="cr-day28-body">{CASE_ROOM.day28.body}</p>
               </div>
@@ -163,7 +170,6 @@ export const CaseRoom = () => {
               <p className="cr-cta-line">{CASE_ROOM.day28.cta}</p>
               <DemoCTA onInk className="mt-5" />
             </div>
-            <p className="cr-caption">{CASE_ROOM.caption}</p>
           </div>
         </div>
       </div>

@@ -1,11 +1,14 @@
 /* Fig. 9, the hash check, inside its ink panel: a navy field with parchment text, the changed
-   characters, the two digests and the verdict. Loaded with the hash check's chunk. */
+   characters, the two digests and the verdict. Loaded with the hash check's chunk. The field keeps
+   ten rows in every browser, which hold the whole simplified email where the panel is full width
+   (narrower, it scrolls, and it can be drawn taller), so the panel's height does not depend on
+   the width or the browser, and nothing moves when it mounts. */
 
 .ri-field-label { display: block; font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-weight: 500; font-size: 0.8125rem; line-height: 1.3; color: var(--vc-mist); }
 .ri-field {
   display: block;
   width: 100%;
-  min-height: calc(9lh + 1.5rem + 2px);
+  min-height: calc(10lh + 1.5rem + 2px);
   margin-top: 0.5rem;
   padding: 0.75rem 0.875rem;
   font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
@@ -17,7 +20,6 @@
   border: 1px solid var(--vc-mist);
   border-radius: 2px;
   resize: vertical;
-  field-sizing: content;
 }
 
 .ri-mini { font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-weight: 500; font-size: 0.75rem; line-height: 1.3; letter-spacing: 0.08em; text-transform: uppercase; color: var(--vc-mist); }

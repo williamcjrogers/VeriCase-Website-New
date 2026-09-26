@@ -7,7 +7,7 @@ import { MockWindow } from '@/components/mock/MockWindow';
 import { EvidenceChip } from '@/components/mock/EvidenceChip';
 import { CitedText, Redline } from '@/components/caseroom/CitedText';
 import { RECORDED_REPLIES, exportCounts, passesGuard } from '@/components/caseroom/scottModel';
-import { formatDate } from '@/lib/format';
+import { formatDate, keepDates } from '@/lib/format';
 import { cn } from '@/lib/utils';
 import '@/components/caseroom/scott.css';
 
@@ -21,6 +21,9 @@ const reasonParts = (reason) => {
   const i = reason.indexOf(': ');
   return i < 0 ? ['', reason] : [reason.slice(0, i), reason.slice(i + 2)];
 };
+
+// An audit line never breaks inside a date, or before a middle dot (so no line starts with one).
+const auditLine = (text) => keepDates(text).replace(/ · /g, '\u00a0· ');
 
 // Names a reply point for its controls: "paragraph 4.12", or the suggested point for it.
 const pointName = (reply) => (reply.suggested ? `the suggested point for paragraph ${reply.para}` : `paragraph ${reply.para}`);
@@ -43,7 +46,7 @@ const ResponseCell = ({ row, span }) => (
       {SCOTT.heads[0]}
     </span>
     <p className="cr-para">{row.para}</p>
-    <p className="cr-response-text">{row.response}</p>
+    <p className="cr-response-text">{keepDates(row.response)}</p>
   </td>
 );
 
@@ -117,6 +120,8 @@ const ReplyView = ({ reply }) => {
 // Fig. 8: Rebuttal Mode as a Scott Schedule. Each paragraph of the Response sits beside its
 // proposed reply points and the evidence ranked for it; a person accepts, edits or rejects each
 // point. An edit is saved only if it cites evidence, and every decision is recorded and announced.
+// Below 1280 px each paragraph is a card; from 1280 px each decision (its stamp and one segmented
+// group of Accept, Edit and Reject) sits under the reply it decides (see scott.css).
 export const ScottSchedule = ({ onExportChange }) => {
   const [replies, setReplies] = useState(START);
   const [editing, setEditing] = useState(null);
@@ -180,12 +185,6 @@ export const ScottSchedule = ({ onExportChange }) => {
     <MockWindow title={APP_WINDOW} className="on-paper" bodyClassName="px-3 pb-4 pt-4 sm:px-5 sm:pb-5">
       <table role="table" className="cr-scott">
         <caption className="cr-scott-caption">{SCOTT.caption}</caption>
-        <colgroup>
-          <col className="cr-col-response" />
-          <col className="cr-col-reply" />
-          <col className="cr-col-evidence" />
-          <col className="cr-col-decision" />
-        </colgroup>
         <thead role="rowgroup">
           <tr role="row">
             {SCOTT.heads.map((head) => (
@@ -242,10 +241,10 @@ export const ScottSchedule = ({ onExportChange }) => {
                         <ReplyView reply={reply} />
                       )}
                       <ul className="cr-audit" role="list">
-                        <li>{reply.audit}</li>
+                        <li>{auditLine(reply.audit)}</li>
                         {reply.changed && (
                           <li key={reply.rev} className="cr-audit-demo">
-                            {SCOTT.demoAudit}
+                            {auditLine(SCOTT.demoAudit)}
                           </li>
                         )}
                       </ul>
@@ -255,30 +254,32 @@ export const ScottSchedule = ({ onExportChange }) => {
                       <span className="cr-label" aria-hidden="true">
                         {SCOTT.heads[3]}
                       </span>
-                      <Stamp key={reply.rev} reply={reply} />
-                      {!isEditing && (
-                        <div role="group" aria-label={`Decision on ${pointName(reply)}`} className="cr-controls">
-                          <button type="button" className="cr-btn" onClick={() => decide(reply, 'accepted')}>
-                            <Check className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
-                            {SCOTT.controls.accept}
-                          </button>
-                          <button
-                            type="button"
-                            className="cr-btn"
-                            ref={(el) => {
-                              editButtons.current[reply.key] = el;
-                            }}
-                            onClick={() => startEdit(reply)}
-                          >
-                            <Pencil className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
-                            {SCOTT.controls.edit}
-                          </button>
-                          <button type="button" className="cr-btn" onClick={() => decide(reply, 'rejected')}>
-                            <X className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
-                            {SCOTT.controls.reject}
-                          </button>
-                        </div>
-                      )}
+                      <div className="cr-decide">
+                        <Stamp key={reply.rev} reply={reply} />
+                        {!isEditing && (
+                          <div role="group" aria-label={`Decision on ${pointName(reply)}`} className="cr-controls">
+                            <button type="button" className="cr-btn" onClick={() => decide(reply, 'accepted')}>
+                              <Check className="cr-btn-icon" strokeWidth={1.5} aria-hidden="true" />
+                              {SCOTT.controls.accept}
+                            </button>
+                            <button
+                              type="button"
+                              className="cr-btn"
+                              ref={(el) => {
+                                editButtons.current[reply.key] = el;
+                              }}
+                              onClick={() => startEdit(reply)}
+                            >
+                              <Pencil className="cr-btn-icon" strokeWidth={1.5} aria-hidden="true" />
+                              {SCOTT.controls.edit}
+                            </button>
+                            <button type="button" className="cr-btn" onClick={() => decide(reply, 'rejected')}>
+                              <X className="cr-btn-icon" strokeWidth={1.5} aria-hidden="true" />
+                              {SCOTT.controls.reject}
+                            </button>
+                          </div>
+                        )}
+                      </div>
                     </td>
                   </tr>
                 );

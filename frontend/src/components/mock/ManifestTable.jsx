@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react';
 import { toast } from 'sonner';
-import { Copy } from 'lucide-react';
+import { ChevronRight, Copy } from 'lucide-react';
 import { HASH_CHECK, MANIFEST, manifestRows } from '@/content/matter/integrity';
 import { Gated } from '@/components/editorial/Gated';
 import { EvidenceChip } from '@/components/mock/EvidenceChip';
@@ -72,7 +72,9 @@ const HashHead = () => <Gated id={MANIFEST.hashGate}>{MANIFEST.heads[HASH_COLUMN
 
 // Fig. 10: an extract from the bundle manifest, in mono with tabular figures. A real table at
 // 1024 px and above; below that (where six mono columns would break message IDs mid-word) each
-// row is a card of terms and values, two to a row from 640 px, and digests wrap by character.
+// row is a card, two to a row from 640 px: the sequence, exhibit, date and digest, with the
+// Message-ID (or file) and the source path folded behind a disclosure named with the exhibit.
+// Digests wrap by character.
 export const ManifestTable = () => {
   const [full, setFull] = useState({});
   const toggle = (ev) => () => setFull((f) => ({ ...f, [ev]: !f[ev] }));
@@ -120,12 +122,12 @@ export const ManifestTable = () => {
         <ol className="ri-cards" role="list" aria-labelledby="ri-manifest-cards-title">
           {ROWS.map((row) => (
             <li key={row.ev} className="ri-card">
-              <dl>
-                <div className="ri-card-seq">
+              <dl className="ri-card-main">
+                <div>
                   <dt>{heads[0]}</dt>
-                  <dd>{row.seq}</dd>
+                  <dd className="ri-card-seq">{row.seq}</dd>
                 </div>
-                <div className="ri-card-exhibit">
+                <div>
                   <dt>{heads[1]}</dt>
                   <dd>
                     <EvidenceChip id={row.ev} list={EXHIBITS} />
@@ -135,13 +137,7 @@ export const ManifestTable = () => {
                   <dt>{heads[2]}</dt>
                   <dd>{row.date}</dd>
                 </div>
-                <div>
-                  <dt>{heads[3]}</dt>
-                  <dd className="ri-wrap">
-                    <Breakable text={row.ref} />
-                  </dd>
-                </div>
-                <div>
+                <div className="ri-card-hash">
                   <dt>
                     <HashHead />
                   </dt>
@@ -149,13 +145,27 @@ export const ManifestTable = () => {
                     <Digest row={row} full={Boolean(full[row.ev])} onToggle={toggle(row.ev)} layout="card" />
                   </dd>
                 </div>
-                <div>
-                  <dt>{heads[5]}</dt>
-                  <dd className="ri-wrap">
-                    <Breakable text={row.path} />
-                  </dd>
-                </div>
               </dl>
+              <details className="ri-card-more">
+                <summary className="ri-card-summary" aria-label={`${row.more}, ${row.ev}`}>
+                  <ChevronRight className="ri-card-chevron" strokeWidth={1.5} aria-hidden="true" />
+                  <span className="ri-card-summary-label">{row.more}</span>
+                </summary>
+                <dl className="ri-card-source">
+                  <div>
+                    <dt>{heads[3]}</dt>
+                    <dd className="ri-wrap">
+                      <Breakable text={row.ref} />
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>{heads[5]}</dt>
+                    <dd className="ri-wrap">
+                      <Breakable text={row.path} />
+                    </dd>
+                  </div>
+                </dl>
+              </details>
             </li>
           ))}
         </ol>

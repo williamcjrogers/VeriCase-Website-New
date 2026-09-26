@@ -9,6 +9,9 @@ const DAYS = Array.from({ length: 28 }, (_, i) => i + 1);
 const EXTENSION = Array.from({ length: 14 }, (_, i) => i + 29);
 // Each newly reached day fills 30 ms after the one before it.
 const STEP_MS = 30;
+// "Day 14 · 03 February 2026": the day and the date (joined by formatDate's no-break spaces) never
+// break inside, and a line never starts with the middle dot.
+const when = (m) => `Day\u00a0${m.day}\u00a0· ${formatDate(m.date)}`;
 
 // Fig. 7, drawn: the 28 days from referral as four weeks of cells after a brass Day 0 marker,
 // the key dates of the fictional timetable, and the extension to Day 42 in dashed outline. Cells
@@ -40,9 +43,7 @@ export const DayGrid = ({ reached }) => {
       <ul className="cr-legend">
         {DAY_GRID.markers.map((m) => (
           <li key={m.day} className={cn('cr-legend-item', m.day <= reached && 'is-on')}>
-            <span className="cr-legend-when">
-              Day {m.day} · {formatDate(m.date)}
-            </span>
+            <span className="cr-legend-when">{when(m)}</span>
             <span className="cr-legend-what">{m.label}</span>
           </li>
         ))}

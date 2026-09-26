@@ -75,11 +75,14 @@ export const SCOTT = {
   beforeLabel: 'Before',
   suggestedLabel: 'Suggested',
   exportLead: 'Export: each point in the Response paired with its reply and the evidence cited.',
-  exportCounts: '{points} · {replies} · {exhibits}.',
+  exportCounts: '{points} · {replies} · {exhibits}',
   // The counts as recorded in the sample matter; the schedule recomputes them from its decisions.
   exportRecorded: { points: 2, replies: 2, exhibits: 5 },
 };
 
-// "2 points · 2 replies · 5 exhibits.", with singular forms.
+// "2 points · 2 replies · 5 exhibits", with singular forms. A count never parts from its noun, and
+// the line breaks only after a middle dot.
 export const exportCountsText = ({ points, replies, exhibits }) =>
-  fill(SCOTT.exportCounts, { points: plural(points, 'point'), replies: plural(replies, 'reply', 'replies'), exhibits: plural(exhibits, 'exhibit') });
+  fill(SCOTT.exportCounts, { points: plural(points, 'point'), replies: plural(replies, 'reply', 'replies'), exhibits: plural(exhibits, 'exhibit') })
+    .replace(/(\d) /g, '$1\u00a0')
+    .replace(/ · /g, '\u00a0· ');

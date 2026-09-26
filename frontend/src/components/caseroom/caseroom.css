@@ -3,8 +3,10 @@
    carry their own stylesheets, loaded with their chunks.) */
 
 /* The header band: the film under a flat navy scrim, or until it is approved, rain on the glass
-   drawn as hairlines at very low contrast. */
-.cr-band { position: relative; display: flex; flex-direction: column; min-height: min(62vh, 600px); min-height: min(62svh, 600px); background: var(--vc-ink-950); }
+   drawn as hairlines at very low contrast. Without the film the band is as tall as what it
+   holds; with it, the band keeps room for the film and the header sits at its foot. */
+.cr-band { position: relative; display: flex; flex-direction: column; background: var(--vc-ink-950); }
+.cr-band.has-media { min-height: min(62vh, 600px); min-height: min(62svh, 600px); }
 .cr-band > .relative { display: flex; flex: 1 1 auto; flex-direction: column; }
 .cr-band-inner { display: flex; flex: 1 1 auto; flex-direction: column; padding-top: 1.75rem; padding-bottom: 3.5rem; }
 .cr-band.has-media .cr-band-inner { padding-bottom: 5.5rem; }
@@ -19,9 +21,9 @@
   background-size: 419px 613px, 263px 389px;
 }
 
-/* Mono labels of the chapter, in capitals set by CSS: the cut, the stations, the figures, the
-   day reached and the export counts. */
-.cr-cut-label, .cr-when, .cr-dayof, .cr-fig-label, .cr-readout, .cr-export-counts {
+/* Mono labels of the chapter, in capitals set by CSS: the cut, the stations, the day reached and
+   the export counts. */
+.cr-cut-label, .cr-when, .cr-dayof, .cr-readout, .cr-export-counts {
   font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
   font-weight: 500;
   font-size: 0.75rem;
@@ -42,19 +44,16 @@
   .cr-cut-label { grid-column: 1 / span 2; text-align: right; }
   .cr-cut-rule { grid-column: 3 / span 10; }
 }
-.cr-kicker {
-  margin-top: 1.5rem;
-  font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif;
-  font-size: clamp(1.625rem, 1.35rem + 1.1vw, 2.375rem);
-  line-height: 1.18;
-  letter-spacing: -0.01em;
-  color: var(--vc-parchment);
-  text-wrap: balance;
-}
-.cr-header { margin-top: auto; padding-top: 2.75rem; }
+/* The kicker answers the cover's "Records, records, records.": the masthead's size (text-masthead)
+   in Newsreader italic, in parchment, one sentence to a line across columns 3 to 12. It is set
+   from the first paint and never animates; the rule above it is the cut's one reveal. */
+.cr-kicker { margin-top: 1.25rem; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-style: italic; font-weight: 400; color: var(--vc-parchment); }
+@media (min-width: 1024px) { .cr-kicker { margin-top: 1.75rem; } }
+.cr-header { padding-top: 3rem; }
+@media (min-width: 1024px) { .cr-header { padding-top: 4.5rem; } }
+.cr-band.has-media .cr-header { margin-top: auto; }
 /* Over the film or its poster every word is parchment (mist and brass are for plain ink). */
-.cr-band.has-media :is(.cr-cut-label, .eyebrow),
-.cr-band.has-media .cr-header > span[aria-hidden='true'] { color: var(--vc-parchment); }
+.cr-band.has-media :is(.cr-cut-label, .ch-numeral, .ch-note) { color: var(--vc-parchment); }
 
 .cr-plate-caption { padding-top: 0.75rem; font-size: 0.875rem; line-height: 1.5; color: var(--vc-mist); }
 
@@ -68,32 +67,76 @@
 .cr-dayof-bar::after { content: ''; position: absolute; inset: 0; background: var(--vc-brass-400); transform: scaleX(var(--p)); transform-origin: left; }
 @media (min-width: 1024px) { .cr-dayof { display: none; } }
 
-/* The rail holding Fig. 7 stays in view beside the stations wherever it fits beneath the header. */
-@media (min-width: 1024px) and (min-height: 720px) { .cr-rail { position: sticky; top: 96px; } }
+/* The rail holding Fig. 7 stays in view beside the stations wherever the whole figure, caption
+   included, fits beneath the header: its measured height (728 px to 1063 px wide, 681 px to
+   1279 px, 656 px from 1280 px) plus the 96 px it sits below the top. Elsewhere it scrolls. */
+@media (min-width: 1024px) and (min-height: 830px), (min-width: 1064px) and (min-height: 780px), (min-width: 1280px) and (min-height: 760px) {
+  .cr-rail { position: sticky; top: 96px; }
+}
 
-/* Fig. 7 around the grid: the title, the day now reached, the extension and the note */
-.cr-fig7-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgb(185 191 208 / 0.28); }
+/* Fig. 7 around the grid: the day now reached, the title, the extension, the note and the caption */
+.cr-fig7 > .cr-readout { padding-bottom: 0.5rem; border-bottom: 1px solid rgb(185 191 208 / 0.28); }
 .cr-fig7-title { margin-top: 0.75rem; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-style: italic; font-size: 1.375rem; line-height: 1.25; color: var(--vc-parchment); }
-.cr-grid-mount { margin-top: 1rem; min-height: 383px; }
-@media (min-width: 640px) { .cr-grid-mount { min-height: 200px; } }
-@media (min-width: 1024px) { .cr-grid-mount { min-height: 367px; } }
-@media (min-width: 1280px) { .cr-grid-mount { min-height: 383px; } }
+.cr-grid-mount { margin-top: 1rem; }
 .cr-ext, .cr-note { font-size: 0.8125rem; line-height: 1.5; color: var(--vc-mist); }
 .cr-ext { margin-top: 0.75rem; }
 .cr-note { margin-top: 0.625rem; }
 
+/* Each figure's caption, directly beneath it: "Fig. n. … See note A." */
+.cr-caption { max-width: 68ch; margin-top: 0.75rem; font-size: 0.875rem; line-height: 1.5; color: var(--vc-mist); }
+
 /* Fig. 8 */
 .cr-fig8 { margin-top: 2rem; }
-.cr-fig8 .cr-fig-label { margin-bottom: 0.75rem; }
-/* Room held for the schedule while it loads: its smallest height in each range of widths, so
-   no gap is ever left, and any growth happens as it mounts, well before it is in view. */
-.cr-scott-mount { min-height: 2720px; }
-@media (min-width: 360px) { .cr-scott-mount { min-height: 2475px; } }
-@media (min-width: 390px) { .cr-scott-mount { min-height: 2280px; } }
-@media (min-width: 480px) { .cr-scott-mount { min-height: 2070px; } }
-@media (min-width: 640px) { .cr-scott-mount { min-height: 1965px; } }
-@media (min-width: 768px) { .cr-scott-mount { min-height: 1025px; } }
-@media (min-width: 1024px) { .cr-scott-mount { min-height: 1075px; } }
+/* Room held for Figs. 7 and 8 while their skeletons show: each figure's mounted height, from each
+   width at which it changes (Fig. 8's text reflows, so it steps often), so the chapter keeps its
+   height when they mount and in-page jumps land where they aim. Measured in Chromium with the
+   web fonts; re-measure with verify/measure-frames.cjs whenever either figure's content or
+   layout changes. */
+.cr-grid-mount:has(> [data-skeleton]) { min-height: var(--cr-grid-h); }
+.cr-scott-mount:has(> [data-skeleton]) { min-height: var(--cr-scott-h); }
+#case-room { --cr-grid-h: 383px; --cr-scott-h: 2759px; }
+@media (min-width: 322px) { #case-room { --cr-scott-h: 2711px; } }
+@media (min-width: 337px) { #case-room { --cr-scott-h: 2687px; } }
+@media (min-width: 338px) { #case-room { --cr-scott-h: 2643px; } }
+@media (min-width: 343px) { #case-room { --cr-scott-h: 2598px; } }
+@media (min-width: 346px) { #case-room { --cr-scott-h: 2573px; } }
+@media (min-width: 362px) { #case-room { --cr-scott-h: 2547px; } }
+@media (min-width: 363px) { #case-room { --cr-scott-h: 2524px; } }
+@media (min-width: 373px) { #case-room { --cr-scott-h: 2499px; } }
+@media (min-width: 375px) { #case-room { --cr-scott-h: 2476px; } }
+@media (min-width: 394px) { #case-room { --cr-scott-h: 2453px; } }
+@media (min-width: 404px) { #case-room { --cr-scott-h: 2427px; } }
+@media (min-width: 415px) { #case-room { --cr-scott-h: 2404px; } }
+@media (min-width: 434px) { #case-room { --cr-scott-h: 2383px; } }
+@media (min-width: 448px) { #case-room { --cr-scott-h: 2364px; } }
+@media (min-width: 456px) { #case-room { --cr-scott-h: 2345px; } }
+@media (min-width: 470px) { #case-room { --cr-scott-h: 2322px; } }
+@media (min-width: 476px) { #case-room { --cr-scott-h: 2277px; } }
+@media (min-width: 488px) { #case-room { --cr-scott-h: 2252px; } }
+@media (min-width: 491px) { #case-room { --cr-scott-h: 2226px; } }
+@media (min-width: 496px) { #case-room { --cr-scott-h: 2208px; } }
+@media (min-width: 498px) { #case-room { --cr-scott-h: 2184px; } }
+@media (min-width: 502px) { #case-room { --cr-scott-h: 2140px; } }
+@media (min-width: 503px) { #case-room { --cr-scott-h: 2119px; } }
+@media (min-width: 605px) { #case-room { --cr-scott-h: 2093px; } }
+@media (min-width: 618px) { #case-room { --cr-scott-h: 2069px; } }
+@media (min-width: 640px) { #case-room { --cr-grid-h: 200px; --cr-scott-h: 1979px; } }
+@media (min-width: 649px) { #case-room { --cr-scott-h: 1954px; } }
+@media (min-width: 656px) { #case-room { --cr-scott-h: 1909px; } }
+@media (min-width: 662px) { #case-room { --cr-scott-h: 1885px; } }
+@media (min-width: 666px) { #case-room { --cr-scott-h: 1841px; } }
+@media (min-width: 682px) { #case-room { --cr-scott-h: 1816px; } }
+@media (min-width: 693px) { #case-room { --cr-scott-h: 1793px; } }
+@media (min-width: 694px) { #case-room { --cr-scott-h: 1769px; } }
+@media (min-width: 740px) { #case-room { --cr-scott-h: 1751px; } }
+@media (min-width: 772px) { #case-room { --cr-scott-h: 1732px; } }
+@media (min-width: 931px) { #case-room { --cr-scott-h: 1687px; } }
+@media (min-width: 983px) { #case-room { --cr-scott-h: 1642px; } }
+@media (min-width: 1024px) { #case-room { --cr-grid-h: 414px; --cr-scott-h: 1751px; } }
+@media (min-width: 1054px) { #case-room { --cr-scott-h: 1732px; } }
+@media (min-width: 1064px) { #case-room { --cr-grid-h: 367px; } }
+@media (min-width: 1265px) { #case-room { --cr-scott-h: 1687px; } }
+@media (min-width: 1280px) { #case-room { --cr-grid-h: 383px; --cr-scott-h: 1069px; } }
 
 /* Day 21: the export strip and the standing line */
 .cr-export { display: flex; gap: 1rem; max-width: 44rem; margin-top: 1.75rem; padding: 1.125rem 0; border-top: 1px solid rgb(185 191 208 / 0.3); border-bottom: 1px solid rgb(185 191 208 / 0.3); }
@@ -110,4 +153,3 @@
 
 .cr-close { margin-top: 3.5rem; }
 .cr-cta-line { max-width: 40rem; font-size: 1.0625rem; color: var(--vc-parchment); }
-.cr-caption { max-width: 68ch; margin-top: 3.5rem; font-size: 0.875rem; line-height: 1.5; color: var(--vc-mist); }

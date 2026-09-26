@@ -28,6 +28,8 @@ export const MANIFEST = {
   items: ['EV-0131', 'EV-0138', 'EV-0139', 'EV-0144', 'EV-0147', 'EV-0151'],
   copy: 'Copy hash',
   copied: 'Hash copied.',
+  // Below 1024 px each card folds its Message-ID (or file) and source path behind this.
+  more: { email: 'Message-ID and source path', file: 'File and source path' },
 };
 
 export const manifestRows = () =>
@@ -38,6 +40,7 @@ export const manifestRows = () =>
       ev: id,
       date: formatDate(r.date),
       ref: r.messageId || `File: ${r.file}`,
+      more: r.messageId ? MANIFEST.more.email : MANIFEST.more.file,
       hash: HASHES[id],
       path: r.sourcePath,
     };

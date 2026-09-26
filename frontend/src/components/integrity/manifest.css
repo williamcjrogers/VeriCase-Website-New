@@ -1,7 +1,7 @@
 /* Fig. 10, the manifest, on parchment: a real table in mono with tabular figures and parchment-300
    zebra rows at 1024 px and above; below that (where six mono columns would break message IDs
-   and paths mid-word), each row is a card of terms and values and the digests wrap by character.
-   Loaded with the manifest's chunk. */
+   and paths mid-word), each row is a card of terms and values, with the Message-ID and source
+   path behind a disclosure, and the digests wrap by character. Loaded with the manifest's chunk. */
 
 .ri-manifest-caption { padding-bottom: 0.875rem; text-align: left; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1.1875rem; line-height: 1.3; color: var(--vc-navy); }
 .ri-manifest-table { display: none; }
@@ -62,14 +62,51 @@
 .ri-icon-btn { display: inline-grid; place-items: center; width: 28px; height: 28px; color: var(--vc-azure-700); border-radius: 2px; }
 .ri-icon-btn:hover { background: var(--vc-azure-50); }
 
-.ri-cards { display: grid; gap: 0.75rem; }
+/* Cards: sequence, exhibit and date on one line, the digest beneath, then the disclosure. Each
+   card keeps its own height when its neighbour is opened. */
+.ri-cards { display: grid; align-items: start; gap: 0.75rem; }
 @media (min-width: 640px) { .ri-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; } }
-.ri-card { padding: 0.875rem 1rem 1rem; background: var(--vc-paper); border: 1px solid var(--vc-rule-strong); border-radius: 2px; }
-.ri-card dl { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.75rem 1.5rem; }
-.ri-card dl > div { grid-column: 1 / -1; min-width: 0; }
-.ri-card dl > .ri-card-seq { grid-column: 1; }
-.ri-card dl > .ri-card-exhibit { grid-column: 2; }
+.ri-card { padding: 0.875rem 1rem 0.25rem; background: var(--vc-paper); border: 1px solid var(--vc-rule-strong); border-radius: 2px; }
+.ri-card-main { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; }
+.ri-card-main > div { min-width: 0; }
+.ri-card-main > .ri-card-hash { flex: 1 1 100%; }
 .ri-card dt { font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-weight: 500; font-size: 0.75rem; line-height: 1.3; letter-spacing: 0.06em; text-transform: uppercase; color: var(--vc-graphite); }
 .ri-card dd { margin-top: 0.25rem; font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-size: 0.8125rem; line-height: 1.45; color: var(--vc-ink); font-variant-numeric: tabular-nums slashed-zero; }
-.ri-card-seq dd { font-weight: 500; color: var(--vc-brass-700); }
+.ri-card dd.ri-card-seq { font-weight: 500; color: var(--vc-brass-700); }
+/* On a card the digest and its buttons share a line; the full digest takes a line of its own. */
+.ri-card .ri-digest { display: flex; flex-wrap: wrap; align-items: center; gap: 0 0.75rem; }
 .ri-card .ri-digest code { word-break: break-all; }
+.ri-card .ri-digest-full { flex: 1 1 100%; }
+/* The disclosure: a native details element whose summary reads, for example, "Message-ID and
+   source path, EV-0131". The chevron turns as it opens. */
+.ri-card-more { margin-top: 0.625rem; border-top: 1px solid var(--vc-rule); }
+.ri-card-summary {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  min-height: 2.5rem;
+  margin: 0 -0.25rem;
+  padding: 0 0.25rem;
+  font-family: 'IBM Plex Sans', 'IBM Plex Sans Fallback', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 0.8125rem;
+  color: var(--vc-azure-700);
+  list-style: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.ri-card-summary::-webkit-details-marker { display: none; }
+.ri-card-summary-label { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.ri-card-summary:hover .ri-card-summary-label { text-decoration-thickness: 2px; }
+.ri-card-chevron { flex: none; width: 1rem; height: 1rem; transition: transform 150ms var(--ease-settle); }
+.ri-card-more[open] .ri-card-chevron { transform: rotate(90deg); }
+.ri-card-source { display: grid; gap: 0.75rem; padding: 0.25rem 0 0.875rem; }
+.ri-card-source > div { min-width: 0; }
+/* A card is at its narrowest below 360 px, and in two columns from 640 to 719 px: there its
+   padding and gaps close up, so every row still fits on one line and no card changes height. */
+@media (max-width: 359px), (min-width: 640px) and (max-width: 719px) {
+  .ri-card { padding-inline: 0.625rem; }
+  .ri-card-main { column-gap: 1rem; }
+  .ri-card .ri-digest { column-gap: 0.25rem; }
+}
+@media (prefers-reduced-motion: reduce) { .ri-card-chevron { transition: none; } }
