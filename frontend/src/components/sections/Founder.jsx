@@ -1,7 +1,7 @@
 import { lazy } from 'react';
 import { ChapterHeader } from '@/components/editorial/ChapterHeader';
 import { Declaration } from '@/components/editorial/Declaration';
-import { Gated } from '@/components/editorial/Gated';
+import { Gated, isShown } from '@/components/editorial/Gated';
 import { Plate } from '@/components/editorial/Plate';
 import { Rich } from '@/components/editorial/Rich';
 import { FOUNDER } from '@/content/home';
@@ -30,17 +30,22 @@ export const Founder = () => (
             ))}
           </ul>
 
-          <Declaration label={FOUNDER.declaration.label} className="mt-10">
-            {FOUNDER.declaration.text}
-          </Declaration>
+          {/* The declaration and the closing caveat belong to the account: all three go together. */}
+          {isShown(FOUNDER.accountGate) && (
+            <>
+              <Declaration label={FOUNDER.declaration.label} className="mt-10">
+                {FOUNDER.declaration.text}
+              </Declaration>
 
-          <Gated id={FOUNDER.accountGate} block className="mt-10">
-            <h3 className="text-h3 font-medium text-navy">{FOUNDER.h3}</h3>
-            <p className="mt-4 text-body text-ink">
-              <Rich text={FOUNDER.account} />
-            </p>
-          </Gated>
-          <p className="mt-6 max-w-measure text-small text-graphite">{FOUNDER.closing}</p>
+              <Gated id={FOUNDER.accountGate} block className="mt-10">
+                <h3 className="text-h3 font-medium text-navy">{FOUNDER.h3}</h3>
+                <p className="mt-4 text-body text-ink">
+                  <Rich text={FOUNDER.account} />
+                </p>
+              </Gated>
+              <p className="mt-6 max-w-measure text-small text-graphite">{FOUNDER.closing}</p>
+            </>
+          )}
         </div>
 
         <div className="col-span-12 sm:col-span-8 sm:col-start-3 lg:col-span-4 lg:col-start-9">

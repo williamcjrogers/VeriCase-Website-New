@@ -124,12 +124,15 @@ const stringsOf = (source) => {
 
 // ---- Gates, tokens and notes (read from the content files) ---------------------------------
 const gatesSource = readFileSync(join(root, 'src/content/gates.js'), 'utf8');
-const GATES = [...gatesSource.matchAll(/^\s*(\w+):\s*\{\s*status:\s*'(open|confirmed|struck)',\s*gate:\s*'(G\d+)',\s*label:\s*'((?:[^'\\]|\\.)*)'/gm)].map((m) => ({
+const GATES = [...gatesSource.matchAll(/^\s*(\w+):\s*\{\s*status:\s*'(open|confirmed|struck)',\s*gate:\s*'(G\d+)',\s*label:\s*'((?:[^'\\]|\\.)*)'(?:,\s*tokens:\s*\[([^\]]*)\])?/gm)].map((m) => ({
   id: m[1],
   status: m[2],
   gate: m[3],
   label: m[4],
+  tokens: [...(m[5] || '').matchAll(/'([A-Z0-9_]+)'/g)].map((t) => t[1]),
 }));
+// Placeholders held by a struck item are never rendered, so they do not block a production build.
+const HELD_TOKENS = new Set(GATES.filter((g) => g.status === 'struck').flatMap((g) => g.tokens));
 const notesSource = readFileSync(join(root, 'src/content/notes.js'), 'utf8');
 const NOTE_NUMBERS = new Set([...notesSource.matchAll(/\bn:\s*(\d+)/g)].map((m) => Number(m[1])));
 
@@ -185,7 +188,7 @@ if (!BUILT) {
   }
 
   for (const n of cited) if (!NOTE_NUMBERS.has(n)) fail('src/content/notes.js', `note ${n} is cited but does not exist`);
-  for (const [token, where] of tokens) report(where, `owner to supply {{${token}}}`);
+  for (const [token, where] of tokens) if (!HELD_TOKENS.has(token)) report(where, `owner to supply {{${token}}}`);
   for (const g of GATES.filter((x) => x.status === 'open')) report('src/content/gates.js', `open gate ${g.gate} (${g.id}): ${g.label}`);
 } else {
   // ---- The prerendered pages -----------------------------------------------------------------
@@ -242,7 +245,8 @@ if (!BUILT) {
       }
       if (label === 'Sign in' && href !== 'https://app.veri-case.com/ui/login.html') fail(page, `Sign in points to ${href}`);
     }
-    if (!/VeriCase Ltd is registered in England and Wales \(company number 14789532\)\. Registered office: /.test(text)) {
+    // As registered at Companies House (company 16562435); 14789532 belongs to another company.
+    if (!text.includes('VeriCase Ltd is registered in England and Wales (company number 16562435). Registered office: 85 Great Portland Street, London, England, W1W 7LT.')) {
       fail(page, 'the footer legal line does not match section 3.14');
     }
     if (!text.includes('The Chronology Lens™ is a trade mark of VeriCase Ltd. VeriCase is software and does not give legal advice. Illustrations on this site use a fictional matter.')) {

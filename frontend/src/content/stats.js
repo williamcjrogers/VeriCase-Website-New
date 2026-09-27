@@ -18,25 +18,25 @@ export const STATS = {
     figure: '33.4%',
     noteNumber: 7,
     label:
-      'average sums in dispute as a share of contract budget, across more than 2,200 distressed projects in 114 countries investigated by HKA.',
+      'average sums in dispute as a share of contract budget, across more than 2,200 distressed projects in 114 countries, drawn from investigations by HKA consultants.',
     short: 'Sums in dispute as a share of budget',
-    noteTitle: 'HKA, CRUX Insight Eighth Annual Report (November 2025).',
+    noteTitle: 'HKA, CRUX Insight Eighth Annual Report, From Insight to Foresight (November 2025).',
     noteBody:
-      'Average sums in dispute of 33.4% of contract budget across more than 2,200 distressed projects in 114 countries investigated by HKA. The figure describes those projects, not the industry as a whole.',
+      'Average sums in dispute of 33.4% of contract budget across more than 2,200 distressed projects in 114 countries, drawn from investigations by HKA consultants. The figure describes those projects, not the industry as a whole.',
     source:
-      'HKA, CRUX Insight Eighth Annual Report (November 2025): more than 2,200 distressed projects in 114 countries investigated by HKA.',
+      'HKA, CRUX Insight Eighth Annual Report, From Insight to Foresight (November 2025): more than 2,200 distressed projects in 114 countries, drawn from investigations by HKA consultants.',
   },
   referrals: {
     figure: '2,264',
     noteNumber: 6,
     label:
-      'statutory adjudication referrals to adjudicator nominating bodies between May 2023 and April 2024, the highest number recorded at the time of the report.',
+      'adjudication referrals received by the participating adjudicator nominating bodies between May 2023 and April 2024, the highest number recorded at the time of the report.',
     short: 'Adjudication referrals, May 2023 to April 2024',
-    noteTitle: 'King’s College London and the Adjudication Society, Construction Adjudication in the United Kingdom (November 2024).',
+    noteTitle: 'King’s College London and the Adjudication Society, 2024 Construction Adjudication in the United Kingdom: Tracing trends and guiding reform (November 2024).',
     noteBody:
-      '2,264 statutory adjudication referrals to adjudicator nominating bodies between May 2023 and April 2024, the highest number recorded at the time of the report.',
+      '2,264 adjudication referrals received by the participating adjudicator nominating bodies between May 2023 and April 2024, the highest number recorded at the time of the report.',
     source:
-      'King’s College London and the Adjudication Society, Construction Adjudication in the United Kingdom (November 2024): referrals to adjudicator nominating bodies, May 2023 to April 2024.',
+      'King’s College London and the Adjudication Society, 2024 Construction Adjudication in the United Kingdom: Tracing trends and guiding reform (November 2024): referrals received by the participating adjudicator nominating bodies, May 2023 to April 2024.',
   },
   adjudication: {
     figure: '28 days',
@@ -44,7 +44,7 @@ export const STATS = {
     label: 'from referral to an adjudicator’s decision',
     short: 'From referral to decision',
     source:
-      'Housing Grants, Construction and Regeneration Act 1996, section 108(2)(c) and (d): extendable by up to 14 days with the referring party’s consent, or longer if both parties agree.',
+      'Housing Grants, Construction and Regeneration Act 1996, section 108(2)(c) and (d): extendable by up to 14 days with the referring party’s consent, or longer if both parties agree after the dispute has been referred.',
   },
   limitation: {
     figure: '12 years',

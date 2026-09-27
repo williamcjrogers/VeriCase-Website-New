@@ -19,11 +19,11 @@ export const APP_URL = base.endsWith('/') ? base : `${base}/`;
 // The production build must resolve to https://app.veri-case.com/ui/login.html (checked by lint-copy).
 export const SIGN_IN_URL = `${APP_URL}login.html`;
 
+// As registered at Companies House (VERICASE LTD, company 16562435; checked 25 September 2026).
 export const COMPANY = {
   name: 'VeriCase Ltd',
-  number: '14789532',
-  // Registered office: gate G7. Supplied by the owner before publication.
-  registeredOffice: '{{REGISTERED_OFFICE}}',
+  number: '16562435',
+  registeredOffice: '85 Great Portland Street, London, England, W1W 7LT',
 };
 
 export const SITE = {

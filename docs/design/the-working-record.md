@@ -725,7 +725,7 @@ That discipline is the brand. "Records, records, records" opens the page as kine
 - **Company links:** "Who is behind it" · "Book a demonstration" · "enquiries@veri-case.com" · "Sign in"
 - **Cookies:** "Cookie settings" · "Cookie notice"
 - **Legal strip (exact):**
-  - "VeriCase Ltd is registered in England and Wales (company number 14789532). Registered office: {{REGISTERED_OFFICE}}."
+  - "VeriCase Ltd is registered in England and Wales (company number 16562435). Registered office: 85 Great Portland Street, London, England, W1W 7LT."
   - "The Chronology Lens™ is a trade mark of VeriCase Ltd. VeriCase is software and does not give legal advice. Illustrations on this site use a fictional matter."
   - "© 2026 VeriCase Ltd." (year computed)
 
@@ -1151,7 +1151,7 @@ const base = envUrl && envUrl.startsWith('https://') ? envUrl : 'https://app.ver
 export const APP_URL = base.endsWith('/') ? base : `${base}/`;
 // The production build must resolve to https://app.veri-case.com/ui/login.html (checked in CI).
 export const SIGN_IN_URL = `${APP_URL}login.html`;
-export const COMPANY = { name: 'VeriCase Ltd', number: '14789532', registeredOffice: '{{REGISTERED_OFFICE}}' };
+export const COMPANY = { name: 'VeriCase Ltd', number: '16562435', registeredOffice: '85 Great Portland Street, London, England, W1W 7LT' };
 export const SITE = { legalPages: { privacy: false, cookies: true } };
 ```
 
@@ -1637,7 +1637,7 @@ It must read as one cited exhibit at thumbnail size.
 
 ### Structured data (JSON-LD in index.html)
 
-- `Organization`: `legalName` VeriCase Ltd, `url`, `logo` (/logo-positive.svg), `email` enquiries@veri-case.com, `founder` Person "William Rogers", `identifier` PropertyValue (Companies House, 14789532), `address` {{REGISTERED_OFFICE}}. No `sameAs` until real profiles exist.
+- `Organization`: `legalName` VeriCase Ltd, `url`, `logo` (/logo-positive.svg), `email` enquiries@veri-case.com, `founder` Person "William Rogers", `identifier` PropertyValue (Companies House, 16562435), `address` 85 Great Portland Street, London, England, W1W 7LT. No `sameAs` until real profiles exist.
 - `SoftwareApplication`: `name` VeriCase, `applicationCategory` BusinessApplication, `operatingSystem` Web. No ratings, reviews or offers.
 - `FAQPage`: generated from the In brief questions, excluding any question whose answer is a token.
 
@@ -1742,7 +1742,7 @@ It must read as one cited exhibit at thumbnail size.
   - demonstrations on the prospect's own material;
   - the equity sentence, wherever it appears.
 - [ ] **G6. United Infrastructure.** {{UI_CASE}} is supplied in the party's own factual terms, with documentary substantiation on file. No adjudication confidentiality obligation is breached. No EOT or delay-analysis language. The declaration precedes the account.
-- [ ] **G7. Company.** {{REGISTERED_OFFICE}} is supplied. Company number 14789532 is checked at Companies House.
+- [x] **G7. Company.** Company number 16562435 and the registered office are as registered at Companies House (checked 25 September 2026; 14789532 is another company).
 - [ ] **G8. Data.** {{DATA_POLICY}} is supplied, or the question is deleted. The owner decides on the PostHog host (EU or US), and the cookie notice states it correctly. The owner also decides whether a privacy notice is needed before launch (analytics data and enquiry emails are personal data under the UK GDPR); if so, it is published and `SITE.legalPages.privacy` is set to true.
 - [ ] **G9. Names and resemblance.** "Example Contractor Ltd", "Example Employer Ltd", "Example Agency LLP", "Example Façades Ltd", "Example Fixings Ltd" and "Project Birch" are checked against Companies House and planning records. The owner confirms that the sample matter (building type, the bracket Change, the dates in March and April 2025 and the adjudication dates in 2026) resembles no live or past matter of the founder, Quantum Commercial Solutions or United Infrastructure. No old asset from `/assets` or `public/` (including the old Chronology Lens images and `ChronoLensVertical.jpg`) is in the build.
 - [ ] **G10. Imagery.** The owner approves each Higgsfield asset against the rejection list in section 6.
