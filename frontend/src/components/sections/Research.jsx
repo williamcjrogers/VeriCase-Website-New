@@ -1,10 +1,11 @@
-import { lazy } from 'react';
+import { lazy, useEffect, useState } from 'react';
 import { ChapterHeader } from '@/components/editorial/ChapterHeader';
 import { DemoCTA } from '@/components/editorial/DemoCTA';
 import { FailRecover } from '@/components/editorial/FailRecover';
 import { Figure } from '@/components/editorial/Figure';
 import { LazyMount } from '@/components/editorial/LazyMount';
 import { CitedReport, QueryChip, TabbedBundle } from '@/components/icons';
+import { demoHeightAt } from '@/components/research/demoHeights';
 import { CTA_MICROCOPY_SHORT, RESEARCH } from '@/content/home';
 
 // The demonstration (Fig. 4) is its own chunk, fetched when it comes within 600 px of view.
@@ -34,15 +35,25 @@ const Steps = () => (
   </ol>
 );
 
-// Holds the demonstration's place at its measured default height per breakpoint (phones get
-// three steps of their own, since the report's text wraps most there), so little shifts when
-// it arrives.
-const DemoSkeleton = () => (
-  <div
-    aria-hidden="true"
-    className="vc-skeleton h-[3322px] min-[360px]:h-[2936px] min-[390px]:h-[2746px] min-[430px]:h-[2400px] sm:h-[1974px] md:h-[1724px] lg:h-[1657px] xl:h-[1553px]"
-  />
-);
+// Holds the demonstration's place, so nothing shifts when it arrives. The prerendered page
+// reserves its height per breakpoint; once hydrated, the skeleton takes the exact height measured
+// for the current layout width (the report's text wraps at many widths between breakpoints).
+const DemoSkeleton = () => {
+  const [height, setHeight] = useState(null);
+  useEffect(() => {
+    const measure = () => setHeight(demoHeightAt(document.documentElement.clientWidth));
+    measure();
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
+  }, []);
+  return (
+    <div
+      aria-hidden="true"
+      className="vc-skeleton h-[3322px] min-[360px]:h-[2936px] min-[390px]:h-[2746px] min-[430px]:h-[2400px] sm:h-[1974px] md:h-[1724px] lg:h-[1657px] xl:h-[1553px]"
+      style={height ? { height } : undefined}
+    />
+  );
+};
 
 // Chapter III, the centrepiece: ask the sample matter a question, correct how it was understood,
 // read the cited report, open each source and bundle what was cited. Then the call to action.

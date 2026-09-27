@@ -14,10 +14,12 @@ const ClaimsBuilderMock = lazy(() => import(/* webpackChunkName: "claims" */ '@/
 const DiscussionMock = lazy(() => import(/* webpackChunkName: "claims" */ '@/components/mock/DiscussionMock').then((m) => ({ default: m.DiscussionMock })));
 
 // Heights per breakpoint. The builder's is fixed. The discussion's wraps with the width, so its
-// height is reserved only while the skeleton shows (at the size it takes on a 390 px phone and
-// the narrowest width of each larger breakpoint), and then it takes its own height.
+// height is reserved only while the skeleton shows, at the height it measures from each listed
+// width (covering the common phone and tablet widths exactly), and then it takes its own height.
+// Re-measure (the discussion's height at each width) whenever its copy or layout changes.
 const BUILDER_HEIGHT = 'h-[800px] md:h-[608px] lg:h-[660px]';
-const DISCUSSION_HEIGHT = 'has-[>[data-skeleton]]:min-h-[927px] sm:has-[>[data-skeleton]]:min-h-[677px] md:has-[>[data-skeleton]]:min-h-[518px] lg:has-[>[data-skeleton]]:min-h-[387px]';
+const DISCUSSION_HEIGHT =
+  'has-[>[data-skeleton]]:min-h-[1001px] min-[359px]:has-[>[data-skeleton]]:min-h-[950px] min-[379px]:has-[>[data-skeleton]]:min-h-[927px] min-[410px]:has-[>[data-skeleton]]:min-h-[885px] min-[414px]:has-[>[data-skeleton]]:min-h-[824px] min-[419px]:has-[>[data-skeleton]]:min-h-[805px] min-[434px]:has-[>[data-skeleton]]:min-h-[776px] min-[462px]:has-[>[data-skeleton]]:min-h-[715px] min-[498px]:has-[>[data-skeleton]]:min-h-[681px] min-[640px]:has-[>[data-skeleton]]:min-h-[677px] min-[712px]:has-[>[data-skeleton]]:min-h-[630px] min-[768px]:has-[>[data-skeleton]]:min-h-[518px] min-[802px]:has-[>[data-skeleton]]:min-h-[434px] min-[882px]:has-[>[data-skeleton]]:min-h-[411px] min-[960px]:has-[>[data-skeleton]]:min-h-[387px] min-[1062px]:has-[>[data-skeleton]]:min-h-[383px]';
 // Labels the builder takes from the copy deck (passed in, so its chunk does not import it).
 const LABELS = { tree: C.items[0].title, tabs: 'Claims builder' };
 
