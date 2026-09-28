@@ -101,46 +101,6 @@ export const ChronologyLens = () => {
           </div>
           <div className="col-span-12 mt-10 lg:col-span-7 lg:mt-0">
             <div className="lg:sticky lg:top-24">
-              {/* Mobile/Tablet Quick Stage Selector */}
-              <div className="lg:hidden mb-3 flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 text-xs font-mono">
-                <span className="text-[10px] text-graphite uppercase tracking-wider font-semibold shrink-0 mr-1">
-                  Stage:
-                </span>
-                {[
-                  { label: 'Auto Scan', step: null, isLive: true },
-                  { label: '1. Ingest', step: 0 },
-                  { label: '2. Threads', step: 2 },
-                  { label: '3. Near-Dupes', step: 3 },
-                  { label: '4. Dispute', step: 4 },
-                  { label: '5. Exhibits', step: 5 },
-                ].map((tab) => {
-                  const isSelected = activeStep === tab.step;
-                  return (
-                    <button
-                      key={tab.label}
-                      type="button"
-                      onClick={(e) => {
-                        setActiveStep(tab.step);
-                        if (e.currentTarget && typeof e.currentTarget.scrollIntoView === 'function') {
-                          e.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                        }
-                      }}
-                      className={cn(
-                        'shrink-0 px-2.5 py-1 rounded-full border text-[11px] font-medium transition-all duration-150 flex items-center gap-1 min-h-[32px] cursor-pointer',
-                        isSelected
-                          ? 'bg-[#0B2516] text-[#FCFAF5] border-[#0B2516] shadow-xs'
-                          : 'bg-[#FCFAF5] text-[#1A2721] border-[#D1C7B7] hover:bg-[#F4EFE6]'
-                      )}
-                    >
-                      {tab.isLive && (
-                        <span className={cn('w-1.5 h-1.5 rounded-full inline-block', isSelected ? 'bg-[#10B981] animate-pulse' : 'bg-[#10B981]')} />
-                      )}
-                      {tab.label}
-                    </button>
-                  );
-                })}
-              </div>
-
               <Plate
                 src={MEDIA.archiveAisle.src}
                 drawing={ArchiveField}
