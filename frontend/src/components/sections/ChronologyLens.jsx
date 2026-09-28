@@ -1,4 +1,4 @@
-import { lazy } from 'react';
+import { lazy, useState } from 'react';
 import { ChapterHeader } from '@/components/editorial/ChapterHeader';
 import { FailRecover } from '@/components/editorial/FailRecover';
 import { Figure } from '@/components/editorial/Figure';
@@ -10,6 +10,7 @@ import { FrameSkeleton } from '@/components/workbench/FrameSkeleton';
 import { ChronologyLens as LensGlyph, EmailArchive, ExcludedProject, NearDuplicate, QuoteFold, Thread } from '@/components/icons';
 import { CHAPTERS, LENS_CHAPTER as C } from '@/content/home';
 import { MEDIA } from '@/content/media';
+import { cn } from '@/lib/utils';
 
 const ArchiveField = lazy(() => import(/* webpackChunkName: "plate-archive" */ '@/components/plates/ArchiveField').then((m) => ({ default: m.ArchiveField })));
 const LensWorkbench = lazy(() => import(/* webpackChunkName: "workbench" */ '@/components/mock/LensWorkbench').then((m) => ({ default: m.LensWorkbench })));
@@ -32,57 +33,72 @@ const FIG_HEIGHT =
 const GLYPHS = { EmailArchive, Thread, QuoteFold, NearDuplicate, ExcludedProject, ChronologyLens: LensGlyph };
 
 // A glyph in the list's margin, by the name the copy deck gives it.
-const Glyph = ({ name }) => {
+const Glyph = ({ name, active = false }) => {
   const Icon = GLYPHS[name];
-  return Icon ? <Icon className="absolute left-0 top-[1.375rem] text-azure-700" /> : null;
+  return Icon ? <Icon className={cn('absolute left-0 top-[1.375rem] transition-colors', active ? 'text-forest-700' : 'text-azure-700')} /> : null;
 };
 
 // The six operations as a ruled list, each with its domain glyph in the margin.
-const Operations = () => (
+const Operations = ({ activeStep, onHoverStep }) => (
   <dl className="max-w-measure border-t border-rule">
     {C.items
       .filter((item) => isShown(item.gate))
-      .map((item) => (
-        <div key={item.title} className="relative border-b border-rule py-5 pl-11 sm:pl-12">
-          <dt className="font-display text-[1.3125rem] font-medium leading-snug text-navy">
-            <Glyph name={item.icon} />
-            {item.title}
-          </dt>
-          <dd className="mt-1.5 text-body text-ink">{item.gate ? <Gated id={item.gate}>{item.text}</Gated> : item.text}</dd>
-        </div>
-      ))}
+      .map((item, index) => {
+        const isHovered = activeStep === index;
+        return (
+          <div
+            key={item.title}
+            onMouseEnter={() => onHoverStep && onHoverStep(index)}
+            onMouseLeave={() => onHoverStep && onHoverStep(null)}
+            className={cn(
+              'relative border-b border-rule py-5 pl-11 sm:pl-12 transition-all duration-200 cursor-pointer rounded-sm',
+              isHovered ? 'bg-[#F2ECE1]/80 shadow-xs' : 'hover:bg-[#F2ECE1]/40'
+            )}
+          >
+            <dt className={cn('font-display text-[1.3125rem] font-medium leading-snug transition-colors', isHovered ? 'text-forest-900 font-semibold' : 'text-navy')}>
+              <Glyph name={item.icon} active={isHovered} />
+              {item.title}
+            </dt>
+            <dd className="mt-1.5 text-body text-ink">{item.gate ? <Gated id={item.gate}>{item.text}</Gated> : item.text}</dd>
+          </div>
+        );
+      })}
   </dl>
 );
 
 // Chapter II: ingestion, threading, quoted text and noise, then the Lens workbench (Fig. 3).
-export const ChronologyLens = () => (
-  <section id="chronology-lens" aria-labelledby="chronology-lens-title" className="bg-parchment py-16 md:py-24 lg:py-32">
-    <div className="container">
-      <ChapterHeader id="chronology-lens" numeral={C.numeral} title={C.h2} lead={C.lead} />
+export const ChronologyLens = () => {
+  const [activeStep, setActiveStep] = useState(null);
 
-      <div className="mt-12 grid grid-cols-12 gap-x-6">
-        <FailRecover fail={C.fail} recover={C.recover} recoverGate={C.recoverGate} className="col-span-12 lg:col-span-9 lg:col-start-3 xl:col-span-8 xl:col-start-3" />
-      </div>
+  return (
+    <section id="chronology-lens" aria-labelledby="chronology-lens-title" className="bg-parchment py-16 md:py-24 lg:py-32">
+      <div className="container">
+        <ChapterHeader id="chronology-lens" numeral={C.numeral} title={C.h2} lead={C.lead} />
 
-      <div className="mt-14 grid grid-cols-12 gap-x-8 items-start lg:mt-16">
-        <div className="col-span-12 lg:col-span-5">
-          <Operations />
+        <div className="mt-12 grid grid-cols-12 gap-x-6">
+          <FailRecover fail={C.fail} recover={C.recover} recoverGate={C.recoverGate} className="col-span-12 lg:col-span-9 lg:col-start-3 xl:col-span-8 xl:col-start-3" />
         </div>
-        <div className="col-span-12 mt-10 lg:col-span-7 lg:mt-0">
-          <div className="lg:sticky lg:top-24">
-            <Plate
-              src={MEDIA.archiveAisle.src}
-              drawing={ArchiveField}
-              lqip={MEDIA.archiveAisle.lqip}
-              ratio={MEDIA.archiveAisle.ratio}
-              sizes="(min-width: 1280px) 720px, (min-width: 1024px) 58vw, 100vw"
-              alt={MEDIA.archiveAisle.src ? C.plate.alt : C.plate.drawn.alt}
-              caption={MEDIA.archiveAisle.src ? C.plate.caption : C.plate.drawn.caption}
-              frameClassName="shadow-xl rounded-sm border border-rule/60"
-            />
+
+        <div className="mt-14 grid grid-cols-12 gap-x-8 items-start lg:mt-16">
+          <div className="col-span-12 lg:col-span-5">
+            <Operations activeStep={activeStep} onHoverStep={setActiveStep} />
+          </div>
+          <div className="col-span-12 mt-10 lg:col-span-7 lg:mt-0">
+            <div className="lg:sticky lg:top-24">
+              <Plate
+                src={MEDIA.archiveAisle.src}
+                drawing={ArchiveField}
+                drawingProps={{ activeStep, onSelectStep: setActiveStep }}
+                lqip={MEDIA.archiveAisle.lqip}
+                ratio={MEDIA.archiveAisle.ratio}
+                sizes="(min-width: 1280px) 720px, (min-width: 1024px) 58vw, 100vw"
+                alt={MEDIA.archiveAisle.src ? C.plate.alt : C.plate.drawn.alt}
+                caption={MEDIA.archiveAisle.src ? C.plate.caption : C.plate.drawn.caption}
+                frameClassName="shadow-xl rounded-sm border border-rule/60"
+              />
+            </div>
           </div>
         </div>
-      </div>
 
       <div className="mt-16 grid grid-cols-12 gap-x-6 lg:mt-20">
         <Figure summary={C.fig.summary} caption={C.fig.caption} className="col-span-12 xl:col-span-10 xl:col-start-3">
@@ -99,4 +115,6 @@ export const ChronologyLens = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
+

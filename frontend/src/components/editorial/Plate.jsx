@@ -26,6 +26,7 @@ export const Plate = ({
   frameClassName,
   captionClassName,
   onInk = false,
+  drawingProps = {},
 }) => {
   const [loaded, setLoaded] = useState(false);
   if (!src && !Drawing && !IS_PREVIEW) return null;
@@ -53,7 +54,7 @@ export const Plate = ({
           </picture>
         ) : drawn ? (
           <LazyMount className="absolute inset-0" rootMargin="400px 0px" skeleton={<div className="absolute inset-0" aria-hidden="true" />}>
-            <Drawing label={alt} />
+            <Drawing label={alt} {...drawingProps} />
           </LazyMount>
         ) : (
           <div className="vc-plate-standin absolute inset-0" role="img" aria-label={alt} data-gate="G10" />
