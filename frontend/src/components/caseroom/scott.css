@@ -1,0 +1,235 @@
+/* Fig. 8, Rebuttal Mode as a Scott Schedule. Below 1280 px each paragraph of the Response is a
+   card: Response, then Reply, then Evidence, then the Decision. From 1280 px it is a ruled
+   schedule in three columns, Response, Proposed reply and Evidence, with each decision (its stamp
+   and one segmented group of Accept, Edit and Reject) under the reply it decides, so the reply
+   has the width. The table keeps its roles and its four cells a row throughout, so it is still
+   read as a table. Loaded with the schedule's chunk. */
+
+.cr-scott { position: relative; display: block; width: 100%; font-size: 0.9375rem; line-height: 1.55; color: var(--vc-ink); }
+.cr-scott-caption {
+  display: block;
+  padding: 0 0 0.875rem;
+  text-align: left;
+  font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif;
+  font-size: 1.1875rem;
+  line-height: 1.3;
+  color: var(--vc-navy);
+}
+.cr-scott td { vertical-align: top; }
+.cr-row.is-suggested td { background: rgb(236 228 211 / 0.35); }
+
+/* Labels for each cell, shown only when the rows are cards. */
+.cr-label {
+  display: none;
+  margin-bottom: 0.375rem;
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vc-graphite);
+}
+.cr-mini {
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vc-graphite);
+}
+.cr-suggested { margin-bottom: 0.375rem; color: var(--vc-brass-700); }
+
+/* Response: the paragraph number in mono, the Employer's words in italic. */
+.cr-para { font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-weight: 500; font-size: 0.8125rem; color: var(--vc-brass-700); }
+.cr-response-text { margin-top: 0.25rem; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-style: italic; font-size: 1.0625rem; line-height: 1.5; color: var(--vc-navy); }
+
+/* Proposed reply */
+.cr-text { position: relative; }
+.cr-text .ev-chip { vertical-align: 0.05em; }
+/* A citation and the punctuation after it never part at a line end; after a closing citation
+   the punctuation is its own box, so the strike-through over a rejected reply stops at the chip. */
+.cr-cite { white-space: nowrap; }
+.cr-cite-end { display: inline-block; }
+.cr-text.is-rejected { color: var(--vc-graphite); }
+.cr-text.is-fresh { animation: cr-fade 200ms var(--ease-settle) both; }
+/* A blackline: inserted words double-underlined (so they never read as links), deleted ones struck. */
+.cr-ins { text-decoration-line: underline; text-decoration-style: double; text-decoration-color: var(--vc-azure-500); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.cr-del { text-decoration-line: line-through; text-decoration-color: var(--vc-graphite); }
+/* The strike-through is drawn over the text, left to right, when a point is newly rejected. */
+.cr-strike {
+  position: absolute;
+  inset: 0;
+  color: transparent;
+  text-decoration-line: line-through;
+  text-decoration-color: var(--vc-graphite);
+  text-decoration-thickness: 1.5px;
+  pointer-events: none;
+  transform-origin: left center;
+}
+.cr-strike .ev-chip { color: transparent; background: transparent; border-color: transparent; }
+.cr-strike.is-drawing { animation: cr-strike 300ms var(--ease-settle) both; }
+.cr-before { margin-top: 0.875rem; padding-left: 0.75rem; border-left: 2px solid var(--vc-rule); }
+.cr-before-text { margin-top: 0.25rem; font-size: 0.875rem; line-height: 1.5; color: var(--vc-graphite); }
+.cr-reason { margin-top: 0.75rem; font-size: 0.875rem; line-height: 1.5; color: var(--vc-ink); }
+.cr-audit { margin-top: 0.875rem; font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-size: 0.8125rem; line-height: 1.45; color: var(--vc-graphite); }
+.cr-audit li + li { margin-top: 0.25rem; }
+.cr-audit-demo { animation: cr-fade 200ms var(--ease-settle) both; }
+
+/* Editing */
+.cr-field {
+  display: block;
+  width: 100%;
+  min-height: 9.5rem;
+  padding: 0.5rem 0.625rem;
+  font: inherit;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--vc-ink);
+  background: #fff;
+  border: 1px solid var(--vc-rule-strong);
+  border-radius: 2px;
+  resize: vertical;
+}
+.cr-field[aria-invalid='true'] { border-color: var(--vc-signal); box-shadow: inset 0 0 0 1px var(--vc-signal); }
+.cr-hint { display: flex; gap: 0.375rem; margin-top: 0.5rem; font-size: 0.8125rem; line-height: 1.45; color: var(--vc-graphite); }
+.cr-hint.is-error { color: var(--vc-signal); font-weight: 500; }
+.cr-edit-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+
+/* Evidence, ranked */
+.cr-ranked { display: grid; gap: 0.875rem; }
+.cr-ranked-item { display: grid; grid-template-columns: 1.125rem minmax(0, 1fr); gap: 0.375rem; }
+.cr-rank { padding-top: 0.25rem; font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-weight: 500; font-size: 0.8125rem; color: var(--vc-brass-700); }
+.cr-ranked-head { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.5rem; }
+.cr-ranked-date { font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-size: 0.75rem; color: var(--vc-graphite); }
+.cr-reasons { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.375rem; }
+.cr-reasons .chip { padding: 0.2rem 0.45rem; }
+.cr-reasons .chip-value { font-size: 0.8125rem; }
+
+/* Decision: the stamp, then Accept, Edit and Reject as one segmented group */
+.cr-decide { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1rem; }
+.cr-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.2rem 0.5rem;
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.cr-stamp.is-accepted { color: var(--vc-ink); transform: rotate(-2deg); }
+.cr-stamp.is-edited { color: var(--vc-azure-700); }
+.cr-stamp.is-rejected { color: var(--vc-signal); }
+.cr-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  min-height: 2rem;
+  padding: 0.25rem 0.625rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.2;
+  color: var(--vc-navy);
+  background: var(--vc-paper);
+  border: 1px solid var(--vc-rule-strong);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 150ms var(--ease-settle), border-color 150ms var(--ease-settle);
+}
+.cr-btn:hover { background: var(--vc-parchment-300); border-color: var(--vc-navy); }
+.cr-btn.is-primary { color: #fff; background: var(--vc-azure-700); border-color: var(--vc-azure-700); }
+.cr-btn.is-primary:hover { background: var(--vc-navy); border-color: var(--vc-navy); }
+.cr-btn-icon { flex: none; width: 1rem; height: 1rem; }
+/* The group: one hairline box with a rule between its segments. A focused segment rises above its
+   neighbours, so its ring is never covered. */
+.cr-controls { display: inline-grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); background: var(--vc-paper); border: 1px solid var(--vc-rule-strong); border-radius: 2px; }
+.cr-controls .cr-btn { justify-content: center; min-width: 0; border: 0; border-radius: 0; }
+.cr-controls .cr-btn + .cr-btn { border-left: 1px solid var(--vc-rule-strong); }
+.cr-controls .cr-btn:hover { border-color: var(--vc-rule-strong); }
+.cr-controls .cr-btn:focus-visible { position: relative; z-index: 1; }
+
+@keyframes cr-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes cr-strike { from { transform: scaleX(0); } to { transform: none; } }
+
+/* Cards below 1280 px: Response, then Reply, then Evidence, then the Decision. */
+@media (max-width: 1279px) {
+  .cr-scott tbody, .cr-scott tr, .cr-scott td { display: block; }
+  .cr-scott thead { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .cr-point { background: var(--vc-paper); border: 1px solid var(--vc-rule-strong); border-radius: 2px; }
+  .cr-point + .cr-point { margin-top: 1rem; }
+  .cr-scott td { padding: 0.875rem 0.875rem 1rem; border-bottom: 1px solid var(--vc-rule); }
+  .cr-scott .cr-point tr:last-child td:last-child { border-bottom: 0; }
+  .cr-label { display: block; }
+  .cr-response { background: var(--vc-parchment-300); }
+  /* The group takes the card's width, in three equal segments; every control is a 44 px target. */
+  .cr-controls { flex: 1 1 100%; }
+  .cr-btn { min-height: 44px; padding-inline: 0.875rem; }
+  .cr-controls .cr-btn { padding-inline: 0.5rem; }
+}
+/* On a wide card the evidence runs in two columns and the text keeps a reading measure. */
+@media (min-width: 640px) and (max-width: 1279px) {
+  .cr-scott td { padding: 1rem 1.25rem 1.125rem; }
+  .cr-response-text, .cr-text, .cr-before, .cr-reason, .cr-audit { max-width: 40rem; }
+  .cr-ranked { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 1.5rem; }
+  .cr-controls { flex: none; grid-auto-columns: minmax(6.5rem, 1fr); }
+  .cr-controls .cr-btn { padding-inline: 0.875rem; }
+}
+/* On the narrowest screens the words carry the controls, so the three segments fit. */
+@media (max-width: 359px) {
+  .cr-controls .cr-btn-icon { display: none; }
+}
+
+/* The schedule from 1280 px: three columns on a grid, the table's rows laid on shared tracks
+   (a reply, its decision, a suggested reply, its decision, then whatever the Response or the
+   Evidence needs beyond them), so each decision sits under its reply and a long Response or
+   Evidence cell never opens a gap between a reply and its decision. */
+@media (min-width: 1280px) {
+  .cr-scott { --cr-cols: 24% 46% 30%; }
+  .cr-scott thead, .cr-point { display: grid; grid-template-columns: var(--cr-cols); }
+  .cr-scott thead tr { display: grid; grid-column: 1 / -1; grid-template-columns: subgrid; }
+  .cr-scott thead th {
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+    font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.3;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--vc-graphite);
+    background: var(--vc-parchment-300);
+    border-top: 1px solid var(--vc-rule-strong);
+    border-bottom: 1px solid var(--vc-rule-strong);
+  }
+  .cr-scott thead th + th { border-left: 1px solid var(--vc-rule); }
+  /* The Decision heading is still read with each decision cell; on screen each decision sits
+     under its reply, and its stamp names it. */
+  .cr-scott thead th:last-child { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  .cr-point { grid-template-rows: repeat(4, auto) 1fr; border-bottom: 1px solid var(--vc-rule); }
+  .cr-point:last-of-type { border-bottom-color: var(--vc-rule-strong); }
+  .cr-point > tr { display: grid; grid-column: 1 / -1; grid-row: 1 / -1; grid-template-columns: subgrid; grid-template-rows: subgrid; }
+  .cr-point > tr + tr { grid-row: 3 / -1; }
+  .cr-scott td { padding: 1rem 0.75rem 1.125rem; }
+  .cr-response { grid-column: 1; grid-row: 1 / -1; }
+  .cr-evidence { grid-column: 3; grid-row: 1 / -1; border-left: 1px solid var(--vc-rule); }
+  .cr-reply, .cr-decision { grid-column: 2; border-left: 1px solid var(--vc-rule); }
+  .cr-reply { grid-row: 1; }
+  .cr-scott .cr-reply { padding-bottom: 0.875rem; }
+  .cr-decision { grid-row: 2; }
+  .cr-scott .cr-decision { padding-top: 0; }
+  .cr-point > tr:last-child > .cr-decision { grid-row: 2 / -1; }
+  .cr-point > tr + tr > .cr-reply { border-top: 1px solid var(--vc-rule); }
+  .cr-decide { justify-content: space-between; padding-top: 0.75rem; border-top: 1px dashed var(--vc-rule); }
+  .cr-controls { grid-auto-columns: auto; }
+  .cr-controls .cr-btn { min-height: 2.25rem; padding-inline: 0.625rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cr-text.is-fresh, .cr-audit-demo, .cr-strike.is-drawing { animation: none; }
+}

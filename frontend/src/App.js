@@ -1,44 +1,56 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider } from '@/context/AuthContext';
-import { Toaster } from '@/components/ui/sonner';
+import { Suspense, lazy, useEffect, useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LandingPage } from '@/pages/LandingPage';
-import { Login } from '@/pages/Login';
-import { useEffect } from 'react';
+import { Cookies } from '@/pages/Cookies';
+import { NotFound } from '@/pages/NotFound';
+import { SIGN_IN_URL } from '@/lib/site';
 
-// Component to handle external redirect to Egnyte
-const ExternalRedirect = ({ url }) => {
+// Neither renders anything before hydration, so both load as their own chunks once the page
+// has mounted (rendering a lazy component during the prerender would leave a client-only
+// boundary for hydration to report).
+const CookieConsent = lazy(() => import('@/components/CookieConsent').then((m) => ({ default: m.CookieConsent })));
+const Toaster = lazy(() => import('@/components/ui/sonner').then((m) => ({ default: m.Toaster })));
+
+// The routes the site serves. index.html uses the same list to decide whether the prerendered
+// markup belongs to the page being opened (see public/index.html and src/index.js).
+export const KNOWN_ROUTES = ['/', '/login', '/cookies', '/fileserver', '/Fileserver'];
+
+// Hands the visitor on to the app's sign-in page or the file server.
+const ExternalRedirect = ({ url, label }) => {
   useEffect(() => {
     window.location.href = url;
   }, [url]);
-  
+
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-50">
-      <div className="text-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-600 mx-auto mb-4"></div>
-        <p className="text-gray-600">Redirecting to File Server...</p>
+    <div className="flex min-h-screen items-center justify-center bg-parchment">
+      <div className="text-center" role="status">
+        <div className="mx-auto mb-4 h-10 w-10 animate-spin rounded-full border-2 border-rule border-t-azure-500" aria-hidden="true" />
+        <p className="text-caption text-graphite">{label}</p>
       </div>
     </div>
   );
 };
 
-function App() {
+// The router is injected so that the build can prerender with a StaticRouter.
+function App({ Router = BrowserRouter, routerProps = {} }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   return (
-    <Router>
-      <AuthProvider>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route 
-            path="/Fileserver" 
-            element={<ExternalRedirect url="https://files.veri-case.com" />} 
-          />
-          <Route 
-            path="/fileserver" 
-            element={<ExternalRedirect url="https://files.veri-case.com" />} 
-          />
-        </Routes>
-        <Toaster />
-      </AuthProvider>
+    <Router {...routerProps}>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<ExternalRedirect url={SIGN_IN_URL} label="Redirecting to sign in…" />} />
+        <Route path="/cookies" element={<Cookies />} />
+        <Route path="/Fileserver" element={<ExternalRedirect url="https://files.veri-case.com" label="Redirecting to the file server…" />} />
+        <Route path="/fileserver" element={<ExternalRedirect url="https://files.veri-case.com" label="Redirecting to the file server…" />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      {mounted && (
+        <Suspense fallback={null}>
+          <CookieConsent />
+          <Toaster position="bottom-center" offset="calc(var(--consent-h, 0px) + 16px)" />
+        </Suspense>
+      )}
     </Router>
   );
 }

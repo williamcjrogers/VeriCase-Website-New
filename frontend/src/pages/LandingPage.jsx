@@ -1,27 +1,47 @@
-import { Navigation } from '@/components/sections/Navigation';
+import { useEffect } from 'react';
+import { SiteHeader } from '@/components/sections/SiteHeader';
 import { Hero } from '@/components/sections/Hero';
-import { EvidenceGap } from '@/components/sections/EvidenceGap';
-import { Collaboration } from '@/components/sections/Collaboration';
-import { Difference } from '@/components/sections/Difference';
-import { EvidenceHub } from '@/components/sections/EvidenceHub';
-import { HowItWorks } from '@/components/sections/HowItWorks';
-import { Accessible } from '@/components/sections/Accessible';
+import { TheClock } from '@/components/sections/TheClock';
+import { ChronologyLens } from '@/components/sections/ChronologyLens';
+import { Research } from '@/components/sections/Research';
+import { ClaimsBuilder } from '@/components/sections/ClaimsBuilder';
+import { CaseRoom } from '@/components/sections/CaseRoom';
+import { RecordIntegrity } from '@/components/sections/RecordIntegrity';
+import { InBrief } from '@/components/sections/InBrief';
+import { Founder } from '@/components/sections/Founder';
+import { Demonstration } from '@/components/sections/Demonstration';
+import { Notes } from '@/components/sections/Notes';
 import { SiteFooter } from '@/components/sections/SiteFooter';
+import { SourceSheetProvider } from '@/components/mock/SourceSheet';
+import { focusSection } from '@/lib/navigate';
 
+// The home page: a cover, six chapters and the end matter. CookieConsent and the Toaster are
+// mounted once in App.js.
 export const LandingPage = () => {
+  // Arriving with a hash (for example /#research from another page): go to the section and
+  // move focus to its heading.
+  useEffect(() => {
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    if (id) requestAnimationFrame(() => focusSection(id, { smooth: false }));
+  }, []);
+
   return (
-    <>
-      <Navigation />
-      <main>
+    <SourceSheetProvider>
+      <SiteHeader />
+      <main id="main" tabIndex={-1} className="outline-none">
         <Hero />
-        <EvidenceGap />
-        <Collaboration />
-        <Difference />
-        <EvidenceHub />
-        <HowItWorks />
-        <Accessible />
+        <TheClock />
+        <ChronologyLens />
+        <Research />
+        <ClaimsBuilder />
+        <CaseRoom />
+        <RecordIntegrity />
+        <InBrief />
+        <Founder />
+        <Demonstration />
+        <Notes />
       </main>
       <SiteFooter />
-    </>
+    </SourceSheetProvider>
   );
 };

@@ -1,0 +1,337 @@
+{
+  "_comment": "Fictional sample matter for the website demonstrations (JCT Design and Build Contract 2016, with a fictional amendment to clause 2.24). Every party, date, document, message ID and exhibit reference is fictional. canonical is the exact text that is hashed (NFC, UTF-8, LF, no trailing newline).",
+  "matter": {
+    "title": "Example Contractor Ltd and Example Employer Ltd",
+    "contract": "JCT Design and Build Contract 2016, with the Employer’s amendments",
+    "reference": "VC-SAMPLE-01"
+  },
+  "parties": {
+    "ea": {
+      "role": "Employer’s Agent",
+      "org": "Example Agency LLP",
+      "email": "ea.lead@agent.example",
+      "side": "Employer"
+    },
+    "dm": {
+      "role": "Design Manager",
+      "org": "Example Contractor Ltd",
+      "email": "design.manager@contractor.example",
+      "side": "Contractor"
+    },
+    "sm": {
+      "role": "Site Manager",
+      "org": "Example Contractor Ltd",
+      "email": "site.manager@contractor.example",
+      "side": "Contractor"
+    },
+    "cm": {
+      "role": "Commercial Manager",
+      "org": "Example Contractor Ltd",
+      "email": "commercial.manager@contractor.example",
+      "side": "Contractor"
+    },
+    "pm": {
+      "role": "Package Manager",
+      "org": "Example Façades Ltd (the Façade Sub-Contractor)",
+      "email": "package.manager@facade-sub.example",
+      "side": "Façade Sub-Contractor"
+    },
+    "so": {
+      "role": "Sales Office",
+      "org": "Example Fixings Ltd (the Supplier)",
+      "email": "sales@fixings.example",
+      "side": "Supplier"
+    }
+  },
+  "records": [
+    {
+      "id": "EV-0131",
+      "kind": "email",
+      "date": "2025-03-03",
+      "time": "09:14",
+      "from": "ea",
+      "to": [
+        "dm"
+      ],
+      "cc": [
+        "sm"
+      ],
+      "subject": "Instruction: bracket type B, Levels 3 to 6",
+      "authored": "Following the Employer’s review of the façade samples, the Employer requires stainless steel brackets (type B) in place of aluminium brackets (type A) for the cladding support on Levels 3 to 6. Please proceed with bracket type B. This is an instruction requiring a Change.",
+      "quoted": [],
+      "attachments": [],
+      "messageId": "<20250303091412.4f2a@agent.example>",
+      "custodian": "Design Manager",
+      "sourcePath": "Archive_DesignManager.pst/Inbox/Employer’s Agent",
+      "partiesLabel": "Employer’s Agent to Contractor",
+      "excerpt": "Please proceed with bracket type B. This is an instruction requiring a Change.",
+      "description": "Instruction: bracket type B",
+      "short": "Change instructed",
+      "canonical": "From: Employer's Agent <ea.lead@agent.example>\nTo: Design Manager <design.manager@contractor.example>\nCc: Site Manager <site.manager@contractor.example>\nDate: 03 March 2025, 09:14\nSubject: Instruction: bracket type B, Levels 3 to 6\nMessage-ID: <20250303091412.4f2a@agent.example>\n\nFollowing the Employer's review of the façade samples, the Employer requires stainless steel brackets (type B) in place of aluminium brackets (type A) for the cladding support on Levels 3 to 6. Please proceed with bracket type B. This is an instruction requiring a Change."
+    },
+    {
+      "id": "EV-0133",
+      "kind": "email",
+      "date": "2025-03-05",
+      "time": "10:02",
+      "from": "dm",
+      "to": [
+        "pm"
+      ],
+      "cc": [],
+      "subject": "RE: Instruction: bracket type B, Levels 3 to 6",
+      "authored": "The Employer’s Agent has instructed a Change to bracket type B on Levels 3 to 6. Please price it and confirm the lead time.",
+      "quoted": [
+        {
+          "from": "ea",
+          "date": "2025-03-03",
+          "time": "09:14",
+          "text": "Following the Employer’s review of the façade samples, the Employer requires stainless steel brackets (type B) in place of aluminium brackets (type A) for the cladding support on Levels 3 to 6. Please proceed with bracket type B. This is an instruction requiring a Change."
+        }
+      ],
+      "attachments": [],
+      "messageId": "<20250305100233.91bc@contractor.example>",
+      "custodian": "Design Manager",
+      "sourcePath": "Archive_DesignManager.pst/Sent Items",
+      "partiesLabel": "Contractor to Façade Sub-Contractor",
+      "excerpt": "Please price it and confirm the lead time.",
+      "description": "Change passed to the Façade Sub-Contractor",
+      "short": "Change priced",
+      "canonical": "From: Design Manager <design.manager@contractor.example>\nTo: Package Manager <package.manager@facade-sub.example>\nDate: 05 March 2025, 10:02\nSubject: RE: Instruction: bracket type B, Levels 3 to 6\nMessage-ID: <20250305100233.91bc@contractor.example>\n\nThe Employer's Agent has instructed a Change to bracket type B on Levels 3 to 6. Please price it and confirm the lead time."
+    },
+    {
+      "id": "EV-0138",
+      "kind": "email",
+      "date": "2025-03-12",
+      "time": "16:42",
+      "from": "pm",
+      "to": [
+        "sm"
+      ],
+      "cc": [
+        "dm"
+      ],
+      "subject": "RE: RE: Instruction: bracket type B, Levels 3 to 6",
+      "authored": "Stainless brackets are ten weeks from order. Cladding to Levels 3 to 6 cannot start until they arrive. We will confirm a delivery date once the supplier has the order.",
+      "quoted": [
+        {
+          "from": "dm",
+          "date": "2025-03-05",
+          "time": "10:02",
+          "text": "The Employer’s Agent has instructed a Change to bracket type B on Levels 3 to 6. Please price it and confirm the lead time."
+        },
+        {
+          "from": "ea",
+          "date": "2025-03-03",
+          "time": "09:14",
+          "text": "Please proceed with bracket type B. This is an instruction requiring a Change."
+        }
+      ],
+      "attachments": [],
+      "messageId": "<20250312164207.7c1d@facade-sub.example>",
+      "custodian": "Site Manager",
+      "sourcePath": "Archive_SiteManager.pst/Inbox/Façade",
+      "partiesLabel": "Façade Sub-Contractor to Contractor",
+      "excerpt": "Stainless brackets are ten weeks from order.",
+      "description": "Lead time for type B",
+      "short": "Lead time given",
+      "canonical": "From: Package Manager <package.manager@facade-sub.example>\nTo: Site Manager <site.manager@contractor.example>\nCc: Design Manager <design.manager@contractor.example>\nDate: 12 March 2025, 16:42\nSubject: RE: RE: Instruction: bracket type B, Levels 3 to 6\nMessage-ID: <20250312164207.7c1d@facade-sub.example>\n\nStainless brackets are ten weeks from order. Cladding to Levels 3 to 6 cannot start until they arrive. We will confirm a delivery date once the supplier has the order."
+    },
+    {
+      "id": "EV-0139",
+      "kind": "email",
+      "date": "2025-03-13",
+      "time": "07:55",
+      "from": "sm",
+      "to": [
+        "cm"
+      ],
+      "cc": [],
+      "subject": "FW: RE: RE: Instruction: bracket type B, Levels 3 to 6",
+      "authored": "If ten weeks is right we lose the cladding window. Can we get a firm date before we notify?",
+      "quoted": [
+        {
+          "from": "pm",
+          "date": "2025-03-12",
+          "time": "16:42",
+          "text": "Stainless brackets are ten weeks from order. Cladding to Levels 3 to 6 cannot start until they arrive. We will confirm a delivery date once the supplier has the order."
+        },
+        {
+          "from": "dm",
+          "date": "2025-03-05",
+          "time": "10:02",
+          "text": "The Employer’s Agent has instructed a Change to bracket type B on Levels 3 to 6. Please price it and confirm the lead time."
+        },
+        {
+          "from": "ea",
+          "date": "2025-03-03",
+          "time": "09:14",
+          "text": "Please proceed with bracket type B. This is an instruction requiring a Change."
+        }
+      ],
+      "attachments": [],
+      "messageId": "<20250313075511.2e8a@contractor.example>",
+      "custodian": "Site Manager",
+      "sourcePath": "Archive_SiteManager.pst/Sent Items",
+      "partiesLabel": "Site Manager to Commercial Manager",
+      "excerpt": "Can we get a firm date before we notify?",
+      "description": "Site Manager to Commercial Manager",
+      "short": "Firm date sought",
+      "canonical": "From: Site Manager <site.manager@contractor.example>\nTo: Commercial Manager <commercial.manager@contractor.example>\nDate: 13 March 2025, 07:55\nSubject: FW: RE: RE: Instruction: bracket type B, Levels 3 to 6\nMessage-ID: <20250313075511.2e8a@contractor.example>\n\nIf ten weeks is right we lose the cladding window. Can we get a firm date before we notify?"
+    },
+    {
+      "id": "EV-0144",
+      "kind": "scan",
+      "date": "2025-03-21",
+      "time": null,
+      "from": "sm",
+      "to": [],
+      "cc": [],
+      "subject": "Site diary, page 41",
+      "authored": "Friday 21 March. Type A brackets returned to store. Cladding to Level 3 not started. Awaiting type B.",
+      "quoted": [],
+      "attachments": [],
+      "messageId": null,
+      "file": "Site_Diary_March_2025.pdf, page 41",
+      "custodian": "Site Manager",
+      "sourcePath": "Site records/Site_Diary_March_2025.pdf",
+      "partiesLabel": "Site diary, page 41 (OCR)",
+      "excerpt": "Type A brackets returned to store.",
+      "description": "Site diary, page 41",
+      "short": "Diary entry",
+      "ocr": true,
+      "canonical": "File: Site_Diary_March_2025.pdf, page 41\nSource: Site records/Site_Diary_March_2025.pdf\nResolved date: 21 March 2025\n\nFriday 21 March. Type A brackets returned to store. Cladding to Level 3 not started. Awaiting type B."
+    },
+    {
+      "id": "EV-0147",
+      "kind": "email",
+      "date": "2025-03-26",
+      "time": "11:20",
+      "from": "pm",
+      "to": [
+        "sm"
+      ],
+      "cc": [],
+      "subject": "FW: Order confirmation: type B brackets",
+      "authored": "Supplier confirms delivery week commencing 19 May 2025. Schedule attached.",
+      "quoted": [
+        {
+          "from": "so",
+          "to": "pm",
+          "date": "2025-03-26",
+          "time": "10:58",
+          "text": "Confirmed delivery: week commencing 19 May 2025."
+        }
+      ],
+      "attachments": [
+        "Delivery_schedule.pdf"
+      ],
+      "messageId": "<20250326112019.b3f0@facade-sub.example>",
+      "custodian": "Site Manager",
+      "sourcePath": "Archive_SiteManager.pst/Inbox/Façade",
+      "partiesLabel": "Supplier via Façade Sub-Contractor to Contractor",
+      "excerpt": "Confirmed delivery: week commencing 19 May 2025.",
+      "description": "Delivery confirmation, with schedule",
+      "short": "Delivery confirmed",
+      "canonical": "From: Package Manager <package.manager@facade-sub.example>\nTo: Site Manager <site.manager@contractor.example>\nDate: 26 March 2025, 11:20\nSubject: FW: Order confirmation: type B brackets\nMessage-ID: <20250326112019.b3f0@facade-sub.example>\n\nSupplier confirms delivery week commencing 19 May 2025. Schedule attached."
+    },
+    {
+      "id": "EV-0151",
+      "kind": "email",
+      "date": "2025-03-28",
+      "time": "15:48",
+      "from": "cm",
+      "to": [
+        "ea"
+      ],
+      "cc": [],
+      "subject": "Notice under clause 2.24: bracket type B",
+      "authored": "We give notice under clause 2.24 that the progress of the Works is likely to be delayed. The material circumstance is the Change to bracket type B instructed on 03 March 2025, which we identify as a Relevant Event. The supplier’s confirmation of delivery for the week commencing 19 May 2025 is attached. Particulars of the expected effects, with our estimate of the expected delay in completion, will follow as soon as possible.",
+      "quoted": [],
+      "attachments": [
+        "Delivery_schedule.pdf"
+      ],
+      "messageId": "<20250328154802.c7d0@contractor.example>",
+      "custodian": "Commercial Manager",
+      "sourcePath": "Archive_CommercialManager.pst/Sent Items",
+      "partiesLabel": "Contractor to Employer’s Agent",
+      "excerpt": "Notice under clause 2.24.",
+      "description": "Notice under clause 2.24",
+      "short": "Notice under clause 2.24",
+      "canonical": "From: Commercial Manager <commercial.manager@contractor.example>\nTo: Employer's Agent <ea.lead@agent.example>\nDate: 28 March 2025, 15:48\nSubject: Notice under clause 2.24: bracket type B\nMessage-ID: <20250328154802.c7d0@contractor.example>\n\nWe give notice under clause 2.24 that the progress of the Works is likely to be delayed. The material circumstance is the Change to bracket type B instructed on 03 March 2025, which we identify as a Relevant Event. The supplier's confirmation of delivery for the week commencing 19 May 2025 is attached. Particulars of the expected effects, with our estimate of the expected delay in completion, will follow as soon as possible."
+    },
+    {
+      "id": "EV-0153",
+      "kind": "email",
+      "date": "2025-04-04",
+      "time": "12:00",
+      "from": "ea",
+      "to": [
+        "cm"
+      ],
+      "cc": [],
+      "subject": "RE: Notice under clause 2.24: bracket type B",
+      "authored": "Your notice of 28 March 2025 is noted. The Employer does not accept that it was given forthwith. Clause 2.24, as amended, makes notice a condition precedent to any adjustment of the Completion Date. The Employer’s position is reserved.",
+      "quoted": [
+        {
+          "from": "cm",
+          "date": "2025-03-28",
+          "time": "15:48",
+          "text": "We give notice under clause 2.24 that the progress of the Works is likely to be delayed."
+        }
+      ],
+      "attachments": [],
+      "messageId": "<20250404120011.a9e3@agent.example>",
+      "custodian": "Commercial Manager",
+      "sourcePath": "Archive_CommercialManager.pst/Inbox",
+      "partiesLabel": "Employer’s Agent to Contractor",
+      "excerpt": "The Employer does not accept that it was given forthwith.",
+      "description": "The Employer’s position on notice",
+      "short": "Employer’s position",
+      "canonical": "From: Employer's Agent <ea.lead@agent.example>\nTo: Commercial Manager <commercial.manager@contractor.example>\nDate: 04 April 2025, 12:00\nSubject: RE: Notice under clause 2.24: bracket type B\nMessage-ID: <20250404120011.a9e3@agent.example>\n\nYour notice of 28 March 2025 is noted. The Employer does not accept that it was given forthwith. Clause 2.24, as amended, makes notice a condition precedent to any adjustment of the Completion Date. The Employer's position is reserved."
+    }
+  ],
+  "noise": [
+    {
+      "id": "N-1",
+      "kind": "autoReply",
+      "gate": "G5_autoReply",
+      "date": "2025-03-12",
+      "time": "16:43",
+      "from": "dm",
+      "text": "Automatic reply: Design Manager out of the office until 17 March 2025.",
+      "fate": "Automatic reply: hidden as noise"
+    },
+    {
+      "id": "N-2",
+      "kind": "otherProject",
+      "date": "2025-03-13",
+      "time": "09:30",
+      "from": "so",
+      "text": "Project Birch: drainage survey results",
+      "fate": "Project Birch: excluded as another project"
+    },
+    {
+      "id": "N-3",
+      "kind": "nearDuplicate",
+      "gate": "G5_nearDup",
+      "of": "EV-0131",
+      "date": "2025-03-03",
+      "time": "09:14",
+      "from": "ea",
+      "text": "The cc copy of EV-0131 in the Site Manager’s mailbox.",
+      "fate": "Near-duplicate: removed from review; original retained"
+    },
+    {
+      "id": "N-4",
+      "kind": "notRelevant",
+      "date": "2025-03-17",
+      "time": "12:05",
+      "from": "sm",
+      "text": "Weekly canteen menu",
+      "attachments": [
+        "menu.pdf"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+/* Chapter V, the case room, on ink: the cut from project time to case time, the header band,
+   the stations of the adjudication timetable and the close. (The day grid and the schedule
+   carry their own stylesheets, loaded with their chunks.) */
+
+/* The header band: the film under a flat navy scrim, or until it is approved, rain on the glass
+   drawn as hairlines at very low contrast. Without the film the band is as tall as what it
+   holds; with it, the band keeps room for the film and the header sits at its foot. */
+.cr-band { position: relative; display: flex; flex-direction: column; background: var(--vc-ink-950); }
+.cr-band.has-media { min-height: min(62vh, 600px); min-height: min(62svh, 600px); }
+.cr-band > .relative { display: flex; flex: 1 1 auto; flex-direction: column; }
+.cr-band-inner { display: flex; flex: 1 1 auto; flex-direction: column; padding-top: 1.75rem; padding-bottom: 3.5rem; }
+.cr-band.has-media .cr-band-inner { padding-bottom: 5.5rem; }
+.cr-scrim { background: rgb(14 22 48 / 0.72); }
+.cr-rain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='419' height='613'><g fill='none' stroke='%23F5F0E6' stroke-linecap='round'><path stroke-opacity='.05' d='M215 210v113M368 291v106M378 509v133M378 -104v133M47 393v116'/><path stroke-opacity='.075' d='M289 262v98M319 198v67M189 223v131M180 161v148M218 341v67M242 90v73M165 218v133M174 131v57M49 373v78M146 87v85M141 570v100M141 -43v100'/><path stroke-opacity='.1' d='M40 273v113M15 277v92M73 308v81M337 258v122M306 454v144M26 217v135M333 59v129M45 62v79M156 310v93M329 198v58M288 111v100'/><path stroke-width='2.4' stroke-opacity='.12' d='M378 29h0M73 389h0M337 380h0M306 598h0M26 352h0M333 188h0M329 256h0'/></g></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='263' height='389'><g fill='none' stroke='%23F5F0E6' stroke-linecap='round'><path stroke-opacity='.03' d='M219 275v32M176 182v22M84 372v21M84 -17v21M72 305v29M35 72v52M194 380v54M194 -9v54M75 175v50M110 268v33'/><path stroke-opacity='.045' d='M184 36v21M45 113v58M235 308v64M251 91v14M18 59v19M186 359v35M186 -30v35M94 306v62M76 207v48M184 246v22M151 19v31M139 168v26M167 351v24'/><path stroke-opacity='.06' d='M155 376v31M155 -13v31M143 281v42M34 208v45M105 211v22M82 271v16M206 332v58M206 -57v58M19 92v19M172 257v29M257 235v23M118 307v42'/></g></svg>");
+  background-size: 419px 613px, 263px 389px;
+}
+
+/* Mono labels of the chapter, in capitals set by CSS: the cut, the stations, the day reached and
+   the export counts. */
+.cr-cut-label, .cr-when, .cr-dayof, .cr-readout, .cr-export-counts {
+  font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+  color: var(--vc-mist);
+}
+.cr-cut-label, .cr-when, .cr-readout, .cr-export-counts { color: var(--vc-brass-400); }
+
+/* The cut: a brass double rule and the label "Case time", drawn once as the reader arrives. */
+.cr-cut { display: flex; align-items: center; gap: 1rem; }
+.cr-cut-label { flex: none; letter-spacing: 0.14em; }
+.cr-cut-rule { display: block; flex: 1 1 auto; width: 100%; }
+@media (min-width: 1024px) {
+  .cr-cut { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 1.5rem; }
+  .cr-cut-label { grid-column: 1 / span 2; text-align: right; }
+  .cr-cut-rule { grid-column: 3 / span 10; }
+}
+/* The kicker answers the cover's "Records, records, records.": the masthead's size (text-masthead)
+   in Newsreader italic, in parchment, one sentence to a line across columns 3 to 12. It is set
+   from the first paint and never animates; the rule above it is the cut's one reveal. */
+.cr-kicker { margin-top: 1.25rem; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-style: italic; font-weight: 400; color: var(--vc-parchment); }
+@media (min-width: 1024px) { .cr-kicker { margin-top: 1.75rem; } }
+.cr-header { padding-top: 3rem; }
+@media (min-width: 1024px) { .cr-header { padding-top: 4.5rem; } }
+.cr-band.has-media .cr-header { margin-top: auto; }
+/* Over the film or its poster every word is parchment (mist and brass are for plain ink). */
+.cr-band.has-media :is(.cr-cut-label, .ch-numeral, .ch-note) { color: var(--vc-parchment); }
+
+.cr-plate-caption { padding-top: 0.75rem; font-size: 0.875rem; line-height: 1.5; color: var(--vc-mist); }
+
+/* Stations of the timetable */
+.cr-station + .cr-station { margin-top: 5rem; }
+@media (min-width: 1024px) { .cr-station + .cr-station { margin-top: 8rem; } }
+.cr-station-heading { display: flex; flex-direction: column; gap: 0.5rem; }
+.cr-what { font-size: clamp(1.625rem, 1.4rem + 0.9vw, 2.125rem); font-weight: 500; line-height: 1.15; letter-spacing: -0.01em; }
+.cr-dayof { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; font-weight: 400; letter-spacing: 0.06em; }
+.cr-dayof-bar { position: relative; flex: none; width: 7rem; height: 2px; background: rgb(185 191 208 / 0.3); }
+.cr-dayof-bar::after { content: ''; position: absolute; inset: 0; background: var(--vc-brass-400); transform: scaleX(var(--p)); transform-origin: left; }
+@media (min-width: 1024px) { .cr-dayof { display: none; } }
+
+/* The rail holding Fig. 7 stays in view beside the stations wherever the whole figure, caption
+   included, fits beneath the header: its measured height (728 px to 1063 px wide, 681 px to
+   1279 px, 656 px from 1280 px) plus the 96 px it sits below the top. Elsewhere it scrolls. */
+@media (min-width: 1024px) and (min-height: 830px), (min-width: 1064px) and (min-height: 780px), (min-width: 1280px) and (min-height: 760px) {
+  .cr-rail { position: sticky; top: 96px; }
+}
+
+/* Fig. 7 around the grid: the day now reached, the title, the extension, the note and the caption */
+.cr-fig7 > .cr-readout { padding-bottom: 0.5rem; border-bottom: 1px solid rgb(185 191 208 / 0.28); }
+.cr-fig7-title { margin-top: 0.75rem; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-style: italic; font-size: 1.375rem; line-height: 1.25; color: var(--vc-parchment); }
+.cr-grid-mount { margin-top: 1rem; }
+.cr-ext, .cr-note { font-size: 0.8125rem; line-height: 1.5; color: var(--vc-mist); }
+.cr-ext { margin-top: 0.75rem; }
+.cr-note { margin-top: 0.625rem; }
+
+/* Each figure's caption, directly beneath it: "Fig. n. … See note A." */
+.cr-caption { max-width: 68ch; margin-top: 0.75rem; font-size: 0.875rem; line-height: 1.5; color: var(--vc-mist); }
+
+/* Fig. 8 */
+.cr-fig8 { margin-top: 2rem; }
+/* Room held for Figs. 7 and 8 while their skeletons show: each figure's mounted height, from each
+   width at which it changes (Fig. 8's text reflows, so it steps often), so the chapter keeps its
+   height when they mount and in-page jumps land where they aim. Measured in Chromium with the
+   web fonts; re-measure with verify/measure-frames.cjs whenever either figure's content or
+   layout changes. */
+.cr-grid-mount:has(> [data-skeleton]) { min-height: var(--cr-grid-h); }
+.cr-scott-mount:has(> [data-skeleton]) { min-height: var(--cr-scott-h); }
+#case-room { --cr-grid-h: 383px; --cr-scott-h: 2759px; }
+@media (min-width: 322px) { #case-room { --cr-scott-h: 2711px; } }
+@media (min-width: 337px) { #case-room { --cr-scott-h: 2687px; } }
+@media (min-width: 338px) { #case-room { --cr-scott-h: 2643px; } }
+@media (min-width: 343px) { #case-room { --cr-scott-h: 2598px; } }
+@media (min-width: 346px) { #case-room { --cr-scott-h: 2573px; } }
+@media (min-width: 362px) { #case-room { --cr-scott-h: 2547px; } }
+@media (min-width: 363px) { #case-room { --cr-scott-h: 2524px; } }
+@media (min-width: 373px) { #case-room { --cr-scott-h: 2499px; } }
+@media (min-width: 375px) { #case-room { --cr-scott-h: 2476px; } }
+@media (min-width: 394px) { #case-room { --cr-scott-h: 2453px; } }
+@media (min-width: 404px) { #case-room { --cr-scott-h: 2427px; } }
+@media (min-width: 415px) { #case-room { --cr-scott-h: 2404px; } }
+@media (min-width: 434px) { #case-room { --cr-scott-h: 2383px; } }
+@media (min-width: 448px) { #case-room { --cr-scott-h: 2364px; } }
+@media (min-width: 456px) { #case-room { --cr-scott-h: 2345px; } }
+@media (min-width: 470px) { #case-room { --cr-scott-h: 2322px; } }
+@media (min-width: 476px) { #case-room { --cr-scott-h: 2277px; } }
+@media (min-width: 488px) { #case-room { --cr-scott-h: 2252px; } }
+@media (min-width: 491px) { #case-room { --cr-scott-h: 2226px; } }
+@media (min-width: 496px) { #case-room { --cr-scott-h: 2208px; } }
+@media (min-width: 498px) { #case-room { --cr-scott-h: 2184px; } }
+@media (min-width: 502px) { #case-room { --cr-scott-h: 2140px; } }
+@media (min-width: 503px) { #case-room { --cr-scott-h: 2119px; } }
+@media (min-width: 605px) { #case-room { --cr-scott-h: 2093px; } }
+@media (min-width: 618px) { #case-room { --cr-scott-h: 2069px; } }
+@media (min-width: 640px) { #case-room { --cr-grid-h: 200px; --cr-scott-h: 1979px; } }
+@media (min-width: 649px) { #case-room { --cr-scott-h: 1954px; } }
+@media (min-width: 656px) { #case-room { --cr-scott-h: 1909px; } }
+@media (min-width: 662px) { #case-room { --cr-scott-h: 1885px; } }
+@media (min-width: 666px) { #case-room { --cr-scott-h: 1841px; } }
+@media (min-width: 682px) { #case-room { --cr-scott-h: 1816px; } }
+@media (min-width: 693px) { #case-room { --cr-scott-h: 1793px; } }
+@media (min-width: 694px) { #case-room { --cr-scott-h: 1769px; } }
+@media (min-width: 740px) { #case-room { --cr-scott-h: 1751px; } }
+@media (min-width: 772px) { #case-room { --cr-scott-h: 1732px; } }
+@media (min-width: 931px) { #case-room { --cr-scott-h: 1687px; } }
+@media (min-width: 983px) { #case-room { --cr-scott-h: 1642px; } }
+@media (min-width: 1024px) { #case-room { --cr-grid-h: 414px; --cr-scott-h: 1751px; } }
+@media (min-width: 1054px) { #case-room { --cr-scott-h: 1732px; } }
+@media (min-width: 1064px) { #case-room { --cr-grid-h: 367px; } }
+@media (min-width: 1265px) { #case-room { --cr-scott-h: 1687px; } }
+@media (min-width: 1280px) { #case-room { --cr-grid-h: 383px; --cr-scott-h: 1069px; } }
+
+/* Day 21: the export strip and the standing line */
+.cr-export { display: flex; gap: 1rem; max-width: 44rem; margin-top: 1.75rem; padding: 1.125rem 0; border-top: 1px solid rgb(185 191 208 / 0.3); border-bottom: 1px solid rgb(185 191 208 / 0.3); }
+.cr-export-icon { flex: none; margin-top: 0.125rem; color: var(--vc-azure-300); }
+.cr-export-counts { display: block; margin-top: 0.5rem; font-size: 0.8125rem; letter-spacing: 0.06em; }
+.cr-standing { max-width: 40rem; margin-top: 1.75rem; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-style: italic; font-size: 1.25rem; line-height: 1.45; color: var(--vc-parchment); }
+
+/* Day 28: the card on paper, with a brass border and no tick, because nothing is verified */
+.cr-day28 { max-width: 46rem; padding: 1.75rem 1.5rem 2rem; background: var(--vc-paper); border: 1px solid var(--vc-brass-400); }
+@media (min-width: 768px) { .cr-day28 { padding: 2.5rem 2.75rem 2.75rem; } }
+.cr-day28 .eyebrow { text-wrap: balance; }
+.cr-day28-title { margin-top: 1rem; font-size: clamp(1.875rem, 1.5rem + 1.5vw, 2.75rem); font-weight: 500; line-height: 1.1; letter-spacing: -0.015em; text-wrap: balance; }
+.cr-day28-body { max-width: 62ch; margin-top: 1.125rem; color: var(--vc-ink); }
+
+.cr-close { margin-top: 3.5rem; }
+.cr-cta-line { max-width: 40rem; font-size: 1.0625rem; color: var(--vc-parchment); }

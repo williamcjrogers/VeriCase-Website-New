@@ -1,132 +1,129 @@
-import { Linkedin, Twitter, Youtube } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { ChevronDown } from 'lucide-react';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { Logo } from '@/components/brand/Logo';
+import { Rich } from '@/components/editorial/Rich';
+import { BRAND_LINE, CHAPTERS, END_MATTER, FOOTER } from '@/content/home';
+import { COMPANY, CONTACT_EMAIL, DEMO_MAILTO, SIGN_IN_URL, SITE } from '@/lib/site';
+import { onSectionClick, sectionHref } from '@/lib/navigate';
+import { cn } from '@/lib/utils';
+
+// The prerendered page carries this year; the client moves it on if a new year has begun.
+const BUILD_YEAR = 2026;
+
+const linkClass = 'text-azure-300 underline-offset-4 hover:underline focus-visible:underline';
+
+// A column heading on wide screens; below 768 px a 48 px disclosure button. The links stay in
+// the document either way, so they work without JavaScript and are always indexed.
+const Column = ({ title, children }) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <Collapsible open={open} onOpenChange={setOpen} className="border-b border-mist/20 md:border-0">
+      <h2 className="eyebrow hidden md:block">{title}</h2>
+      <CollapsibleTrigger className="flex h-12 w-full items-center justify-between text-left md:hidden">
+        <span className="eyebrow">{title}</span>
+        <ChevronDown className={cn('h-5 w-5 text-mist transition-transform duration-200', open && 'rotate-180')} strokeWidth={1.5} aria-hidden="true" />
+      </CollapsibleTrigger>
+      <CollapsibleContent forceMount className="max-md:data-[state=closed]:hidden">
+        <ul className="space-y-1 pb-4 md:mt-4 md:space-y-2 md:pb-0">{children}</ul>
+      </CollapsibleContent>
+    </Collapsible>
+  );
+};
+
+const Item = ({ children }) => <li className="text-small leading-relaxed">{children}</li>;
 
 export const SiteFooter = () => {
+  const { pathname } = useLocation();
+  const onHome = pathname === '/';
+  const [year, setYear] = useState(BUILD_YEAR);
+  useEffect(() => setYear(new Date().getFullYear()), []);
+  const openCookies = () => window.dispatchEvent(new Event('vc-open-cookie-settings'));
+
+  const contents = [...CHAPTERS.filter((c) => c.numeral), ...END_MATTER.filter((m) => m.id === 'platform' || m.id === 'notes')];
+  const about = END_MATTER.find((m) => m.id === 'about');
+
   return (
-    <footer id="about" className="py-16 md:py-20 bg-gray-900 text-gray-300" data-testid="site-footer">
-      <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          {/* Logo and Tagline */}
-          <div className="lg:col-span-1">
-            <div className="mb-6">
-              <img 
-                src="/VeriCase.png" 
-                alt="VeriCase" 
-                className="h-12"
-              />
-            </div>
-            <p className="text-sm leading-relaxed text-gray-400 mb-6">
-              The evidence intelligence platform that turns years of complex construction documentation into winning arguments. Trusted by the industry's leading contractors, consultants, and legal teams.
-            </p>
-            {/* Social Links */}
-            <div className="flex gap-3">
-              <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-teal-600 rounded-lg flex items-center justify-center transition-colors duration-200">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-teal-600 rounded-lg flex items-center justify-center transition-colors duration-200">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-teal-600 rounded-lg flex items-center justify-center transition-colors duration-200">
-                <Youtube className="w-5 h-5" />
-              </a>
-            </div>
+    <footer className="on-ink bg-ink-950 text-parchment">
+      <div className="container py-16 md:py-20">
+        <div className="grid gap-10 md:grid-cols-12 md:gap-6">
+          <div className="md:col-span-12 lg:col-span-5">
+            <a href={onHome ? '#top' : '/'} onClick={onHome ? onSectionClick('top') : undefined} aria-label="VeriCase home" className="inline-flex h-11 items-center">
+              <Logo tone="reversed" decorative className="h-8 w-auto" />
+            </a>
+            <p className="mt-5 max-w-[30rem] text-small text-mist">{FOOTER.descriptor}</p>
+            <p className="mt-4 font-display text-[1.25rem] italic text-parchment">{BRAND_LINE}</p>
           </div>
 
-          {/* Product Links */}
-          <div>
-            <h4 className="font-bold text-base mb-6 text-white">Product</h4>
-            <ul className="space-y-3">
-              <li>
-                <a href="#features" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Features
+          <div className="grid md:col-span-12 md:grid-cols-3 md:gap-6 lg:col-span-7">
+            <Column title={FOOTER.heads.contents}>
+              {contents.map((c) => (
+                <Item key={c.id}>
+                  <a href={sectionHref(c.id, onHome)} onClick={onHome ? onSectionClick(c.id) : undefined} className={`${linkClass} grid grid-cols-[2.25rem_minmax(0,1fr)] items-baseline`}>
+                    <span className="mono text-meta text-brass-400">
+                      {c.numeral}
+                      {c.numeral && <span className="sr-only">. </span>}
+                    </span>
+                    <span>{c.title}</span>
+                  </a>
+                </Item>
+              ))}
+            </Column>
+            <Column title={FOOTER.heads.company}>
+              <Item>
+                <a href={sectionHref(about.id, onHome)} onClick={onHome ? onSectionClick(about.id) : undefined} className={linkClass}>
+                  {FOOTER.company.about}
                 </a>
-              </li>
-              <li>
-                <a href="#integrations" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Integrations
+              </Item>
+              <Item>
+                <a href={DEMO_MAILTO} className={linkClass}>
+                  {FOOTER.company.demo}
                 </a>
-              </li>
-              <li>
-                <a href="#security" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Security
+              </Item>
+              <Item>
+                <a href={`mailto:${CONTACT_EMAIL}`} className={linkClass}>
+                  {CONTACT_EMAIL}
                 </a>
-              </li>
-              <li>
-                <a href="#pricing" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Pricing
+              </Item>
+              <Item>
+                <a href={SIGN_IN_URL} className={linkClass}>
+                  {FOOTER.company.signIn}
                 </a>
-              </li>
-              <li>
-                <a href="#roadmap" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Roadmap
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Solutions Links */}
-          <div>
-            <h4 className="font-bold text-base mb-6 text-white">Solutions</h4>
-            <ul className="space-y-3">
-              <li>
-                <a href="#quantum" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Quantum Assessment
-                </a>
-              </li>
-              <li>
-                <a href="#adjudication" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Adjudication
-                </a>
-              </li>
-              <li>
-                <a href="#arbitration" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Arbitration
-                </a>
-              </li>
-              <li>
-                <a href="#litigation" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Litigation
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Company Links */}
-          <div>
-            <h4 className="font-bold text-base mb-6 text-white">Company</h4>
-            <ul className="space-y-3">
-              <li>
-                <a href="#about" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="#careers" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a href="#partners" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Partners
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Contact
-                </a>
-              </li>
-              <li>
-                <a href="#blog" className="text-sm hover:text-teal-400 transition-colors duration-200">
-                  Blog
-                </a>
-              </li>
-            </ul>
+              </Item>
+            </Column>
+            <Column title={FOOTER.heads.cookies}>
+              <Item>
+                <button type="button" onClick={openCookies} className={cn(linkClass, 'text-left')}>
+                  {FOOTER.cookies.settings}
+                </button>
+              </Item>
+              {SITE.legalPages.cookies && (
+                <Item>
+                  <a href="/cookies" className={linkClass}>
+                    {FOOTER.cookies.notice}
+                  </a>
+                </Item>
+              )}
+              {SITE.legalPages.privacy && (
+                <Item>
+                  <a href="/privacy" className={linkClass}>
+                    Privacy notice
+                  </a>
+                </Item>
+              )}
+            </Column>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="pt-8 border-t border-gray-800 text-center">
-          <p className="text-sm text-gray-400">
-            © {new Date().getFullYear()} VeriCase Ltd. All rights reserved. Company No. 14789532 | VAT No. GB 445 2891 47
+        <div className="mt-14 border-t border-mist/25 pt-6 text-meta text-mist">
+          {FOOTER.legal.map((line) => (
+            <p key={line} className="mt-2 max-w-[62rem] first:mt-0">
+              <Rich text={line} onInk />
+            </p>
+          ))}
+          <p className="mt-2">
+            © {year} {COMPANY.name}.
           </p>
         </div>
       </div>

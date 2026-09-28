@@ -1,0 +1,52 @@
+/* The cover (#top): the brand line, the fast path and the practitioner strip. The masthead's
+   own classes live in index.css; the Lens is styled in lens.css. */
+
+.cover-brand {
+  font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.35;
+  color: var(--vc-navy);
+}
+
+/* Fig. 1 keeps the desktop field width (588 px at full width) on tablets. From 1024 px it takes
+   columns 7 to 12, narrowing on short windows so that the whole frame stays above the cookie
+   bar (frame height is 0.8 x width + 150 px, below a top edge of about 225 px), but never below
+   32rem, where the rows of the narrow cast still clear their rules. Below about 850 px of height
+   the foot of the frame therefore runs under the cookie bar until it is answered. */
+.cover-lens { width: 100%; max-width: 36.75rem; }
+@media (min-width: 1024px) {
+  .cover-lens {
+    max-width: none;
+    width: min(100%, max(32rem, calc((100vh - 444px) * 1.25)));
+    width: min(100%, max(32rem, calc((100svh - 444px) * 1.25)));
+    justify-self: end;
+  }
+}
+
+.cover-fast {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--vc-azure-700);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+.cover-fast:hover { color: var(--vc-navy); text-decoration-thickness: 2px; }
+
+/* The practitioner strip: a ledger of three entries between hairlines, never cards. */
+.cover-strip { display: grid; margin: 0; border-top: 1px solid var(--vc-rule-strong); border-bottom: 1px solid var(--vc-rule); }
+.cover-strip-item { padding: 16px 0 18px; }
+.cover-strip-item + .cover-strip-item { border-top: 1px solid var(--vc-rule); }
+.cover-strip dd { margin: 8px 0 0; font-size: 0.9375rem; line-height: 1.55; color: var(--vc-ink); }
+@media (min-width: 640px) {
+  .cover-strip { grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); }
+  .cover-strip-item { padding: 18px 24px 20px; }
+  .cover-strip-item + .cover-strip-item { border-top: 0; border-left: 1px solid var(--vc-rule); }
+  .cover-strip-item:first-child { padding-left: 0; }
+  .cover-strip-item:last-child { padding-right: 0; }
+}
