@@ -3,8 +3,9 @@ import { useLocation } from 'react-router-dom';
 import { List } from 'lucide-react';
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Logo, LogoMark } from '@/components/brand/Logo';
-import { BRAND_LINE, CHAPTERS, CTA_LABEL, END_MATTER, HEADER } from '@/content/home';
-import { DEMO_MAILTO, SIGN_IN_URL } from '@/lib/site';
+import { DemoCTA } from '@/components/editorial/DemoCTA';
+import { BRAND_LINE, CHAPTERS, END_MATTER, HEADER } from '@/content/home';
+import { SIGN_IN_URL } from '@/lib/site';
 import { focusSection, onSectionClick, sectionHref } from '@/lib/navigate';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { cn } from '@/lib/utils';
@@ -12,7 +13,7 @@ import { cn } from '@/lib/utils';
 const ALL_IDS = [...CHAPTERS, ...END_MATTER].map((s) => s.id);
 const NAV = [...CHAPTERS, ...END_MATTER].filter((s) => s.nav);
 
-// One sticky band: 64 px from 1024 px, 56 px below. The five section links show from 1280 px;
+// One sticky band: 64 px from 1024 px, 56 px below. The seven section links show from 1280 px;
 // below that a Contents sheet lists every chapter. It never reads AuthContext, so no session
 // token can reach a URL.
 export const SiteHeader = () => {
@@ -93,9 +94,7 @@ export const SiteHeader = () => {
           >
             {HEADER.signIn}
           </a>
-          <a href={DEMO_MAILTO} className="vc-btn vc-btn-primary max-sm:min-h-[40px] max-sm:px-3 max-sm:text-[0.875rem]">
-            {CTA_LABEL}
-          </a>
+          <DemoCTA withCopy compact microcopy={null} />
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <button
@@ -147,9 +146,7 @@ export const SiteHeader = () => {
                 <a href={SIGN_IN_URL} className="vc-link inline-flex min-h-[44px] items-center text-small font-medium">
                   {HEADER.signIn}
                 </a>
-                <a href={DEMO_MAILTO} className="vc-btn vc-btn-primary mt-3 w-full">
-                  {CTA_LABEL}
-                </a>
+                <DemoCTA withCopy className="mt-3" />
                 <p className="mt-4 font-display text-[1.0625rem] italic text-graphite">{BRAND_LINE}</p>
               </div>
             </SheetContent>

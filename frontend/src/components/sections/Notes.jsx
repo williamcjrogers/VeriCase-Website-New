@@ -20,7 +20,7 @@ export const Notes = () => (
       <div className="grid grid-cols-12 gap-x-6">
         <div className="col-span-12 lg:col-span-9 lg:col-start-3">
           <div className="double-rule mb-5 max-w-[8rem]" aria-hidden="true" />
-          <h2 id="notes-title" tabIndex={-1} className="text-h2 font-medium outline-none">
+          <h2 id="notes-title" tabIndex={-1} className="text-h2 font-medium outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azure-500">
             {NOTES_SECTION.heading}
           </h2>
           <p className="mt-4 max-w-measure text-small text-graphite">{NOTES_SECTION.intro}</p>
@@ -33,7 +33,7 @@ export const Notes = () => (
             key={note.n}
             id={`note-${note.n}`}
             tabIndex={-1}
-            className="grid grid-cols-[2.25rem_1fr] gap-x-2 border-t border-rule-strong/40 py-4 outline-none focus-visible:outline-2 focus-visible:outline-offset-4"
+            className="grid grid-cols-[2.25rem_1fr] gap-x-2 border-t border-rule-strong/40 py-4 outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azure-500"
           >
             <span className="mono pt-0.5 text-meta font-medium text-brass-700" aria-hidden="true">
               {note.n}.
@@ -62,7 +62,7 @@ export const Notes = () => (
 
       <dl className="mt-10 grid gap-x-10 border-t border-rule-strong/60 pt-6 lg:ml-[calc((100%+1.5rem)/12*2)] lg:grid-cols-3">
         {LETTERED_NOTES.map((note) => (
-          <div key={note.k} id={`note-${note.k.toLowerCase()}`} tabIndex={-1} className="py-3 outline-none">
+          <div key={note.k} id={`note-${note.k.toLowerCase()}`} tabIndex={-1} className="py-3 outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azure-500">
             <dt className="font-display text-[1.0625rem] font-medium leading-snug text-navy">
               <span className="mono mr-2 text-meta text-brass-700">{note.k}.</span>
               {note.title}

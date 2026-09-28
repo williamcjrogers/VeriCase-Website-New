@@ -28,7 +28,7 @@ export const LandingPage = () => {
   return (
     <SourceSheetProvider>
       <SiteHeader />
-      <main id="main" tabIndex={-1} className="outline-none">
+      <main id="main" tabIndex={-1} className="outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azure-500">
         <Hero />
         <TheClock />
         <ChronologyLens />

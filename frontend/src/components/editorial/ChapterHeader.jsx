@@ -29,7 +29,14 @@ export const ChapterHeader = ({ id, numeral, title, lead, onInk = false, classNa
       </p>
       <div className="col-span-12 mt-5 lg:col-span-9 lg:col-start-3 lg:mt-0 xl:col-span-8 xl:col-start-3">
         <div className="double-rule draw-x mb-6 max-w-[8rem]" aria-hidden="true" />
-        <h2 id={id ? `${id}-title` : undefined} tabIndex={-1} className="text-h2 font-medium outline-none">
+        <h2
+          id={id ? `${id}-title` : undefined}
+          tabIndex={-1}
+          className={cn(
+            'text-h2 font-medium outline-none focus-visible:outline-2 focus-visible:outline-offset-4',
+            onInk ? 'focus-visible:outline-azure-300' : 'focus-visible:outline-azure-500'
+          )}
+        >
           <Sentences text={title} />
         </h2>
         {lead && (

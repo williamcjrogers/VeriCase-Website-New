@@ -6,8 +6,10 @@ import { cn } from '@/lib/utils';
 
 // "Book a demonstration": a mailto with the subject and body prefilled, an optional
 // "Copy email address" button (confirmed in a status line beside it) and the confidentiality
-// microcopy. No form submits anything.
-export const DemoCTA = ({ onInk = false, withCopy = false, microcopy = CTA_MICROCOPY, className, align = 'start' }) => {
+// microcopy. No form submits anything. The compact form is for the header band: the same
+// mailto and copy fallback, with the copy button reduced to an icon and the confirmation
+// announced rather than shown, so the band keeps its height.
+export const DemoCTA = ({ onInk = false, withCopy = false, compact = false, microcopy = CTA_MICROCOPY, className, align = 'start' }) => {
   const plain = useRef(null);
   const [copied, setCopied] = useState(false);
   useEffect(() => {
@@ -31,6 +33,34 @@ export const DemoCTA = ({ onInk = false, withCopy = false, microcopy = CTA_MICRO
       }
     }
   };
+  if (compact) {
+    return (
+      <div className={cn('flex items-center gap-1 sm:gap-2', className)}>
+        <a href={DEMO_MAILTO} className={cn('vc-btn vc-btn-primary max-sm:px-3 max-sm:text-[0.875rem]', onInk && 'vc-btn-on-ink')}>
+          {CTA_LABEL}
+        </a>
+        {withCopy && (
+          <button
+            type="button"
+            onClick={copy}
+            aria-label={DEMONSTRATION.copy}
+            title={DEMONSTRATION.copy}
+            className={cn('vc-btn vc-btn-secondary w-11 shrink-0 px-0 max-sm:hidden', onInk && 'vc-btn-secondary-on-ink')}
+          >
+            <Copy className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
+          </button>
+        )}
+        {withCopy && (
+          <span role="status" className="sr-only">
+            {copied ? DEMONSTRATION.copied : ''}
+          </span>
+        )}
+        <span ref={plain} className="sr-only">
+          {CONTACT_EMAIL}
+        </span>
+      </div>
+    );
+  }
   return (
     <div className={cn('flex flex-col gap-3', align === 'center' && 'items-center text-center', className)}>
       <div className={cn('flex flex-wrap items-center gap-3', align === 'center' && 'justify-center')}>

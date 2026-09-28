@@ -14,10 +14,10 @@ export const CTA_MICROCOPY_SHORT = 'Opens an email. Please do not include confid
 // Chapters, in page order. Used by the Contents sheet, the footer and the 404 page.
 export const CHAPTERS = [
   { id: 'top', numeral: '', title: 'Records, records, records.', sheetLabel: 'Cover', nav: null },
-  { id: 'clock', numeral: 'I', title: 'The clock', nav: null },
+  { id: 'clock', numeral: 'I', title: 'The clock', nav: 'The clock' },
   { id: 'chronology-lens', numeral: 'II', title: 'The Chronology Lens™', nav: 'Chronology Lens' },
   { id: 'research', numeral: 'III', title: 'Ask, cite, bundle', nav: 'Ask, cite, bundle' },
-  { id: 'claims', numeral: 'IV', title: 'Build the claim', nav: null },
+  { id: 'claims', numeral: 'IV', title: 'Build the claim', nav: 'Build the claim' },
   { id: 'case-room', numeral: 'V', title: 'The case room', nav: 'Rebuttal' },
   { id: 'integrity', numeral: 'VI', title: 'The record holds', nav: 'Integrity' },
 ];
@@ -303,12 +303,12 @@ export const INTEGRITY = {
   numeral: 'VI',
   h2: 'The original stays original.',
   lead:
-    'Raw email is held in immutable storage with a cryptographic hash for each message. Everything done to the evidence afterwards is recorded against it, and each person sees only what their role permits.',
+    'Raw email is held in write-once storage with a cryptographic hash for each message. Everything done to the evidence afterwards is recorded against it, and each person sees only what their role permits.',
   leadGate: 'G5_hash',
   fail: 'A bundle assembled by hand at midnight is where exhibits can go missing, pages can be misnumbered and a citation can point to the wrong document.',
   recover: 'Bundles are numbered in sequence and carry a manifest listing each item.',
   controls: [
-    { icon: 'HashSeal', title: 'Immutable originals', text: 'Each raw message is kept unchanged with its hash, so the working record can be compared with the message as received.', gate: 'G5_hash' },
+    { icon: 'HashSeal', title: 'Originals held unchanged', text: 'Each raw message is kept unchanged with its hash, so the working record can be compared with the message as received.', gate: 'G5_hash' },
     { icon: 'Thread', title: 'An audit trail for every message', text: 'Tags, notes, links and edits are logged with the user, the time and the values before and after.' },
     { icon: 'TabbedBundle', title: 'Numbered bundles with a manifest', text: 'Items are numbered in bundle order, and the manifest lists each item’s message ID, cryptographic hash and source path.', gate: 'G5_hash' },
     { icon: 'RebuttalPair', title: 'Access by role', text: 'Team Leader, Senior Lawyer, Claims Consultant, QS, Project Manager, External Counsel and Client Viewer.', gate: 'G5_roles' },
@@ -344,7 +344,7 @@ export const IN_BRIEF = {
     { numeral: 'III', href: '#research', title: 'Research', text: 'Plain-English questions, an editable Query Plan, and an Analysis Report with numbered citations, counts and a validation badge. Download PDF or create a bundle.' },
     { numeral: 'IV', href: '#claims', title: 'Claims builder', text: 'Heads of Claim, a narrative cited by message ID, an evidence finder, and Word or PDF export.' },
     { numeral: 'V', href: '#case-room', title: 'Rebuttal Mode', text: 'Numbered points, ranked evidence, reply points with mandatory citations, accept, edit or reject with an audit trail, and an export pairing each point with its reply and cited evidence.' },
-    { numeral: 'VI', href: '#integrity', title: 'Integrity and access', text: 'Immutable originals with hashes, a per-message audit trail, numbered bundles with manifests, role-based access and server-side AI.' },
+    { numeral: 'VI', href: '#integrity', title: 'Integrity and access', text: 'Originals kept as received, with hashes, a per-message audit trail, numbered bundles with manifests, role-based access and server-side AI.' },
   ],
   benchmarks: {
     gate: 'G4_benchmarks',

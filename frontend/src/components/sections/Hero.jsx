@@ -37,12 +37,12 @@ export const Hero = () => (
       <div className="mt-4 grid grid-cols-12 gap-x-6 lg:-mt-1">
         <div className="col-span-12 lg:col-span-6 lg:row-start-1">
           <p className="ch-note">{COVER.eyebrow}</p>
-          <h1 id="top-title" tabIndex={-1} className="mt-3 text-display font-medium outline-none">
+          <h1 id="top-title" tabIndex={-1} className="mt-3 text-display font-medium outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azure-500">
             <Sentences text={COVER.h1} />
           </h1>
           <p className="mt-4 max-w-measure text-lead text-ink lg:mt-5">{COVER.subhead}</p>
           <p className="cover-brand mt-4 lg:mt-5">{BRAND_LINE}</p>
-          <DemoCTA className="mt-5 lg:mt-7" microcopy={CTA_MICROCOPY} />
+          <DemoCTA withCopy className="mt-5 lg:mt-7" microcopy={CTA_MICROCOPY} />
           <a href={sectionHref('platform', true)} onClick={onSectionClick('platform')} className="cover-fast mt-2">
             <ArrowDown className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
             {COVER.fastPath}

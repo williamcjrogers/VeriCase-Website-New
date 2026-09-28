@@ -17,7 +17,7 @@ export const Demonstration = () => (
         <div className="px-6 py-12 sm:px-10 sm:py-14 lg:col-span-7 lg:px-14 lg:py-20">
           <div className="double-rule is-brass mb-6 max-w-[8rem]" aria-hidden="true" />
           <p className="ch-note">{DEMONSTRATION.eyebrow}</p>
-          <h2 id="demonstration-title" tabIndex={-1} className="mt-3 text-h2 font-medium outline-none text-balance">
+          <h2 id="demonstration-title" tabIndex={-1} className="mt-3 text-h2 font-medium outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azure-300 text-balance">
             {DEMONSTRATION.h2}
           </h2>
           <p className="mt-6 max-w-measure text-lead text-parchment/90">{DEMONSTRATION.body}</p>

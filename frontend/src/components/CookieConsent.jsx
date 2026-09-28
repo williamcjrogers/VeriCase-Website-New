@@ -101,10 +101,10 @@ export const CookieConsent = () => {
           >
             {details ? COOKIE_BAR.hide : COOKIE_BAR.details}
           </button>
-          <button type="button" onClick={() => choose('granted')} className="vc-btn vc-btn-secondary min-h-[40px] flex-1 lg:min-h-[44px] lg:w-[11.5rem] lg:flex-none">
+          <button type="button" onClick={() => choose('granted')} className="vc-btn vc-btn-secondary min-h-[44px] flex-1 lg:w-[11.5rem] lg:flex-none">
             {COOKIE_BAR.allow}
           </button>
-          <button type="button" onClick={() => choose('denied')} className="vc-btn vc-btn-secondary min-h-[40px] flex-1 lg:min-h-[44px] lg:w-[11.5rem] lg:flex-none">
+          <button type="button" onClick={() => choose('denied')} className="vc-btn vc-btn-secondary min-h-[44px] flex-1 lg:w-[11.5rem] lg:flex-none">
             {COOKIE_BAR.reject}
           </button>
         </div>
