@@ -25,7 +25,7 @@
 
 /* The ink panel that holds the hash check */
 .ri-hash-fig { align-self: start; }
-.ri-panel { padding: 1.5rem 1.125rem 1.75rem; background: var(--vc-ink-950); border-radius: 4px; }
+.ri-panel { padding: 1.5rem 1.125rem 1.75rem; background: #0B2516; border: 1px solid #1A3828; border-radius: 4px; }
 @media (min-width: 640px) { .ri-panel { padding: 2rem 2rem 2.25rem; } }
 .ri-panel-title { font-size: clamp(1.5rem, 1.3rem + 0.8vw, 2rem); line-height: 1.15; }
 .ri-panel-intro { max-width: 34rem; margin-top: 0.625rem; font-size: 0.9375rem; line-height: 1.6; color: var(--vc-parchment); }

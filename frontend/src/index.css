@@ -8,8 +8,8 @@
 
 @layer base {
   :root {
-    --vc-ink-950: #0E1630; --vc-navy: #1A2550; --vc-ink: #232C4A; --vc-graphite: #535A6E; --vc-mist: #B9BFD0;
-    --vc-azure-50: #E7EFF8; --vc-azure-300: #9CC4EA; --vc-azure-500: #2D78B7; --vc-azure-700: #1F5E96;
+    --vc-ink-950: #041A0F; --vc-navy: #052314; --vc-ink: #0B2516; --vc-graphite: #535A6E; --vc-mist: #B9BFD0;
+    --vc-azure-50: #E7EFF8; --vc-azure-300: #C4A05A; --vc-azure-500: #8C6A36; --vc-azure-700: #5C431B;
     --vc-parchment: #F5F0E6; --vc-parchment-300: #ECE4D3; --vc-paper: #FCFAF5;
     --vc-rule: #D8CDB6; --vc-rule-strong: #857A62; --vc-brass-400: #BF9B58; --vc-brass-700: #7A5A28;
     --vc-signal: #A8352A; --vc-signal-300: #EE8E7E;
@@ -111,6 +111,17 @@
   }
   .on-ink .double-rule { border-color: rgb(191 155 88 / 0.55); }
   .double-rule.is-brass { border-color: var(--vc-brass-400); }
+
+  /* Decorative rain/light hairlines on dark ground */
+  .vc-rain {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='419' height='613'><g fill='none' stroke='%23F5F0E6' stroke-linecap='round'><path stroke-opacity='.12' d='M215 210v113M368 291v106M378 509v133M378 -104v133M47 393v116'/><path stroke-opacity='.18' d='M289 262v98M319 198v67M189 223v131M180 161v148M218 341v67M242 90v73M165 218v133M174 131v57M49 373v78M146 87v85M141 570v100M141 -43v100'/><path stroke-opacity='.24' d='M40 273v113M15 277v92M73 308v81M337 258v122M306 454v144M26 217v135M333 59v129M45 62v79M156 310v93M329 198v58M288 111v100'/><path stroke-width='2.4' stroke-opacity='.28' d='M378 29h0M73 389h0M337 380h0M306 598h0M26 352h0M333 188h0M329 256h0'/></g></svg>"),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='263' height='389'><g fill='none' stroke='%23F5F0E6' stroke-linecap='round'><path stroke-opacity='.08' d='M219 275v32M176 182v22M84 372v21M84 -17v21M72 305v29M35 72v52M194 380v54M194 -9v54M75 175v50M110 268v33'/><path stroke-opacity='.12' d='M184 36v21M45 113v58M235 308v64M251 91v14M18 59v19M186 359v35M186 -30v35M94 306v62M76 207v48M184 246v22M151 19v31M139 168v26M167 351v24'/><path stroke-opacity='.16' d='M155 376v31M155 -13v31M143 281v42M34 208v45M105 211v22M82 271v16M206 332v58M206 -57v58M19 92v19M172 257v29M257 235v23M118 307v42'/></g></svg>");
+    background-size: 419px 613px, 263px 389px;
+  }
 
   /* Section side note, as in a statute: the numeral over the title, in the margin from 1024 px. */
   .ch-side { display: flex; align-items: baseline; gap: 0.875rem; margin: 0; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-style: italic; }

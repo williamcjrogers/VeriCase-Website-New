@@ -13,8 +13,9 @@ const BundlePlate = lazy(() => import(/* webpackChunkName: "plate-bundle" */ '@/
 export const Demonstration = () => (
   <section id="demonstration" aria-labelledby="demonstration-title" className="bg-parchment py-16 md:py-24 lg:py-32">
     <div className="container">
-      <div className="on-ink grid overflow-hidden rounded-md bg-navy lg:grid-cols-12">
-        <div className="px-6 py-12 sm:px-10 sm:py-14 lg:col-span-7 lg:px-14 lg:py-20">
+      <div className="on-ink relative grid overflow-hidden rounded-sm border border-[#1A3828] bg-[#0B2516] shadow-2xl lg:grid-cols-12">
+        <div className="vc-rain" aria-hidden="true" />
+        <div className="relative px-6 py-12 sm:px-10 sm:py-14 lg:col-span-7 lg:px-14 lg:py-20">
           <div className="double-rule is-brass mb-6 max-w-[8rem]" aria-hidden="true" />
           <p className="ch-note">{DEMONSTRATION.eyebrow}</p>
           <h2 id="demonstration-title" tabIndex={-1} className="mt-3 text-h2 font-medium outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azure-300 text-balance">

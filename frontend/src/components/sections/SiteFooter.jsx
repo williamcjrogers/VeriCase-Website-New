@@ -45,12 +45,12 @@ export const SiteFooter = () => {
   const about = END_MATTER.find((m) => m.id === 'about');
 
   return (
-    <footer className="on-ink bg-ink-950 text-parchment">
+    <footer className="on-ink bg-[#052314] text-parchment border-t border-[#1A3828]">
       <div className="container py-16 md:py-20">
         <div className="grid gap-10 md:grid-cols-12 md:gap-6">
           <div className="md:col-span-12 lg:col-span-5">
             <a href={onHome ? '#top' : '/'} onClick={onHome ? onSectionClick('top') : undefined} aria-label="VeriCase home" className="inline-flex h-11 items-center">
-              <Logo tone="reversed" decorative className="h-8 w-auto" />
+              <Logo tone="reversed" decorative className="h-10 w-auto" />
             </a>
             <p className="mt-5 max-w-[30rem] text-small text-mist">{FOOTER.descriptor}</p>
             <p className="mt-4 font-display text-[1.25rem] italic text-parchment">{BRAND_LINE}</p>

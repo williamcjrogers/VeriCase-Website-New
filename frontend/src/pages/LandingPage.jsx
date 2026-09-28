@@ -32,9 +32,9 @@ export const LandingPage = () => {
         <Hero />
         <TheClock />
         <ChronologyLens />
+        <CaseRoom />
         <Research />
         <ClaimsBuilder />
-        <CaseRoom />
         <RecordIntegrity />
         <InBrief />
         <Founder />

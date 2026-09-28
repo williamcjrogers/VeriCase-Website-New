@@ -3,9 +3,10 @@ import { useLocation } from 'react-router-dom';
 import { List } from 'lucide-react';
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Logo, LogoMark } from '@/components/brand/Logo';
+import { TaglineBanner } from '@/components/brand/TaglineBanner';
 import { DemoCTA } from '@/components/editorial/DemoCTA';
-import { BRAND_LINE, CHAPTERS, END_MATTER, HEADER } from '@/content/home';
-import { SIGN_IN_URL } from '@/lib/site';
+import { BRAND_LINE, CHAPTERS, CTA_LABEL, END_MATTER, HEADER } from '@/content/home';
+import { DEMO_MAILTO, SIGN_IN_URL } from '@/lib/site';
 import { focusSection, onSectionClick, sectionHref } from '@/lib/navigate';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { cn } from '@/lib/utils';
@@ -40,12 +41,14 @@ export const SiteHeader = () => {
   };
 
   return (
-    <header
-      className={cn(
-        'sticky top-0 z-40 border-b bg-parchment/95 backdrop-blur-[6px] transition-colors duration-200',
-        scrolled ? 'border-rule' : 'border-transparent'
-      )}
-    >
+    <>
+      <TaglineBanner />
+      <header
+        className={cn(
+          'sticky top-0 z-40 border-b bg-[#0B2516]/95 backdrop-blur-[6px] transition-colors duration-200 text-[#FCFAF5]',
+          scrolled ? 'border-[#1A3828] shadow-md' : 'border-transparent'
+        )}
+      >
       <a href="#main" className="skip-link">
         {HEADER.skip}
       </a>
@@ -54,10 +57,10 @@ export const SiteHeader = () => {
           href={onHome ? '#top' : '/'}
           onClick={onHome ? onSectionClick('top') : undefined}
           aria-label={HEADER.logoAlt}
-          className="-mx-1 flex h-11 shrink-0 items-center rounded-sm px-1"
+          className="-mx-1 flex h-11 shrink-0 items-center rounded-sm px-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BF9B58]"
         >
-          <Logo decorative className="hidden h-[22px] w-auto min-[360px]:block sm:h-7" />
-          <LogoMark decorative className="h-7 w-7 min-[360px]:hidden" />
+          <Logo tone="reversed" decorative className="hidden h-7 w-auto min-[360px]:block sm:h-8" />
+          <LogoMark decorative className="h-7 w-7 min-[360px]:hidden" color="#C4A05A" />
         </a>
 
         <nav aria-label="Sections" className="hidden xl:block">
@@ -70,14 +73,14 @@ export const SiteHeader = () => {
                     href={sectionHref(s.id, onHome)}
                     onClick={onHome ? onSectionClick(s.id) : undefined}
                     aria-current={current ? 'location' : undefined}
-                    className="group relative inline-flex h-11 items-center px-3 text-small font-medium text-ink hover:text-navy"
+                    className="group relative inline-flex h-11 items-center px-3 text-small font-medium text-[#E8DCC8] hover:text-white"
                   >
                     {s.nav}
                     <span
                       aria-hidden="true"
                       className={cn(
-                        'absolute inset-x-3 bottom-1 h-0.5 origin-left bg-azure-500 transition-transform duration-200 ease-settle',
-                        current ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100 group-hover:bg-rule-strong'
+                        'absolute inset-x-3 bottom-1 h-0.5 origin-left bg-[#C4A05A] transition-transform duration-200 ease-settle',
+                        current ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100 group-hover:bg-[#C4A05A]/70'
                       )}
                     />
                   </a>
@@ -90,17 +93,22 @@ export const SiteHeader = () => {
         <div className="flex items-center gap-1 sm:gap-2">
           <a
             href={SIGN_IN_URL}
-            className="hidden h-11 items-center rounded-sm px-3 text-small font-medium text-ink underline-offset-4 hover:text-navy hover:underline sm:inline-flex"
+            className="hidden h-11 items-center rounded-sm px-3 text-small font-medium text-[#E8DCC8] underline-offset-4 hover:text-white hover:underline sm:inline-flex"
           >
             {HEADER.signIn}
           </a>
-          <DemoCTA withCopy compact microcopy={null} />
+          <a
+            href={DEMO_MAILTO}
+            className="inline-flex items-center justify-center gap-2 rounded-sm bg-[#BF9B58] px-4 py-2 text-small font-medium text-[#0B2516] transition-colors hover:bg-[#d4b06a] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BF9B58] max-sm:px-3 max-sm:text-[0.875rem]"
+          >
+            {CTA_LABEL}
+          </a>
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <button
                 type="button"
                 aria-label={HEADER.contents}
-                className="inline-flex h-11 min-w-[44px] items-center justify-center gap-2 rounded-sm border border-transparent px-2 text-small font-medium text-ink hover:border-rule-strong hover:text-navy sm:border-rule-strong sm:px-3 xl:hidden"
+                className="inline-flex h-11 min-w-[44px] items-center justify-center gap-2 rounded-sm border border-transparent px-2 text-small font-medium text-[#E8DCC8] hover:border-[#1A3828] hover:text-white sm:border-[#1A3828] sm:px-3 xl:hidden"
               >
                 <List className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" />
                 <span className="hidden sm:inline">{HEADER.contents}</span>
@@ -154,6 +162,7 @@ export const SiteHeader = () => {
         </div>
       </div>
     </header>
+    </>
   );
 };
 

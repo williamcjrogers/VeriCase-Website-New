@@ -41,7 +41,7 @@ const Schedule = () => (
 // and a discussion anchored to the document it concerns (Fig. 6). The discussion's frame is
 // here from the first paint, so "Go to Discussion" in Chapter II always has somewhere to go.
 export const ClaimsBuilder = () => (
-  <section id="claims" aria-labelledby="claims-title" className="bg-parchment py-16 md:py-24 lg:py-32">
+  <section id="claims" aria-labelledby="claims-title" className="border-t border-rule bg-parchment py-16 md:py-24 lg:py-32">
     <div className="container">
       <ChapterHeader id="claims" numeral={C.numeral} title={C.h2} lead={C.lead} />
 

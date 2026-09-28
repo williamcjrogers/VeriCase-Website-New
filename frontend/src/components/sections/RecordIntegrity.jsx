@@ -70,7 +70,7 @@ const HashPanel = ({ className }) => (
 // break with one keystroke, the bundle manifest that records each digest, what we do not
 // claim, and where VeriCase sits. Each figure's caption sits directly beneath it.
 export const RecordIntegrity = () => (
-  <section id="integrity" aria-labelledby="integrity-title" className="bg-parchment py-16 md:py-24 lg:py-32">
+  <section id="integrity" aria-labelledby="integrity-title" className="border-t border-rule bg-parchment py-16 md:py-24 lg:py-32">
     <div className="container">
       <ChapterHeader id="integrity" numeral={INTEGRITY.numeral} title={INTEGRITY.h2}>
         <p className="mt-5 max-w-measure text-lead text-ink">

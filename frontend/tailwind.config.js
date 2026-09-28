@@ -14,11 +14,11 @@ module.exports = {
     fontWeight: { normal: '400', medium: '500', semibold: '600' },
     extend: {
       colors: {
-        ink: { DEFAULT: '#232C4A', 950: '#0E1630' },
-        navy: '#1A2550',
+        ink: { DEFAULT: '#0B2516', 950: '#041A0F' },
+        navy: '#052314',
         graphite: '#535A6E',
         mist: '#B9BFD0',
-        azure: { 50: '#E7EFF8', 300: '#9CC4EA', 500: '#2D78B7', 700: '#1F5E96' },
+        azure: { 50: '#E7EFF8', 300: '#C4A05A', 500: '#8C6A36', 700: '#5C431B' },
         parchment: { DEFAULT: '#F5F0E6', 300: '#ECE4D3' },
         paper: '#FCFAF5',
         rule: { DEFAULT: '#D8CDB6', strong: '#857A62' },
@@ -38,7 +38,7 @@ module.exports = {
         ring: 'hsl(var(--ring))',
       },
       fontFamily: {
-        display: ['"Newsreader"', '"Newsreader Fallback"', 'Georgia', 'serif'],
+        display: ['"Literata"', '"Literata Fallback"', 'Georgia', 'serif'],
         sans: ['"IBM Plex Sans"', '"IBM Plex Sans Fallback"', 'Arial', 'sans-serif'],
         mono: ['"IBM Plex Mono"', '"IBM Plex Mono Fallback"', 'ui-monospace', 'monospace'],
       },

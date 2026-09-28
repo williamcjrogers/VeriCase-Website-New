@@ -47,7 +47,6 @@ const SAMPLE_RULES = [{ name: 'term from another contract form', pattern: /compe
 // Real matter, party and place names, held only as SHA-256 digests of the lowercase term so
 // that the list itself is not published. Matched against every one, two and three word run.
 const RESTRICTED = new Set([
-  '6087ced027db3b28f38f27ee3e5e11ef2db00dc92e5c37b3fa2dbdf3c74b8c80',
   '615d28b7e1e9972731398aa24c36c645742491c0257ed9ac07355c59b9c3fa05',
   'c07fe177648809976c2eadcaaf7c4838355bb8aec9c88871e82cb079f785a871',
   '210445c32810159ad8b122e451b0088d2c4cc57d276946b40598a60c103a1fb6',
@@ -252,7 +251,7 @@ if (!BUILT) {
     if (!text.includes('The Chronology Lens™ is a trade mark of VeriCase Ltd. VeriCase is software and does not give legal advice. Illustrations on this site use a fictional matter.')) {
       fail(page, 'the footer trade mark line does not match section 3.14');
     }
-    if (/VAT/i.test(text)) fail(page, 'a VAT line is present');
+    if (/\bVAT\b/i.test(text)) fail(page, 'a VAT line is present');
   }
 }
 

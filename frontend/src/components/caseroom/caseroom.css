@@ -5,7 +5,7 @@
 /* The header band: the film under a flat navy scrim, or until it is approved, rain on the glass
    drawn as hairlines at very low contrast. Without the film the band is as tall as what it
    holds; with it, the band keeps room for the film and the header sits at its foot. */
-.cr-band { position: relative; display: flex; flex-direction: column; background: var(--vc-ink-950); }
+.cr-band { position: relative; display: flex; flex-direction: column; background: #0B2516; }
 .cr-band.has-media { min-height: min(62vh, 600px); min-height: min(62svh, 600px); }
 .cr-band > .relative { display: flex; flex: 1 1 auto; flex-direction: column; }
 .cr-band-inner { display: flex; flex: 1 1 auto; flex-direction: column; padding-top: 1.75rem; padding-bottom: 3.5rem; }
