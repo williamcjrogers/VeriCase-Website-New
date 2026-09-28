@@ -56,22 +56,22 @@ export const ArchiveField = ({ label = LABEL, activeStep = null, onSelectStep = 
   let statusText = 'SCANNING · 16 MO RECORD';
   if (activeStep !== null) {
     const stepNames = [
-      '1. LOAD RECORD (ALL FORMATS)',
-      '2. ONE RECORD PER MESSAGE',
-      '3. READ WHAT WAS WRITTEN',
-      '4. SET ASIDE NOISE (-42.8%)',
-      '5. NARROW TO DISPUTE WINDOW',
-      '6. CARDS OR TABLE (4 EXHIBITS)',
+      '1. LOAD RECORD',
+      '2. ONE RECORD PER MSG',
+      '3. WHAT WAS WRITTEN',
+      '4. NOISE SET ASIDE',
+      '5. DISPUTE WINDOW',
+      '6. 4 EXHIBITS TIED',
     ];
     statusText = stepNames[activeStep] || 'STEP SPOTLIGHT';
   } else if (!isPlaying) {
     statusText = 'SCAN PAUSED';
   } else {
     const phases = [
-      'INGESTION · 6 CUSTODIANS (Q1)',
-      'DE-DUPLICATION · NOISE REMOVAL',
-      'DISPUTE WINDOW · 4 EXHIBITS',
-      'CHRONOLOGY TIED · RESOLVED',
+      'INGESTION (Q1)',
+      'DE-DUPLICATION',
+      'DISPUTE WINDOW',
+      'CHRONOLOGY TIED',
     ];
     statusText = phases[scanPhase] || 'SCANNING';
   }
@@ -89,7 +89,7 @@ export const ArchiveField = ({ label = LABEL, activeStep = null, onSelectStep = 
       <div className="plate-hud">
         <span className="plate-hud-status">
           <span className={cn('inline-block w-2 h-2 rounded-full', isPlaying ? 'bg-[#10B981] animate-pulse' : 'bg-[#9CA3AF]')} />
-          <span className="text-[10px] font-semibold tracking-wider uppercase text-[#57534E]">
+          <span className="plate-hud-status-text text-[10px] font-semibold tracking-wider uppercase text-[#57534E]">
             {activeStep !== null ? 'Spotlight' : isPlaying ? 'Live' : 'Paused'}
           </span>
         </span>
@@ -101,7 +101,7 @@ export const ArchiveField = ({ label = LABEL, activeStep = null, onSelectStep = 
           title={isPlaying ? 'Pause scan' : 'Resume scan'}
           aria-label={isPlaying ? 'Pause scan' : 'Resume scan'}
         >
-          {isPlaying ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3" />}
+          {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
         </button>
         <button
           type="button"
@@ -110,7 +110,7 @@ export const ArchiveField = ({ label = LABEL, activeStep = null, onSelectStep = 
           title="Replay animation"
           aria-label="Replay animation"
         >
-          <RotateCcw className="w-3 h-3" />
+          <RotateCcw className="w-3.5 h-3.5" />
         </button>
       </div>
 
@@ -151,7 +151,7 @@ export const ArchiveField = ({ label = LABEL, activeStep = null, onSelectStep = 
             EVIDENTIAL TOPOLOGY
           </text>
         </g>
-        <text x="215" y="27" textAnchor="middle" fontFamily="IBM Plex Mono, monospace" fontSize="6.5" fontWeight="600" fill="#8C733E" letterSpacing="0.04em">
+        <text x="202" y="27" textAnchor="middle" fontFamily="IBM Plex Mono, monospace" fontSize="6.5" fontWeight="600" fill="#8C733E" letterSpacing="0.04em">
           {statusText}
         </text>
         <path d="M 16 34 H 384" stroke="#2B363B" strokeWidth="0.6" />
