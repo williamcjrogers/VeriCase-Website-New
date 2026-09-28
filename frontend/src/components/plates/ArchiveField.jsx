@@ -105,6 +105,7 @@ export const ArchiveField = ({ label = LABEL }) => {
       <circle cx="126" cy="148" r="2.5" fill="#0B2516" />
       <circle cx="230" cy="148" r="2.5" fill="#0B2516" />
       <circle cx="282" cy="154" r="2.5" fill="#0B2516" />
+      <rect x="136" y="136" width="116" height="11" rx="2" fill="#FCFAF5" fillOpacity="0.95" />
       <text x="140" y="144" fontFamily="IBM Plex Mono, monospace" fontSize="6.5" fill="#78716C">Façade Sub-contract Tender</text>
     </g>
 
@@ -125,6 +126,7 @@ export const ArchiveField = ({ label = LABEL }) => {
       <circle cx="126" cy="202" r="2.5" fill="#0B2516" />
       <circle cx="282" cy="202" r="2.5" fill="#0B2516" />
       <circle cx="334" cy="208" r="2.5" fill="#0B2516" />
+      <rect x="136" y="190" width="144" height="11" rx="2" fill="#FCFAF5" fillOpacity="0.95" />
       <text x="140" y="198" fontFamily="IBM Plex Mono, monospace" fontSize="6.5" fill="#78716C">Bracket Specs & Extrusion Profile</text>
     </g>
 
@@ -204,7 +206,17 @@ export const ArchiveField = ({ label = LABEL }) => {
       <text x="190" y="371" fontFamily="IBM Plex Mono, monospace" fontSize="7" fontWeight="600" fill="#FCFAF5">
         EV-0138
       </text>
-      <text x="238" y="371" fontFamily="IBM Plex Sans, sans-serif" fontSize="7" fontWeight="500" fill="#1A2721">
+      <text
+        x="238"
+        y="371"
+        fontFamily="IBM Plex Sans, sans-serif"
+        fontSize="7"
+        fontWeight="500"
+        fill="#1A2721"
+        stroke="#F4F3ED"
+        strokeWidth="2.5"
+        paintOrder="stroke fill"
+      >
         12 Mar: 16-wk lead time given
       </text>
     </g>
@@ -216,13 +228,25 @@ export const ArchiveField = ({ label = LABEL }) => {
       <circle cx="334" cy="389" r="3" fill="#0B2516" />
       <circle cx="178" cy="391" r="2.5" fill="#78716C" />
       <circle cx="282" cy="389" r="4.5" fill="#0B2516" stroke="#C4A05A" strokeWidth="1.5" />
-      {/* Badge & Label */}
-      <rect x="290" y="382" width="46" height="13" rx="2" fill="#0B2516" />
-      <text x="294" y="392" fontFamily="IBM Plex Mono, monospace" fontSize="7" fontWeight="600" fill="#FCFAF5">
-        EV-0147
+      {/* Label positioned with ample space to avoid right edge clipping */}
+      <text
+        x="236"
+        y="391"
+        textAnchor="end"
+        fontFamily="IBM Plex Sans, sans-serif"
+        fontSize="6.5"
+        fontWeight="500"
+        fill="#1A2721"
+        stroke="#F4F3ED"
+        strokeWidth="2"
+        paintOrder="stroke fill"
+      >
+        26 Mar: Delivery conf. →
       </text>
-      <text x="341" y="392" fontFamily="IBM Plex Sans, sans-serif" fontSize="6.5" fontWeight="500" fill="#1A2721">
-        26 Mar: Delivery conf.
+      {/* Badge & Label */}
+      <rect x="242" y="382" width="46" height="13" rx="2" fill="#0B2516" />
+      <text x="246" y="392" fontFamily="IBM Plex Mono, monospace" fontSize="7" fontWeight="600" fill="#FCFAF5">
+        EV-0147
       </text>
     </g>
 

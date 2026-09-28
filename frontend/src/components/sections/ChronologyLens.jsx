@@ -64,20 +64,21 @@ export const ChronologyLens = () => (
         <FailRecover fail={C.fail} recover={C.recover} recoverGate={C.recoverGate} className="col-span-12 lg:col-span-9 lg:col-start-3 xl:col-span-8 xl:col-start-3" />
       </div>
 
-      <div className="mt-14 grid grid-cols-12 gap-x-6 lg:mt-16">
-        <div className="col-span-12 lg:col-span-6 lg:col-start-3">
+      <div className="mt-14 grid grid-cols-12 gap-x-8 items-start lg:mt-16">
+        <div className="col-span-12 lg:col-span-5">
           <Operations />
         </div>
-        <div className="hidden lg:col-span-3 lg:col-start-10 lg:block xl:col-span-4 xl:col-start-9">
+        <div className="col-span-12 mt-10 lg:col-span-7 lg:mt-0">
           <div className="lg:sticky lg:top-24">
             <Plate
               src={MEDIA.archiveAisle.src}
               drawing={ArchiveField}
               lqip={MEDIA.archiveAisle.lqip}
               ratio={MEDIA.archiveAisle.ratio}
-              sizes="(min-width: 1280px) 384px, 22vw"
+              sizes="(min-width: 1280px) 720px, (min-width: 1024px) 58vw, 100vw"
               alt={MEDIA.archiveAisle.src ? C.plate.alt : C.plate.drawn.alt}
               caption={MEDIA.archiveAisle.src ? C.plate.caption : C.plate.drawn.caption}
+              frameClassName="shadow-xl rounded-sm border border-rule/60"
             />
           </div>
         </div>
