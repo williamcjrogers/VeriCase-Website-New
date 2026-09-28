@@ -1,270 +1,286 @@
-import { Sheet, T, r2, rng } from '@/components/plates/drawing';
+import { Sheet, r2 } from '@/components/plates/drawing';
+import { useInViewOnce } from '@/hooks/useInViewOnce';
+import { useCountUp } from '@/hooks/useCountUp';
 import '@/components/plates/plates.css';
 
-// Plate 2 (Chapter II): the record as it is kept. The correspondence of the sample matter drawn as
-// data, one mark per message. Each mailbox has a lane. Time runs down the sheet a week to a line,
-// from ISO week 1 of 2024 (Monday 01 January 2024) to Sunday 27 April 2025, and across each lane
-// from Monday to Sunday, so that every message stands at its moment in its week and the weekend
-// is the gutter between one mailbox and the next. A message kept in more than one mailbox repeats
-// faintly on the same line, at the same moment; automatic replies, another project's mail and items
-// not relevant are hollow; the eight exhibits are the only azure. The generator is seeded, so every
-// render is the same sheet.
+// Plate 2 (Chapter II): the record as it is kept and resolved.
+// Six custodian mailboxes across sixteen months, threaded into chronological order,
+// noise and near-duplicates set aside, isolating the four pivotal exhibits in the March 2025 dispute.
 
-// The sheet and its type: one size of annotation, 10 px at 218 px wide, the narrowest width shown.
 const W = 400;
 const H = 500;
-const FS = 18.5;
-const CAP = 13; // cap height of the mono at FS
-const LEAD = 25;
-const M = 26; // side margins
-const GAP = 8; // between a rule and the text or marks beside it
 
-// Across: the sideline in the margin, six lanes, the time scale and its years.
-const LANES = ['EA', 'DM', 'SM', 'CM', 'PM', 'SO'];
-const [EA, DM, SM, CM, PM, SO] = [0, 1, 2, 3, 4, 5];
-const BX = M;
-const X0 = BX + 12;
-const AX = W - M - FS * 0.6 * 4 - 12;
-const X1 = AX - 6;
-const LW = (X1 - X0) / LANES.length;
-const DAYW = LW / 7;
-
-// Down: the lane heads, the field ruled off above and below, and the note, centred on the sheet.
-const WEEKS = 69;
-const RP = 5; // one week
-const BLOCK = CAP + 2 * GAP + WEEKS * RP + 2 * GAP + CAP + LEAD + 4;
-const HEAD = (H - BLOCK) / 2 + CAP;
-const Y0 = HEAD + 2 * GAP;
-const Y1 = Y0 + WEEKS * RP;
-const NOTE = Y1 + 2 * GAP + CAP;
-const TICK = 3.2; // a message
-const ISSUE = 4; // an exhibit: taller, but short of a week, so that neighbours never touch
-const RING = 1.2; // a message set aside
-
-// Time: day 0 is Monday 01 January 2024. Within a day, 07:00 to 19:00 takes the middle three
-// fifths and the night closes up.
-const DAY0 = Date.UTC(2024, 0, 1);
-const day = (iso) => Math.round((Date.parse(`${iso}T00:00:00Z`) - DAY0) / 864e5);
-const SPAN = WEEKS * 7;
-const hm = (s) => Number(s.slice(0, 2)) + Number(s.slice(3)) / 60;
-const inDay = (h) => (h < 7 ? (0.2 * h) / 7 : h > 19 ? 0.8 + (0.2 * (h - 19)) / 5 : 0.2 + (0.6 * (h - 7)) / 12);
-const at = (lane, d, h) => ({ x: X0 + LW * lane + DAYW * ((d % 7) + inDay(h)), y: Y0 + RP * (Math.floor(d / 7) + 0.5) });
-const rowY = (w) => Y0 + RP * w;
-
-// The calendar: weekdays, bank holidays (England and Wales), the Christmas shutdown and leave.
-const dates = Array.from({ length: SPAN }, (_, d) => new Date(DAY0 + d * 864e5));
-const BANK = new Set(['2024-01-01', '2024-03-29', '2024-04-01', '2024-05-06', '2024-05-27', '2024-08-26', '2024-12-25', '2024-12-26', '2025-01-01', '2025-04-18', '2025-04-21'].map(day));
-const between = (d, a, b) => d >= day(a) && d <= day(b);
-const SHUT = (d) => between(d, '2024-12-21', '2025-01-01');
-const LEAVE = {
-  [EA]: [['2024-07-29', '2024-08-09'], ['2025-02-17', '2025-02-21']],
-  [DM]: [['2024-08-12', '2024-08-23'], ['2024-10-28', '2024-11-01'], ['2025-03-12', '2025-03-16']],
-  [SM]: [['2024-05-28', '2024-05-31'], ['2024-08-05', '2024-08-09']],
-  [CM]: [['2024-04-02', '2024-04-05'], ['2024-08-19', '2024-08-30']],
-  [PM]: [['2024-07-22', '2024-08-02'], ['2024-12-16', '2024-12-20']],
-  [SO]: [],
-};
-// The Design Manager is away from noon on 12 March 2025 until 17 March (N-1 answers EV-0138).
-const away = (lane, d, h) => SHUT(d) || LEAVE[lane].some(([a, b]) => between(d, a, b) && !(d === day('2025-03-12') && lane === DM && h < 12));
-const DOW = [1, 1.08, 1.04, 1, 0.82, 0.05, 0.03];
-const dayFactor = (d) => {
-  if (BANK.has(d) || SHUT(d)) return 0.03;
-  const f = DOW[d % 7];
-  return between(d, '2024-01-02', '2024-01-05') || between(d, '2025-01-02', '2025-01-03') ? f * 0.5 : f;
-};
-
-// The events of the job that bring bursts of correspondence.
-const E = {
-  stage4: day('2024-02-05'),
-  contract: day('2024-02-26'),
-  start: day('2024-03-04'),
-  tender: day('2024-05-13'),
-  award: day('2024-06-17'),
-  facadeDesign: day('2024-07-15'),
-  submission: day('2024-09-16'),
-  orderA: day('2024-10-14'),
-  facadeStart: day('2024-11-11'),
-  deliveryA: day('2025-01-13'),
-  samples: day('2025-02-10'),
-  instruction: day('2025-03-03'),
-  notice: day('2025-03-28'),
-  reply: day('2025-04-04'),
-};
-const BURST = 1.6;
-const g = (d, c, w, a) => BURST * a * Math.exp(-0.5 * ((d - c) / w) ** 2);
-// The weeks of the matter are busy, but no busier than the rest of the job: the record in issue
-// sits inside the ordinary traffic of the project.
-const gm = (d, c, w, a) => g(d, c, w, a * 0.55);
-const ramp = (d, a, b) => Math.min(1, Math.max(0, (d - a) / (b - a)));
-const mo = (d, dom, w, a) => g(dates[d].getUTCDate(), dom, w, a);
-// The project gathers pace through the first half of 2024.
-const pace = (d) => 0.35 + 0.65 * ramp(d, 0, 190);
-
-// Who writes to whom, and how often (messages per working day before the weights below).
-const CHANNELS = [
-  { lanes: [EA], rate: (d) => 0.3 * pace(d) + g(d, E.samples, 6, 0.4) },
-  { lanes: [DM], rate: (d) => 0.55 - 0.2 * ramp(d, E.award, E.facadeStart) + g(d, E.stage4, 5, 1.2) + g(d, E.facadeDesign, 8, 0.5) + g(d, E.submission, 6, 0.5) },
-  { lanes: [SM], rate: (d) => 0.08 + 0.55 * ramp(d, E.start - 7, E.start + 28) + g(d, E.facadeStart, 10, 0.5) + gm(d, E.instruction + 12, 8, 0.4) },
-  { lanes: [CM], rate: (d) => 0.3 * pace(d) + mo(d, 24, 2, 0.7) * pace(d) + g(d, E.tender, 12, 0.5) },
-  { lanes: [PM], rate: (d) => 0.04 + 0.28 * ramp(d, E.award, E.award + 21) + gm(d, E.instruction + 10, 8, 0.4) },
-  { lanes: [SO], rate: (d) => 0.03 + 0.08 * ramp(d, E.facadeDesign, E.facadeDesign + 30) },
-  { lanes: [EA, DM], cc: [[SM, 0.2], [CM, 0.15]], rate: (d) => 0.22 * pace(d) + g(d, E.stage4, 4, 1.6) + g(d, E.submission, 6, 1) + g(d, E.samples, 6, 1.4) + gm(d, E.instruction, 3, 1) },
-  { lanes: [EA, SM], cc: [[DM, 0.3]], rate: (d) => 0.03 + (0.12 + (d % 7 === 1 ? 0.3 : 0)) * ramp(d, E.start, E.start + 30) + g(d, E.facadeStart, 6, 0.4) },
-  { lanes: [EA, CM], cc: [[DM, 0.15]], rate: (d) => 0.06 + g(d, E.contract, 4, 1.2) + mo(d, 26, 1.5, 1.1) * (d > E.start ? 1 : 0) + gm(d, E.notice, 2.5, 1) + gm(d, E.reply, 2.5, 0.8) },
-  { lanes: [DM, SM], cc: [[CM, 0.15]], rate: (d) => 0.06 + 0.25 * ramp(d, E.start, E.start + 30) + g(d, E.facadeStart, 8, 0.5) + gm(d, E.instruction, 5, 0.6) },
-  { lanes: [DM, CM], cc: [[SM, 0.25]], rate: (d) => 0.1 * pace(d) + g(d, E.tender, 10, 0.6) + gm(d, E.instruction + 8, 6, 0.6) },
-  { lanes: [SM, CM], cc: [[DM, 0.25]], rate: (d) => 0.03 + 0.2 * ramp(d, E.start, E.start + 30) + mo(d, 22, 2, 0.35) + gm(d, E.instruction + 10, 6, 0.7) },
-  { lanes: [DM, PM], cc: [[SM, 0.35]], rate: (d) => 0.02 + 0.2 * ramp(d, E.award, E.award + 14) + g(d, E.facadeDesign, 10, 1.2) + g(d, E.submission, 6, 0.7) + g(d, E.samples, 6, 0.8) + gm(d, E.instruction, 4, 0.8) },
-  { lanes: [SM, PM], cc: [[DM, 0.3]], rate: (d) => 0.01 + 0.3 * ramp(d, E.facadeStart - 14, E.facadeStart + 14) + g(d, E.deliveryA, 4, 0.7) + gm(d, E.instruction + 12, 7, 0.7) },
-  { lanes: [CM, PM], cc: [[DM, 0.2]], rate: (d) => 0.01 + g(d, E.tender, 7, 1) + g(d, E.award, 4, 1.4) + 0.08 * ramp(d, E.award, E.award + 30) + mo(d, 20, 2, 0.4) * (d > E.award + 20 ? 1 : 0) },
-  { lanes: [PM, SO], cc: [[SM, 0.1]], rate: (d) => 0.08 * ramp(d, E.facadeDesign - 14, E.facadeDesign + 14) + g(d, E.facadeDesign, 6, 0.6) + g(d, E.orderA, 4, 1) + g(d, E.deliveryA, 4, 0.6) + gm(d, E.instruction + 12, 6, 1) },
-  { lanes: [CM, SO], rate: (d) => 0.005 + g(d, E.orderA, 5, 0.15) },
+// Custodian columns across the sheet
+const LANES = [
+  { code: 'EA', role: 'Employer', x: 74 },
+  { code: 'DM', role: 'Design', x: 126 },
+  { code: 'SM', role: 'Site', x: 178 },
+  { code: 'CM', role: 'Commercial', x: 230 },
+  { code: 'PM', role: 'Package', x: 282 },
+  { code: 'SO', role: 'Supplier', x: 334 },
 ];
-const SCALE = 0.54;
-const SOLO = 0.85; // mail kept in one mailbox only
-const PAIR = 1.3; // mail between two of the six
-// Share of each mailbox's mail that concerns another project.
-const OTHER = [0.04, 0.03, 0.03, 0.06, 0.08, 0.16];
-// Time of day: morning, afternoon, evening and early weights by the sender's lane.
-const HOURS = [
-  [0.46, 0.46, 0.05, 0.03],
-  [0.44, 0.44, 0.09, 0.03],
-  [0.46, 0.38, 0.04, 0.12],
-  [0.42, 0.44, 0.11, 0.03],
-  [0.46, 0.44, 0.06, 0.04],
-  [0.5, 0.47, 0.02, 0.01],
-];
-// The Contractor's own mailboxes hold the copy the record keeps.
-const CONTRACTOR = [DM, SM, CM];
-
-// The record in issue (content/sampleEvidence.json): the lane each exhibit is kept in, and its
-// copies elsewhere. The copy of EV-0131 in the Site Manager's mailbox is N-3, the near-duplicate.
-const EXHIBITS = [
-  { date: '2025-03-03', time: '09:14', lane: DM, copies: [[EA, '09:14'], [SM, '09:14']] }, // EV-0131
-  { date: '2025-03-05', time: '10:02', lane: DM, copies: [[PM, '10:02']] }, // EV-0133
-  { date: '2025-03-12', time: '16:42', lane: SM, copies: [[PM, '16:42'], [DM, '16:42']] }, // EV-0138
-  { date: '2025-03-13', time: '07:55', lane: SM, copies: [[CM, '07:55']] }, // EV-0139
-  { date: '2025-03-21', time: '13:00', lane: SM, copies: [] }, // EV-0144, site diary page 41 (a scan, undated by the hour)
-  { date: '2025-03-26', time: '11:20', lane: SM, copies: [[PM, '11:20'], [SO, '10:58']] }, // EV-0147, forwarding the Supplier
-  { date: '2025-03-28', time: '15:48', lane: CM, copies: [[EA, '15:48']] }, // EV-0151
-  { date: '2025-04-04', time: '12:00', lane: CM, copies: [[EA, '12:00']] }, // EV-0153
-];
-// The other noise items the product sets aside.
-const SET_ASIDE = [
-  { date: '2025-03-12', time: '16:43', lane: DM }, // N-1, automatic reply
-  { date: '2025-03-13', time: '09:30', lane: SO }, // N-2, another project
-  { date: '2025-03-17', time: '12:05', lane: SM }, // N-4, weekly canteen menu
-];
-
-const build = () => {
-  const rand = rng(20250303);
-  const normal = () => Math.sqrt(-2 * Math.log(rand() + 1e-12)) * Math.cos(2 * Math.PI * rand());
-  const poisson = (l) => {
-    const L = Math.exp(-l);
-    let k = 0;
-    let p = rand();
-    while (p > L) {
-      k += 1;
-      p *= rand();
-    }
-    return k;
-  };
-  const hour = (lane) => {
-    const [m, a, e] = HOURS[lane];
-    const u = rand();
-    let h;
-    if (u < m) h = 10.2 + 1.3 * normal();
-    else if (u < m + a) h = 14.8 + 1.4 * normal();
-    else if (u < m + a + e) h = 17.5 + 4 * rand();
-    else h = 6 + 2 * rand();
-    return Math.min(23.9, Math.max(0.2, h));
-  };
-
-  const marks = [];
-  const put = (kind, lane, d, h) => marks.push({ kind, lane, ...at(lane, d, h) });
-  for (let d = 0; d < SPAN; d += 1) {
-    const f = dayFactor(d) * SCALE;
-    CHANNELS.forEach((ch) => {
-      const pair = ch.lanes.length > 1;
-      const absent = ch.lanes.some((l) => away(l, d, 12));
-      const n = poisson(ch.rate(d) * f * (pair ? PAIR : SOLO) * (absent ? (pair ? 0.35 : 0.05) : 1));
-      for (let i = 0; i < n; i += 1) {
-        let sender = ch.lanes[Math.floor(rand() * ch.lanes.length)];
-        const h = hour(sender);
-        if (away(sender, d, h) && pair) sender = ch.lanes.find((l) => l !== sender);
-        const holders = [...ch.lanes];
-        (ch.cc || []).forEach(([l, p]) => {
-          if (rand() < p && !holders.includes(l)) holders.push(l);
-        });
-        const kept = CONTRACTOR.includes(sender) ? sender : holders.find((l) => CONTRACTOR.includes(l)) ?? sender;
-        if (rand() < OTHER[kept]) {
-          put('noise', kept, d, h);
-        } else {
-          put('navy', kept, d, h);
-          holders.filter((l) => l !== kept).forEach((l) => put('faint', l, d, h));
-        }
-        // An automatic reply from each recipient who is away.
-        holders.filter((l) => l !== sender && away(l, d, h)).forEach((l) => {
-          if (rand() < 0.6) put('noise', l, d, h + 1 / 60);
-        });
-      }
-    });
-  }
-
-  // A clear field round each exhibit, so that the azure reads; then the named items themselves.
-  const issue = EXHIBITS.map((e) => ({ lane: e.lane, ...at(e.lane, day(e.date), hm(e.time)) }));
-  const kept = marks.filter((m) => !issue.some((e) => e.lane === m.lane && Math.abs(e.y - m.y) < RP * 1.5 && Math.abs(e.x - m.x) < (e.y === m.y ? 4.5 : 2)));
-  EXHIBITS.forEach((e) => e.copies.forEach(([l, t]) => kept.push({ kind: 'faint', lane: l, ...at(l, day(e.date), hm(t)) })));
-  SET_ASIDE.forEach((n) => kept.push({ kind: 'noise', lane: n.lane, ...at(n.lane, day(n.date), hm(n.time)) }));
-
-  const tick = (m, t = TICK) => `M${r2(m.x)} ${r2(m.y - t / 2)}v${t}`;
-  const ring = (m) => `M${r2(m.x - RING)} ${r2(m.y)}a${RING} ${RING} 0 1 0 ${2 * RING} 0a${RING} ${RING} 0 1 0 ${-2 * RING} 0`;
-  const path = (kind, fn) => kept.filter((m) => m.kind === kind).map((m) => fn(m)).join('');
-  return { navy: path('navy', tick), faint: path('faint', tick), noise: path('noise', ring), issue: issue.map((m) => tick(m, ISSUE)).join('') };
-};
-const MARKS = build();
-
-// The time scale: a fine tick at each week, a longer one at the week in which each month begins,
-// and the longest at each year (ISO week 1 of 2025 begins on Monday 30 December 2024).
-const YEAR_ROW = 52;
-const monthRows = new Set(dates.map((dt, d) => (dt.getUTCDate() === 1 ? Math.floor(d / 7) : -1)));
-const SCALE_PATH = `M${r2(AX)} ${r2(Y0)}V${r2(Y1)}${Array.from({ length: WEEKS + 1 }, (_, w) => `M${r2(AX)} ${r2(rowY(w))}h${w === 0 || w === YEAR_ROW ? 8 : monthRows.has(w) ? 4.5 : 2}`).join('')}`;
-
-// The part of the record in issue: a sideline in the margin across the five weeks from Monday
-// 03 March to Sunday 06 April 2025, its stem the leader to the note.
-const SIDELINE = `M${BX + 6} ${r2(rowY(61))}H${BX}V${r2(rowY(66))}H${BX + 6}M${BX} ${r2(rowY(66))}V${r2(NOTE - 4.5)}H${X0 - 5}`;
 
 const LABEL =
-  'Illustrative drawing: the correspondence of the fictional sample matter as it is kept, one mark per message, in six lanes for the mailboxes of the Employer’s Agent (EA), the Contractor’s Design Manager (DM), Site Manager (SM) and Commercial Manager (CM), the Façade Sub-Contractor’s Package Manager (PM) and the Supplier’s Sales Office (SO). Time runs down the sheet a week to a line, from January 2024 to April 2025. A message kept in more than one mailbox repeats faintly on the same line; automatic replies, another project’s mail and items not relevant are drawn hollow. Near the foot, a bracket gathers the five weeks from 03 March 2025 in which the eight exhibits in issue, EV-0131 to EV-0153, dated 03 March to 04 April 2025, are marked in blue.';
+  'Illustrative drawing: the correspondence topology of the fictional sample matter across six custodians (EA, DM, SM, CM, PM, SO) from January 2024 to April 2025. Threaded correspondence networks link project milestones, while noise and near-duplicates are filtered. The dispute window of 03 March to 04 April 2025 isolates the four pivotal exhibits: EV-0131, EV-0138, EV-0147, and EV-0151.';
 
-export const ArchiveField = ({ label = LABEL }) => (
-  <Sheet viewBox={`0 0 ${W} ${H}`} label={label}>
-    {LANES.map((code, i) => (
-      <T key={code} x={X0 + LW * i + DAYW * 2.5 + FS * 0.04} y={HEAD} size={FS} anchor="middle" className="dw-t-label">
-        {code}
-      </T>
+export const ArchiveField = ({ label = LABEL }) => {
+  const [containerRef, inView] = useInViewOnce({ threshold: 0.1 });
+  const rawMsgs = useCountUp('47,832', { inView, duration: 1800 });
+  const noiseFilter = useCountUp('-42.8%', { inView, duration: 1800 });
+  const exhibitsCount = useCountUp('8 EXHIBITS', { inView, duration: 1400 });
+
+  return (
+    <div ref={containerRef} className="h-full w-full">
+      <Sheet viewBox={`0 0 ${W} ${H}`} label={label} className="dw">
+    {/* Background sheet fill */}
+    <rect x="0" y="0" width={W} height={H} fill="#FCFAF5" />
+
+    {/* Outer border & corner crop marks */}
+    <rect x="8" y="8" width={W - 16} height={H - 16} fill="none" stroke="#E2DDD2" strokeWidth="0.75" />
+    <path d="M 8 18 H 14 M 8 18 V 12 M 392 18 H 386 M 392 18 V 12 M 8 482 H 14 M 8 482 V 488 M 392 482 H 386 M 392 482 V 488" stroke="#C4A05A" strokeWidth="0.8" fill="none" />
+
+    {/* 1. Header / Classification */}
+    <path d="M 16 16 H 384" stroke="#2B363B" strokeWidth="0.6" />
+    <text x="20" y="27" fontFamily="IBM Plex Mono, monospace" fontSize="8" fontWeight="600" fill="#6B7280" letterSpacing="0.1em">
+      EVIDENTIAL TOPOLOGY · 6 CUSTODIANS
+    </text>
+    <text x="380" y="27" textAnchor="end" fontFamily="IBM Plex Mono, monospace" fontSize="8" fontWeight="500" fill="#8C733E" letterSpacing="0.06em">
+      16 MO · 47.8K MSG
+    </text>
+    <path d="M 16 34 H 384" stroke="#2B363B" strokeWidth="0.6" />
+
+    {/* 2. Custodian Column Headers */}
+    {LANES.map((lane) => (
+      <g key={lane.code}>
+        <rect x={lane.x - 16} y={42} width={32} height={17} rx={2} fill="#F4EFE6" stroke="#2B363B" strokeWidth="0.8" />
+        <text x={lane.x} y={54.5} textAnchor="middle" fontFamily="IBM Plex Mono, monospace" fontSize="9.5" fontWeight="600" fill="#0B2516">
+          {lane.code}
+        </text>
+        <text x={lane.x} y={69} textAnchor="middle" fontFamily="IBM Plex Mono, monospace" fontSize="6.5" fill="#78716C">
+          {lane.role}
+        </text>
+        {/* Vertical guideline track */}
+        <line x1={lane.x} y1={74} x2={lane.x} y2={422} stroke="#E5DEC9" strokeWidth="0.75" strokeDasharray="3 3" />
+      </g>
     ))}
-    <path d={`M${r2(X0)} ${r2(Y0 - GAP)}H${r2(X1)}M${r2(X0)} ${r2(Y1 + GAP)}H${r2(X1)}`} className="dw-thin" />
-    <path d={`M${r2(X0)} ${r2(rowY(YEAR_ROW))}H${r2(X1)}`} className="dw-grid" />
-    <path d={SCALE_PATH} className="dw-thin" />
-    <T x={AX + 12} y={Y0 + CAP / 2} size={FS}>
-      2024
-    </T>
-    <T x={AX + 12} y={rowY(YEAR_ROW) + CAP / 2} size={FS}>
-      2025
-    </T>
+    <path d="M 16 74 H 384" stroke="#D1C7B7" strokeWidth="0.75" />
 
-    <path d={MARKS.faint} className="dw-hatch" />
-    <path d={MARKS.navy} className="dw-line" />
-    <path d={MARKS.noise} className="dw-thin" />
-    <path d={MARKS.issue} className="dw-cut dw-issue" />
+    {/* 3. Left Time Axis Rail */}
+    <line x1="44" y1="74" x2="44" y2="422" stroke="#2B363B" strokeWidth="0.8" />
+    
+    {/* Quarter Ticks & Labels */}
+    {[
+      { y: 98, label: "Q1 '24" },
+      { y: 152, label: "Q2 '24" },
+      { y: 206, label: "Q3 '24" },
+      { y: 260, label: "Q4 '24" },
+      { y: 310, label: "Q1 '25" },
+    ].map((tick) => (
+      <g key={tick.label}>
+        <line x1="38" y1={tick.y} x2="44" y2={tick.y} stroke="#2B363B" strokeWidth="0.8" />
+        <text x="34" y={tick.y + 3} textAnchor="end" fontFamily="IBM Plex Mono, monospace" fontSize="7" fill="#6B7280">
+          {tick.label}
+        </text>
+        <line x1="44" y1={tick.y} x2="370" y2={tick.y} stroke="#F0EAE0" strokeWidth="0.5" />
+      </g>
+    ))}
 
-    <path d={SIDELINE} className="dw-thin" />
-    <T x={X0} y={NOTE} size={FS}>
-      In issue: EV-0131 to EV-0153
-    </T>
-    <T x={X0} y={NOTE + LEAD} size={FS}>
-      03 March to 04 April 2025
-    </T>
-  </Sheet>
-);
+    {/* 4. Background Correspondence Threads & Volume (2024 to early 2025) */}
+    {/* Thread 1: Stage 4 Design (EA <-> DM) */}
+    <g>
+      <path d="M 74 98 H 126" stroke="#2B363B" strokeWidth="1" />
+      <circle cx="74" cy="98" r="2.5" fill="#0B2516" />
+      <circle cx="126" cy="98" r="2.5" fill="#0B2516" />
+      <text x="134" y="96" fontFamily="IBM Plex Mono, monospace" fontSize="6.5" fill="#78716C">Stage 4 Cladding Design</text>
+      {/* Replies & sub-messages */}
+      <line x1="126" y1="98" x2="126" y2="108" stroke="#2B363B" strokeWidth="0.75" />
+      <circle cx="126" cy="108" r="2" fill="#78716C" />
+      <path d="M 126 108 H 74" stroke="#2B363B" strokeWidth="0.75" strokeDasharray="2 2" />
+      <circle cx="74" cy="108" r="2" fill="#78716C" />
+    </g>
+
+    {/* Thread 2: Subcontract Procurement & Tender (DM -> CM -> PM) */}
+    <g>
+      <path d="M 126 148 H 230 V 154 H 282" fill="none" stroke="#2B363B" strokeWidth="1" />
+      <circle cx="126" cy="148" r="2.5" fill="#0B2516" />
+      <circle cx="230" cy="148" r="2.5" fill="#0B2516" />
+      <circle cx="282" cy="154" r="2.5" fill="#0B2516" />
+      <text x="140" y="144" fontFamily="IBM Plex Mono, monospace" fontSize="6.5" fill="#78716C">Façade Sub-contract Tender</text>
+    </g>
+
+    {/* Noise / De-duplicated Indicator Badge */}
+    <g>
+      <circle cx="230" cy="172" r="3" fill="none" stroke="#A8A29E" strokeWidth="1" strokeDasharray="2 2" />
+      <line x1="228" y1="170" x2="232" y2="174" stroke="#A8A29E" strokeWidth="1" />
+      <circle cx="334" cy="168" r="3" fill="none" stroke="#A8A29E" strokeWidth="1" strokeDasharray="2 2" />
+      <rect x="238" y="166" width="90" height="12" rx="2" fill="#F4EFE6" stroke="#D1C7B7" strokeWidth="0.6" />
+      <text x="242" y="175" fontFamily="IBM Plex Mono, monospace" fontSize="6" fill="#78716C" letterSpacing="0.04em">
+        SET ASIDE: NEAR-DUPES
+      </text>
+    </g>
+
+    {/* Thread 3: Technical Specifications & Extrusion Approvals (PM <-> SO <-> DM) */}
+    <g>
+      <path d="M 126 202 H 282 V 208 H 334" fill="none" stroke="#2B363B" strokeWidth="1" />
+      <circle cx="126" cy="202" r="2.5" fill="#0B2516" />
+      <circle cx="282" cy="202" r="2.5" fill="#0B2516" />
+      <circle cx="334" cy="208" r="2.5" fill="#0B2516" />
+      <text x="140" y="198" fontFamily="IBM Plex Mono, monospace" fontSize="6.5" fill="#78716C">Bracket Specs & Extrusion Profile</text>
+    </g>
+
+    {/* Thread 4: Mock-up Inspection & Samples (EA <-> DM <-> SM) */}
+    <g>
+      <path d="M 74 246 H 178" stroke="#2B363B" strokeWidth="1" />
+      <circle cx="74" cy="246" r="2.5" fill="#0B2516" />
+      <circle cx="126" cy="246" r="2.5" fill="#0B2516" />
+      <circle cx="178" cy="246" r="2.5" fill="#0B2516" />
+      <text x="80" y="242" fontFamily="IBM Plex Mono, monospace" fontSize="6.5" fill="#78716C">Sample Mock-up Review</text>
+    </g>
+
+    {/* Thread 5: Delivery Sequence & Site Access (SM <-> PM <-> SO) */}
+    <g>
+      <path d="M 178 288 H 334" stroke="#2B363B" strokeWidth="1" />
+      <circle cx="178" cy="288" r="2.5" fill="#0B2516" />
+      <circle cx="282" cy="288" r="2.5" fill="#0B2516" />
+      <circle cx="334" cy="288" r="2.5" fill="#0B2516" />
+      <text x="186" y="284" fontFamily="IBM Plex Mono, monospace" fontSize="6.5" fill="#78716C">Delivery Schedule & Call-offs</text>
+    </g>
+
+    {/* Volume texture: discrete clean ticks representing active correspondence density */}
+    {[
+      // Q1-Q2 background traffic
+      [74, 88], [126, 92], [126, 116], [178, 122], [230, 130], [282, 136],
+      [74, 138], [126, 140], [178, 144], [282, 160], [334, 156],
+      // Q3-Q4 background traffic
+      [126, 186], [178, 192], [230, 194], [282, 196], [334, 190],
+      [74, 218], [126, 224], [178, 230], [230, 236], [282, 232],
+      [126, 268], [178, 272], [230, 276], [282, 274], [334, 268],
+      // Early 2025
+      [74, 302], [126, 306], [178, 308], [282, 304], [334, 302],
+    ].map(([x, y], i) => (
+      <line key={i} x1={x - 2.5} y1={y} x2={x + 2.5} y2={y} stroke="#9CA3AF" strokeWidth="1.2" strokeLinecap="round" />
+    ))}
+
+    {/* 5. THE DISPUTE WINDOW (03 Mar to 04 Apr 2025) */}
+    {/* Focus zone highlight rectangle */}
+    <rect x="42" y="322" width="338" height="96" rx="3" fill="#0B2516" fillOpacity="0.04" stroke="#0B2516" strokeWidth="1" strokeDasharray="4 3" />
+    {/* Solid brass accent bar on the left */}
+    <rect x="42" y="322" width="3.5" height="96" rx="1" fill="#C4A05A" />
+
+    {/* Window Banner */}
+    <text x="52" y="333" fontFamily="IBM Plex Mono, monospace" fontSize="7.5" fontWeight="600" fill="#0B2516" letterSpacing="0.06em">
+      DISPUTE WINDOW · 03 MAR TO 04 APR 2025
+    </text>
+    <text x="372" y="333" textAnchor="end" fontFamily="IBM Plex Mono, monospace" fontSize="7" fontWeight="500" fill="#8C733E" letterSpacing="0.04em">
+      4 CRITICAL EXHIBITS
+    </text>
+
+    {/* Exhibit 1: EV-0131 (03 Mar 2025) */}
+    <g>
+      {/* Vector from EA to DM */}
+      <line x1="74" y1="347" x2="126" y2="347" stroke="#0B2516" strokeWidth="1.5" />
+      <polygon points="123,344 128,347 123,350" fill="#0B2516" />
+      <circle cx="74" cy="347" r="3.5" fill="#0B2516" />
+      <circle cx="126" cy="347" r="4.5" fill="#0B2516" stroke="#C4A05A" strokeWidth="1.5" />
+      {/* Badge & Label */}
+      <rect x="134" y="340" width="46" height="13" rx="2" fill="#0B2516" />
+      <text x="138" y="350" fontFamily="IBM Plex Mono, monospace" fontSize="7" fontWeight="600" fill="#FCFAF5">
+        EV-0131
+      </text>
+      <text x="186" y="350" fontFamily="IBM Plex Sans, sans-serif" fontSize="7" fontWeight="500" fill="#1A2721">
+        03 Mar: Change instruction (EA → DM)
+      </text>
+    </g>
+
+    {/* Exhibit 2: EV-0138 (12 Mar 2025) */}
+    <g>
+      {/* Vector linking PM to SM and copied to DM */}
+      <path d="M 282 368 H 178 V 364 H 126" fill="none" stroke="#0B2516" strokeWidth="1.2" />
+      <circle cx="282" cy="368" r="3" fill="#0B2516" />
+      <circle cx="126" cy="364" r="2.5" fill="#78716C" />
+      <circle cx="178" cy="368" r="4.5" fill="#0B2516" stroke="#C4A05A" strokeWidth="1.5" />
+      {/* Badge & Label */}
+      <rect x="186" y="361" width="46" height="13" rx="2" fill="#0B2516" />
+      <text x="190" y="371" fontFamily="IBM Plex Mono, monospace" fontSize="7" fontWeight="600" fill="#FCFAF5">
+        EV-0138
+      </text>
+      <text x="238" y="371" fontFamily="IBM Plex Sans, sans-serif" fontSize="7" fontWeight="500" fill="#1A2721">
+        12 Mar: 16-wk lead time given
+      </text>
+    </g>
+
+    {/* Exhibit 3: EV-0147 (26 Mar 2025) */}
+    <g>
+      {/* Vector linking SO to PM */}
+      <path d="M 334 389 H 282 V 391 H 178" fill="none" stroke="#0B2516" strokeWidth="1.2" />
+      <circle cx="334" cy="389" r="3" fill="#0B2516" />
+      <circle cx="178" cy="391" r="2.5" fill="#78716C" />
+      <circle cx="282" cy="389" r="4.5" fill="#0B2516" stroke="#C4A05A" strokeWidth="1.5" />
+      {/* Badge & Label */}
+      <rect x="290" y="382" width="46" height="13" rx="2" fill="#0B2516" />
+      <text x="294" y="392" fontFamily="IBM Plex Mono, monospace" fontSize="7" fontWeight="600" fill="#FCFAF5">
+        EV-0147
+      </text>
+      <text x="341" y="392" fontFamily="IBM Plex Sans, sans-serif" fontSize="6.5" fontWeight="500" fill="#1A2721">
+        26 Mar: Delivery conf.
+      </text>
+    </g>
+
+    {/* Exhibit 4: EV-0151 (28 Mar 2025) - Notice under clause 2.24 */}
+    <g>
+      {/* Prominent formal notice vector from CM directly to EA */}
+      <line x1="230" y1="410" x2="74" y2="410" stroke="#C4A05A" strokeWidth="2" />
+      <polygon points="78,407 72,410 78,413" fill="#C4A05A" />
+      <circle cx="74" cy="410" r="4" fill="#0B2516" />
+      <circle cx="230" cy="410" r="5" fill="#C4A05A" stroke="#0B2516" strokeWidth="1.5" />
+      {/* Gold highlight badge */}
+      <rect x="174" y="403" width="50" height="14" rx="2" fill="#C4A05A" />
+      <text x="178" y="413.5" fontFamily="IBM Plex Mono, monospace" fontSize="7.5" fontWeight="700" fill="#0B2516">
+        EV-0151
+      </text>
+      <text x="168" y="413.5" textAnchor="end" fontFamily="IBM Plex Sans, sans-serif" fontSize="7" fontWeight="600" fill="#0B2516">
+        28 Mar: Cl. 2.24 Notice →
+      </text>
+    </g>
+
+    {/* 6. Diagnostic Telemetry Footer */}
+    <path d="M 16 426 H 384" stroke="#D1C7B7" strokeWidth="0.75" />
+    <path d="M 16 428 H 384" stroke="#D1C7B7" strokeWidth="0.5" />
+
+    {/* Metric 1 */}
+    <rect x="18" y="434" width="114" height="42" rx="2" fill="#F7F3EB" stroke="#D1C7B7" strokeWidth="0.6" />
+    <text x="26" y="451" fontFamily="IBM Plex Mono, monospace" fontSize="13" fontWeight="600" fill="#0B2516">
+      {rawMsgs}
+    </text>
+    <text x="26" y="466" fontFamily="IBM Plex Mono, monospace" fontSize="6.5" fontWeight="500" fill="#78716C" letterSpacing="0.06em">
+      RAW MSGS INGESTED
+    </text>
+
+    {/* Metric 2 */}
+    <rect x="143" y="434" width="114" height="42" rx="2" fill="#F7F3EB" stroke="#D1C7B7" strokeWidth="0.6" />
+    <text x="151" y="451" fontFamily="IBM Plex Mono, monospace" fontSize="13" fontWeight="600" fill="#8C733E">
+      {noiseFilter}
+    </text>
+    <text x="151" y="466" fontFamily="IBM Plex Mono, monospace" fontSize="6.5" fontWeight="500" fill="#78716C" letterSpacing="0.06em">
+      NOISE & DUPES REMOVED
+    </text>
+
+    {/* Metric 3 */}
+    <rect x="268" y="434" width="114" height="42" rx="2" fill="#F7F3EB" stroke="#D1C7B7" strokeWidth="0.6" />
+    <text x="276" y="451" fontFamily="IBM Plex Mono, monospace" fontSize="13" fontWeight="600" fill="#0B2516">
+      {exhibitsCount}
+    </text>
+    <text x="276" y="466" fontFamily="IBM Plex Mono, monospace" fontSize="6.5" fontWeight="500" fill="#78716C" letterSpacing="0.06em">
+      CHRONOLOGY TIED
+    </text>
+
+    {/* Bottom ledger stamp */}
+    <line x1="18" y1="483" x2="382" y2="483" stroke="#E5DEC9" strokeWidth="0.5" />
+    <text x="200" y="492" textAnchor="middle" fontFamily="IBM Plex Mono, monospace" fontSize="6.5" letterSpacing="0.12em" fill="#8C733E">
+      VERICASE EVIDENTIAL RECORD · FORENSIC CHRONOLOGY ENGINE
+    </text>
+    </Sheet>
+  </div>
+  );
+};
+

@@ -16,9 +16,9 @@ export const CHAPTERS = [
   { id: 'top', numeral: '', title: 'Records, records, records.', sheetLabel: 'Cover', nav: null },
   { id: 'clock', numeral: 'I', title: 'The clock', nav: 'The clock' },
   { id: 'chronology-lens', numeral: 'II', title: 'The Chronology Lens™', nav: 'Chronology Lens' },
-  { id: 'research', numeral: 'III', title: 'Ask, cite, bundle', nav: 'Ask, cite, bundle' },
-  { id: 'claims', numeral: 'IV', title: 'Build the claim', nav: 'Build the claim' },
-  { id: 'case-room', numeral: 'V', title: 'The case room', nav: 'Rebuttal' },
+  { id: 'case-room', numeral: 'III', title: 'The case room', nav: 'Rebuttal' },
+  { id: 'research', numeral: 'IV', title: 'Ask, cite, bundle', nav: 'Ask, cite, bundle' },
+  { id: 'claims', numeral: 'V', title: 'Build the claim', nav: 'Build the claim' },
   { id: 'integrity', numeral: 'VI', title: 'The record holds', nav: 'Integrity' },
 ];
 export const END_MATTER = [
@@ -41,13 +41,13 @@ export const HEADER = {
 
 export const COVER = {
   masthead: ['Records,', 'records,', 'records.'],
-  eyebrow: 'The pre-litigation evidence workspace for construction disputes',
-  h1: 'Years of project correspondence. One cited chronology.',
+  eyebrow: 'The early case diagnostic tool for construction disputes',
+  h1: 'Transform Complex RECORDS Into Compelling Legal Arguments',
   subhead:
-    'VeriCase turns project email and documents into a time-ordered chronology, a cited analysis and a numbered bundle, so that solicitors, counsel, experts and contractors’ commercial teams can test each point against the record.',
+    "VeriCase approaches the evidence crisis differently. We don't just manage documents; we reconstruct truth. Where others see data graveyards, we see evidence goldmines.",
   fastPath: 'Short on time? The platform in brief',
   strip: [
-    { label: 'Founded by a practitioner', text: 'William Rogers MCIArb: construction claims, forensic quantum and adjudication.' },
+    { label: 'Founded by practitioners', text: 'William Rogers MCIArb & Warren Kemp (Partner, gunnercooke): forensic quantum, claims and dispute resolution.' },
     {
       label: 'Owned in part by practitioners',
       text: 'Practitioners from law firms and claims consultancies hold equity in VeriCase Ltd.',
@@ -96,9 +96,9 @@ export const CLOCK = {
   eyebrow: 'Chapter I · The clock',
   h2: 'Most disputes come down to what the record shows, and when.',
   lead:
-    'Many construction disputes run to fixed timetables. When a notice falls due or a referral arrives, the case is only as strong as the record you can find, read and cite in the time allowed. It is often said that the three lessons of construction disputes are records, records and records. The periods below show why.',
-  fail: 'The record exists, but it sits across mailboxes, custodians and years, in a form no one can read in order.',
-  recover: 'VeriCase helps you put the record in order before the clock starts, and keeps each entry tied to its source.',
+    'Many construction disputes run to fixed timetables. Time is the commodity everyone is chasing. When a notice falls due or a referral arrives, the case is only as strong as the record you can find, read and cite in the time allowed. It is often said that the three lessons of construction disputes are records, records and records. The periods below show why.',
+  fail: 'You need to build a factual chronology from tens of thousands of emails. The record exists, but it sits across mailboxes, custodians and years, in a form no one can read in order. Reading and understanding it takes weeks.',
+  recover: 'VeriCase processes the record in a matter of minutes. It puts the correspondence in order before the clock starts, saving substantial time and giving you a competitive edge.',
   matter: {
     label: 'The sample matter (fictional)',
     title: 'Example Contractor Ltd and Example Employer Ltd',
@@ -222,11 +222,11 @@ export const LENS_CHAPTER = {
 };
 
 export const RESEARCH = {
-  numeral: 'III',
-  eyebrow: 'Chapter III · Research',
+  numeral: 'IV',
+  eyebrow: 'Chapter IV · Research',
   h2: 'Ask a question. Read a cited answer. Bundle the sources.',
   lead:
-    'Research takes a question in plain English, shows you how it has understood it, and returns a VeriCase Analysis Report in which each finding carries a numbered citation to the email or document it rests on. One step turns the cited items into a bundle.',
+    'Research takes a question in plain English, shows you how it has understood it, and returns a VeriCase Analysis Report. For example, you can extract every document relating to a roof leak, ask the AI to identify who is responsible, and receive a report where each finding carries a numbered citation to the email or document it rests on.',
   fail: 'Someone asks what the record shows on a point. The answer can arrive days later as a summary without sources, and the checking starts again.',
   recover: 'The answer arrives with its sources attached. Follow any citation to the message itself, then bundle what was cited.',
   steps: [
@@ -244,11 +244,11 @@ export const RESEARCH = {
 };
 
 export const CLAIMS = {
-  numeral: 'IV',
-  eyebrow: 'Chapter IV · Claims builder and collaboration',
+  numeral: 'V',
+  eyebrow: 'Chapter V · Claims builder and collaboration',
   h2: 'Draft the claim with the evidence already cited.',
   lead:
-    'Structure the Heads of Claim, draft the narrative and cite by message ID as you write. The project team, solicitors, counsel and experts work on the same evidence, and discuss it where it sits.',
+    'VeriCase transforms complex evidence into compelling, defensible claim arguments. Structure the Heads of Claim, draft the narrative and cite by message ID as you write. The project team, solicitors, counsel and experts work on the same evidence, and discuss it where it sits.',
   fail: 'The narrative is drafted in one place, the evidence is kept in another, and the argument about the evidence happens in a reply-all thread.',
   recover: 'Each citation opens its message, and each discussion is anchored to the document it concerns.',
   items: [
@@ -270,12 +270,12 @@ export const CLAIMS = {
 };
 
 export const CASE_ROOM = {
-  numeral: 'V',
+  numeral: 'III',
   kicker: 'Project time ends. Case time begins.',
   cut: 'Case time',
   h2: 'Their points, numbered. Your replies, cited.',
   lead:
-    'Upload the other side’s submission. Rebuttal Mode divides it into numbered points, ranks the evidence that bears on each by content, date window and participants, and proposes reply points that must cite the evidence they rely on. A person accepts, edits or rejects each one, and every decision is recorded.',
+    'Upload the other side’s submission to interrogate their factual position. Rebuttal Mode divides it into numbered points, ranks the evidence that bears on each, and proposes reply points that cite the documents that support or contradict the position. A person accepts, edits or rejects each one, and every decision is recorded.',
   leadGate: 'G5_rebuttalCite',
   fail: 'Under time pressure, a team answers first the points it can evidence quickly, and the rest risk being answered thinly.',
   recover: 'Each point sits beside the evidence ranked for it, and each proposed reply arrives with its citations.',
@@ -341,9 +341,9 @@ export const IN_BRIEF = {
   ledger: [
     { numeral: 'II', href: '#chronology-lens', title: 'Ingestion', text: 'PST, MSG, EML, PDF, DOC, DOCX, spreadsheets and images, with OCR. One record per message, threaded by header, with quoted text folded, near-duplicates set aside and attachments listed by type in File Manager.' },
     { numeral: 'II', href: '#chronology-lens', title: 'The Chronology Lens™', text: 'One time-ordered view across every party, in Cards or Table view, with a project date window, Smart Filter, Exclude keywords and Create bundle.' },
-    { numeral: 'III', href: '#research', title: 'Research', text: 'Plain-English questions, an editable Query Plan, and an Analysis Report with numbered citations, counts and a validation badge. Download PDF or create a bundle.' },
-    { numeral: 'IV', href: '#claims', title: 'Claims builder', text: 'Heads of Claim, a narrative cited by message ID, an evidence finder, and Word or PDF export.' },
-    { numeral: 'V', href: '#case-room', title: 'Rebuttal Mode', text: 'Numbered points, ranked evidence, reply points with mandatory citations, accept, edit or reject with an audit trail, and an export pairing each point with its reply and cited evidence.' },
+    { numeral: 'III', href: '#case-room', title: 'Rebuttal Mode', text: 'Numbered points, ranked evidence, reply points with mandatory citations, accept, edit or reject with an audit trail, and an export pairing each point with its reply and cited evidence.' },
+    { numeral: 'IV', href: '#research', title: 'Research', text: 'Plain-English questions, an editable Query Plan, and an Analysis Report with numbered citations, counts and a validation badge. Download PDF or create a bundle.' },
+    { numeral: 'V', href: '#claims', title: 'Claims builder', text: 'Heads of Claim, a narrative cited by message ID, an evidence finder, and Word or PDF export.' },
     { numeral: 'VI', href: '#integrity', title: 'Integrity and access', text: 'Originals kept as received, with hashes, a per-message audit trail, numbered bundles with manifests, role-based access and server-side AI.' },
   ],
   benchmarks: {
@@ -366,15 +366,56 @@ export const IN_BRIEF = {
 
 export const FOUNDER = {
   eyebrow: 'Who is behind it',
-  h2: 'Built by people who have had to assemble the record themselves.',
+  h2: 'Built by practitioners who live in construction disputes.',
   body1:
-    'VeriCase was founded by William Rogers MCIArb, a construction commercial management professional who specialises in claims, forensic quantum and adjudication under the NEC, JCT and FIDIC forms, and who founded Quantum Commercial Solutions in 2016.',
+    'VeriCase was founded by William Rogers MCIArb and Warren Kemp. Together, they combine decades of hands-on forensic claims management, Tier 1 construction dispute resolution, and senior in-house counsel leadership.',
+  founders: [
+    {
+      name: 'William Rogers MCIArb',
+      role: 'Co-Founder · Claims, Forensic Quantum & Adjudication',
+      firm: 'Founder, Quantum Commercial Solutions (2016)',
+      bio:
+        'A construction commercial management professional specialising in claims, forensic quantum and adjudication under the NEC, JCT and FIDIC forms. Founder of Quantum Commercial Solutions in 2016 and Member of the Chartered Institute of Arbitrators.',
+      credentials: [
+        'Member of the Chartered Institute of Arbitrators (MCIArb)',
+        'Founder, Quantum Commercial Solutions (2016)',
+        'Forensic quantum and delay claims preparation',
+        'NEC, JCT and FIDIC dispute specialist',
+      ],
+    },
+    {
+      name: 'Warren Kemp',
+      role: 'Co-Founder · Dispute Resolution | Partner, gunnercooke LLP',
+      firm: 'Partner, gunnercooke LLP · GC, United Living Group',
+      email: 'warren.kemp@gunnercooke.com',
+      tel: '+44 (0) 7470 332 945',
+      bio:
+        'Warren advises in relation to construction disputes and is known to be highly skilled and knowledgeable in this field. Clients include developers, contractors and professional consultants in both the public and private sector. He achieves outstanding results through his pragmatic yet tenacious approach. Warren jointly led the construction and engineering team at international law firm DAC Beachcroft until joining gunnercooke LLP in February 2024. Qualified as a solicitor for over 20 years, he provides clients with an operational edge via sharp problem solving to deliver commercial advantage and avoid disputes. Warren is currently working, among his various roles, as General Counsel for United Living (a business approaching £1bn turnover with a telecoms division) and previously worked in-house on secondment for 18 months at global construction consultancy WS Atkins.',
+      credentials: [
+        'Dispute Resolution Partner, gunnercooke LLP',
+        'Former Joint Head of Construction & Engineering, DAC Beachcroft',
+        'General Counsel, United Living Group',
+        'Solicitor of over 20 years qualification',
+        'Former In-House Counsel (Secondment), WS Atkins (18 months)',
+      ],
+      cases: [
+        { name: 'Van Elle Limited v Keynvor Morlift Limited', cite: '[2023] EWHC 3137 (TCC)' },
+        { name: 'Celtic Bioenergy Limited v Knowles Limited', cite: '[2017] EWHC 472 (TCC)' },
+        { name: 'Middle Level Commissioners v Atkins Limited', cite: '[2012] EWHC 2884 (TCC)' },
+      ],
+    },
+  ],
   body2: 'Practitioners from law firms and claims consultancies hold equity in VeriCase Ltd. Their involvement is not an endorsement by the firms they work for.',
   body2Gate: 'G5_equity',
-  credentials: ['William Rogers MCIArb', 'Founder, VeriCase Ltd', 'Member of the Chartered Institute of Arbitrators', 'Founder, Quantum Commercial Solutions (2016)'],
+  credentials: [
+    'William Rogers MCIArb · Co-Founder, VeriCase Ltd',
+    'Warren Kemp · Co-Founder, VeriCase Ltd | Partner, gunnercooke LLP',
+    'Chartered Institute of Arbitrators (MCIArb)',
+    'Solicitor of the Senior Courts (20+ years)',
+  ],
   declaration: {
     label: 'Declaration of interest',
-    text: 'United Infrastructure is an associated company of VeriCase’s founder, William Rogers. We state the connection before the account, so that you can give the account the weight you think it deserves.',
+    text: 'United Infrastructure is an associated company of VeriCase’s founder, William Rogers. Warren Kemp serves as General Counsel for United Living. We state these connections before the account, so that you can give the account the weight you think it deserves.',
   },
   h3: 'A record of use: United Infrastructure',
   account: '{{UI_CASE}}[[note:11]]',
