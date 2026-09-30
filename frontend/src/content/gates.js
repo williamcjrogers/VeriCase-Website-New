@@ -14,7 +14,7 @@
 export const GATES = {
   G1_jct: { status: 'confirmed', gate: 'G1', label: 'JCT review of every contractual statement in the sample matter' },
   G2_legal: { status: 'confirmed', gate: 'G2', label: 'Practitioner approval of Schedule 1 and notes 2 to 5' },
-  G3_stats: { status: 'confirmed', gate: 'G3', label: 'Final source check of notes 6 to 8 against the primary documents' },
+  G3_stats: { status: 'struck', gate: 'G3', label: 'Context statistics band, removed from the page 30 September 2026; the numbered notes renumbered over the gap' },
   G4_benchmarks: { status: 'struck', gate: 'G4', label: 'Benchmark notes 9 and 10 (otherwise both figures are struck)', tokens: ['BENCHMARK_NOTE_THROUGHPUT', 'BENCHMARK_NOTE_DATES'] },
   G5_guard: { status: 'confirmed', gate: 'G5', label: 'Research: the broad-question guard (Question C)' },
   G5_badge: { status: 'confirmed', gate: 'G5', label: 'Research: what the validation badge checks' },

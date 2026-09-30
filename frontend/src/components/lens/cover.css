@@ -9,6 +9,15 @@
   color: var(--vc-navy);
 }
 
+/* The positioning statement stays part of the cover, set large enough to read as the
+   statement it is rather than as a margin note. */
+.cover-statement {
+  font-size: clamp(1.375rem, 1.07rem + 1.3vw, 1.75rem);
+  line-height: 1.25;
+  color: var(--vc-navy);
+  max-width: 26ch;
+}
+
 /* Fig. 1 keeps the desktop field width (588 px at full width) on tablets. From 1024 px it takes
    columns 7 to 12, narrowing on short windows so that the whole frame stays above the cookie
    bar (frame height is 0.8 x width + 150 px, below a top edge of about 225 px), but never below

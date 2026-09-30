@@ -1,20 +1,16 @@
 import { TriangleAlert } from 'lucide-react';
 import { ChapterHeader } from '@/components/editorial/ChapterHeader';
 import { FailRecover } from '@/components/editorial/FailRecover';
-import { Figure } from '@/components/editorial/Figure';
 import { Gated } from '@/components/editorial/Gated';
 import { NextLink } from '@/components/editorial/NextLink';
-import { NoteRef } from '@/components/editorial/NoteRef';
 import { Rich } from '@/components/editorial/Rich';
-import { CountUp } from '@/components/editorial/CountUp';
 import { NoticeRuler } from '@/components/mock/NoticeRuler';
 import { useInViewOnce } from '@/hooks/useInViewOnce';
 import { CLOCK } from '@/content/home';
-import { STATS } from '@/content/stats';
 import { cn } from '@/lib/utils';
 import '@/components/clock/clock.css';
 
-const { matter, ruler, schedule, context, next } = CLOCK;
+const { matter, ruler, schedule, next } = CLOCK;
 
 // The time-bar marker: signal colour, always with a word and an icon.
 const TimeBar = () => (
@@ -210,56 +206,6 @@ export const TheClock = () => (
       <div className="mt-16 grid grid-cols-12 gap-x-6 md:mt-20">
         <div className="col-span-12 lg:col-span-10 lg:col-start-3">
           <Schedule />
-        </div>
-      </div>
-
-      {/* Sourced Context Stats */}
-      <div className="mt-20 grid grid-cols-12 gap-x-6 border-t border-[#1A3828] pt-16 md:mt-24 md:pt-20">
-        <div className="col-span-12 lg:col-span-10 lg:col-start-3">
-          <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <span className="inline-block h-2 w-2 rounded-full bg-[#C4A05A]" aria-hidden="true" />
-              <h3 className="eyebrow !text-[#C4A05A]">{context.heading}</h3>
-            </div>
-            <span className="double-rule is-brass hidden flex-1 sm:block" aria-hidden="true" />
-            <span className="font-mono text-[0.6875rem] tracking-wider text-brass-400/80">
-              AUDITED STATUTORY & TCC DATA
-            </span>
-          </div>
-          <Gated id="G3_stats" block>
-            <ul className="mt-8 grid gap-6 md:grid-cols-3 md:gap-6">
-              {context.keys.map((key) => {
-                const s = STATS[key];
-                const badges = {
-                  referrals: 'CEDR ARC STATUTORY RETURN',
-                  sumsInDispute: 'HKA CRUX GLOBAL REPORT',
-                  majorProjects: 'IPA ANNUAL REPORT 2024',
-                };
-                return (
-                  <li key={key} className="relative rounded-sm border border-[#C4A05A]/30 bg-[#071F12]/85 p-6 shadow-xl">
-                    <span className="pointer-events-none absolute -left-0.5 -top-0.5 font-mono text-[0.625rem] text-[#C4A05A]/60">⌜</span>
-                    <span className="pointer-events-none absolute -right-0.5 -top-0.5 font-mono text-[0.625rem] text-[#C4A05A]/60">⌝</span>
-                    <div className="flex items-center justify-between">
-                      <p className="font-mono text-[0.6875rem] font-semibold tracking-wider text-[#C4A05A]">
-                        {badges[key] || 'VERIFIED METRIC'}
-                      </p>
-                      <span className="relative flex h-2 w-2" aria-hidden="true" title="Audited metric live stream">
-                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#C4A05A] opacity-75" />
-                        <span className="relative inline-flex h-2 w-2 rounded-full bg-[#C4A05A]" />
-                      </span>
-                    </div>
-                    <p className="mt-3 font-display text-stat font-medium text-white">
-                      <CountUp value={s.figure} />
-                    </p>
-                    <p className="mt-3 text-small leading-relaxed text-[#E8DCC8]">
-                      <Rich text={s.label} />
-                      <NoteRef n={s.noteNumber} />
-                    </p>
-                  </li>
-                );
-              })}
-            </ul>
-          </Gated>
           <NextLink href={next.href} label={next.label} className="mt-14 !text-[#C4A05A] hover:!text-white" />
         </div>
       </div>

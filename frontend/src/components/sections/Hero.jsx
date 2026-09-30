@@ -17,7 +17,7 @@ export const Hero = () => (
     <div className="container">
       <div className="grid grid-cols-12 gap-x-6">
         <div className="col-span-12 lg:col-span-6 lg:row-start-1">
-          <p className="ch-note">{COVER.eyebrow}</p>
+          <p className="ch-note cover-statement">{COVER.eyebrow}</p>
           <h1 id="top-title" tabIndex={-1} className="mt-3 text-display font-medium text-navy outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azure-500">
             {COVER.h1.includes('RECORDS') ? (
               <>

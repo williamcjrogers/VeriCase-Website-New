@@ -6,7 +6,7 @@
 //   {{TOKEN}}       owner-supplied text; blocks a production build until supplied
 // Items with a `gate` are governed by content/gates.js (open, confirmed or struck).
 
-export const BRAND_LINE = 'Make time your ally, not your enemy.';
+export const BRAND_LINE = 'Making time your ally, not your enemy.';
 export const CTA_LABEL = 'Book a demonstration';
 export const CTA_MICROCOPY = 'Opens an email to enquiries@veri-case.com. Please do not include confidential details of a live matter.';
 export const CTA_MICROCOPY_SHORT = 'Opens an email. Please do not include confidential details of a live matter.';
@@ -167,10 +167,6 @@ export const CLOCK = {
     ],
     timeBarLabel: 'Time bar',
     foot: 'Summaries for orientation only. The statute and the contract govern; this is not legal advice. See note C.',
-  },
-  context: {
-    heading: 'Context, with its sources',
-    keys: ['referrals', 'sumsInDispute', 'majorProjects'],
   },
   plate: {
     number: 1,
@@ -348,7 +344,7 @@ export const IN_BRIEF = {
   ],
   benchmarks: {
     gate: 'G4_benchmarks',
-    text: 'In benchmark testing, VeriCase processed more than 50,000 documents per hour[[note:9]] and extracted dates with 99.7% accuracy.[[note:10]] The notes describe how each figure was measured, so that you can judge them for yourself.',
+    text: 'In benchmark testing, VeriCase processed more than 50,000 documents per hour[[note:6]] and extracted dates with 99.7% accuracy.[[note:7]] The notes describe how each figure was measured, so that you can judge them for yourself.',
   },
   audience: {
     label: 'Who it is for',
@@ -418,7 +414,7 @@ export const FOUNDER = {
     text: 'United Infrastructure is an associated company of VeriCase’s founder, William Rogers. Warren Kemp serves as General Counsel for United Living. We state these connections before the account, so that you can give the account the weight you think it deserves.',
   },
   h3: 'A record of use: United Infrastructure',
-  account: '{{UI_CASE}}[[note:11]]',
+  account: '{{UI_CASE}}[[note:8]]',
   accountGate: 'G6_ui',
   closing:
     'Each adjudication turns on its own facts, its own law and its own adjudicator. This account describes one use of VeriCase. It is not a prediction or a promise of the result in any other matter.',
@@ -442,14 +438,6 @@ export const DEMONSTRATION = {
   copied: 'Email address copied.',
   microcopy: 'Book a demonstration opens an email to enquiries@veri-case.com with the subject line completed. Please do not include confidential details of a live matter.',
   plain: 'Or write to enquiries@veri-case.com.',
-  plate: {
-    caption: 'Plate {n}. A bundle, tabbed and tied. Illustrative image (AI-generated). See note B.',
-    alt: 'Illustrative image: a tabbed bundle tied with legal ribbon.',
-    drawn: {
-      caption: 'Plate {n}. The bundle, tabbed and indexed. An illustrative drawing of the fictional sample matter. See note B.',
-      alt: 'Illustrative drawing: the bound bundle for the fictional sample matter, VC-SAMPLE-01, in spine and front elevation with six divider tabs, beside the first page of its index: items 001 to 006, EV-0131 of 03 March 2025 to EV-0151 of 28 March 2025. The tab for EV-0151, the notice under clause 2.24, is picked out.',
-    },
-  },
 };
 
 export const NOTES_SECTION = {

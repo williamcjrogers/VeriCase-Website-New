@@ -1,5 +1,4 @@
 import { MEDIA } from '@/content/media';
-import { STATS } from '@/content/stats';
 
 // Numbered notes are cited in the text with [[note:n]] (a brass superscript that opens a Popover).
 // `citedIn` is the section of the first citation: the back-link's target without JavaScript.
@@ -46,11 +45,8 @@ export const NOTES = [
     body:
       'Six years from the date on which the cause of action accrued for an action founded on simple contract (section 5); twelve years for an action upon a specialty, which includes a contract made by deed (section 8(1)).',
   },
-  { n: 6, citedIn: 'clock', gate: 'G3_stats', title: STATS.referrals.noteTitle, body: STATS.referrals.noteBody },
-  { n: 7, citedIn: 'clock', gate: 'G3_stats', title: STATS.sumsInDispute.noteTitle, body: STATS.sumsInDispute.noteBody },
-  { n: 8, citedIn: 'clock', gate: 'G3_stats', title: STATS.majorProjects.noteTitle, body: STATS.majorProjects.noteBody },
   {
-    n: 9,
+    n: 6,
     citedIn: 'platform',
     gate: 'G4_benchmarks',
     title: 'Throughput benchmark.',
@@ -58,7 +54,7 @@ export const NOTES = [
       '{{BENCHMARK_NOTE_THROUGHPUT}} (to state what counts as a document, the date of the test, the corpus size and composition, the environment, and how the hourly rate was measured)',
   },
   {
-    n: 10,
+    n: 7,
     citedIn: 'platform',
     gate: 'G4_benchmarks',
     title: 'Date-extraction benchmark.',
@@ -66,7 +62,7 @@ export const NOTES = [
       '{{BENCHMARK_NOTE_DATES}} (to state which dates were extracted, the sample size, how extracted dates were verified, what counted as correct, and the date of the test)',
   },
   {
-    n: 11,
+    n: 8,
     citedIn: 'about',
     gate: 'G6_ui',
     title: 'United Infrastructure.',

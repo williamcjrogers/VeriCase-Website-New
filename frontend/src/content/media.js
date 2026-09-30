@@ -8,11 +8,10 @@ export const MEDIA = {
   archiveAisle: { src: null, lqip: null, ratio: '4 / 5' },
   caseRoom: { src: null, mobileSrc: null, lqip: null, ratio: '16 / 9', webm: null, mp4: null },
   siteOffice: { src: null, lqip: null, ratio: '4 / 5' },
-  bundle: { src: null, lqip: null, ratio: '3 / 2' },
   shelfGap: { src: null, lqip: null, ratio: '3 / 2' },
   diaryPage: { src: null, lqip: null, ratio: '3 / 4' },
 };
 
 // Plate numbers in page order: 1 (Chapter I), 2 (Chapter II), 3 (Chapter V), then the founder
-// section's plate (omitted when a photograph is used) and the demonstration plate.
-export const PLATE_NUMBERS = MEDIA.founderPhoto ? { founder: null, demonstration: 4 } : { founder: 4, demonstration: 5 };
+// section's plate (omitted when a photograph is used). The demonstration panel carries no plate.
+export const PLATE_NUMBERS = MEDIA.founderPhoto ? { founder: null } : { founder: 4 };
