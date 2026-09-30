@@ -9,7 +9,7 @@
 @layer base {
   :root {
     --vc-ink-950: #041A0F; --vc-navy: #052314; --vc-ink: #0B2516; --vc-graphite: #535A6E; --vc-mist: #B9BFD0;
-    --vc-azure-50: #E7EFF8; --vc-azure-300: #C4A05A; --vc-azure-500: #8C6A36; --vc-azure-700: #5C431B;
+    --vc-azure-50: #EDF0F4; --vc-azure-300: #9FB3CE; --vc-azure-500: #1A2550; --vc-azure-700: #1B4368;
     --vc-parchment: #F5F0E6; --vc-parchment-300: #ECE4D3; --vc-paper: #FCFAF5;
     --vc-rule: #D8CDB6; --vc-rule-strong: #857A62; --vc-brass-400: #BF9B58; --vc-brass-700: #7A5A28;
     --vc-signal: #A8352A; --vc-signal-300: #EE8E7E;
@@ -183,7 +183,7 @@
     cursor: pointer;
     transition: background-color 150ms var(--ease-settle), border-color 150ms var(--ease-settle);
   }
-  .ev-chip:hover { background: #DCE8F5; border-color: var(--vc-azure-700); }
+  .ev-chip:hover { background: #DDE3EA; border-color: var(--vc-azure-700); }
 
   /* Exhibit stamp: a brass-edged mono tab. */
   .ev-stamp {
