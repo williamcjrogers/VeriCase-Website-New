@@ -422,14 +422,6 @@ export const FOUNDER = {
   accountGate: 'G6_ui',
   closing:
     'Each adjudication turns on its own facts, its own law and its own adjudicator. This account describes one use of VeriCase. It is not a prediction or a promise of the result in any other matter.',
-  plate: {
-    caption: 'Plate {n}. A site office desk. Illustrative image (AI-generated). See note B.',
-    alt: 'Illustrative image: a site diary and printed correspondence on a desk.',
-    drawn: {
-      caption: 'Plate {n}. The Change to bracket type B, valued and checked. An illustrative drawing of the fictional sample matter. See note B.',
-      alt: 'Illustrative drawing: a valuation of the Change to bracket type B, Levels 3 to 6, in the fictional sample matter, ruled by hand as a schedule. Five items are priced by quantity, unit and rate: stainless brackets type B, the omission of aluminium brackets type A shown in brackets, thermal isolator pads, anchors, and extra labour to fix, for a total of £15,120. Each amount carries a checking tick and the total is ringed.',
-    },
-  },
 };
 
 export const DEMONSTRATION = {

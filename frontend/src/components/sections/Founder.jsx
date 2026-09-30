@@ -1,14 +1,8 @@
-import { lazy } from 'react';
 import { ChapterHeader } from '@/components/editorial/ChapterHeader';
 import { Declaration } from '@/components/editorial/Declaration';
 import { Gated, isShown } from '@/components/editorial/Gated';
-import { Plate } from '@/components/editorial/Plate';
 import { Rich } from '@/components/editorial/Rich';
 import { FOUNDER } from '@/content/home';
-import { MEDIA, PLATE_NUMBERS } from '@/content/media';
-import { fill } from '@/lib/format';
-
-const Valuation = lazy(() => import(/* webpackChunkName: "plate-valuation" */ '@/components/plates/Valuation').then((m) => ({ default: m.Valuation })));
 
 // Who is behind it: co-founders William Rogers & Warren Kemp, the practitioners' equity,
 // and the declaration of interest, which always comes before the United Infrastructure account.
@@ -67,7 +61,7 @@ export const Founder = () => (
       </div>
 
       <div className="mt-12 grid grid-cols-12 gap-x-6 gap-y-12">
-        <div className="col-span-12 lg:col-span-6">
+        <div className="col-span-12 lg:col-span-9">
           <Gated id={FOUNDER.body2Gate} block>
             <p className="text-body text-ink">{FOUNDER.body2}</p>
           </Gated>
@@ -87,25 +81,6 @@ export const Founder = () => (
               </Gated>
               <p className="mt-6 max-w-measure text-small text-graphite">{FOUNDER.closing}</p>
             </>
-          )}
-        </div>
-
-        <div className="col-span-12 sm:col-span-8 lg:col-span-5 lg:col-start-8">
-          {MEDIA.founderPhoto ? (
-            <figure className="m-0 border border-brass-400 p-2">
-              <img src={MEDIA.founderPhoto.src} alt={MEDIA.founderPhoto.alt} className="block aspect-[4/5] w-full object-cover grayscale-[20%]" loading="lazy" decoding="async" />
-            </figure>
-          ) : (
-            <Plate
-              src={MEDIA.siteOffice.src}
-              drawing={Valuation}
-              lqip={MEDIA.siteOffice.lqip}
-              ratio={MEDIA.siteOffice.ratio}
-              sizes="(min-width: 1024px) 30vw, (min-width: 640px) 60vw, 100vw"
-              alt={MEDIA.siteOffice.src ? FOUNDER.plate.alt : FOUNDER.plate.drawn.alt}
-              caption={fill(MEDIA.siteOffice.src ? FOUNDER.plate.caption : FOUNDER.plate.drawn.caption, { n: PLATE_NUMBERS.founder })}
-              className="lg:sticky lg:top-[calc(var(--header-h)+2rem)]"
-            />
           )}
         </div>
       </div>

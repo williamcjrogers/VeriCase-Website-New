@@ -3,7 +3,7 @@ import { MATTER } from '@/content/records';
 import { BUNDLE, bundleRows } from '@/content/matter/research';
 import '@/components/plates/plates.css';
 
-// Plate 5: the bundle for the sample matter, as Chapter III creates it. Elevations of the bound
+// Plate 4: the bundle for the sample matter, as Chapter III creates it. Elevations of the bound
 // bundle (spine and front cover, third angle) with its six divider tabs on the fore-edge, and
 // beside it the first page of the index, each row set level with its tab. Drawn on ink.
 
