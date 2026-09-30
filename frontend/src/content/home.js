@@ -432,7 +432,7 @@ export const DEMONSTRATION = {
   ownMaterialGate: 'G5_ownMaterial',
   copy: 'Copy email address',
   copied: 'Email address copied.',
-  microcopy: 'Book a demonstration opens an email to enquiries@veri-case.com with the subject line completed. Please do not include confidential details of a live matter.',
+  microcopy: 'Opens your email client with the subject line completed. Please do not include confidential details of a live matter.',
   plain: 'Or write to enquiries@veri-case.com.',
   plate: {
     caption: 'Plate {n}. A bundle, tabbed and tied. Illustrative image (AI-generated). See note B.',
