@@ -18,7 +18,7 @@ module.exports = {
         navy: '#052314',
         graphite: '#535A6E',
         mist: '#B9BFD0',
-        azure: { 50: '#EDF0F4', 300: '#9FB3CE', 500: '#1A2550', 700: '#1B4368' },
+        azure: { 50: '#E7EFF8', 300: '#C4A05A', 500: '#8C6A36', 700: '#5C431B' },
         parchment: { DEFAULT: '#F5F0E6', 300: '#ECE4D3' },
         paper: '#FCFAF5',
         rule: { DEFAULT: '#D8CDB6', strong: '#857A62' },
