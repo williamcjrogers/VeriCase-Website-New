@@ -4,22 +4,26 @@ import { EVIDENCE_ILLUSTRATION } from '@/content/marketing';
 export const ChronologyIllustration = () => (
   <figure className="evidence-figure chronology-illustration" aria-labelledby="chronology-illustration-title">
     <h2 id="chronology-illustration-title" className="evidence-figure-title">From documents to chronology.</h2>
-    <div className="evidence-documents" aria-label="Three source documents">
-      {EVIDENCE_ILLUSTRATION.map((source) => (
-        <div className="evidence-document" key={source.id}>
-          <svg width="26" height="32" viewBox="0 0 26 32" fill="none" aria-hidden="true">
-            <path d="M1 1h16l8 8v22H1zM17 1v8h8M6 15h14M6 20h14M6 25h9" stroke="currentColor" strokeWidth="1.4" />
-          </svg>
-          <p>{source.document}</p>
-        </div>
-      ))}
-    </div>
-    <p className="evidence-order-label">One record, in date order</p>
-    <ol className="evidence-chronology">
+    <ol className="evidence-flow">
       {EVIDENCE_ILLUSTRATION.map((source) => (
         <li key={source.id}>
-          <time dateTime={source.isoDate}>{source.date}</time>
-          <div><p>{source.title}</p><span>{source.id}</span></div>
+          <div className="evidence-flow-doc">
+            <svg width="26" height="32" viewBox="0 0 26 32" fill="none" aria-hidden="true">
+              <path d="M1 1h16l8 8v22H1zM17 1v8h8M6 15h14M6 20h14M6 25h9" stroke="currentColor" strokeWidth="1.4" />
+            </svg>
+            <div>
+              <p className="evidence-flow-doc-name">{source.document}</p>
+              <p className="evidence-flow-doc-excerpt">&ldquo;{source.excerpt}&rdquo;</p>
+            </div>
+          </div>
+          <svg className="evidence-flow-arrow" width="44" height="16" viewBox="0 0 44 16" fill="none" aria-hidden="true">
+            <path d="M0 8h40m0 0-6-6m6 6-6 6" stroke="currentColor" strokeWidth="1.4" />
+          </svg>
+          <div className="evidence-flow-entry">
+            <time dateTime={source.isoDate}>{source.date}</time>
+            <p>{source.title}</p>
+            <span>{source.id}</span>
+          </div>
         </li>
       ))}
     </ol>

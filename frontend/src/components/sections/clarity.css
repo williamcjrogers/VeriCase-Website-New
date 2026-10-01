@@ -22,16 +22,19 @@
 /* Document shapes carry meaning: source records above, the ordered record below. */
 .evidence-figure { min-width: 0; margin: 0; background: var(--vc-paper); padding: clamp(1rem, 2.5vw, 2rem); border-top: 3px solid var(--vc-brass-400); }
 .evidence-figure-title { font-size: clamp(1.625rem, 2.2vw, 2rem); line-height: 1.15; }
-.evidence-documents { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; margin-top: 1.5rem; }
-.evidence-document { padding: 0.75rem 0.5rem; border: 1px solid var(--vc-rule); background: var(--vc-parchment); }
-.evidence-document svg { color: var(--vc-azure-700); margin-bottom: 0.75rem; }
-.evidence-document p { font-size: 0.9375rem; line-height: 1.4; }
-.evidence-order-label { margin-top: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--vc-rule); font-size: 1rem; font-weight: 500; }
-.evidence-chronology { list-style: none; padding: 0; }
-.evidence-chronology li { display: grid; grid-template-columns: minmax(6.5rem, 0.85fr) minmax(0, 1fr); gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--vc-rule); }
-.evidence-chronology time { font-size: 0.9375rem; line-height: 1.5; color: var(--vc-azure-700); }
-.evidence-chronology p { font-size: 1rem; line-height: 1.4; font-weight: 500; }
-.evidence-chronology span { display: block; margin-top: 0.25rem; font-size: 0.9375rem; color: var(--vc-graphite); }
+/* The transformation made visible: each source document lands on the record at its own date. */
+.evidence-flow { list-style: none; padding: 0; margin-top: 1.5rem; }
+.evidence-flow li { display: grid; grid-template-columns: minmax(0, 1.1fr) 44px minmax(0, 1fr); align-items: stretch; gap: 0.75rem; padding: 0.625rem 0; }
+.evidence-flow-doc { display: flex; gap: 0.875rem; align-items: flex-start; padding: 0.875rem 1rem; border: 1px solid var(--vc-rule); background: var(--vc-parchment); }
+.evidence-flow-doc svg { flex-shrink: 0; margin-top: 0.125rem; color: var(--vc-azure-700); }
+.evidence-flow-doc-name { font-size: 0.9375rem; font-weight: 500; line-height: 1.35; }
+.evidence-flow-doc-excerpt { margin-top: 0.25rem; font-size: 0.875rem; line-height: 1.45; color: var(--vc-graphite); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
+.evidence-flow-arrow { align-self: center; justify-self: center; color: var(--vc-brass-700); }
+.evidence-flow-entry { position: relative; display: flex; flex-direction: column; justify-content: center; padding-left: 1.25rem; border-left: 1px solid var(--vc-rule); }
+.evidence-flow-entry::before { content: ''; position: absolute; left: -4.5px; top: 1.375rem; width: 8px; height: 8px; border-radius: 50%; background: var(--vc-brass-400); }
+.evidence-flow-entry time { font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-variant-numeric: tabular-nums slashed-zero; font-size: 0.8125rem; line-height: 1.4; color: var(--vc-azure-700); }
+.evidence-flow-entry p { margin-top: 0.125rem; font-size: 1rem; font-weight: 500; line-height: 1.4; }
+.evidence-flow-entry span { display: block; margin-top: 0.25rem; font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-variant-numeric: tabular-nums slashed-zero; font-size: 0.8125rem; color: var(--vc-graphite); }
 .evidence-figure figcaption { margin-top: 1.25rem; font-size: 0.9375rem; line-height: 1.5; color: var(--vc-graphite); max-width: 68ch; }
 .argument-illustration { display: grid; gap: 2rem; margin: 2.5rem 0; }
 .evidence-argument-text { font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: clamp(1.375rem, 2.2vw, 1.75rem); line-height: 1.45; margin: 1.5rem 0; max-width: 40ch; }
@@ -47,9 +50,9 @@
 .clarity-bio > summary { color: var(--vc-azure-700); text-decoration: underline; text-underline-offset: 4px; }
 .clarity-narrow { max-width: 56rem; }
 @media (max-width: 479px) {
-  .evidence-documents { grid-template-columns: minmax(0, 1fr); }
-  .evidence-document { display: flex; align-items: center; gap: 1rem; padding: 0.625rem 0.75rem; }
-  .evidence-document svg { flex-shrink: 0; margin: 0; }
+  .evidence-flow li { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; }
+  .evidence-flow-arrow { display: none; }
+  .evidence-flow-entry { margin-left: 0.5rem; }
 }
 @media (min-width: 768px) {
   .clarity-jobs { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
