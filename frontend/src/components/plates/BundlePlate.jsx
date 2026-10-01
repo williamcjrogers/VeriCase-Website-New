@@ -1,9 +1,9 @@
-import { Sheet, T, DimH, DimV, r2 } from '@/components/plates/drawing';
+import { Sheet, T, r2 } from '@/components/plates/drawing';
 import { MATTER } from '@/content/records';
 import { BUNDLE, bundleRows } from '@/content/matter/research';
 import '@/components/plates/plates.css';
 
-// Plate 5: the bundle for the sample matter, as Chapter III creates it. Elevations of the bound
+// Plate 4: the bundle for the sample matter, as Chapter III creates it. Elevations of the bound
 // bundle (spine and front cover, third angle) with its six divider tabs on the fore-edge, and
 // beside it the first page of the index, each row set level with its tab. Drawn on ink.
 
@@ -85,11 +85,6 @@ export const BundlePlate = ({ label = LABEL }) => (
     <path d={ROWS.map((_, i) => (i === ISSUE ? '' : tabPath(i))).join('')} className="dw-line" />
     <rect x={r2(XF)} y={r2(YH)} width={r2(BW)} height={r2(BH)} className="dw-line" />
     <path d={`M${r2(XF + JOINT)} ${r2(YH)}V${r2(YT)}`} className="dw-line" style={FINE} />
-
-    {/* Dimensions, in millimetres. */}
-    <DimV y1={YH} y2={YT} x={XS - 18} from={XS} text="303" size={F} />
-    <DimH x1={XS} x2={XS + BT} y={Y_DATUM} from={YH} text="40" size={F} />
-    <DimH x1={XF} x2={XE} y={Y_DATUM} from={YH} text="216" size={F} />
 
     {/* The first page of the index. */}
     <T x={XI} y={Y_TEXT} size={F}>

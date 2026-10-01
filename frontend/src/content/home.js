@@ -382,18 +382,15 @@ export const FOUNDER = {
   people: [
     {
       name: 'William Rogers MCIArb',
-      summary: 'Construction claims and disputes specialist with over 15 years’ experience. Qualified in quantity surveying and commercial management, and a Member of the Chartered Institute of Arbitrators.',
-      role: 'Co-founder, claims and forensic quantum; testifying expert',
-      firm: 'Founder, Quantum Commercial Solutions (2016)',
+      role: 'Co-Founder · Claims, Forensic Quantum & Testifying Expert',
       bio:
-        'William is a construction claims and disputes specialist with over 15 years’ experience across the water, power, rail, highways, infrastructure and residential sectors. He is qualified in quantity surveying and commercial management and is a Member of the Chartered Institute of Arbitrators.\n\nHe founded Quantum Commercial Solutions in 2016 and has since built Meritus Group, Orrery Group, Peak Developments and VeriCase, a legal technology platform for forensic evidence review.\n\nHis work spans adjudication, arbitration and litigation in the Technology and Construction Court (TCC), under NEC, JCT, FIDIC and IChemE forms. His live instructions are in excess of £100 million across residential, regeneration and infrastructure schemes, with prior roles on international arbitrations exceeding US$600 million.\n\nHe acts as a testifying quantum expert and leads claims and recovery across a national contractor’s distressed portfolio. He prepares each case in house so that experts and counsel are instructed only when it is ready.',
+        'A construction claims and disputes specialist with over 15 years across the water, power, rail, infrastructure and residential sectors, qualified in quantity surveying and commercial management and a Member of the Chartered Institute of Arbitrators. He founded his first commercial management consultancy in 2016 and has since built Meritus Group, Orrery Group, Peak Developments and VeriCase, a legal technology platform combining forensic evidence review with a chronology engine built to the SCL Protocol. His portfolio spans adjudication, arbitration and TCC litigation under NEC, JCT, FIDIC and IChemE forms, with live instructions in excess of £100m across residential, regeneration and infrastructure schemes, and prior roles on international arbitrations exceeding $600m. He acts as a testifying quantum expert and leads claims and recovery across a national contractor’s distressed portfolio, preparing each case in house so that experts and counsel are instructed only when it is ready.',
       credentials: [
         'Member of the Chartered Institute of Arbitrators (MCIArb)',
         'RICS Level 5 Diploma, Adjudication in the Construction Industry',
         'BSc (Hons) Quantity Surveying and Commercial Management',
         'Testifying quantum expert',
         'NEC, JCT, FIDIC and IChemE dispute specialist',
-        'Founder, Quantum Commercial Solutions (2016)',
         'Founder, Meritus Group',
         'Founder, Orrery Group',
         'Founder, Peak Developments',
@@ -401,49 +398,54 @@ export const FOUNDER = {
     },
     {
       name: 'Warren Kemp',
-      summary: 'Construction disputes solicitor and partner at gunnercooke LLP, with experience advising contractors, developers and professional consultants.',
-      role: 'Co-founder, dispute resolution',
-      firm: 'Partner, gunnercooke LLP · GC, United Living Group',
+      role: 'Co-Founder · Dispute Resolution | Partner, gunnercooke LLP',
       email: 'warren.kemp@gunnercooke.com',
       tel: '+44 (0) 7470 332 945',
       bio:
-        'Warren advises in relation to construction disputes and is known to be highly skilled and knowledgeable in this field. Clients include developers, contractors and professional consultants in both the public and private sector. He achieves outstanding results through his pragmatic yet tenacious approach. Warren jointly led the construction and engineering team at international law firm DAC Beachcroft until joining gunnercooke LLP in February 2024. Qualified as a solicitor for over 20 years, he provides clients with an operational edge via sharp problem solving to deliver commercial advantage and avoid disputes. Warren is currently working, among his various roles, as General Counsel for United Living (a business approaching £1bn turnover with a telecoms division) and previously worked in-house on secondment for 18 months at global construction consultancy WS Atkins.',
+        'Warren is a construction and engineering disputes solicitor of more than twenty years’ standing, admitted in 2002, who advises developers, contractors, subcontractors, professional consultants and their insurers across the public and private sectors. He trained and built his practice in Newcastle, first at Watson Burton and then at DAC Beachcroft, which he joined as a partner on 01 November 2013 and where, with James Harrison, he established the firm’s Newcastle construction practice and grew it to more than 25 specialist construction lawyers. He went on to lead DAC Beachcroft’s national construction and engineering team jointly with Mark Roach, a practice of over 50 senior lawyers in the United Kingdom and internationally, until joining gunnercooke LLP in February 2024. His work spans adjudication, arbitration, mediation and Technology and Construction Court litigation, together with the professional indemnity dimension of construction claims and the non-contentious drafting that prevents them. He is ranked in Chambers UK and The Legal 500, which has described him as “simply the best around”, and he writes regularly on construction law, including on CC Construction Limited v Mincione and on the contractual treatment of anaerobic digestion plants. Warren acts, among his various roles, as General Counsel to United Living, a business approaching £1bn turnover with a telecoms division, and previously spent 18 months in house on secondment at the global consultancy WS Atkins. He combines a pragmatic, commercial approach with the tenacity to see a dispute through to decision.',
       credentials: [
         'Dispute Resolution Partner, gunnercooke LLP',
         'Former Joint Head of Construction & Engineering, DAC Beachcroft',
+        'Co-founded DAC Beachcroft’s Newcastle construction practice (2013)',
         'General Counsel, United Living Group',
-        'Solicitor of over 20 years qualification',
-        'Former In-House Counsel (Secondment), WS Atkins (18 months)',
+        'Admitted as a solicitor, 15 August 2002',
+        'Ranked, Chambers UK, Construction (North East)',
+        'Ranked, The Legal 500, Construction',
+        'Adjudication, arbitration, mediation and TCC litigation',
+        'Professional indemnity and construction insurance disputes',
+        'Former In-House Counsel (Secondment), WS Atkins, 18 months',
       ],
       cases: [
         { name: 'Van Elle Limited v Keynvor Morlift Limited', cite: '[2023] EWHC 3137 (TCC)' },
         { name: 'Celtic Bioenergy Limited v Knowles Limited', cite: '[2017] EWHC 472 (TCC)' },
-        { name: 'Middle Level Commissioners v Atkins Limited', cite: '[2012] EWHC 2884 (TCC)' },
+        { name: 'CC Construction Limited v Mincione', cite: '[2021] EWHC 2502 (TCC)' },
       ],
     },
     {
       name: 'Malcolm Brechin',
-      role: 'Managing Director',
-      summary: 'Commercial strategy and business development, with more than 25 years’ experience building and growing businesses.',
+      role: 'Managing Director · Commercial Strategy & Go-to-Market',
       bio:
-        'Malcolm brings a background in commercial strategy, business development and bringing technology products to market. His career includes a role as Strategic Development Director at Mobile Rocket, where he worked with recruitment and healthcare software.\n\nAlongside his role at VeriCase, Malcolm is Chief Executive Officer of Invent Group. His work focuses on understanding clients’ operational needs and shaping practical technology products around them.',
+        'Malcolm is a commercial strategist with more than 25 years’ experience building and scaling technology businesses across finance, retail, healthcare, hospitality and government. His career has centred on taking products to market: as business development director at OfficeTeam he led a national sales team and secured the William Hill distribution outsourcing contract; as National Director of New Business at OT Group he positioned the business on the Crown Commercial Service Tail Spend Solution framework; and as Director of Strategic Development at Mobile Rocket he led the go-to-market for its recruitment and healthcare platforms, now used by Amazon, Waitrose and the NHS, during the period in which the company was shortlisted for Recruitment Technology Innovation of the Year at the Recruiter Awards 2023. In 2025 he founded NE Tech in County Durham, rebranded as Invent Group in 2026, which has since released VeriCase, Bid King and Schools-safe. Malcolm’s focus is on identifying real operational challenges and turning them, in partnership with clients, into practical and commercially viable technology.',
       credentials: [
-        'More than 25 years in commercial strategy and business development',
-        'Chief Executive Officer, Invent Group',
-        'Former Strategic Development Director, Mobile Rocket',
+        'Founder and CEO, NE Tech, rebranded Invent Group (2025)',
+        'Director of Strategic Development, Mobile Rocket',
+        'National Director of New Business, OT Group',
+        'Business Development Director, OfficeTeam',
+        'Over 25 years in commercial strategy and go-to-market leadership',
+        'Published on AI adoption, Invent Group (18 August 2026)',
       ],
     },
     {
       name: 'Sam Whisker',
-      role: 'Chief Technology Officer',
-      summary: 'Software developer and AI implementation specialist, with a background in web applications, process automation and product engineering.',
+      role: 'Chief Technology Officer · AI Implementation & Product Engineering',
       bio:
-        'Sam is a Teesside University graduate with a background in web development and applied AI. His earlier work at Koodoo Creative included developing an online learning platform with a university lecturer.\n\nAlongside his role at VeriCase, Sam is Chief Technology Officer of Invent Group. Through his AI consultancy, he helps businesses implement process automation and custom software, and provides practical AI workshops.',
+        'Sam is a software engineer and AI specialist who has spent his entire career writing code that changes how organisations operate. A Teesside University graduate, he began as a senior PHP developer at Stockton-based web development firm Koodoo Creative before becoming Chief Technology Officer of Mobile Rocket, the Newton Aycliffe company whose recruitment and workforce platforms are now used by organisations including Amazon, Waitrose and the NHS. During his time as CTO, Mobile Rocket was shortlisted for Recruitment Technology Innovation of the Year at the Recruiter Awards 2023. Since 2024 he has concentrated on AI implementation, advising businesses in sectors from manufacturing to recruitment on process automation, custom GPT systems and AI-driven workflows. In 2025 he co-founded NE Tech, now Invent Group, with Malcolm Brechin and leads its technology, building AI products including VeriCase, for managing complex legal disputes, and Bid King, for tenders and proposals. Sam’s strength lies in moving ideas from prototype to working, scalable systems that deliver measurable gains in operational efficiency.',
       credentials: [
-        'Teesside University graduate',
-        'Chief Technology Officer, Invent Group',
-        'AI implementation consultant',
-        'Web development experience at Koodoo Creative',
+        'Co-Founder and CTO, NE Tech, rebranded Invent Group (2025)',
+        'Chief Technology Officer, Mobile Rocket, from 2013',
+        'Shortlisted, Recruiter Awards 2023 (Mobile Rocket, as CTO)',
+        'Independent AI implementation consultant since 2024',
+        'Teesside University graduate; developer since 2008',
       ],
     },
   ],
@@ -464,14 +466,6 @@ export const FOUNDER = {
   accountGate: 'G6_ui',
   closing:
     'Each adjudication turns on its own facts, its own law and its own adjudicator. This account describes one use of VeriCase. It is not a prediction or a promise of the result in any other matter.',
-  plate: {
-    caption: 'Plate {n}. A site office desk. Illustrative image (AI-generated). See note B.',
-    alt: 'Illustrative image: a site diary and printed correspondence on a desk.',
-    drawn: {
-      caption: 'Plate {n}. The Change to bracket type B, valued and checked. An illustrative drawing of the fictional sample matter. See note B.',
-      alt: 'Illustrative drawing: a valuation of the Change to bracket type B, Levels 3 to 6, in the fictional sample matter, ruled by hand as a schedule. Five items are priced by quantity, unit and rate: stainless brackets type B, the omission of aluminium brackets type A shown in brackets, thermal isolator pads, anchors, and extra labour to fix, for a total of £15,120. Each amount carries a checking tick and the total is ringed.',
-    },
-  },
 };
 
 export const DEMONSTRATION = {
@@ -482,7 +476,7 @@ export const DEMONSTRATION = {
   ownMaterialGate: 'G5_ownMaterial',
   copy: 'Copy email address',
   copied: 'Email address copied.',
-  microcopy: 'Request a demonstration opens an email to enquiries@veri-case.com with the subject line completed. Please do not include confidential details of a live matter.',
+  microcopy: 'Opens your email client with the subject line completed. Please do not include confidential details of a live matter.',
   plain: 'Or write to enquiries@veri-case.com.',
 };
 
