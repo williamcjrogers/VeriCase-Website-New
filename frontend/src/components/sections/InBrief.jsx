@@ -2,15 +2,31 @@ import { IN_BRIEF } from '@/content/home';
 import { isShown } from '@/components/editorial/Gated';
 import { Rich } from '@/components/editorial/Rich';
 
+const GROUPS = [
+  { id: 'chronology-lens', entries: [0, 1] },
+  { id: 'research', entries: [3, 2] },
+  { id: 'claims', entries: [4, 5] },
+];
+
 export const InBrief = () => (
   <section id="platform" aria-labelledby="platform-title" className="clarity-section bg-paper">
     <div className="container">
       <h2 id="platform-title" tabIndex={-1} className="clarity-heading">Three jobs, one place.</h2>
       <div className="clarity-jobs mt-8">
-        {IN_BRIEF.jobs.map((job) => (
-          <article key={job.title}>
-            <h3 className="text-[1.625rem] leading-tight">{job.title}</h3>
+        {IN_BRIEF.jobs.map((job, index) => (
+          <article key={job.title} id={GROUPS[index].id} className="capability-group">
+            <h3 id={`${GROUPS[index].id}-title`} tabIndex={-1} className="text-[1.625rem] leading-tight">{job.title}</h3>
             <p className="mt-3 max-w-measure text-body">{job.text}</p>
+            {GROUPS[index].entries.map((entryIndex) => {
+              const entry = IN_BRIEF.ledger[entryIndex];
+              const anchor = entryIndex === 2 ? 'case-room' : entryIndex === 5 ? 'integrity' : undefined;
+              return (
+                <div key={entry.title} id={anchor} className="capability-detail">
+                  <h4 id={anchor ? `${anchor}-title` : undefined} tabIndex={anchor ? -1 : undefined} className="text-body font-medium">{entry.title}</h4>
+                  <p className="mt-2 text-body">{entry.text}</p>
+                </div>
+              );
+            })}
           </article>
         ))}
       </div>

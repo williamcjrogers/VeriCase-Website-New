@@ -3,7 +3,7 @@ import { Gated } from '@/components/editorial/Gated';
 
 export const Founder = () => (
   <section id="about" aria-labelledby="about-title" className="clarity-section bg-parchment">
-    <div className="container">
+    <div className="container team-container">
       <h2 id="about-title" tabIndex={-1} className="clarity-heading">{FOUNDER.h2}</h2>
       <p className="mt-5 max-w-measure text-body">{FOUNDER.body1}</p>
       <div className="clarity-team mt-8">
@@ -11,13 +11,12 @@ export const Founder = () => (
           <article key={person.name}>
             <h3 className="text-[1.625rem] leading-tight">{person.name}</h3>
             <p className="mt-2 text-small font-medium text-azure-700">{person.role}</p>
-            <p className="mt-3 max-w-measure text-body">{person.summary}</p>
+            {person.bio.split('\n\n').map((paragraph) => (
+              <p key={paragraph} className="mt-4 max-w-measure text-body">{paragraph}</p>
+            ))}
             <details className="mt-4 clarity-bio">
-              <summary>Read {person.name.split(' ')[0]}’s background</summary>
-              {person.bio.split('\n\n').map((paragraph) => (
-                <p key={paragraph} className="mt-3 max-w-measure text-small">{paragraph}</p>
-              ))}
-              <ul className="mt-4 list-disc space-y-1 pl-5 text-small">
+              <summary>{person.cases ? 'Credentials and reported matters' : 'Credentials and track record'}</summary>
+              <ul className="mt-4 list-disc space-y-1 pl-5 text-small" aria-label={`Credentials for ${person.name}`}>
                 {person.credentials.map((credential) => <li key={credential}>{credential}</li>)}
               </ul>
               {person.cases && <ul className="mt-4 space-y-2 text-small" aria-label="Reported cases">

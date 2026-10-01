@@ -21,9 +21,9 @@ const Column = ({ title, children }) => {
   const [open, setOpen] = useState(false);
   return (
     <Collapsible open={open} onOpenChange={setOpen} className="border-b border-mist/20 md:border-0">
-      <h2 className="eyebrow hidden md:block">{title}</h2>
+      <h2 className="font-sans text-small font-medium hidden md:block">{title}</h2>
       <CollapsibleTrigger className="flex h-12 w-full items-center justify-between text-left md:hidden">
-        <span className="eyebrow">{title}</span>
+        <span className="text-small font-medium">{title}</span>
         <ChevronDown className={cn('h-5 w-5 text-mist transition-transform duration-200', open && 'rotate-180')} strokeWidth={1.5} aria-hidden="true" />
       </CollapsibleTrigger>
       <CollapsibleContent forceMount className="max-md:data-[state=closed]:hidden">

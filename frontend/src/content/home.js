@@ -41,7 +41,7 @@ export const HEADER = {
   signIn: 'Sign in',
   contents: 'Menu',
   sheetTitle: 'Explore VeriCase',
-  sheetDescription: 'How VeriCase works, a worked example, the team and common questions.',
+  sheetDescription: 'How VeriCase works, an evidence example, the team and common questions.',
   endMatterLabel: 'End matter',
   close: 'Close menu',
 };
@@ -49,9 +49,9 @@ export const HEADER = {
 export const COVER = {
   masthead: ['Records,', 'records,', 'records.'],
   eyebrow: 'The early case diagnostic tool for construction disputes',
-  h1: 'Understand the evidence in a construction dispute.',
+  h1: 'Transform complex evidence into compelling legal arguments.',
   subhead:
-    'VeriCase brings your project emails and documents together, so you can find what happened, check the evidence and prepare a claim or response.',
+    "VeriCase approaches the evidence crisis differently. We don't just manage documents; we reconstruct truth. Forensic-grade AI turns scattered records into winning, defensible strategies.",
   audience: 'Software for contractors, claims consultants and construction lawyers.',
   fastPath: 'See how it works',
   strip: [
@@ -366,10 +366,10 @@ export const IN_BRIEF = {
   questionsLabel: 'Questions',
   questions: [
     { q: 'What can we upload?', a: 'Email archives and individual emails, PDFs, Word documents, spreadsheets and images. Scanned pages can be read using text recognition.' },
-    { q: 'Does VeriCase replace our disclosure platform?', a: 'No. VeriCase helps you organise the evidence and prepare your case. It works alongside the disclosure and document review software your solicitors already use.' },
-    { q: 'Will the output be accepted by the tribunal?', a: 'That is for the tribunal to decide. VeriCase helps you show where the evidence came from and what was done to it. Your advisers remain responsible for checking and presenting the material.' },
-    { q: 'Does the AI write our submissions?', a: 'It helps with analysis and draft wording, linked to supporting sources. Your team checks the evidence, edits or rejects suggestions and approves what is used. Responsibility for any submission stays with its author.' },
-    { q: 'Who sees what?', a: 'Each person’s role controls what they can access. Sensitive fields, including BCC recipients, are restricted by permission.', gate: 'G5_roles' },
+    { q: 'Does VeriCase replace our disclosure platform?', a: 'No. VeriCase is a pre-litigation workspace. It prepares evidence, chronology, claim and rebuttal material, which then moves to the platform your solicitors use.' },
+    { q: 'Will the output be accepted by the tribunal?', a: 'Admissibility and weight are for the tribunal. VeriCase keeps each original with its hash, message ID and source path, and records what was done to it, so that its provenance can be examined.' },
+    { q: 'Does the AI write our submissions?', a: 'No. It suggests evidence and proposes reply points, each with citations. A person accepts, edits or rejects every proposal, and the decision is recorded. Responsibility for anything served stays with its author.' },
+    { q: 'Who sees what?', a: 'Access is by role: Team Leader, Senior Lawyer, Claims Consultant, QS, Project Manager, External Counsel and Client Viewer. BCC recipients and other sensitive fields are restricted by permission.', gate: 'G5_roles' },
     { q: 'Where is our data held, and is it used to train AI models?', a: '{{DATA_POLICY}}', gate: 'G8_data' },
   ],
 };

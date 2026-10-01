@@ -84,7 +84,7 @@ export const CookieConsent = () => {
     >
       <div className="container flex flex-col gap-2.5 py-2.5 lg:flex-row lg:items-center lg:gap-6 lg:py-2">
         <p className="text-caption leading-[1.45] lg:flex-1">
-          <span className="eyebrow mr-2 inline-block text-brass-700">{COOKIE_BAR.label}</span>
+          <span className="mr-2 inline-block font-medium text-brass-700">{COOKIE_BAR.label}</span>
           {COOKIE_BAR.text}{' '}
           <button
             type="button"
