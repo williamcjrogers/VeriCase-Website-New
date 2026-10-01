@@ -1,3 +1,4 @@
+import { captureMarketingEvent } from '@/lib/analytics';
 import { createContext, useCallback, useContext, useMemo, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, Paperclip } from 'lucide-react';
 import { Sheet, SheetContent, SheetDescription, SheetTitle } from '@/components/ui/sheet';
@@ -17,6 +18,7 @@ export function SourceSheetProvider({ children }) {
 
   const open = useCallback((id, list, fromEl) => {
     invoker.current = fromEl || null;
+    captureMarketingEvent('sample_interacted', { section: fromEl?.closest('section[id]')?.id || 'top', interaction: 'source_opened' });
     const wide = typeof window !== 'undefined' && window.matchMedia?.('(min-width: 640px)').matches;
     setState({ id, list: list && list.length ? list : [id], side: wide ? 'right' : 'bottom' });
   }, []);

@@ -1,5 +1,7 @@
 # VeriCase PR 2: final website design, "The Working Record"
 
+> Historical design rationale. For the current approved palette, typography, page order, enquiry wording and verification requirements, use [the current contract](current-contract.md). Later user-approved changes and live source take precedence over the earlier proposals below.
+
 > **Status.** This is the design specification for PR 2 as the design panel delivered it on
 > 25 September 2026, kept for reference. Real matter and party names that appeared in the working
 > notes have been removed. Since the build, `frontend/src/content/` is canonical for all copy, and

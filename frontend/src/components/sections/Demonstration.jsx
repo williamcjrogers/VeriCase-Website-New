@@ -18,7 +18,7 @@ export const Demonstration = () => (
           <Gated id={DEMONSTRATION.ownMaterialGate} block className="mt-4">
             <p className="max-w-measure text-body text-parchment/90">{DEMONSTRATION.ownMaterial}</p>
           </Gated>
-          <DemoCTA onInk withCopy microcopy={DEMONSTRATION.microcopy} className="mt-9" />
+          <DemoCTA placement="demonstration" section="demonstration" onInk withCopy microcopy={DEMONSTRATION.microcopy} className="mt-9" />
           <p className="mt-10 font-display text-[1.375rem] italic text-parchment">{BRAND_LINE}</p>
         </div>
       </div>

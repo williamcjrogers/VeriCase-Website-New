@@ -89,7 +89,7 @@ export const InBrief = () => {
             </Accordion.Root>
           </div>
 
-          <DemoCTA className="col-span-12 mt-12 lg:col-span-8 lg:col-start-3" />
+          <DemoCTA placement="platform" section="platform" className="col-span-12 mt-12 lg:col-span-8 lg:col-start-3" />
         </div>
       </div>
     </section>

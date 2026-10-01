@@ -7,7 +7,7 @@
 // Items with a `gate` are governed by content/gates.js (open, confirmed or struck).
 
 export const BRAND_LINE = 'Making time your ally, not your enemy.';
-export const CTA_LABEL = 'Book a demonstration';
+export const CTA_LABEL = 'Request a demonstration';
 export const CTA_MICROCOPY = 'Opens an email to enquiries@veri-case.com. Please do not include confidential details of a live matter.';
 export const CTA_MICROCOPY_SHORT = 'Opens an email. Please do not include confidential details of a live matter.';
 
@@ -24,7 +24,7 @@ export const CHAPTERS = [
 export const END_MATTER = [
   { id: 'platform', title: 'In brief' },
   { id: 'about', title: 'Who is behind it', nav: 'About' },
-  { id: 'demonstration', title: 'Book a demonstration' },
+  { id: 'demonstration', title: 'Request a demonstration' },
   { id: 'notes', title: 'Notes' },
 ];
 
@@ -42,9 +42,9 @@ export const HEADER = {
 export const COVER = {
   masthead: ['Records,', 'records,', 'records.'],
   eyebrow: 'The early case diagnostic tool for construction disputes',
-  h1: 'Transform Complex RECORDS Into Compelling Legal Arguments',
+  h1: 'Build your case from a cited record',
   subhead:
-    "VeriCase approaches the evidence crisis differently. We don't just manage documents; we reconstruct truth. Where others see data graveyards, we see evidence goldmines.",
+    "Put project correspondence in date order, analyse it with citations and return to the source behind each answer. VeriCase supports the professional judgement needed to prepare a construction dispute.",
   fastPath: 'Short on time? The platform in brief',
   strip: [
     { label: 'Founded by practitioners', text: 'William Rogers MCIArb & Warren Kemp (Partner, gunnercooke): forensic quantum, claims and dispute resolution.' },
@@ -97,8 +97,8 @@ export const CLOCK = {
   h2: 'Most disputes come down to what the record shows, and when.',
   lead:
     'Many construction disputes run to fixed timetables. Time is the commodity everyone is chasing. When a notice falls due or a referral arrives, the case is only as strong as the record you can find, read and cite in the time allowed. It is often said that the three lessons of construction disputes are records, records and records. The periods below show why.',
-  fail: 'You need to build a factual chronology from tens of thousands of emails. The record exists, but it sits across mailboxes, custodians and years, in a form no one can read in order. Reading and understanding it takes weeks.',
-  recover: 'VeriCase processes the record in a matter of minutes. It puts the correspondence in order before the clock starts, saving substantial time and giving you a competitive edge.',
+  fail: 'You need to build a factual chronology from tens of thousands of emails. The record exists, but it sits across mailboxes, custodians and years, in a form no one can read in order. Finding the relevant correspondence takes time.',
+  recover: 'VeriCase puts the correspondence in order and links each entry to its source, so your team can examine what happened and prepare its analysis.',
   matter: {
     label: 'The sample matter (fictional)',
     title: 'Example Contractor Ltd and Example Employer Ltd',
@@ -204,8 +204,8 @@ export const LENS_CHAPTER = {
     alt: 'Illustrative image: an aisle of archive boxes and lever-arch files.',
     drawn: {
       caption:
-        'Plate 2. The record as it is kept: sixteen months of correspondence in six mailboxes, one mark per message. An illustrative drawing of the fictional sample matter. See note B.',
-      alt: 'Illustrative drawing: the correspondence of the fictional sample matter as it is kept, one mark per message, in six lanes for the mailboxes of the Employer’s Agent, the Contractor’s Design Manager, Site Manager and Commercial Manager, the Façade Sub-Contractor’s Package Manager and the Supplier’s Sales Office, a week to a line from January 2024 to April 2025. Copies repeat faintly across mailboxes, and noise is drawn hollow. Near the foot, a bracket gathers the five weeks from 03 March 2025 in which the eight exhibits in issue, EV-0131 to EV-0153, are marked in blue.',
+        'Plate 2. Sixteen months of correspondence across six mailboxes, with four pivotal exhibits highlighted. An illustrative drawing of the fictional sample matter; totals are illustrative. See note B.',
+      alt: 'Illustrative drawing of the fictional sample matter: six custodian mailboxes from January 2024 to April 2025. Correspondence links the Employer, Design, Site, Commercial, Package and Supplier teams. Noise and near-duplicates are set aside. Four pivotal exhibits are highlighted in the dispute window of 03 March to 04 April 2025: EV-0131, EV-0138, EV-0147 and EV-0151.',
     },
   },
   fig: {
@@ -214,7 +214,7 @@ export const LENS_CHAPTER = {
       'Illustration: the sample matter in the Chronology Lens workbench, with eight entries from four parties in date order, controls for view, date window, Smart Filter, excluded keywords and Create bundle, and a File Manager view of attachments by type with a Show Noise switch.',
     caption: 'Fig. 3. The Chronology Lens™ workbench and File Manager, illustrated with the sample matter. Counts are illustrative. See note A.',
   },
-  next: { label: 'Next: ask the record a question', href: '#research' },
+  next: { label: 'Next: test the case against the record', href: '#case-room' },
 };
 
 export const RESEARCH = {
@@ -436,7 +436,7 @@ export const DEMONSTRATION = {
   ownMaterialGate: 'G5_ownMaterial',
   copy: 'Copy email address',
   copied: 'Email address copied.',
-  microcopy: 'Book a demonstration opens an email to enquiries@veri-case.com with the subject line completed. Please do not include confidential details of a live matter.',
+  microcopy: 'Request a demonstration opens an email to enquiries@veri-case.com with the subject line completed. Please do not include confidential details of a live matter.',
   plain: 'Or write to enquiries@veri-case.com.',
 };
 
@@ -450,7 +450,7 @@ export const NOTES_SECTION = {
 export const FOOTER = {
   descriptor: 'The pre-litigation evidence workspace for construction disputes: evidence, chronology, claims and rebuttal.',
   heads: { contents: 'Contents', company: 'Company', cookies: 'Cookies' },
-  company: { about: 'Who is behind it', demo: 'Book a demonstration', signIn: 'Sign in' },
+  company: { about: 'Who is behind it', demo: 'Request a demonstration', signIn: 'Sign in' },
   cookies: { settings: 'Cookie settings', notice: 'Cookie notice' },
   legal: [
     'VeriCase Ltd is registered in England and Wales (company number 16562435). Registered office: 85 Great Portland Street, London, England, W1W 7LT.',

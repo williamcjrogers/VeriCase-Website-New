@@ -1,4 +1,5 @@
-import { lazy, useEffect } from 'react';
+import { trackDemonstration } from '@/lib/analytics';
+import { lazy } from 'react';
 import { SiteHeader } from '@/components/sections/SiteHeader';
 import { SiteFooter } from '@/components/sections/SiteFooter';
 import { Plate } from '@/components/editorial/Plate';
@@ -8,17 +9,8 @@ import { DEMO_MAILTO } from '@/lib/site';
 
 const ShelfGap = lazy(() => import(/* webpackChunkName: "plate-shelf" */ '@/components/plates/ShelfGap').then((m) => ({ default: m.ShelfGap })));
 
-const HOME_TITLE = 'VeriCase | Evidence and chronology for construction disputes';
-
-// Any unknown address. The build also prerenders this page to 404.html, with noindex.
+// Unknown addresses also receive a prerendered HTTP 404 response.
 export const NotFound = () => {
-  useEffect(() => {
-    document.title = NOT_FOUND.title;
-    return () => {
-      document.title = HOME_TITLE;
-    };
-  }, []);
-
   return (
     <>
       <SiteHeader />
@@ -34,7 +26,7 @@ export const NotFound = () => {
                 <a href="/" className="vc-btn vc-btn-secondary">
                   {NOT_FOUND.home}
                 </a>
-                <a href={DEMO_MAILTO} className="vc-btn vc-btn-primary">
+                <a href={DEMO_MAILTO} onClick={() => trackDemonstration('not-found', 'not-found')} className="vc-btn vc-btn-primary">
                   {CTA_LABEL}
                 </a>
               </div>

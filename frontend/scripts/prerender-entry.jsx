@@ -24,7 +24,7 @@ export function jsonLd() {
     url: SITE.url,
     logo: `${SITE.url}logo-positive.svg`,
     email: CONTACT_EMAIL,
-    founder: { '@type': 'Person', name: 'William Rogers' },
+    founder: ['William Rogers', 'Warren Kemp'].map((name) => ({ '@type': 'Person', name })),
     identifier: { '@type': 'PropertyValue', propertyID: 'Companies House company number', value: COMPANY.number },
   };
   // The address is added once the registered office has been supplied (gate G7).
@@ -51,3 +51,5 @@ export function jsonLd() {
   };
   return [organization, application, ...(questions.length ? [faq] : [])];
 }
+
+export { metadataForPath } from '@/lib/pageMetadata';

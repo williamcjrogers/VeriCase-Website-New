@@ -84,7 +84,7 @@ export const Research = () => (
         <div className="grid grid-cols-12 gap-x-6">
           <div className="col-span-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:gap-12 lg:col-span-10 lg:col-start-3">
             <p className="max-w-[30ch] font-display text-[1.5rem] leading-[1.3] text-navy md:text-[1.75rem]">{RESEARCH.cta.line}</p>
-            <DemoCTA microcopy={CTA_MICROCOPY_SHORT} className="md:max-w-[21rem] md:shrink-0" />
+            <DemoCTA placement="research" section="research" microcopy={CTA_MICROCOPY_SHORT} className="md:max-w-[21rem] md:shrink-0" />
           </div>
         </div>
       </div>

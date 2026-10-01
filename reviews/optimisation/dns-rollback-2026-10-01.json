@@ -1,0 +1,32 @@
+{
+  "HostedZoneId": "/hostedzone/Z03217773PWCQOY354HX9",
+  "ChangeBatch": {
+    "Comment": "Restore marketing DNS before 01 October 2026 Vercel cutover",
+    "Changes": [
+      {
+        "Action": "UPSERT",
+        "ResourceRecordSet": {
+          "Name": "veri-case.com.",
+          "Type": "A",
+          "AliasTarget": {
+            "HostedZoneId": "ZHURV8PSTC4K8",
+            "DNSName": "k8s-vericase-vericase-831b8104f3-1782642699.eu-west-2.elb.amazonaws.com.",
+            "EvaluateTargetHealth": true
+          }
+        }
+      },
+      {
+        "Action": "UPSERT",
+        "ResourceRecordSet": {
+          "Name": "www.veri-case.com.",
+          "Type": "A",
+          "AliasTarget": {
+            "HostedZoneId": "ZHURV8PSTC4K8",
+            "DNSName": "k8s-vericase-vericase-831b8104f3-1782642699.eu-west-2.elb.amazonaws.com.",
+            "EvaluateTargetHealth": true
+          }
+        }
+      }
+    ]
+  }
+}

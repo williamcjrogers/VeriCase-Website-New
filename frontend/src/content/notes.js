@@ -76,7 +76,7 @@ export const LETTERED_NOTES = [
     k: 'A',
     title: 'The sample matter and illustrations.',
     body:
-      'Example Contractor Ltd, Example Employer Ltd and every other party, date, document, message ID and exhibit reference on this page are fictional, and so is the amendment to clause 2.24. The hashes shown are the real SHA-256 values of the fictional text. Product screens are simplified illustrations built in code, not screenshots of any real matter.',
+      'The parties, events, documents, message IDs and exhibit references in the sample matter and its product demonstrations are fictional, as is the sample amendment to clause 2.24. This does not apply to the named founders, company details or cited external sources. The hashes shown are the real SHA-256 values of the fictional text. Product screens are simplified illustrations built in code, not screenshots of any real matter.',
   },
   {
     k: 'B',

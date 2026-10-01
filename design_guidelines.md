@@ -1,5 +1,7 @@
 # VeriCase website: design guidelines ("The Working Record")
 
+**Current authority:** `docs/design/current-contract.md` (01 October 2026) supersedes earlier palette and behaviour prescriptions.
+
 These guidelines summarise the design system of the marketing site. The full specification, with
 the reasoning behind each decision, is `docs/design/the-working-record.md`. Copy lives in
 `frontend/src/content/`, which is canonical.
@@ -18,14 +20,14 @@ Re-based on the logo. Tokens are defined once in `frontend/src/index.css` (as `-
 
 | Token | Hex | Use |
 |---|---|---|
-| `ink-950` | #0E1630 | The case room, the footer, dark panels |
-| `navy` | #1A2550 | Headings, the demonstration panel |
-| `ink` | #232C4A | Body text |
+| `ink-950` | #041A0F | The case room, the footer, dark panels |
+| `navy` | #052314 | Headings, the demonstration panel |
+| `ink` | #0B2516 | Body text |
 | `graphite` | #535A6E | Secondary text on light grounds |
 | `mist` | #B9BFD0 | Secondary text on ink or navy (never over imagery) |
-| `azure-500` | #2D78B7 | Logo azure: app-family header strips, focus rings, the Lens band |
-| `azure-700` | #1F5E96 | Links, product citations, the primary button |
-| `azure-300` | #9CC4EA | Links and focus on ink; the reversed logo |
+| `azure-500` | #8C6A36 | Bronze accent: app-family header strips, focus rings, the Lens band |
+| `azure-700` | #5C431B | Links, product citations, the primary button |
+| `azure-300` | #C4A05A | Links and focus on ink; the reversed logo |
 | `azure-50` | #E7EFF8 | Highlights and selected rows |
 | `parchment` | #F5F0E6 | The page |
 | `parchment-300` | #ECE4D3 | Bands and beige chips |
@@ -34,7 +36,8 @@ Re-based on the logo. Tokens are defined once in `frontend/src/index.css` (as `-
 | `rule-strong` | #857A62 | Informative borders (inputs, chips, controls) |
 | `brass-400` | #BF9B58 | Stamps, declaration borders; text only on dark grounds |
 | `brass-700` | #7A5A28 | Eyebrows, note markers and chapter numerals on light grounds |
-| `signal` | #A8352A | The one signal colour: Rejected, Does not match, Time bar |
+| `signal` | #A8352A | Warnings on light grounds |
+| `signal-300` | #EE8E7E | Warnings on dark green grounds, including Time bar |
 
 Rules: every ink or navy ground carries `.on-ink`, and every paper panel inside one carries
 `.on-paper`. Brass stays under about 5% of a viewport. Signal red always comes with a word and an

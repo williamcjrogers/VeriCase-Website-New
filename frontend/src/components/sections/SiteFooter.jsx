@@ -1,3 +1,4 @@
+import { trackDemonstration } from '@/lib/analytics';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
@@ -77,7 +78,7 @@ export const SiteFooter = () => {
                 </a>
               </Item>
               <Item>
-                <a href={DEMO_MAILTO} className={linkClass}>
+                <a href={DEMO_MAILTO} onClick={() => trackDemonstration('footer', 'top')} className={linkClass}>
                   {FOOTER.company.demo}
                 </a>
               </Item>

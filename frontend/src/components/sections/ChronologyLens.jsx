@@ -1,3 +1,4 @@
+import { captureMarketingEvent } from '@/lib/analytics';
 import { lazy, useState } from 'react';
 import { ChapterHeader } from '@/components/editorial/ChapterHeader';
 import { FailRecover } from '@/components/editorial/FailRecover';
@@ -35,51 +36,34 @@ const GLYPHS = { EmailArchive, Thread, QuoteFold, NearDuplicate, ExcludedProject
 // A glyph in the list's margin, by the name the copy deck gives it.
 const Glyph = ({ name, active = false }) => {
   const Icon = GLYPHS[name];
-  return Icon ? <Icon className={cn('absolute left-0 top-[1.375rem] transition-colors', active ? 'text-forest-700' : 'text-azure-700')} /> : null;
+  return Icon ? <Icon className={cn('absolute left-0 top-[1.375rem] transition-colors', active ? 'text-azure-700' : 'text-azure-700')} /> : null;
 };
 
 // The six operations as a ruled list, each with its domain glyph in the margin.
 const Operations = ({ activeStep, onSelectStep }) => (
-  <dl className="max-w-measure border-t border-rule">
-    {C.items
-      .filter((item) => isShown(item.gate))
-      .map((item, index) => {
-        const isHovered = activeStep === index;
-        return (
-          <div
-            key={item.title}
-            onClick={() => onSelectStep && onSelectStep(activeStep === index ? null : index)}
-            onMouseEnter={() => onSelectStep && onSelectStep(index)}
-            onMouseLeave={() => onSelectStep && onSelectStep(null)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                onSelectStep && onSelectStep(activeStep === index ? null : index);
-              }
-            }}
-            className={cn(
-              'relative border-b border-rule py-5 pl-11 sm:pl-12 transition-all duration-200 cursor-pointer rounded-sm select-none',
-              isHovered ? 'bg-[#F2ECE1]/90 shadow-xs' : 'hover:bg-[#F2ECE1]/40'
-            )}
-          >
-            <dt className={cn('font-display text-[1.3125rem] font-medium leading-snug transition-colors flex items-center justify-between', isHovered ? 'text-forest-900 font-semibold' : 'text-navy')}>
-              <span>
-                <Glyph name={item.icon} active={isHovered} />
-                {item.title}
-              </span>
-              {isHovered && (
-                <span className="text-[11px] font-mono font-normal uppercase text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-200">
-                  Spotlight
-                </span>
-              )}
-            </dt>
-            <dd className="mt-1.5 text-body text-ink">{item.gate ? <Gated id={item.gate}>{item.text}</Gated> : item.text}</dd>
-          </div>
-        );
-      })}
-  </dl>
+  <ul className="min-w-0 max-w-measure border-t border-rule" aria-label="Explore the chronology operations">
+    {C.items.filter((item) => isShown(item.gate)).map((item, index) => (
+      <li key={item.title} className="border-b border-rule">
+        <button
+          type="button"
+          aria-pressed={activeStep === index}
+          onClick={() => {
+            onSelectStep(activeStep === index ? null : index);
+            if (activeStep !== index) captureMarketingEvent('sample_interacted', { section: 'chronology-lens', interaction: 'chronology_spotlight' });
+          }}
+          className={cn(
+            'relative block w-full min-w-0 rounded-sm py-5 pl-11 pr-2 text-left sm:pl-12 transition-colors',
+            activeStep === index ? 'bg-parchment-300' : 'hover:bg-parchment-300/50'
+          )}
+        >
+          <Glyph name={item.icon} active={activeStep === index} />
+          <span className="block font-display text-[1.3125rem] font-medium leading-snug text-navy break-words">{item.title}</span>
+          <span className="mt-1.5 block text-body text-ink">{item.gate ? <Gated id={item.gate}>{item.text}</Gated> : item.text}</span>
+          {activeStep === index && <span className="mt-2 block text-caption font-medium text-azure-700">Shown in the illustration</span>}
+        </button>
+      </li>
+    ))}
+  </ul>
 );
 
 // Chapter II: ingestion, threading, quoted text and noise, then the Lens workbench (Fig. 3).
@@ -95,8 +79,8 @@ export const ChronologyLens = () => {
           <FailRecover fail={C.fail} recover={C.recover} recoverGate={C.recoverGate} className="col-span-12 lg:col-span-9 lg:col-start-3 xl:col-span-8 xl:col-start-3" />
         </div>
 
-        <div className="mt-14 grid grid-cols-12 gap-x-8 items-start lg:mt-16">
-          <div className="col-span-12 lg:col-span-5">
+        <div className="mt-14 grid grid-cols-12 gap-x-4 lg:gap-x-8 items-start lg:mt-16">
+          <div className="col-span-12 min-w-0 lg:col-span-5">
             <Operations activeStep={activeStep} onSelectStep={setActiveStep} />
           </div>
           <div className="col-span-12 mt-10 lg:col-span-7 lg:mt-0">
@@ -106,12 +90,13 @@ export const ChronologyLens = () => {
                 drawing={ArchiveField}
                 drawingProps={{ activeStep, onSelectStep: setActiveStep }}
                 lqip={MEDIA.archiveAisle.lqip}
-                ratio={MEDIA.archiveAisle.ratio}
+                ratio={MEDIA.archiveAisle.src ? MEDIA.archiveAisle.ratio : '400 / 556'}
                 sizes="(min-width: 1280px) 720px, (min-width: 1024px) 58vw, 100vw"
                 alt={MEDIA.archiveAisle.src ? C.plate.alt : C.plate.drawn.alt}
                 caption={MEDIA.archiveAisle.src ? C.plate.caption : C.plate.drawn.caption}
                 frameClassName="shadow-xl rounded-sm border border-rule/60"
               />
+              <p className="mt-4 text-caption text-graphite sm:hidden">Six mailboxes, January 2024 to April 2025. The four highlighted exhibits concern the instruction on 03 March, the lead time on 12 March, delivery confirmation on 26 March and notice on 28 March 2025. Choose an operation above to highlight its place in the record.</p>
             </div>
           </div>
         </div>

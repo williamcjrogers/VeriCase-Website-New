@@ -1,3 +1,4 @@
+import { trackDemonstration } from '@/lib/analytics';
 import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { List } from 'lucide-react';
@@ -52,12 +53,12 @@ export const SiteHeader = () => {
       <a href="#main" className="skip-link">
         {HEADER.skip}
       </a>
-      <div className="container flex h-14 items-center justify-between gap-3 lg:h-16">
+      <div className="container flex h-14 items-center justify-between gap-2 lg:h-16">
         <a
           href={onHome ? '#top' : '/'}
           onClick={onHome ? onSectionClick('top') : undefined}
           aria-label={HEADER.logoAlt}
-          className="-mx-1 flex h-11 shrink-0 items-center rounded-sm px-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BF9B58]"
+          className="-mx-1 flex h-11 min-w-11 shrink-0 items-center rounded-sm px-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BF9B58]"
         >
           <Logo tone="reversed" decorative className="hidden h-7 w-auto min-[360px]:block sm:h-8" />
           <LogoMark decorative className="h-7 w-7 min-[360px]:hidden" color="#C4A05A" />
@@ -98,8 +99,8 @@ export const SiteHeader = () => {
             {HEADER.signIn}
           </a>
           <a
-            href={DEMO_MAILTO}
-            className="inline-flex items-center justify-center gap-2 rounded-sm bg-[#BF9B58] px-4 py-2 text-small font-medium text-[#0B2516] transition-colors hover:bg-[#d4b06a] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BF9B58] max-sm:px-3 max-sm:text-[0.875rem]"
+            href={DEMO_MAILTO} onClick={() => trackDemonstration('header', 'top')}
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-sm bg-[#BF9B58] px-4 py-2 text-small font-medium text-[#0B2516] transition-colors hover:bg-[#d4b06a] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BF9B58] max-sm:px-3 max-sm:text-[0.875rem]"
           >
             {CTA_LABEL}
           </a>
@@ -154,7 +155,7 @@ export const SiteHeader = () => {
                 <a href={SIGN_IN_URL} className="vc-link inline-flex min-h-[44px] items-center text-small font-medium">
                   {HEADER.signIn}
                 </a>
-                <DemoCTA withCopy className="mt-3" />
+                <DemoCTA placement="contents" section="top" withCopy className="mt-3" />
                 <p className="mt-4 font-display text-[1.0625rem] italic text-graphite">{BRAND_LINE}</p>
               </div>
             </SheetContent>

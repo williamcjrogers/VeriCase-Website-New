@@ -169,7 +169,7 @@ export const CaseRoom = () => {
 
             <div className="cr-close">
               <p className="cr-cta-line">{CASE_ROOM.day28.cta}</p>
-              <DemoCTA onInk className="mt-5" />
+              <DemoCTA placement="case-room" section="case-room" onInk className="mt-5" />
             </div>
           </div>
         </div>

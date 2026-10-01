@@ -38,7 +38,7 @@ module.exports = {
         ring: 'hsl(var(--ring))',
       },
       fontFamily: {
-        display: ['"Literata"', '"Literata Fallback"', 'Georgia', 'serif'],
+        display: ['"Newsreader"', '"Newsreader Fallback"', 'Georgia', 'serif'],
         sans: ['"IBM Plex Sans"', '"IBM Plex Sans Fallback"', 'Arial', 'sans-serif'],
         mono: ['"IBM Plex Mono"', '"IBM Plex Mono Fallback"', 'ui-monospace', 'monospace'],
       },

@@ -2,14 +2,15 @@ import { useEffect, useRef, useState } from 'react';
 import { Copy, Mail } from 'lucide-react';
 import { CONTACT_EMAIL, DEMO_MAILTO } from '@/lib/site';
 import { CTA_LABEL, CTA_MICROCOPY, DEMONSTRATION } from '@/content/home';
+import { trackDemonstration } from '@/lib/analytics';
 import { cn } from '@/lib/utils';
 
-// "Book a demonstration": a mailto with the subject and body prefilled, an optional
+// "Request a demonstration": a mailto with the subject and body prefilled, an optional
 // "Copy email address" button (confirmed in a status line beside it) and the confidentiality
 // microcopy. No form submits anything. The compact form is for the header band: the same
 // mailto and copy fallback, with the copy button reduced to an icon and the confirmation
 // announced rather than shown, so the band keeps its height.
-export const DemoCTA = ({ onInk = false, withCopy = false, compact = false, microcopy = CTA_MICROCOPY, className, align = 'start' }) => {
+export const DemoCTA = ({ onInk = false, withCopy = false, compact = false, microcopy = CTA_MICROCOPY, className, align = 'start', placement, section }) => {
   const plain = useRef(null);
   const [copied, setCopied] = useState(false);
   useEffect(() => {
@@ -21,6 +22,7 @@ export const DemoCTA = ({ onInk = false, withCopy = false, compact = false, micr
     try {
       await navigator.clipboard.writeText(CONTACT_EMAIL);
       setCopied(true);
+      trackDemonstration(placement, section, true);
     } catch {
       // Clipboard unavailable: select the plain address so it can be copied by hand.
       const el = plain.current;
@@ -36,7 +38,7 @@ export const DemoCTA = ({ onInk = false, withCopy = false, compact = false, micr
   if (compact) {
     return (
       <div className={cn('flex items-center gap-1 sm:gap-2', className)}>
-        <a href={DEMO_MAILTO} className={cn('vc-btn vc-btn-primary max-sm:px-3 max-sm:text-[0.875rem]', onInk && 'vc-btn-on-ink')}>
+        <a href={DEMO_MAILTO} onClick={() => trackDemonstration(placement, section)} className={cn('vc-btn vc-btn-primary max-sm:px-3 max-sm:text-[0.875rem]', onInk && 'vc-btn-on-ink')}>
           {CTA_LABEL}
         </a>
         {withCopy && (
@@ -64,7 +66,7 @@ export const DemoCTA = ({ onInk = false, withCopy = false, compact = false, micr
   return (
     <div className={cn('flex flex-col gap-3', align === 'center' && 'items-center text-center', className)}>
       <div className={cn('flex flex-wrap items-center gap-3', align === 'center' && 'justify-center')}>
-        <a href={DEMO_MAILTO} className={cn('vc-btn vc-btn-primary', onInk && 'vc-btn-on-ink')}>
+        <a href={DEMO_MAILTO} onClick={() => trackDemonstration(placement, section)} className={cn('vc-btn vc-btn-primary', onInk && 'vc-btn-on-ink')}>
           <Mail className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
           {CTA_LABEL}
         </a>
@@ -84,7 +86,7 @@ export const DemoCTA = ({ onInk = false, withCopy = false, compact = false, micr
       {withCopy && (
         <p className={cn('text-caption', onInk ? 'text-mist' : 'text-graphite')}>
           Or write to{' '}
-          <a ref={plain} href={`mailto:${CONTACT_EMAIL}`} className={cn('underline underline-offset-2', onInk ? 'text-azure-300' : 'text-azure-700')}>
+          <a ref={plain} href={`mailto:${CONTACT_EMAIL}`} onClick={() => trackDemonstration(placement, section)} className={cn('underline underline-offset-2', onInk ? 'text-azure-300' : 'text-azure-700')}>
             {CONTACT_EMAIL}
           </a>
           .

@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LandingPage } from '@/pages/LandingPage';
 import { Cookies } from '@/pages/Cookies';
 import { NotFound } from '@/pages/NotFound';
+import { RouteMetadata } from '@/components/RouteMetadata';
 import { SIGN_IN_URL } from '@/lib/site';
 
 // Neither renders anything before hydration, so both load as their own chunks once the page
@@ -37,6 +38,7 @@ function App({ Router = BrowserRouter, routerProps = {} }) {
   useEffect(() => setMounted(true), []);
   return (
     <Router {...routerProps}>
+      <RouteMetadata />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<ExternalRedirect url={SIGN_IN_URL} label="Redirecting to sign in…" />} />
@@ -48,6 +50,10 @@ function App({ Router = BrowserRouter, routerProps = {} }) {
       {mounted && (
         <Suspense fallback={null}>
           <CookieConsent />
+        </Suspense>
+      )}
+      {mounted && (
+        <Suspense fallback={null}>
           <Toaster position="bottom-center" offset="calc(var(--consent-h, 0px) + 16px)" />
         </Suspense>
       )}

@@ -67,14 +67,27 @@ const ld = entry
 
 const fill = (html, marker) => template.replace('<div id="root"></div>', `<div id="root" data-prerendered="${marker}">${html}</div>`);
 
-const home = fill(entry.render('/'), '/').replace('</head>', `${ld}</head>`);
-writeFileSync(join(buildDir, 'index.html'), home);
+const withMetadata = (html, path) => {
+  const meta = entry.metadataForPath(path);
+  const escape = (value) => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;');
+  let result = html.replace(/<title>[^<]*<\/title>/, `<title>${escape(meta.title)}</title>`);
+  for (const [name, content] of [['description', meta.description], ['twitter:title', meta.title], ['twitter:description', meta.description]]) {
+    result = result.replace(new RegExp(`<meta name="${name}"[^>]*>`), `<meta name="${name}" content="${escape(content)}"/>`);
+  }
+  for (const [name, content] of [['og:title', meta.title], ['og:description', meta.description]]) {
+    result = result.replace(new RegExp(`<meta property="${name}"[^>]*>`), `<meta property="${name}" content="${escape(content)}"/>`);
+  }
+  result = result.replace(/<link rel="canonical"[^>]*>/, meta.url ? `<link rel="canonical" href="${meta.url}"/>` : '<meta name="robots" content="noindex"/>');
+  return result.replace(/<meta property="og:url"[^>]*>/, meta.url ? `<meta property="og:url" content="${meta.url}"/>` : '');
+};
 
-const notFound = fill(entry.render('/__vc-not-found__'), '*')
-  .replace(/<title>[^<]*<\/title>/, '<title>Page not found | VeriCase</title>')
-  .replace(/<link rel="canonical"[^>]*>/, '<meta name="robots" content="noindex"/>');
+const home = withMetadata(fill(entry.render('/'), '/'), '/').replace('</head>', `${ld}</head>`);
+writeFileSync(join(buildDir, 'index.html'), home);
+const cookies = withMetadata(fill(entry.render('/cookies'), '/cookies'), '/cookies');
+writeFileSync(join(buildDir, 'cookies.html'), cookies);
+const notFound = withMetadata(fill(entry.render('/__vc-not-found__'), '*'), '*');
 writeFileSync(join(buildDir, '404.html'), notFound);
 
 rmSync(join(buildDir, '.prerender'), { recursive: true, force: true });
 const kb = (s) => `${(Buffer.byteLength(s) / 1024).toFixed(1)} KB`;
-console.log(`Prerendered build/index.html (${kb(home)}) and build/404.html (${kb(notFound)}).`);
+console.log(`Prerendered build/index.html (${kb(home)}) build/cookies.html and build/404.html (${kb(notFound)}).`);

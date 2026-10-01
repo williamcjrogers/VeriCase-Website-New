@@ -12,17 +12,22 @@ const readConsent = () => {
 };
 
 export const saveConsent = (value) => {
+  window.__vcConsent = value;
   try {
     window.localStorage.setItem(CONSENT_KEY, value);
+    window.__vcConsentMemoryOnly = false;
   } catch (e) {
     // Storage unavailable: the choice applies to this page view only.
+    window.__vcConsentMemoryOnly = true;
   }
   if (value === 'granted' && typeof window.vcLoadAnalytics === 'function') {
+    if (window.__vcAnalyticsLoaded) window.posthog?.opt_in_capturing?.({ captureEventName: false });
     window.vcLoadAnalytics();
   }
   if (value === 'denied' && window.posthog && typeof window.posthog.opt_out_capturing === 'function' && window.__vcAnalyticsLoaded) {
     window.posthog.opt_out_capturing();
   }
+  window.dispatchEvent(new Event('vc-consent-change'));
 };
 
 const useIsomorphicLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;

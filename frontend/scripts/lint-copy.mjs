@@ -191,7 +191,7 @@ if (!BUILT) {
   for (const g of GATES.filter((x) => x.status === 'open')) report('src/content/gates.js', `open gate ${g.gate} (${g.id}): ${g.label}`);
 } else {
   // ---- The prerendered pages -----------------------------------------------------------------
-  const pages = ['build/index.html', 'build/404.html'];
+  const pages = ['build/index.html', 'build/cookies.html', 'build/404.html'];
   for (const page of pages) {
     const file = join(root, page);
     if (!existsSync(file)) {
@@ -239,8 +239,8 @@ if (!BUILT) {
         if (!onHome) fail(page, `in-page anchor ${href} off the home page (use /${href})`);
         else if (!ids.has(href.slice(1))) fail(page, `dead anchor ${href}`);
       }
-      if (href.startsWith('mailto:enquiries@veri-case.com?subject=') && label !== 'Book a demonstration') {
-        fail(page, `demonstration link reads "${label}", not "Book a demonstration"`);
+      if (href.startsWith('mailto:enquiries@veri-case.com?subject=') && label !== 'Request a demonstration') {
+        fail(page, `demonstration link reads "${label}", not "Request a demonstration"`);
       }
       if (label === 'Sign in' && href !== 'https://app.veri-case.com/ui/login.html') fail(page, `Sign in points to ${href}`);
     }

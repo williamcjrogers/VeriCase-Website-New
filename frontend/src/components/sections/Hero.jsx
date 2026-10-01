@@ -31,7 +31,7 @@ export const Hero = () => (
           </h1>
           <p className="mt-4 max-w-measure text-lead text-ink lg:mt-5">{COVER.subhead}</p>
           <p className="cover-brand mt-4 lg:mt-5">{BRAND_LINE}</p>
-          <DemoCTA withCopy className="mt-5 lg:mt-7" microcopy={CTA_MICROCOPY} />
+          <DemoCTA placement="hero" section="top" withCopy className="mt-5 lg:mt-7" microcopy={CTA_MICROCOPY} />
           <a href={sectionHref('platform', true)} onClick={onSectionClick('platform')} className="cover-fast mt-2">
             <ArrowDown className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
             {COVER.fastPath}
