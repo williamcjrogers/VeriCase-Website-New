@@ -1,0 +1,10 @@
+draft.created:
+  draftId  fbfcaa83-889f-4fdd-a68d-c14082ad6b97
+  title    VeriCase Released Homepage
+  preview  https://p.superdesign.dev/draft/fbfcaa83-889f-4fdd-a68d-c14082ad6b97
+  canvas   https://superdesign.dev/teams/442d52f1-9ceb-487d-9c33-5479d0169097/projects/3c76a4ca-5759-439e-84c8-e463d9921c70
+  credits  43
+
+help[2]:
+  Run `superdesign iterate-design-draft --draft-id fbfcaa83-889f-4fdd-a68d-c14082ad6b97 -p "<direction>" --mode branch` to explore variations of this draft (the main design tool)
+  Run `superdesign get-design --draft-id fbfcaa83-889f-4fdd-a68d-c14082ad6b97` to fetch the generated HTML

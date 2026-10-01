@@ -3,3 +3,5 @@
 .playwright-mcp/
 .vercel
 .env*
+
+.superdesign/tmp/

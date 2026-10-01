@@ -1,0 +1,82 @@
+# Routes
+
+Baseline: released cf029e2, 01 October 2026. Local LandingPage, InBrief and SharedWorkspace edits and untracked CapabilityDetails are an unfinished, unapproved content-restoration draft. This analysis reproduces released HEAD and explicitly excludes that draft.
+
+| Route | Component | Layout |
+|---|---|---|
+| / | pages/LandingPage.jsx | SiteHeader/SiteFooter |
+| /cookies | pages/Cookies.jsx | SiteHeader/SiteFooter |
+| /login | App ExternalRedirect | external app sign-in |
+| /fileserver, /Fileserver | App ExternalRedirect | legacy external redirect, not marketed |
+| unmatched | pages/NotFound.jsx | SiteHeader/SiteFooter, 404 metadata |
+
+Homepage: hero, time, three-job summary, workspace, full team, FAQ, email enquiry. Cookie page: analytics choices and policy.
+
+## frontend/src/App.js
+```jsx
+import { Suspense, lazy, useEffect, useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { LandingPage } from '@/pages/LandingPage';
+import { Cookies } from '@/pages/Cookies';
+import { NotFound } from '@/pages/NotFound';
+import { RouteMetadata } from '@/components/RouteMetadata';
+import { SIGN_IN_URL } from '@/lib/site';
+
+// Neither renders anything before hydration, so both load as their own chunks once the page
+// has mounted (rendering a lazy component during the prerender would leave a client-only
+// boundary for hydration to report).
+const CookieConsent = lazy(() => import('@/components/CookieConsent').then((m) => ({ default: m.CookieConsent })));
+const Toaster = lazy(() => import('@/components/ui/sonner').then((m) => ({ default: m.Toaster })));
+
+// The routes the site serves. index.html uses the same list to decide whether the prerendered
+// markup belongs to the page being opened (see public/index.html and src/index.js).
+export const KNOWN_ROUTES = ['/', '/login', '/cookies', '/fileserver', '/Fileserver'];
+
+// Hands the visitor on to the app's sign-in page or the file server.
+const ExternalRedirect = ({ url, label }) => {
+  useEffect(() => {
+    window.location.href = url;
+  }, [url]);
+
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-parchment">
+      <div className="text-center" role="status">
+        <div className="mx-auto mb-4 h-10 w-10 animate-spin rounded-full border-2 border-rule border-t-azure-500" aria-hidden="true" />
+        <p className="text-caption text-graphite">{label}</p>
+      </div>
+    </div>
+  );
+};
+
+// The router is injected so that the build can prerender with a StaticRouter.
+function App({ Router = BrowserRouter, routerProps = {} }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  return (
+    <Router {...routerProps}>
+      <RouteMetadata />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<ExternalRedirect url={SIGN_IN_URL} label="Redirecting to sign in…" />} />
+        <Route path="/cookies" element={<Cookies />} />
+        <Route path="/Fileserver" element={<ExternalRedirect url="https://files.veri-case.com" label="Redirecting to the file server…" />} />
+        <Route path="/fileserver" element={<ExternalRedirect url="https://files.veri-case.com" label="Redirecting to the file server…" />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      {mounted && (
+        <Suspense fallback={null}>
+          <CookieConsent />
+        </Suspense>
+      )}
+      {mounted && (
+        <Suspense fallback={null}>
+          <Toaster position="bottom-center" offset="calc(var(--consent-h, 0px) + 16px)" />
+        </Suspense>
+      )}
+    </Router>
+  );
+}
+
+export default App;
+
+```

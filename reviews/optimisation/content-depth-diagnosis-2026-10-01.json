@@ -1,0 +1,248 @@
+{
+  "date": "01 October 2026",
+  "host": "https://veri-case.com/",
+  "release": "cf029e297fdf95a14e33cb55f5900e809643fa80",
+  "scope": "60 selected approved headings, capability passages and visible team paragraphs; supplementary disclosures excluded",
+  "checks": [
+    {
+      "key": "opening.heading",
+      "present": true
+    },
+    {
+      "key": "opening.paragraph",
+      "present": true
+    },
+    {
+      "key": "time.heading",
+      "present": true
+    },
+    {
+      "key": "time.paragraph.0",
+      "present": true
+    },
+    {
+      "key": "time.paragraph.1",
+      "present": true
+    },
+    {
+      "key": "time.paragraph.2",
+      "present": true
+    },
+    {
+      "key": "LENS_CHAPTER.h2",
+      "present": false
+    },
+    {
+      "key": "LENS_CHAPTER.lead",
+      "present": false
+    },
+    {
+      "key": "LENS_CHAPTER.fail",
+      "present": false
+    },
+    {
+      "key": "LENS_CHAPTER.recover",
+      "present": false
+    },
+    {
+      "key": "LENS_CHAPTER.items.Load the record as it is kept",
+      "present": false
+    },
+    {
+      "key": "LENS_CHAPTER.items.One record per message",
+      "present": false
+    },
+    {
+      "key": "LENS_CHAPTER.items.Read what was written",
+      "present": false
+    },
+    {
+      "key": "LENS_CHAPTER.items.Set aside the noise",
+      "present": false
+    },
+    {
+      "key": "LENS_CHAPTER.items.Narrow it to the matter",
+      "present": false
+    },
+    {
+      "key": "LENS_CHAPTER.items.Cards or Table",
+      "present": false
+    },
+    {
+      "key": "RESEARCH.h2",
+      "present": false
+    },
+    {
+      "key": "RESEARCH.lead",
+      "present": false
+    },
+    {
+      "key": "RESEARCH.fail",
+      "present": false
+    },
+    {
+      "key": "RESEARCH.recover",
+      "present": false
+    },
+    {
+      "key": "RESEARCH.steps.Ask",
+      "present": false
+    },
+    {
+      "key": "RESEARCH.steps.Cite",
+      "present": false
+    },
+    {
+      "key": "RESEARCH.steps.Bundle",
+      "present": false
+    },
+    {
+      "key": "CASE_ROOM.h2",
+      "present": false
+    },
+    {
+      "key": "CASE_ROOM.lead",
+      "present": false
+    },
+    {
+      "key": "CASE_ROOM.fail",
+      "present": false
+    },
+    {
+      "key": "CASE_ROOM.recover",
+      "present": false
+    },
+    {
+      "key": "CASE_ROOM.standing",
+      "present": false
+    },
+    {
+      "key": "CLAIMS.h2",
+      "present": true
+    },
+    {
+      "key": "CLAIMS.lead",
+      "present": true
+    },
+    {
+      "key": "CLAIMS.fail",
+      "present": true
+    },
+    {
+      "key": "CLAIMS.recover",
+      "present": true
+    },
+    {
+      "key": "CLAIMS.items.Heads of Claim",
+      "present": true
+    },
+    {
+      "key": "CLAIMS.items.Citations by message ID",
+      "present": false
+    },
+    {
+      "key": "CLAIMS.items.Evidence finder",
+      "present": false
+    },
+    {
+      "key": "CLAIMS.items.Word and PDF",
+      "present": false
+    },
+    {
+      "key": "CLAIMS.items.Discussion on the document",
+      "present": true
+    },
+    {
+      "key": "INTEGRITY.h2",
+      "present": false
+    },
+    {
+      "key": "INTEGRITY.lead",
+      "present": false
+    },
+    {
+      "key": "INTEGRITY.fail",
+      "present": false
+    },
+    {
+      "key": "INTEGRITY.recover",
+      "present": false
+    },
+    {
+      "key": "INTEGRITY.controls.Originals held unchanged",
+      "present": false
+    },
+    {
+      "key": "INTEGRITY.controls.An audit trail for every message",
+      "present": false
+    },
+    {
+      "key": "INTEGRITY.controls.Numbered bundles with a manifest",
+      "present": false
+    },
+    {
+      "key": "INTEGRITY.controls.Access by role",
+      "present": false
+    },
+    {
+      "key": "INTEGRITY.controls.Sensitive fields restricted",
+      "present": false
+    },
+    {
+      "key": "INTEGRITY.controls.AI and keys on the server",
+      "present": false
+    },
+    {
+      "key": "team.William Rogers MCIArb.role",
+      "present": true
+    },
+    {
+      "key": "team.William Rogers MCIArb.bio.0",
+      "present": true
+    },
+    {
+      "key": "team.William Rogers MCIArb.bio.1",
+      "present": true
+    },
+    {
+      "key": "team.William Rogers MCIArb.bio.2",
+      "present": true
+    },
+    {
+      "key": "team.William Rogers MCIArb.bio.3",
+      "present": true
+    },
+    {
+      "key": "team.Warren Kemp.role",
+      "present": true
+    },
+    {
+      "key": "team.Warren Kemp.bio.0",
+      "present": true
+    },
+    {
+      "key": "team.Malcolm Brechin.role",
+      "present": true
+    },
+    {
+      "key": "team.Malcolm Brechin.bio.0",
+      "present": true
+    },
+    {
+      "key": "team.Malcolm Brechin.bio.1",
+      "present": true
+    },
+    {
+      "key": "team.Sam Whisker.role",
+      "present": true
+    },
+    {
+      "key": "team.Sam Whisker.bio.0",
+      "present": true
+    },
+    {
+      "key": "team.Sam Whisker.bio.1",
+      "present": true
+    }
+  ]
+}

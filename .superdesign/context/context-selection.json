@@ -1,0 +1,11 @@
+[
+  ".superdesign/design-system.md",
+  ".superdesign/context/released-main.md",
+  ".superdesign/context/released-rest.md",
+  ".superdesign/context/font-assets.md",
+  "frontend/src/index.css",
+  "frontend/tailwind.config.js",
+  ".superdesign/context/original-capability-copy.md",
+  ".superdesign/context/required-copy.json",
+  "docs/design/purposeful-interaction-2026-10-01.md"
+]

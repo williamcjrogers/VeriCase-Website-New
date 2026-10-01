@@ -1,0 +1,627 @@
+# Theme
+
+Baseline: released cf029e2, 01 October 2026. Local LandingPage, InBrief and SharedWorkspace edits and untracked CapabilityDetails are an unfinished, unapproved content-restoration draft. This analysis reproduces released HEAD and explicitly excludes that draft.
+
+## Compact token summary
+
+Forest #0B2516; deep green #041A0F; related dark ground #052314; parchment #F5F0E6; paper #FCFAF5; brass #BF9B58; dark bronze #5C431B; text secondary #535A6E; rules #D8CDB6. Newsreader headings 500; IBM Plex Sans body 400/500/600. Body17px/1.65; lead20px/1.6; hero42-64px/1.06; section32-40px/1.15. Container1280px, gutters16/24/40px. Breakpoints640/768/1024/1280/1440px. Header56/64px. Sections44-72px; hero44-88px. Button radius2px, min44px, focus3px. Paper shadow0 1px 0 rgba(26,37,80,.06),0 12px32px -16px rgba(26,37,80,.22). No automatic motion in released marketing illustrations. Legacy animation styles remain in raw CSS but are unmounted.
+
+## Raw source
+
+## frontend/src/index.css
+```css
+/* The Working Record: base styles, tokens and the few bespoke animations.
+   The @font-face rules live in public/index.html, beside the preloads, so the font URLs are
+   the same files the preloads fetch (Latin subsets in /public/fonts, OFL licensed). */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --vc-ink-950: #041A0F; --vc-navy: #052314; --vc-ink: #0B2516; --vc-graphite: #535A6E; --vc-mist: #B9BFD0;
+    --vc-azure-50: #E7EFF8; --vc-azure-300: #C4A05A; --vc-azure-500: #8C6A36; --vc-azure-700: #5C431B;
+    --vc-parchment: #F5F0E6; --vc-parchment-300: #ECE4D3; --vc-paper: #FCFAF5;
+    --vc-rule: #D8CDB6; --vc-rule-strong: #857A62; --vc-brass-400: #BF9B58; --vc-brass-700: #7A5A28;
+    --vc-signal: #A8352A; --vc-signal-300: #EE8E7E;
+    --ease-settle: cubic-bezier(0.2, 0, 0, 1); --ease-exit: cubic-bezier(0.4, 0, 1, 1); --ease-glide: cubic-bezier(0.45, 0, 0.2, 1);
+    --shadow-paper: 0 1px 0 rgba(26, 37, 80, 0.06), 0 12px 32px -16px rgba(26, 37, 80, 0.22);
+    --shadow-lift: 0 1px 0 rgba(26, 37, 80, 0.08), 0 24px 48px -24px rgba(26, 37, 80, 0.35);
+    --header-h: 64px;
+    /* shadcn tokens (HSL triplets) */
+    --background: 40 43% 93%; --foreground: 226 36% 21%;
+    --card: 43 54% 97%; --card-foreground: 226 36% 21%;
+    --popover: 43 54% 97%; --popover-foreground: 226 36% 21%;
+    --primary: 208 66% 35%; --primary-foreground: 0 0% 100%;
+    --secondary: 41 40% 88%; --secondary-foreground: 226 36% 21%;
+    --muted: 41 40% 88%; --muted-foreground: 224 14% 38%;
+    --accent: 212 55% 94%; --accent-foreground: 228 51% 21%;
+    --destructive: 5 60% 41%; --destructive-foreground: 0 0% 100%;
+    --border: 41 30% 78%; --input: 41 15% 45%; --ring: 207 61% 45%;
+    --radius: 0.25rem;
+  }
+  @media (max-width: 1023px) { :root { --header-h: 56px; } }
+
+  /* One offset mechanism only: no element also carries scroll-margin-top. */
+  html {
+    scroll-padding-top: calc(var(--header-h) + 16px);
+    scroll-padding-bottom: var(--consent-h, 0px);
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    margin: 0;
+    background: var(--vc-parchment);
+    color: var(--vc-ink);
+    font-family: 'IBM Plex Sans', 'IBM Plex Sans Fallback', Arial, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding-bottom: var(--consent-h, 0px);
+    overflow-x: clip;
+  }
+  /* Paper grain, drawn procedurally so it tiles without seams and costs no request. */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.10  0 0 0 0 0.14  0 0 0 0 0.31  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-size: 240px 240px;
+    opacity: 0.07;
+    mix-blend-mode: multiply;
+  }
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif;
+    font-optical-sizing: auto;
+    color: var(--vc-navy);
+    font-weight: 500;
+    text-wrap: balance;
+  }
+  /* Running text avoids a lone last word; headings balance their lines. */
+  p, li, dd, figcaption, blockquote { text-wrap: pretty; }
+  .mono, code, kbd, samp {
+    font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+    font-variant-numeric: tabular-nums slashed-zero;
+  }
+  :focus-visible { outline: 3px solid var(--vc-azure-500); outline-offset: 2px; }
+  ::selection { background: var(--vc-azure-50); color: var(--vc-navy); }
+
+  /* Dark grounds: case room, footer, hash-check panel, demonstration panel */
+  .on-ink { color: var(--vc-parchment); --ring: 209 65% 76%; }
+  .on-ink :is(h1, h2, h3, h4) { color: var(--vc-parchment); }
+  .on-ink :focus-visible { outline-color: var(--vc-azure-300); }
+  /* Paper panels inside a dark ground (Rebuttal table, Day 28 card) */
+  .on-ink .on-paper { color: var(--vc-ink); --ring: 207 61% 45%; }
+  .on-ink .on-paper :is(h1, h2, h3, h4) { color: var(--vc-navy); }
+  .on-ink .on-paper :focus-visible { outline-color: var(--vc-azure-500); }
+}
+
+@layer components {
+  /* Mono label and eyebrow: sentence case in the content files, capitals by CSS. */
+  .eyebrow {
+    font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.3;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--vc-brass-700);
+  }
+  .on-ink .eyebrow { color: var(--vc-brass-400); }
+  .on-ink .on-paper .eyebrow { color: var(--vc-brass-700); }
+
+  /* Double hairline: 1 px, 3 px gap, 1 px. */
+  .double-rule {
+    height: 5px;
+    border-top: 1px solid var(--vc-rule);
+    border-bottom: 1px solid var(--vc-rule);
+  }
+  .on-ink .double-rule { border-color: rgb(191 155 88 / 0.55); }
+  .double-rule.is-brass { border-color: var(--vc-brass-400); }
+
+  /* Decorative rain/light hairlines on dark ground */
+  .vc-rain {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='419' height='613'><g fill='none' stroke='%23F5F0E6' stroke-linecap='round'><path stroke-opacity='.12' d='M215 210v113M368 291v106M378 509v133M378 -104v133M47 393v116'/><path stroke-opacity='.18' d='M289 262v98M319 198v67M189 223v131M180 161v148M218 341v67M242 90v73M165 218v133M174 131v57M49 373v78M146 87v85M141 570v100M141 -43v100'/><path stroke-opacity='.24' d='M40 273v113M15 277v92M73 308v81M337 258v122M306 454v144M26 217v135M333 59v129M45 62v79M156 310v93M329 198v58M288 111v100'/><path stroke-width='2.4' stroke-opacity='.28' d='M378 29h0M73 389h0M337 380h0M306 598h0M26 352h0M333 188h0M329 256h0'/></g></svg>"),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='263' height='389'><g fill='none' stroke='%23F5F0E6' stroke-linecap='round'><path stroke-opacity='.08' d='M219 275v32M176 182v22M84 372v21M84 -17v21M72 305v29M35 72v52M194 380v54M194 -9v54M75 175v50M110 268v33'/><path stroke-opacity='.12' d='M184 36v21M45 113v58M235 308v64M251 91v14M18 59v19M186 359v35M186 -30v35M94 306v62M76 207v48M184 246v22M151 19v31M139 168v26M167 351v24'/><path stroke-opacity='.16' d='M155 376v31M155 -13v31M143 281v42M34 208v45M105 211v22M82 271v16M206 332v58M206 -57v58M19 92v19M172 257v29M257 235v23M118 307v42'/></g></svg>");
+    background-size: 419px 613px, 263px 389px;
+  }
+
+  /* Section side note, as in a statute: the numeral over the title, in the margin from 1024 px. */
+  .ch-side { display: flex; align-items: baseline; gap: 0.875rem; margin: 0; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-style: italic; }
+  .ch-numeral { font-size: 3rem; line-height: 0.9; color: var(--vc-brass-700); }
+  .ch-note { font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-style: italic; font-size: 1.1875rem; line-height: 1.3; color: var(--vc-graphite); text-wrap: balance; }
+  .on-ink .ch-numeral { color: var(--vc-brass-400); }
+  .on-ink .ch-note { color: var(--vc-mist); }
+  @media (min-width: 1024px) {
+    .ch-side { flex-direction: column; align-items: flex-end; gap: 0.75rem; margin-top: -0.5rem; text-align: right; }
+    .ch-numeral { font-size: clamp(4rem, 2.514rem + 6.095vw, 8rem); }
+    .ch-side .ch-note { max-width: 10rem; font-size: 1.0625rem; }
+  }
+
+  /* Superscripts: brass site notes and azure product citations share one form. The <sup
+     class="vc-sup"> wrapper raises and scales the marker; the marker itself only styles it. */
+  .vc-sup { vertical-align: super; font-size: 0.68em; line-height: 0; }
+  /* Inline, not inline-block, so a line never breaks between a word and its marker. */
+  .superscript-ref {
+    position: relative;
+    display: inline;
+    margin: 0 0 0 0.05em;
+    padding: 0 0.1em;
+    font-family: 'IBM Plex Sans', 'IBM Plex Sans Fallback', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 1em;
+    line-height: 1;
+    text-decoration: none;
+    background: none;
+    border: 0;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  /* Citation buttons are atomic boxes in any case; inline-flex keeps them measured as such. */
+  button.superscript-ref { display: inline-flex; align-items: flex-start; }
+  .superscript-ref.is-note { color: var(--vc-brass-700); }
+  .on-ink .superscript-ref.is-note, .superscript-ref.is-note.on-ink-ref { color: var(--vc-brass-400); }
+  .on-ink .on-paper .superscript-ref.is-note { color: var(--vc-brass-700); }
+  .superscript-ref.is-cite { color: var(--vc-azure-700); }
+  .superscript-ref:hover { text-decoration: underline; text-underline-offset: 2px; }
+  /* Enlarge the hit area to about 24 x 24 px without moving the text. */
+  .superscript-ref::after { content: ''; position: absolute; inset: -7px -7px; }
+
+  /* Product citation chip inside mocks: [EV-0138] */
+  .ev-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    padding: 0 0.4em;
+    font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+    font-weight: 500;
+    font-size: 0.8125rem;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    color: var(--vc-azure-700);
+    background: var(--vc-azure-50);
+    border: 1px solid rgb(31 94 150 / 0.4);
+    border-radius: 2px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 150ms var(--ease-settle), border-color 150ms var(--ease-settle);
+  }
+  .ev-chip:hover { background: #DCE8F5; border-color: var(--vc-azure-700); }
+
+  /* Exhibit stamp: a brass-edged mono tab. */
+  .ev-stamp {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    padding: 0.1em 0.45em;
+    font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: var(--vc-brass-700);
+    background: var(--vc-paper);
+    border: 1px solid var(--vc-brass-400);
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .on-ink .ev-stamp { background: transparent; color: var(--vc-brass-400); }
+  .stamp-in { animation: stamp 180ms var(--ease-settle) both; }
+
+  /* Beige chips in the app family: key in mono above a sans value. */
+  .chip {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 1px;
+    padding: 0.3rem 0.55rem;
+    background: var(--vc-parchment-300);
+    border: 1px solid var(--vc-rule-strong);
+    border-radius: 2px;
+    text-align: left;
+  }
+  .chip-key { font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-size: 0.75rem; color: var(--vc-brass-700); line-height: 1.2; }
+  .chip-value { font-size: 0.875rem; color: var(--vc-ink); line-height: 1.3; }
+
+  /* Where the record fails / Where VeriCase comes in */
+  .fail-rule { border-left: 2px dashed var(--vc-graphite); }
+  .recover-rule { border-left: 2px solid var(--vc-azure-500); }
+  .on-ink .fail-rule { border-left-color: var(--vc-mist); }
+  .on-ink .recover-rule { border-left-color: var(--vc-azure-300); }
+
+  /* Skip link */
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -100px;
+    z-index: 100;
+    padding: 0.6rem 1rem;
+    background: var(--vc-navy);
+    color: #fff;
+    border-radius: 2px;
+    font-weight: 500;
+  }
+  .skip-link:focus { top: 0.75rem; }
+
+  /* Container side padding: 16 px, 24 px from 640 px and 40 px from 1024 px. (Tailwind applies
+     the container's padding keys only at the container's own screens, and it has just one.) */
+  @media (min-width: 640px) { .container { padding-left: 1.5rem; padding-right: 1.5rem; } }
+  @media (min-width: 1024px) { .container { padding-left: 2.5rem; padding-right: 2.5rem; } }
+
+  /* Buttons: 2 px radius, 44 px targets, one weight. Primary is azure-700 (white on it 6.77:1). */
+  .vc-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0.625rem 1.125rem;
+    font-family: 'IBM Plex Sans', 'IBM Plex Sans Fallback', Arial, sans-serif;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 150ms var(--ease-settle), border-color 150ms var(--ease-settle), color 150ms var(--ease-settle);
+  }
+  .vc-btn:disabled, .vc-btn[aria-disabled='true'] { cursor: not-allowed; opacity: 0.55; }
+  .vc-btn-primary { background: var(--vc-azure-700); border-color: var(--vc-azure-700); color: #fff; }
+  .vc-btn-primary:hover { background: var(--vc-navy); border-color: var(--vc-navy); }
+  .vc-btn-secondary { background: transparent; border-color: var(--vc-rule-strong); color: var(--vc-navy); }
+  .vc-btn-secondary:hover { background: var(--vc-parchment-300); border-color: var(--vc-navy); }
+  .vc-btn-quiet { min-height: 44px; padding-inline: 0.625rem; background: transparent; color: var(--vc-azure-700); }
+  .vc-btn-quiet:hover { background: var(--vc-azure-50); }
+  .vc-btn-compact { padding-inline: 0.75rem; }
+  /* On ink and navy: the parchment button with navy text, and a mist outline for the second. */
+  .vc-btn-primary.vc-btn-on-ink { background: var(--vc-parchment); border-color: var(--vc-parchment); color: var(--vc-navy); }
+  .vc-btn-primary.vc-btn-on-ink:hover { background: #fff; border-color: #fff; }
+  .vc-btn-secondary.vc-btn-secondary-on-ink { border-color: var(--vc-mist); color: var(--vc-parchment); }
+  .vc-btn-secondary.vc-btn-secondary-on-ink:hover { background: rgb(245 240 230 / 0.08); border-color: var(--vc-parchment); }
+  .on-ink .vc-btn-quiet { color: var(--vc-azure-300); }
+  .on-ink .vc-btn-quiet:hover { background: rgb(156 196 234 / 0.1); }
+  .on-ink .on-paper .vc-btn-quiet { color: var(--vc-azure-700); }
+
+  /* Text links in running copy */
+  .vc-link { color: var(--vc-azure-700); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  .vc-link:hover { text-decoration-thickness: 2px; }
+  .on-ink .vc-link { color: var(--vc-azure-300); }
+  .on-ink .on-paper .vc-link { color: var(--vc-azure-700); }
+
+  /* Owner gates, shown only on previews. A production build with an open gate fails. */
+  .vc-gate { position: relative; outline: 1px dashed rgb(168 53 42 / 0.6); outline-offset: 3px; border-radius: 1px; }
+  .vc-gate-tag {
+    display: inline-block;
+    margin-left: 0.4em;
+    padding: 0.05em 0.35em;
+    font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+    font-weight: 500;
+    font-size: 0.625rem;
+    font-style: normal;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+    vertical-align: 0.2em;
+    color: #fff;
+    background: var(--vc-signal);
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .vc-gate-block { display: block; }
+  .vc-gate-block > .vc-gate-tag { position: absolute; top: -0.7rem; right: 0.5rem; z-index: 2; margin: 0; }
+  .vc-placeholder {
+    padding: 0 0.25em;
+    font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+    font-size: 0.85em;
+    font-style: normal;
+    color: var(--vc-signal);
+    background: rgb(168 53 42 / 0.07);
+    border: 1px dashed rgb(168 53 42 / 0.6);
+    border-radius: 2px;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+  .on-ink .vc-placeholder { color: var(--vc-signal-300); background: rgb(238 142 126 / 0.1); border-color: rgb(238 142 126 / 0.7); }
+  .on-ink .on-paper .vc-placeholder { color: var(--vc-signal); background: rgb(168 53 42 / 0.07); border-color: rgb(168 53 42 / 0.6); }
+
+  /* Plates. Below 768 px an art-directed plate takes its mobile ratio. */
+  @media (max-width: 767px) { .vc-plate-art { aspect-ratio: var(--ratio-mobile) !important; } }
+  /* Until a plate's image is supplied (previews only): a hatched stand-in of the same size, framed
+     like a print awaiting its plate, and labelled for gate G10. */
+  .vc-plate-standin {
+    background-color: var(--vc-parchment-300);
+    background-image: repeating-linear-gradient(135deg, rgb(133 122 98 / 0.12) 0 1px, transparent 1px 11px);
+  }
+  .vc-plate-standin::before {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgb(133 122 98 / 0.35);
+  }
+  .vc-plate-standin::after {
+    content: 'Image awaiting approval (G10)';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0.35rem 0.6rem;
+    font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--vc-graphite);
+    background: var(--vc-parchment-300);
+    border: 1px solid rgb(133 122 98 / 0.35);
+  }
+  .on-ink .vc-plate-standin { background-color: #141C3C; background-image: repeating-linear-gradient(135deg, rgb(185 191 208 / 0.08) 0 1px, transparent 1px 11px); }
+  .on-ink .vc-plate-standin::before { border-color: rgb(185 191 208 / 0.25); }
+  .on-ink .vc-plate-standin::after { color: var(--vc-mist); background: #141C3C; border-color: rgb(185 191 208 / 0.25); }
+
+  /* Skeleton for lazily mounted demonstrations: the same size, no shimmer. */
+  .vc-skeleton { background: var(--vc-paper); border: 1px solid var(--vc-rule); border-radius: 4px; }
+  .on-ink .vc-skeleton { background: rgb(252 250 245 / 0.04); border-color: rgb(185 191 208 / 0.2); }
+
+  /* Verification tick that reveals itself left to right, once. */
+  .vc-tick-draw { clip-path: inset(0 100% 0 0); animation: tick-draw 360ms var(--ease-settle) 80ms forwards; }
+
+  /* The note popover and the sheets */
+  .vc-note-pop { max-height: min(60vh, 28rem); overflow-y: auto; }
+  .vc-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 2px;
+    color: inherit;
+    opacity: 1;
+  }
+  .vc-close:hover { background: rgb(26 37 80 / 0.06); }
+  .vc-close.on-azure { color: #fff; }
+  .vc-close.on-azure:hover { background: rgb(255 255 255 / 0.14); }
+
+  /* Kinetic masthead (CSS only). Words are legible at every moment. */
+  .masthead { position: relative; overflow: clip; padding-block: 0.12em 0.18em; }
+  .masthead .slip { display: inline-block; position: relative; isolation: isolate; }
+  .masthead .slip::before {
+    content: '';
+    position: absolute;
+    inset: -0.04em -0.16em -0.02em;
+    z-index: -1;
+    background: var(--vc-paper);
+    border: 1px solid var(--vc-rule);
+    box-shadow: var(--shadow-paper);
+  }
+  .masthead .slip:nth-of-type(1) { transform: translate(-6px, 10px) rotate(-2deg); }
+  .masthead .slip:nth-of-type(2) { transform: translate(4px, -6px) rotate(1.5deg); }
+  .masthead .slip:nth-of-type(3) { transform: translate(-2px, 8px) rotate(-1deg); }
+  .fonts-ready .masthead .slip { animation: word-settle 240ms var(--ease-settle) calc(120ms + var(--i) * 220ms) forwards; }
+  .fonts-ready .masthead .slip::before { animation: slip-fade 240ms var(--ease-settle) calc(120ms + var(--i) * 220ms) forwards; }
+  .masthead-lens { position: absolute; inset: 0; pointer-events: none; }
+  .masthead-lens::before {
+    content: '';
+    position: absolute;
+    inset-block: 0;
+    right: 100%;
+    width: 24px;
+    background: rgb(231 239 248 / 0.55);
+    border-right: 2px solid var(--vc-azure-500);
+  }
+  .fonts-ready .masthead-lens { animation: lens-sweep 800ms var(--ease-glide) forwards; }
+  .masthead-rule {
+    display: block;
+    height: 1px;
+    margin-top: 0.12em;
+    background: var(--vc-brass-400);
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+  .fonts-ready .masthead-rule { animation: rule-draw 300ms var(--ease-settle) 860ms forwards; }
+
+  /* Reveal once in view (Reveal / useInViewOnce). Content stays visible without JavaScript:
+     it is hidden only once the app bundle has set html.js. */
+  .reveal { transition: opacity 400ms var(--ease-settle), transform 400ms var(--ease-settle); }
+  .js .reveal:not(.is-in) { opacity: 0; transform: translateY(12px); }
+
+  /* Hairline that draws once */
+  .draw-x { transform-origin: left; transition: transform 400ms var(--ease-settle); }
+  .js .draw-x { transform: scaleX(0); }
+  .js .is-in .draw-x, .js .draw-x.is-in { transform: scaleX(1); }
+}
+
+@keyframes word-settle { to { transform: none; } }
+@keyframes slip-fade { to { opacity: 0; } }
+@keyframes lens-sweep { from { transform: translateX(0); } to { transform: translateX(calc(100% + 26px)); } }
+@keyframes rule-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes stamp { from { opacity: 0; transform: rotate(-2deg) scale(1.06); } to { opacity: 1; transform: rotate(-2deg) scale(1); } }
+@keyframes tick-draw { to { clip-path: inset(0 0 0 0); } }
+@keyframes note-flash { 0%, 60% { background-color: var(--vc-parchment-300); } 100% { background-color: transparent; } }
+.note-flash { animation: note-flash 1.2s var(--ease-settle); }
+
+/* Lens casts: decided by CSS, never by matchMedia, so the prerender and hydration match */
+@media (max-width: 639px) { .lens [data-desktop-only] { display: none !important; } }
+@media (min-width: 640px) { .lens [data-mobile-only] { display: none !important; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-property: none !important;
+    scroll-behavior: auto !important;
+  }
+  /* Final states from first paint, without waiting for fonts-ready or JavaScript */
+  .masthead .slip { transform: none; }
+  .masthead .slip::before { opacity: 0; }
+  .masthead-rule { transform: none; }
+  .masthead-lens { display: none; }
+  .js .reveal:not(.is-in) { opacity: 1; transform: none; }
+  .js .draw-x { transform: none; }
+  .vc-tick-draw { clip-path: none; animation: none; }
+  .lens:not([data-user]) .lens-field { --lens-x: 100%; }
+  .lens:not([data-user]) :is(.row, .stamp, .hash, .lens-cite) { opacity: 1 !important; transform: none !important; }
+}
+
+```
+
+## frontend/tailwind.config.js
+```jsx
+/** @type {import('tailwindcss').Config} */
+// Design system: "The Working Record". Tokens mirror the CSS variables in src/index.css.
+module.exports = {
+  darkMode: ['class'],
+  content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  theme: {
+    screens: { sm: '640px', md: '768px', lg: '1024px', xl: '1280px', '2xl': '1440px' },
+    container: {
+      center: true,
+      padding: { DEFAULT: '1rem', sm: '1.5rem', lg: '2.5rem' },
+      screens: { '2xl': '1280px' },
+    },
+    // Only the weights that are loaded exist, so nothing can be synthesised.
+    fontWeight: { normal: '400', medium: '500', semibold: '600' },
+    extend: {
+      colors: {
+        ink: { DEFAULT: '#0B2516', 950: '#041A0F' },
+        navy: '#052314',
+        graphite: '#535A6E',
+        mist: '#B9BFD0',
+        azure: { 50: '#E7EFF8', 300: '#C4A05A', 500: '#8C6A36', 700: '#5C431B' },
+        parchment: { DEFAULT: '#F5F0E6', 300: '#ECE4D3' },
+        paper: '#FCFAF5',
+        rule: { DEFAULT: '#D8CDB6', strong: '#857A62' },
+        brass: { 400: '#BF9B58', 700: '#7A5A28' },
+        signal: { DEFAULT: '#A8352A', 300: '#EE8E7E' },
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        card: { DEFAULT: 'hsl(var(--card))', foreground: 'hsl(var(--card-foreground))' },
+        popover: { DEFAULT: 'hsl(var(--popover))', foreground: 'hsl(var(--popover-foreground))' },
+        primary: { DEFAULT: 'hsl(var(--primary))', foreground: 'hsl(var(--primary-foreground))' },
+        secondary: { DEFAULT: 'hsl(var(--secondary))', foreground: 'hsl(var(--secondary-foreground))' },
+        muted: { DEFAULT: 'hsl(var(--muted))', foreground: 'hsl(var(--muted-foreground))' },
+        accent: { DEFAULT: 'hsl(var(--accent))', foreground: 'hsl(var(--accent-foreground))' },
+        destructive: { DEFAULT: 'hsl(var(--destructive))', foreground: 'hsl(var(--destructive-foreground))' },
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+      },
+      fontFamily: {
+        display: ['"Newsreader"', '"Newsreader Fallback"', 'Georgia', 'serif'],
+        sans: ['"IBM Plex Sans"', '"IBM Plex Sans Fallback"', 'Arial', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', '"IBM Plex Mono Fallback"', 'ui-monospace', 'monospace'],
+      },
+      fontSize: {
+        masthead: ['clamp(1.875rem, 0.529rem + 5.524vw, 5.5rem)', { lineHeight: '1.02', letterSpacing: '-0.015em' }],
+        numeral: ['clamp(4rem, 2.514rem + 6.095vw, 8rem)', { lineHeight: '0.9' }],
+        display: ['clamp(2.25rem, 1.507rem + 3.048vw, 4.25rem)', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
+        h2: ['clamp(2rem, 1.536rem + 1.905vw, 3.25rem)', { lineHeight: '1.08', letterSpacing: '-0.015em' }],
+        h3: ['clamp(1.375rem, 1.236rem + 0.571vw, 1.75rem)', { lineHeight: '1.2' }],
+        stat: ['clamp(1.875rem, 1.457rem + 1.714vw, 3rem)', { lineHeight: '1.05' }],
+        lead: ['clamp(1.125rem, 1.056rem + 0.286vw, 1.3125rem)', { lineHeight: '1.55' }],
+        body: ['1.0625rem', { lineHeight: '1.65' }],
+        small: ['0.9375rem', { lineHeight: '1.55' }],
+        caption: ['0.875rem', { lineHeight: '1.5' }],
+        meta: ['0.8125rem', { lineHeight: '1.45' }],
+        label: ['0.75rem', { lineHeight: '1.3', letterSpacing: '0.08em' }],
+      },
+      borderRadius: { none: '0', sm: '2px', DEFAULT: '2px', md: '4px', lg: 'var(--radius)' },
+      boxShadow: { paper: 'var(--shadow-paper)', lift: 'var(--shadow-lift)' },
+      maxWidth: { measure: '68ch' },
+      transitionTimingFunction: {
+        settle: 'cubic-bezier(0.2,0,0,1)',
+        exit: 'cubic-bezier(0.4,0,1,1)',
+        glide: 'cubic-bezier(0.45,0,0.2,1)',
+      },
+      // Bespoke keyframes (word-settle, slip-fade, lens-sweep, rule-draw, stamp) live in index.css.
+      keyframes: {
+        'accordion-down': { from: { height: '0' }, to: { height: 'var(--radix-accordion-content-height)' } },
+        'accordion-up': { from: { height: 'var(--radix-accordion-content-height)' }, to: { height: '0' } },
+      },
+      animation: {
+        'accordion-down': 'accordion-down 200ms ease-out',
+        'accordion-up': 'accordion-up 200ms ease-out',
+      },
+    },
+  },
+  plugins: [require('tailwindcss-animate')],
+};
+
+```
+
+## frontend/src/components/sections/clarity.css
+```css
+/* Marketing page: readable copy and static source records, without product controls. */
+.clarity-hero { padding: clamp(2.75rem, 6vw, 5.5rem) 0; }
+.clarity-hero-grid { display: grid; gap: 2.75rem; align-items: center; }
+.clarity-title { max-width: 18ch; font-size: clamp(2.625rem, 4.7vw, 4rem); line-height: 1.06; letter-spacing: -0.025em; }
+.clarity-lead { max-width: 36rem; font-size: 1.25rem; line-height: 1.6; }
+.clarity-link { display: inline-flex; min-height: 44px; align-items: center; color: var(--vc-azure-700); font-weight: 500; text-decoration: underline; text-underline-offset: 4px; }
+.clarity-link:hover { color: var(--vc-ink); }
+.clarity-section { padding: clamp(2.75rem, 5vw, 4.5rem) 0; }
+.clarity-heading { max-width: 27ch; font-size: clamp(2rem, 3vw, 2.5rem); line-height: 1.15; }
+.clarity-jobs, .clarity-team { display: grid; gap: 2rem; }
+.clarity-jobs article, .clarity-team article { min-width: 0; }
+.capability-group { border-top: 2px solid var(--vc-brass-400); padding-top: 1.5rem; }
+.capability-detail { margin-top: 1.5rem; }
+.capability-detail h4, .evidence-sources h4 { font-family: inherit; }
+.time-advantage { background: var(--vc-ink); }
+.time-advantage-grid, .workspace-intro, .workspace-detail { display: grid; gap: 2rem; }
+.time-advantage-copy p { max-width: 68ch; }
+.time-advantage-copy p + p { margin-top: 1.25rem; }
+.team-container { border-top: 1px solid var(--vc-rule); padding-top: clamp(2.75rem, 5vw, 4.5rem); }
+#about.clarity-section { padding-top: 0; }
+
+/* Document shapes carry meaning: source records above, the ordered record below. */
+.evidence-figure { min-width: 0; margin: 0; background: var(--vc-paper); padding: clamp(1rem, 2.5vw, 2rem); border-top: 3px solid var(--vc-brass-400); }
+.evidence-figure-title { font-size: clamp(1.625rem, 2.2vw, 2rem); line-height: 1.15; }
+.evidence-documents { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; margin-top: 1.5rem; }
+.evidence-document { padding: 0.75rem 0.5rem; border: 1px solid var(--vc-rule); background: var(--vc-parchment); }
+.evidence-document svg { color: var(--vc-azure-700); margin-bottom: 0.75rem; }
+.evidence-document p { font-size: 0.9375rem; line-height: 1.4; }
+.evidence-order-label { margin-top: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--vc-rule); font-size: 1rem; font-weight: 500; }
+.evidence-chronology { list-style: none; padding: 0; }
+.evidence-chronology li { display: grid; grid-template-columns: minmax(6.5rem, 0.85fr) minmax(0, 1fr); gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--vc-rule); }
+.evidence-chronology time { font-size: 0.9375rem; line-height: 1.5; color: var(--vc-azure-700); }
+.evidence-chronology p { font-size: 1rem; line-height: 1.4; font-weight: 500; }
+.evidence-chronology span { display: block; margin-top: 0.25rem; font-size: 0.9375rem; color: var(--vc-graphite); }
+.evidence-figure figcaption { margin-top: 1.25rem; font-size: 0.9375rem; line-height: 1.5; color: var(--vc-graphite); max-width: 68ch; }
+.argument-illustration { display: grid; gap: 2rem; margin: 2.5rem 0; }
+.evidence-argument-text { font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: clamp(1.375rem, 2.2vw, 1.75rem); line-height: 1.45; margin: 1.5rem 0; max-width: 40ch; }
+.evidence-source { margin-top: 1.25rem; padding-left: 1rem; border-left: 2px solid var(--vc-brass-400); }
+.evidence-source p { font-size: 1rem; line-height: 1.6; }
+.evidence-source footer { margin-top: 0.5rem; font-size: 0.9375rem; line-height: 1.5; color: var(--vc-azure-700); }
+.evidence-source footer span { display: block; }
+.argument-illustration figcaption { margin: 0; padding-top: 1.25rem; border-top: 1px solid var(--vc-rule); }
+.clarity-question { border-bottom: 1px solid var(--vc-rule); }
+.clarity-question:first-child { border-top: 1px solid var(--vc-rule); }
+.clarity-question > summary, .clarity-bio > summary { cursor: pointer; min-height: 48px; padding: 0.75rem 0; font-weight: 500; }
+.clarity-question > summary { font-size: 1.125rem; }
+.clarity-bio > summary { color: var(--vc-azure-700); text-decoration: underline; text-underline-offset: 4px; }
+.clarity-narrow { max-width: 56rem; }
+@media (max-width: 479px) {
+  .evidence-documents { grid-template-columns: minmax(0, 1fr); }
+  .evidence-document { display: flex; align-items: center; gap: 1rem; padding: 0.625rem 0.75rem; }
+  .evidence-document svg { flex-shrink: 0; margin: 0; }
+}
+@media (min-width: 768px) {
+  .clarity-jobs { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+  .clarity-team { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4rem; }
+  .workspace-detail, .argument-illustration { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem; }
+  .argument-illustration figcaption { grid-column: 1 / -1; }
+}
+@media (min-width: 1024px) {
+  .clarity-hero-grid { grid-template-columns: 1.15fr 0.85fr; gap: 5rem; }
+  .time-advantage-grid, .workspace-intro { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 5rem; }
+}
+
+```

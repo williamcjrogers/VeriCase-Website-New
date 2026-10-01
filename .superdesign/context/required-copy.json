@@ -1,0 +1,242 @@
+[
+  {
+    "key": "opening.heading",
+    "text": "Transform complex evidence into compelling legal arguments."
+  },
+  {
+    "key": "opening.paragraph",
+    "text": "VeriCase approaches the evidence crisis differently. We don't just manage documents; we reconstruct truth. Forensic-grade AI turns scattered records into winning, defensible strategies."
+  },
+  {
+    "key": "time.heading",
+    "text": "Time is your ally: your competitive edge, not your enemy"
+  },
+  {
+    "key": "time.paragraph.0",
+    "text": "Time is the commodity everyone is chasing. There is a gold rush around AI. If you do not get on board, you will fall behind your competitors."
+  },
+  {
+    "key": "time.paragraph.1",
+    "text": "VeriCase transforms complex evidence into compelling, defensible claim arguments using AI, so legal and construction professionals can build stronger cases faster and with greater confidence."
+  },
+  {
+    "key": "time.paragraph.2",
+    "text": "It is an early case diagnostic tool. It saves substantial time and gives you an edge over your opponent. Imagine building a factual chronology by reading tens or hundreds of thousands of emails. VeriCase does that not in days, weeks, or months, but in minutes."
+  },
+  {
+    "key": "LENS_CHAPTER.h2",
+    "text": "Many threads. One order of events."
+  },
+  {
+    "key": "LENS_CHAPTER.lead",
+    "text": "Email is stored as threads and mailboxes. A tribunal reads a case as events. The Chronology Lens™ merges the correspondence in a matter into one time-ordered view across every party, and keeps each entry tied to the message it came from."
+  },
+  {
+    "key": "LENS_CHAPTER.fail",
+    "text": "The same message can sit in four mailboxes under three subject lines, and the account of what happened can be buried under quoted replies."
+  },
+  {
+    "key": "LENS_CHAPTER.recover",
+    "text": "Every email becomes its own record. Threads are rebuilt from their headers, quoted history is folded away and near-duplicates leave the review set."
+  },
+  {
+    "key": "LENS_CHAPTER.items.Load the record as it is kept",
+    "text": "PST, MSG and EML email, with bodies and attachments; PDF, DOC and DOCX documents; spreadsheets; and images, with OCR for scanned pages."
+  },
+  {
+    "key": "LENS_CHAPTER.items.One record per message",
+    "text": "Each email is parsed to its own record and threaded by its Message-ID and References headers, with heuristics for exports in which those headers are missing or damaged."
+  },
+  {
+    "key": "LENS_CHAPTER.items.Read what was written",
+    "text": "Quoted text is detected, so each entry shows what its author added. Earlier history is folded, not discarded."
+  },
+  {
+    "key": "LENS_CHAPTER.items.Set aside the noise",
+    "text": "Near-duplicates leave the review set and the originals are retained. Correspondence for other projects is excluded. File Manager lists extracted attachments by type, and Show Noise brings attachments set aside as noise, such as signature images, back into view."
+  },
+  {
+    "key": "LENS_CHAPTER.items.Narrow it to the matter",
+    "text": "Set the project date window, apply a Smart Filter and exclude keywords that only add bulk. Mark an item as Not Relevant and its attachments leave search with it."
+  },
+  {
+    "key": "LENS_CHAPTER.items.Cards or Table",
+    "text": "Read the chronology as cards or scan it as a table, export it as it stands, or create a bundle from what you have selected."
+  },
+  {
+    "key": "RESEARCH.h2",
+    "text": "Ask a question. Read a cited answer. Bundle the sources."
+  },
+  {
+    "key": "RESEARCH.lead",
+    "text": "Ask a question about the project record, such as “What does the correspondence say about delivery?” Review how VeriCase has understood the question, then read an analysis with links to the emails and documents behind its findings. Your team checks the sources and assesses what they establish."
+  },
+  {
+    "key": "RESEARCH.fail",
+    "text": "Someone asks what the record shows on a point. The answer can arrive days later as a summary without sources, and the checking starts again."
+  },
+  {
+    "key": "RESEARCH.recover",
+    "text": "The answer arrives with its sources attached. Follow any citation to the message itself, then bundle what was cited."
+  },
+  {
+    "key": "RESEARCH.steps.Ask",
+    "text": "Choose a question. Before anything runs, the Query Plan sets out the mode, period, parties, topics and sources that VeriCase has understood, as chips you can change. You correct the question, not the answer."
+  },
+  {
+    "key": "RESEARCH.steps.Cite",
+    "text": "The report gives numbered citations to the underlying emails and documents, the number of sources cited and of items analysed, and a validation badge. Select a citation to open its source."
+  },
+  {
+    "key": "RESEARCH.steps.Bundle",
+    "text": "Create bundle adds every cited item to a bundle with its title, description, case or matter, court, reference, who prepared it and for whom, its date and notes. Download PDF keeps the report as it stands."
+  },
+  {
+    "key": "CASE_ROOM.h2",
+    "text": "Their points, numbered. Your replies, cited."
+  },
+  {
+    "key": "CASE_ROOM.lead",
+    "text": "Upload the other side’s submission to interrogate their factual position. Rebuttal Mode divides it into numbered points, ranks the evidence that bears on each, and proposes reply points that cite the documents that support or contradict the position. A person accepts, edits or rejects each one, and every decision is recorded."
+  },
+  {
+    "key": "CASE_ROOM.fail",
+    "text": "Under time pressure, a team answers first the points it can evidence quickly, and the rest risk being answered thinly."
+  },
+  {
+    "key": "CASE_ROOM.recover",
+    "text": "Each point sits beside the evidence ranked for it, and each proposed reply arrives with its citations."
+  },
+  {
+    "key": "CASE_ROOM.standing",
+    "text": "Drafts are proposals for a qualified person to review. Responsibility for what is served stays with its author."
+  },
+  {
+    "key": "CLAIMS.h2",
+    "text": "Draft the claim with the evidence already cited."
+  },
+  {
+    "key": "CLAIMS.lead",
+    "text": "Organise the claim into sections, draft the narrative and link each point to its supporting evidence. The project team, solicitors, counsel and experts work on the same evidence, and discuss it where it sits."
+  },
+  {
+    "key": "CLAIMS.fail",
+    "text": "The narrative is drafted in one place, the evidence is kept in another, and the argument about the evidence happens in a reply-all thread."
+  },
+  {
+    "key": "CLAIMS.recover",
+    "text": "Each citation opens its message, and each discussion is anchored to the document it concerns."
+  },
+  {
+    "key": "CLAIMS.items.Heads of Claim",
+    "text": "Organise the claim by head and sub-head, with evidence linked to the head it supports."
+  },
+  {
+    "key": "CLAIMS.items.Citations by message ID",
+    "text": "Each citation points to one message, not to a file name that may change."
+  },
+  {
+    "key": "CLAIMS.items.Evidence finder",
+    "text": "For the section you are drafting, VeriCase proposes material from the record. It proposes; the drafter decides what is cited."
+  },
+  {
+    "key": "CLAIMS.items.Word and PDF",
+    "text": "Export the narrative to Word or PDF with its citations intact."
+  },
+  {
+    "key": "CLAIMS.items.Discussion on the document",
+    "text": "@mention a colleague on a document and the discussion opens on that document, so the reasoning stays beside the evidence."
+  },
+  {
+    "key": "INTEGRITY.h2",
+    "text": "The original stays original."
+  },
+  {
+    "key": "INTEGRITY.lead",
+    "text": "Raw email is held in write-once storage with a cryptographic hash for each message. Everything done to the evidence afterwards is recorded against it, and each person sees only what their role permits."
+  },
+  {
+    "key": "INTEGRITY.fail",
+    "text": "A bundle assembled by hand at midnight is where exhibits can go missing, pages can be misnumbered and a citation can point to the wrong document."
+  },
+  {
+    "key": "INTEGRITY.recover",
+    "text": "Bundles are numbered in sequence and carry a manifest listing each item."
+  },
+  {
+    "key": "INTEGRITY.controls.Originals held unchanged",
+    "text": "Each raw message is kept unchanged with its hash, so the working record can be compared with the message as received."
+  },
+  {
+    "key": "INTEGRITY.controls.An audit trail for every message",
+    "text": "Tags, notes, links and edits are logged with the user, the time and the values before and after."
+  },
+  {
+    "key": "INTEGRITY.controls.Numbered bundles with a manifest",
+    "text": "Items are numbered in bundle order, and the manifest lists each item’s message ID, cryptographic hash and source path."
+  },
+  {
+    "key": "INTEGRITY.controls.Access by role",
+    "text": "Team Leader, Senior Lawyer, Claims Consultant, QS, Project Manager, External Counsel and Client Viewer."
+  },
+  {
+    "key": "INTEGRITY.controls.Sensitive fields restricted",
+    "text": "BCC recipients and other sensitive fields are visible only to the roles permitted to see them."
+  },
+  {
+    "key": "INTEGRITY.controls.AI and keys on the server",
+    "text": "AI processing and API keys are held server-side, not in the browser."
+  },
+  {
+    "key": "team.William Rogers MCIArb.role",
+    "text": "Co-founder, claims and forensic quantum; testifying expert"
+  },
+  {
+    "key": "team.William Rogers MCIArb.bio.0",
+    "text": "William is a construction claims and disputes specialist with over 15 years’ experience across the water, power, rail, highways, infrastructure and residential sectors. He is qualified in quantity surveying and commercial management and is a Member of the Chartered Institute of Arbitrators."
+  },
+  {
+    "key": "team.William Rogers MCIArb.bio.1",
+    "text": "He founded Quantum Commercial Solutions in 2016 and has since built Meritus Group, Orrery Group, Peak Developments and VeriCase, a legal technology platform for forensic evidence review."
+  },
+  {
+    "key": "team.William Rogers MCIArb.bio.2",
+    "text": "His work spans adjudication, arbitration and litigation in the Technology and Construction Court (TCC), under NEC, JCT, FIDIC and IChemE forms. His live instructions are in excess of £100 million across residential, regeneration and infrastructure schemes, with prior roles on international arbitrations exceeding US$600 million."
+  },
+  {
+    "key": "team.William Rogers MCIArb.bio.3",
+    "text": "He acts as a testifying quantum expert and leads claims and recovery across a national contractor’s distressed portfolio. He prepares each case in house so that experts and counsel are instructed only when it is ready."
+  },
+  {
+    "key": "team.Warren Kemp.role",
+    "text": "Co-founder, dispute resolution"
+  },
+  {
+    "key": "team.Warren Kemp.bio.0",
+    "text": "Warren advises in relation to construction disputes and is known to be highly skilled and knowledgeable in this field. Clients include developers, contractors and professional consultants in both the public and private sector. He achieves outstanding results through his pragmatic yet tenacious approach. Warren jointly led the construction and engineering team at international law firm DAC Beachcroft until joining gunnercooke LLP in February 2024. Qualified as a solicitor for over 20 years, he provides clients with an operational edge via sharp problem solving to deliver commercial advantage and avoid disputes. Warren is currently working, among his various roles, as General Counsel for United Living (a business approaching £1bn turnover with a telecoms division) and previously worked in-house on secondment for 18 months at global construction consultancy WS Atkins."
+  },
+  {
+    "key": "team.Malcolm Brechin.role",
+    "text": "Managing Director"
+  },
+  {
+    "key": "team.Malcolm Brechin.bio.0",
+    "text": "Malcolm brings a background in commercial strategy, business development and bringing technology products to market. His career includes a role as Strategic Development Director at Mobile Rocket, where he worked with recruitment and healthcare software."
+  },
+  {
+    "key": "team.Malcolm Brechin.bio.1",
+    "text": "Alongside his role at VeriCase, Malcolm is Chief Executive Officer of Invent Group. His work focuses on understanding clients’ operational needs and shaping practical technology products around them."
+  },
+  {
+    "key": "team.Sam Whisker.role",
+    "text": "Chief Technology Officer"
+  },
+  {
+    "key": "team.Sam Whisker.bio.0",
+    "text": "Sam is a Teesside University graduate with a background in web development and applied AI. His earlier work at Koodoo Creative included developing an online learning platform with a university lecturer."
+  },
+  {
+    "key": "team.Sam Whisker.bio.1",
+    "text": "Alongside his role at VeriCase, Sam is Chief Technology Officer of Invent Group. Through his AI consultancy, he helps businesses implement process automation and custom software, and provides practical AI workshops."
+  }
+]

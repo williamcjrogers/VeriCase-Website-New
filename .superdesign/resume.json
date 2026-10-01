@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "targets": {
+    "/": {
+      "targetKind": "existing-ui",
+      "projectId": "3c76a4ca-5759-439e-84c8-e463d9921c70",
+      "baselineDraftId": "fbfcaa83-889f-4fdd-a68d-c14082ad6b97",
+      "activeDraftId": "fbfcaa83-889f-4fdd-a68d-c14082ad6b97",
+      "designSystemPath": ".superdesign/design-system.md",
+      "referenceIds": [
+        "56b363af-919a-447d-bb57-ddf7dba71c0f",
+        "frontend-public-logo-reversed.svg",
+        "d14a1fb9-91f0-4d2c-88f4-55b562fd14fd",
+        "c40034a5-b743-472e-9f60-e1641ad80330"
+      ],
+      "brandAssets": {
+        "logo": {
+          "assetKey": "frontend-public-logo-reversed.svg",
+          "url": "https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/projects/3c76a4ca-5759-439e-84c8-e463d9921c70/brand-assets/frontend-public-logo-reversed.svg/logo-reversed.svg",
+          "sourcePath": "frontend/public/logo-reversed.svg"
+        }
+      },
+      "contextFiles": [
+        ".superdesign/design-system.md",
+        ".superdesign/context/released-main.md",
+        ".superdesign/context/released-rest.md",
+        ".superdesign/context/font-assets.md",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js",
+        ".superdesign/context/original-capability-copy.md",
+        ".superdesign/context/required-copy.json"
+      ],
+      "fingerprints": {
+        ".superdesign/design-system.md": "f991f87135525d1457a001af244d10b86e9aca1325bd3844984ac0a0d7076c83",
+        ".superdesign/context/released-main.md": "b68ae10ee063f54c27b8fa14af51fd4b7d3bc726ada563012f2443c1dd225cf6",
+        ".superdesign/context/released-rest.md": "63fe701e225f0f717bcfa45d520eeef6c18e482623a3da973abcc392b161e95d",
+        ".superdesign/context/font-assets.md": "c9cd76801ea2fda91f60a10f82cf71ca5963b673de4090b2b39aaf9c1dc75105",
+        "frontend/src/index.css": "dd29c7a4768a084860e75cb55c82e4a681873032e9bbb4ccf7a6b70a1648d355",
+        "frontend/tailwind.config.js": "6f3c64eb29e2b4420f9fe5ae7ab0ee4e5eef00ea6ee4aeb6a8cd6709288f3234",
+        ".superdesign/context/original-capability-copy.md": "8c312940c86d3a133a1c1f7c1689a96b2c790eecc8ec47ae7ec846b55d86da54",
+        ".superdesign/context/required-copy.json": "215c944b78c050878ffdd6039bf4f2fb9f23dfc04c2ae65b289471556b7f1f1d"
+      },
+      "components": [
+        {
+          "name": "SiteHeader",
+          "id": "b0e87b8b-d2ae-42d5-b651-5db60036db1b",
+          "sourcePath": "frontend/src/components/sections/SiteHeader.jsx",
+          "logoAssetKey": "frontend-public-logo-reversed.svg"
+        },
+        {
+          "name": "SiteFooter",
+          "id": "13f8a97f-90a8-4218-9251-d7993db32f72",
+          "sourcePath": "frontend/src/components/sections/SiteFooter.jsx",
+          "logoAssetKey": "frontend-public-logo-reversed.svg"
+        }
+      ],
+      "drafts": {
+        "fbfcaa83-889f-4fdd-a68d-c14082ad6b97": {
+          "title": "VeriCase Website",
+          "visualDirection": "Application reader based on committed WR2.0 reference, fuller original copy",
+          "currentVersion": 4,
+          "acceptanceStatus": "review-ready; not owner-approved or deployed"
+        }
+      },
+      "updatedAt": "2026-10-01T05:06:46.850196+00:00",
+      "contextStatus": "Current reference bundle; version 4 imported directly after credit-limited generation",
+      "nextAction": "Owner review of the concrete application-based proposal, then implement and verify against the agreed acceptance criteria"
+    }
+  }
+}

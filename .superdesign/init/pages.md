@@ -1,0 +1,248 @@
+# Page dependency trees
+
+Baseline: released cf029e2, 01 October 2026. Local LandingPage, InBrief and SharedWorkspace edits and untracked CapabilityDetails are an unfinished, unapproved content-restoration draft. This analysis reproduces released HEAD and explicitly excludes that draft.
+
+All local imports recursively traced from released page entry points, including dynamic imports. Repeated files are marked after their first complete traversal. Bare package imports are excluded.
+
+## /
+```text
+- frontend/src/pages/LandingPage.jsx
+  - frontend/src/components/MarketingProgress.jsx
+    - frontend/src/lib/analytics.js
+  - frontend/src/components/sections/SiteHeader.jsx
+    - frontend/src/lib/analytics.js (already traced)
+    - frontend/src/components/ui/sheet.jsx
+      - frontend/src/lib/utils.js
+    - frontend/src/components/brand/Logo.jsx
+      - frontend/src/lib/utils.js (already traced)
+    - frontend/src/components/editorial/DemoCTA.jsx
+      - frontend/src/lib/site.js
+      - frontend/src/content/home.js
+      - frontend/src/lib/analytics.js (already traced)
+      - frontend/src/lib/utils.js (already traced)
+    - frontend/src/content/home.js (already traced)
+    - frontend/src/lib/site.js (already traced)
+    - frontend/src/lib/navigate.js
+    - frontend/src/hooks/useActiveSection.js
+    - frontend/src/lib/utils.js (already traced)
+  - frontend/src/components/sections/Hero.jsx
+    - frontend/src/content/home.js (already traced)
+    - frontend/src/components/editorial/DemoCTA.jsx (already traced)
+    - frontend/src/components/sections/EvidenceIllustrations.jsx
+      - frontend/src/content/marketing.js
+    - frontend/src/lib/navigate.js (already traced)
+  - frontend/src/components/sections/TimeAdvantage.jsx
+    - frontend/src/content/marketing.js (already traced)
+  - frontend/src/components/sections/SharedWorkspace.jsx
+    - frontend/src/content/home.js (already traced)
+    - frontend/src/components/sections/EvidenceIllustrations.jsx (already traced)
+  - frontend/src/components/sections/InBrief.jsx
+    - frontend/src/content/home.js (already traced)
+    - frontend/src/components/editorial/Gated.jsx
+      - frontend/src/content/gates.js
+      - frontend/src/lib/utils.js (already traced)
+    - frontend/src/components/editorial/Rich.jsx
+      - frontend/src/components/editorial/NoteRef.jsx
+        - frontend/src/components/ui/popover.jsx
+          - frontend/src/lib/utils.js (already traced)
+        - frontend/src/content/notes.js
+          - frontend/src/content/media.js
+        - frontend/src/content/home.js (already traced)
+        - frontend/src/components/editorial/Gated.jsx (already traced)
+        - frontend/src/lib/utils.js (already traced)
+      - frontend/src/components/editorial/Gated.jsx (already traced)
+      - frontend/src/components/mock/EvidenceChip.jsx
+        - frontend/src/content/records.js
+          - frontend/src/content/sampleEvidence.json
+          - frontend/src/content/sampleHashes.json
+          - frontend/src/lib/format.js
+        - frontend/src/components/mock/SourceSheet.jsx
+          - frontend/src/lib/analytics.js (already traced)
+          - frontend/src/components/ui/sheet.jsx (already traced)
+          - frontend/src/components/ui/collapsible.jsx
+          - frontend/src/content/records.js (already traced)
+          - frontend/src/components/editorial/Gated.jsx (already traced)
+          - frontend/src/lib/format.js (already traced)
+        - frontend/src/lib/utils.js (already traced)
+      - frontend/src/lib/format.js (already traced)
+  - frontend/src/components/sections/Founder.jsx
+    - frontend/src/content/home.js (already traced)
+    - frontend/src/components/editorial/Gated.jsx (already traced)
+  - frontend/src/components/sections/Demonstration.jsx
+    - frontend/src/components/editorial/DemoCTA.jsx (already traced)
+    - frontend/src/components/editorial/Gated.jsx (already traced)
+    - frontend/src/content/home.js (already traced)
+  - frontend/src/components/sections/SiteFooter.jsx
+    - frontend/src/lib/analytics.js (already traced)
+    - frontend/src/components/ui/collapsible.jsx (already traced)
+    - frontend/src/components/brand/Logo.jsx (already traced)
+    - frontend/src/components/editorial/Rich.jsx (already traced)
+    - frontend/src/content/home.js (already traced)
+    - frontend/src/lib/site.js (already traced)
+    - frontend/src/lib/navigate.js (already traced)
+    - frontend/src/lib/utils.js (already traced)
+  - frontend/src/lib/navigate.js (already traced)
+  - frontend/src/components/sections/clarity.css
+```
+
+## /cookies
+```text
+- frontend/src/pages/Cookies.jsx
+  - frontend/src/components/sections/SiteHeader.jsx
+    - frontend/src/lib/analytics.js
+    - frontend/src/components/ui/sheet.jsx
+      - frontend/src/lib/utils.js
+    - frontend/src/components/brand/Logo.jsx
+      - frontend/src/lib/utils.js (already traced)
+    - frontend/src/components/editorial/DemoCTA.jsx
+      - frontend/src/lib/site.js
+      - frontend/src/content/home.js
+      - frontend/src/lib/analytics.js (already traced)
+      - frontend/src/lib/utils.js (already traced)
+    - frontend/src/content/home.js (already traced)
+    - frontend/src/lib/site.js (already traced)
+    - frontend/src/lib/navigate.js
+    - frontend/src/hooks/useActiveSection.js
+    - frontend/src/lib/utils.js (already traced)
+  - frontend/src/components/sections/SiteFooter.jsx
+    - frontend/src/lib/analytics.js (already traced)
+    - frontend/src/components/ui/collapsible.jsx
+    - frontend/src/components/brand/Logo.jsx (already traced)
+    - frontend/src/components/editorial/Rich.jsx
+      - frontend/src/components/editorial/NoteRef.jsx
+        - frontend/src/components/ui/popover.jsx
+          - frontend/src/lib/utils.js (already traced)
+        - frontend/src/content/notes.js
+          - frontend/src/content/media.js
+        - frontend/src/content/home.js (already traced)
+        - frontend/src/components/editorial/Gated.jsx
+          - frontend/src/content/gates.js
+          - frontend/src/lib/utils.js (already traced)
+        - frontend/src/lib/utils.js (already traced)
+      - frontend/src/components/editorial/Gated.jsx (already traced)
+      - frontend/src/components/mock/EvidenceChip.jsx
+        - frontend/src/content/records.js
+          - frontend/src/content/sampleEvidence.json
+          - frontend/src/content/sampleHashes.json
+          - frontend/src/lib/format.js
+        - frontend/src/components/mock/SourceSheet.jsx
+          - frontend/src/lib/analytics.js (already traced)
+          - frontend/src/components/ui/sheet.jsx (already traced)
+          - frontend/src/components/ui/collapsible.jsx (already traced)
+          - frontend/src/content/records.js (already traced)
+          - frontend/src/components/editorial/Gated.jsx (already traced)
+          - frontend/src/lib/format.js (already traced)
+        - frontend/src/lib/utils.js (already traced)
+      - frontend/src/lib/format.js (already traced)
+    - frontend/src/content/home.js (already traced)
+    - frontend/src/lib/site.js (already traced)
+    - frontend/src/lib/navigate.js (already traced)
+    - frontend/src/lib/utils.js (already traced)
+  - frontend/src/components/editorial/Gated.jsx (already traced)
+```
+
+## App shell
+```text
+- frontend/src/App.js
+  - frontend/src/pages/LandingPage.jsx
+    - frontend/src/components/MarketingProgress.jsx
+      - frontend/src/lib/analytics.js
+    - frontend/src/components/sections/SiteHeader.jsx
+      - frontend/src/lib/analytics.js (already traced)
+      - frontend/src/components/ui/sheet.jsx
+        - frontend/src/lib/utils.js
+      - frontend/src/components/brand/Logo.jsx
+        - frontend/src/lib/utils.js (already traced)
+      - frontend/src/components/editorial/DemoCTA.jsx
+        - frontend/src/lib/site.js
+        - frontend/src/content/home.js
+        - frontend/src/lib/analytics.js (already traced)
+        - frontend/src/lib/utils.js (already traced)
+      - frontend/src/content/home.js (already traced)
+      - frontend/src/lib/site.js (already traced)
+      - frontend/src/lib/navigate.js
+      - frontend/src/hooks/useActiveSection.js
+      - frontend/src/lib/utils.js (already traced)
+    - frontend/src/components/sections/Hero.jsx
+      - frontend/src/content/home.js (already traced)
+      - frontend/src/components/editorial/DemoCTA.jsx (already traced)
+      - frontend/src/components/sections/EvidenceIllustrations.jsx
+        - frontend/src/content/marketing.js
+      - frontend/src/lib/navigate.js (already traced)
+    - frontend/src/components/sections/TimeAdvantage.jsx
+      - frontend/src/content/marketing.js (already traced)
+    - frontend/src/components/sections/SharedWorkspace.jsx
+      - frontend/src/content/home.js (already traced)
+      - frontend/src/components/sections/EvidenceIllustrations.jsx (already traced)
+    - frontend/src/components/sections/InBrief.jsx
+      - frontend/src/content/home.js (already traced)
+      - frontend/src/components/editorial/Gated.jsx
+        - frontend/src/content/gates.js
+        - frontend/src/lib/utils.js (already traced)
+      - frontend/src/components/editorial/Rich.jsx
+        - frontend/src/components/editorial/NoteRef.jsx
+          - frontend/src/components/ui/popover.jsx
+            - frontend/src/lib/utils.js (already traced)
+          - frontend/src/content/notes.js
+            - frontend/src/content/media.js
+          - frontend/src/content/home.js (already traced)
+          - frontend/src/components/editorial/Gated.jsx (already traced)
+          - frontend/src/lib/utils.js (already traced)
+        - frontend/src/components/editorial/Gated.jsx (already traced)
+        - frontend/src/components/mock/EvidenceChip.jsx
+          - frontend/src/content/records.js
+            - frontend/src/content/sampleEvidence.json
+            - frontend/src/content/sampleHashes.json
+            - frontend/src/lib/format.js
+          - frontend/src/components/mock/SourceSheet.jsx
+            - frontend/src/lib/analytics.js (already traced)
+            - frontend/src/components/ui/sheet.jsx (already traced)
+            - frontend/src/components/ui/collapsible.jsx
+            - frontend/src/content/records.js (already traced)
+            - frontend/src/components/editorial/Gated.jsx (already traced)
+            - frontend/src/lib/format.js (already traced)
+          - frontend/src/lib/utils.js (already traced)
+        - frontend/src/lib/format.js (already traced)
+    - frontend/src/components/sections/Founder.jsx
+      - frontend/src/content/home.js (already traced)
+      - frontend/src/components/editorial/Gated.jsx (already traced)
+    - frontend/src/components/sections/Demonstration.jsx
+      - frontend/src/components/editorial/DemoCTA.jsx (already traced)
+      - frontend/src/components/editorial/Gated.jsx (already traced)
+      - frontend/src/content/home.js (already traced)
+    - frontend/src/components/sections/SiteFooter.jsx
+      - frontend/src/lib/analytics.js (already traced)
+      - frontend/src/components/ui/collapsible.jsx (already traced)
+      - frontend/src/components/brand/Logo.jsx (already traced)
+      - frontend/src/components/editorial/Rich.jsx (already traced)
+      - frontend/src/content/home.js (already traced)
+      - frontend/src/lib/site.js (already traced)
+      - frontend/src/lib/navigate.js (already traced)
+      - frontend/src/lib/utils.js (already traced)
+    - frontend/src/lib/navigate.js (already traced)
+    - frontend/src/components/sections/clarity.css
+  - frontend/src/pages/Cookies.jsx
+    - frontend/src/components/sections/SiteHeader.jsx (already traced)
+    - frontend/src/components/sections/SiteFooter.jsx (already traced)
+    - frontend/src/components/editorial/Gated.jsx (already traced)
+  - frontend/src/pages/NotFound.jsx
+    - frontend/src/lib/analytics.js (already traced)
+    - frontend/src/components/sections/SiteHeader.jsx (already traced)
+    - frontend/src/components/sections/SiteFooter.jsx (already traced)
+    - frontend/src/components/editorial/Plate.jsx
+      - frontend/src/components/editorial/Figure.jsx
+        - frontend/src/lib/utils.js (already traced)
+      - frontend/src/components/editorial/LazyMount.jsx
+        - frontend/src/lib/utils.js (already traced)
+      - frontend/src/content/gates.js (already traced)
+      - frontend/src/lib/utils.js (already traced)
+    - frontend/src/content/home.js (already traced)
+    - frontend/src/content/media.js (already traced)
+    - frontend/src/lib/site.js (already traced)
+  - frontend/src/components/RouteMetadata.jsx
+    - frontend/src/lib/pageMetadata.js
+  - frontend/src/lib/site.js (already traced)
+  - frontend/src/components/CookieConsent.jsx
+    - frontend/src/content/home.js (already traced)
+  - frontend/src/components/ui/sonner.jsx
+```

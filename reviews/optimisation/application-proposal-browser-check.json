@@ -1,0 +1,87 @@
+{
+  "widths": [
+    {
+      "buttons": [
+        {
+          "height": 119.3828125,
+          "width": 95.328125
+        },
+        {
+          "height": 119.3828125,
+          "width": 95.3359375
+        },
+        {
+          "height": 119.3828125,
+          "width": 95.3359375
+        }
+      ],
+      "document": 320,
+      "hero": 1556.7578125,
+      "viewport": 320
+    },
+    {
+      "buttons": [
+        {
+          "height": 90,
+          "width": 118.6640625
+        },
+        {
+          "height": 90,
+          "width": 118.6640625
+        },
+        {
+          "height": 90,
+          "width": 118.6640625
+        }
+      ],
+      "document": 390,
+      "hero": 1407.96875,
+      "viewport": 390
+    },
+    {
+      "buttons": [
+        {
+          "height": 81.796875,
+          "width": 219
+        },
+        {
+          "height": 81.796875,
+          "width": 219
+        },
+        {
+          "height": 81.796875,
+          "width": 219
+        }
+      ],
+      "document": 768,
+      "hero": 1123.796875,
+      "viewport": 768
+    },
+    {
+      "buttons": [
+        {
+          "height": 81.796875,
+          "width": 169
+        },
+        {
+          "height": 81.796875,
+          "width": 169
+        },
+        {
+          "height": 81.796875,
+          "width": 169
+        }
+      ],
+      "document": 1440,
+      "hero": 782.53125,
+      "viewport": 1440
+    }
+  ],
+  "requiredCopy": 60,
+  "matchedCopy": 60,
+  "draftId": "fbfcaa83-889f-4fdd-a68d-c14082ad6b97",
+  "version": 4,
+  "recordSelection": "Pointer and keyboard selection verified",
+  "mobileMenu": "Open, Escape close and focus return verified at 320px",
+  "deployment": "Review prototype only; production unchanged"
+}

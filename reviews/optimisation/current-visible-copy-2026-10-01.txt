@@ -1,0 +1,203 @@
+Transform complex evidence into compelling legal arguments.
+
+VeriCase approaches the evidence crisis differently. We don't just manage documents; we reconstruct truth. Forensic-grade AI turns scattered records into winning, defensible strategies.
+
+Software for contractors, claims consultants and construction lawyers.
+
+Request a demonstration
+
+Opens an email to enquiries@veri-case.com. Please do not include confidential details of a live matter.
+
+See how it works
+From documents to chronology.
+
+Instruction
+
+Lead-time email
+
+Order confirmation
+
+One record, in date order
+
+03 March 2025
+
+Change instructed
+
+EV-0131
+12 March 2025
+
+Lead time given
+
+EV-0138
+26 March 2025
+
+Delivery confirmed
+
+EV-0147
+Illustrative chronology from a fictional construction matter.
+Time is your ally: your competitive edge, not your enemy
+
+Time is the commodity everyone is chasing. There is a gold rush around AI. If you do not get on board, you will fall behind your competitors.
+
+VeriCase transforms complex evidence into compelling, defensible claim arguments using AI, so legal and construction professionals can build stronger cases faster and with greater confidence.
+
+It is an early case diagnostic tool. It saves substantial time and gives you an edge over your opponent. Imagine building a factual chronology by reading tens or hundreds of thousands of emails. VeriCase does that not in days, weeks, or months, but in minutes.
+
+Three jobs, one place.
+Put the record in order
+
+Bring together emails and documents from the project. Read events in date order, with a link back to each source.
+
+Ingestion
+
+PST, MSG, EML, PDF, DOC, DOCX, spreadsheets and images, with OCR. One record per message, threaded by header, with quoted text folded, near-duplicates set aside and attachments listed by type in File Manager.
+
+The Chronology Lens™
+
+One time-ordered view across every party, in Cards or Table view, with a project date window, Smart Filter, Exclude keywords and Create bundle.
+
+Find the evidence
+
+Ask a question about the records. Check the answer against the emails and documents it refers to.
+
+Research
+
+Plain-English questions, an editable Query Plan, and an Analysis Report with numbered citations, counts and a validation badge. Download PDF or create a bundle.
+
+Rebuttal Mode
+
+Numbered points, ranked evidence, reply points with mandatory citations, accept, edit or reject with an audit trail, and an export pairing each point with its reply and cited evidence.
+
+Prepare your case
+
+Build a claim or respond to the other side’s arguments. Review proposed wording with the supporting evidence alongside it.
+
+Claims builder
+
+Heads of Claim, a narrative cited by message ID, an evidence finder, and Word or PDF export.
+
+Integrity and access
+
+Originals kept as received, with hashes, a per-message audit trail, numbered bundles with manifests, role-based access and server-side AI.
+
+AI helps find and draft. Your team checks the evidence and approves the work.
+
+Draft the claim with the evidence already cited.
+
+Organise the claim into sections, draft the narrative and link each point to its supporting evidence. The project team, solicitors, counsel and experts work on the same evidence, and discuss it where it sits.
+
+Each citation opens its message, and each discussion is anchored to the document it concerns.
+
+An argument with its sources.
+
+The change was instructed on 03 March. The ten-week lead time was recorded on 12 March. Delivery was confirmed on 26 March for the week commencing 19 May 2025.
+
+Supported by EV-0131, EV-0138 and EV-0147.
+
+Supporting records
+
+“Please proceed with bracket type B. This is an instruction requiring a Change.”
+
+Instruction, 03 March 2025
+EV-0131
+
+“Stainless brackets are ten weeks from order.”
+
+Lead-time email, 12 March 2025
+EV-0138
+
+“Supplier confirms delivery week commencing 19 May 2025.”
+
+Order confirmation, 26 March 2025
+EV-0147
+The documents and argument shown here are fictional. The source references connect each point to the record behind it.
+One workspace for the whole team.
+
+The narrative is drafted in one place, the evidence is kept in another, and the argument about the evidence happens in a reply-all thread.
+
+@mention a colleague on a document and the discussion opens on that document, so the reasoning stays beside the evidence.
+
+Organise the claim by head and sub-head, with evidence linked to the head it supports.
+
+Who it is for
+
+For construction solicitors and counsel, including King’s Counsel; claims consultants; quantum and other experts; and contractors’ commercial and in-house legal teams.
+
+The people behind VeriCase.
+
+Our team brings together construction claims, legal, commercial and software development experience.
+
+William Rogers MCIArb
+
+Co-founder, claims and forensic quantum; testifying expert
+
+William is a construction claims and disputes specialist with over 15 years’ experience across the water, power, rail, highways, infrastructure and residential sectors. He is qualified in quantity surveying and commercial management and is a Member of the Chartered Institute of Arbitrators.
+
+He founded Quantum Commercial Solutions in 2016 and has since built Meritus Group, Orrery Group, Peak Developments and VeriCase, a legal technology platform for forensic evidence review.
+
+His work spans adjudication, arbitration and litigation in the Technology and Construction Court (TCC), under NEC, JCT, FIDIC and IChemE forms. His live instructions are in excess of £100 million across residential, regeneration and infrastructure schemes, with prior roles on international arbitrations exceeding US$600 million.
+
+He acts as a testifying quantum expert and leads claims and recovery across a national contractor’s distressed portfolio. He prepares each case in house so that experts and counsel are instructed only when it is ready.
+
+Credentials and track record
+Member of the Chartered Institute of Arbitrators (MCIArb)
+RICS Level 5 Diploma, Adjudication in the Construction Industry
+BSc (Hons) Quantity Surveying and Commercial Management
+Testifying quantum expert
+NEC, JCT, FIDIC and IChemE dispute specialist
+Founder, Quantum Commercial Solutions (2016)
+Founder, Meritus Group
+Founder, Orrery Group
+Founder, Peak Developments
+Warren Kemp
+
+Co-founder, dispute resolution
+
+Warren advises in relation to construction disputes and is known to be highly skilled and knowledgeable in this field. Clients include developers, contractors and professional consultants in both the public and private sector. He achieves outstanding results through his pragmatic yet tenacious approach. Warren jointly led the construction and engineering team at international law firm DAC Beachcroft until joining gunnercooke LLP in February 2024. Qualified as a solicitor for over 20 years, he provides clients with an operational edge via sharp problem solving to deliver commercial advantage and avoid disputes. Warren is currently working, among his various roles, as General Counsel for United Living (a business approaching £1bn turnover with a telecoms division) and previously worked in-house on secondment for 18 months at global construction consultancy WS Atkins.
+
+Credentials and reported matters
+Dispute Resolution Partner, gunnercooke LLP
+Former Joint Head of Construction & Engineering, DAC Beachcroft
+General Counsel, United Living Group
+Solicitor of over 20 years qualification
+Former In-House Counsel (Secondment), WS Atkins (18 months)
+Van Elle Limited v Keynvor Morlift Limited [2023] EWHC 3137 (TCC)
+Celtic Bioenergy Limited v Knowles Limited [2017] EWHC 472 (TCC)
+Middle Level Commissioners v Atkins Limited [2012] EWHC 2884 (TCC)
+Malcolm Brechin
+
+Managing Director
+
+Malcolm brings a background in commercial strategy, business development and bringing technology products to market. His career includes a role as Strategic Development Director at Mobile Rocket, where he worked with recruitment and healthcare software.
+
+Alongside his role at VeriCase, Malcolm is Chief Executive Officer of Invent Group. His work focuses on understanding clients’ operational needs and shaping practical technology products around them.
+
+Credentials and track record
+Sam Whisker
+
+Chief Technology Officer
+
+Sam is a Teesside University graduate with a background in web development and applied AI. His earlier work at Koodoo Creative included developing an online learning platform with a university lecturer.
+
+Alongside his role at VeriCase, Sam is Chief Technology Officer of Invent Group. Through his AI consultancy, he helps businesses implement process automation and custom software, and provides practical AI workshops.
+
+Credentials and track record
+Practitioners from law firms and claims consultancies hold equity in VeriCase Ltd. Their involvement is not an endorsement by the firms they work for.
+Common questions
+What can we upload?
+Does VeriCase replace our disclosure platform?
+Will the output be accepted by the tribunal?
+Does the AI write our submissions?
+Who sees what?
+See it on a matter like yours.
+
+We will take you through the Chronology Lens™, Research, the claims builder and Rebuttal Mode on sample correspondence, and answer your questions on integrity and access.
+
+If you would like to see VeriCase on your own material, we will first agree confidentiality terms with you.
+
+Request a demonstration
+Copy email address
+
+Request a demonstration opens an email to enquiries@veri-case.com with the subject line completed. Please do not include confidential details of a live matter.
+
+Or write to enquiries@veri-case.com.
