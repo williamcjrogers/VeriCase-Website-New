@@ -5,7 +5,7 @@ import { ChevronDown } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { Logo } from '@/components/brand/Logo';
 import { Rich } from '@/components/editorial/Rich';
-import { BRAND_LINE, CHAPTERS, END_MATTER, FOOTER } from '@/content/home';
+import { HOME_NAV, FOOTER } from '@/content/home';
 import { COMPANY, CONTACT_EMAIL, DEMO_MAILTO, SIGN_IN_URL, SITE } from '@/lib/site';
 import { onSectionClick, sectionHref } from '@/lib/navigate';
 import { cn } from '@/lib/utils';
@@ -42,8 +42,8 @@ export const SiteFooter = () => {
   useEffect(() => setYear(new Date().getFullYear()), []);
   const openCookies = () => window.dispatchEvent(new Event('vc-open-cookie-settings'));
 
-  const contents = [...CHAPTERS.filter((c) => c.numeral), ...END_MATTER.filter((m) => m.id === 'platform' || m.id === 'notes')];
-  const about = END_MATTER.find((m) => m.id === 'about');
+  const contents = HOME_NAV;
+  const about = HOME_NAV.find((m) => m.id === 'about');
 
   return (
     <footer className="on-ink bg-[#052314] text-parchment border-t border-[#1A3828]">
@@ -54,18 +54,13 @@ export const SiteFooter = () => {
               <Logo tone="reversed" decorative className="h-10 w-auto" />
             </a>
             <p className="mt-5 max-w-[30rem] text-small text-mist">{FOOTER.descriptor}</p>
-            <p className="mt-4 font-display text-[1.25rem] italic text-parchment">{BRAND_LINE}</p>
           </div>
 
           <div className="grid md:col-span-12 md:grid-cols-3 md:gap-6 lg:col-span-7">
             <Column title={FOOTER.heads.contents}>
               {contents.map((c) => (
                 <Item key={c.id}>
-                  <a href={sectionHref(c.id, onHome)} onClick={onHome ? onSectionClick(c.id) : undefined} className={`${linkClass} grid grid-cols-[2.25rem_minmax(0,1fr)] items-baseline`}>
-                    <span className="mono text-meta text-brass-400">
-                      {c.numeral}
-                      {c.numeral && <span className="sr-only">. </span>}
-                    </span>
+                  <a href={sectionHref(c.id, onHome)} onClick={onHome ? onSectionClick(c.id) : undefined} className={`${linkClass} inline-flex min-h-11 items-center`}>
                     <span>{c.title}</span>
                   </a>
                 </Item>

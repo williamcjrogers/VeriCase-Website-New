@@ -3,7 +3,7 @@
 const EVENTS = new Set(['demonstration_email_clicked', 'demonstration_email_copied', 'sample_interacted', 'marketing_section_viewed']);
 const VALUES = {
   placement: new Set(['header', 'contents', 'hero', 'case-room', 'research', 'platform', 'demonstration', 'footer', 'not-found']),
-  section: new Set(['top', 'clock', 'chronology-lens', 'case-room', 'research', 'claims', 'integrity', 'platform', 'about', 'demonstration', 'notes', 'cookies', 'not-found']),
+  section: new Set(['top', 'clock', 'chronology-lens', 'case-room', 'research', 'claims', 'integrity', 'platform', 'about', 'demonstration', 'notes', 'worked-example', 'questions', 'cookies', 'not-found']),
   interaction: new Set(['source_opened', 'chronology_spotlight']),
 };
 

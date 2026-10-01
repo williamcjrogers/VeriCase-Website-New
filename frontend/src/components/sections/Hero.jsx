@@ -1,56 +1,32 @@
-import { ArrowDown } from 'lucide-react';
-import { BRAND_LINE, COVER, CTA_MICROCOPY } from '@/content/home';
+import { COVER, CTA_MICROCOPY } from '@/content/home';
 import { DemoCTA } from '@/components/editorial/DemoCTA';
-import { Sentences } from '@/components/editorial/Sentences';
-import { Gated, isShown } from '@/components/editorial/Gated';
-import { LensStage } from '@/components/lens/LensStage';
-import { onSectionClick, sectionHref } from '@/lib/navigate';
-import '@/components/lens/cover.css';
+import { useSourceSheet } from '@/components/mock/SourceSheet';
+import { onSectionClick } from '@/lib/navigate';
 
-const STRIP = COVER.strip.filter((s) => isShown(s.gate));
-
-// The cover: the kinetic masthead (CSS only), what VeriCase is and for whom, the call to action
-// and the fast path, the practitioner strip, and Fig. 1, the Chronology Lens. The masthead and
-// the H1 are text at full opacity from first paint, so either can be the LCP element.
-export const Hero = () => (
-  <section id="top" aria-labelledby="top-title" className="bg-parchment pb-16 pt-8 md:pb-24 lg:pt-14">
-    <div className="container">
-      <div className="grid grid-cols-12 gap-x-6">
-        <div className="col-span-12 lg:col-span-6 lg:row-start-1">
-          <p className="ch-note cover-statement">{COVER.eyebrow}</p>
-          <h1 id="top-title" tabIndex={-1} className="mt-3 text-display font-medium text-navy outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azure-500">
-            {COVER.h1.includes('RECORDS') ? (
-              <>
-                {COVER.h1.split('RECORDS')[0]}
-                <span className="font-semibold text-azure-500 tracking-wide">RECORDS</span>
-                {COVER.h1.split('RECORDS')[1]}
-              </>
-            ) : (
-              <Sentences text={COVER.h1} />
-            )}
-          </h1>
-          <p className="mt-4 max-w-measure text-lead text-ink lg:mt-5">{COVER.subhead}</p>
-          <p className="cover-brand mt-4 lg:mt-5">{BRAND_LINE}</p>
-          <DemoCTA placement="hero" section="top" withCopy className="mt-5 lg:mt-7" microcopy={CTA_MICROCOPY} />
-          <a href={sectionHref('platform', true)} onClick={onSectionClick('platform')} className="cover-fast mt-2">
-            <ArrowDown className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
-            {COVER.fastPath}
-          </a>
+export const Hero = () => {
+  const { open } = useSourceSheet();
+  return (
+    <section id="top" aria-labelledby="top-title" className="clarity-hero bg-parchment">
+      <div className="container clarity-hero-grid">
+        <div>
+          <h1 id="top-title" tabIndex={-1} className="clarity-title">{COVER.h1}</h1>
+          <p className="clarity-lead mt-6">{COVER.subhead}</p>
+          <p className="mt-4 max-w-measure text-body text-graphite">{COVER.audience}</p>
+          <DemoCTA placement="hero" section="top" className="mt-7" microcopy={CTA_MICROCOPY} />
+          <a href="#platform" onClick={onSectionClick('platform')} className="clarity-link mt-3">See how it works</a>
         </div>
-
-        <dl className="cover-strip col-span-12 mt-10 lg:row-start-2 lg:mt-14" style={{ '--cols': STRIP.length }}>
-          {STRIP.map((s) => (
-            <div key={s.label} className="cover-strip-item">
-              <dt className="eyebrow">{s.label}</dt>
-              <dd>{s.gate ? <Gated id={s.gate}>{s.text}</Gated> : s.text}</dd>
-            </div>
-          ))}
-        </dl>
-
-        <div className="cover-lens col-span-12 mt-12 lg:col-span-6 lg:col-start-7 lg:row-start-1 lg:mt-0">
-          <LensStage />
-        </div>
+        <aside className="clarity-example" aria-labelledby="simple-example-title">
+          <p className="text-small text-graphite">A simple example using fictional emails</p>
+          <h2 id="simple-example-title" className="mt-5 text-[1.75rem] leading-tight">When was the delivery date confirmed?</h2>
+          <div className="clarity-answer">
+            <p className="text-body">On <strong>26 March 2025</strong>. An email confirmed delivery for the week commencing 19 May 2025.</p>
+            <button type="button" onClick={(event) => open('EV-0147', ['EV-0147'], event.currentTarget)} className="clarity-link mt-3">
+              Read the source email
+            </button>
+          </div>
+          <p className="mt-6 text-small text-graphite">An answer you can check against the original document. Your team decides what it means for the case.</p>
+        </aside>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};

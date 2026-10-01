@@ -13,9 +13,9 @@ Effective 01 October 2026. This contract supersedes older palette, typography, p
 
 Forest green `#0B2516`, deep green `#041A0F`, paper `#FCFAF5`, parchment `#F5F0E6`, brass `#BF9B58` and light signal `#EE8E7E` on dark grounds. Display: self-hosted Newsreader. Body: self-hosted IBM Plex Sans. Monospaced record data: IBM Plex Mono. No external font stylesheet.
 
-The memorable element is the continuous fictional matter: correspondence, cited chronology, challenges to the record, analysis and source inspection. Retain its actual source links and diagrams. Quiet spacing, restrained rules and square-to-small-radius controls support that content. Do not impose an old teal/coral palette, pill CTAs or animation on every control.
+The opening must explain the software, its audience and the next action in plain language. Its memorable element is a simple question, answer and inspectable fictional source. The continuous fictional matter and its source links and diagrams remain available in an optional worked-example disclosure. Quiet spacing, restrained rules and square-to-small-radius controls support that content. Do not impose an old teal/coral palette, pill CTAs or animation on every control.
 
-Reading order: cover; The clock; Chronology Lens; Rebuttal/case room; Ask, cite, bundle; Build the claim; Integrity; In brief; founders; demonstration; notes. The context-statistics band was removed deliberately. Login is an external application hand-off, not a local login page.
+Reading order: plain product explanation and simple example; three practical jobs; optional worked example; concise founders; common questions; demonstration. The detailed chapters and notes appear only when the worked example is opened. Primary navigation uses How it works, Worked example, About and Questions. Preserve existing chapter deep links by opening their enclosing disclosure before scrolling and focusing. The context-statistics band was removed deliberately. Login is an external application hand-off, not a local login page.
 
 ## Behaviour and wording
 

@@ -1,0 +1,34 @@
+/* Homepage explanation. The existing working record is available on request below it. */
+.clarity-hero { padding: clamp(2.75rem, 6vw, 5.5rem) 0; }
+.clarity-hero-grid { display: grid; gap: 2.75rem; align-items: center; }
+.clarity-title { max-width: 18ch; font-size: clamp(2.625rem, 4.7vw, 4rem); line-height: 1.06; letter-spacing: -0.025em; }
+.clarity-lead { max-width: 36rem; font-size: 1.25rem; line-height: 1.6; }
+.clarity-example { min-width: 0; background: var(--vc-paper); padding: clamp(1.25rem, 3vw, 2.5rem); border-top: 4px solid var(--vc-brass-400); }
+.clarity-answer { margin-top: 1.5rem; border-left: 2px solid var(--vc-brass-400); padding-left: 1.25rem; }
+.clarity-link { display: inline-flex; min-height: 44px; align-items: center; color: var(--vc-azure-700); font-weight: 500; text-decoration: underline; text-underline-offset: 4px; }
+.clarity-link:hover { color: var(--vc-ink); }
+.clarity-section { padding: clamp(2.75rem, 5vw, 4.5rem) 0; }
+.clarity-heading { max-width: 27ch; font-size: clamp(2rem, 3vw, 2.5rem); line-height: 1.15; }
+.clarity-jobs, .clarity-founders { display: grid; gap: 2rem; }
+.clarity-jobs article, .clarity-founders article { min-width: 0; }
+.clarity-question { border-bottom: 1px solid var(--vc-rule); }
+.clarity-question:first-child { border-top: 1px solid var(--vc-rule); }
+.clarity-question > summary, .clarity-bio > summary { cursor: pointer; min-height: 48px; padding: 0.75rem 0; font-weight: 500; }
+.clarity-question > summary { font-size: 1.125rem; }
+.clarity-bio > summary { color: var(--vc-azure-700); text-decoration: underline; text-underline-offset: 4px; }
+.clarity-narrow { max-width: 56rem; }
+.clarity-walkthrough { background: var(--vc-parchment-300); }
+.clarity-walkthrough > summary { cursor: pointer; padding: 1.5rem; min-height: 80px; font-size: 1.125rem; font-weight: 500; list-style-position: inside; }
+.clarity-walkthrough > summary small { display: block; font-size: 1rem; font-weight: 400; margin-top: 0.5rem; max-width: 65ch; }
+.clarity-walkthrough[open] > summary { border-bottom: 1px solid var(--vc-rule-strong); }
+.clarity-walkthrough:not([open]) > :not(summary) { display: none; }
+@media (min-width: 768px) {
+  .clarity-jobs { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
+  .clarity-founders { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4rem; }
+}
+@media (min-width: 1024px) {
+  .clarity-hero-grid { grid-template-columns: 1.15fr 0.85fr; gap: 5rem; }
+}
+@media print {
+  .clarity-walkthrough:not([open]) > :not(summary) { display: block; }
+}

@@ -4,16 +4,15 @@ import { useLocation } from 'react-router-dom';
 import { List } from 'lucide-react';
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Logo, LogoMark } from '@/components/brand/Logo';
-import { TaglineBanner } from '@/components/brand/TaglineBanner';
 import { DemoCTA } from '@/components/editorial/DemoCTA';
-import { BRAND_LINE, CHAPTERS, CTA_LABEL, END_MATTER, HEADER } from '@/content/home';
+import { HOME_NAV, CTA_LABEL, HEADER } from '@/content/home';
 import { DEMO_MAILTO, SIGN_IN_URL } from '@/lib/site';
 import { focusSection, onSectionClick, sectionHref } from '@/lib/navigate';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { cn } from '@/lib/utils';
 
-const ALL_IDS = [...CHAPTERS, ...END_MATTER].map((s) => s.id);
-const NAV = [...CHAPTERS, ...END_MATTER].filter((s) => s.nav);
+const ALL_IDS = HOME_NAV.map((s) => s.id);
+const NAV = HOME_NAV;
 
 // One sticky band: 64 px from 1024 px, 56 px below. The seven section links show from 1280 px;
 // below that a Contents sheet lists every chapter. It never reads AuthContext, so no session
@@ -43,7 +42,6 @@ export const SiteHeader = () => {
 
   return (
     <>
-      <TaglineBanner />
       <header
         className={cn(
           'sticky top-0 z-40 border-b bg-[#0B2516]/95 backdrop-blur-[6px] transition-colors duration-200 text-[#FCFAF5]',
@@ -60,8 +58,8 @@ export const SiteHeader = () => {
           aria-label={HEADER.logoAlt}
           className="-mx-1 flex h-11 min-w-11 shrink-0 items-center rounded-sm px-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BF9B58]"
         >
-          <Logo tone="reversed" decorative className="hidden h-7 w-auto min-[360px]:block sm:h-8" />
-          <LogoMark decorative className="h-7 w-7 min-[360px]:hidden" color="#C4A05A" />
+          <Logo tone="reversed" decorative className="hidden h-7 w-auto min-[480px]:block sm:h-8" />
+          <LogoMark decorative className="h-7 w-7 min-[480px]:hidden" color="#C4A05A" />
         </a>
 
         <nav aria-label="Sections" className="hidden xl:block">
@@ -134,19 +132,10 @@ export const SiteHeader = () => {
                 <SheetDescription className="sr-only">{HEADER.sheetDescription}</SheetDescription>
               </div>
               <nav aria-label={HEADER.sheetTitle} className="flex-1 px-6 py-4">
-                <ol className="divide-y divide-rule">
-                  {CHAPTERS.map((c) => (
-                    <SheetRow key={c.id} id={c.id} onHome={onHome} current={onHome && active === c.id} onChoose={choose(c.id)}>
-                      <span className="w-12 shrink-0 font-mono text-meta text-brass-700">{c.numeral || c.sheetLabel}</span>
-                      <span className="font-display text-[1.1875rem] leading-snug text-navy">{c.title}</span>
-                    </SheetRow>
-                  ))}
-                </ol>
-                <p className="eyebrow mt-7">{HEADER.endMatterLabel}</p>
-                <ul className="mt-2 divide-y divide-rule">
-                  {END_MATTER.map((m) => (
-                    <SheetRow key={m.id} id={m.id} onHome={onHome} current={onHome && active === m.id} onChoose={choose(m.id)}>
-                      <span className="text-body text-ink">{m.title}</span>
+                <ul className="divide-y divide-rule">
+                  {HOME_NAV.map((item) => (
+                    <SheetRow key={item.id} id={item.id} onHome={onHome} current={onHome && active === item.id} onChoose={choose(item.id)}>
+                      <span className="text-body text-ink">{item.title}</span>
                     </SheetRow>
                   ))}
                 </ul>
@@ -156,7 +145,6 @@ export const SiteHeader = () => {
                   {HEADER.signIn}
                 </a>
                 <DemoCTA placement="contents" section="top" withCopy className="mt-3" />
-                <p className="mt-4 font-display text-[1.0625rem] italic text-graphite">{BRAND_LINE}</p>
               </div>
             </SheetContent>
           </Sheet>

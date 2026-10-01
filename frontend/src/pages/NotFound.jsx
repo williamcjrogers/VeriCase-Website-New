@@ -3,7 +3,7 @@ import { lazy } from 'react';
 import { SiteHeader } from '@/components/sections/SiteHeader';
 import { SiteFooter } from '@/components/sections/SiteFooter';
 import { Plate } from '@/components/editorial/Plate';
-import { CHAPTERS, CTA_LABEL, NOT_FOUND } from '@/content/home';
+import { HOME_NAV, CTA_LABEL, NOT_FOUND } from '@/content/home';
 import { MEDIA } from '@/content/media';
 import { DEMO_MAILTO } from '@/lib/site';
 
@@ -32,10 +32,9 @@ export const NotFound = () => {
               </div>
               <h2 className="mt-14 font-display text-[1.3125rem] font-medium leading-snug text-navy">{NOT_FOUND.listHeading}</h2>
               <ol className="mt-3 divide-y divide-rule border-y border-rule">
-                {CHAPTERS.filter((c) => c.numeral).map((c) => (
+                {HOME_NAV.map((c) => (
                   <li key={c.id}>
                     <a href={`/#${c.id}`} className="flex min-h-[48px] items-baseline gap-3 py-2.5 hover:bg-parchment-300/60">
-                      <span className="w-10 shrink-0 font-mono text-meta text-brass-700">{c.numeral}</span>
                       <span className="font-display text-[1.1875rem] leading-snug text-navy">{c.title}</span>
                     </a>
                   </li>

@@ -1,0 +1,50 @@
+{
+  "dimensions": [
+    {
+      "bodyWidth": 320,
+      "documentWidth": 320,
+      "exampleOpen": false,
+      "headerCTAHeight": 44,
+      "height": 5556,
+      "width": 320
+    },
+    {
+      "bodyWidth": 390,
+      "documentWidth": 390,
+      "exampleOpen": false,
+      "headerCTAHeight": 44,
+      "height": 5053,
+      "width": 390
+    },
+    {
+      "bodyWidth": 768,
+      "documentWidth": 768,
+      "exampleOpen": false,
+      "headerCTAHeight": 44,
+      "height": 3890,
+      "width": 768
+    },
+    {
+      "bodyWidth": 1440,
+      "documentWidth": 1440,
+      "exampleOpen": false,
+      "headerCTAHeight": 44,
+      "height": 3761,
+      "width": 1440
+    }
+  ],
+  "desktopComparison": {
+    "width": 1280,
+    "beforeHeight": 25761,
+    "afterHeight": 3573,
+    "beforeVisibleWords": 4473,
+    "afterVisibleWords": 548
+  },
+  "sourceOpens": true,
+  "sourceReturnFocus": true,
+  "keyboardDisclosure": true,
+  "deepLinkOpensDisclosure": true,
+  "mobileMenu": true,
+  "keyboardFAQ": true,
+  "posthogRequestsWithRejectedConsent": 0
+}

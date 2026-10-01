@@ -34,6 +34,10 @@ function settleOn(section) {
 export function focusSection(id, { smooth = true, updateHash = false } = {}) {
   const section = document.getElementById(id);
   if (!section) return false;
+  // A deep link can target the optional worked example while it is collapsed.
+  for (let parent = section.parentElement; parent; parent = parent.parentElement) {
+    if (parent.tagName === 'DETAILS') parent.open = true;
+  }
   const heading = document.getElementById(`${id}-title`) || section;
   if (!heading.hasAttribute('tabindex')) heading.setAttribute('tabindex', '-1');
   section.scrollIntoView({ behavior: smooth && !reducedMotion() ? 'smooth' : 'auto', block: 'start' });

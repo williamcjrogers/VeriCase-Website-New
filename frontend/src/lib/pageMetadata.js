@@ -1,7 +1,7 @@
 export const PAGE_METADATA = {
   '/': {
     title: 'VeriCase | Evidence and chronology for construction disputes',
-    description: 'Project correspondence in date order, analysis with citations and sources ready for professional review. Evidence and chronology for construction disputes.',
+    description: 'Software for contractors, claims consultants and construction lawyers. Organise project records, find supporting evidence and prepare a claim or response.',
     url: 'https://veri-case.com/',
   },
   '/cookies': {
@@ -11,7 +11,7 @@ export const PAGE_METADATA = {
   },
   '*': {
     title: 'Page not found | VeriCase',
-    description: 'This address does not match a VeriCase website page. Return to the homepage or browse the chapters.',
+    description: 'This address does not match a VeriCase website page. Return to the homepage or explore how VeriCase works.',
     url: null,
   },
 };

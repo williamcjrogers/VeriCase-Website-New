@@ -21,6 +21,13 @@ export const CHAPTERS = [
   { id: 'claims', numeral: 'V', title: 'Build the claim', nav: 'Build the claim' },
   { id: 'integrity', numeral: 'VI', title: 'The record holds', nav: 'Integrity' },
 ];
+export const HOME_NAV = [
+  { id: 'platform', title: 'How it works', nav: 'How it works' },
+  { id: 'worked-example', title: 'Worked example', nav: 'Worked example' },
+  { id: 'about', title: 'About', nav: 'About' },
+  { id: 'questions', title: 'Questions', nav: 'Questions' },
+];
+
 export const END_MATTER = [
   { id: 'platform', title: 'In brief' },
   { id: 'about', title: 'Who is behind it', nav: 'About' },
@@ -32,20 +39,21 @@ export const HEADER = {
   skip: 'Skip to content',
   logoAlt: 'VeriCase home',
   signIn: 'Sign in',
-  contents: 'Contents',
-  sheetTitle: 'Contents',
-  sheetDescription: 'The chapters of this page.',
+  contents: 'Menu',
+  sheetTitle: 'Explore VeriCase',
+  sheetDescription: 'How VeriCase works, a worked example, the founders and common questions.',
   endMatterLabel: 'End matter',
-  close: 'Close contents',
+  close: 'Close menu',
 };
 
 export const COVER = {
   masthead: ['Records,', 'records,', 'records.'],
   eyebrow: 'The early case diagnostic tool for construction disputes',
-  h1: 'Build your case from a cited record',
+  h1: 'Understand the evidence in a construction dispute.',
   subhead:
-    "Put project correspondence in date order, analyse it with citations and return to the source behind each answer. VeriCase supports the professional judgement needed to prepare a construction dispute.",
-  fastPath: 'Short on time? The platform in brief',
+    'VeriCase brings your project emails and documents together, so you can find what happened, check the evidence and prepare a claim or response.',
+  audience: 'Software for contractors, claims consultants and construction lawyers.',
+  fastPath: 'See how it works',
   strip: [
     { label: 'Founded by practitioners', text: 'William Rogers MCIArb & Warren Kemp (Partner, gunnercooke): forensic quantum, claims and dispute resolution.' },
     {
@@ -222,7 +230,7 @@ export const RESEARCH = {
   eyebrow: 'Chapter IV · Research',
   h2: 'Ask a question. Read a cited answer. Bundle the sources.',
   lead:
-    'Research takes a question in plain English, shows you how it has understood it, and returns a VeriCase Analysis Report. For example, you can extract every document relating to a roof leak, ask the AI to identify who is responsible, and receive a report where each finding carries a numbered citation to the email or document it rests on.',
+    'Ask a question about the project record, such as “What does the correspondence say about delivery?” Review how VeriCase has understood the question, then read an analysis with links to the emails and documents behind its findings. Your team checks the sources and assesses what they establish.',
   fail: 'Someone asks what the record shows on a point. The answer can arrive days later as a summary without sources, and the checking starts again.',
   recover: 'The answer arrives with its sources attached. Follow any citation to the message itself, then bundle what was cited.',
   steps: [
@@ -244,7 +252,7 @@ export const CLAIMS = {
   eyebrow: 'Chapter V · Claims builder and collaboration',
   h2: 'Draft the claim with the evidence already cited.',
   lead:
-    'VeriCase transforms complex evidence into compelling, defensible claim arguments. Structure the Heads of Claim, draft the narrative and cite by message ID as you write. The project team, solicitors, counsel and experts work on the same evidence, and discuss it where it sits.',
+    'Organise the claim into sections, draft the narrative and link each point to its supporting evidence. The project team, solicitors, counsel and experts work on the same evidence, and discuss it where it sits.',
   fail: 'The narrative is drafted in one place, the evidence is kept in another, and the argument about the evidence happens in a reply-all thread.',
   recover: 'Each citation opens its message, and each discussion is anchored to the document it concerns.',
   items: [
@@ -331,6 +339,11 @@ export const INTEGRITY = {
 };
 
 export const IN_BRIEF = {
+  jobs: [
+    { title: 'Put the record in order', text: 'Bring together emails and documents from the project. Read events in date order, with a link back to each source.' },
+    { title: 'Find the evidence', text: 'Ask a question about the records. Check the answer against the emails and documents it refers to.' },
+    { title: 'Prepare your case', text: 'Build a claim or respond to the other side’s arguments. Review proposed wording with the supporting evidence alongside it.' },
+  ],
   eyebrow: 'In brief',
   h2: 'The platform, on one page.',
   sub: 'VeriCase is deliberately lean: evidence, chronology, claims and rebuttal. Each line links to the chapter that shows it.',
@@ -352,10 +365,11 @@ export const IN_BRIEF = {
   },
   questionsLabel: 'Questions',
   questions: [
-    { q: 'Does VeriCase replace our disclosure platform?', a: 'No. VeriCase is a pre-litigation workspace. It prepares evidence, chronology, claim and rebuttal material, which then moves to the platform your solicitors use.' },
-    { q: 'Will the output be accepted by the tribunal?', a: 'Admissibility and weight are for the tribunal. VeriCase keeps each original with its hash, message ID and source path, and records what was done to it, so that its provenance can be examined.' },
-    { q: 'Does the AI write our submissions?', a: 'No. It suggests evidence and proposes reply points, each with citations. A person accepts, edits or rejects every proposal, and the decision is recorded. Responsibility for anything served stays with its author.' },
-    { q: 'Who sees what?', a: 'Access is by role: Team Leader, Senior Lawyer, Claims Consultant, QS, Project Manager, External Counsel and Client Viewer. BCC recipients and other sensitive fields are restricted by permission.', gate: 'G5_roles' },
+    { q: 'What can we upload?', a: 'Email archives and individual emails, PDFs, Word documents, spreadsheets and images. Scanned pages can be read using text recognition.' },
+    { q: 'Does VeriCase replace our disclosure platform?', a: 'No. VeriCase helps you organise the evidence and prepare your case. It works alongside the disclosure and document review software your solicitors already use.' },
+    { q: 'Will the output be accepted by the tribunal?', a: 'That is for the tribunal to decide. VeriCase helps you show where the evidence came from and what was done to it. Your advisers remain responsible for checking and presenting the material.' },
+    { q: 'Does the AI write our submissions?', a: 'It helps with analysis and draft wording, linked to supporting sources. Your team checks the evidence, edits or rejects suggestions and approves what is used. Responsibility for any submission stays with its author.' },
+    { q: 'Who sees what?', a: 'Each person’s role controls what they can access. Sensitive fields, including BCC recipients, are restricted by permission.', gate: 'G5_roles' },
     { q: 'Where is our data held, and is it used to train AI models?', a: '{{DATA_POLICY}}', gate: 'G8_data' },
   ],
 };
@@ -368,6 +382,7 @@ export const FOUNDER = {
   founders: [
     {
       name: 'William Rogers MCIArb',
+      summary: 'Construction claims and forensic quantum specialist. Founder of Quantum Commercial Solutions and Member of the Chartered Institute of Arbitrators.',
       role: 'Co-Founder · Claims, Forensic Quantum & Adjudication',
       firm: 'Founder, Quantum Commercial Solutions (2016)',
       bio:
@@ -381,6 +396,7 @@ export const FOUNDER = {
     },
     {
       name: 'Warren Kemp',
+      summary: 'Construction disputes solicitor and partner at gunnercooke LLP, with experience advising contractors, developers and professional consultants.',
       role: 'Co-Founder · Dispute Resolution | Partner, gunnercooke LLP',
       firm: 'Partner, gunnercooke LLP · GC, United Living Group',
       email: 'warren.kemp@gunnercooke.com',
@@ -448,7 +464,7 @@ export const NOTES_SECTION = {
 };
 
 export const FOOTER = {
-  descriptor: 'The pre-litigation evidence workspace for construction disputes: evidence, chronology, claims and rebuttal.',
+  descriptor: 'Software to organise project records, find supporting evidence and prepare construction claims and responses.',
   heads: { contents: 'Contents', company: 'Company', cookies: 'Cookies' },
   company: { about: 'Who is behind it', demo: 'Request a demonstration', signIn: 'Sign in' },
   cookies: { settings: 'Cookie settings', notice: 'Cookie notice' },
@@ -475,8 +491,8 @@ export const COOKIE_BAR = {
 export const NOT_FOUND = {
   title: 'Page not found | VeriCase',
   eyebrow: 'Error 404',
-  h1: 'This record is not in the bundle.',
-  body: 'The page you asked for does not exist, or has moved. The contents below will take you back to the record.',
+  h1: 'We cannot find that page.',
+  body: 'The address may have changed. Return to the homepage or choose a section below.',
   home: 'Return to the home page',
   listHeading: 'Contents',
   plate: {
