@@ -1,0 +1,202 @@
+{
+  "testedAt": "01 October 2026",
+  "host": "http://127.0.0.1:4183",
+  "viewports": [
+    {
+      "columns": "288px",
+      "documentWidth": 320,
+      "profiles": [
+        {
+          "left": 16,
+          "name": "William Rogers MCIArb",
+          "right": 304
+        },
+        {
+          "left": 16,
+          "name": "Warren Kemp",
+          "right": 304
+        },
+        {
+          "left": 16,
+          "name": "Malcolm Brechin",
+          "right": 304
+        },
+        {
+          "left": 16,
+          "name": "Sam Whisker",
+          "right": 304
+        }
+      ],
+      "summaries": [
+        {
+          "height": 52.046875,
+          "text": "Read William’s background"
+        },
+        {
+          "height": 52.046875,
+          "text": "Read Warren’s background"
+        },
+        {
+          "height": 52.046875,
+          "text": "Read Malcolm’s background"
+        },
+        {
+          "height": 52.046875,
+          "text": "Read Sam’s background"
+        }
+      ],
+      "viewport": 320
+    },
+    {
+      "columns": "358px",
+      "documentWidth": 390,
+      "profiles": [
+        {
+          "left": 16,
+          "name": "William Rogers MCIArb",
+          "right": 374
+        },
+        {
+          "left": 16,
+          "name": "Warren Kemp",
+          "right": 374
+        },
+        {
+          "left": 16,
+          "name": "Malcolm Brechin",
+          "right": 374
+        },
+        {
+          "left": 16,
+          "name": "Sam Whisker",
+          "right": 374
+        }
+      ],
+      "summaries": [
+        {
+          "height": 52.046875,
+          "text": "Read William’s background"
+        },
+        {
+          "height": 52.046875,
+          "text": "Read Warren’s background"
+        },
+        {
+          "height": 52.046875,
+          "text": "Read Malcolm’s background"
+        },
+        {
+          "height": 52.046875,
+          "text": "Read Sam’s background"
+        }
+      ],
+      "viewport": 390
+    },
+    {
+      "columns": "328px 328px",
+      "documentWidth": 768,
+      "profiles": [
+        {
+          "left": 24,
+          "name": "William Rogers MCIArb",
+          "right": 352
+        },
+        {
+          "left": 416,
+          "name": "Warren Kemp",
+          "right": 744
+        },
+        {
+          "left": 24,
+          "name": "Malcolm Brechin",
+          "right": 352
+        },
+        {
+          "left": 416,
+          "name": "Sam Whisker",
+          "right": 744
+        }
+      ],
+      "summaries": [
+        {
+          "height": 52.046875,
+          "text": "Read William’s background"
+        },
+        {
+          "height": 52.046875,
+          "text": "Read Warren’s background"
+        },
+        {
+          "height": 52.046875,
+          "text": "Read Malcolm’s background"
+        },
+        {
+          "height": 52.046875,
+          "text": "Read Sam’s background"
+        }
+      ],
+      "viewport": 768
+    },
+    {
+      "columns": "568px 568px",
+      "documentWidth": 1440,
+      "profiles": [
+        {
+          "left": 120,
+          "name": "William Rogers MCIArb",
+          "right": 688
+        },
+        {
+          "left": 752,
+          "name": "Warren Kemp",
+          "right": 1320
+        },
+        {
+          "left": 120,
+          "name": "Malcolm Brechin",
+          "right": 688
+        },
+        {
+          "left": 752,
+          "name": "Sam Whisker",
+          "right": 1320
+        }
+      ],
+      "summaries": [
+        {
+          "height": 52.046875,
+          "text": "Read William’s background"
+        },
+        {
+          "height": 52.046875,
+          "text": "Read Warren’s background"
+        },
+        {
+          "height": 52.046875,
+          "text": "Read Malcolm’s background"
+        },
+        {
+          "height": 52.046875,
+          "text": "Read Sam’s background"
+        }
+      ],
+      "viewport": 1440
+    }
+  ],
+  "expandedAt320": {
+    "documentWidth": 320
+  },
+  "keyboard": {
+    "williamEnter": true,
+    "samEnter": true,
+    "focusOutline": "solid"
+  },
+  "pointer": {
+    "malcolmToggle": true
+  },
+  "founders": [
+    "William Rogers",
+    "Warren Kemp"
+  ],
+  "malcolmAndSamContainFounder": false
+}

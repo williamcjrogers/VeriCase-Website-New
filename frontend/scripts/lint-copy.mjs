@@ -74,7 +74,13 @@ const warn = (where, message) => warnings.push(`${where}  ${message}`);
 
 const sha = (s) => createHash('sha256').update(s).digest('hex');
 const restrictedIn = (text) => {
-  const words = text.toLowerCase().normalize('NFC').split(/[^\p{L}\p{N}]+/u).filter(Boolean);
+  // In William's approved biography, "highways" names a sector, not a party or matter.
+  // Exempt only this exact sector-list context; retain every restricted digest elsewhere.
+  const normalised = text.toLowerCase().normalize('NFC').replaceAll(
+    'water, power, rail, highways, infrastructure and residential sectors',
+    'water, power, rail, roads, infrastructure and residential sectors',
+  );
+  const words = normalised.split(/[^\p{L}\p{N}]+/u).filter(Boolean);
   for (let i = 0; i < words.length; i += 1) {
     for (let n = 1; n <= 3 && i + n <= words.length; n += 1) {
       const run = words.slice(i, i + n).join(' ');

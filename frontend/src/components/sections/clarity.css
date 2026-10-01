@@ -9,8 +9,8 @@
 .clarity-link:hover { color: var(--vc-ink); }
 .clarity-section { padding: clamp(2.75rem, 5vw, 4.5rem) 0; }
 .clarity-heading { max-width: 27ch; font-size: clamp(2rem, 3vw, 2.5rem); line-height: 1.15; }
-.clarity-jobs, .clarity-founders { display: grid; gap: 2rem; }
-.clarity-jobs article, .clarity-founders article { min-width: 0; }
+.clarity-jobs, .clarity-team { display: grid; gap: 2rem; }
+.clarity-jobs article, .clarity-team article { min-width: 0; }
 .clarity-question { border-bottom: 1px solid var(--vc-rule); }
 .clarity-question:first-child { border-top: 1px solid var(--vc-rule); }
 .clarity-question > summary, .clarity-bio > summary { cursor: pointer; min-height: 48px; padding: 0.75rem 0; font-weight: 500; }
@@ -24,7 +24,7 @@
 .clarity-walkthrough:not([open]) > :not(summary) { display: none; }
 @media (min-width: 768px) {
   .clarity-jobs { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
-  .clarity-founders { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4rem; }
+  .clarity-team { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4rem; }
 }
 @media (min-width: 1024px) {
   .clarity-hero-grid { grid-template-columns: 1.15fr 0.85fr; gap: 5rem; }

@@ -41,7 +41,7 @@ export const HEADER = {
   signIn: 'Sign in',
   contents: 'Menu',
   sheetTitle: 'Explore VeriCase',
-  sheetDescription: 'How VeriCase works, a worked example, the founders and common questions.',
+  sheetDescription: 'How VeriCase works, a worked example, the team and common questions.',
   endMatterLabel: 'End matter',
   close: 'Close menu',
 };
@@ -376,28 +376,33 @@ export const IN_BRIEF = {
 
 export const FOUNDER = {
   eyebrow: 'Who is behind it',
-  h2: 'Built by practitioners who live in construction disputes.',
+  h2: 'The people behind VeriCase.',
   body1:
-    'VeriCase was founded by William Rogers MCIArb and Warren Kemp. Together, they combine decades of hands-on forensic claims management, Tier 1 construction dispute resolution, and senior in-house counsel leadership.',
-  founders: [
+    'Our team brings together construction claims, legal, commercial and software development experience.',
+  people: [
     {
       name: 'William Rogers MCIArb',
-      summary: 'Construction claims and forensic quantum specialist. Founder of Quantum Commercial Solutions and Member of the Chartered Institute of Arbitrators.',
-      role: 'Co-Founder · Claims, Forensic Quantum & Adjudication',
+      summary: 'Construction claims and disputes specialist with over 15 years’ experience. Qualified in quantity surveying and commercial management, and a Member of the Chartered Institute of Arbitrators.',
+      role: 'Co-founder, claims and forensic quantum; testifying expert',
       firm: 'Founder, Quantum Commercial Solutions (2016)',
       bio:
-        'A construction commercial management professional specialising in claims, forensic quantum and adjudication under the NEC, JCT and FIDIC forms. Founder of Quantum Commercial Solutions in 2016 and Member of the Chartered Institute of Arbitrators.',
+        'William is a construction claims and disputes specialist with over 15 years’ experience across the water, power, rail, highways, infrastructure and residential sectors. He is qualified in quantity surveying and commercial management and is a Member of the Chartered Institute of Arbitrators.\n\nHe founded Quantum Commercial Solutions in 2016 and has since built Meritus Group, Orrery Group, Peak Developments and VeriCase, a legal technology platform for forensic evidence review.\n\nHis work spans adjudication, arbitration and litigation in the Technology and Construction Court (TCC), under NEC, JCT, FIDIC and IChemE forms. His live instructions are in excess of £100 million across residential, regeneration and infrastructure schemes, with prior roles on international arbitrations exceeding US$600 million.\n\nHe acts as a testifying quantum expert and leads claims and recovery across a national contractor’s distressed portfolio. He prepares each case in house so that experts and counsel are instructed only when it is ready.',
       credentials: [
         'Member of the Chartered Institute of Arbitrators (MCIArb)',
+        'RICS Level 5 Diploma, Adjudication in the Construction Industry',
+        'BSc (Hons) Quantity Surveying and Commercial Management',
+        'Testifying quantum expert',
+        'NEC, JCT, FIDIC and IChemE dispute specialist',
         'Founder, Quantum Commercial Solutions (2016)',
-        'Forensic quantum and delay claims preparation',
-        'NEC, JCT and FIDIC dispute specialist',
+        'Founder, Meritus Group',
+        'Founder, Orrery Group',
+        'Founder, Peak Developments',
       ],
     },
     {
       name: 'Warren Kemp',
       summary: 'Construction disputes solicitor and partner at gunnercooke LLP, with experience advising contractors, developers and professional consultants.',
-      role: 'Co-Founder · Dispute Resolution | Partner, gunnercooke LLP',
+      role: 'Co-founder, dispute resolution',
       firm: 'Partner, gunnercooke LLP · GC, United Living Group',
       email: 'warren.kemp@gunnercooke.com',
       tel: '+44 (0) 7470 332 945',
@@ -414,6 +419,31 @@ export const FOUNDER = {
         { name: 'Van Elle Limited v Keynvor Morlift Limited', cite: '[2023] EWHC 3137 (TCC)' },
         { name: 'Celtic Bioenergy Limited v Knowles Limited', cite: '[2017] EWHC 472 (TCC)' },
         { name: 'Middle Level Commissioners v Atkins Limited', cite: '[2012] EWHC 2884 (TCC)' },
+      ],
+    },
+    {
+      name: 'Malcolm Brechin',
+      role: 'Managing Director',
+      summary: 'Commercial strategy and business development, with more than 25 years’ experience building and growing businesses.',
+      bio:
+        'Malcolm brings a background in commercial strategy, business development and bringing technology products to market. His career includes a role as Strategic Development Director at Mobile Rocket, where he worked with recruitment and healthcare software.\n\nAlongside his role at VeriCase, Malcolm is Chief Executive Officer of Invent Group. His work focuses on understanding clients’ operational needs and shaping practical technology products around them.',
+      credentials: [
+        'More than 25 years in commercial strategy and business development',
+        'Chief Executive Officer, Invent Group',
+        'Former Strategic Development Director, Mobile Rocket',
+      ],
+    },
+    {
+      name: 'Sam Whisker',
+      role: 'Chief Technology Officer',
+      summary: 'Software developer and AI implementation specialist, with a background in web applications, process automation and product engineering.',
+      bio:
+        'Sam is a Teesside University graduate with a background in web development and applied AI. His earlier work at Koodoo Creative included developing an online learning platform with a university lecturer.\n\nAlongside his role at VeriCase, Sam is Chief Technology Officer of Invent Group. Through his AI consultancy, he helps businesses implement process automation and custom software, and provides practical AI workshops.',
+      credentials: [
+        'Teesside University graduate',
+        'Chief Technology Officer, Invent Group',
+        'AI implementation consultant',
+        'Web development experience at Koodoo Creative',
       ],
     },
   ],
