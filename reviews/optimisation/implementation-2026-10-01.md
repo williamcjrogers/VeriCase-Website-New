@@ -46,9 +46,34 @@ One independent whole-branch review identified three issues: removal of the requ
 
 Vercel 0.21.4 and PostHog 2.0.1 are installed. Vercel account access is confirmed. PostHog is at its sign-in screen; account/project access and received events remain unverified. GSC Wizard remains conditional on an authorised Search Console property. No duplicate analytics service or redesign plugin was added.
 
-The marketing project is `veri-case-website-new-re2v` (`prj_JavSKONSjXnMvEpWc3lIYoMVLuGV`). The other website project is retained. Public cutover will update only the apex and www A records, using Vercel's current recommended IPv4 addresses, and invert Vercel's domain redirect so the apex is canonical. The existing AWS load-balancer rules do not need alteration. The rollback file restores the two previous AWS aliases.
+The marketing project is `veri-case-website-new-re2v` (`prj_JavSKONSjXnMvEpWc3lIYoMVLuGV`). The other website project is retained. Public cutover updated only the apex and www A records to Vercel's current recommended IPv4 addresses, and inverted Vercel's domain redirect so the apex is canonical. The existing AWS load-balancer rules do not need alteration. The rollback file restores the two previous AWS aliases.
 
-Public delivery verification will be appended after the release and DNS change.
+Code release `c76b278cd4fa5ce8023aba14bc6f17d3929ebec9` was committed and pushed to `main`, then deployed automatically as production deployment `dpl_AMiuebxYVQUAtyPqymT37CiE8NBk`. GitHub and Vercel metadata agree on the commit. The final evidence commit changes only these records and screenshots.
+
+The pre-existing Vercel certificate had expired. A replacement was issued before DNS cutover using temporary DNS challenges. TLS validation then passed on both recommended addresses for both marketing hostnames. The new certificate expires on 29 December 2026 and Vercel lists automatic renewal enabled. The two temporary challenge records were subsequently removed, with Route 53 reporting INSYNC. No certificate warning was bypassed. A fresh browser tab loaded the public site successfully after propagation.
+
+Route 53 now contains the same 23 records as before. Exactly two records changed, the apex and www A records; all other 21 records are unchanged. Application, API and mail records, and the AWS load-balancer rules, were preserved. Vercel reports the domain configured correctly.
+
+Public checks completed:
+
+| Resource | Result |
+|---|---|
+| `https://veri-case.com/` | 200, intended hero and current JavaScript, canonical apex, no noindex header |
+| `https://www.veri-case.com/cookies?source=release-check` | 308 to the same path and query on the apex |
+| `/robots.txt` | 200, text/plain, allows crawling and points to the correct sitemap |
+| `/sitemap.xml` | 200, application/xml, lists homepage and cookie notice |
+| `/og-image.png` | 200, image/png |
+| `/cookies` | 200, cookie-specific title and canonical, also verified in the public browser |
+| `/website-acceptance-unknown` | 404, noindex, no canonical |
+| `/login` | 307 to the preserved application sign-in destination, whose pre-existing 404 remains an owner decision |
+
+The public site was separately exercised at 320, 390, 768 and 1440 px after cutover; document and body widths matched each viewport. Public pause stopped SVG and CSS. There were zero PostHog resource requests both before consent and after rejection. Desktop and mobile screenshots are in `screenshots/`; structured HTTP, browser and DNS evidence is alongside this report.
+
+The original untracked audit instructions in the primary checkout were preserved at `.anchor/backups/agents-before-optimisation-20261001` before bringing in their reviewed replacements. The user's other `.anchor` material was retained.
+
+### Rollback
+
+Prefer Vercel's production rollback to the previous known release for a website regression. If the DNS migration itself must be reversed, submit the exact `dns-rollback-2026-10-01.json` Route 53 change batch. That restores the two old AWS aliases and therefore also restores the original redirect problem. The prior Vercel mapping was apex to www and no redirect on www; if reversing this mapping, first clear www's redirect, then set the apex redirect to www to avoid a redirect loop. No rollback has been applied.
 
 ## Outstanding owner or service inputs
 
@@ -61,5 +86,6 @@ Public delivery verification will be appended after the release and DNS change.
 
 - [PostHog event processing](https://github.com/PostHog/posthog-js/blob/main/packages/browser/src/posthog-core.ts), required transport properties.
 - [PostHog anonymous events](https://posthog.com/docs/data/anonymous-vs-identified-events), anonymous-profile processing.
+- [Vercel certificate pre-generation](https://vercel.com/docs/domains/pre-generating-ssl-certs).
 - [Vercel domain update API](https://vercel.com/docs/rest-api/projects/update-a-project-domain).
 - [AWS DNS change API](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html).

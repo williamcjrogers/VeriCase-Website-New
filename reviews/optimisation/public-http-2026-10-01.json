@@ -1,0 +1,134 @@
+{
+  "checkedAt": "2026-10-01T00:46:25.438624+00:00",
+  "codeCommit": "c76b278cd4fa5ce8023aba14bc6f17d3929ebec9",
+  "deploymentId": "dpl_AMiuebxYVQUAtyPqymT37CiE8NBk",
+  "results": [
+    {
+      "url": "https://veri-case.com/",
+      "status": 200,
+      "remoteIp": "216.150.16.1",
+      "tlsVerifyResult": 0,
+      "contentType": "text/html; charset=utf-8",
+      "location": null,
+      "robotsHeader": null,
+      "sha256": "5445b8fb79e42452ebf0eaf1c893d1d2a8f33ed58193527aceb9e0d492c3112c",
+      "title": [
+        "VeriCase | Evidence and chronology for construction disputes"
+      ],
+      "canonical": [
+        "https://veri-case.com/"
+      ],
+      "mainScript": [
+        "/static/js/main.78900d93.js"
+      ],
+      "robotsMeta": [],
+      "hasNewHero": true
+    },
+    {
+      "url": "https://veri-case.com/robots.txt",
+      "status": 200,
+      "remoteIp": "216.150.16.1",
+      "tlsVerifyResult": 0,
+      "contentType": "text/plain; charset=utf-8",
+      "location": null,
+      "robotsHeader": null,
+      "sha256": "d7cc60ff6b411ebb9fa7e64c5fb1dd866bc2fc9b1a6da18a836bdd17783295a1",
+      "body": "User-agent: *\nAllow: /\n\nSitemap: https://veri-case.com/sitemap.xml\n"
+    },
+    {
+      "url": "https://veri-case.com/sitemap.xml",
+      "status": 200,
+      "remoteIp": "216.150.16.1",
+      "tlsVerifyResult": 0,
+      "contentType": "application/xml",
+      "location": null,
+      "robotsHeader": null,
+      "sha256": "f4b9f1c507679c5a7fa824340f3b280667bc8e2f1876fdd8119fca26e3c892d7",
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n  <url><loc>https://veri-case.com/</loc></url>\n  <url><loc>https://veri-case.com/cookies</loc></url>\n</urlset>\n"
+    },
+    {
+      "url": "https://veri-case.com/og-image.png",
+      "status": 200,
+      "remoteIp": "216.150.16.1",
+      "tlsVerifyResult": 0,
+      "contentType": "image/png",
+      "location": null,
+      "robotsHeader": null,
+      "sha256": "f1421f1e79cbffc585b737b755cd519821810ecacef55b383c4282dede4985bb"
+    },
+    {
+      "url": "https://veri-case.com/cookies",
+      "status": 200,
+      "remoteIp": "216.150.16.1",
+      "tlsVerifyResult": 0,
+      "contentType": "text/html; charset=utf-8",
+      "location": null,
+      "robotsHeader": null,
+      "sha256": "47516f78102a41eebb7c8dcda6f73fe997e75275840bc85f3adcc26bc4e66f71",
+      "title": [
+        "Cookie notice | VeriCase"
+      ],
+      "canonical": [
+        "https://veri-case.com/cookies"
+      ],
+      "mainScript": [
+        "/static/js/main.78900d93.js"
+      ],
+      "robotsMeta": []
+    },
+    {
+      "url": "https://veri-case.com/website-acceptance-unknown",
+      "status": 404,
+      "remoteIp": "216.150.16.1",
+      "tlsVerifyResult": 0,
+      "contentType": "text/html; charset=utf-8",
+      "location": null,
+      "robotsHeader": null,
+      "sha256": "ea93714e627770238643b2b5aff59013989592d3a3f615c3061bf2fc429cfaac",
+      "title": [
+        "Page not found | VeriCase"
+      ],
+      "canonical": [],
+      "mainScript": [
+        "/static/js/main.78900d93.js"
+      ],
+      "robotsMeta": [
+        "noindex"
+      ]
+    },
+    {
+      "url": "https://veri-case.com/login",
+      "status": 307,
+      "remoteIp": "216.150.16.1",
+      "tlsVerifyResult": 0,
+      "contentType": "text/plain",
+      "location": "https://app.veri-case.com/ui/login.html",
+      "robotsHeader": null,
+      "sha256": "7c040f8633b8823d72ed63da9b3b2dfe9846e912c66a64c9433ec9c4815d76c2"
+    },
+    {
+      "url": "https://www.veri-case.com/cookies?source=release-check",
+      "status": 308,
+      "remoteIp": "216.150.1.1",
+      "tlsVerifyResult": 0,
+      "contentType": "text/plain",
+      "location": "https://veri-case.com/cookies?source=release-check",
+      "robotsHeader": null,
+      "sha256": "7c040f8633b8823d72ed63da9b3b2dfe9846e912c66a64c9433ec9c4815d76c2"
+    },
+    {
+      "url": "https://app.veri-case.com/ui/login.html",
+      "status": 404,
+      "remoteIp": "103.133.1.1",
+      "tlsVerifyResult": 0,
+      "contentType": "text/html; charset=UTF-8",
+      "location": null,
+      "robotsHeader": null,
+      "sha256": "cb3ef1da53b95e50d2cf63c7eabfc095ba3163709d9dac063283266cfb68e9ad",
+      "title": [],
+      "canonical": [],
+      "mainScript": [],
+      "robotsMeta": []
+    }
+  ]
+}

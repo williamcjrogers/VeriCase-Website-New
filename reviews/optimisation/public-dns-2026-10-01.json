@@ -1,0 +1,59 @@
+{
+  "checkedAt": "01 October 2026",
+  "zone": "Z03217773PWCQOY354HX9",
+  "recordCount": 23,
+  "changed": [
+    {
+      "Name": "veri-case.com.",
+      "Type": "A"
+    },
+    {
+      "Name": "www.veri-case.com.",
+      "Type": "A"
+    }
+  ],
+  "unchangedRecords": 21,
+  "cutover": {
+    "Id": "/change/C04394601XF6L5ZEU5KZW",
+    "Status": "INSYNC",
+    "SubmittedAt": "2026-10-01T00:44:44.965000+00:00",
+    "Comment": "Serve approved VeriCase marketing release from Vercel; preserve application and mail DNS"
+  },
+  "challengeCleanup": {
+    "Id": "/change/C00447552LE2S7RERQJUB",
+    "Status": "INSYNC",
+    "SubmittedAt": "2026-10-01T00:45:27.493000+00:00",
+    "Comment": "Remove completed one-use TLS challenges created for this marketing cutover"
+  },
+  "marketingRecords": [
+    {
+      "Name": "veri-case.com.",
+      "Type": "A",
+      "TTL": 300,
+      "ResourceRecords": [
+        {
+          "Value": "216.150.1.1"
+        },
+        {
+          "Value": "216.150.16.1"
+        }
+      ]
+    },
+    {
+      "Name": "www.veri-case.com.",
+      "Type": "A",
+      "TTL": 300,
+      "ResourceRecords": [
+        {
+          "Value": "216.150.1.1"
+        },
+        {
+          "Value": "216.150.16.1"
+        }
+      ]
+    }
+  ],
+  "certificateId": "cert_qK9P34dbPYOQlMPYJw5PyV8g",
+  "certificateExpires": "29 December 2026",
+  "vercelMisconfigured": false
+}

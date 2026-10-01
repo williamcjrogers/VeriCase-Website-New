@@ -19,7 +19,7 @@ Acceptance: no horizontal overflow; pause freezes CSS, SVG and timers; reduced m
 - Browser acceptance: no page overflow at 320, 390, 768 or 1440 px; primary header controls 44 px; keyboard selection, evidence drawer, animation pause/reduced motion/offscreen/visibility checks complete. Five targeted axe rules report no violations on the settled page.
 - Vercel 0.21.4 and PostHog 2.0.1 installed. Vercel account access confirmed. PostHog account connection remains outstanding.
 - AWS access confirmed through the alternate existing AWS connection. Both marketing A records point to an AWS redirect. The intended Vercel project is `veri-case-website-new-re2v`; the duplicate project is retained.
-- Public cutover and release verification are the remaining operational steps, recorded in the implementation report.
+- Public cutover and release verification complete. TLS renewed; marketing DNS switched; all other 21 DNS records preserved. Public HTTP resources and browser behaviour verified, with evidence in the implementation report.
 - Client-data policy facts, PostHog account access and the intended replacement for the existing broken application sign-in URL have been requested from the owner. Publication gates stay closed pending facts.
 
 Evidence and release status: `reviews/optimisation/implementation-2026-10-01.md`.
