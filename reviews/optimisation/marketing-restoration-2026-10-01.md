@@ -30,4 +30,10 @@ Detailed measurements: `marketing-browser-2026-10-01.json`. Screenshots: `screen
 
 ## Delivery boundary
 
-These checks establish the local production build and browser behaviour. Public deployment identity, HTTP responses and final public-browser evidence are recorded separately after the authorised commit and push. No real-user performance score or enquiry-conversion result is claimed.
+Application commit `fbed2ae9123205cdc0a4df8956ff2c4d84226410` was pushed to `main`. Vercel production deployment `dpl_eXY7H5ejU2yQM8mmGq57ZvUzhxPZ` reached READY with that exact commit and the apex/www aliases, without an alias error.
+
+Public verification at `https://veri-case.com/` confirmed the exact approved passages, both static figures, all six capability descriptions, all four visible biographies and the intended typefaces. Browser document widths matched 320, 390, 768 and 1440 pixels. No console warnings or errors were reported in the sampled public session.
+
+The apex returns HTTP 200; www returns HTTP 308 to the canonical apex. Robots, sitemap and sharing image return HTTP 200 with text/plain, application/xml and image/png content types respectively. The cookie page retains its own title and canonical address. An unknown route returns HTTP 404 with noindex.
+
+Public evidence is in `marketing-public-http-2026-10-01.json`, `marketing-public-browser-2026-10-01.json` and `screenshots/marketing-public-1440.png`. A subsequent evidence-only commit records these results without changing the application. No real-user performance score or enquiry-conversion result is claimed.

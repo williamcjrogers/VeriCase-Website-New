@@ -1,0 +1,61 @@
+{
+  "biographies": [
+    {
+      "name": "William Rogers MCIArb",
+      "paragraphs": 4,
+      "role": "Co-founder, claims and forensic quantum; testifying expert"
+    },
+    {
+      "name": "Warren Kemp",
+      "paragraphs": 1,
+      "role": "Co-founder, dispute resolution"
+    },
+    {
+      "name": "Malcolm Brechin",
+      "paragraphs": 2,
+      "role": "Managing Director"
+    },
+    {
+      "name": "Sam Whisker",
+      "paragraphs": 2,
+      "role": "Chief Technology Officer"
+    }
+  ],
+  "capabilities": 6,
+  "figures": 2,
+  "fonts": {
+    "body": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+    "headings": "Newsreader, \"Newsreader Fallback\", Georgia, serif"
+  },
+  "headline": true,
+  "opening": true,
+  "scripts": [
+    "https://veri-case.com/static/js/main.37db3bca.js"
+  ],
+  "timeParagraphs": [
+    true,
+    true,
+    true
+  ],
+  "timeTitle": true,
+  "url": "https://veri-case.com/",
+  "walkthrough": false,
+  "viewports": [
+    {
+      "documentWidth": 320,
+      "width": 320
+    },
+    {
+      "documentWidth": 390,
+      "width": 390
+    },
+    {
+      "documentWidth": 768,
+      "width": 768
+    },
+    {
+      "documentWidth": 1440,
+      "width": 1440
+    }
+  ]
+}
