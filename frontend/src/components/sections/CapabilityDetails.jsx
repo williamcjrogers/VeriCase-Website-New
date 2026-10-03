@@ -4,8 +4,9 @@ import { ProductFigure } from './ProductFigure';
 import { MobileDetails } from './MobileDetails';
 
 // Capability detail remains visible. Publication gates still govern each passage.
-export const CapabilityFeatures = ({ items, label, mobileLabel = 'Explore the tools' }) => (
+export const CapabilityFeatures = ({ items, label, mobileLabel = 'Explore the tools', children }) => (
   <MobileDetails label={mobileLabel}>
+  {children && <div className="capability-context mobile-context">{children}</div>}
   <ul className="capability-features" aria-label={label}>
     {items.filter((item) => isShown(item.gate)).map((item) => (
       <li key={item.title}>
@@ -24,11 +25,14 @@ export const RecordExplanation = () => (
       <div className="capability-explanation-grid">
       <div className="capability-introduction">
         <h2 id="chronology-lens-title" tabIndex={-1} className="clarity-heading">{LENS_CHAPTER.h2}</h2>
-        <p className="mt-5 text-body">{LENS_CHAPTER.lead}</p>
-        <p className="mt-4 text-body">{LENS_CHAPTER.fail}</p>
-        <p className="mt-4 text-body"><Gated id={LENS_CHAPTER.recoverGate}>{LENS_CHAPTER.recover}</Gated></p>
+        <p className="mt-5 text-body desktop-context">{LENS_CHAPTER.lead}</p>
+        <p className="mt-5 text-body">{LENS_CHAPTER.fail}</p>
+        <p className="mt-4 text-body desktop-context"><Gated id={LENS_CHAPTER.recoverGate}>{LENS_CHAPTER.recover}</Gated></p>
       </div>
-      <CapabilityFeatures items={LENS_CHAPTER.items} label="Ingestion and chronology capabilities" mobileLabel="Explore chronology tools" />
+      <CapabilityFeatures items={LENS_CHAPTER.items} label="Ingestion and chronology capabilities" mobileLabel="Explore chronology tools">
+        <p className="text-body">{LENS_CHAPTER.lead}</p>
+        <p className="mt-4 text-body"><Gated id={LENS_CHAPTER.recoverGate}>{LENS_CHAPTER.recover}</Gated></p>
+      </CapabilityFeatures>
       </div>
       <ProductFigure kind="search" />
     </div>
@@ -40,13 +44,17 @@ export const EvidenceExplanation = () => (
     <section id="research" aria-labelledby="research-title" className="clarity-section capability-explanation research-section bg-parchment">
       <div className="container capability-explanation-grid">
         <div className="capability-introduction">
-          <p className="section-kicker">Research with a route back to the record</p>
+          <p className="section-kicker">Evidence investigation</p>
           <h2 id="research-title" tabIndex={-1} className="clarity-heading">{RESEARCH.h2}</h2>
-          <p className="mt-5 text-body">{RESEARCH.lead}</p>
-          <p className="mt-4 text-body">{RESEARCH.fail}</p>
-          <p className="mt-4 text-body">{RESEARCH.recover}</p>
+          <p className="mt-5 text-body desktop-context">{RESEARCH.lead}</p>
+          <p className="mt-5 text-body">{RESEARCH.fail}</p>
+          <p className="mt-4 text-body desktop-context">{RESEARCH.recover}</p>
         </div>
         <MobileDetails label="Explore the research process">
+        <div className="capability-context mobile-context">
+          <p className="text-body">{RESEARCH.lead}</p>
+          <p className="mt-4 text-body">{RESEARCH.recover}</p>
+        </div>
         <ol className="research-explanation-steps" aria-label="Research process">
           {RESEARCH.steps.map((step) => (
             <li key={step.n}>

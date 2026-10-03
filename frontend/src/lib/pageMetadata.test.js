@@ -1,5 +1,6 @@
 import { metadataForPath } from './pageMetadata';
 import { DEMO_MAILTO, SIGN_IN_URL } from './site';
+import { COVER } from '@/content/home';
 
 it('keeps page-specific canonicals and leaves unknown routes without a canonical', () => {
   expect(metadataForPath('/').url).toBe('https://veri-case.com/');
@@ -8,12 +9,15 @@ it('keeps page-specific canonicals and leaves unknown routes without a canonical
   expect(metadataForPath('/missing').title).toMatch(/Page not found/);
 });
 
-it('identifies the construction market and AI-assisted case preparation without outcome guarantees', () => {
+it('identifies the construction market and evidence-led case preparation without outcome guarantees', () => {
   const home = metadataForPath('/');
+  expect(home.description.startsWith(COVER.h1)).toBe(true);
+  expect(`${COVER.h1Lead} ${COVER.h1Emphasis}`).toBe(COVER.h1);
   expect(home.description).toContain('construction claims and disputes');
-  expect(home.description).toContain('AI-assisted investigation');
+  expect(home.description).toContain('Evidence investigation');
   expect(home.description).toContain('chronology and drafting');
   expect(home.description).not.toMatch(/winning|reconstruct truth|guarantee|in minutes/i);
+  expect(`${home.title} ${home.description}`).not.toMatch(/\bAI\b|artificial intelligence/i);
 });
 
 it('offers a demonstration email without requesting confidential matter details', () => {

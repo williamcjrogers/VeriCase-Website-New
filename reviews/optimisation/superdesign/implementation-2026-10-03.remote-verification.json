@@ -2,7 +2,7 @@
   "draftId": "425b94c7-c50b-4d91-9bd9-edc561547894",
   "title": "VeriCase implemented website, 03 October 2026",
   "artifactType": "page",
-  "currentVersion": 3,
+  "currentVersion": 4,
   "versions": [
     {
       "version": 1,
@@ -19,23 +19,54 @@
     {
       "version": 3,
       "prompt": "Imported via CLI (codex)",
-      "createdAt": "2026-10-03T17:53:03.074Z",
+      "createdAt": "2026-10-03T19:52:30.610Z",
+      "isCurrent": false
+    },
+    {
+      "version": 4,
+      "prompt": "Imported via CLI (codex)",
+      "createdAt": "2026-10-03T19:52:30.432Z",
       "isCurrent": true
     }
   ],
+  "verifiedAt": "2026-10-03T19:53:22.944264+00:00",
   "checks": {
     "expectedDraft": true,
-    "versionThree": true,
+    "versionAdvanced": true,
     "byteIdentical": true,
-    "nativeCapabilityDisclosures": true,
-    "heroCopy": true,
+    "fiveNativeCapabilityDisclosures": true,
+    "compactHeroCopy": true,
     "noPosthog": true,
     "noLocalPaths": true,
     "originalAssetsEmbedded": true,
     "noExternalAppRuntime": true
   },
-  "remoteHtmlBytes": 1671851,
-  "remoteHtmlSha256": "aa3c0b4fe7a098652719c808709f6342732ff21ba8009126d3efd49db95de490",
-  "localExportSha256": "aa3c0b4fe7a098652719c808709f6342732ff21ba8009126d3efd49db95de490",
-  "scripts": []
+  "remoteHtmlBytes": 1675998,
+  "remoteHtmlSha256": "6c7f82a267be9e9552868bbb614e9cd08e4793152be44f33cf6290b3b540c4ee",
+  "localExportSha256": "6c7f82a267be9e9552868bbb614e9cd08e4793152be44f33cf6290b3b540c4ee",
+  "scripts": [],
+  "renderedReview": {
+    "status": "complete",
+    "scope": "Local static export byte-identical to refetched Superdesign version 4; remote hosted-preview rendering was not separately inspected.",
+    "reportedBy": "Root agent browser verification",
+    "viewports": [
+      {
+        "width": 390
+      },
+      {
+        "width": 1440
+      }
+    ],
+    "checks": {
+      "noPageOverflowAt390And1440": true,
+      "fiveNativeMobileDisclosuresInitiallyClosed": true,
+      "mobileDetailsContentVisibilityHidden": true,
+      "mobileSummariesApproximately48PixelsHigh": true,
+      "firstMobileDisclosureOpensAndCloses": true,
+      "desktopSummariesHidden": true,
+      "allFiveDesktopDetailsContentVisible": true,
+      "phoneOpeningVisuallyMatchesImplementation": true
+    },
+    "recordedAt": "2026-10-03T19:56:05.673858+00:00"
+  }
 }

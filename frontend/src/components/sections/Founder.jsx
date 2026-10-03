@@ -26,9 +26,10 @@ export const Founder = () => (
                   </p>
                 )}
               </div>
-              <p className="team-bio team-summary">{person.summary}</p>
+              <p className="team-bio team-summary team-summary-desktop">{person.summary}</p>
               <details className="team-full-profile">
                 <summary>Full profile and experience<span className="sr-only"> for {person.name}</span></summary>
+              <p className="team-bio team-summary team-summary-mobile">{person.summary}</p>
               <div className="team-cell">
                 {person.bio.split('\n\n').map((paragraph) => (
                   <p key={paragraph} className="team-bio">{paragraph}</p>

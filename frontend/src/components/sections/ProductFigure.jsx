@@ -9,18 +9,20 @@ import './product-mobile.css';
 export const PRODUCT_VIEWS = {
   reader: {
     file: 'document-reader-qa-2026-09-06.png', width: 1440, height: 760,
-    mobileCrop: [640, 354, 496, 326],
-    mobileTitle: 'Read the document',
-    previewAlt: 'Application capture of a construction agreement labelled synthetic test document. The narrow preview focuses on the document; the larger view also shows its file list.',
+    mobileCrop: [244, 76, 1196, 620],
+    mobileTitle: 'The document workspace',
+    previewAlt: 'Application capture of the document workspace, showing a construction agreement labelled synthetic test document beside its source file list.',
+    mobileCaption: 'Application capture. Illustrative records.',
     crop: [244, 76, 1196, 684], title: 'Read the document beside the file record',
     alt: 'Application capture showing a selected construction agreement alongside its file list. The document is labelled synthetic test document.',
     caption: 'Document reader, September 2026. Illustrative records in a captured application view.',
   },
   search: {
     file: 'files-search-qa-2026-09-05.png', width: 1440, height: 1000,
-    mobileCrop: [756, 258, 304, 284],
-    mobileTitle: 'See the matching passage',
-    previewAlt: 'File search for retention showing highlighted matching text. The narrow preview focuses on the Match column; the larger view also shows document names, folders, file sizes and dates.',
+    mobileCrop: [534, 258, 526, 164],
+    mobileTitle: 'Search with source context',
+    previewAlt: 'File search for retention, showing the document names beside highlighted matching text in two illustrative results.',
+    mobileCaption: 'Application capture. Illustrative search results.',
     crop: [484, 76, 948, 766], title: 'See the matching passage in context',
     alt: 'File search for retention showing matching text highlighted beside the document names, with folders, file sizes and dates.',
     caption: 'File search, September 2026. The highlighted matches and document records are illustrative.',
@@ -29,6 +31,7 @@ export const PRODUCT_VIEWS = {
     file: 'report-export-qa-2026-09-12.png', width: 1440, height: 1107,
     mobileCrop: [305, 428, 536, 174],
     mobileTitle: 'See source links and quoted passages',
+    mobileCaption: 'Illustrative export. No findings about a real dispute.',
     previewAlt: 'Illustrative report export showing a source document link and a distinct quoted passage. The narrow preview focuses on these details; the larger view includes an event register and a statement that the sample contains no findings about a real dispute.',
     crop: [272, 194, 896, 606], title: 'See report structure and source links in an export',
     alt: 'Illustrative report export with a source link, a distinct quoted passage and an event register. It explicitly contains no findings about a real dispute.',
@@ -75,10 +78,11 @@ const Capture = ({ view, priority = false, onError, preview = false }) => {
 export const ProductFigure = ({ kind, priority = false }) => {
   const view = PRODUCT_VIEWS[kind];
   const [failed, setFailed] = useState(false);
+  const [zoomed, setZoomed] = useState(false);
   const fail = () => setFailed(true);
   return (
     <figure className={`product-figure product-figure-${kind}`}>
-      <Dialog.Root>
+      <Dialog.Root onOpenChange={() => setZoomed(false)}>
         <div className="product-frame">
           {failed ? <p className="product-fallback" role="status">The image could not be loaded. {view.alt}</p> : (
             <div className="product-preview">
@@ -90,15 +94,16 @@ export const ProductFigure = ({ kind, priority = false }) => {
             <Dialog.Trigger className="product-enlarge" aria-label={`${failed ? 'Read image description' : 'View larger'}: ${view.title}`}><Expand size={16} aria-hidden="true" />{failed ? 'Read description' : 'View larger'}</Dialog.Trigger>
           </div>
         </div>
-        <figcaption>{view.caption}{!failed && <span className="product-mobile-note"> Detail shown. Use View larger to inspect the wider capture.</span>}</figcaption>
+        <figcaption><span className="product-desktop-caption">{view.caption}</span><span className="product-mobile-caption">{view.mobileCaption}</span></figcaption>
         <Dialog.Portal>
           <Dialog.Overlay className="product-overlay" />
-          <Dialog.Content className="product-inspector">
+          <Dialog.Content className="product-inspector" data-zoomed={zoomed}>
             <div className="product-inspector-heading">
               <Dialog.Title>{view.title}</Dialog.Title>
               <Dialog.Close className="product-close" aria-label="Close image"><X size={22} aria-hidden="true" /></Dialog.Close>
             </div>
-            <Dialog.Description>{view.caption} Scroll to inspect the full-size capture.</Dialog.Description>
+            <Dialog.Description>{view.caption}</Dialog.Description>
+            {!failed && <div className="product-inspector-tools"><button type="button" className="product-zoom" aria-pressed={zoomed} onClick={() => setZoomed(!zoomed)}>{zoomed ? 'Fit to screen' : 'Zoom in'}</button><span>{zoomed ? 'Scroll to explore the capture.' : 'The full view. Zoom in for detail.'}</span></div>}
             <div className="product-inspector-scroll" tabIndex={0} role="region" aria-label="Full-size application capture">
               {failed ? <p className="product-fallback" role="status">The image could not be loaded. {view.alt}</p> : <Capture view={view} onError={fail} />}
             </div>

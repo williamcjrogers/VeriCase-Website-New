@@ -1,6 +1,6 @@
 /* The source images and desktop/inspector crops remain unchanged. */
 .product-mobile-title,
-.product-mobile-note { display: none; }
+.product-mobile-caption { display: none; }
 
 @media screen and (max-width: 767px) {
   .product-figure .product-preview {
@@ -19,25 +19,26 @@
   .product-figure .product-toolbar {
     flex-wrap: wrap;
     gap: 0.25rem 0.75rem;
-    padding: 0.5rem 0.875rem;
+    padding: 0.25rem 0.75rem;
   }
   .product-figure .product-toolbar p {
     flex: 1 1 10rem;
     min-width: 0;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     line-height: 1.45;
     margin: 0;
   }
   .product-figure .product-enlarge {
     min-height: 44px;
     margin-left: auto;
+    font-size: 0.75rem;
   }
   .product-figure figcaption {
-    margin-top: 0.75rem;
-    font-size: 0.8125rem;
+    margin-top: 0.5rem;
+    font-size: 0.6875rem;
     line-height: 1.55;
   }
-  .product-desktop-title { display: none; }
+  .product-desktop-title, .product-desktop-caption { display: none; }
   .product-mobile-title,
-  .product-mobile-note { display: inline; }
+  .product-mobile-caption { display: inline; }
 }

@@ -64,6 +64,21 @@ it('opens the selected capture when several figures share a page', async () => {
   expect(dialog.textContent).toContain(PRODUCT_VIEWS.search.caption);
 });
 
+it('starts fitted to the screen and resets optional zoom when reopened', async () => {
+  await render();
+  const trigger = container.querySelector('button');
+  let dialog = await open(trigger);
+  expect(dialog.dataset.zoomed).toBe('false');
+  const zoom = dialog.querySelector('.product-zoom');
+  act(() => zoom.click());
+  expect(dialog.dataset.zoomed).toBe('true');
+  expect(zoom.getAttribute('aria-pressed')).toBe('true');
+  act(() => dialog.querySelector('.product-close').click());
+  await act(async () => { await tick(); });
+  dialog = await open(trigger);
+  expect(dialog.dataset.zoomed).toBe('false');
+});
+
 it('preserves the caption and meaningful alternative when the preview image fails', async () => {
   await render();
   act(() => container.querySelector('img').dispatchEvent(new Event('error')));
@@ -92,7 +107,7 @@ it.each(['reader', 'search', 'export'])('keeps the %s preview out of the tab ord
   expect(preview.hasAttribute('tabindex')).toBe(false);
   expect(preview.hasAttribute('role')).toBe(false);
   expect(preview.scrollLeft).toBe(0);
-  expect(container.querySelector('figcaption').textContent).toContain('Detail shown.');
+  expect(container.querySelector('figcaption').textContent).toContain(PRODUCT_VIEWS[kind].mobileCaption);
 
   const dialog = await open(container.querySelector('button'));
   const inspect = dialog.querySelector('.product-inspector-scroll');

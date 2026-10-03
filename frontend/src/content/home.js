@@ -48,11 +48,11 @@ export const HEADER = {
 
 export const COVER = {
   masthead: ['Records,', 'records,', 'records.'],
-  eyebrow: "AI for construction claims and disputes",
-  h1: "Transform complex evidence into compelling legal arguments.",
-  h1Lead: "Transform complex evidence into",
-  h1Emphasis: "compelling legal arguments.",
-  subhead: "Find the records that matter, test competing accounts and develop your claim or response with the evidence behind it. VeriCase brings investigation, chronology and AI-assisted drafting into one workspace.",
+  eyebrow: "Construction claims and disputes",
+  h1: "Complex evidence. Compelling arguments.",
+  h1Lead: "Complex evidence.",
+  h1Emphasis: "Compelling arguments.",
+  subhead: "Investigate the record, test competing accounts and develop your claim or response, with the evidence beside you.",
   practitionerProof: "Founded by construction claims and dispute resolution practitioners.",
   audience: "For construction claims and commercial teams, working with solicitors, counsel and experts.",
   fastPath: "Explore how it works",
@@ -180,7 +180,7 @@ export const CLOCK = {
   },
   plate: {
     number: 1,
-    caption: 'Plate 1. A residential frame with its façade under way. Illustrative image (AI-generated). See note B.',
+    caption: 'Plate 1. A residential frame with its façade under way. Illustrative image (computer-generated). See note B.',
     alt: 'Illustrative image: a residential frame under construction, its façade partly clad.',
     drawn: {
       caption:
@@ -194,7 +194,7 @@ export const CLOCK = {
 export const LENS_CHAPTER = {
   numeral: 'II',
   eyebrow: 'Chapter II · The Chronology Lens™',
-  h2: "Find the sequence that gives the evidence meaning.",
+  h2: "Follow the sequence.",
   lead: "An instruction, a revised delivery date and a warning of delay can sit in different mailboxes. Read together, they can change how an event is understood.",
   fail: "Bring project correspondence and documents into VeriCase, follow the chronology and examine the records behind it. Threading, quoted-text handling and relevance controls help you work through the material in context.",
   recover: "Duplicate handling helps reduce repeated material in the working view. Near-duplicate checks cover certain similar messages; exclusions remain part of assessing the record.",
@@ -233,7 +233,7 @@ export const LENS_CHAPTER = {
   ],
   plate: {
     number: 2,
-    caption: 'Plate 2. The record as it is often kept. Illustrative image (AI-generated). See note B.',
+    caption: 'Plate 2. The record as it is often kept. Illustrative image (computer-generated). See note B.',
     alt: 'Illustrative image: an aisle of archive boxes and lever-arch files.',
     drawn: {
       caption:
@@ -253,7 +253,7 @@ export const LENS_CHAPTER = {
 export const RESEARCH = {
   numeral: 'IV',
   eyebrow: 'Chapter IV · Research',
-  h2: "Ask the question the case turns on.",
+  h2: "Ask the question that matters.",
   lead: "What was instructed? When did the delivery date change? Which records support the account you have been given?",
   fail: "Investigate focused questions across the project material and follow the source references behind the findings.",
   recover: "Bring supporting and contradictory evidence into the same analysis, so you can develop the argument with a clearer view of the record.",
@@ -286,9 +286,9 @@ export const RESEARCH = {
 export const CLAIMS = {
   numeral: 'V',
   eyebrow: 'Chapter V · Claims builder and collaboration',
-  h2: "Build the argument with the evidence beside it.",
+  h2: "Develop the argument.",
   lead: "Develop your claim or response around the points you need to establish.",
-  recover: "Bring the narrative, supporting records and AI-assisted drafting into the same workspace, from the structure of the argument to the detail of each section.",
+  recover: "Bring the narrative, supporting records and drafting tools into the same workspace, from the structure of the argument to the detail of each section.",
   collaborationHeading: "Keep the discussion with the evidence.",
   fail: "An important document can generate a long email chain of its own.",
   items: [
@@ -328,14 +328,14 @@ export const CASE_ROOM = {
   numeral: 'III',
   kicker: 'Project time ends. Case time begins.',
   cut: 'Case time',
-  h2: "Put the other side's argument against the evidence.",
+  h2: "Test the opposing account.",
   lead: "Examine an opposing submission, investigate its factual assertions and develop proposed replies with the supporting and contradictory records alongside them.",
   leadGate: 'G5_rebuttalReview',
   fail: "See where the account holds, where it is challenged and what needs further investigation before you respond.",
   recover: "",
   plate: {
     number: 3,
-    caption: 'Plate 3. A meeting room with the bundles, on a wet evening. Illustrative image and video (AI-generated). See note B.',
+    caption: 'Plate 3. A meeting room with the bundles, on a wet evening. Illustrative image and video (computer-generated). See note B.',
     alt: 'Illustrative image: an empty meeting room with bundles on the table on a wet evening.',
   },
   video: { pause: 'Pause background video', play: 'Play background video' },
@@ -355,7 +355,7 @@ export const CASE_ROOM = {
 
 export const INTEGRITY = {
   numeral: 'VI',
-  h2: "Know what the argument rests on.",
+  h2: "Keep the source in sight.",
   lead: "Follow source references back to the underlying documents. Examine the wording, dates and context behind a finding as you develop your position.",
   leadGate: 'G5_sourceReview',
   fail: "",
@@ -364,7 +364,7 @@ export const INTEGRITY = {
     {
       "icon": "CitedReport",
       "title": "Understand the record behind the finding",
-      "text": "Read the underlying document in context, including the wording and qualifications behind an extract or AI-assisted finding."
+      "text": "Read the underlying document in context, including the wording and qualifications behind an extract or finding."
     },
     {
       "icon": "TabbedBundle",
@@ -379,7 +379,7 @@ export const INTEGRITY = {
   ],
   declaration: {
     label: 'Your judgement. Supported by the record.',
-    text: 'AI-assisted findings and drafts require professional review. Your team assesses the evidence, develops the argument and approves the final work.',
+    text: 'Findings and drafts require professional review. Your team assesses the evidence, develops the argument and approves the final work.',
   },
   positioning: {
     h3: 'Work alongside your existing systems.',
@@ -408,11 +408,11 @@ export const IN_BRIEF = {
     },
     {
       "title": "Develop the argument.",
-      "text": "Use AI-assisted drafting to work on the claim or response, with relevant evidence alongside the narrative."
+      "text": "Use drafting tools to work on the claim or response, with relevant evidence alongside the narrative."
     }
   ],
   eyebrow: 'In brief',
-  h2: 'From the project record to the case you need to make.',
+  h2: 'From evidence to argument.',
   sub: "From project records to the work your team needs to prepare: evidence review, chronology, research, claims and responses.",
   ledger: [
     {
@@ -472,7 +472,7 @@ export const IN_BRIEF = {
     },
     {
       "q": "Can VeriCase help draft a claim or response?",
-      "a": "Yes. Use AI-assisted drafting to develop the wording and identify supporting material, with the evidence alongside the argument. Your team revises the work and approves the final document before it is issued."
+      "a": "Yes. Use drafting tools to develop the wording and identify supporting material, with the evidence alongside the argument. Your team revises the work and approves the final document before it is issued."
     },
     {
       "q": "Will the output be accepted by the tribunal?",
@@ -484,16 +484,16 @@ export const IN_BRIEF = {
     },
     {
       "q": "How will you handle our project and client material?",
-      "a": "Demonstrations use sample material. Before introducing your own records, discuss your organisation's requirements for hosting, access, retention and AI processing with us."
+      "a": "Demonstrations use sample material. Before introducing your own records, discuss your organisation's requirements for hosting, access, retention and automated processing with us."
     }
   ],
 };
 
 export const FOUNDER = {
   eyebrow: 'Who is behind it',
-  h2: 'Founded by people who prepare and argue construction claims.',
+  h2: 'Built on experience.',
   body1:
-    "VeriCase brings together construction claims, dispute resolution and software expertise. Its founders' experience of preparing evidence, developing claims and working with experts and counsel informs the product.",
+    "Founded by construction claims and dispute resolution practitioners. Built around the demands of real casework.",
   // Portraits are 440 px greyscale JPEG squares in /public/assets/team, drawn at 220 px.
   people: [
     {
@@ -573,35 +573,35 @@ export const FOUNDER = {
         'National Director of New Business, OT Group',
         'Business Development Director, OfficeTeam',
         'Over 25 years in commercial strategy and go-to-market leadership',
-        'Published on AI adoption, Invent Group (18 August 2026)',
+        'Published on technology adoption, Invent Group (18 August 2026)',
       ],
       list: {
         label: 'Notable products',
         items: [
-          { name: 'VeriCase', detail: 'AI-powered legal dispute and complex casework platform' },
-          { name: 'Bid King', detail: 'AI-assisted bid, tender and proposal response tool' },
+          { name: 'VeriCase', detail: 'Legal dispute and complex casework platform' },
+          { name: 'Bid King', detail: 'Bid, tender and proposal response tool' },
           { name: 'Rocket Healthcare', detail: 'Mobile Rocket; featured in Open Access Government, 2023' },
         ],
       },
     },
     {
       name: 'Sam Whisker',
-      summary: "Sam is a software engineer and AI specialist with experience taking products from early ideas to working systems. A Teesside University graduate and former Chief Technology Officer at Mobile Rocket, he has worked on recruitment and workforce platforms and, since 2024, focused on AI implementation. As Chief Technology Officer, he leads the engineering behind VeriCase, bringing software development and applied AI together around the needs of complex casework.",
-      role: 'Chief Technology Officer · AI Implementation & Product Engineering',
+      summary: "Sam is a software engineer and automation specialist with experience taking products from early ideas to working systems. A Teesside University graduate and former Chief Technology Officer at Mobile Rocket, he has worked on recruitment and workforce platforms and, since 2024, focused on automation. As Chief Technology Officer, he leads the engineering behind VeriCase, bringing software development and automation together around the needs of complex casework.",
+      role: 'Chief Technology Officer · Automation & Product Engineering',
       photo: { src: '/assets/team/sam-whisker.jpg', alt: 'Sam Whisker' },
       bio:
-        'Sam is a software engineer and AI specialist who has spent his entire career writing code that changes how organisations operate. A Teesside University graduate, he began as a senior PHP developer at Stockton-based web development firm Koodoo Creative before becoming Chief Technology Officer of Mobile Rocket, the Newton Aycliffe company whose recruitment and workforce platforms are now used by organisations including Amazon, Waitrose and the NHS. During his time as CTO, Mobile Rocket was shortlisted for Recruitment Technology Innovation of the Year at the Recruiter Awards 2023. Since 2024 he has concentrated on AI implementation, advising businesses in sectors from manufacturing to recruitment on process automation, custom GPT systems and AI-driven workflows. In 2025 he started NE Tech, now Invent Group, with Malcolm Brechin and leads its technology, building AI products including VeriCase, for managing complex legal disputes, and Bid King, for tenders and proposals. Sam’s strength lies in moving ideas from prototype to working, scalable systems that deliver measurable gains in operational efficiency.',
+        'Sam is a software engineer and automation specialist who has spent his entire career writing code that changes how organisations operate. A Teesside University graduate, he began as a senior PHP developer at Stockton-based web development firm Koodoo Creative before becoming Chief Technology Officer of Mobile Rocket, the Newton Aycliffe company whose recruitment and workforce platforms are now used by organisations including Amazon, Waitrose and the NHS. During his time as CTO, Mobile Rocket was shortlisted for Recruitment Technology Innovation of the Year at the Recruiter Awards 2023. Since 2024 he has concentrated on automation, advising businesses in sectors from manufacturing to recruitment on process automation, custom GPT systems and automated workflows. In 2025 he started NE Tech, now Invent Group, with Malcolm Brechin and leads its technology, building software products including VeriCase, for managing complex legal disputes, and Bid King, for tenders and proposals. Sam’s strength lies in moving ideas from prototype to working, scalable systems that deliver measurable gains in operational efficiency.',
       credentials: [
         'CTO, NE Tech, rebranded Invent Group (2025)',
         'Chief Technology Officer, Mobile Rocket, from 2013',
         'Shortlisted, Recruiter Awards 2023 (Mobile Rocket, as CTO)',
-        'Independent AI implementation consultant since 2024',
+        'Independent automation consultant since 2024',
         'Teesside University graduate; developer since 2008',
       ],
       list: {
         label: 'Notable products',
         items: [
-          { name: 'VeriCase', detail: 'AI-native legal dispute product for complex casework' },
+          { name: 'VeriCase', detail: 'Legal dispute product for complex casework' },
           { name: 'Bid King', detail: 'Intelligent information processing for bids and tenders' },
           { name: 'Schools-safe', detail: 'Secure parental communications app for academy schools' },
         ],
@@ -629,7 +629,7 @@ export const FOUNDER = {
 
 export const DEMONSTRATION = {
   eyebrow: 'Next step',
-  h2: "See how the evidence becomes the argument.",
+  h2: "See VeriCase in practice.",
   body: "Explore evidence investigation and case preparation using sample material. Tell us whether your priority is understanding the record, testing an opposing position or developing a claim or response.",
   ownMaterial: "Please use sample material until confidentiality and data arrangements for your organisation have been agreed.",
   ownMaterialGate: 'G5_ownMaterial',
@@ -647,7 +647,7 @@ export const NOTES_SECTION = {
 };
 
 export const FOOTER = {
-  descriptor: 'AI-assisted evidence investigation and case preparation for construction claims and disputes.',
+  descriptor: 'Evidence investigation and case preparation for construction claims and disputes.',
   heads: { contents: 'Contents', company: 'Company', cookies: 'Cookies' },
   company: { about: 'Who is behind it', demo: 'Request a demonstration', signIn: 'Sign in' },
   cookies: { settings: 'Cookie settings', notice: 'Cookie notice' },
@@ -679,7 +679,7 @@ export const NOT_FOUND = {
   home: 'Return to the home page',
   listHeading: 'Contents',
   plate: {
-    caption: 'A gap in the shelf. Illustrative image (AI-generated).',
+    caption: 'A gap in the shelf. Illustrative image (computer-generated).',
     alt: 'Illustrative image: a gap in a shelf of archive boxes.',
     drawn: {
       caption: 'A gap in the shelf. An illustrative drawing of the fictional sample matter.',

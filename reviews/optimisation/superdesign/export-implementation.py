@@ -247,12 +247,12 @@ style.children = [
     .review-mobile-details > summary.mobile-details-toggle {
       display: flex; align-items: center; justify-content: space-between;
       gap: 1rem; width: 100%; min-height: 48px; padding-block: 0.75rem;
-      border-block: 1px solid var(--vc-rule-strong); color: var(--vc-azure-700);
-      font-size: 0.9375rem; font-weight: 500; text-align: left;
+      border-bottom: 1px solid var(--vc-rule); color: var(--vc-ink);
+      font-size: 0.875rem; font-weight: 500; text-align: left;
       cursor: pointer; list-style: none;
     }
     .review-mobile-details > summary.mobile-details-toggle::-webkit-details-marker { display: none; }
-    .review-mobile-details > summary.mobile-details-toggle svg { flex-shrink: 0; }
+    .review-mobile-details > summary.mobile-details-toggle svg { flex-shrink: 0; width: 16px; }
     .review-mobile-details[open] > summary.mobile-details-toggle svg { transform: rotate(180deg); }
     .review-mobile-details[open] > .mobile-details-content { display: block; padding-top: 0.5rem; }
     @supports selector(::details-content) {
