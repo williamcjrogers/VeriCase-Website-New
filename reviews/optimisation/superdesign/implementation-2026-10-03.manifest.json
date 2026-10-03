@@ -1,9 +1,9 @@
 {
-  "createdAt": "2026-10-03T17:05:49.529765+00:00",
+  "createdAt": "2026-10-03T17:49:19.116355+00:00",
   "sourceBuild": "frontend/build/index.html",
-  "sourceBuildSha256": "d3228d460730f415c794706e6acba98e934acca5cde20ef6ab8d675dfd9b7d01",
-  "exportSha256": "f7703753c01fbeb775666b64a2cdaad4c0179dcf6096d85687a075799ec2adb9",
-  "exportBytes": 1662207,
+  "sourceBuildSha256": "0f07c93926a1e6f868cbb63ab5088fcf987742b180ee1b8d0f8018f4f99e89c7",
+  "exportSha256": "aa3c0b4fe7a098652719c808709f6342732ff21ba8009126d3efd49db95de490",
+  "exportBytes": 1671851,
   "embeddedAssets": {
     "fonts/newsreader-roman.woff2": {
       "bytes": 85680,
@@ -93,13 +93,15 @@
   },
   "anchorsWithUniqueIds": 27,
   "disabledButtons": 9,
-  "nativeDisclosures": 10,
+  "nativeDisclosures": 14,
+  "nativeCapabilityDisclosures": 4,
   "boundaries": [
     "Static visual review of the implemented website, not a second design proposal.",
     "Images, portraits, fonts and logos are embedded unchanged from the existing public build.",
     "The application JavaScript, analytics, JSON-LD and asset-preload links were removed.",
     "Enquiry mail links point to the contact section in the canvas; the email address stays visible.",
-    "Native profile and FAQ disclosures remain functional. Other buttons are disabled.",
+    "Native profile, FAQ and capability disclosures remain functional. Other buttons are disabled.",
+    "Capability details start closed on mobile. Browsers supporting ::details-content show them expanded on desktop; other browsers retain a working native summary.",
     "Historical screenshot crops remain defined by the production CSS.",
     "The mobile footer is expanded so static navigation content remains available."
   ]

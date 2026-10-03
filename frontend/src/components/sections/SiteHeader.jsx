@@ -51,7 +51,7 @@ export const SiteHeader = () => {
       <a href="#main" className="skip-link">
         {HEADER.skip}
       </a>
-      <div className="container flex h-14 items-center justify-between gap-2 lg:h-16">
+      <div className="site-header-row container flex h-14 items-center justify-between gap-2 lg:h-16">
         <a
           href={onHome ? '#top' : '/'}
           onClick={onHome ? onSectionClick('top') : undefined}
@@ -109,7 +109,7 @@ export const SiteHeader = () => {
                 className="inline-flex h-11 min-w-[44px] items-center justify-center gap-2 rounded-sm border border-transparent px-2 text-small font-medium text-parchment-300 hover:border-mist/20 hover:text-white sm:border-mist/20 sm:px-3 xl:hidden"
               >
                 <List className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" />
-                <span className="hidden sm:inline">{HEADER.contents}</span>
+                <span className="header-menu-label">{HEADER.contents}</span>
               </button>
             </SheetTrigger>
             <SheetContent

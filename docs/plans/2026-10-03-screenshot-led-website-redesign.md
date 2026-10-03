@@ -222,3 +222,7 @@ Following implementation, the owner accepted the UI and branding and requested s
 The current implementation restores "Transform complex evidence into compelling legal arguments", identifies AI and construction claims, introduces practitioner proof earlier, gives each section a distinct commercial purpose and consolidates repeated professional-review instructions. The revised copy deck and current contract govern; earlier wording in planning records is historical. No generated product screen, new functionality or unsupported performance claim is added.
 
 Verification and release state for this follow-up are recorded in [copy revision acceptance](../../reviews/optimisation/copy-revision-acceptance-2026-10-03.md).
+
+## Phone correction, 03 October 2026
+
+The owner rejected the phone formatting after the copy revision. This correction supersedes native-width nested image scrolling and acceptance based only on overflow. Use the implemented phone type scale, focal detail crops, optional capability disclosures and compact profiles described in the current contract. Preserve the original screenshots and approved wording. Verification and delivery: `reviews/optimisation/phone-repair-2026-10-03.md`.

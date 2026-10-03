@@ -85,3 +85,33 @@ it('keeps a stable focus return target when the enlarged image fails', async () 
   expect(document.activeElement).toBe(trigger);
   expect(trigger.getAttribute('aria-label')).toContain('Read image description');
 });
+
+it.each(['reader', 'search', 'export'])('keeps the %s preview out of the tab order while its wider inspector remains keyboard accessible', async (kind) => {
+  await render(<ProductFigure kind={kind} />);
+  const preview = container.querySelector('.product-preview');
+  expect(preview.hasAttribute('tabindex')).toBe(false);
+  expect(preview.hasAttribute('role')).toBe(false);
+  expect(preview.scrollLeft).toBe(0);
+  expect(container.querySelector('figcaption').textContent).toContain('Detail shown.');
+
+  const dialog = await open(container.querySelector('button'));
+  const inspect = dialog.querySelector('.product-inspector-scroll');
+  expect(inspect.getAttribute('tabindex')).toBe('0');
+  expect(inspect.getAttribute('role')).toBe('region');
+  expect(inspect.scrollLeft).toBe(0);
+  const crop = inspect.querySelector('.product-crop');
+  expect(crop.classList.contains('product-preview-crop')).toBe(false);
+  expect(crop.style.getPropertyValue('--capture-width')).toBe(`${PRODUCT_VIEWS[kind].crop[2]}px`);
+  expect(dialog.querySelector('img').alt).toBe(PRODUCT_VIEWS[kind].alt);
+});
+
+it('keeps every mobile detail within the approved capture, excluding historical navigation and the export footer', () => {
+  for (const view of Object.values(PRODUCT_VIEWS)) {
+    const [x, y, width, height] = view.crop;
+    const [mx, my, mw, mh] = view.mobileCrop;
+    expect(mx).toBeGreaterThanOrEqual(x);
+    expect(my).toBeGreaterThanOrEqual(y);
+    expect(mx + mw).toBeLessThanOrEqual(x + width);
+    expect(my + mh).toBeLessThanOrEqual(y + height);
+  }
+});

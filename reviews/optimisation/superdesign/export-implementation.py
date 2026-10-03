@@ -113,10 +113,11 @@ def text_content(node):
 anchor_count = 0
 buttons = 0
 native_disclosures = 0
+native_capability_disclosures = 0
 
 
 def transform(node):
-    global anchor_count, buttons, native_disclosures
+    global anchor_count, buttons, native_disclosures, native_capability_disclosures
     if not isinstance(node, Element):
         return node
     if node.tag in ("script", "noscript"):
@@ -139,6 +140,17 @@ def transform(node):
         node.attrs["class"] = "fonts-ready"
     if node.tag == "body":
         node.attrs.pop("class", None)
+    if node.tag == "div" and "mobile-details" in node.attrs.get("class", "").split():
+        node.tag = "details"
+        node.attrs["class"] += " review-mobile-details"
+        node.attrs.pop("data-open", None)
+        for child in node.children:
+            if isinstance(child, Element) and child.tag == "button":
+                child.tag = "summary"
+                for attr in ("aria-expanded", "aria-controls", "type"):
+                    child.attrs.pop(attr, None)
+                break
+        native_capability_disclosures += 1
     if node.tag == "img":
         node.attrs["src"] = embed(node.attrs["src"])
         node.attrs.pop("srcset", None)
@@ -230,7 +242,27 @@ assert next(x for x in body.children if isinstance(x, Element)).tag == "div"
 # standard Tailwind CDN script; the export itself does not need that script.
 style = Element("style")
 style.children = [
-    "html{scroll-behavior:smooth}button[disabled]{cursor:default}footer .max-md\\:data-\\[state\\=closed\\]\\:hidden{display:block}footer button[aria-expanded]{display:none}footer h2.hidden{display:block}"
+    "html{scroll-behavior:smooth}button[disabled]{cursor:default}footer .max-md\\:data-\\[state\\=closed\\]\\:hidden{display:block}footer button[aria-expanded]{display:none}footer h2.hidden{display:block}",
+    """
+    .review-mobile-details > summary.mobile-details-toggle {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; width: 100%; min-height: 48px; padding-block: 0.75rem;
+      border-block: 1px solid var(--vc-rule-strong); color: var(--vc-azure-700);
+      font-size: 0.9375rem; font-weight: 500; text-align: left;
+      cursor: pointer; list-style: none;
+    }
+    .review-mobile-details > summary.mobile-details-toggle::-webkit-details-marker { display: none; }
+    .review-mobile-details > summary.mobile-details-toggle svg { flex-shrink: 0; }
+    .review-mobile-details[open] > summary.mobile-details-toggle svg { transform: rotate(180deg); }
+    .review-mobile-details[open] > .mobile-details-content { display: block; padding-top: 0.5rem; }
+    @supports selector(::details-content) {
+      @media (min-width: 768px), print {
+        .review-mobile-details::details-content { content-visibility: visible; display: block; }
+        .review-mobile-details > .mobile-details-content { display: block; padding-top: 0; }
+        .review-mobile-details > summary.mobile-details-toggle { display: none; }
+      }
+    }
+    """,
 ]
 head.children.append(style)
 meta = Element(
@@ -239,7 +271,7 @@ meta = Element(
         ("name", "description"),
         (
             "content",
-            "Static review export of the implemented VeriCase website, 03 October 2026. Native profile and FAQ disclosures work; JavaScript controls are disabled. No analytics or application runtime is included.",
+            "Static review export of the implemented VeriCase website, 03 October 2026. Native profile, FAQ and capability disclosures work; JavaScript controls are disabled. No analytics or application runtime is included.",
         ),
     ],
 )
@@ -258,12 +290,14 @@ manifest = {
     "anchorsWithUniqueIds": anchor_count,
     "disabledButtons": buttons,
     "nativeDisclosures": native_disclosures,
+    "nativeCapabilityDisclosures": native_capability_disclosures,
     "boundaries": [
         "Static visual review of the implemented website, not a second design proposal.",
         "Images, portraits, fonts and logos are embedded unchanged from the existing public build.",
         "The application JavaScript, analytics, JSON-LD and asset-preload links were removed.",
         "Enquiry mail links point to the contact section in the canvas; the email address stays visible.",
-        "Native profile and FAQ disclosures remain functional. Other buttons are disabled.",
+        "Native profile, FAQ and capability disclosures remain functional. Other buttons are disabled.",
+        "Capability details start closed on mobile. Browsers supporting ::details-content show them expanded on desktop; other browsers retain a working native summary.",
         "Historical screenshot crops remain defined by the production CSS.",
         "The mobile footer is expanded so static navigation content remains available.",
     ],

@@ -14,13 +14,15 @@ The copy sells evidence investigation and case preparation through concrete task
 
 The [product reference register](product-reference-register.md) governs the three displayed captures: document reader, file search and illustrative report export. They are genuine historical views with synthetic records. Captions give the capture month and sample status. The export is an output-formatting specimen, not a drafting-editor capture or proof of a completed claim.
 
-Preserve original pixels, terminology and relationships. CSS crops omit historical navigation and the programme-reference footer; the image inspector retains these exclusions. Small screens scroll within a readable capture instead of shrinking the interface. The reader starts at its document pane while its file list remains reachable. No generated application screen, invented progress sequence or video may imply unsupported behaviour.
+Preserve original pixels, terminology and relationships. CSS crops omit historical navigation and the programme-reference footer; the image inspector retains these exclusions. Phone previews show focal details contained within those approved crops, fitted to the page without nested scrolling. View larger opens the wider approved capture with panning. Labels distinguish the phone detail from the wider image. No generated application screen, invented progress sequence or video may imply unsupported behaviour.
 
 The [capability register](website-capability-register.md) records source support and limits. Repository support and a historical capture do not establish current customer availability. No unsupported speed, winning, truth-reconstruction, immutable-storage or automatic legal-outcome claim is permitted.
 
 ## People and useful interactions
 
-All four approved profiles, portraits, credentials, representative experience, contacts and affiliations remain. Each has a 60–90 word introduction and a native full-profile disclosure. FAQ and profile disclosures open for print and restore their prior state afterwards.
+All four approved profiles, portraits, credentials, representative experience, contacts and affiliations remain. Each has a 60–90 word introduction and a native full-profile disclosure. Phones show three summary lines initially; opening the full profile restores the complete introduction and biography. FAQ and profile disclosures open for print and restore their prior state afterwards.
+
+Phone layout uses a 34–42 pixel display scale, approximately 30–34 pixel section headings, 16 pixel body text and 16–20 pixel outer gutters at the default text size. Long capability/process lists have accessible optional disclosures on phones; desktop, print and JavaScript-failure views retain all content. The phone header gives the wordmark and menu adequate space; the demonstration action remains in the opening and menu. Passing overflow checks alone is not visual acceptance. See the [phone repair record](../../reviews/optimisation/phone-repair-2026-10-03.md).
 
 Image inspection uses an accessible dialog with contained keyboard focus, Escape/close and return to the original trigger, including image-load failure. Image descriptions and captions remain useful when images fail. A subtle rule changes colour once; reduced motion disables it and essential content never depends on animation.
 

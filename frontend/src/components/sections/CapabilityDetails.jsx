@@ -1,9 +1,11 @@
 import { CASE_ROOM, INTEGRITY, LENS_CHAPTER, RESEARCH } from '@/content/home';
 import { Gated, isShown } from '@/components/editorial/Gated';
 import { ProductFigure } from './ProductFigure';
+import { MobileDetails } from './MobileDetails';
 
 // Capability detail remains visible. Publication gates still govern each passage.
-export const CapabilityFeatures = ({ items, label }) => (
+export const CapabilityFeatures = ({ items, label, mobileLabel = 'Explore the tools' }) => (
+  <MobileDetails label={mobileLabel}>
   <ul className="capability-features" aria-label={label}>
     {items.filter((item) => isShown(item.gate)).map((item) => (
       <li key={item.title}>
@@ -12,6 +14,7 @@ export const CapabilityFeatures = ({ items, label }) => (
       </li>
     ))}
   </ul>
+  </MobileDetails>
 );
 
 export const RecordExplanation = () => (
@@ -25,7 +28,7 @@ export const RecordExplanation = () => (
         <p className="mt-4 text-body">{LENS_CHAPTER.fail}</p>
         <p className="mt-4 text-body"><Gated id={LENS_CHAPTER.recoverGate}>{LENS_CHAPTER.recover}</Gated></p>
       </div>
-      <CapabilityFeatures items={LENS_CHAPTER.items} label="Ingestion and chronology capabilities" />
+      <CapabilityFeatures items={LENS_CHAPTER.items} label="Ingestion and chronology capabilities" mobileLabel="Explore chronology tools" />
       </div>
       <ProductFigure kind="search" />
     </div>
@@ -43,6 +46,7 @@ export const EvidenceExplanation = () => (
           <p className="mt-4 text-body">{RESEARCH.fail}</p>
           <p className="mt-4 text-body">{RESEARCH.recover}</p>
         </div>
+        <MobileDetails label="Explore the research process">
         <ol className="research-explanation-steps" aria-label="Research process">
           {RESEARCH.steps.map((step) => (
             <li key={step.n}>
@@ -51,6 +55,7 @@ export const EvidenceExplanation = () => (
             </li>
           ))}
         </ol>
+        </MobileDetails>
       </div>
     </section>
     <section id="case-room" aria-labelledby="case-room-title" className="clarity-section capability-explanation rebuttal-section bg-parchment">
@@ -78,7 +83,7 @@ export const IntegrityExplanation = () => (
           {INTEGRITY.fail && <p className="mt-4 text-body">{INTEGRITY.fail}</p>}
           {INTEGRITY.recover && <p className="mt-4 text-body">{INTEGRITY.recover}</p>}
         </div>
-        <CapabilityFeatures items={INTEGRITY.controls} label="Integrity and access controls" />
+        <CapabilityFeatures items={INTEGRITY.controls} label="Integrity and access controls" mobileLabel="Explore source review" />
       </div>
       <div id="notes" role="region" className="workspace-detail capability-positioning" aria-labelledby="notes-title">
         <div>

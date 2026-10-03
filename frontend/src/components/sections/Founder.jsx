@@ -14,8 +14,10 @@ export const Founder = () => (
             <article key={person.name} className="team-member" aria-labelledby={`team-${slug}`}>
               <div className="team-identity">
                 <img className="team-portrait" src={person.photo.src} alt={person.photo.alt} width="220" height="220" loading="lazy" decoding="async" />
-                <h3 id={`team-${slug}`} className="team-name">{person.name}</h3>
-                <p className="team-role">{person.role}</p>
+                <div className="team-heading">
+                  <h3 id={`team-${slug}`} className="team-name">{person.name}</h3>
+                  <p className="team-role">{person.role}</p>
+                </div>
                 {(person.email || person.tel) && (
                   <p className="team-contact">
                     {person.email && <a href={`mailto:${person.email}`}>{person.email}</a>}

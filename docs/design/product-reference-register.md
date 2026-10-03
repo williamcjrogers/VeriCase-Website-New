@@ -15,7 +15,7 @@ They are not confirmed to be the complete screenshot set originally supplied by 
 - Extraction: `git show <revision>:<path>`, copied without rewriting the image bytes.
 - Sanitisation review: the selected captures contain synthetic fixture records or an explicitly illustrative report. No redaction was necessary. No client identifiers, real correspondence, personal account details, credentials or confidential material were visible in the four inspected images.
 - Image edits: **none**. Public copies are byte-for-byte identical to the recovered originals. No generative image operation, UI reconstruction, compositing, text replacement or raster cropping was performed.
-- Presentation: CSS clipping and scaling only. The cropped view must remain the same in the page, enlargement and print. Historical sidebars must not appear through an uncropped enlargement or a public full-image action.
+- Presentation: CSS clipping and scaling only. Desktop, enlargement and print retain the approved crops. Phone previews may show a labelled focal detail wholly contained inside that crop. Historical sidebars must not appear through an uncropped enlargement or a public full-image action.
 - Capture timestamps: exact capture times are not independently recorded here. The dates below are the archival commit dates, corroborated by the QA documents; the export image also visibly carries 12 September 2026.
 
 ## Image inventory and approved purpose
@@ -85,7 +85,9 @@ Coordinates are original-image pixels from the top-left corner: `x`, `y`, `width
 
 Use meaningful alt text describing the displayed relationship. Suggested reader alt: “A selected contract file beside its original page in the document reader; the page is labelled as a synthetic test document.” Suggested search alt: “A retention search shows highlighted matches beside each filename and folder in a synthetic records list.” Suggested export alt: “An illustrative report export with headings, a source link, a separate quotation and an event table.”
 
-Maintain readable crops on mobile. Enlargement should reveal the approved crop at a useful scale with panning where necessary; it should not reveal the retired sidebar or imply controls in the image are interactive. The programme filename in the source list is an input record, not a programme-analysis advertisement; do not describe it as an application feature.
+The phone repair of 03 October 2026 uses these focal preview rectangles: reader `640, 354, 496, 326`; search `756, 258, 304, 284`; export `305, 428, 536, 174`. Each lies wholly inside its approved wider crop. The reader retains its synthetic-document label, search shows highlighted matches, and export shows the source link and quotation. Phone labels and alternatives explain that these are details; the original sample-status captions remain. Preview images fit the page and do not scroll internally.
+
+Enlargement reveals the wider approved crop at a useful scale with panning where necessary; it must not reveal the retired sidebar or imply controls in the image are interactive. The programme filename in the source list is an input record, not a programme-analysis advertisement; do not describe it as an application feature.
 
 ## Verification boundary and remaining work
 

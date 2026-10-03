@@ -13,7 +13,7 @@ export const SharedWorkspace = () => (
         </div>
       </div>
       <div className="claims-explanation">
-        <CapabilityFeatures items={CLAIMS.items.filter((item) => item.title !== 'Discussion on the document')} label="Claims preparation capabilities" />
+        <CapabilityFeatures items={CLAIMS.items.filter((item) => item.title !== 'Discussion on the document')} label="Claims preparation capabilities" mobileLabel="Explore drafting tools" />
       </div>
       <ProductFigure kind="export" />
       <div className="workspace-detail">

@@ -11,3 +11,5 @@ Preserve the genuine wordmark, green and brass palette, complete approved team p
 The page uses three unchanged historical synthetic captures: document reader, file search and illustrative report export. CSS crops exclude historical navigation and the report footer. Enlargement preserves the same permitted view. No private original, generated application interface or simulated automated case result may be substituted.
 
 Work is in the managed screenshot-led-site worktree on `codex/screenshot-led-website`. Independent review and rendered acceptance are recorded in `reviews/optimisation/implementation-acceptance-2026-10-03.md`; 93 tests and the production build pass. Primary-checkout plan edits and `.anchor/session-state.md` belong to the preceding work and remain untouched. Production publication is unverified.
+
+Phone follow-up, 03 October 2026: the owner rejected the initial phone composition. The current mobile repair adds a dedicated type/spacing system, fitted focal image details, optional capability lists, compact expandable profiles and enlarged-text reflow. See `reviews/optimisation/phone-repair-2026-10-03.md` for current acceptance and release state.

@@ -1,12 +1,14 @@
 # Implemented website canvas context
 
-03 October 2026. Current owner-authorised commercial copy on the preserved screenshot-led design. Target `/`, render root `frontend/src/pages/LandingPage.jsx`. The current draft is version 2, a literal export of the production build. Do not restore dormant copy or simulated application tools.
+03 October 2026. Current owner-authorised commercial copy on the preserved screenshot-led design. Target `/`, render root `frontend/src/pages/LandingPage.jsx`. The current draft is version 3, a literal export of the production build. Do not restore dormant copy or simulated application tools.
 
-Keep the genuine green/brass identity, source captures with existing crops and labels, all four approved profiles and six FAQs. The email action is Request a demonstration. Native disclosures work in this static canvas; application-only buttons are disabled. No analytics or application runtime is included. React print behaviour is verified on the website, not this static canvas.
+Keep the genuine green/brass identity, source captures with approved desktop crops and fitted phone detail crops, all four approved profiles and six FAQs. The email action is Request a demonstration. Native profile, FAQ and phone capability disclosures work in this static canvas; application-only buttons are disabled. No analytics or application runtime is included. React print behaviour is verified on the website, not this static canvas.
 
-Source build SHA-256: `d3228d460730f415c794706e6acba98e934acca5cde20ef6ab8d675dfd9b7d01`.
+Source build SHA-256: `0f07c93926a1e6f868cbb63ab5088fcf987742b180ee1b8d0f8018f4f99e89c7`.
 
-Export SHA-256: `f7703753c01fbeb775666b64a2cdaad4c0179dcf6096d85687a075799ec2adb9`.
+Export SHA-256: `aa3c0b4fe7a098652719c808709f6342732ff21ba8009126d3efd49db95de490`.
+
+Phone typography, gutters, image presentation and disclosures follow `docs/design/current-contract.md` and `reviews/optimisation/phone-repair-2026-10-03.md`.
 
 # Website copy deck
 
