@@ -1,6 +1,5 @@
-import { COVER, CTA_MICROCOPY } from '@/content/home';
+import { COVER } from '@/content/home';
 import { DemoCTA } from '@/components/editorial/DemoCTA';
-import { onSectionClick } from '@/lib/navigate';
 import { ProductFigure } from './ProductFigure';
 
 export const Hero = () => (
@@ -9,14 +8,11 @@ export const Hero = () => (
       <p className="section-kicker">{COVER.eyebrow}</p>
       <div className="clarity-hero-grid">
         <div>
-          <h1 id="top-title" tabIndex={-1} className="clarity-title">{COVER.h1Lead} <em>{COVER.h1Emphasis}</em></h1>
-          <p className="hero-audience">{COVER.audience}</p>
+          <h1 id="top-title" tabIndex={-1} className="clarity-title"><span>{COVER.h1Lead}</span> <em>{COVER.h1Emphasis}</em></h1>
         </div>
         <div className="hero-introduction">
           <p className="clarity-lead">{COVER.subhead}</p>
-          <p className="hero-proof">{COVER.practitionerProof}</p>
-          <DemoCTA placement="hero" section="top" className="mt-6" microcopy={CTA_MICROCOPY} />
-          <a href="#platform" onClick={onSectionClick('platform')} className="clarity-link mt-3">{COVER.fastPath} <span aria-hidden="true">↗</span></a>
+          <DemoCTA placement="hero" section="top" className="hero-action mt-6" microcopy="By email. Please use sample material." />
         </div>
       </div>
       <ProductFigure kind="reader" priority />

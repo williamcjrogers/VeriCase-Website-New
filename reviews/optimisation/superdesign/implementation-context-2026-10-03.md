@@ -1,18 +1,22 @@
 # Implemented website canvas context
 
-03 October 2026. Current owner-authorised commercial copy on the preserved screenshot-led design. Target `/`, render root `frontend/src/pages/LandingPage.jsx`. The current draft is version 3, a literal export of the production build. Do not restore dormant copy or simulated application tools.
+03 October 2026. Current owner-authorised concise wording on the preserved screenshot-led design. Target `/`, render root `frontend/src/pages/LandingPage.jsx`. The current draft is version 4, a literal export of the final production build. Older long-opening and technology-category wording is historical and superseded. Do not restore dormant copy or simulated application tools.
 
-Keep the genuine green/brass identity, source captures with approved desktop crops and fitted phone detail crops, all four approved profiles and six FAQs. The email action is Request a demonstration. Native profile, FAQ and phone capability disclosures work in this static canvas; application-only buttons are disabled. No analytics or application runtime is included. React print behaviour is verified on the website, not this static canvas.
+Keep the genuine green/brass identity, unchanged source captures with approved desktop crops and fitted phone previews, all four full profiles and six FAQs. The opening is “Complex evidence. Compelling arguments.” The email action remains Request a demonstration. Phone capability, research and collaboration detail uses five native disclosures in this static canvas, alongside four profiles and six FAQ disclosures. Nine application-only buttons are disabled, including the menu and image inspector; their behaviour is verified on the website. No analytics or application runtime is included.
 
-Source build SHA-256: `0f07c93926a1e6f868cbb63ab5088fcf987742b180ee1b8d0f8018f4f99e89c7`.
+Source build SHA-256: `b1416134aa640d1150f5c2e2bae23f0a9da10fa84934f2a066f2803d14e44807`.
 
-Export SHA-256: `aa3c0b4fe7a098652719c808709f6342732ff21ba8009126d3efd49db95de490`.
+Export SHA-256: `6c7f82a267be9e9552868bbb614e9cd08e4793152be44f33cf6290b3b540c4ee`.
 
-Phone typography, gutters, image presentation and disclosures follow `docs/design/current-contract.md` and `reviews/optimisation/phone-repair-2026-10-03.md`.
+Source CSS: `main.f9095e2a.css`. Source application JavaScript: `main.aa8a0cea.js` (omitted from this export).
+
+The imported version was refetched and matched the local export byte-for-byte. This verifies saved-source fidelity. Separate browser inspection of the byte-identical local export passed at 390 and 1440 pixels wide: no page overflow, five closed mobile capability disclosures, working first open/close, and all five desktop contents visible. The phone opening visually matched the implementation. The remotely hosted preview was not separately inspected. Current phone previews: reader `244, 76, 1196, 620`; search `534, 258, 526, 164`; export `305, 428, 536, 174`. All are contained within their approved desktop crops. The website inspector fits the wider view initially, with optional Zoom in/Fit to screen; that dialog is unavailable in the static canvas.
+
+Current composition, typography, content disclosure and original-image boundaries follow `docs/design/current-contract.md` and `docs/design/product-reference-register.md`. The copy below mirrors active content-module wording and component wiring, including content retained inside disclosures.
 
 # Website copy deck
 
-03 October 2026. Current content-module wording following the owner-authorised commercial copy revision. The approved design, three genuine captures and full profile records are preserved. This deck excludes inactive historical chapters. See the copy effectiveness review for the rationale and the acceptance report for verification limits.
+03 October 2026. Current public wording after the owner requested a shorter opening, concise section headings and evidence/software terminology. This document mirrors the active content modules and component wiring. It supersedes the previous commercial-copy deck; earlier review proposals remain historical. The three genuine captures, full profile records, substantive capability explanations and professional-review boundaries are preserved. Inactive historical chapters are excluded.
 
 ## Navigation and page labels
 
@@ -27,29 +31,19 @@ Existing-user action: Sign in.
 
 ## Opening
 
-AI for construction claims and disputes
+Construction claims and disputes
 
-# Transform complex evidence into compelling legal arguments.
+# Complex evidence. Compelling arguments.
 
-For construction claims and commercial teams, working with solicitors, counsel and experts.
-
-Find the records that matter, test competing accounts and develop your claim or response with the evidence behind it. VeriCase brings investigation, chronology and AI-assisted drafting into one workspace.
-
-Founded by construction claims and dispute resolution practitioners.
+Investigate the record, test competing accounts and develop your claim or response, with the evidence beside you.
 
 Primary action: Request a demonstration
 
-Secondary action: Explore how it works
+Email microcopy: By email. Please use sample material.
 
-Opens an email to enquiries@veri-case.com. Please do not include confidential details of a live matter.
+The email opens a prefilled enquiry. It does not confirm a booking. Audience detail appears with the collaboration explanation; practitioner proof appears in the team introduction.
 
-## The project took years. Your response cannot.
-
-The claim has arrived. The deadline is fixed. The record is spread across mailboxes, attachments and years of correspondence.
-
-Use VeriCase to follow disputed events through the record and prepare a response grounded in the documents.
-
-## From the project record to the case you need to make.
+## From evidence to argument.
 
 ### Understand what happened.
 
@@ -61,13 +55,15 @@ Investigate the records that support a position and those that challenge it, wit
 
 ### Develop the argument.
 
-Use AI-assisted drafting to work on the claim or response, with relevant evidence alongside the narrative.
+Use drafting tools to work on the claim or response, with relevant evidence alongside the narrative.
 
-## Find the sequence that gives the evidence meaning.
-
-An instruction, a revised delivery date and a warning of delay can sit in different mailboxes. Read together, they can change how an event is understood.
+## Follow the sequence.
 
 Bring project correspondence and documents into VeriCase, follow the chronology and examine the records behind it. Threading, quoted-text handling and relevance controls help you work through the material in context.
+
+Phone disclosure: Explore chronology tools
+
+An instruction, a revised delivery date and a warning of delay can sit in different mailboxes. Read together, they can change how an event is understood.
 
 Duplicate handling helps reduce repeated material in the working view. Near-duplicate checks cover certain similar messages; exclusions remain part of assessing the record.
 
@@ -95,11 +91,13 @@ Compare dates and follow the underlying records to distinguish forecasts, instru
 
 Choose supporting records for the next stage of the work, keeping the source selection connected to the issue you are developing.
 
-## Ask the question the case turns on.
-
-What was instructed? When did the delivery date change? Which records support the account you have been given?
+## Ask the question that matters.
 
 Investigate focused questions across the project material and follow the source references behind the findings.
+
+Phone disclosure: Explore the research process
+
+What was instructed? When did the delivery date change? Which records support the account you have been given?
 
 Bring supporting and contradictory evidence into the same analysis, so you can develop the argument with a clearer view of the record.
 
@@ -115,17 +113,19 @@ Follow source references into the underlying messages and documents, bringing th
 
 Select useful records for the work ahead and identify reported gaps. Search results depend on the scope and material examined; they do not establish a complete account of the matter.
 
-## Put the other side's argument against the evidence.
+## Test the opposing account.
 
 Examine an opposing submission, investigate its factual assertions and develop proposed replies with the supporting and contradictory records alongside them.
 
 See where the account holds, where it is challenged and what needs further investigation before you respond.
 
-## Build the argument with the evidence beside it.
+## Develop the argument.
 
 Develop your claim or response around the points you need to establish.
 
-Bring the narrative, supporting records and AI-assisted drafting into the same workspace, from the structure of the argument to the detail of each section.
+Bring the narrative, supporting records and drafting tools into the same workspace, from the structure of the argument to the detail of each section.
+
+Phone disclosure: Explore drafting tools
 
 ### Structure the argument
 
@@ -143,6 +143,8 @@ Investigate the records for the issue you are drafting. Select useful evidence a
 
 Examine the document and its source references before export or sharing, including any qualifications relevant to the submission.
 
+Phone disclosure: Working with your team
+
 ## Keep the discussion with the evidence.
 
 An important document can generate a long email chain of its own.
@@ -153,13 +155,21 @@ Discuss the record with colleagues in the workspace, keeping the conversation co
 
 For construction claims consultants and contractors’ commercial teams, working with solicitors, counsel, quantum and other experts, and in-house legal advisers.
 
-## Know what the argument rests on.
+## The project took years. Your response cannot.
+
+The claim has arrived. The deadline is fixed. The record is spread across mailboxes, attachments and years of correspondence.
+
+Use VeriCase to follow disputed events through the record and prepare a response grounded in the documents.
+
+## Keep the source in sight.
 
 Follow source references back to the underlying documents. Examine the wording, dates and context behind a finding as you develop your position.
 
+Phone disclosure: Explore source review
+
 ### Understand the record behind the finding
 
-Read the underlying document in context, including the wording and qualifications behind an extract or AI-assisted finding.
+Read the underlying document in context, including the wording and qualifications behind an extract or finding.
 
 ### Choose what the next stage needs
 
@@ -175,16 +185,148 @@ Use VeriCase to investigate the project record and develop the case, alongside y
 
 ## Your judgement. Supported by the record.
 
-AI-assisted findings and drafts require professional review. Your team assesses the evidence, develops the argument and approves the final work.
+Findings and drafts require professional review. Your team assesses the evidence, develops the argument and approves the final work.
 
-## Founded by people who prepare and argue construction claims.
+## Built on experience.
 
-VeriCase brings together construction claims, dispute resolution and software expertise. Its founders' experience of preparing evidence, developing claims and working with experts and counsel informs the product.
+Founded by construction claims and dispute resolution practitioners. Built around the demands of real casework.
 
+## William Rogers MCIArb
 
-## Approved team records
+Co-Founder · Claims, Forensic Quantum & Testifying Expert
 
-The complete owner-approved biographies and profile introductions remain unchanged in the source and export.
+William brings more than 15 years of construction claims and disputes experience across infrastructure, water, power, rail and residential projects. A quantity surveying and commercial management specialist and Member of the Chartered Institute of Arbitrators, he acts as a testifying quantum expert. His work spans adjudication, arbitration and TCC litigation. He brings the practical demands of preparing evidence, developing claims and briefing experts and counsel into VeriCase’s product direction.
+
+Disclosure label: Full profile and experience
+
+On phones the introduction and full biography sit inside the disclosure; desktop retains its introduction above the disclosure.
+
+### Full approved biography
+
+A construction claims and disputes specialist with over 15 years across the water, power, rail, infrastructure and residential sectors, qualified in quantity surveying and commercial management and a Member of the Chartered Institute of Arbitrators. He founded his first commercial management consultancy in 2016 and has since built Meritus Group, Orrery Group, Peak Developments and VeriCase, a legal technology platform combining forensic evidence review with a chronology engine built to the SCL Protocol. His portfolio spans adjudication, arbitration and TCC litigation under NEC, JCT, FIDIC and IChemE forms, with live instructions in excess of £100m across residential, regeneration and infrastructure schemes, and prior roles on international arbitrations exceeding $600m. He acts as a testifying quantum expert and leads claims and recovery across a national contractor’s distressed portfolio, preparing each case in house so that experts and counsel are instructed only when it is ready.
+
+### Credentials
+
+- Member of the Chartered Institute of Arbitrators (MCIArb)
+- RICS Level 5 Diploma, Adjudication in the Construction Industry
+- BSc (Hons) Quantity Surveying and Commercial Management
+- Testifying quantum expert
+- NEC, JCT, FIDIC and IChemE dispute specialist
+- Founder, Meritus Group
+- Founder, Orrery Group
+- Founder, Peak Developments
+
+### Representative matters
+
+- Mixed-use residential regeneration scheme, London: Adjudication (JCT D&B 2016), £30m, ongoing
+- Residential development, Wales: Adjudication (JCT D&B 2016), £2.49m counterclaim, 2026
+- Residential tower block refurbishment, Dorset: Adjudication and final account (JCT ICD 2016), £25.3m, 2026
+- Residential development, Yorkshire: Structural design dispute, ongoing
+- Guided busway infrastructure, East of England: TCC litigation, £37m
+- Petrochemical facility explosion, Middle East: Arbitration, $340m
+- Airport design and construction, Middle East: Arbitration, $260m
+- Sewage treatment works, Wiltshire: Adjudication (NEC3), £4m
+
+## Warren Kemp
+
+Co-Founder · Dispute Resolution | Partner, gunnercooke LLP
+
+warren.kemp@gunnercooke.com
+
++44 (0) 7470 332 945
+
+Warren is a construction and engineering disputes solicitor and a partner at gunnercooke LLP. His practice spans adjudication, arbitration, mediation and TCC litigation, advising contractors, developers, consultants and insurers. Previously joint head of construction and engineering at DAC Beachcroft, he brings more than twenty years of legal practice to VeriCase. His contribution centres on the commercial judgement, evidential discipline and clear argument that construction disputes require.
+
+Disclosure label: Full profile and experience
+
+On phones the introduction and full biography sit inside the disclosure; desktop retains its introduction above the disclosure.
+
+### Full approved biography
+
+Warren is a construction and engineering disputes solicitor of more than twenty years’ standing, admitted in 2002, who advises developers, contractors, subcontractors, professional consultants and their insurers across the public and private sectors. He trained and built his practice in Newcastle, first at Watson Burton and then at DAC Beachcroft, which he joined as a partner on 01 November 2013 and where, with James Harrison, he established the firm’s Newcastle construction practice and grew it to more than 25 specialist construction lawyers. He went on to lead DAC Beachcroft’s national construction and engineering team jointly with Mark Roach, a practice of over 50 senior lawyers in the United Kingdom and internationally, until joining gunnercooke LLP in February 2024. His work spans adjudication, arbitration, mediation and Technology and Construction Court litigation, together with the professional indemnity dimension of construction claims and the non-contentious drafting that prevents them. He is ranked in Chambers UK and The Legal 500, which has described him as “simply the best around”, and he writes regularly on construction law, including on CC Construction Limited v Mincione and on the contractual treatment of anaerobic digestion plants. Warren acts, among his various roles, as General Counsel to United Living, a business approaching £1bn turnover with a telecoms division, and previously spent 18 months in house on secondment at the global consultancy WS Atkins. He combines a pragmatic, commercial approach with the tenacity to see a dispute through to decision.
+
+### Credentials
+
+- Dispute Resolution Partner, gunnercooke LLP
+- Former Joint Head of Construction & Engineering, DAC Beachcroft
+- Co-founded DAC Beachcroft’s Newcastle construction practice (2013)
+- General Counsel, United Living Group
+- Admitted as a solicitor, 15 August 2002
+- Ranked, Chambers UK, Construction (North East)
+- Ranked, The Legal 500, Construction
+- Adjudication, arbitration, mediation and TCC litigation
+- Professional indemnity and construction insurance disputes
+- Former In-House Counsel (Secondment), WS Atkins, 18 months
+
+### Reported authorities and commentary
+
+- Van Elle Limited v Keynvor Morlift Limited: [2023] EWHC 3137 (TCC)
+- Celtic Bioenergy Limited v Knowles Limited: [2017] EWHC 472 (TCC)
+- CC Construction Limited v Mincione: [2021] EWHC 2502 (TCC), published commentary
+- Anaerobic digestion plants: contractual risk: Published commentary, DAC Beachcroft Construction Professionals Newsletter
+- The Legal 500, Construction, Newcastle: “Simply the best around”
+- Chambers UK 2021, Construction, North East: Ranked individual, client endorsed
+
+## Malcolm Brechin
+
+Managing Director · Commercial Strategy & Go-to-Market
+
+Malcolm brings more than 25 years of experience in commercial strategy and taking technology products to market. His career includes leadership roles at OfficeTeam, OT Group and Mobile Rocket, working across sectors including healthcare, recruitment and government. As Managing Director, he focuses on understanding customers’ operational needs and translating them into practical products, working with the team to make VeriCase useful and commercially relevant to the organisations adopting it.
+
+Disclosure label: Full profile and experience
+
+On phones the introduction and full biography sit inside the disclosure; desktop retains its introduction above the disclosure.
+
+### Full approved biography
+
+Malcolm is a commercial strategist with more than 25 years’ experience building and scaling technology businesses across finance, retail, healthcare, hospitality and government. His career has centred on taking products to market: as business development director at OfficeTeam he led a national sales team and secured the William Hill distribution outsourcing contract; as National Director of New Business at OT Group he positioned the business on the Crown Commercial Service Tail Spend Solution framework; and as Director of Strategic Development at Mobile Rocket he led the go-to-market for its recruitment and healthcare platforms, now used by Amazon, Waitrose and the NHS, during the period in which the company was shortlisted for Recruitment Technology Innovation of the Year at the Recruiter Awards 2023. In 2025 he established NE Tech in County Durham, rebranded as Invent Group in 2026, which has since released VeriCase, Bid King and Schools-safe. Malcolm’s focus is on identifying real operational challenges and turning them, in partnership with clients, into practical and commercially viable technology.
+
+### Credentials
+
+- CEO, NE Tech, rebranded Invent Group (2025)
+- Director of Strategic Development, Mobile Rocket
+- National Director of New Business, OT Group
+- Business Development Director, OfficeTeam
+- Over 25 years in commercial strategy and go-to-market leadership
+- Published on technology adoption, Invent Group (18 August 2026)
+
+### Notable products
+
+- VeriCase: Legal dispute and complex casework platform
+- Bid King: Bid, tender and proposal response tool
+- Rocket Healthcare: Mobile Rocket; featured in Open Access Government, 2023
+
+## Sam Whisker
+
+Chief Technology Officer · Automation & Product Engineering
+
+Sam is a software engineer and automation specialist with experience taking products from early ideas to working systems. A Teesside University graduate and former Chief Technology Officer at Mobile Rocket, he has worked on recruitment and workforce platforms and, since 2024, focused on automation. As Chief Technology Officer, he leads the engineering behind VeriCase, bringing software development and automation together around the needs of complex casework.
+
+Disclosure label: Full profile and experience
+
+On phones the introduction and full biography sit inside the disclosure; desktop retains its introduction above the disclosure.
+
+### Full approved biography
+
+Sam is a software engineer and automation specialist who has spent his entire career writing code that changes how organisations operate. A Teesside University graduate, he began as a senior PHP developer at Stockton-based web development firm Koodoo Creative before becoming Chief Technology Officer of Mobile Rocket, the Newton Aycliffe company whose recruitment and workforce platforms are now used by organisations including Amazon, Waitrose and the NHS. During his time as CTO, Mobile Rocket was shortlisted for Recruitment Technology Innovation of the Year at the Recruiter Awards 2023. Since 2024 he has concentrated on automation, advising businesses in sectors from manufacturing to recruitment on process automation, custom GPT systems and automated workflows. In 2025 he started NE Tech, now Invent Group, with Malcolm Brechin and leads its technology, building software products including VeriCase, for managing complex legal disputes, and Bid King, for tenders and proposals. Sam’s strength lies in moving ideas from prototype to working, scalable systems that deliver measurable gains in operational efficiency.
+
+### Credentials
+
+- CTO, NE Tech, rebranded Invent Group (2025)
+- Chief Technology Officer, Mobile Rocket, from 2013
+- Shortlisted, Recruiter Awards 2023 (Mobile Rocket, as CTO)
+- Independent automation consultant since 2024
+- Teesside University graduate; developer since 2008
+
+### Notable products
+
+- VeriCase: Legal dispute product for complex casework
+- Bid King: Intelligent information processing for bids and tenders
+- Schools-safe: Secure parental communications app for academy schools
+
+## Professional affiliations
+
+Practitioners from law firms and claims consultancies hold equity in VeriCase Ltd. Their involvement is not an endorsement by the firms they work for.
 
 ## Common questions
 
@@ -198,7 +340,7 @@ Email archives and individual messages, PDFs, Word documents, spreadsheets and i
 
 ### Can VeriCase help draft a claim or response?
 
-Yes. Use AI-assisted drafting to develop the wording and identify supporting material, with the evidence alongside the argument. Your team revises the work and approves the final document before it is issued.
+Yes. Use drafting tools to develop the wording and identify supporting material, with the evidence alongside the argument. Your team revises the work and approves the final document before it is issued.
 
 ### Will the output be accepted by the tribunal?
 
@@ -210,23 +352,47 @@ Discuss records with colleagues in the workspace, keeping the conversation conne
 
 ### How will you handle our project and client material?
 
-Demonstrations use sample material. Before introducing your own records, discuss your organisation's requirements for hosting, access, retention and AI processing with us.
+Demonstrations use sample material. Before introducing your own records, discuss your organisation's requirements for hosting, access, retention and automated processing with us.
 
-## See how the evidence becomes the argument.
+## See VeriCase in practice.
 
 Explore evidence investigation and case preparation using sample material. Tell us whether your priority is understanding the record, testing an opposing position or developing a claim or response.
 
 Please use sample material until confidentiality and data arrangements for your organisation have been agreed.
 
-Request a demonstration
+Primary action: Request a demonstration
 
 Opens an email to enquiries@veri-case.com. Please do not include confidential details of a live matter.
 
 Or write to enquiries@veri-case.com.
 
+Copy control: Copy email address
+
+## Capture labels
+
+Desktop labels retain capture dates. Phone labels are compact; the inspector retains the complete dated caption and the wider approved crop.
+
+### Document reader
+
+Desktop and inspector: Document reader, September 2026. Illustrative records in a captured application view.
+
+Phone: Application capture. Illustrative records.
+
+### File search
+
+Desktop and inspector: File search, September 2026. The highlighted matches and document records are illustrative.
+
+Phone: Application capture. Illustrative search results.
+
+### Report export
+
+Desktop and inspector: Illustrative report export, September 2026. A sample of report formatting, containing no findings about a real dispute.
+
+Phone: Illustrative export. No findings about a real dispute.
+
 ## Footer
 
-AI-assisted evidence investigation and case preparation for construction claims and disputes.
+Evidence investigation and case preparation for construction claims and disputes.
 
 VeriCase Ltd is registered in England and Wales (company number 16562435). Registered office: 85 Great Portland Street, London, England, W1W 7LT.
 

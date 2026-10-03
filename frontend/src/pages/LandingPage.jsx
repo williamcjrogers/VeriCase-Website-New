@@ -55,11 +55,11 @@ export const LandingPage = () => {
       <SiteHeader />
       <main id="main" tabIndex={-1} className="outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azure-500">
         <Hero />
-        <TimeAdvantage />
         <InBrief />
         <RecordExplanation />
         <EvidenceExplanation />
         <SharedWorkspace />
+        <TimeAdvantage />
         <IntegrityExplanation />
         <Founder />
         <Questions />
