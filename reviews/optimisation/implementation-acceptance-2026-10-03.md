@@ -67,3 +67,13 @@ This report does not claim production publication. The implementation is prepare
 - Current customer capability availability and the intended customer application identity still need product-owner confirmation before treating source support as a release claim.
 - Native screen-reader review, native browser zoom and cross-browser/device testing remain additional validation; the checks above are bounded Chromium/browser evidence.
 - Field Core Web Vitals, account-side analytics receipt and actual enquiries/bookings require post-release observations.
+
+## Hosted preview verification
+
+Implementation commit `078df978f28dee6c0b64b4191212cc9540bc544c` is pushed in [draft PR #5](https://github.com/williamcjrogers/VeriCase-Website-New/pull/5). Both Vercel preview checks and GitGuardian passed.
+
+[Functional preview](https://veri-case-website-7l0k1xn4l-quantum-commercial-solutions.vercel.app), GitHub deployment `6829967899`, Vercel project `veri-case-website-new`, was inspected in the authorised browser session. Vercel access protection remains enabled; unauthenticated requests redirect to SSO. No bypass token was created and no access policy was changed.
+
+The rendered headline, real image inspector, Escape/focus return and cookie-page navigation match the implementation. The hosted homepage and cookies route return 200 with the expected canonicals. An unknown route returns a genuine 404 and `noindex`, without a canonical. The hosted CSS and all three displayed PNGs match the local assets byte for byte. Hosted JavaScript is `main.61511e24.js`, differing from the local build hash; source revision is established by the successful deployment record, and the hosted bundle includes the print handlers. See [hosted verification](hosted-verification-2026-10-03.json) and `screenshots/implementation-2026-10-03/hosted-desktop-1440.jpg`.
+
+The second connected project also reports a successful preview, deployment `6829972428`. The primary preview above is the one functionally inspected. Main and production remain at the earlier revision; the PR is draft.

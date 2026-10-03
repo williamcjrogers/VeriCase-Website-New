@@ -1,0 +1,68 @@
+{
+  "source": "078df978f28dee6c0b64b4191212cc9540bc544c",
+  "deployment": 6829967899,
+  "origin": "https://veri-case-website-7l0k1xn4l-quantum-commercial-solutions.vercel.app",
+  "access": "Vercel-authenticated browser. Unauthenticated HTTP redirected to Vercel SSO; no bypass or protection change.",
+  "results": [
+    {
+      "canonical": "https://veri-case.com/",
+      "contentType": "text/html; charset=utf-8",
+      "path": "/",
+      "sha256": "7437317843333643797522bd0b7b245a9036356b787c9e68325f0cf22136bd83",
+      "status": 200,
+      "title": "VeriCase | Construction claims and evidence"
+    },
+    {
+      "canonical": "https://veri-case.com/cookies",
+      "contentType": "text/html; charset=utf-8",
+      "path": "/cookies",
+      "sha256": "3d587044310d98d9ebfa9a7d4254f15be74dd602bfaba3452787698ad93bdb3b",
+      "status": 200,
+      "title": "Cookie notice | VeriCase"
+    },
+    {
+      "contentType": "text/html; charset=utf-8",
+      "path": "/review-missing-route",
+      "robots": "noindex",
+      "sha256": "05f03b55b240393e7c2a75eb0aca8e01cda44c9c390f16bac6060ef41d54d3d9",
+      "status": 404,
+      "title": "Page not found | VeriCase"
+    },
+    {
+      "contentType": "text/css; charset=utf-8",
+      "path": "/static/css/main.3bd319f3.css",
+      "sha256": "5138e25525ae8d46d68851db50861cab2cb30cd8ad17c507bd614d57d3d351d9",
+      "status": 200,
+      "matchesLocal": true
+    },
+    {
+      "contentType": "application/javascript; charset=utf-8",
+      "path": "/static/js/main.61511e24.js",
+      "printHandlers": true,
+      "sha256": "270fba54f2b48714a7004089bbd03adb22ec88f73210b1f7a1def3009d63d939",
+      "status": 200
+    },
+    {
+      "contentType": "image/png",
+      "path": "/images/product/document-reader-qa-2026-09-06.png",
+      "sha256": "65d0eeb34f9226fcf0e327b5504cddec42d381120bae6f56dea4656cd78ccede",
+      "status": 200,
+      "matchesLocal": true
+    },
+    {
+      "contentType": "image/png",
+      "path": "/images/product/files-search-qa-2026-09-05.png",
+      "sha256": "68f57cf492dbd4881836ecc3b18568d2732dab2ea410ec697d12af61b7c0bdf2",
+      "status": 200,
+      "matchesLocal": true
+    },
+    {
+      "contentType": "image/png",
+      "path": "/images/product/report-export-qa-2026-09-12.png",
+      "sha256": "2089de031b425e91ecd6681d97aa485a807f8c83735eff6b29b35a75062eb7c3",
+      "status": 200,
+      "matchesLocal": true
+    }
+  ],
+  "javascriptNote": "Hosted main.61511e24.js differs from local main.3a46e2c6.js. Deployment source SHA is verified via GitHub; compiled CSS and screenshot assets match byte for byte. Hosted code contains both print handlers and its rendered navigation/dialog behaviour was verified."
+}
