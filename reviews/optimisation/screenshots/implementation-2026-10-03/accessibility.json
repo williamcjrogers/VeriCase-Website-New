@@ -1,0 +1,30 @@
+[
+  {
+    "width": 1440,
+    "result": {
+      "result": {
+        "type": "object",
+        "value": {
+          "incomplete": [
+            "color-contrast"
+          ],
+          "passes": 26,
+          "violations": []
+        }
+      }
+    }
+  },
+  {
+    "width": 390,
+    "result": {
+      "result": {
+        "type": "object",
+        "value": {
+          "incomplete": [],
+          "passes": 27,
+          "violations": []
+        }
+      }
+    }
+  }
+]

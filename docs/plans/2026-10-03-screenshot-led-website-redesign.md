@@ -2,7 +2,7 @@
 
 03 October 2026.
 
-**Status: current plan for the next website revision.** Updated in place after reviewing earlier plans, design specifications, audits, research and implementation records. This is a planning deliverable; implementation and acceptance below remain outstanding.
+**Status: implemented for review on `codex/screenshot-led-website`, 03 October 2026.** The consolidated plan remains the governing scope. Implementation, test and browser evidence are recorded in [the acceptance report](../../reviews/optimisation/implementation-acceptance-2026-10-03.md). Production publication, live application availability, field metrics and the five-buyer exercise are not claimed complete.
 
 This document governs the next revision wherever earlier plans conflict. It retains the green and brass identity and takes the strongest compatible ideas from each source. The [source review and reconciliation record](../../reviews/optimisation/plan-synthesis-2026-10-03.md) explains the selections, exclusions and coverage. Source baseline: `1805b2f3d20416e08c3b9360fc4a3fb1adb1ffb0`, including optimisation commit `e58baac`. Public deployment equivalence was not rechecked for this consolidation.
 
@@ -175,7 +175,7 @@ Likely implementation surfaces are LandingPage, section components and clarity.c
 
 Use pnpm through Corepack under the owner's standing instructions, accounting for the existing Yarn package-manager declaration without an incidental dependency migration. Run the existing `lint:copy`, `test:copy`, relevant component/navigation/consent tests and `build` scripts for implementation. Historical counts and design-generation success messages are not new acceptance evidence.
 
-Preserve concurrent working-tree changes. This planning update does not implement or deploy the website. Design-service credits, a new diagram or a particular generation tool are not prerequisites for completing the next revision.
+Preserve concurrent working-tree changes. Implementation is isolated in the managed worktree; the acceptance report distinguishes local implementation, review artefacts and release evidence. Design-service credits, a new diagram or a particular generation tool are not prerequisites for completing the next revision.
 
 ## 9. Acceptance criteria
 

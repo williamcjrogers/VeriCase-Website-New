@@ -1,0 +1,44 @@
+[
+  {
+    "brokenImages": 0,
+    "document": 320,
+    "header": 320,
+    "width": 320
+  },
+  {
+    "brokenImages": 0,
+    "document": 390,
+    "header": 390,
+    "width": 390
+  },
+  {
+    "brokenImages": 0,
+    "document": 480,
+    "header": 480,
+    "width": 480
+  },
+  {
+    "brokenImages": 0,
+    "document": 600,
+    "header": 600,
+    "width": 600
+  },
+  {
+    "brokenImages": 0,
+    "document": 768,
+    "header": 768,
+    "width": 768
+  },
+  {
+    "brokenImages": 0,
+    "document": 1024,
+    "header": 1024,
+    "width": 1024
+  },
+  {
+    "brokenImages": 0,
+    "document": 1440,
+    "header": 1440,
+    "width": 1440
+  }
+]

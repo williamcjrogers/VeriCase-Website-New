@@ -9,35 +9,41 @@ import { cn } from '@/lib/utils';
 // "Copy email address" button (confirmed in a status line beside it) and the confidentiality
 // microcopy. No form submits anything. The compact form is for the header band: the same
 // mailto and copy fallback, with the copy button reduced to an icon and the confirmation
-// announced rather than shown, so the band keeps its height.
+// announced rather than shown. Manual-copy guidance remains visible if copying fails.
 export const DemoCTA = ({ onInk = false, withCopy = false, compact = false, microcopy = CTA_MICROCOPY, className, align = 'start', placement, section }) => {
   const plain = useRef(null);
   const [copied, setCopied] = useState(false);
+  const [copyFailed, setCopyFailed] = useState(false);
+  const copyGuidance = "Copy the email address manually, then paste it into your email app.";
+  useEffect(() => {
+    if (!copyFailed || !plain.current) return;
+    const selection = window.getSelection();
+    if (!selection) return;
+    const range = document.createRange();
+    range.selectNodeContents(plain.current);
+    selection.removeAllRanges();
+    selection.addRange(range);
+  }, [copyFailed]);
   useEffect(() => {
     if (!copied) return undefined;
     const t = setTimeout(() => setCopied(false), 4000);
     return () => clearTimeout(t);
   }, [copied]);
   const copy = async () => {
+    setCopied(false);
+    setCopyFailed(false);
     try {
       await navigator.clipboard.writeText(CONTACT_EMAIL);
       setCopied(true);
       trackDemonstration(placement, section, true);
     } catch {
-      // Clipboard unavailable: select the plain address so it can be copied by hand.
-      const el = plain.current;
-      if (el) {
-        const range = document.createRange();
-        range.selectNodeContents(el);
-        const sel = window.getSelection();
-        sel.removeAllRanges();
-        sel.addRange(range);
-      }
+      setCopyFailed(true);
     }
   };
   if (compact) {
     return (
-      <div className={cn('flex items-center gap-1 sm:gap-2', className)}>
+      <div className={cn('flex flex-col gap-2', className)}>
+        <div className="flex items-center gap-1 sm:gap-2">
         <a href={DEMO_MAILTO} onClick={() => trackDemonstration(placement, section)} className={cn('vc-btn vc-btn-primary max-sm:px-3 max-sm:text-[0.875rem]', onInk && 'vc-btn-on-ink')}>
           {CTA_LABEL}
         </a>
@@ -52,14 +58,17 @@ export const DemoCTA = ({ onInk = false, withCopy = false, compact = false, micr
             <Copy className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
           </button>
         )}
+        </div>
         {withCopy && (
-          <span role="status" className="sr-only">
-            {copied ? DEMONSTRATION.copied : ''}
+          <span role="status" aria-atomic="true" className={copyFailed ? cn('text-caption', onInk ? 'text-mist' : 'text-graphite') : 'sr-only'}>
+            {copyFailed ? copyGuidance : copied ? DEMONSTRATION.copied : ''}
           </span>
         )}
-        <span ref={plain} className="sr-only">
-          {CONTACT_EMAIL}
-        </span>
+        {copyFailed && (
+          <a ref={plain} href={`mailto:${CONTACT_EMAIL}`} className={cn('text-caption underline underline-offset-2 break-all', onInk ? 'text-azure-300' : 'text-azure-700')}>
+            {CONTACT_EMAIL}
+          </a>
+        )}
       </div>
     );
   }
@@ -77,8 +86,8 @@ export const DemoCTA = ({ onInk = false, withCopy = false, compact = false, micr
           </button>
         )}
         {withCopy && (
-          <span role="status" className={cn('text-caption font-medium', onInk ? 'text-azure-300' : 'text-azure-700')}>
-            {copied ? DEMONSTRATION.copied : ''}
+          <span role="status" aria-atomic="true" className={cn('text-caption font-medium', onInk ? 'text-azure-300' : 'text-azure-700')}>
+            {copyFailed ? copyGuidance : copied ? DEMONSTRATION.copied : ''}
           </span>
         )}
       </div>
