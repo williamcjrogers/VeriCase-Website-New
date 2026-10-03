@@ -1,5 +1,7 @@
 # Current website contract
 
+> **03 October 2026, next-revision authority:** follow the [consolidated screenshot-led plan](../plans/2026-10-03-screenshot-led-website-redesign.md). It supersedes this document's frozen opening/time copy, compulsory reading order, permanently expanded biographies and specific simulated filing animation. Retain the green/brass identity, factual roles, screenshot fidelity, useful restrained motion, capability substance and technical safeguards. Product captures retain actual application colours. Roles at other companies must be attributed accurately, not removed by a blanket founder-word ban. The text below records the earlier contract and does not establish current implementation or release acceptance.
+
 Effective 01 October 2026. This contract supersedes older palette, typography, page-order and copy prescriptions in historical design documents. The owner approved a fuller marketing website in forest green and brass. Subsequent feedback explicitly permits useful, easily understood interaction; the earlier static-only rule is superseded. The blue branding, gradients and visual treatment at app.veri-case.com are excluded; that site is a copy reference only. A revised visual proposal is being prepared for review before further implementation.
 
 ## Sources of truth
