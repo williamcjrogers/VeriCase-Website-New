@@ -2,6 +2,8 @@
 
 Updated: 03 October 2026.
 
+Current follow-up: the owner authorised the reviewed commercial copy change. The preferred transformation headline, stronger section benefits, early practitioner proof, FAQs, enquiry text and metadata are now implemented. Current copy: `docs/design/website-copy-2026-10-03.md`. Acceptance: `reviews/optimisation/copy-revision-acceptance-2026-10-03.md`. The record below describes the earlier implementation and remains relevant to preserved functionality.
+
 The owner's instruction to implement the consolidated plan supersedes the previous design-only hold. Canonical plan: `docs/plans/2026-10-03-screenshot-led-website-redesign.md`.
 
 Preserve the genuine wordmark, green and brass palette, complete approved team profiles and established removal scope. The opening and timing copy may change under the consolidated plan. Claims remain bounded by the capability register; captures establish appearance, not deployment or availability.

@@ -9,13 +9,14 @@ export const Hero = () => (
       <p className="section-kicker">{COVER.eyebrow}</p>
       <div className="clarity-hero-grid">
         <div>
-          <h1 id="top-title" tabIndex={-1} className="clarity-title">Build your construction case <em>from the evidence.</em></h1>
+          <h1 id="top-title" tabIndex={-1} className="clarity-title">{COVER.h1Lead} <em>{COVER.h1Emphasis}</em></h1>
           <p className="hero-audience">{COVER.audience}</p>
         </div>
         <div className="hero-introduction">
           <p className="clarity-lead">{COVER.subhead}</p>
+          <p className="hero-proof">{COVER.practitionerProof}</p>
           <DemoCTA placement="hero" section="top" className="mt-6" microcopy={CTA_MICROCOPY} />
-          <a href="#platform" onClick={onSectionClick('platform')} className="clarity-link mt-3">See how VeriCase works <span aria-hidden="true">↗</span></a>
+          <a href="#platform" onClick={onSectionClick('platform')} className="clarity-link mt-3">{COVER.fastPath} <span aria-hidden="true">↗</span></a>
         </div>
       </div>
       <ProductFigure kind="reader" priority />

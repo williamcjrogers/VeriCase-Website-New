@@ -6,7 +6,7 @@ const BODY = [
   'Name:',
   'Organisation:',
   'Role:',
-  'I would like a demonstration of finding project records, inspecting sources and preparing a claim or response.',
+  'I would like to explore how VeriCase supports evidence investigation and case preparation using sample material.',
   'Areas of interest (optional):',
   '',
   'Please do not include confidential details of a live matter.',

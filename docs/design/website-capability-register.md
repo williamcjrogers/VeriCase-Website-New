@@ -28,8 +28,8 @@ Availability default for every retained product concept: described as a practica
 
 | Previous concept | Disposition and published treatment | Evidence, screenshot and verification boundary |
 |---|---|---|
-| Reconstruct truth; winning strategies; forensic-grade AI | Omitted. Opening: “Build your construction case from the evidence.” | Outcome and accuracy guarantees had no supplied substantiation. |
-| Chronology across tens/hundreds of thousands of emails in minutes; competitive gold rush | Omitted. Explain the work needed when a referral arrives or response is due. | No reproducible corpus/task benchmark; E11 benchmark gate stays struck. |
+| Reconstruct truth; winning strategies; forensic-grade AI | Omitted. Reviewed opening: “Transform complex evidence into compelling legal arguments.” Adjacent copy identifies the construction market and investigation, chronology and AI-assisted drafting. | An intended evidence-to-argument benefit, not an accuracy or legal-outcome guarantee. |
+| Chronology across tens/hundreds of thousands of emails in minutes; competitive gold rush | Omitted. Timing headline: “The project took years. Your response cannot.” The body describes a dispute-response scenario. | No reproducible corpus/task benchmark; E11 benchmark gate stays struck. The scenario adds no processing-time promise. |
 | PST, MSG, EML; bodies and attachments | Narrowed to email archives, individual messages and attachments. | E1; exact parsing and archive completeness remain task-dependent. |
 | PDF, DOC/DOCX, spreadsheets and images | Retained as generic document families. | E1, E10 Files references; no universal format/version promise. |
 | OCR for scans | Retained as text recognition that helps search scanned pages. | E1; no extraction accuracy claim. |
@@ -55,7 +55,7 @@ Availability default for every retained product concept: described as a practica
 | Ranked support and contradiction; proposed replies | Retained in practical terms, subject to source review. | E4; ranked evidence is not an exhaustive case assessment. |
 | Mandatory citations, including user edits | Omitted; G5_rebuttalCite struck. | E4 model instructions do not establish edited-response enforcement. |
 | Accept/edit/reject every point with before/after audit | Omitted universal workflow promise. | E4 inspected routes did not substantiate it. Retained inactive fictional data is not mounted as product proof. |
-| Human author responsible for served work | Retained consistently in drafting, rebuttal and FAQ. | Professional review boundary; no capability activation claim. |
+| Human author responsible for served work | Retained in one clear main professional-judgement statement and the relevant FAQ; repeated generic caveats removed from sales sections. | Professional review boundary; no capability activation claim. |
 | Heads and sub-heads of claim | Narrowed to organising work in sections. | E5 structured drafting; exact legacy interface labels not promised. |
 | Narrative automatically cited by message ID | Narrowed to inspecting supporting records and source references. | Sources include documents as well as messages; no automatic support guarantee. |
 | Evidence finder proposes material for a section | Broadened in task terms to investigation and selection for the work. | E3; saved packs and exact download options not promoted without live checks. |

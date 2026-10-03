@@ -2,7 +2,7 @@ import { CASE_ROOM, INTEGRITY, LENS_CHAPTER, RESEARCH } from '@/content/home';
 import { Gated, isShown } from '@/components/editorial/Gated';
 import { ProductFigure } from './ProductFigure';
 
-// Original capability copy remains visible. Publication gates still govern each passage.
+// Capability detail remains visible. Publication gates still govern each passage.
 export const CapabilityFeatures = ({ items, label }) => (
   <ul className="capability-features" aria-label={label}>
     {items.filter((item) => isShown(item.gate)).map((item) => (
@@ -61,8 +61,7 @@ export const EvidenceExplanation = () => (
         </div>
         <div className="rebuttal-explanation">
           <p className="text-body">{CASE_ROOM.fail}</p>
-          <p className="mt-4 text-body">{CASE_ROOM.recover}</p>
-          <p className="rebuttal-review text-body">{CASE_ROOM.standing}</p>
+          {CASE_ROOM.recover && <p className="mt-4 text-body">{CASE_ROOM.recover}</p>}
         </div>
       </div>
     </section>
@@ -76,8 +75,8 @@ export const IntegrityExplanation = () => (
         <div className="capability-introduction">
           <h2 id="integrity-title" tabIndex={-1} className="clarity-heading">{INTEGRITY.h2}</h2>
           <p className="mt-5 text-body"><Gated id={INTEGRITY.leadGate}>{INTEGRITY.lead}</Gated></p>
-          <p className="mt-4 text-body">{INTEGRITY.fail}</p>
-          <p className="mt-4 text-body">{INTEGRITY.recover}</p>
+          {INTEGRITY.fail && <p className="mt-4 text-body">{INTEGRITY.fail}</p>}
+          {INTEGRITY.recover && <p className="mt-4 text-body">{INTEGRITY.recover}</p>}
         </div>
         <CapabilityFeatures items={INTEGRITY.controls} label="Integrity and access controls" />
       </div>

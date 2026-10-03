@@ -1,9 +1,9 @@
 {
-  "createdAt": "2026-10-03T16:01:00.337112+00:00",
+  "createdAt": "2026-10-03T17:05:49.529765+00:00",
   "sourceBuild": "frontend/build/index.html",
-  "sourceBuildSha256": "8f3a82202144788b1153dff12bfc51e88e588d48439507287c38d10b4614a44c",
-  "exportSha256": "99aef21ea1822e3b158508f623d21c5adf53e28873fc2b5802f95fe85d1cb6b8",
-  "exportBytes": 1662842,
+  "sourceBuildSha256": "d3228d460730f415c794706e6acba98e934acca5cde20ef6ab8d675dfd9b7d01",
+  "exportSha256": "f7703753c01fbeb775666b64a2cdaad4c0179dcf6096d85687a075799ec2adb9",
+  "exportBytes": 1662207,
   "embeddedAssets": {
     "fonts/newsreader-roman.woff2": {
       "bytes": 85680,

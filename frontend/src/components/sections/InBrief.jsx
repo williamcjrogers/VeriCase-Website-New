@@ -6,7 +6,7 @@ import { onSectionClick } from '@/lib/navigate';
 export const InBrief = () => (
   <section id="platform" aria-labelledby="platform-title" className="clarity-section bg-paper">
     <div className="container">
-      <h2 id="platform-title" tabIndex={-1} className="clarity-heading">Three jobs, one place.</h2>
+      <h2 id="platform-title" tabIndex={-1} className="clarity-heading">{IN_BRIEF.h2}</h2>
       <div className="clarity-jobs mt-8">
         {IN_BRIEF.jobs.map((job, index) => (
           <article key={job.title} className="capability-group">
@@ -16,7 +16,6 @@ export const InBrief = () => (
           </article>
         ))}
       </div>
-      <p className="mt-8 max-w-measure text-body text-graphite">AI helps find and draft. Your team checks the evidence and approves the work.</p>
     </div>
   </section>
 );

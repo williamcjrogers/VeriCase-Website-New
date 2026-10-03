@@ -1,6 +1,6 @@
 # Website copy deck
 
-03 October 2026. Final content-module wording for the approved screenshot-led revision. The rendered page, screenshot captions and hard-coded section labels must also be checked in the overall acceptance record. This deck deliberately excludes inactive legacy figures, legal timing material and struck benchmarks. The full approved profiles below remain accessible through individual native disclosures.
+03 October 2026. Current content-module wording following the owner-authorised commercial copy revision. The approved design, three genuine captures and full profile records are preserved. This deck excludes inactive historical chapters. See the copy effectiveness review for the rationale and the acceptance report for verification limits.
 
 ## Navigation and page labels
 
@@ -9,55 +9,55 @@
 - About (`#about`)
 - Questions (`#questions`)
 
-The visible label “Preparing the case” retains the legacy `#worked-example` destination. The current section shows claims preparation and an illustrative report export; it does not present a worked factual case.
-
 Menu description: How VeriCase works, preparing a case, the team and common questions.
 
 Existing-user action: Sign in.
 
 ## Opening
 
-Construction claims and disputes
+AI for construction claims and disputes
 
-# Build your construction case from the evidence.
-
-Bring together project correspondence and documents, examine the chronology, and prepare claims and responses with the supporting records alongside your work.
+# Transform complex evidence into compelling legal arguments.
 
 For construction claims and commercial teams, working with solicitors, counsel and experts.
 
+Find the records that matter, test competing accounts and develop your claim or response with the evidence behind it. VeriCase brings investigation, chronology and AI-assisted drafting into one workspace.
+
+Founded by construction claims and dispute resolution practitioners.
+
 Primary action: Request a demonstration
 
-Secondary action: See how VeriCase works
+Secondary action: Explore how it works
 
 Opens an email to enquiries@veri-case.com. Please do not include confidential details of a live matter.
 
-## Spend more time assessing the case.
+## The project took years. Your response cannot.
 
-When a referral arrives or a response is due, the team needs to establish what happened and find the records that support its position.
+The claim has arrived. The deadline is fixed. The record is spread across mailboxes, attachments and years of correspondence.
 
-VeriCase brings evidence review, chronology and drafting into one workspace. Follow the record, investigate the disputed points and develop the work with its sources close at hand.
+Use VeriCase to follow disputed events through the record and prepare a response grounded in the documents.
 
-## Three practical jobs
+## From the project record to the case you need to make.
 
-### Find the record
+### Understand what happened.
 
-Bring together project correspondence and documents. Search and narrow the material around the issue you need to investigate.
+Bring correspondence and documents together and examine the sequence of events around the disputed issue.
 
-### Inspect the source
+### Test the competing accounts.
 
-Read the message or document behind a finding. Check its date, context and what it actually establishes.
+Investigate the records that support a position and those that challenge it, with references back to the sources.
 
-### Use the evidence
+### Develop the argument.
 
-Develop a claim or response with the supporting records alongside the work. Review the wording and sources before sharing it.
+Use AI-assisted drafting to work on the claim or response, with relevant evidence alongside the narrative.
 
-## Put the project record in order.
+## Find the sequence that gives the evidence meaning.
 
-Bring project emails, attachments and documents into a record your team can work through. Examine correspondence in date order and return to the source when a date, instruction or account needs checking.
+An instruction, a revised delivery date and a warning of delay can sit in different mailboxes. Read together, they can change how an event is understood.
 
-A delivery forecast, an instruction and a confirmation can sit in different mailboxes. Reading them together helps the team distinguish what was expected from what the record says happened.
+Bring project correspondence and documents into VeriCase, follow the chronology and examine the records behind it. Threading, quoted-text handling and relevance controls help you work through the material in context.
 
-Threading and quoted-text handling help make correspondence easier to follow. Duplicate handling and relevance controls reduce repeated material in the review view; your team checks the selection.
+Duplicate handling helps reduce repeated material in the working view. Near-duplicate checks cover certain similar messages; exclusions remain part of assessing the record.
 
 ### Bring the records together
 
@@ -67,95 +67,91 @@ Work with email archives and individual messages, their attachments, PDFs, Word 
 
 Read messages in context, with threading and quoted-text handling to help distinguish a new reply from earlier correspondence.
 
-### Review repeated material
+### Reduce repeated material
 
-Duplicate handling can set repeated messages aside. Near-duplicate checks cover certain similar messages; review exclusions when assessing the record.
+Set repeated messages aside in the working view, with scoped near-duplicate checks to help identify certain similar messages.
 
 ### Focus on the matter
 
-Use dates, search terms and relevance controls to narrow the records under review. Check the scope before drawing conclusions from what you find.
+Use dates, search terms and relevance controls to focus the investigation on the issue and the material within scope.
 
 ### Examine the sequence
 
-Use the chronology to compare dates and follow the underlying records. The team assesses what an event establishes and how it affects the claim.
+Compare dates and follow the underlying records to distinguish forecasts, instructions and confirmations within the sequence of events.
 
 ### Select the supporting records
 
-Choose the material needed for the next stage of the work. Review the selected sources and the contents of any download before sharing them.
+Choose supporting records for the next stage of the work, keeping the source selection connected to the issue you are developing.
 
-## Investigate the point. Check the source.
+## Ask the question the case turns on.
 
-Ask a focused question about the project record: what was instructed, when a delivery date changed, or what the parties said about an issue. Use the findings and their source references to decide what needs closer examination.
+What was instructed? When did the delivery date change? Which records support the account you have been given?
 
-A summary is only useful when the team can check the records behind it. Read the underlying message or document before relying on a finding.
+Investigate focused questions across the project material and follow the source references behind the findings.
 
-Collect the material that supports the point, alongside records that qualify or contradict it. Your team decides what the evidence establishes.
+Bring supporting and contradictory evidence into the same analysis, so you can develop the argument with a clearer view of the record.
 
 ### Define the question
 
-Set out the issue and the records you want to examine. Review the proposed scope and refine it before proceeding.
+Set out the issue and the records you want to examine. Refine the proposed scope around the dates, parties and material relevant to the question.
 
-### Read and check
+### Follow the evidence
 
-Examine the findings and follow source references back to the evidence. Check the context, dates and qualifications, as well as the passage cited.
+Follow source references into the underlying messages and documents, bringing their dates, context and qualifications into the analysis.
 
 ### Collect what matters
 
-Select useful records for the work ahead. Review the selection and any reported gaps; a set of search results is not a complete account of the matter.
+Select useful records for the work ahead and identify reported gaps. Search results depend on the scope and material examined; they do not establish a complete account of the matter.
 
-## Test the other side’s account against the record.
+## Put the other side's argument against the evidence.
 
-Examine an opposing submission and the factual points it makes. Rebuttal helps investigate those points and prepare proposed replies with supporting and contradictory records for your team to review.
+Examine an opposing submission, investigate its factual assertions and develop proposed replies with the supporting and contradictory records alongside them.
 
-Under time pressure, a team answers first the points it can evidence quickly, and the rest risk being answered thinly.
+See where the account holds, where it is challenged and what needs further investigation before you respond.
 
-Check the source, the proposed response and any gaps in the evidence before deciding how to answer the point.
+## Build the argument with the evidence beside it.
 
-Drafts are proposals for a qualified person to review. Responsibility for what is served stays with its author.
+Develop your claim or response around the points you need to establish.
 
-## Prepare the claim or response with its evidence.
-
-Develop the narrative around the points your team needs to establish. Organise the work into sections, examine proposed wording and keep the supporting records close to the argument.
-
-The narrative is drafted in one place, the evidence is kept in another, and the argument about the evidence happens in a reply-all thread.
-
-Use the draft as working material: check its sources, resolve gaps and revise the argument before issuing it. Your team remains responsible for the final document.
+Bring the narrative, supporting records and AI-assisted drafting into the same workspace, from the structure of the argument to the detail of each section.
 
 ### Structure the argument
 
 Develop the claim or response in sections, bringing the relevant facts and evidence together for each point.
 
-### Check the supporting material
+### Connect the point to its evidence
 
-Use source references to examine the record behind the wording. Check that each source supports the point being made.
+Use source references to examine the records behind the wording, keeping the argument connected to the material that supports it.
 
 ### Find evidence for the work
 
 Investigate the records for the issue you are drafting. Select useful evidence and examine material that challenges your position.
 
-### Review the output
+### Prepare the document for sharing
 
-Review the document and its source references before exporting or sharing it. Keep professional judgement with the people responsible for the submission.
+Examine the document and its source references before export or sharing, including any qualifications relevant to the submission.
 
-### Discussion on the document
+## Keep the discussion with the evidence.
 
-Discuss a record with colleagues in the workspace, so the conversation stays connected to the material being reviewed.
+An important document can generate a long email chain of its own.
 
-## Keep the source in view.
+Discuss the record with colleagues in the workspace, keeping the conversation connected to the material under examination.
 
-A persuasive argument needs a record the team can examine. Follow source references, review the material selected for an output and check access arrangements before bringing colleagues into the work.
+## Who it is for
 
-A bundle assembled by hand at midnight is where exhibits can go missing, pages can be misnumbered and a citation can point to the wrong document.
+For construction claims consultants and contractors’ commercial teams, working with solicitors, counsel, quantum and other experts, and in-house legal advisers.
 
-Review the contents of a bundle or report before it leaves the team, including the source references and any qualifications.
+## Know what the argument rests on.
 
-### Check the record behind the finding
+Follow source references back to the underlying documents. Examine the wording, dates and context behind a finding as you develop your position.
 
-Read the source in context before relying on an extract or an AI-assisted finding.
+### Understand the record behind the finding
 
-### Review what you share
+Read the underlying document in context, including the wording and qualifications behind an extract or AI-assisted finding.
 
-Check the selected documents and the output itself. A report, an evidence selection and a bundle serve different purposes.
+### Choose what the next stage needs
+
+A report, an evidence selection and a bundle serve different purposes. Examine the selected documents and output for the work you need to take forward.
 
 ### Agree access for the team
 
@@ -163,19 +159,15 @@ Discuss how the workspace will be used by your commercial team, claims consultan
 
 ## Work alongside your existing systems.
 
-VeriCase supports evidence review and case preparation for construction claims and disputes. Use it alongside your document and disclosure systems, with the team deciding what to take forward and how.
+Use VeriCase to investigate the project record and develop the case, alongside your existing document and disclosure systems. Your team decides which material to take forward into each stage of the matter.
 
-## Professional judgement stays with your team
+## Your judgement. Supported by the record.
 
-AI-assisted findings and drafts need professional review. Your team assesses the evidence, the contractual position and the argument; admissibility and weight remain matters for the tribunal.
+AI-assisted findings and drafts require professional review. Your team assesses the evidence, develops the argument and approves the final work.
 
-## Who it is for
+## Founded by people who prepare and argue construction claims.
 
-For construction claims consultants and contractors’ commercial teams, working with solicitors, counsel, quantum and other experts, and in-house legal advisers.
-
-## The people behind VeriCase.
-
-Our team brings together construction claims, legal, commercial and software development experience.
+VeriCase brings together construction claims, dispute resolution and software expertise. Its founders' experience of preparing evidence, developing claims and working with experts and counsel informs the product.
 
 ## William Rogers MCIArb
 
@@ -304,17 +296,17 @@ Practitioners from law firms and claims consultancies hold equity in VeriCase Lt
 
 ## Common questions
 
+### We already have a document system. Where does VeriCase fit?
+
+VeriCase focuses on developing the case from the project record: investigating disputed events, examining the chronology, testing opposing accounts and preparing claims and responses. It works alongside your existing document and disclosure systems.
+
 ### What can we work with?
 
-Email archives and individual messages, PDFs, Word documents, spreadsheets and images. Scanned pages can be read using text recognition. We can discuss your record types and preparation needs during a demonstration.
+Email archives and individual messages, PDFs, Word documents, spreadsheets and images. Text recognition helps make scanned pages searchable. We can discuss your record types and preparation needs during a demonstration.
 
 ### Can VeriCase help draft a claim or response?
 
-Yes. It can help develop wording and identify supporting material. Your team checks the sources, revises the argument and approves the final document before it is issued.
-
-### Does VeriCase replace our disclosure platform?
-
-VeriCase supports evidence review and case preparation alongside your existing systems. Your team decides what material to take into its disclosure or review platform.
+Yes. Use AI-assisted drafting to develop the wording and identify supporting material, with the evidence alongside the argument. Your team revises the work and approves the final document before it is issued.
 
 ### Will the output be accepted by the tribunal?
 
@@ -322,28 +314,28 @@ Admissibility and weight are for the tribunal. Review the underlying records, th
 
 ### How can our team work together?
 
-Discuss records with colleagues in the workspace and involve the advisers needed for the work. During the demonstration, we can discuss the access arrangements for your team.
+Discuss records with colleagues in the workspace, keeping the conversation connected to the evidence. During the demonstration, we can discuss the access arrangements for your team and its advisers.
 
-### What should we check before using client material?
+### How will you handle our project and client material?
 
-Ask us about hosting, access, retention and AI processing during your demonstration. Please use sample material until the arrangements for your organisation have been agreed.
+Demonstrations use sample material. Before introducing your own records, discuss your organisation's requirements for hosting, access, retention and AI processing with us.
 
-## Bring the problem you need to solve.
+## See how the evidence becomes the argument.
 
-Tell us whether you need to organise project correspondence, investigate an issue or prepare a claim or response. We will show how to locate a record, inspect its source and use the evidence in your work, using sample material.
+Explore evidence investigation and case preparation using sample material. Tell us whether your priority is understanding the record, testing an opposing position or developing a claim or response.
 
 Please use sample material until confidentiality and data arrangements for your organisation have been agreed.
 
 Request a demonstration
 
-Opens your email client with the subject line completed. Please do not include confidential details of a live matter.
+Opens an email to enquiries@veri-case.com. Please do not include confidential details of a live matter.
 
 Or write to enquiries@veri-case.com.
 
 ## Footer
 
-Software to organise project records, find supporting evidence and prepare construction claims and responses.
+AI-assisted evidence investigation and case preparation for construction claims and disputes.
 
 VeriCase Ltd is registered in England and Wales (company number 16562435). Registered office: 85 Great Portland Street, London, England, W1W 7LT.
 
-The Chronology Lens™ is a trade mark of VeriCase Ltd. VeriCase is software and does not give legal advice. Illustrations on this site use a fictional matter.
+The Chronology Lens™ is a trade mark of VeriCase Ltd. VeriCase is software and does not give legal advice. Product views use illustrative records and sample content.

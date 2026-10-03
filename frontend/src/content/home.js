@@ -48,11 +48,14 @@ export const HEADER = {
 
 export const COVER = {
   masthead: ['Records,', 'records,', 'records.'],
-  eyebrow: "Construction claims and disputes",
-  h1: "Build your construction case from the evidence.",
-  subhead: "Bring together project correspondence and documents, examine the chronology, and prepare claims and responses with the supporting records alongside your work.",
+  eyebrow: "AI for construction claims and disputes",
+  h1: "Transform complex evidence into compelling legal arguments.",
+  h1Lead: "Transform complex evidence into",
+  h1Emphasis: "compelling legal arguments.",
+  subhead: "Find the records that matter, test competing accounts and develop your claim or response with the evidence behind it. VeriCase brings investigation, chronology and AI-assisted drafting into one workspace.",
+  practitionerProof: "Founded by construction claims and dispute resolution practitioners.",
   audience: "For construction claims and commercial teams, working with solicitors, counsel and experts.",
-  fastPath: "See how VeriCase works",
+  fastPath: "Explore how it works",
   strip: [
     { label: 'Founded by practitioners', text: 'William Rogers MCIArb & Warren Kemp (Partner, gunnercooke): forensic quantum, claims and dispute resolution.' },
     {
@@ -191,10 +194,10 @@ export const CLOCK = {
 export const LENS_CHAPTER = {
   numeral: 'II',
   eyebrow: 'Chapter II · The Chronology Lens™',
-  h2: "Put the project record in order.",
-  lead: "Bring project emails, attachments and documents into a record your team can work through. Examine correspondence in date order and return to the source when a date, instruction or account needs checking.",
-  fail: "A delivery forecast, an instruction and a confirmation can sit in different mailboxes. Reading them together helps the team distinguish what was expected from what the record says happened.",
-  recover: "Threading and quoted-text handling help make correspondence easier to follow. Duplicate handling and relevance controls reduce repeated material in the review view; your team checks the selection.",
+  h2: "Find the sequence that gives the evidence meaning.",
+  lead: "An instruction, a revised delivery date and a warning of delay can sit in different mailboxes. Read together, they can change how an event is understood.",
+  fail: "Bring project correspondence and documents into VeriCase, follow the chronology and examine the records behind it. Threading, quoted-text handling and relevance controls help you work through the material in context.",
+  recover: "Duplicate handling helps reduce repeated material in the working view. Near-duplicate checks cover certain similar messages; exclusions remain part of assessing the record.",
   recoverGate: 'G5_quoted',
   items: [
     {
@@ -209,23 +212,23 @@ export const LENS_CHAPTER = {
     },
     {
       "icon": "NearDuplicate",
-      "title": "Review repeated material",
-      "text": "Duplicate handling can set repeated messages aside. Near-duplicate checks cover certain similar messages; review exclusions when assessing the record."
+      "title": "Reduce repeated material",
+      "text": "Set repeated messages aside in the working view, with scoped near-duplicate checks to help identify certain similar messages."
     },
     {
       "icon": "ExcludedProject",
       "title": "Focus on the matter",
-      "text": "Use dates, search terms and relevance controls to narrow the records under review. Check the scope before drawing conclusions from what you find."
+      "text": "Use dates, search terms and relevance controls to focus the investigation on the issue and the material within scope."
     },
     {
       "icon": "ChronologyLens",
       "title": "Examine the sequence",
-      "text": "Use the chronology to compare dates and follow the underlying records. The team assesses what an event establishes and how it affects the claim."
+      "text": "Compare dates and follow the underlying records to distinguish forecasts, instructions and confirmations within the sequence of events."
     },
     {
       "icon": "TabbedBundle",
       "title": "Select the supporting records",
-      "text": "Choose the material needed for the next stage of the work. Review the selected sources and the contents of any download before sharing them."
+      "text": "Choose supporting records for the next stage of the work, keeping the source selection connected to the issue you are developing."
     }
   ],
   plate: {
@@ -250,25 +253,25 @@ export const LENS_CHAPTER = {
 export const RESEARCH = {
   numeral: 'IV',
   eyebrow: 'Chapter IV · Research',
-  h2: "Investigate the point. Check the source.",
-  lead: "Ask a focused question about the project record: what was instructed, when a delivery date changed, or what the parties said about an issue. Use the findings and their source references to decide what needs closer examination.",
-  fail: "A summary is only useful when the team can check the records behind it. Read the underlying message or document before relying on a finding.",
-  recover: "Collect the material that supports the point, alongside records that qualify or contradict it. Your team decides what the evidence establishes.",
+  h2: "Ask the question the case turns on.",
+  lead: "What was instructed? When did the delivery date change? Which records support the account you have been given?",
+  fail: "Investigate focused questions across the project material and follow the source references behind the findings.",
+  recover: "Bring supporting and contradictory evidence into the same analysis, so you can develop the argument with a clearer view of the record.",
   steps: [
     {
       "n": "1",
       "title": "Define the question",
-      "text": "Set out the issue and the records you want to examine. Review the proposed scope and refine it before proceeding."
+      "text": "Set out the issue and the records you want to examine. Refine the proposed scope around the dates, parties and material relevant to the question."
     },
     {
       "n": "2",
-      "title": "Read and check",
-      "text": "Examine the findings and follow source references back to the evidence. Check the context, dates and qualifications, as well as the passage cited."
+      "title": "Follow the evidence",
+      "text": "Follow source references into the underlying messages and documents, bringing their dates, context and qualifications into the analysis."
     },
     {
       "n": "3",
       "title": "Collect what matters",
-      "text": "Select useful records for the work ahead. Review the selection and any reported gaps; a set of search results is not a complete account of the matter."
+      "text": "Select useful records for the work ahead and identify reported gaps. Search results depend on the scope and material examined; they do not establish a complete account of the matter."
     }
   ],
   fig: {
@@ -283,30 +286,31 @@ export const RESEARCH = {
 export const CLAIMS = {
   numeral: 'V',
   eyebrow: 'Chapter V · Claims builder and collaboration',
-  h2: "Prepare the claim or response with its evidence.",
-  lead: "Develop the narrative around the points your team needs to establish. Organise the work into sections, examine proposed wording and keep the supporting records close to the argument.",
-  fail: 'The narrative is drafted in one place, the evidence is kept in another, and the argument about the evidence happens in a reply-all thread.',
-  recover: "Use the draft as working material: check its sources, resolve gaps and revise the argument before issuing it. Your team remains responsible for the final document.",
+  h2: "Build the argument with the evidence beside it.",
+  lead: "Develop your claim or response around the points you need to establish.",
+  recover: "Bring the narrative, supporting records and AI-assisted drafting into the same workspace, from the structure of the argument to the detail of each section.",
+  collaborationHeading: "Keep the discussion with the evidence.",
+  fail: "An important document can generate a long email chain of its own.",
   items: [
     {
       "title": "Structure the argument",
       "text": "Develop the claim or response in sections, bringing the relevant facts and evidence together for each point."
     },
     {
-      "title": "Check the supporting material",
-      "text": "Use source references to examine the record behind the wording. Check that each source supports the point being made."
+      "title": "Connect the point to its evidence",
+      "text": "Use source references to examine the records behind the wording, keeping the argument connected to the material that supports it."
     },
     {
       "title": "Find evidence for the work",
       "text": "Investigate the records for the issue you are drafting. Select useful evidence and examine material that challenges your position."
     },
     {
-      "title": "Review the output",
-      "text": "Review the document and its source references before exporting or sharing it. Keep professional judgement with the people responsible for the submission."
+      "title": "Prepare the document for sharing",
+      "text": "Examine the document and its source references before export or sharing, including any qualifications relevant to the submission."
     },
     {
       "title": "Discussion on the document",
-      "text": "Discuss a record with colleagues in the workspace, so the conversation stays connected to the material being reviewed."
+      "text": "Discuss the record with colleagues in the workspace, keeping the conversation connected to the material under examination."
     }
   ],
   fig: {
@@ -324,11 +328,11 @@ export const CASE_ROOM = {
   numeral: 'III',
   kicker: 'Project time ends. Case time begins.',
   cut: 'Case time',
-  h2: "Test the other side’s account against the record.",
-  lead: "Examine an opposing submission and the factual points it makes. Rebuttal helps investigate those points and prepare proposed replies with supporting and contradictory records for your team to review.",
+  h2: "Put the other side's argument against the evidence.",
+  lead: "Examine an opposing submission, investigate its factual assertions and develop proposed replies with the supporting and contradictory records alongside them.",
   leadGate: 'G5_rebuttalReview',
-  fail: 'Under time pressure, a team answers first the points it can evidence quickly, and the rest risk being answered thinly.',
-  recover: "Check the source, the proposed response and any gaps in the evidence before deciding how to answer the point.",
+  fail: "See where the account holds, where it is challenged and what needs further investigation before you respond.",
+  recover: "",
   plate: {
     number: 3,
     caption: 'Plate 3. A meeting room with the bundles, on a wet evening. Illustrative image and video (AI-generated). See note B.',
@@ -351,21 +355,21 @@ export const CASE_ROOM = {
 
 export const INTEGRITY = {
   numeral: 'VI',
-  h2: "Keep the source in view.",
-  lead: "A persuasive argument needs a record the team can examine. Follow source references, review the material selected for an output and check access arrangements before bringing colleagues into the work.",
+  h2: "Know what the argument rests on.",
+  lead: "Follow source references back to the underlying documents. Examine the wording, dates and context behind a finding as you develop your position.",
   leadGate: 'G5_sourceReview',
-  fail: 'A bundle assembled by hand at midnight is where exhibits can go missing, pages can be misnumbered and a citation can point to the wrong document.',
-  recover: "Review the contents of a bundle or report before it leaves the team, including the source references and any qualifications.",
+  fail: "",
+  recover: "",
   controls: [
     {
       "icon": "CitedReport",
-      "title": "Check the record behind the finding",
-      "text": "Read the source in context before relying on an extract or an AI-assisted finding."
+      "title": "Understand the record behind the finding",
+      "text": "Read the underlying document in context, including the wording and qualifications behind an extract or AI-assisted finding."
     },
     {
       "icon": "TabbedBundle",
-      "title": "Review what you share",
-      "text": "Check the selected documents and the output itself. A report, an evidence selection and a bundle serve different purposes."
+      "title": "Choose what the next stage needs",
+      "text": "A report, an evidence selection and a bundle serve different purposes. Examine the selected documents and output for the work you need to take forward."
     },
     {
       "icon": "RebuttalPair",
@@ -374,12 +378,12 @@ export const INTEGRITY = {
     }
   ],
   declaration: {
-    label: 'Professional judgement stays with your team',
-    text: 'AI-assisted findings and drafts need professional review. Your team assesses the evidence, the contractual position and the argument; admissibility and weight remain matters for the tribunal.',
+    label: 'Your judgement. Supported by the record.',
+    text: 'AI-assisted findings and drafts require professional review. Your team assesses the evidence, develops the argument and approves the final work.',
   },
   positioning: {
     h3: 'Work alongside your existing systems.',
-    text: 'VeriCase supports evidence review and case preparation for construction claims and disputes. Use it alongside your document and disclosure systems, with the team deciding what to take forward and how.',
+    text: 'Use VeriCase to investigate the project record and develop the case, alongside your existing document and disclosure systems. Your team decides which material to take forward into each stage of the matter.',
     stages: [
       'The project record: mailboxes, archives, site diaries, drawings and reports',
       'VeriCase: evidence, chronology, claims and rebuttal',
@@ -395,20 +399,20 @@ export const INTEGRITY = {
 export const IN_BRIEF = {
   jobs: [
     {
-      "title": "Find the record",
-      "text": "Bring together project correspondence and documents. Search and narrow the material around the issue you need to investigate."
+      "title": "Understand what happened.",
+      "text": "Bring correspondence and documents together and examine the sequence of events around the disputed issue."
     },
     {
-      "title": "Inspect the source",
-      "text": "Read the message or document behind a finding. Check its date, context and what it actually establishes."
+      "title": "Test the competing accounts.",
+      "text": "Investigate the records that support a position and those that challenge it, with references back to the sources."
     },
     {
-      "title": "Use the evidence",
-      "text": "Develop a claim or response with the supporting records alongside the work. Review the wording and sources before sharing it."
+      "title": "Develop the argument.",
+      "text": "Use AI-assisted drafting to work on the claim or response, with relevant evidence alongside the narrative."
     }
   ],
   eyebrow: 'In brief',
-  h2: 'The platform, on one page.',
+  h2: 'From the project record to the case you need to make.',
   sub: "From project records to the work your team needs to prepare: evidence review, chronology, research, claims and responses.",
   ledger: [
     {
@@ -459,16 +463,16 @@ export const IN_BRIEF = {
   questionsLabel: 'Questions',
   questions: [
     {
+      "q": "We already have a document system. Where does VeriCase fit?",
+      "a": "VeriCase focuses on developing the case from the project record: investigating disputed events, examining the chronology, testing opposing accounts and preparing claims and responses. It works alongside your existing document and disclosure systems."
+    },
+    {
       "q": "What can we work with?",
-      "a": "Email archives and individual messages, PDFs, Word documents, spreadsheets and images. Scanned pages can be read using text recognition. We can discuss your record types and preparation needs during a demonstration."
+      "a": "Email archives and individual messages, PDFs, Word documents, spreadsheets and images. Text recognition helps make scanned pages searchable. We can discuss your record types and preparation needs during a demonstration."
     },
     {
       "q": "Can VeriCase help draft a claim or response?",
-      "a": "Yes. It can help develop wording and identify supporting material. Your team checks the sources, revises the argument and approves the final document before it is issued."
-    },
-    {
-      "q": "Does VeriCase replace our disclosure platform?",
-      "a": "VeriCase supports evidence review and case preparation alongside your existing systems. Your team decides what material to take into its disclosure or review platform."
+      "a": "Yes. Use AI-assisted drafting to develop the wording and identify supporting material, with the evidence alongside the argument. Your team revises the work and approves the final document before it is issued."
     },
     {
       "q": "Will the output be accepted by the tribunal?",
@@ -476,20 +480,20 @@ export const IN_BRIEF = {
     },
     {
       "q": "How can our team work together?",
-      "a": "Discuss records with colleagues in the workspace and involve the advisers needed for the work. During the demonstration, we can discuss the access arrangements for your team."
+      "a": "Discuss records with colleagues in the workspace, keeping the conversation connected to the evidence. During the demonstration, we can discuss the access arrangements for your team and its advisers."
     },
     {
-      "q": "What should we check before using client material?",
-      "a": "Ask us about hosting, access, retention and AI processing during your demonstration. Please use sample material until the arrangements for your organisation have been agreed."
+      "q": "How will you handle our project and client material?",
+      "a": "Demonstrations use sample material. Before introducing your own records, discuss your organisation's requirements for hosting, access, retention and AI processing with us."
     }
   ],
 };
 
 export const FOUNDER = {
   eyebrow: 'Who is behind it',
-  h2: 'The people behind VeriCase.',
+  h2: 'Founded by people who prepare and argue construction claims.',
   body1:
-    'Our team brings together construction claims, legal, commercial and software development experience.',
+    "VeriCase brings together construction claims, dispute resolution and software expertise. Its founders' experience of preparing evidence, developing claims and working with experts and counsel informs the product.",
   // Portraits are 440 px greyscale JPEG squares in /public/assets/team, drawn at 220 px.
   people: [
     {
@@ -625,13 +629,13 @@ export const FOUNDER = {
 
 export const DEMONSTRATION = {
   eyebrow: 'Next step',
-  h2: "Bring the problem you need to solve.",
-  body: "Tell us whether you need to organise project correspondence, investigate an issue or prepare a claim or response. We will show how to locate a record, inspect its source and use the evidence in your work, using sample material.",
+  h2: "See how the evidence becomes the argument.",
+  body: "Explore evidence investigation and case preparation using sample material. Tell us whether your priority is understanding the record, testing an opposing position or developing a claim or response.",
   ownMaterial: "Please use sample material until confidentiality and data arrangements for your organisation have been agreed.",
   ownMaterialGate: 'G5_ownMaterial',
   copy: 'Copy email address',
   copied: 'Email address copied.',
-  microcopy: 'Opens your email client with the subject line completed. Please do not include confidential details of a live matter.',
+  microcopy: 'Opens an email to enquiries@veri-case.com. Please do not include confidential details of a live matter.',
   plain: 'Or write to enquiries@veri-case.com.',
 };
 
@@ -643,7 +647,7 @@ export const NOTES_SECTION = {
 };
 
 export const FOOTER = {
-  descriptor: 'Software to organise project records, find supporting evidence and prepare construction claims and responses.',
+  descriptor: 'AI-assisted evidence investigation and case preparation for construction claims and disputes.',
   heads: { contents: 'Contents', company: 'Company', cookies: 'Cookies' },
   company: { about: 'Who is behind it', demo: 'Request a demonstration', signIn: 'Sign in' },
   cookies: { settings: 'Cookie settings', notice: 'Cookie notice' },

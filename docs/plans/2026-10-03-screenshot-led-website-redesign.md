@@ -214,3 +214,11 @@ Preserve concurrent working-tree changes. Implementation is isolated in the mana
 - Inspect final deployed HTML/assets/rendering against the accepted source. Record deployment evidence and outstanding customer validation/operational facts.
 
 The implementation deliverables are the revised website, reference/contact sheet, capability register, final copy/compositions, aligned contracts and dated acceptance record. This updated plan and its source review record are the deliverables of the current planning task.
+
+## Authorised commercial copy revision, 03 October 2026
+
+Following implementation, the owner accepted the UI and branding and requested stronger wording that sells VeriCase as a disruptor. The [copy effectiveness review](../../reviews/optimisation/copy-effectiveness-review-2026-10-03.md) and its proposed direction were independently challenged, then the owner instructed the site to be changed.
+
+The current implementation restores "Transform complex evidence into compelling legal arguments", identifies AI and construction claims, introduces practitioner proof earlier, gives each section a distinct commercial purpose and consolidates repeated professional-review instructions. The revised copy deck and current contract govern; earlier wording in planning records is historical. No generated product screen, new functionality or unsupported performance claim is added.
+
+Verification and release state for this follow-up are recorded in [copy revision acceptance](../../reviews/optimisation/copy-revision-acceptance-2026-10-03.md).

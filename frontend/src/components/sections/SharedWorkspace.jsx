@@ -18,7 +18,7 @@ export const SharedWorkspace = () => (
       <ProductFigure kind="export" />
       <div className="workspace-detail">
         <div>
-          <h3 className="text-[1.625rem] leading-tight">One workspace for the whole team.</h3>
+          <h3 className="text-[1.625rem] leading-tight">{CLAIMS.collaborationHeading}</h3>
           <p className="mt-4 max-w-measure text-body">{CLAIMS.fail}</p>
           <p className="mt-4 max-w-measure text-body">{CLAIMS.items.find((item) => item.title === 'Discussion on the document').text}</p>
         </div>

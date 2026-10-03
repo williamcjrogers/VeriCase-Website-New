@@ -8,11 +8,11 @@ it('keeps page-specific canonicals and leaves unknown routes without a canonical
   expect(metadataForPath('/missing').title).toMatch(/Page not found/);
 });
 
-it('describes the construction audience and reviewed claim/response tasks without outcome promises', () => {
+it('identifies the construction market and AI-assisted case preparation without outcome guarantees', () => {
   const home = metadataForPath('/');
-  expect(home.description).toContain('construction claims and commercial teams');
-  expect(home.description).toContain('inspect sources');
-  expect(home.description).toContain('professional advisers');
+  expect(home.description).toContain('construction claims and disputes');
+  expect(home.description).toContain('AI-assisted investigation');
+  expect(home.description).toContain('chronology and drafting');
   expect(home.description).not.toMatch(/winning|reconstruct truth|guarantee|in minutes/i);
 });
 

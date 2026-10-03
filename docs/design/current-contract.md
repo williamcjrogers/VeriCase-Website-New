@@ -1,12 +1,14 @@
 # Current website design contract
 
-Effective 03 October 2026. The owner authorised implementation of the [consolidated screenshot-led plan](../plans/2026-10-03-screenshot-led-website-redesign.md). This contract supersedes the earlier requirement to preserve the opening/time copy verbatim and the permanently expanded biographies. Earlier design records remain historical evidence.
+Effective 03 October 2026. The owner authorised implementation of the [consolidated screenshot-led plan](../plans/2026-10-03-screenshot-led-website-redesign.md), then instructed the site to adopt the [reviewed commercial copy](../../reviews/optimisation/copy-effectiveness-review-2026-10-03.md). The latest copy direction supersedes the cautious opening and repeated review instructions from the first implementation. Earlier design records remain historical evidence.
 
 ## Identity and composition
 
 Retain the genuine VeriCase wordmark, forest green, paper, parchment and brass, self-hosted Newsreader and IBM Plex. The opening establishes construction claims and commercial teams, followed by a wide captured document reader. That composition preserves more readable product detail than a small screenshot beside the headline. Three practical jobs lead to substantive preparation, chronology, research, rebuttal, drafting, collaboration and source-review explanations.
 
-Opening copy: **Build your construction case from the evidence.** The italic brass phrase is editorial emphasis. Use green for principal headings, dark bronze for small action text on light grounds and pale text only over a verified dark surface. Keep readable prose, distinct section spacing and primary/standalone controls at least 44 pixels high.
+Opening copy: **Transform complex evidence into compelling legal arguments.** The category is AI for construction claims and disputes; the opening retains an explicit claims/commercial audience and practitioner-founded proof. The italic brass phrase is editorial emphasis. Use green for principal headings, dark bronze for small action text on light grounds and pale text only over a verified dark surface. Keep readable prose, distinct section spacing and primary/standalone controls at least 44 pixels high.
+
+The copy sells evidence investigation and case preparation through concrete tasks and benefits. The timing section begins **The project took years. Your response cannot.** Treat it as a recognisable dispute scenario, not a processing benchmark. Explain professional judgement once in the main source-review section and where needed in the FAQ. Preserve specific scope limitations, screenshot labels and confidentiality guidance. The user describes VeriCase as a disruptor; convey the change in working method rather than adding unsupported superiority claims.
 
 ## Product presentation
 

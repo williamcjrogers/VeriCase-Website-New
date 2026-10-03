@@ -1,5 +1,7 @@
 # VeriCase website design system
 
+> **Latest copy direction, 03 October 2026:** the owner authorised the reviewed commercial wording in `docs/design/current-contract.md` and `docs/design/website-copy-2026-10-03.md`. Opening: "Transform complex evidence into compelling legal arguments." Time section: "The project took years. Your response cannot." Keep this stronger sales narrative, early practitioner proof and consolidated professional-review guidance. Preserve the implemented design and genuine captures. These decisions supersede all older copy-preservation language below.
+
 > **03 October 2026:** the [consolidated screenshot-led plan](../docs/plans/2026-10-03-screenshot-led-website-redesign.md) governs the next revision. Its improved wording, reading order, concise profiles with full disclosures, screenshot-first presentation and restrained nonessential motion supersede conflicting instructions below. Keep the existing identity and verified factual content. This document's release/prototype statements are historical, not current acceptance evidence.
 
 01 October 2026. Existing website, not a new product. Baseline: release cf029e297fdf95a14e33cb55f5900e809643fa80. Working visual revision awaiting review.

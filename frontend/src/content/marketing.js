@@ -1,9 +1,9 @@
 // Copy revised under the approved screenshot-led plan, 03 October 2026.
 export const TIME_ADVANTAGE = {
-  title: 'Spend more time assessing the case.',
+  title: 'The project took years. Your response cannot.',
   paragraphs: [
-    'When a referral arrives or a response is due, the team needs to establish what happened and find the records that support its position.',
-    'VeriCase brings evidence review, chronology and drafting into one workspace. Follow the record, investigate the disputed points and develop the work with its sources close at hand.',
+    'The claim has arrived. The deadline is fixed. The record is spread across mailboxes, attachments and years of correspondence.',
+    'Use VeriCase to follow disputed events through the record and prepare a response grounded in the documents.',
   ],
 };
 
