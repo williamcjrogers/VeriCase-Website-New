@@ -44,8 +44,8 @@ export const SiteHeader = () => {
     <>
       <header
         className={cn(
-          'sticky top-0 z-40 border-b bg-[#0B2516]/95 backdrop-blur-[6px] transition-colors duration-200 text-[#FCFAF5]',
-          scrolled ? 'border-[#1A3828] shadow-md' : 'border-transparent'
+          'sticky top-0 z-40 border-b bg-ink/95 backdrop-blur-[6px] transition-colors duration-200 text-paper',
+          scrolled ? 'border-mist/20 shadow-md' : 'border-transparent'
         )}
       >
       <a href="#main" className="skip-link">
@@ -56,10 +56,10 @@ export const SiteHeader = () => {
           href={onHome ? '#top' : '/'}
           onClick={onHome ? onSectionClick('top') : undefined}
           aria-label={HEADER.logoAlt}
-          className="-mx-1 flex h-11 min-w-11 shrink-0 items-center rounded-sm px-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BF9B58]"
+          className="-mx-1 flex h-11 min-w-11 shrink-0 items-center rounded-sm px-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass-400"
         >
           <Logo tone="reversed" decorative className="hidden h-7 w-auto min-[480px]:block sm:h-8" />
-          <LogoMark decorative className="h-7 w-7 min-[480px]:hidden" color="#C4A05A" />
+          <LogoMark decorative className="h-7 w-7 min-[480px]:hidden" color="var(--vc-azure-300)" />
         </a>
 
         <nav aria-label="Sections" className="hidden xl:block">
@@ -72,14 +72,14 @@ export const SiteHeader = () => {
                     href={sectionHref(s.id, onHome)}
                     onClick={onHome ? onSectionClick(s.id) : undefined}
                     aria-current={current ? 'location' : undefined}
-                    className="group relative inline-flex h-11 items-center px-3 text-small font-medium text-[#E8DCC8] hover:text-white"
+                    className="group relative inline-flex h-11 items-center px-3 text-small font-medium text-parchment-300 hover:text-white"
                   >
                     {s.nav}
                     <span
                       aria-hidden="true"
                       className={cn(
-                        'absolute inset-x-3 bottom-1 h-0.5 origin-left bg-[#C4A05A] transition-transform duration-200 ease-settle',
-                        current ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100 group-hover:bg-[#C4A05A]/70'
+                        'absolute inset-x-3 bottom-1 h-0.5 origin-left bg-azure-300 transition-transform duration-200 ease-settle',
+                        current ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100 group-hover:bg-azure-300/70'
                       )}
                     />
                   </a>
@@ -92,13 +92,13 @@ export const SiteHeader = () => {
         <div className="flex items-center gap-1 sm:gap-2">
           <a
             href={SIGN_IN_URL}
-            className="hidden h-11 items-center rounded-sm px-3 text-small font-medium text-[#E8DCC8] underline-offset-4 hover:text-white hover:underline sm:inline-flex"
+            className="hidden h-11 items-center rounded-sm px-3 text-small font-medium text-parchment-300 underline-offset-4 hover:text-white hover:underline sm:inline-flex"
           >
             {HEADER.signIn}
           </a>
           <a
             href={DEMO_MAILTO} onClick={() => trackDemonstration('header', 'top')}
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-sm bg-[#BF9B58] px-4 py-2 text-small font-medium text-[#0B2516] transition-colors hover:bg-[#d4b06a] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BF9B58] max-sm:px-3 max-sm:text-[0.875rem]"
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-sm bg-brass-400 px-4 py-2 text-small font-medium text-ink transition-colors hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass-400 max-sm:px-3 max-sm:text-[0.875rem]"
           >
             {CTA_LABEL}
           </a>
@@ -107,7 +107,7 @@ export const SiteHeader = () => {
               <button
                 type="button"
                 aria-label={HEADER.contents}
-                className="inline-flex h-11 min-w-[44px] items-center justify-center gap-2 rounded-sm border border-transparent px-2 text-small font-medium text-[#E8DCC8] hover:border-[#1A3828] hover:text-white sm:border-[#1A3828] sm:px-3 xl:hidden"
+                className="inline-flex h-11 min-w-[44px] items-center justify-center gap-2 rounded-sm border border-transparent px-2 text-small font-medium text-parchment-300 hover:border-mist/20 hover:text-white sm:border-mist/20 sm:px-3 xl:hidden"
               >
                 <List className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" />
                 <span className="hidden sm:inline">{HEADER.contents}</span>

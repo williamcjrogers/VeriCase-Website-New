@@ -3,7 +3,7 @@ import { Gated } from '@/components/editorial/Gated';
 import { DEMONSTRATION } from '@/content/home';
 
 export const Demonstration = () => (
-  <section id="demonstration" aria-labelledby="demonstration-title" className="clarity-section on-ink bg-[#0B2516]">
+  <section id="demonstration" aria-labelledby="demonstration-title" className="clarity-section on-ink bg-ink">
     <div className="container clarity-narrow">
       <h2 id="demonstration-title" tabIndex={-1} className="clarity-heading">{DEMONSTRATION.h2}</h2>
       <p className="mt-5 max-w-measure text-lead">{DEMONSTRATION.body}</p>
