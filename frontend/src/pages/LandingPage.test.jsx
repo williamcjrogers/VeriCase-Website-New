@@ -42,6 +42,15 @@ it('mounts unique real destinations for navigation and all supported legacy frag
   }
 });
 
+it('gives every region landmark a distinct name', async () => {
+  await render();
+  const name = (el) => (el.getAttribute('aria-label')
+    || (el.getAttribute('aria-labelledby') || '').split(/\s+/).map((id) => document.getElementById(id)?.textContent.trim()).join(' ')).trim();
+  const regions = [...container.querySelectorAll('section[aria-label], section[aria-labelledby], [role="region"]')].map(name);
+  expect(regions.length).toBeGreaterThan(0);
+  expect(regions.filter((n, i) => regions.indexOf(n) !== i)).toEqual([]);
+});
+
 it('follows an initial legacy fragment to its mounted heading', async () => {
   window.history.replaceState(null, '', '/#research');
   await render();

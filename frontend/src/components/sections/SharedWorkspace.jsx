@@ -6,7 +6,8 @@ import { MobileDetails } from './MobileDetails';
 export const SharedWorkspace = () => (
   <section id="worked-example" aria-labelledby="worked-example-title" className="clarity-section shared-workspace bg-parchment">
     <div className="container">
-      <div id="claims" role="region" tabIndex={-1} aria-labelledby="worked-example-title" className="workspace-intro">
+      {/* A group, not a second region: the section is already the "Develop the argument." landmark. */}
+      <div id="claims" role="group" tabIndex={-1} aria-labelledby="worked-example-title" className="workspace-intro">
         <h2 id="worked-example-title" tabIndex={-1} className="clarity-heading">{CLAIMS.h2}</h2>
         <div>
           <p className="text-body max-w-measure">{CLAIMS.lead}</p>
