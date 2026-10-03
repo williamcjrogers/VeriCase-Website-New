@@ -379,10 +379,12 @@ export const FOUNDER = {
   h2: 'The people behind VeriCase.',
   body1:
     'Our team brings together construction claims, legal, commercial and software development experience.',
+  // Portraits are 440 px greyscale JPEG squares in /public/assets/team, drawn at 220 px.
   people: [
     {
       name: 'William Rogers MCIArb',
       role: 'Co-Founder · Claims, Forensic Quantum & Testifying Expert',
+      photo: { src: '/assets/team/william-rogers.jpg', alt: 'William Rogers' },
       bio:
         'A construction claims and disputes specialist with over 15 years across the water, power, rail, infrastructure and residential sectors, qualified in quantity surveying and commercial management and a Member of the Chartered Institute of Arbitrators. He founded his first commercial management consultancy in 2016 and has since built Meritus Group, Orrery Group, Peak Developments and VeriCase, a legal technology platform combining forensic evidence review with a chronology engine built to the SCL Protocol. His portfolio spans adjudication, arbitration and TCC litigation under NEC, JCT, FIDIC and IChemE forms, with live instructions in excess of £100m across residential, regeneration and infrastructure schemes, and prior roles on international arbitrations exceeding $600m. He acts as a testifying quantum expert and leads claims and recovery across a national contractor’s distressed portfolio, preparing each case in house so that experts and counsel are instructed only when it is ready.',
       credentials: [
@@ -395,10 +397,24 @@ export const FOUNDER = {
         'Founder, Orrery Group',
         'Founder, Peak Developments',
       ],
+      list: {
+        label: 'Representative matters',
+        items: [
+          { name: 'Mixed-use residential regeneration scheme, London', detail: 'Adjudication (JCT D&B 2016), £30m, ongoing' },
+          { name: 'Residential development, Wales', detail: 'Adjudication (JCT D&B 2016), £2.49m counterclaim, 2026' },
+          { name: 'Residential tower block refurbishment, Dorset', detail: 'Adjudication and final account (JCT ICD 2016), £25.3m, 2026' },
+          { name: 'Residential development, Yorkshire', detail: 'Structural design dispute, ongoing' },
+          { name: 'Guided busway infrastructure, East of England', detail: 'TCC litigation, £37m' },
+          { name: 'Petrochemical facility explosion, Middle East', detail: 'Arbitration, $340m' },
+          { name: 'Airport design and construction, Middle East', detail: 'Arbitration, $260m' },
+          { name: 'Sewage treatment works, Wiltshire', detail: 'Adjudication (NEC3), £4m' },
+        ],
+      },
     },
     {
       name: 'Warren Kemp',
       role: 'Co-Founder · Dispute Resolution | Partner, gunnercooke LLP',
+      photo: { src: '/assets/team/warren-kemp.jpg', alt: 'Warren Kemp' },
       email: 'warren.kemp@gunnercooke.com',
       tel: '+44 (0) 7470 332 945',
       bio:
@@ -415,15 +431,22 @@ export const FOUNDER = {
         'Professional indemnity and construction insurance disputes',
         'Former In-House Counsel (Secondment), WS Atkins, 18 months',
       ],
-      cases: [
-        { name: 'Van Elle Limited v Keynvor Morlift Limited', cite: '[2023] EWHC 3137 (TCC)' },
-        { name: 'Celtic Bioenergy Limited v Knowles Limited', cite: '[2017] EWHC 472 (TCC)' },
-        { name: 'CC Construction Limited v Mincione', cite: '[2021] EWHC 2502 (TCC)' },
-      ],
+      list: {
+        label: 'Reported authorities and commentary',
+        items: [
+          { name: 'Van Elle Limited v Keynvor Morlift Limited', detail: '[2023] EWHC 3137 (TCC)' },
+          { name: 'Celtic Bioenergy Limited v Knowles Limited', detail: '[2017] EWHC 472 (TCC)' },
+          { name: 'CC Construction Limited v Mincione', detail: '[2021] EWHC 2502 (TCC), published commentary' },
+          { name: 'Anaerobic digestion plants: contractual risk', detail: 'Published commentary, DAC Beachcroft Construction Professionals Newsletter' },
+          { name: 'The Legal 500, Construction, Newcastle', detail: '“Simply the best around”' },
+          { name: 'Chambers UK 2021, Construction, North East', detail: 'Ranked individual, client endorsed' },
+        ],
+      },
     },
     {
       name: 'Malcolm Brechin',
       role: 'Managing Director · Commercial Strategy & Go-to-Market',
+      photo: { src: '/assets/team/malcolm-brechin.jpg', alt: 'Malcolm Brechin' },
       bio:
         'Malcolm is a commercial strategist with more than 25 years’ experience building and scaling technology businesses across finance, retail, healthcare, hospitality and government. His career has centred on taking products to market: as business development director at OfficeTeam he led a national sales team and secured the William Hill distribution outsourcing contract; as National Director of New Business at OT Group he positioned the business on the Crown Commercial Service Tail Spend Solution framework; and as Director of Strategic Development at Mobile Rocket he led the go-to-market for its recruitment and healthcare platforms, now used by Amazon, Waitrose and the NHS, during the period in which the company was shortlisted for Recruitment Technology Innovation of the Year at the Recruiter Awards 2023. In 2025 he established NE Tech in County Durham, rebranded as Invent Group in 2026, which has since released VeriCase, Bid King and Schools-safe. Malcolm’s focus is on identifying real operational challenges and turning them, in partnership with clients, into practical and commercially viable technology.',
       credentials: [
@@ -434,10 +457,19 @@ export const FOUNDER = {
         'Over 25 years in commercial strategy and go-to-market leadership',
         'Published on AI adoption, Invent Group (18 August 2026)',
       ],
+      list: {
+        label: 'Notable products',
+        items: [
+          { name: 'VeriCase', detail: 'AI-powered legal dispute and complex casework platform' },
+          { name: 'Bid King', detail: 'AI-assisted bid, tender and proposal response tool' },
+          { name: 'Rocket Healthcare', detail: 'Mobile Rocket; featured in Open Access Government, 2023' },
+        ],
+      },
     },
     {
       name: 'Sam Whisker',
       role: 'Chief Technology Officer · AI Implementation & Product Engineering',
+      photo: { src: '/assets/team/sam-whisker.jpg', alt: 'Sam Whisker' },
       bio:
         'Sam is a software engineer and AI specialist who has spent his entire career writing code that changes how organisations operate. A Teesside University graduate, he began as a senior PHP developer at Stockton-based web development firm Koodoo Creative before becoming Chief Technology Officer of Mobile Rocket, the Newton Aycliffe company whose recruitment and workforce platforms are now used by organisations including Amazon, Waitrose and the NHS. During his time as CTO, Mobile Rocket was shortlisted for Recruitment Technology Innovation of the Year at the Recruiter Awards 2023. Since 2024 he has concentrated on AI implementation, advising businesses in sectors from manufacturing to recruitment on process automation, custom GPT systems and AI-driven workflows. In 2025 he started NE Tech, now Invent Group, with Malcolm Brechin and leads its technology, building AI products including VeriCase, for managing complex legal disputes, and Bid King, for tenders and proposals. Sam’s strength lies in moving ideas from prototype to working, scalable systems that deliver measurable gains in operational efficiency.',
       credentials: [
@@ -447,6 +479,14 @@ export const FOUNDER = {
         'Independent AI implementation consultant since 2024',
         'Teesside University graduate; developer since 2008',
       ],
+      list: {
+        label: 'Notable products',
+        items: [
+          { name: 'VeriCase', detail: 'AI-native legal dispute product for complex casework' },
+          { name: 'Bid King', detail: 'Intelligent information processing for bids and tenders' },
+          { name: 'Schools-safe', detail: 'Secure parental communications app for academy schools' },
+        ],
+      },
     },
   ],
   body2: 'Practitioners from law firms and claims consultancies hold equity in VeriCase Ltd. Their involvement is not an endorsement by the firms they work for.',

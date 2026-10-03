@@ -1,40 +1,45 @@
-/* Marketing page: readable copy and static source records, without product controls. */
-.clarity-hero { padding: clamp(2.75rem, 6vw, 5.5rem) 0; }
-.clarity-hero-grid { display: grid; gap: 2.75rem; align-items: center; }
-.clarity-title { max-width: 18ch; font-size: clamp(2.625rem, 4.7vw, 4rem); line-height: 1.06; letter-spacing: -0.025em; }
-.clarity-lead { max-width: 36rem; font-size: 1.25rem; line-height: 1.6; }
-.clarity-link { display: inline-flex; min-height: 44px; align-items: center; color: var(--vc-azure-700); font-weight: 500; text-decoration: underline; text-underline-offset: 4px; }
-.clarity-link:hover { color: var(--vc-ink); }
-.clarity-section { padding: clamp(2.75rem, 5vw, 4.5rem) 0; }
-.clarity-heading { max-width: 27ch; font-size: clamp(2rem, 3vw, 2.5rem); line-height: 1.15; }
-.clarity-jobs, .clarity-team { display: grid; gap: 2rem; }
-.clarity-jobs article, .clarity-team article { min-width: 0; }
-.capability-group { border-top: 2px solid var(--vc-brass-400); padding-top: 1.5rem; }
-.capability-detail { margin-top: 1.5rem; }
-.capability-detail h4, .evidence-sources h4 { font-family: inherit; }
-.time-advantage { background: var(--vc-ink); }
-.time-advantage-grid, .workspace-intro, .workspace-detail { display: grid; gap: 2rem; }
-.time-advantage-copy p { max-width: 68ch; }
-.time-advantage-copy p + p { margin-top: 1.25rem; }
-.team-container { border-top: 1px solid var(--vc-rule); padding-top: clamp(2.75rem, 5vw, 4.5rem); }
-#about.clarity-section { padding-top: 0; }
+.clarity-hero { overflow: hidden; padding-top: 3.5rem; padding-bottom: 4.5rem; }
+.clarity-hero-grid { display: grid; gap: 4rem; align-items: center; }
+.clarity-title { font-size: clamp(2.5rem, 4.5vw, 4rem); font-weight: 500; letter-spacing: -0.02em; line-height: 1.05; }
+.clarity-title span { display: block; color: var(--vc-brass-700); }
+.clarity-lead { font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: clamp(1.375rem, 2.2vw, 1.75rem); line-height: 1.35; color: var(--vc-navy); }
+.clarity-section { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+.clarity-heading { font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.1; color: var(--vc-navy); }
+.clarity-heading.on-ink { color: var(--vc-parchment); }
+.clarity-jobs { display: grid; gap: 3rem; }
+.capability-group { padding-bottom: 2rem; border-bottom: 1px solid var(--vc-rule); }
+.clarity-link { display: inline-flex; align-items: center; font-weight: 500; color: var(--vc-azure-700); text-decoration: underline; text-underline-offset: 4px; transition: color 200ms; }
+.clarity-link:hover { color: var(--vc-azure-900); }
+
+/* In-page interactive mock-up styling */
+.clarity-example { border: 1px solid var(--vc-rule); background: var(--vc-paper); padding: clamp(1.5rem, 3vw, 2.75rem); border-top: 3px solid var(--vc-brass-400); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); }
+.clarity-answer { margin-top: 1.5rem; padding-left: 1.25rem; border-left: 3px solid var(--vc-brass-400); }
+.clarity-walkthrough > summary { cursor: pointer; list-style: none; font-weight: 500; font-size: 1.125rem; color: var(--vc-azure-700); }
+.clarity-walkthrough > summary::-webkit-details-marker { display: none; }
+.clarity-walkthrough > summary small { display: block; margin-top: 0.25rem; font-weight: 400; font-size: 0.9375rem; color: var(--vc-graphite); }
+
+/* Team layout */
+.clarity-team { margin-top: 3.5rem; display: grid; gap: 3rem; }
+.team-bio + .team-bio { margin-top: 1rem; }
+.team-credentials { margin-top: 1rem; padding-left: 1.25rem; border-left: 3px solid var(--vc-brass-400); list-style: none; font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-size: 0.875rem; line-height: 1.9; }
+.team-list { margin-top: 1rem; list-style: none; padding: 0; display: grid; gap: 1rem; }
+.team-list-name { display: block; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-style: italic; font-size: 1.3125rem; line-height: 1.25; color: var(--vc-navy); }
+.team-list-detail { display: block; margin-top: 0.2rem; font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-size: 0.8125rem; line-height: 1.5; color: var(--vc-graphite); }
 
 /* Document shapes carry meaning: source records above, the ordered record below. */
 .evidence-figure { min-width: 0; margin: 0; background: var(--vc-paper); padding: clamp(1.5rem, 3vw, 2.75rem); border-top: 3px solid var(--vc-brass-400); }
 .evidence-figure-title { font-size: clamp(1.875rem, 2.6vw, 2.5rem); line-height: 1.12; }
 /* The transformation made visible: each source document lands on the record at its own date. */
-.evidence-flow { list-style: none; padding: 0; margin-top: 2rem; }
-.evidence-flow li { display: grid; grid-template-columns: minmax(0, 1.1fr) 44px minmax(0, 1fr); align-items: stretch; gap: 0.75rem; padding: 0.75rem 0; }
-.evidence-flow-doc { display: flex; gap: 0.875rem; align-items: flex-start; padding: 0.875rem 1rem; border: 1px solid var(--vc-rule); background: var(--vc-parchment); }
-.evidence-flow-doc svg { flex-shrink: 0; margin-top: 0.125rem; color: var(--vc-azure-700); }
-.evidence-flow-doc-name { font-size: 0.9375rem; font-weight: 500; line-height: 1.35; }
-.evidence-flow-doc-excerpt { margin-top: 0.25rem; font-size: 0.875rem; line-height: 1.45; color: var(--vc-graphite); }
-.evidence-flow-arrow { align-self: center; justify-self: center; color: var(--vc-brass-700); }
-.evidence-flow-entry { position: relative; display: flex; flex-direction: column; justify-content: center; padding-left: 1.25rem; border-left: 1px solid var(--vc-rule); }
-.evidence-flow-entry time { position: relative; font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-variant-numeric: tabular-nums slashed-zero; font-size: 0.8125rem; line-height: 1.4; color: var(--vc-azure-700); }
-.evidence-flow-entry time::before { content: ''; position: absolute; left: calc(-1.25rem - 4px); top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background: var(--vc-brass-400); }
-.evidence-flow-entry p { margin-top: 0.125rem; font-size: 1rem; font-weight: 500; line-height: 1.4; }
-.evidence-flow-entry span { display: block; margin-top: 0.25rem; font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-variant-numeric: tabular-nums slashed-zero; font-size: 0.8125rem; color: var(--vc-graphite); }
+.evidence-documents { display: flex; gap: 1.5rem; margin-top: 2rem; justify-content: center; }
+.evidence-document { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; width: 100px; padding: 1rem 0.5rem; border: 1px solid var(--vc-rule); background: var(--vc-paper); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+.evidence-document svg { color: var(--vc-azure-700); }
+.evidence-document p { font-size: 0.75rem; font-weight: 500; text-align: center; }
+.evidence-order-label { text-align: center; margin-top: 2.5rem; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-style: italic; color: var(--vc-graphite); }
+.evidence-chronology { list-style: none; padding: 0; margin-top: 1rem; border-left: 2px solid var(--vc-rule); }
+.evidence-chronology li { display: flex; gap: 1.25rem; padding: 1rem 0 1rem 1.25rem; }
+.evidence-chronology time { flex-shrink: 0; width: 85px; font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-variant-numeric: tabular-nums slashed-zero; font-size: 0.8125rem; color: var(--vc-azure-700); }
+.evidence-chronology p { font-weight: 500; font-size: 0.9375rem; line-height: 1.4; }
+.evidence-chronology span { display: block; margin-top: 0.25rem; font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-variant-numeric: tabular-nums slashed-zero; font-size: 0.8125rem; color: var(--vc-graphite); }
 .evidence-figure figcaption { margin-top: 1.5rem; font-size: 0.9375rem; line-height: 1.5; color: var(--vc-graphite); max-width: 68ch; }
 .argument-illustration { display: grid; gap: 2rem; margin: 2.5rem 0; }
 .evidence-argument-text { font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: clamp(1.375rem, 2.2vw, 1.75rem); line-height: 1.45; margin: 1.5rem 0; max-width: 40ch; }
@@ -43,24 +48,65 @@
 .evidence-source footer { margin-top: 0.5rem; font-size: 0.9375rem; line-height: 1.5; color: var(--vc-azure-700); }
 .evidence-source footer span { display: block; }
 .argument-illustration figcaption { margin: 0; padding-top: 1.25rem; border-top: 1px solid var(--vc-rule); }
+/* Motion is procedure, plays once and ends still. Every frame is readable.
+   Chronology (on load, once fonts are ready, like the masthead): the three documents square up,
+   then each is filed into the record in date order, the card and its row lit together. */
+.evidence-document, .evidence-chronology li { position: relative; }
+.evidence-document:nth-child(1) { transform: translate(-4px, 8px) rotate(-1.5deg); }
+.evidence-document:nth-child(2) { transform: translate(3px, -5px) rotate(1.2deg); }
+.evidence-document:nth-child(3) { transform: translate(-2px, 6px) rotate(-0.8deg); }
+.fonts-ready .evidence-document {
+  animation:
+    word-settle 280ms var(--ease-settle) calc(150ms + var(--i) * 160ms) forwards,
+    evidence-file 760ms var(--ease-settle) calc(820ms + var(--i) * 420ms);
+}
+.evidence-chronology li::before {
+  content: '';
+  position: absolute;
+  inset: 0.75rem auto 0.75rem -0.75rem;
+  width: 3px;
+  background: var(--vc-brass-400);
+  transform: scaleY(0);
+  transform-origin: top;
+}
+.fonts-ready .evidence-chronology li { animation: evidence-row 760ms var(--ease-settle) calc(820ms + var(--i) * 420ms); }
+.fonts-ready .evidence-chronology li::before { animation: evidence-mark 760ms var(--ease-settle) calc(820ms + var(--i) * 420ms); }
+@keyframes evidence-file { 0%, 55% { background-color: var(--vc-parchment-300); border-color: var(--vc-brass-400); } }
+@keyframes evidence-row { 0%, 55% { background-color: var(--vc-parchment-300); } }
+@keyframes evidence-mark { 0% { transform: scaleY(0); } 30%, 70% { transform: scaleY(1); } 100% { transform: scaleY(0); } }
+
+/* Argument (once in view): each citation draws a brass underline as its record comes forward. */
+.evidence-cite {
+  background: linear-gradient(var(--vc-brass-400), var(--vc-brass-400)) left bottom / 100% 2px no-repeat;
+  padding-bottom: 1px;
+  transition: background-size 400ms var(--ease-settle) calc(200ms + var(--i) * 300ms);
+}
+.evidence-source { transition: opacity 400ms var(--ease-settle) calc(200ms + var(--i) * 300ms), transform 400ms var(--ease-settle) calc(200ms + var(--i) * 300ms); }
+.js .argument-illustration:not(.is-in) .evidence-cite { background-size: 0 2px; }
+.js .argument-illustration:not(.is-in) .evidence-source { opacity: 0; transform: translateY(12px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .evidence-document { transform: none !important; animation: none !important; }
+  .evidence-chronology li, .evidence-chronology li::before { animation: none !important; }
+  .js .argument-illustration:not(.is-in) .evidence-cite { background-size: 100% 2px; }
+  .js .argument-illustration:not(.is-in) .evidence-source { opacity: 1; transform: none; }
+}
+
 .clarity-question { border-bottom: 1px solid var(--vc-rule); }
 .clarity-question:first-child { border-top: 1px solid var(--vc-rule); }
 .clarity-question > summary, .clarity-bio > summary { cursor: pointer; min-height: 48px; padding: 0.75rem 0; font-weight: 500; }
 .clarity-question > summary { font-size: 1.125rem; }
 .clarity-bio > summary { color: var(--vc-azure-700); text-decoration: underline; text-underline-offset: 4px; }
 .clarity-narrow { max-width: 56rem; }
-@media (max-width: 479px) {
-  .evidence-flow li { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; }
-  .evidence-flow-arrow { display: none; }
-  .evidence-flow-entry { margin-left: 0.5rem; }
-}
 @media (min-width: 768px) {
   .clarity-jobs { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
-  .clarity-team { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4rem; }
   .workspace-detail, .argument-illustration { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem; }
   .argument-illustration figcaption { grid-column: 1 / -1; }
 }
 @media (min-width: 1024px) {
-  .clarity-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4rem; }
+  .clarity-team { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 4rem; row-gap: 0; }
+  .team-member { display: grid; grid-row: span 4; grid-template-rows: subgrid; align-content: start; }
+  .team-member:nth-child(n + 3) { margin-top: 4.5rem; }
+  .clarity-hero-grid { grid-template-columns: 1.15fr 0.85fr; gap: 5rem; }
   .time-advantage-grid, .workspace-intro { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 5rem; }
 }
