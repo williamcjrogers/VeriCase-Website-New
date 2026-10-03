@@ -1,60 +1,100 @@
-# VeriCase website: stronger presentation grounded in the real application
+# VeriCase website: consolidated, screenshot-led improvement plan
 
 03 October 2026.
 
-Status: revised plan saved at the owner's request. Implementation and release acceptance remain outstanding. This document replaces the redesign proposal in the current conversation; the 01 October 2026 optimisation plan remains a historical implementation record.
+**Status: implemented for review on `codex/screenshot-led-website`, 03 October 2026.** The consolidated plan remains the governing scope. Implementation, test and browser evidence are recorded in [the acceptance report](../../reviews/optimisation/implementation-acceptance-2026-10-03.md). Production publication, live application availability, field metrics and the five-buyer exercise are not claimed complete.
 
-## 1. Objective and governing design rule
+This document governs the next revision wherever earlier plans conflict. It retains the green and brass identity and takes the strongest compatible ideas from each source. The [source review and reconciliation record](../../reviews/optimisation/plan-synthesis-2026-10-03.md) explains the selections, exclusions and coverage. Source baseline: `1805b2f3d20416e08c3b9360fc4a3fb1adb1ffb0`, including optimisation commit `e58baac`. Public deployment equivalence was not rechecked for this consolidation.
 
-Create a distinctive, persuasive website for construction claims consultants and contractors' commercial teams, with solicitors, counsel and experts clearly represented as collaborators.
+## 1. Intended result and governing decisions
 
-Retain the forest green and brass identity, improve the copy and reading experience, and take inspiration from https://vericase-site.vercel.app/ for scale, typography, pacing and construction scenarios.
+Create a distinctive, credible website that helps construction claims consultants and contractors' commercial teams understand VeriCase, recognise work it supports, inspect the actual application and request a demonstration. Solicitors, counsel and experts remain clearly represented as collaborators and secondary buyers.
 
-**The screenshots we took are the visual source of truth for every product illustration.** The reference website informs presentation only. It does not establish VeriCase's screens, controls, workflows or capabilities.
+Combine the clarity and scale of the [reference website](https://vericase-site.vercel.app/) with substantive capability explanations and the credibility of real application screenshots. Retain Newsreader, IBM Plex and the genuine VeriCase wordmark. The signature should be a readable product view and its relationship to a source record.
 
-Every product visual must satisfy three requirements:
+**The screenshots we took are the visual source of truth for product presentation.** An external reference, prototype or historical specification cannot establish a screen, control, workflow or capability. A screenshot establishes appearance at capture time; behaviour and current customer availability require separate verification.
 
-- **Recognisable:** the layout, terminology, controls and relationships remain faithful to an identified application screenshot.
-- **Accurate:** the surrounding copy describes only the capability that the screenshot and supporting verification establish.
-- **Safe to publish:** client information is replaced with consistent fictional content, with the illustration clearly labelled.
+The latest owner directions resolve earlier conflicts:
 
-A screenshot establishes appearance at the time it was captured. It does not, by itself, prove that a control works, that an automated process exists or that a feature is currently available to customers.
+- Improve wording and structure while retaining the identity. Earlier requirements to preserve the opening and time copy verbatim are superseded for this revision.
+- Show all four people with concise introductions and expandable full biographies, credentials and approved experience. Permanently expanded full biographies are no longer required.
+- Keep useful visual explanation, optional interaction and some restrained motion. Every example must be complete and readable at rest, with reduced motion supported.
+- Improve the existing email enquiry route. No new form, backend, authentication system or public API is required.
+- Preserve the removal of programme marketing, File Login, the context-statistics band and unsupported Quantum/Final Account product claims. Do not import features from the reference website or old roadmaps.
 
-## 2. Screenshot selection and product presentation
+## 2. Best material taken from each source family
 
-Before designing the revised page, assemble a contact sheet of the existing application screenshots and map each selected image to the task it explains.
-
-The previous review located application references for the files library, file search, document reader and exported report preview. These are candidates, not an assumption that they are the complete original screenshot set or the latest application state. Distinguish actual application captures from marketing concepts and previous design proposals. Use `docs/design/application-reference-status-2026-10-01.md` to locate the recovered references, then verify them before use.
-
-For each selected screenshot, record:
-
-| Required information | Purpose |
+| Source family | Decision carried forward |
 |---|---|
-| Original image and capture date, where known | Establish the reference being followed. |
-| Application screen and customer task | Explain why the image belongs on the website. |
-| Relevant capability and verification status | Prevent appearance from being treated as proof of behaviour. |
-| Crop, redactions and fictional replacements | Make editorial changes reviewable. |
-| Proposed caption and adjacent copy | Check the visual and promise together. |
+| Original landing-page plan | Outcome-first copy, generous spacing, prominent real product imagery and operational simplicity. Retire its teal/coral identity, editor and invented metrics. |
+| Working Record and plates | One coherent fictional issue, source traceability, evidential precision, a short route for skim readers and careful navigation/accessibility. Replace the long chapter system and simulated tools with focused screenshot-led explanation. |
+| Sage-as-Witness and branding research | Every visual claim needs a product counterpart; functional controls and readable working information matter. Do not adopt its competing palette, logo, no-serif rule or sealing conventions. |
+| 01 October optimisation | Preserve consent, email fallback, real routes, metadata and honest release reporting. Recheck existing fixes rather than rebuilding completed infrastructure. |
+| Content-depth and purposeful-interaction revisions | Three practical jobs lead to substantial explanations. Optional source inspection helps, but essential understanding does not require clicking. |
+| Application-reference and 03 October redesign work | Screenshot provenance, faithful presentation, construction-specific wording, compact profiles, mobile enlargement and explicit acceptance. |
+| Latest audits and research PDFs | Use concrete findings and useful task vocabulary after checking them. Reject unmeasured performance diagnoses, arbitrary component counts and roadmap ideas presented as available features. |
 
-**Permitted changes:** crop to the relevant area, enlarge it, remove irrelevant surrounding browser chrome, replace sensitive content, and add clearly external captions or callouts.
+Historical blueprints and wireframes explain user problems and identify capabilities to verify. They do not authorise new controls, prove production availability or substantiate public claims. Where they disagree, record the conflict and use original captures, the current application and verified behaviour to determine the published representation.
 
-**Not permitted:** invent controls, combine separate screens into an apparently real screen, add unsupported approval states, fabricate activity or processing statistics, or recolour the application so substantially that it appears to be a different product. The website's green and brass treatment belongs around the product image; the product itself retains its recognisable appearance.
+## 3. Establish an accurate baseline and repair regressions
 
-Prefer sanitised screenshots. Use an HTML recreation only where necessary for legibility or an approved interaction, with a side-by-side fidelity check against the source image.
+Start implementation with current desktop/mobile browser captures, then address these source-confirmed issues within the new composition. Their rendered effects still need reproduction.
 
-Use three substantial product views, selected from the verified references:
+| Finding at the source baseline | Required action |
+|---|---|
+| TimeAdvantage uses pale on-ink text, but its dark-background rule has disappeared. Base grid and team selectors are also missing from clarity.css. | Restore complete surface, grid and team styles; measure computed contrast and layout, not class names alone. |
+| LandingPage no longer mounts the record, evidence and integrity explanations; the three-job overview contains only three short paragraphs. | Restore capability substance through the new sections. A summary is not a replacement for explanation. |
+| The mounted claims feature list uses undefined capability styles. | Establish heading hierarchy, spacing and bounded prose for retained explanations. |
+| Four old addresses have lost their mounted destinations: #chronology-lens, #research, #case-room and #integrity. | Restore useful aliases that scroll to and focus the relevant explanation. Preserve #clock, #claims, #notes and other supported addresses. |
+| Truth/winning/timing promises and the AI-drafting FAQ contradiction remain. | Reconcile wording across source, copy checks, metadata and prerendered output. |
+| Full biographies dominate the reading path; clipboard failure has no announced guidance. | Add concise profiles/full disclosures and visible, accessible manual-copy instructions. |
 
-1. **Find the record:** a file list or search result showing the relationship between a document, its context and a relevant excerpt.
-2. **Inspect the source:** the real document-reader arrangement, with the selected record and readable source content.
-3. **Use the evidence:** a verified report, chronology or drafting view showing how the source supports the work. An exported report must be labelled as an export, not presented as an application screen.
+The footer already includes 44 px link-height styling; raster texture replaced SVG noise; extra font preloads, consent-gated analytics code and source-sheet interaction handlers exist. Verify suitability and behaviour rather than assigning duplicate fixes. The source sheet is a marketing mock-up, not proof of application fidelity. These changes establish no measured INP improvement, account-side analytics receipt or current public deployment match.
 
-If no adequate screenshot supports a proposed visual, omit that visual or obtain a new sanitised capture. Do not fill the gap with an invented interface.
+## 4. Screenshot and capability evidence
 
-On mobile, show a readable crop and offer an accessible enlarged view of the complete image. Preserve enough context to make the crop intelligible. Do not compress a desktop dashboard into miniature text.
+### Reference register
 
-## 3. Positioning, copy and page structure
+Create `docs/design/product-reference-register.md` and a contact sheet under `reviews/optimisation/product-references/`. Locate the owner's original captures wherever available. The [existing provenance record](../design/application-reference-status-2026-10-01.md) identifies these candidates in WR2.0 Git history:
 
-Use a direct opening:
+| Candidate | Repository path | Commit |
+|---|---|---|
+| Files library | vericase/docs/files-overhaul-qa/library-desktop.png | 8eb7dfecafc325dc0ea5a202d98742210962b30c |
+| Files search | vericase/docs/files-overhaul-qa/search-desktop.png | 8eb7dfecafc325dc0ea5a202d98742210962b30c |
+| Document reader | vericase/docs/files-overhaul-qa/reader-fix-desktop.png | cb8b2c4ff286aa0f75c0b4d19b3fb3ff781922fa |
+| Report export | vericase/docs/qa/copilot-export/styled-report-preview.png | ba9621637f21858864ed13735cb71c8722d20d83 |
+
+These are QA captures from 05 to 12 September 2026, not confirmed as the complete originally supplied set or latest deployed UI. Verify suitability. Live-matter Case Configuration images are not public assets. Marketing illustrations and Superdesign proposals are design history, not product evidence.
+
+For each selected image, record original file, repository/revision, capture date if known, screen, customer task, current verification, sensitive content, all edits, caption and adjacent claim. Explicitly record unresolved provenance or availability. Source originals remain in their existing private reference locations, outside deployable/public assets; record their provenance rather than copying confidential captures into the website repository. Only sanitised contact sheets and derivatives belong in the website's review/public asset folders.
+
+Prefer sanitised screenshots. Allow useful cropping, enlargement, removal of irrelevant browser chrome, consistent fictional substitutions and clearly external annotations. Preserve app colours, hierarchy, labels, controls and relationships. Keep an explicit reference from each derivative to its private original for comparison. Do not merge separate screens into an apparently real screen, add approval states or counts, fabricate processing, or redesign the application inside the image.
+
+HTML recreation is exceptional, justified by legibility or a verified useful interaction and reviewed side by side against its capture. A screenshot may contain inert controls because it is clearly an image. A recreated HTML button presented as interactive must work. Label exports as exports and conceptual diagrams as explanations outside the application.
+
+Aim for three substantial views: **find the record**, **inspect the source**, **use the evidence**. Include chronology, research or drafting screens only where adequate references exist. If the third view lacks a reference, use a verified export or plain explanation. Never imply that separate captures demonstrate an automatic end-to-end sequence.
+
+### Capability register
+
+Create `docs/design/website-capability-register.md`. Map each public promise and every concept in the historical detailed copy to proposed wording, supporting screen where applicable, source/behaviour check, release or flag availability, disposition (retained, rewritten, merged or omitted) and reason. Historical approval flags, roadmaps and code presence alone do not prove a currently usable feature.
+
+Preserve this breadth, expressed only as specifically as verification allows:
+
+| Capability | Substance to investigate and explain | Boundary |
+|---|---|---|
+| Record preparation | Supported correspondence/documents, attachments, organisation, filters, quoted history and duplicate handling. | Name supported inputs accurately. Verify reversible exclusion separately from deletion; no exhaustive deduplication promise. |
+| Chronology | Examine dates and records, filter a view and return to its source. | Message, forecast and actual-event dates differ. Chronology alone does not establish critical delay or entitlement. |
+| Research | Ask a focused question, inspect its interpretation where supported, examine findings and cited records. | A ranked result does not establish full-corpus coverage, completeness or correctness. |
+| Rebuttal | Examine opposing points with supporting and contradictory records, then review proposed replies. | Do not imply every point is automatically or conclusively answered. |
+| Drafting and outputs | Develop wording, organise heads where supported, inspect sources and use verified outputs. | Verify Word/PDF export, selected-source bundles and cited-source bundles separately. Do not guarantee citation enforcement after edits. |
+| Collaboration | Discuss a record or draft with colleagues and advisers in the supported workspace. | Verify permissions and document/draft relationships; do not invent presence or approval workflows. |
+| Evidence and access | Explain source handling, professional review, access and a route for data due diligence. | Storage, audit, retention, training-use, hosting and compliance assurances require current operational evidence. |
+
+Omit or narrow unverified promises, keeping internal verification language out of the public page. Exclude WORM/immutable-original guarantees, universal audit claims, admissibility assurances, certification badges, unsupported benchmarks and automated delay/programme features unless independently substantiated and within the owner's scope.
+
+## 5. Positioning, wording and reading order
+
+Proposed opening, subject to the capability check:
 
 > **Build your construction case from the evidence.**
 >
@@ -62,107 +102,115 @@ Use a direct opening:
 >
 > For construction claims and commercial teams, working with solicitors, counsel and experts.
 
-Primary action: **Request a demonstration**. Secondary action: **See how VeriCase works**.
+Use **Request a demonstration** consistently for the primary action and **See how VeriCase works** for the secondary link. External sign-in remains a separate action for existing users.
 
-The opening pairs this copy with one readable, screenshot-based product view. It should establish both the proposition and the reality of the software immediately.
+Provide a short reading path with meaningful depth. Component or section count is not an acceptance criterion:
 
-Follow this page structure:
-
-| Section | Content and visual treatment |
+| Reading stage | Content and presentation |
 |---|---|
-| Opening | Clear proposition, audience, demonstration action and a faithful application view. |
-| Recognisable problem | A short construction scenario describing dispersed records, departed project staff and the need to prepare a position. |
-| Three practical jobs | **Organise the record. Investigate the issue. Prepare the claim or response.** Link each to its explanation. |
-| Product walkthrough | Three screenshot-led sections showing how the records are found, inspected and used. |
-| Supporting capabilities | Concise explanations of verified ingestion, chronology, research, rebuttal, drafting, collaboration and export behaviour. |
-| Evidence and access | Factual information about source handling, review and permissions, plus a route for data due diligence. |
-| People | Four concise profiles, with full biographies and credentials in accessible disclosures. |
-| Questions | Uploads, AI drafting, existing systems, access, data arrangements and demonstrations. |
-| Demonstration | A concrete explanation of what the prospect will see, with email and copy-address actions. |
+| Opening | Proposition, audience, action and a large, readable actual application view. |
+| Recognisable problem | A concise construction scenario: dispersed records, departed staff and a position to prepare. |
+| Three practical jobs | **Organise the record. Investigate the issue. Prepare the claim or response.** Each links to substantial explanation. |
+| Product and capabilities | Three screenshot-led sections integrating preparation, chronology, research, rebuttal and drafting detail. Avoid a second repetitive feature grid. |
+| Working together; evidence and access | Shared work, source context, verified access/data facts and due-diligence contact route. |
+| People | Four concise profiles with portraits and accessible full-detail disclosures. |
+| Questions | Inputs, AI assistance, existing systems, access/data arrangements and the demonstration. |
+| Demonstration | What the prospect will see, then email and copy-address actions. |
 
-Use scenario-led copy inspired by the reference:
+Take the reference site's strong construction framing, for example:
 
 > **The project ran for years. The response cannot wait.**
 >
 > The people have moved on. Correspondence sits across inboxes, shared drives and document folders. Your team needs to establish what happened, find the supporting records and prepare its position.
 
-Keep the product walkthrough grounded in one fictional construction issue wherever the screenshots allow it. Use the existing EV-0131, EV-0138 and EV-0147 records consistently. Where screens cannot accurately represent the same sequence, describe them as separate examples rather than implying an unverified end-to-end workflow.
+Use task-specific headings: **Find the records that matter. Read the source in context. Develop the argument with its sources in view. Keep the discussion beside the document.** Replace generic AI promises and fear-based urgency with concrete, supportable advantages.
 
-Useful section headings include:
-
-- **Find the records that matter.**
-- **Read the source in context.**
-- **Develop the argument with its sources in view.**
-- **Keep the discussion beside the document.**
-
-Retain substantive explanations but remove repeated problem statements, unsupported guarantees and unnecessary implementation language. Resolve the drafting contradiction with:
+Resolve the drafting FAQ consistently, if current functionality supports this wording:
 
 > **Can VeriCase help draft a claim or response?**
 >
 > Yes. It can propose wording and supporting evidence for your team to review. Check the sources, revise the argument and approve the final document before it is issued. Your team remains responsible for the submission.
 
-Do not carry across the reference's named-firm endorsements, certification claims, automatic delay analysis, programme integrations, admissibility assurances or timed outcome promises without independent substantiation.
+Use one fictional construction issue where the references permit. Keep EV-0131, EV-0138 and EV-0147 consistent through a shared content source: names, dates, excerpts and attachments. Preserve relevant contradictory material when used. A supplier's forecast proves what was communicated, not actual delivery or causative delay. Distinguish fictional evidence references from citations supporting public website claims.
 
-## 4. Visual design and implementation
+Do not restore statistics or legal deadlines merely because a historical source-check exists. Revalidate any necessary assertion against its primary source before publication, retaining scope and date. A statistics band is not needed for this page.
 
-Retain the existing palette: forest `#0B2516`, deep green `#041A0F`, paper `#FCFAF5`, parchment `#F5F0E6`, brass `#BF9B58` and bronze `#5C431B`.
+## 6. Visual composition and purposeful interaction
 
-Use Newsreader for display headings, IBM Plex Sans for explanations and controls, and IBM Plex Mono sparingly for dates and source identifiers. Permit a restrained italic phrase in selected headings, taking inspiration from the reference's typographic contrast.
+| Element | Direction |
+|---|---|
+| Palette | Forest #0B2516, deep green #041A0F, paper #FCFAF5, parchment #F5F0E6, brass #BF9B58, bronze #5C431B. Brass is restrained emphasis; use suitable dark text on light grounds. Product colours remain faithful within captures. |
+| Type | Self-hosted Newsreader for display, Plex Sans for explanation/controls and Plex Mono sparingly for dates/identifiers. Selected italic phrases provide contrast; keep headings left aligned. |
+| Scale | Approximately 40–64 px H1, 30–42 px H2, 22–28 px H3 and 17–18 px body. Prose around 60–68 characters wide; judge the rendered result. |
+| Layout | Container about 1280 px; 16–24 px mobile and about 40 px desktop side spacing. Alternate bounded prose with substantial application views and purposeful dark/light sections. |
+| Signature | A readable real record in the application, with an external caption explaining why it matters. No new logo, decorative dashboard or generic card grid. A full-screen city photograph is unnecessary. |
+| Mobile | Purposeful crops with context and accessible enlargement of the complete image. Stack explanation and views rather than shrinking a dashboard into miniature text. |
 
-Adopt its generous scale and varied section composition. Alternate bounded prose with substantial application images. Use subtle framing and enough whitespace to distinguish the website's explanation from the application interface.
+Compare two hero compositions using the same verified asset: a balanced copy/image split and copy above a wide reader view. Choose the composition preserving product legibility at desktop and mobile widths. Do not invent an interface to fit a layout.
 
-**The signature element is the real product, presented exceptionally clearly.** The opening will use the application view rather than a full-screen city photograph. Architectural photography is not required for this release.
+Include one restrained, nonessential emphasis, such as a website caption highlighting its source relationship once on entry. Keep all essential content readable from first paint. Motion must not imply automatic ingestion, chronology generation or an unverified application action. No loops, artificial processing, counters or hidden essential text. Reduced-motion users immediately receive the final state. A new motion library is not required.
 
-Complete the missing capability styles: paragraphs approximately 60–68 characters wide, clear feature headings, consistent spacing and intentional desktop/mobile layouts. Use roughly 40–64 px opening type, 30–42 px section headings and 17–18 px body text.
+Image enlargement is the default useful interaction. Retain a source drawer/selection only if it matches a verified product relationship or is clearly an external website explanation. One action produces one obvious result; pointer, keyboard and touch receive equivalent functionality. Captions and adjacent prose remain useful if images or JavaScript fail. Preserve print readability.
 
-Default product visuals to static, readable states. Allow image enlargement and clearly labelled website annotations. Reproduce source selection or another application interaction only after its behaviour is verified. Do not add simulated live feeds, moving file queues, confidence scores or automatic processing sequences.
+## 7. People and demonstration enquiry
 
-Show all four team members with correct roles and 60–90 word summaries. Preserve full biographies and credentials behind individual disclosures. Retain the clarification that professional affiliations do not constitute firm endorsements.
+Show William Rogers and Warren Kemp as VeriCase co-founders, Malcolm Brechin as Managing Director and Sam Whisker as Chief Technology Officer. Use current approved profiles and portraits, not obsolete prototype biographies. Each gets a 60–90 word introduction and an individual disclosure preserving complete approved background, credentials and experience. Retain the professional-affiliations disclaimer. Attribute other-company roles accurately; no blanket ban on the word “founder”.
 
-Keep the existing React architecture, routes, external sign-in destination and email enquiry mechanism. No new backend, enquiry form, authentication or public API is required. Preserve old section links through focus-aware aliases.
+Describe the verified work a prospect will see in a demonstration: locating a record, inspecting its source and examining how it supports the work. Keep the email address visible/selectable, with an optional prefilled subject and copy action. Clipboard failure displays and announces manual-copy guidance. Do not request confidential matter details.
 
-Implementation order:
+Reuse consent-gated, fixed-identifier analytics. No automatic text capture or session recording of document/demo content. Verify consent acceptance, rejection, withdrawal, regrant, persistence, cross-tab behaviour and blocked/unavailable storage. Email clicks and address-copy actions are intent signals, never received enquiries, bookings or customers. Account-side receipt and real conversion outcomes need separate evidence.
 
-1. Establish the screenshot register, capability register and current release baseline.
-2. Finalise copy and screenshot selection together, checking each promise against the adjacent image.
-3. Produce desktop and mobile compositions using those actual references.
-4. Implement the page, capability styles, team disclosures and enquiry refinements.
-5. Complete browser, accessibility, content and release verification.
+## 8. Implementation sequence and outputs
 
-Preserve unrelated working-tree changes. Update the design contract and copy checks to reflect this plan. The owner's decisions in this conversation permit challenging the previously preserved copy and page structure while retaining the identity and factual team information. Add explicit clipboard-failure guidance, enlarge standalone footer actions to 44 × 44 px, and retain consent-gated analytics.
+| Stage | Work | Completion evidence |
+|---|---|---|
+| 1. Current baseline | Record checkout/deployment, capture desktop/mobile, reproduce source-identified regressions and test sign-in. | Dated SHA, captures and confirmed versus unverified findings. Resolve a broken external sign-in from authoritative product configuration, not an invented local login. |
+| 2. Product/content evidence | Assemble reference/contact sheet and capability register; map every historical concept to a disposition; check sensitive content. | Reviewable references and complete claim-to-evidence mapping, with unresolved claims omitted/narrowed. |
+| 3. Copy/composition | Write final copy and desktop/mobile layouts together using selected captures; compare hero arrangements and remove repetition. | Copy deck, compositions and side-by-side product fidelity review. |
+| 4. Implementation | Repair contrast/layout/aliases; implement capability depth, profiles, verified interaction and email fallback; align contracts/copy checks. | Working revision preserving route, consent, source-data and component contracts, without unrelated refactoring. |
+| 5. Verification | Run relevant checks/build, complete browser/accessibility/truthfulness review and independent review; resolve findings. | Evidence against each acceptance item, with untested items identified. |
+| 6. Release verification | When implementing/publishing the revision, match approved source to deployed HTML, assets and rendered page. | Git SHA, deployment identifier, final captures, route/CTA checks and analytics receipt status. A build or push alone is insufficient. |
 
-## 5. Acceptance and release criteria
+Likely implementation surfaces are LandingPage, section components and clarity.css, retained mock components, DemoCTA, content files, navigation, active styles, metadata and existing copy/test scripts under `frontend/`. Confirm actual file locations before editing. Keep React, service boundaries and local brand/font assets. Reuse primitives and inspect consumers before removing tokens or components.
 
-### Product fidelity
+Use pnpm through Corepack under the owner's standing instructions, accounting for the existing Yarn package-manager declaration without an incidental dependency migration. Run the existing `lint:copy`, `test:copy`, relevant component/navigation/consent tests and `build` scripts for implementation. Historical counts and design-generation success messages are not new acceptance evidence.
 
-- Every application visual has an identified source screenshot and documented changes.
-- Side-by-side review confirms faithful structure, terminology, controls and visual relationships.
-- No fabricated application states, metrics, integrations or workflow connections appear.
-- Screenshots, fictional replacements, captions and supporting copy describe the same example accurately.
-- A delivery forecast is not presented as proof of actual delivery, delay or entitlement.
-- Unsupported capabilities are omitted or described more narrowly; a historical approval flag alone is not sufficient evidence.
+Preserve concurrent working-tree changes. Implementation is isolated in the managed worktree; the acceptance report distinguishes local implementation, review artefacts and release evidence. Design-service credits, a new diagram or a particular generation tool are not prerequisites for completing the next revision.
 
-### Design and usability
+## 9. Acceptance criteria
 
-- Inspect 320, 390, 480, 600, 768, 1024 and 1440 px, plus 200% zoom.
-- No horizontal page overflow, clipped controls, excessively narrow prose or illegible product images.
-- Essential copy appears immediately, without waiting for animation.
-- Keyboard navigation, disclosures, image enlargement, Escape dismissal and focus return work.
-- Contrast, semantics, accessible names and reflow meet WCAG 2.2 AA requirements, with manual assistive-technology checks alongside automated testing.
+### Product truth and content
+
+- Every product visual has a source reference, documented edits and completed side-by-side fidelity review.
+- Copy, captions and records agree; fictional examples are labelled and contain no live matter identifiers.
+- No invented screens, controls, states, metrics, endorsements, certifications or workflow connections.
+- Every historical capability concept has a recorded disposition. Retained capabilities have substantive visible explanations, not only an overview or closed accordions.
+- Opening, capabilities, FAQ and demonstration promise agree about software assistance and professional responsibility.
+- Full approved team information remains accessible, with correct roles and no implied firm endorsement.
+
+### Design, navigation and accessibility
+
+- Inspect the entire page at 320, 390, 480, 600, 768, 1024 and 1440 px, plus 200% zoom and reflow.
+- No overflow, clipped controls, illegible images or uncontrolled prose width. Verify contrast on dark/light grounds, nested panels and focus states.
+- Meet WCAG 2.2 AA through automated and manual keyboard/assistive-technology review. The project requires 44 × 44 px primary and standalone actions, deliberately stronger than the [AA 24 × 24 CSS pixel minimum with exceptions](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html).
+- Test menu, disclosures, source inspection and enlargement: Escape, appropriate focus containment/return and announced states.
+- Navigation and legacy aliases work from home, /cookies and 404 routes. Focus clears the sticky header and cookie notice; use one scroll-offset mechanism.
+- Essential content is immediately readable. Image/JavaScript failure, reduced motion and print retain a useful account.
 
 ### Commercial clarity
 
-- In a directional test with five representative buyers, at least four can identify the intended audience, principal tasks and next action after a brief scan.
-- Readers can distinguish an actual product view, an illustrative example and a professional judgement.
-- The demonstration invitation explains the relevant workflow without requesting confidential matter details.
-- Email clicks and address-copy actions are reported as intent signals, never as received enquiries.
+- A brief scan identifies audience, principal tasks and demonstration action without interaction.
+- Conduct a directional test with five representative buyers, aiming for at least four identifying audience, tasks and next action. Record recruitment/results or mark the activity outstanding. It is not an already-completed test or a statistical market claim.
+- Readers distinguish actual application appearance, fictional samples, external annotations and professional judgement.
+- Email/manual-copy routes work without a form or analytics consent. Report only conversion evidence actually observed.
 
-### Technical delivery
+### Technical and release evidence
 
-- Relevant copy, component, navigation and consent tests pass, together with the production build.
-- Canonicals, prerendered content, metadata, sitemap, sharing image and genuine 404 responses remain correct.
-- Load only the fonts and assets needed; reserve image dimensions and load below-the-fold imagery appropriately.
-- Report lab performance separately from real-user performance.
-- Verify the approved source against public HTML, downloaded assets and the rendered website. Record the Git SHA, deployment identifier and final desktop/mobile screenshots.
+- Relevant tests, source/built copy checks and production build pass. Inspect compiled styles and loaded fonts, including legible dates/identifiers.
+- Preserve canonicals, prerendered content, metadata, sitemap, sharing image, redirects, external sign-in and genuine unknown-route 404s.
+- Reserve image dimensions, use suitable responsive assets and lazy-load lower imagery. Preload only useful first-paint fonts; check the waterfall.
+- Measure representative interaction/scroll performance before and after. Retain the project field targets at the 75th percentile: LCP ≤2.5 seconds, INP ≤200 milliseconds and CLS ≤0.1. Report lab observations separately, mark unavailable field data explicitly and do not infer field improvement from CSS.
+- Verify consent in the browser. Distinguish installed analytics, browser dispatch and account ingestion.
+- Inspect final deployed HTML/assets/rendering against the accepted source. Record deployment evidence and outstanding customer validation/operational facts.
 
-Deliver the revised website, screenshot-reference register, capability register, updated design contract and release acceptance record. The finished site should gain its credibility and visual distinction from a clear, faithful presentation of VeriCase's actual application.
+The implementation deliverables are the revised website, reference/contact sheet, capability register, final copy/compositions, aligned contracts and dated acceptance record. This updated plan and its source review record are the deliverables of the current planning task.

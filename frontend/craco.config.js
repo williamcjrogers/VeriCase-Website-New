@@ -33,7 +33,12 @@ const webpackConfig = {
   // The test runner resolves the same "@/" alias as the build.
   jest: {
     configure: {
-      moduleNameMapper: { '^@/(.*)$': '<rootDir>/src/$1' },
+      moduleNameMapper: {
+        '^@/(.*)$': '<rootDir>/src/$1',
+        // Jest 27 predates these exports-only package subpaths. Use their real CJS entries.
+        '^@radix-ui/primitive/is-development$': '<rootDir>/node_modules/@radix-ui/primitive/dist/internal/is-development.true.js',
+        '^react-router/dom$': '<rootDir>/node_modules/react-router/dist/development/dom-export.js',
+      },
     },
   },
   webpack: {

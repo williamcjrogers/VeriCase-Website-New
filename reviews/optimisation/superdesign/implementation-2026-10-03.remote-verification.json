@@ -1,0 +1,30 @@
+{
+  "draftId": "425b94c7-c50b-4d91-9bd9-edc561547894",
+  "title": "VeriCase implemented website, 03 October 2026",
+  "artifactType": "page",
+  "currentVersion": 1,
+  "versions": [
+    {
+      "version": 1,
+      "prompt": "Imported via CLI (codex)",
+      "createdAt": "2026-10-03T16:01:28.813Z",
+      "isCurrent": true
+    }
+  ],
+  "checks": {
+    "expectedDraft": true,
+    "versionOne": true,
+    "heroCopy": true,
+    "nativeDisclosures": true,
+    "noPosthog": true,
+    "noLocalPaths": true,
+    "syntheticCapturesEmbedded": true,
+    "originalLogoEmbedded": true,
+    "fontsEmbedded": true,
+    "noExternalAppRuntime": true
+  },
+  "remoteHtmlBytes": 1662842,
+  "remoteHtmlSha256": "99aef21ea1822e3b158508f623d21c5adf53e28873fc2b5802f95fe85d1cb6b8",
+  "localExportSha256": "99aef21ea1822e3b158508f623d21c5adf53e28873fc2b5802f95fe85d1cb6b8",
+  "scripts": []
+}

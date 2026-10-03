@@ -1,5 +1,7 @@
 # Website optimisation implementation
 
+> **Historical implementation record.** For the next website revision, use the [consolidated screenshot-led plan of 03 October 2026](2026-10-03-screenshot-led-website-redesign.md). Preserve the completed work recorded here, but reverify it against the current source and deployment; do not repeat old delivery or test results as current acceptance.
+
 Approved scope, 01 October 2026. Baseline: `6744c3630090844064f2524a1f5619a01a8f3c21`.
 
 Retain the forest-green working-record design and improve qualified demonstration enquiries. Implement the approved review in five stages:

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VeriCase product references, 03 October 2026</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: clamp(20px, 4vw, 64px); color: #173125; background: #fcfaf5; font: 16px/1.6 system-ui, sans-serif; }
+    main { max-width: 1440px; margin: auto; }
+    h1 { font: 500 clamp(28px, 4vw, 44px)/1.15 Georgia, serif; }
+    h2 { margin-bottom: 8px; font: 500 28px/1.25 Georgia, serif; }
+    .intro { max-width: 76ch; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; margin-top: 40px; }
+    figure { margin: 0; padding: 20px; border: 1px solid #d4c7ad; background: white; }
+    figure.hero { grid-column: 1 / -1; }
+    .crop { position: relative; overflow: hidden; aspect-ratio: var(--cw) / var(--ch); background: #f3f1ec; }
+    .crop img { position: absolute; width: calc(1440 / var(--cw) * 100%); max-width: none; height: auto; left: calc(var(--x) / var(--cw) * -100%); top: calc(var(--y) / var(--ch) * -100%); }
+    figcaption { margin-top: 14px; }
+    .detail { color: #596658; font-size: 14px; }
+    code { font-size: 13px; overflow-wrap: anywhere; }
+    @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } figure.hero { grid-column: auto; } }
+    @media print { body { padding: 10mm; } .grid { display: block; } figure { break-inside: avoid; margin-bottom: 20px; } }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Actual product references</h1>
+  <p class="intro">03 October 2026. Historical application QA views recovered from WR2.0. The records and report are synthetic. Original image bytes are unchanged; this sheet applies only CSS clipping and scaling. These views do not prove the latest deployed interface or an automatic sequence between separate tools.</p>
+  <div class="grid">
+    <figure class="hero">
+      <h2>PR-03 · Read the source</h2>
+      <div class="crop" style="--x:244;--y:76;--cw:1196;--ch:684">
+        <img src="../../../frontend/public/images/product/document-reader-qa-2026-09-06.png" width="1440" height="760" alt="Selected contract file beside its original page in the reader. The page is labelled as a synthetic test document.">
+      </div>
+      <figcaption>Document reader, September 2026 QA view. Synthetic document.</figcaption>
+      <p class="detail">Preferred hero. Crop: 244, 76, 1196, 684. The historical sidebar stays outside the view, including during enlargement. Retain the visible synthetic-document label.</p>
+    </figure>
+    <figure>
+      <h2>PR-02 · Find a record</h2>
+      <div class="crop" style="--x:484;--y:76;--cw:948;--ch:766">
+        <img src="../../../frontend/public/images/product/files-search-qa-2026-09-05.png" width="1440" height="1000" alt="Synthetic retention search results with highlighted document text beside filenames and folders.">
+      </div>
+      <figcaption>File search, September 2026 QA view. Synthetic records.</figcaption>
+      <p class="detail">Crop: 484, 76, 948, 766. The nine results are fixture records. Repeated snippets and displayed counts provide no evidence of corpus coverage or performance.</p>
+    </figure>
+    <figure>
+      <h2>PR-04 · Review an export</h2>
+      <div class="crop" style="--x:272;--y:194;--cw:896;--ch:606">
+        <img src="../../../frontend/public/images/product/report-export-qa-2026-09-12.png" width="1440" height="1107" alt="Illustrative report export with a specimen title, disclaimer, source link, separate quotation and table.">
+      </div>
+      <figcaption>Illustrative report export, September 2026. Sample content.</figcaption>
+      <p class="detail">Crop: 272, 194, 896, 606. The output demonstrates formatting. The visible source link targets an example URL. It is not the Research screen, a drafting editor, a real finding or proof of delay analysis.</p>
+    </figure>
+    <figure>
+      <h2>PR-01 · Browse the files</h2>
+      <div class="crop" style="--x:484;--y:76;--cw:948;--ch:725">
+        <img src="../../../frontend/public/images/product/files-library-qa-2026-09-05.png" width="1440" height="1000" alt="Synthetic construction records in the Files library with filename, type, folder, status and date columns.">
+      </div>
+      <figcaption>Files library, September 2026 QA view. Synthetic records.</figcaption>
+      <p class="detail">Optional supporting view. Crop: 484, 76, 948, 725. Original programme-related filenames are retained as input records; they do not establish programme-analysis capability.</p>
+    </figure>
+  </div>
+</main>
+</body>
+</html>

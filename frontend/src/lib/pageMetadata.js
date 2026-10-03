@@ -1,7 +1,7 @@
 export const PAGE_METADATA = {
   '/': {
-    title: 'VeriCase | Evidence and chronology for construction disputes',
-    description: 'Software for contractors, claims consultants and construction lawyers. Organise project records, find supporting evidence and prepare a claim or response.',
+    title: 'VeriCase | Construction claims and evidence',
+    description: 'For construction claims and commercial teams. Find project records, inspect sources and prepare claims and responses with your professional advisers.',
     url: 'https://veri-case.com/',
   },
   '/cookies': {
