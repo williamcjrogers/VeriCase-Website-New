@@ -28,4 +28,8 @@ Evidence is in `screenshots/phone-repair-2026-10-03/`, including before/after ph
 
 ## Delivery
 
-The existing draft PR #5 is the delivery branch. Hosted verification will be recorded after deployment. Production remains unchanged.
+Implementation commit `dc2c7ac` is pushed to draft PR #5. Both Vercel deployment checks passed; primary deployment `6831073893` reports success.
+
+Verified hosted preview: https://veri-case-website-cghvp8s45-quantum-commercial-solutions.vercel.app/
+
+The 390 pixel hosted page serves the matching `main.0380adfb.css` asset, displays the 144 pixel wordmark and fitted image crops, and has no page overflow. All four capability lists start collapsed. The chronology disclosure expands and closes; rejecting analytics dismisses the cookie banner; the home link returns focus to `top-title`. Screenshot: `screenshots/phone-repair-2026-10-03/hosted-390.jpg`. Superdesign version 3 was refetched byte-identically to the verified static export. Production remains unchanged.
