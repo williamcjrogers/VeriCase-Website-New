@@ -1,0 +1,67 @@
+[
+  {
+    "stage": "before choice",
+    "result": {
+      "result": {
+        "type": "object",
+        "value": {
+          "analyticsRequests": 0,
+          "loaded": false,
+          "stored": null
+        }
+      }
+    }
+  },
+  {
+    "stage": "after opt-in",
+    "result": {
+      "result": {
+        "type": "object",
+        "value": {
+          "analyticsRequests": 3,
+          "loaded": true,
+          "stored": "granted"
+        }
+      }
+    }
+  },
+  {
+    "stage": "after reload",
+    "result": {
+      "result": {
+        "type": "object",
+        "value": {
+          "analyticsRequests": 3,
+          "loaded": true,
+          "stored": "granted"
+        }
+      }
+    }
+  },
+  {
+    "stage": "after withdrawal",
+    "result": {
+      "result": {
+        "type": "object",
+        "value": {
+          "analyticsRequests": 3,
+          "loaded": true,
+          "stored": "denied"
+        }
+      }
+    }
+  },
+  {
+    "stage": "withdrawal after reload",
+    "result": {
+      "result": {
+        "type": "object",
+        "value": {
+          "analyticsRequests": 0,
+          "loaded": false,
+          "stored": "denied"
+        }
+      }
+    }
+  }
+]

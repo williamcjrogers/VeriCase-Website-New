@@ -1,0 +1,283 @@
+{
+  "conditions": "Warm-cache localhost navigation, no network or CPU throttling; two observations, not field or mobile performance evidence. Navigation click is not a measured INP distribution.",
+  "observations": [
+    {
+      "revision": "baseline 1805b2f",
+      "loading": {
+        "result": {
+          "type": "object",
+          "value": {
+            "cls": 0,
+            "domContentLoaded": 43.39999999850989,
+            "events": [],
+            "lcp": 72,
+            "longTasks": [],
+            "viewport": {
+              "height": 720,
+              "width": 1280
+            }
+          }
+        }
+      },
+      "afterInteraction": {
+        "result": {
+          "type": "object",
+          "value": {
+            "cls": 0,
+            "events": [
+              {
+                "duration": 32,
+                "name": "pointerover"
+              },
+              {
+                "duration": 32,
+                "name": "pointerenter"
+              },
+              {
+                "duration": 32,
+                "name": "pointerenter"
+              },
+              {
+                "duration": 32,
+                "name": "pointerenter"
+              },
+              {
+                "duration": 32,
+                "name": "pointerenter"
+              },
+              {
+                "duration": 32,
+                "name": "pointerenter"
+              },
+              {
+                "duration": 32,
+                "name": "pointerenter"
+              },
+              {
+                "duration": 32,
+                "name": "pointerenter"
+              },
+              {
+                "duration": 32,
+                "name": "pointerenter"
+              },
+              {
+                "duration": 32,
+                "name": "pointerenter"
+              },
+              {
+                "duration": 32,
+                "name": "pointerenter"
+              },
+              {
+                "duration": 32,
+                "name": "mouseover"
+              },
+              {
+                "duration": 32,
+                "name": "mouseenter"
+              },
+              {
+                "duration": 32,
+                "name": "mouseenter"
+              },
+              {
+                "duration": 32,
+                "name": "mouseenter"
+              },
+              {
+                "duration": 32,
+                "name": "mouseenter"
+              },
+              {
+                "duration": 32,
+                "name": "mouseenter"
+              },
+              {
+                "duration": 32,
+                "name": "mouseenter"
+              },
+              {
+                "duration": 32,
+                "name": "mouseenter"
+              },
+              {
+                "duration": 32,
+                "name": "mouseenter"
+              },
+              {
+                "duration": 32,
+                "name": "mouseenter"
+              },
+              {
+                "duration": 32,
+                "name": "mouseenter"
+              },
+              {
+                "duration": 16,
+                "name": "pointerdown"
+              },
+              {
+                "duration": 16,
+                "name": "mousedown"
+              },
+              {
+                "duration": 24,
+                "name": "pointerup"
+              },
+              {
+                "duration": 24,
+                "name": "mouseup"
+              },
+              {
+                "duration": 24,
+                "name": "click"
+              }
+            ],
+            "lcp": 72,
+            "longTasks": []
+          }
+        }
+      }
+    },
+    {
+      "revision": "implemented build",
+      "loading": {
+        "result": {
+          "type": "object",
+          "value": {
+            "cls": 0,
+            "domContentLoaded": 33.100000001490116,
+            "events": [],
+            "lcp": 68,
+            "longTasks": [],
+            "viewport": {
+              "height": 720,
+              "width": 1280
+            }
+          }
+        }
+      },
+      "afterInteraction": {
+        "result": {
+          "type": "object",
+          "value": {
+            "cls": 0,
+            "events": [
+              {
+                "duration": 24,
+                "name": "pointerover"
+              },
+              {
+                "duration": 24,
+                "name": "pointerenter"
+              },
+              {
+                "duration": 24,
+                "name": "pointerenter"
+              },
+              {
+                "duration": 24,
+                "name": "pointerenter"
+              },
+              {
+                "duration": 24,
+                "name": "pointerenter"
+              },
+              {
+                "duration": 24,
+                "name": "pointerenter"
+              },
+              {
+                "duration": 24,
+                "name": "pointerenter"
+              },
+              {
+                "duration": 24,
+                "name": "pointerenter"
+              },
+              {
+                "duration": 24,
+                "name": "pointerenter"
+              },
+              {
+                "duration": 24,
+                "name": "pointerenter"
+              },
+              {
+                "duration": 24,
+                "name": "pointerenter"
+              },
+              {
+                "duration": 24,
+                "name": "mouseover"
+              },
+              {
+                "duration": 24,
+                "name": "mouseenter"
+              },
+              {
+                "duration": 24,
+                "name": "mouseenter"
+              },
+              {
+                "duration": 24,
+                "name": "mouseenter"
+              },
+              {
+                "duration": 24,
+                "name": "mouseenter"
+              },
+              {
+                "duration": 24,
+                "name": "mouseenter"
+              },
+              {
+                "duration": 24,
+                "name": "mouseenter"
+              },
+              {
+                "duration": 24,
+                "name": "mouseenter"
+              },
+              {
+                "duration": 24,
+                "name": "mouseenter"
+              },
+              {
+                "duration": 24,
+                "name": "mouseenter"
+              },
+              {
+                "duration": 24,
+                "name": "mouseenter"
+              },
+              {
+                "duration": 24,
+                "name": "pointerdown"
+              },
+              {
+                "duration": 24,
+                "name": "mousedown"
+              },
+              {
+                "duration": 24,
+                "name": "pointerup"
+              },
+              {
+                "duration": 24,
+                "name": "mouseup"
+              },
+              {
+                "duration": 24,
+                "name": "click"
+              }
+            ],
+            "lcp": 68,
+            "longTasks": []
+          }
+        }
+      }
+    }
+  ]
+}

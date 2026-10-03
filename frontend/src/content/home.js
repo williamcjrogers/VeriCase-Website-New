@@ -23,7 +23,7 @@ export const CHAPTERS = [
 ];
 export const HOME_NAV = [
   { id: 'platform', title: 'How it works', nav: 'How it works' },
-  { id: 'worked-example', title: 'Worked example', nav: 'Worked example' },
+  { id: 'worked-example', title: 'Preparing the case', nav: 'Preparing the case' },
   { id: 'about', title: 'About', nav: 'About' },
   { id: 'questions', title: 'Questions', nav: 'Questions' },
 ];
@@ -41,19 +41,21 @@ export const HEADER = {
   signIn: 'Sign in',
   contents: 'Menu',
   sheetTitle: 'Explore VeriCase',
-  sheetDescription: 'How VeriCase works, an evidence example, the team and common questions.',
+  sheetDescription: 'How VeriCase works, preparing a case, the team and common questions.',
   endMatterLabel: 'End matter',
   close: 'Close menu',
 };
 
 export const COVER = {
   masthead: ['Records,', 'records,', 'records.'],
-  eyebrow: 'The early case diagnostic tool for construction disputes',
-  h1: 'Transform complex evidence into compelling legal arguments.',
-  subhead:
-    "VeriCase approaches the evidence crisis differently. We don't just manage documents; we reconstruct truth. Forensic-grade AI turns scattered records into winning, defensible strategies.",
-  audience: 'Software for contractors, claims consultants and construction lawyers.',
-  fastPath: 'See how it works',
+  eyebrow: "AI for construction claims and disputes",
+  h1: "Transform complex evidence into compelling legal arguments.",
+  h1Lead: "Transform complex evidence into",
+  h1Emphasis: "compelling legal arguments.",
+  subhead: "Find the records that matter, test competing accounts and develop your claim or response with the evidence behind it. VeriCase brings investigation, chronology and AI-assisted drafting into one workspace.",
+  practitionerProof: "Founded by construction claims and dispute resolution practitioners.",
+  audience: "For construction claims and commercial teams, working with solicitors, counsel and experts.",
+  fastPath: "Explore how it works",
   strip: [
     { label: 'Founded by practitioners', text: 'William Rogers MCIArb & Warren Kemp (Partner, gunnercooke): forensic quantum, claims and dispute resolution.' },
     {
@@ -192,19 +194,42 @@ export const CLOCK = {
 export const LENS_CHAPTER = {
   numeral: 'II',
   eyebrow: 'Chapter II · The Chronology Lens™',
-  h2: 'Many threads. One order of events.',
-  lead:
-    'Email is stored as threads and mailboxes. A tribunal reads a case as events. The Chronology Lens™ merges the correspondence in a matter into one time-ordered view across every party, and keeps each entry tied to the message it came from.',
-  fail: 'The same message can sit in four mailboxes under three subject lines, and the account of what happened can be buried under quoted replies.',
-  recover: 'Every email becomes its own record. Threads are rebuilt from their headers, quoted history is folded away and near-duplicates leave the review set.',
+  h2: "Find the sequence that gives the evidence meaning.",
+  lead: "An instruction, a revised delivery date and a warning of delay can sit in different mailboxes. Read together, they can change how an event is understood.",
+  fail: "Bring project correspondence and documents into VeriCase, follow the chronology and examine the records behind it. Threading, quoted-text handling and relevance controls help you work through the material in context.",
+  recover: "Duplicate handling helps reduce repeated material in the working view. Near-duplicate checks cover certain similar messages; exclusions remain part of assessing the record.",
   recoverGate: 'G5_quoted',
   items: [
-    { icon: 'EmailArchive', title: 'Load the record as it is kept', text: 'PST, MSG and EML email, with bodies and attachments; PDF, DOC and DOCX documents; spreadsheets; and images, with OCR for scanned pages.' },
-    { icon: 'Thread', title: 'One record per message', text: 'Each email is parsed to its own record and threaded by its Message-ID and References headers, with heuristics for exports in which those headers are missing or damaged.' },
-    { icon: 'QuoteFold', title: 'Read what was written', text: 'Quoted text is detected, so each entry shows what its author added. Earlier history is folded, not discarded.', gate: 'G5_quoted' },
-    { icon: 'NearDuplicate', title: 'Set aside the noise', text: 'Near-duplicates leave the review set and the originals are retained. Correspondence for other projects is excluded. File Manager lists extracted attachments by type, and Show Noise brings attachments set aside as noise, such as signature images, back into view.', gate: 'G5_showNoise' },
-    { icon: 'ExcludedProject', title: 'Narrow it to the matter', text: 'Set the project date window, apply a Smart Filter and exclude keywords that only add bulk. Mark an item as Not Relevant and its attachments leave search with it.' },
-    { icon: 'ChronologyLens', title: 'Cards or Table', text: 'Read the chronology as cards or scan it as a table, export it as it stands, or create a bundle from what you have selected.' },
+    {
+      "icon": "EmailArchive",
+      "title": "Bring the records together",
+      "text": "Work with email archives and individual messages, their attachments, PDFs, Word documents, spreadsheets and images. Text recognition helps make scanned pages searchable."
+    },
+    {
+      "icon": "Thread",
+      "title": "Follow the correspondence",
+      "text": "Read messages in context, with threading and quoted-text handling to help distinguish a new reply from earlier correspondence."
+    },
+    {
+      "icon": "NearDuplicate",
+      "title": "Reduce repeated material",
+      "text": "Set repeated messages aside in the working view, with scoped near-duplicate checks to help identify certain similar messages."
+    },
+    {
+      "icon": "ExcludedProject",
+      "title": "Focus on the matter",
+      "text": "Use dates, search terms and relevance controls to focus the investigation on the issue and the material within scope."
+    },
+    {
+      "icon": "ChronologyLens",
+      "title": "Examine the sequence",
+      "text": "Compare dates and follow the underlying records to distinguish forecasts, instructions and confirmations within the sequence of events."
+    },
+    {
+      "icon": "TabbedBundle",
+      "title": "Select the supporting records",
+      "text": "Choose supporting records for the next stage of the work, keeping the source selection connected to the issue you are developing."
+    }
   ],
   plate: {
     number: 2,
@@ -228,15 +253,26 @@ export const LENS_CHAPTER = {
 export const RESEARCH = {
   numeral: 'IV',
   eyebrow: 'Chapter IV · Research',
-  h2: 'Ask a question. Read a cited answer. Bundle the sources.',
-  lead:
-    'Ask a question about the project record, such as “What does the correspondence say about delivery?” Review how VeriCase has understood the question, then read an analysis with links to the emails and documents behind its findings. Your team checks the sources and assesses what they establish.',
-  fail: 'Someone asks what the record shows on a point. The answer can arrive days later as a summary without sources, and the checking starts again.',
-  recover: 'The answer arrives with its sources attached. Follow any citation to the message itself, then bundle what was cited.',
+  h2: "Ask the question the case turns on.",
+  lead: "What was instructed? When did the delivery date change? Which records support the account you have been given?",
+  fail: "Investigate focused questions across the project material and follow the source references behind the findings.",
+  recover: "Bring supporting and contradictory evidence into the same analysis, so you can develop the argument with a clearer view of the record.",
   steps: [
-    { n: '1', title: 'Ask', text: 'Choose a question. Before anything runs, the Query Plan sets out the mode, period, parties, topics and sources that VeriCase has understood, as chips you can change. You correct the question, not the answer.' },
-    { n: '2', title: 'Cite', text: 'The report gives numbered citations to the underlying emails and documents, the number of sources cited and of items analysed, and a validation badge. Select a citation to open its source.' },
-    { n: '3', title: 'Bundle', text: 'Create bundle adds every cited item to a bundle with its title, description, case or matter, court, reference, who prepared it and for whom, its date and notes. Download PDF keeps the report as it stands.' },
+    {
+      "n": "1",
+      "title": "Define the question",
+      "text": "Set out the issue and the records you want to examine. Refine the proposed scope around the dates, parties and material relevant to the question."
+    },
+    {
+      "n": "2",
+      "title": "Follow the evidence",
+      "text": "Follow source references into the underlying messages and documents, bringing their dates, context and qualifications into the analysis."
+    },
+    {
+      "n": "3",
+      "title": "Collect what matters",
+      "text": "Select useful records for the work ahead and identify reported gaps. Search results depend on the scope and material examined; they do not establish a complete account of the matter."
+    }
   ],
   fig: {
     number: 4,
@@ -250,17 +286,32 @@ export const RESEARCH = {
 export const CLAIMS = {
   numeral: 'V',
   eyebrow: 'Chapter V · Claims builder and collaboration',
-  h2: 'Draft the claim with the evidence already cited.',
-  lead:
-    'Organise the claim into sections, draft the narrative and link each point to its supporting evidence. The project team, solicitors, counsel and experts work on the same evidence, and discuss it where it sits.',
-  fail: 'The narrative is drafted in one place, the evidence is kept in another, and the argument about the evidence happens in a reply-all thread.',
-  recover: 'Each citation opens its message, and each discussion is anchored to the document it concerns.',
+  h2: "Build the argument with the evidence beside it.",
+  lead: "Develop your claim or response around the points you need to establish.",
+  recover: "Bring the narrative, supporting records and AI-assisted drafting into the same workspace, from the structure of the argument to the detail of each section.",
+  collaborationHeading: "Keep the discussion with the evidence.",
+  fail: "An important document can generate a long email chain of its own.",
   items: [
-    { title: 'Heads of Claim', text: 'Organise the claim by head and sub-head, with evidence linked to the head it supports.' },
-    { title: 'Citations by message ID', text: 'Each citation points to one message, not to a file name that may change.' },
-    { title: 'Evidence finder', text: 'For the section you are drafting, VeriCase proposes material from the record. It proposes; the drafter decides what is cited.', gate: 'G5_claims' },
-    { title: 'Word and PDF', text: 'Export the narrative to Word or PDF with its citations intact.', gate: 'G5_claims' },
-    { title: 'Discussion on the document', text: '@mention a colleague on a document and the discussion opens on that document, so the reasoning stays beside the evidence.' },
+    {
+      "title": "Structure the argument",
+      "text": "Develop the claim or response in sections, bringing the relevant facts and evidence together for each point."
+    },
+    {
+      "title": "Connect the point to its evidence",
+      "text": "Use source references to examine the records behind the wording, keeping the argument connected to the material that supports it."
+    },
+    {
+      "title": "Find evidence for the work",
+      "text": "Investigate the records for the issue you are drafting. Select useful evidence and examine material that challenges your position."
+    },
+    {
+      "title": "Prepare the document for sharing",
+      "text": "Examine the document and its source references before export or sharing, including any qualifications relevant to the submission."
+    },
+    {
+      "title": "Discussion on the document",
+      "text": "Discuss the record with colleagues in the workspace, keeping the conversation connected to the material under examination."
+    }
   ],
   fig: {
     caption: 'Fig. 5. The claims builder, illustrated with the sample matter. See note A.',
@@ -277,12 +328,11 @@ export const CASE_ROOM = {
   numeral: 'III',
   kicker: 'Project time ends. Case time begins.',
   cut: 'Case time',
-  h2: 'Their points, numbered. Your replies, cited.',
-  lead:
-    'Upload the other side’s submission to interrogate their factual position. Rebuttal Mode divides it into numbered points, ranks the evidence that bears on each, and proposes reply points that cite the documents that support or contradict the position. A person accepts, edits or rejects each one, and every decision is recorded.',
-  leadGate: 'G5_rebuttalCite',
-  fail: 'Under time pressure, a team answers first the points it can evidence quickly, and the rest risk being answered thinly.',
-  recover: 'Each point sits beside the evidence ranked for it, and each proposed reply arrives with its citations.',
+  h2: "Put the other side's argument against the evidence.",
+  lead: "Examine an opposing submission, investigate its factual assertions and develop proposed replies with the supporting and contradictory records alongside them.",
+  leadGate: 'G5_rebuttalReview',
+  fail: "See where the account holds, where it is challenged and what needs further investigation before you respond.",
+  recover: "",
   plate: {
     number: 3,
     caption: 'Plate 3. A meeting room with the bundles, on a wet evening. Illustrative image and video (AI-generated). See note B.',
@@ -305,27 +355,35 @@ export const CASE_ROOM = {
 
 export const INTEGRITY = {
   numeral: 'VI',
-  h2: 'The original stays original.',
-  lead:
-    'Raw email is held in write-once storage with a cryptographic hash for each message. Everything done to the evidence afterwards is recorded against it, and each person sees only what their role permits.',
-  leadGate: 'G5_hash',
-  fail: 'A bundle assembled by hand at midnight is where exhibits can go missing, pages can be misnumbered and a citation can point to the wrong document.',
-  recover: 'Bundles are numbered in sequence and carry a manifest listing each item.',
+  h2: "Know what the argument rests on.",
+  lead: "Follow source references back to the underlying documents. Examine the wording, dates and context behind a finding as you develop your position.",
+  leadGate: 'G5_sourceReview',
+  fail: "",
+  recover: "",
   controls: [
-    { icon: 'HashSeal', title: 'Originals held unchanged', text: 'Each raw message is kept unchanged with its hash, so the working record can be compared with the message as received.', gate: 'G5_hash' },
-    { icon: 'Thread', title: 'An audit trail for every message', text: 'Tags, notes, links and edits are logged with the user, the time and the values before and after.' },
-    { icon: 'TabbedBundle', title: 'Numbered bundles with a manifest', text: 'Items are numbered in bundle order, and the manifest lists each item’s message ID, cryptographic hash and source path.', gate: 'G5_hash' },
-    { icon: 'RebuttalPair', title: 'Access by role', text: 'Team Leader, Senior Lawyer, Claims Consultant, QS, Project Manager, External Counsel and Client Viewer.', gate: 'G5_roles' },
-    { icon: 'QueryChip', title: 'Sensitive fields restricted', text: 'BCC recipients and other sensitive fields are visible only to the roles permitted to see them.', gate: 'G5_roles' },
-    { icon: 'CitedReport', title: 'AI and keys on the server', text: 'AI processing and API keys are held server-side, not in the browser.' },
+    {
+      "icon": "CitedReport",
+      "title": "Understand the record behind the finding",
+      "text": "Read the underlying document in context, including the wording and qualifications behind an extract or AI-assisted finding."
+    },
+    {
+      "icon": "TabbedBundle",
+      "title": "Choose what the next stage needs",
+      "text": "A report, an evidence selection and a bundle serve different purposes. Examine the selected documents and output for the work you need to take forward."
+    },
+    {
+      "icon": "RebuttalPair",
+      "title": "Agree access for the team",
+      "text": "Discuss how the workspace will be used by your commercial team, claims consultants and legal advisers, and which records each person needs."
+    }
   ],
   declaration: {
-    label: 'What we do not claim',
-    text: 'We do not describe VeriCase’s outputs as court-ready or admissible. Admissibility and weight are matters for the tribunal. Our part is to preserve the material and show its provenance, so that those questions can be argued on the record.',
+    label: 'Your judgement. Supported by the record.',
+    text: 'AI-assisted findings and drafts require professional review. Your team assesses the evidence, develops the argument and approves the final work.',
   },
   positioning: {
-    h3: 'Before disclosure, not instead of it.',
-    text: 'VeriCase is the pre-litigation workspace. It prepares the evidence, chronology, claim and rebuttal material that your solicitors take forward, and it does not replace the disclosure or review platform they already use. It is deliberately lean: evidence, chronology, claims and rebuttal, and nothing that does not serve them.',
+    h3: 'Work alongside your existing systems.',
+    text: 'Use VeriCase to investigate the project record and develop the case, alongside your existing document and disclosure systems. Your team decides which material to take forward into each stage of the matter.',
     stages: [
       'The project record: mailboxes, archives, site diaries, drawings and reports',
       'VeriCase: evidence, chronology, claims and rebuttal',
@@ -340,20 +398,59 @@ export const INTEGRITY = {
 
 export const IN_BRIEF = {
   jobs: [
-    { title: 'Put the record in order', text: 'Bring together emails and documents from the project. Read events in date order, with a link back to each source.' },
-    { title: 'Find the evidence', text: 'Ask a question about the records. Check the answer against the emails and documents it refers to.' },
-    { title: 'Prepare your case', text: 'Build a claim or respond to the other side’s arguments. Review proposed wording with the supporting evidence alongside it.' },
+    {
+      "title": "Understand what happened.",
+      "text": "Bring correspondence and documents together and examine the sequence of events around the disputed issue."
+    },
+    {
+      "title": "Test the competing accounts.",
+      "text": "Investigate the records that support a position and those that challenge it, with references back to the sources."
+    },
+    {
+      "title": "Develop the argument.",
+      "text": "Use AI-assisted drafting to work on the claim or response, with relevant evidence alongside the narrative."
+    }
   ],
   eyebrow: 'In brief',
-  h2: 'The platform, on one page.',
-  sub: 'VeriCase is deliberately lean: evidence, chronology, claims and rebuttal. Each line links to the chapter that shows it.',
+  h2: 'From the project record to the case you need to make.',
+  sub: "From project records to the work your team needs to prepare: evidence review, chronology, research, claims and responses.",
   ledger: [
-    { numeral: 'II', href: '#chronology-lens', title: 'Ingestion', text: 'PST, MSG, EML, PDF, DOC, DOCX, spreadsheets and images, with OCR. One record per message, threaded by header, with quoted text folded, near-duplicates set aside and attachments listed by type in File Manager.' },
-    { numeral: 'II', href: '#chronology-lens', title: 'The Chronology Lens™', text: 'One time-ordered view across every party, in Cards or Table view, with a project date window, Smart Filter, Exclude keywords and Create bundle.' },
-    { numeral: 'III', href: '#case-room', title: 'Rebuttal Mode', text: 'Numbered points, ranked evidence, reply points with mandatory citations, accept, edit or reject with an audit trail, and an export pairing each point with its reply and cited evidence.' },
-    { numeral: 'IV', href: '#research', title: 'Research', text: 'Plain-English questions, an editable Query Plan, and an Analysis Report with numbered citations, counts and a validation badge. Download PDF or create a bundle.' },
-    { numeral: 'V', href: '#claims', title: 'Claims builder', text: 'Heads of Claim, a narrative cited by message ID, an evidence finder, and Word or PDF export.' },
-    { numeral: 'VI', href: '#integrity', title: 'Integrity and access', text: 'Originals kept as received, with hashes, a per-message audit trail, numbered bundles with manifests, role-based access and server-side AI.' },
+    {
+      "numeral": "II",
+      "href": "#chronology-lens",
+      "title": "Record preparation",
+      "text": "Bring together correspondence and documents; use threading, quoted-text handling and relevance controls to help review them."
+    },
+    {
+      "numeral": "II",
+      "href": "#chronology-lens",
+      "title": "Chronology",
+      "text": "Examine records in date order and return to the source to distinguish forecasts, instructions and confirmations."
+    },
+    {
+      "numeral": "III",
+      "href": "#case-room",
+      "title": "Rebuttal",
+      "text": "Investigate opposing points and review proposed replies with supporting and contradictory records."
+    },
+    {
+      "numeral": "IV",
+      "href": "#research",
+      "title": "Research",
+      "text": "Ask a focused question, examine the findings and check their sources."
+    },
+    {
+      "numeral": "V",
+      "href": "#claims",
+      "title": "Drafting",
+      "text": "Develop the narrative in sections, check proposed wording and review its supporting evidence."
+    },
+    {
+      "numeral": "VI",
+      "href": "#integrity",
+      "title": "Evidence and access",
+      "text": "Keep sources accessible to the work and discuss the arrangements your team needs before using client material."
+    }
   ],
   benchmarks: {
     gate: 'G4_benchmarks',
@@ -361,28 +458,47 @@ export const IN_BRIEF = {
   },
   audience: {
     label: 'Who it is for',
-    text: 'For construction solicitors and counsel, including King’s Counsel; claims consultants; quantum and other experts; and contractors’ commercial and in-house legal teams.',
+    text: 'For construction claims consultants and contractors’ commercial teams, working with solicitors, counsel, quantum and other experts, and in-house legal advisers.',
   },
   questionsLabel: 'Questions',
   questions: [
-    { q: 'What can we upload?', a: 'Email archives and individual emails, PDFs, Word documents, spreadsheets and images. Scanned pages can be read using text recognition.' },
-    { q: 'Does VeriCase replace our disclosure platform?', a: 'No. VeriCase is a pre-litigation workspace. It prepares evidence, chronology, claim and rebuttal material, which then moves to the platform your solicitors use.' },
-    { q: 'Will the output be accepted by the tribunal?', a: 'Admissibility and weight are for the tribunal. VeriCase keeps each original with its hash, message ID and source path, and records what was done to it, so that its provenance can be examined.' },
-    { q: 'Does the AI write our submissions?', a: 'No. It suggests evidence and proposes reply points, each with citations. A person accepts, edits or rejects every proposal, and the decision is recorded. Responsibility for anything served stays with its author.' },
-    { q: 'Who sees what?', a: 'Access is by role: Team Leader, Senior Lawyer, Claims Consultant, QS, Project Manager, External Counsel and Client Viewer. BCC recipients and other sensitive fields are restricted by permission.', gate: 'G5_roles' },
-    { q: 'Where is our data held, and is it used to train AI models?', a: '{{DATA_POLICY}}', gate: 'G8_data' },
+    {
+      "q": "We already have a document system. Where does VeriCase fit?",
+      "a": "VeriCase focuses on developing the case from the project record: investigating disputed events, examining the chronology, testing opposing accounts and preparing claims and responses. It works alongside your existing document and disclosure systems."
+    },
+    {
+      "q": "What can we work with?",
+      "a": "Email archives and individual messages, PDFs, Word documents, spreadsheets and images. Text recognition helps make scanned pages searchable. We can discuss your record types and preparation needs during a demonstration."
+    },
+    {
+      "q": "Can VeriCase help draft a claim or response?",
+      "a": "Yes. Use AI-assisted drafting to develop the wording and identify supporting material, with the evidence alongside the argument. Your team revises the work and approves the final document before it is issued."
+    },
+    {
+      "q": "Will the output be accepted by the tribunal?",
+      "a": "Admissibility and weight are for the tribunal. Review the underlying records, the source references and the final document with the professionals responsible for the matter."
+    },
+    {
+      "q": "How can our team work together?",
+      "a": "Discuss records with colleagues in the workspace, keeping the conversation connected to the evidence. During the demonstration, we can discuss the access arrangements for your team and its advisers."
+    },
+    {
+      "q": "How will you handle our project and client material?",
+      "a": "Demonstrations use sample material. Before introducing your own records, discuss your organisation's requirements for hosting, access, retention and AI processing with us."
+    }
   ],
 };
 
 export const FOUNDER = {
   eyebrow: 'Who is behind it',
-  h2: 'The people behind VeriCase.',
+  h2: 'Founded by people who prepare and argue construction claims.',
   body1:
-    'Our team brings together construction claims, legal, commercial and software development experience.',
+    "VeriCase brings together construction claims, dispute resolution and software expertise. Its founders' experience of preparing evidence, developing claims and working with experts and counsel informs the product.",
   // Portraits are 440 px greyscale JPEG squares in /public/assets/team, drawn at 220 px.
   people: [
     {
       name: 'William Rogers MCIArb',
+      summary: "William brings more than 15 years of construction claims and disputes experience across infrastructure, water, power, rail and residential projects. A quantity surveying and commercial management specialist and Member of the Chartered Institute of Arbitrators, he acts as a testifying quantum expert. His work spans adjudication, arbitration and TCC litigation. He brings the practical demands of preparing evidence, developing claims and briefing experts and counsel into VeriCase’s product direction.",
       role: 'Co-Founder · Claims, Forensic Quantum & Testifying Expert',
       photo: { src: '/assets/team/william-rogers.jpg', alt: 'William Rogers' },
       bio:
@@ -413,6 +529,7 @@ export const FOUNDER = {
     },
     {
       name: 'Warren Kemp',
+      summary: "Warren is a construction and engineering disputes solicitor and a partner at gunnercooke LLP. His practice spans adjudication, arbitration, mediation and TCC litigation, advising contractors, developers, consultants and insurers. Previously joint head of construction and engineering at DAC Beachcroft, he brings more than twenty years of legal practice to VeriCase. His contribution centres on the commercial judgement, evidential discipline and clear argument that construction disputes require.",
       role: 'Co-Founder · Dispute Resolution | Partner, gunnercooke LLP',
       photo: { src: '/assets/team/warren-kemp.jpg', alt: 'Warren Kemp' },
       email: 'warren.kemp@gunnercooke.com',
@@ -445,6 +562,7 @@ export const FOUNDER = {
     },
     {
       name: 'Malcolm Brechin',
+      summary: "Malcolm brings more than 25 years of experience in commercial strategy and taking technology products to market. His career includes leadership roles at OfficeTeam, OT Group and Mobile Rocket, working across sectors including healthcare, recruitment and government. As Managing Director, he focuses on understanding customers’ operational needs and translating them into practical products, working with the team to make VeriCase useful and commercially relevant to the organisations adopting it.",
       role: 'Managing Director · Commercial Strategy & Go-to-Market',
       photo: { src: '/assets/team/malcolm-brechin.jpg', alt: 'Malcolm Brechin' },
       bio:
@@ -468,6 +586,7 @@ export const FOUNDER = {
     },
     {
       name: 'Sam Whisker',
+      summary: "Sam is a software engineer and AI specialist with experience taking products from early ideas to working systems. A Teesside University graduate and former Chief Technology Officer at Mobile Rocket, he has worked on recruitment and workforce platforms and, since 2024, focused on AI implementation. As Chief Technology Officer, he leads the engineering behind VeriCase, bringing software development and applied AI together around the needs of complex casework.",
       role: 'Chief Technology Officer · AI Implementation & Product Engineering',
       photo: { src: '/assets/team/sam-whisker.jpg', alt: 'Sam Whisker' },
       bio:
@@ -510,13 +629,13 @@ export const FOUNDER = {
 
 export const DEMONSTRATION = {
   eyebrow: 'Next step',
-  h2: 'See it on a matter like yours.',
-  body: 'We will take you through the Chronology Lens™, Research, the claims builder and Rebuttal Mode on sample correspondence, and answer your questions on integrity and access.',
-  ownMaterial: 'If you would like to see VeriCase on your own material, we will first agree confidentiality terms with you.',
+  h2: "See how the evidence becomes the argument.",
+  body: "Explore evidence investigation and case preparation using sample material. Tell us whether your priority is understanding the record, testing an opposing position or developing a claim or response.",
+  ownMaterial: "Please use sample material until confidentiality and data arrangements for your organisation have been agreed.",
   ownMaterialGate: 'G5_ownMaterial',
   copy: 'Copy email address',
   copied: 'Email address copied.',
-  microcopy: 'Opens your email client with the subject line completed. Please do not include confidential details of a live matter.',
+  microcopy: 'Opens an email to enquiries@veri-case.com. Please do not include confidential details of a live matter.',
   plain: 'Or write to enquiries@veri-case.com.',
 };
 
@@ -528,13 +647,13 @@ export const NOTES_SECTION = {
 };
 
 export const FOOTER = {
-  descriptor: 'Software to organise project records, find supporting evidence and prepare construction claims and responses.',
+  descriptor: 'AI-assisted evidence investigation and case preparation for construction claims and disputes.',
   heads: { contents: 'Contents', company: 'Company', cookies: 'Cookies' },
   company: { about: 'Who is behind it', demo: 'Request a demonstration', signIn: 'Sign in' },
   cookies: { settings: 'Cookie settings', notice: 'Cookie notice' },
   legal: [
     'VeriCase Ltd is registered in England and Wales (company number 16562435). Registered office: 85 Great Portland Street, London, England, W1W 7LT.',
-    'The Chronology Lens™ is a trade mark of VeriCase Ltd. VeriCase is software and does not give legal advice. Illustrations on this site use a fictional matter.',
+    'The Chronology Lens™ is a trade mark of VeriCase Ltd. VeriCase is software and does not give legal advice. Product views use illustrative records and sample content.',
   ],
 };
 

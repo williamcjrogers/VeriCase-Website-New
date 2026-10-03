@@ -38,7 +38,9 @@ export function focusSection(id, { smooth = true, updateHash = false } = {}) {
   for (let parent = section.parentElement; parent; parent = parent.parentElement) {
     if (parent.tagName === 'DETAILS') parent.open = true;
   }
-  const heading = document.getElementById(`${id}-title`) || section;
+  const labelledHeading = section.getAttribute('aria-labelledby')?.split(/\s+/)
+    .map((label) => document.getElementById(label)).find((element) => element?.matches('h1,h2,h3,h4,h5,h6'));
+  const heading = document.getElementById(`${id}-title`) || labelledHeading || section;
   if (!heading.hasAttribute('tabindex')) heading.setAttribute('tabindex', '-1');
   section.scrollIntoView({ behavior: smooth && !reducedMotion() ? 'smooth' : 'auto', block: 'start' });
   heading.focus({ preventScroll: true });

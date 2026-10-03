@@ -4,8 +4,8 @@
     "/": {
       "targetKind": "existing-ui",
       "projectId": "3c76a4ca-5759-439e-84c8-e463d9921c70",
-      "baselineDraftId": "fbfcaa83-889f-4fdd-a68d-c14082ad6b97",
-      "activeDraftId": "fbfcaa83-889f-4fdd-a68d-c14082ad6b97",
+      "baselineDraftId": "425b94c7-c50b-4d91-9bd9-edc561547894",
+      "activeDraftId": "425b94c7-c50b-4d91-9bd9-edc561547894",
       "designSystemPath": ".superdesign/design-system.md",
       "referenceIds": [
         "56b363af-919a-447d-bb57-ddf7dba71c0f",
@@ -22,36 +22,34 @@
       },
       "contextFiles": [
         ".superdesign/design-system.md",
-        ".superdesign/context/released-main.md",
-        ".superdesign/context/released-rest.md",
-        ".superdesign/context/font-assets.md",
-        "frontend/src/index.css",
-        "frontend/tailwind.config.js",
-        ".superdesign/context/original-capability-copy.md",
-        ".superdesign/context/required-copy.json"
+        "docs/design/current-contract.md",
+        "docs/plans/2026-10-03-screenshot-led-website-redesign.md",
+        "docs/design/product-reference-register.md",
+        "docs/design/website-capability-register.md",
+        "reviews/optimisation/superdesign/implementation-context-2026-10-03.md"
       ],
       "fingerprints": {
-        ".superdesign/design-system.md": "f991f87135525d1457a001af244d10b86e9aca1325bd3844984ac0a0d7076c83",
-        ".superdesign/context/released-main.md": "b68ae10ee063f54c27b8fa14af51fd4b7d3bc726ada563012f2443c1dd225cf6",
-        ".superdesign/context/released-rest.md": "63fe701e225f0f717bcfa45d520eeef6c18e482623a3da973abcc392b161e95d",
-        ".superdesign/context/font-assets.md": "c9cd76801ea2fda91f60a10f82cf71ca5963b673de4090b2b39aaf9c1dc75105",
-        "frontend/src/index.css": "dd29c7a4768a084860e75cb55c82e4a681873032e9bbb4ccf7a6b70a1648d355",
-        "frontend/tailwind.config.js": "6f3c64eb29e2b4420f9fe5ae7ab0ee4e5eef00ea6ee4aeb6a8cd6709288f3234",
-        ".superdesign/context/original-capability-copy.md": "8c312940c86d3a133a1c1f7c1689a96b2c790eecc8ec47ae7ec846b55d86da54",
-        ".superdesign/context/required-copy.json": "215c944b78c050878ffdd6039bf4f2fb9f23dfc04c2ae65b289471556b7f1f1d"
+        ".superdesign/design-system.md": "54e9a1dfdc760fb3b5e0da0522c8cdb5d06baea0d03dfd049964952f035b0a08",
+        "docs/design/current-contract.md": "c98f2678fedf181a631e648e4fa13fc61379e1bc973b09714fe841a7c595bbe3",
+        "docs/plans/2026-10-03-screenshot-led-website-redesign.md": "85f6a6db4f30172428b9e077c811c5448f03f9a238968dd44a87136e6fdb38b6",
+        "docs/design/product-reference-register.md": "9ba223462ab777f5723289480e464636b50477e7a6271904212e9d7d6c92ff90",
+        "docs/design/website-capability-register.md": "aae542c7125b5a4653b2beb04b35ce50c6ab0b7a68de9cb5c0fabe2d31d025ab",
+        "reviews/optimisation/superdesign/implementation-context-2026-10-03.md": "ad7d1a0fe6c7e1c41c7f28ba350e533936d1af36b9457d584715e162a2c7fa90"
       },
       "components": [
         {
           "name": "SiteHeader",
           "id": "b0e87b8b-d2ae-42d5-b651-5db60036db1b",
           "sourcePath": "frontend/src/components/sections/SiteHeader.jsx",
-          "logoAssetKey": "frontend-public-logo-reversed.svg"
+          "logoAssetKey": "frontend-public-logo-reversed.svg",
+          "verificationStatus": "Historical extracted component retained; this import uses literal build HTML. Revalidate against current source before future component-based generation."
         },
         {
           "name": "SiteFooter",
           "id": "13f8a97f-90a8-4218-9251-d7993db32f72",
           "sourcePath": "frontend/src/components/sections/SiteFooter.jsx",
-          "logoAssetKey": "frontend-public-logo-reversed.svg"
+          "logoAssetKey": "frontend-public-logo-reversed.svg",
+          "verificationStatus": "Historical extracted component retained; this import uses literal build HTML. Revalidate against current source before future component-based generation."
         }
       ],
       "drafts": {
@@ -60,11 +58,68 @@
           "visualDirection": "Application reader based on committed WR2.0 reference, fuller original copy",
           "currentVersion": 4,
           "acceptanceStatus": "review-ready; not owner-approved or deployed"
+        },
+        "425b94c7-c50b-4d91-9bd9-edc561547894": {
+          "title": "VeriCase implemented website, 03 October 2026",
+          "visualDirection": "Screenshot-led green and brass website with reviewed copy and a dedicated phone layout",
+          "currentVersion": 3,
+          "parentDraftId": "fbfcaa83-889f-4fdd-a68d-c14082ad6b97",
+          "acceptanceStatus": "Imported and refetched byte-identically; desktop and phone disclosures browser-verified",
+          "previewUrl": "https://p.superdesign.dev/draft/425b94c7-c50b-4d91-9bd9-edc561547894",
+          "canvasUrl": "https://superdesign.dev/teams/442d52f1-9ceb-487d-9c33-5479d0169097/projects/3c76a4ca-5759-439e-84c8-e463d9921c70?node=draft-variant-425b94c7-c50b-4d91-9bd9-edc561547894",
+          "exportPath": "reviews/optimisation/superdesign/implementation-2026-10-03.html",
+          "sourceBuildSha256": "0f07c93926a1e6f868cbb63ab5088fcf987742b180ee1b8d0f8018f4f99e89c7",
+          "exportSha256": "aa3c0b4fe7a098652719c808709f6342732ff21ba8009126d3efd49db95de490",
+          "authoringMethod": "Free literal HTML import, no generation credits",
+          "knownRuntimeDifference": "Static canvas omits application runtime, analytics and React print behaviour; native disclosures remain."
         }
       },
-      "updatedAt": "2026-10-01T05:06:46.850196+00:00",
-      "contextStatus": "Current reference bundle; version 4 imported directly after credit-limited generation",
-      "nextAction": "Owner review of the concrete application-based proposal, then implement and verify against the agreed acceptance criteria"
+      "updatedAt": "2026-10-03T17:54:32.889248+00:00",
+      "contextStatus": "Current commercial copy with the owner-requested phone repair. Supersedes native-width inline image scrolling and stacked desktop composition on phones.",
+      "nextAction": "Review the implemented screenshot-led design on the new canvas. Refresh the static export and import a new version when visible source changes. Verify JavaScript and print behaviour on the implemented site, not the static canvas.",
+      "previousContextBundles": [
+        {
+          "activeDraftId": "fbfcaa83-889f-4fdd-a68d-c14082ad6b97",
+          "baselineDraftId": "fbfcaa83-889f-4fdd-a68d-c14082ad6b97",
+          "contextFiles": [
+            ".superdesign/design-system.md",
+            ".superdesign/context/released-main.md",
+            ".superdesign/context/released-rest.md",
+            ".superdesign/context/font-assets.md",
+            "frontend/src/index.css",
+            "frontend/tailwind.config.js",
+            ".superdesign/context/original-capability-copy.md",
+            ".superdesign/context/required-copy.json"
+          ],
+          "fingerprints": {
+            ".superdesign/design-system.md": "f991f87135525d1457a001af244d10b86e9aca1325bd3844984ac0a0d7076c83",
+            ".superdesign/context/released-main.md": "b68ae10ee063f54c27b8fa14af51fd4b7d3bc726ada563012f2443c1dd225cf6",
+            ".superdesign/context/released-rest.md": "63fe701e225f0f717bcfa45d520eeef6c18e482623a3da973abcc392b161e95d",
+            ".superdesign/context/font-assets.md": "c9cd76801ea2fda91f60a10f82cf71ca5963b673de4090b2b39aaf9c1dc75105",
+            "frontend/src/index.css": "dd29c7a4768a084860e75cb55c82e4a681873032e9bbb4ccf7a6b70a1648d355",
+            "frontend/tailwind.config.js": "6f3c64eb29e2b4420f9fe5ae7ab0ee4e5eef00ea6ee4aeb6a8cd6709288f3234",
+            ".superdesign/context/original-capability-copy.md": "8c312940c86d3a133a1c1f7c1689a96b2c790eecc8ec47ae7ec846b55d86da54",
+            ".superdesign/context/required-copy.json": "215c944b78c050878ffdd6039bf4f2fb9f23dfc04c2ae65b289471556b7f1f1d"
+          },
+          "contextStatus": "Current reference bundle; version 4 imported directly after credit-limited generation",
+          "updatedAt": "2026-10-01T05:06:46.850196+00:00"
+        }
+      ],
+      "implementationSourceFingerprints": {
+        "frontend/src/pages/LandingPage.jsx": "72cdddf825a86c7d82f438f771e17b74847d371f7daa1ef95ac36ddd0ecc813f",
+        "frontend/src/components/sections/Hero.jsx": "1ee50649e9d6d6aafa67e34610a1d880b06cfd9aa4304121414fe2d5f681312f",
+        "frontend/src/components/sections/ProductFigure.jsx": "38b488a31896ade16db98562184e8b93b1dc22bcbcc5619ffdf93d3a2118762d",
+        "frontend/src/components/sections/Founder.jsx": "e9dcd26e9ba34bf50185a7e33997d9e3d9e27e84d834e1b2b7e17659bc9c73b3",
+        "frontend/src/components/sections/SiteHeader.jsx": "77c224ef8a56314d43c82a5623a736a276c610dc09cf40598d008753aa0da4f7",
+        "frontend/src/components/sections/SiteFooter.jsx": "f882d6f58c000d34389bf98550d6b0fa69de83f4c794fc2a0fe6fd1c4132a777",
+        "frontend/src/content/home.js": "83753d0086d1dd9ef8cb6e5881368b4db119f23cd2d8a08b086f3007f531bc69",
+        "frontend/src/content/marketing.js": "62f5cddffb4b7e0c4a492b5ef0f74351a5091eb1ecacc157a69e3ae462a1ee20",
+        "frontend/src/index.css": "feae67393794cd45a207741b6e85946addb8b6d51e8a43c73d5593b7a3fd0016",
+        "frontend/src/components/sections/MobileDetails.jsx": "489feeb771ab8395a1de3dc233624a76edad2ec16c1c5346b1ce0db49286a4b5",
+        "frontend/src/components/sections/clarity.css": "a0e5f5b05c515fe2c36d588954208b687aff64db908978a3a603e60c709785e9",
+        "frontend/src/components/sections/product-mobile.css": "8566b0dca97b5e43f67286e4548302200630f134f587e1937117533c5b19d683",
+        "frontend/src/components/CookieConsent.jsx": "adc1c86a56900b34eda0ffaed1960808ba0da6dfbe0a8c0d12fdf80ec2e796f6"
+      }
     }
   }
 }

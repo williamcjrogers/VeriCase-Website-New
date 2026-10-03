@@ -1,4 +1,6 @@
-# VeriCase Landing Page — Final Plan
+# VeriCase landing page: historical original plan
+
+> **Superseded for the next revision.** Follow the [consolidated screenshot-led plan of 03 October 2026](docs/plans/2026-10-03-screenshot-led-website-redesign.md). This original plan is retained for history; its palette, metrics, features and delivery statements are not current instructions or verification.
 
 ## 1) Executive Summary
 

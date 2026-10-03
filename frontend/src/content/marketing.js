@@ -1,10 +1,9 @@
-// Owner-approved copy, 01 October 2026. Preserve these passages verbatim.
+// Copy revised under the approved screenshot-led plan, 03 October 2026.
 export const TIME_ADVANTAGE = {
-  title: 'Time is your ally: your competitive edge, not your enemy',
+  title: 'The project took years. Your response cannot.',
   paragraphs: [
-    'Time is the commodity everyone is chasing. There is a gold rush around AI. If you do not get on board, you will fall behind your competitors.',
-    'VeriCase transforms complex evidence into compelling, defensible claim arguments using AI, so legal and construction professionals can build stronger cases faster and with greater confidence.',
-    'It is an early case diagnostic tool. It saves substantial time and gives you an edge over your opponent. Imagine building a factual chronology by reading tens or hundreds of thousands of emails. VeriCase does that not in days, weeks, or months, but in minutes.',
+    'The claim has arrived. The deadline is fixed. The record is spread across mailboxes, attachments and years of correspondence.',
+    'Use VeriCase to follow disputed events through the record and prepare a response grounded in the documents.',
   ],
 };
 

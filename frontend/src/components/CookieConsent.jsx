@@ -96,7 +96,7 @@ export const CookieConsent = () => {
             {details ? COOKIE_BAR.hide : COOKIE_BAR.details}
           </button>
         </p>
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2 max-sm:flex-wrap">
           <button
             type="button"
             aria-expanded={details}
@@ -106,10 +106,10 @@ export const CookieConsent = () => {
           >
             {details ? COOKIE_BAR.hide : COOKIE_BAR.details}
           </button>
-          <button type="button" onClick={() => choose('granted')} className="vc-btn vc-btn-secondary min-h-[44px] flex-1 lg:w-[11.5rem] lg:flex-none">
+          <button type="button" onClick={() => choose('granted')} className="vc-btn vc-btn-secondary min-h-[44px] min-w-0 whitespace-normal max-sm:px-2 max-sm:basis-32 flex-1 lg:w-[11.5rem] lg:flex-none">
             {COOKIE_BAR.allow}
           </button>
-          <button type="button" onClick={() => choose('denied')} className="vc-btn vc-btn-secondary min-h-[44px] flex-1 lg:w-[11.5rem] lg:flex-none">
+          <button type="button" onClick={() => choose('denied')} className="vc-btn vc-btn-secondary min-h-[44px] min-w-0 whitespace-normal max-sm:px-2 max-sm:basis-32 flex-1 lg:w-[11.5rem] lg:flex-none">
             {COOKIE_BAR.reject}
           </button>
         </div>

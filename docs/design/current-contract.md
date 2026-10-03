@@ -1,57 +1,35 @@
-# Current website contract
+# Current website design contract
 
-Effective 01 October 2026. This contract supersedes older palette, typography, page-order and copy prescriptions in historical design documents. The owner approved a fuller marketing website in forest green and brass. Subsequent feedback explicitly permits useful, easily understood interaction; the earlier static-only rule is superseded. The blue branding, gradients and visual treatment at app.veri-case.com are excluded; that site is a copy reference only. A revised visual proposal is being prepared for review before further implementation.
+Effective 03 October 2026. The owner authorised implementation of the [consolidated screenshot-led plan](../plans/2026-10-03-screenshot-led-website-redesign.md), then instructed the site to adopt the [reviewed commercial copy](../../reviews/optimisation/copy-effectiveness-review-2026-10-03.md). The latest copy direction supersedes the cautious opening and repeated review instructions from the first implementation. Earlier design records remain historical evidence.
 
-## Sources of truth
+## Identity and composition
 
-- Rendered page order: `frontend/src/pages/LandingPage.jsx`.
-- Copy and publication gates: `frontend/src/content/home.js`, `marketing.js`, `notes.js`, `gates.js`.
-- Actual colour and type: `frontend/src/index.css`, `frontend/tailwind.config.js` and computed browser styles. Historical token names such as `navy` and `azure` do not describe their current hue.
-- Route metadata: `frontend/src/lib/pageMetadata.js`; public delivery: `frontend/vercel.json` and the deployed domain.
+Retain the genuine VeriCase wordmark, forest green, paper, parchment and brass, self-hosted Newsreader and IBM Plex. The opening establishes construction claims and commercial teams, followed by a wide captured document reader. That composition preserves more readable product detail than a small screenshot beside the headline. Three practical jobs lead to substantive preparation, chronology, research, rebuttal, drafting, collaboration and source-review explanations.
 
-## Visual contract
+Opening copy: **Transform complex evidence into compelling legal arguments.** The category is AI for construction claims and disputes; the opening retains an explicit claims/commercial audience and practitioner-founded proof. The italic brass phrase is editorial emphasis. Use green for principal headings, dark bronze for small action text on light grounds and pale text only over a verified dark surface. Keep readable prose, distinct section spacing and primary/standalone controls at least 44 pixels high.
 
-Forest green `#0B2516`, deep green `#041A0F`, paper `#FCFAF5`, parchment `#F5F0E6`, brass `#BF9B58` and dark bronze `#5C431B`. Use brass sparingly for actions and meaningful emphasis; use dark bronze for small text on light grounds. The existing light signal `#EE8E7E` remains available for warnings on dark grounds. Display: self-hosted Newsreader. Body: self-hosted IBM Plex Sans. No external font stylesheet. Headings stay in one colour, labels use sentence case, and body paragraphs remain approximately 68 characters wide at most. Preserve the responsive type scale and left alignment.
+The copy sells evidence investigation and case preparation through concrete tasks and benefits. The timing section begins **The project took years. Your response cannot.** Treat it as a recognisable dispute scenario, not a processing benchmark. Explain professional judgement once in the main source-review section and where needed in the FAQ. Preserve specific scope limitations, screenshot labels and confidentiality guidance. The user describes VeriCase as a disruptor; convey the change in working method rather than adding unsupported superiority claims.
 
-Product illustrations must stay as close as possible to the actual application, using the owner's supplied screenshots as the primary reference. Preserve the real screen hierarchy, terminology, visual relationships and control treatment. Simplification means selecting a useful part of a real screen, enlarging relevant content and omitting unrelated surrounding chrome. It does not mean inventing a different interface or substituting generic document diagrams. The website retains its green and brass identity; the old blue marketing website remains excluded.
+## Product presentation
 
-The relationship between a source record and an argument is a useful subject when supported by the application references. Use the existing fictional matter, EV-0131, EV-0138 and EV-0147, rather than publishing live case data visible in reference screenshots. Each proposed illustration must identify its source screenshot and what it has simplified. Do not infer unsupported features or behaviours from a static image. A faithful application panel is permitted; a fabricated dashboard is not. Keep labels readable instead of shrinking an entire screen into a thumbnail.
+The [product reference register](product-reference-register.md) governs the three displayed captures: document reader, file search and illustrative report export. They are genuine historical views with synthetic records. Captions give the capture month and sample status. The export is an output-formatting specimen, not a drafting-editor capture or proof of a completed claim.
 
-Simple interactions may open a supporting record or show which excerpt supports a statement, where that matches the real application. Every example must communicate its main point before interaction; one action must have an immediate, obvious result. No decorative animated networks, scanning effects or counters. The underlying complex interactive components remain in the repository; a separate demo is outside this change. Do not replace useful graphics with generic feature cards or decorative technology imagery.
+Preserve original pixels, terminology and relationships. CSS crops omit historical navigation and the programme-reference footer; the image inspector retains these exclusions. Phone previews show focal details contained within those approved crops, fitted to the page without nested scrolling. View larger opens the wider approved capture with panning. Labels distinguish the phone detail from the wider image. No generated application screen, invented progress sequence or video may imply unsupported behaviour.
 
-The owner wants at least some animation on the public page. The two evidence figures carry it as one-time procedural motion: in the opening figure the three documents square up and each is filed into the chronology in date order, its card and row lit together; in the argument figure each citation underlines as its supporting record comes forward once in view. Motion plays once, ends in a still and readable state, and is absent under reduced motion. Do not strip it as part of a simplification pass, and do not grow it into looping, scanning or counting effects.
+The [capability register](website-capability-register.md) records source support and limits. Repository support and a historical capture do not establish current customer availability. No unsupported speed, winning, truth-reconstruction, immutable-storage or automatic legal-outcome claim is permitted.
 
-The owner has reiterated that some illustrations are good when they communicate clearly. Assess each illustration on that basis. Retain explanatory visuals, simplify those with a useful idea but confusing execution, and remove only those that do not help understanding. Neither static-only treatment nor replacing graphics with prose is a general rule. Source inspection is one useful interaction, not the sole permitted form of visual explanation.
+## People and useful interactions
 
-Reading order: opening and chronology illustration; time and competitive advantage; six fuller capabilities grouped into three practical jobs; argument illustration, shared workspace and audience; four full biographies; common questions; demonstration enquiry. The team includes William Rogers and Warren Kemp as co-founders, Malcolm Brechin as Managing Director, and Sam Whisker as Chief Technology Officer. Malcolm and Sam must not be labelled as founders or co-founders. All biographies are visible in the current two-column layout; only credentials and reported matters are expandable. Primary navigation remains How it works, Worked example, About and Questions. Preserve old chapter addresses by mapping them to the explanatory content, scrolling and focusing its heading. The context-statistics band, programme references and File Login remain removed. Sign in is an external application hand-off, not a local login page. No new routes, services or public APIs.
+All four approved profiles, portraits, credentials, representative experience, contacts and affiliations remain. Each has a 60–90 word introduction and a native full-profile disclosure. Phones show three summary lines initially; opening the full profile restores the complete introduction and biography. FAQ and profile disclosures open for print and restore their prior state afterwards.
 
-## Owner-approved copy
+Phone layout uses a 34–42 pixel display scale, approximately 30–34 pixel section headings, 16 pixel body text and 16–20 pixel outer gutters at the default text size. Long capability/process lists have accessible optional disclosures on phones; desktop, print and JavaScript-failure views retain all content. The phone header gives the wordmark and menu adequate space; the demonstration action remains in the opening and menu. Passing overflow checks alone is not visual acceptance. See the [phone repair record](../../reviews/optimisation/phone-repair-2026-10-03.md).
 
-The following opening and time-section passages are explicitly approved, including their truth-reconstruction and timing wording. They override earlier generic copy guidance for these passages only. Preserve them word for word; do not shorten or soften them during a design review. The time heading uses a colon in accordance with the standing punctuation rule.
+Image inspection uses an accessible dialog with contained keyboard focus, Escape/close and return to the original trigger, including image-load failure. Image descriptions and captions remain useful when images fail. A subtle rule changes colour once; reduced motion disables it and essential content never depends on animation.
 
-**Transform complex evidence into compelling legal arguments.**
+## Navigation and enquiry
 
-VeriCase approaches the evidence crisis differently. We don't just manage documents; we reconstruct truth. Forensic-grade AI turns scattered records into winning, defensible strategies.
+Navigation: How it works, Preparing the case, About, Questions. Preserve established fragment destinations, including `#worked-example`, `#chronology-lens`, `#research`, `#case-room`, `#integrity`, `#clock`, `#claims` and `#notes`. Notes now leads to the systems/professional-review explanation. Follow labelled headings and keep focus clear of sticky navigation.
 
-**Time is your ally: your competitive edge, not your enemy**
+Reuse the prefilled demonstration email, visible address and clipboard fallback. Failure produces visible, announced manual-copy guidance. No new form, service, authentication system or product API. Analytics remains consent-gated; email actions are intent signals, not bookings. The existing VeriCase sign-in host now uses its verified `/login` path. This is not confirmation that the separate MeritusIQ application is the intended customer destination.
 
-Time is the commodity everyone is chasing. There is a gold rush around AI. If you do not get on board, you will fall behind your competitors.
-
-VeriCase transforms complex evidence into compelling, defensible claim arguments using AI, so legal and construction professionals can build stronger cases faster and with greater confidence.
-
-It is an early case diagnostic tool. It saves substantial time and gives you an edge over your opponent. Imagine building a factual chronology by reading tens or hundreds of thousands of emails. VeriCase does that not in days, weeks, or months, but in minutes.
-
-## Behaviour and wording
-
-- Use “Request a demonstration” for the email action. Preserve the plain-address fallback and confidentiality guidance. A click is an intent signal, never a received enquiry or booking.
-- Restore existing ingestion, chronology, research, rebuttal, claims preparation, integrity, collaboration, audience, FAQ and closing copy. Do not rewrite approved passages merely to shorten them. Outside the explicitly approved passages above, do not add truth guarantees, speed comparisons, benchmark numbers or training/security promises.
-- Keep unverified client-data policy and privacy publication gates closed. A policy gap is not evidence of an insecure product.
-- The sample matter is fictional; founders, company details and external sources are not covered by that disclaimer.
-- Primary touch controls have at least 44 by 44 px targets. Test 320, 390, 768 and 1440 px without horizontal page overflow. Check readable graphics, contrast, visible focus, keyboard, native disclosures and mobile navigation. Compare the approved passages against the rendered page word for word.
-- Public illustrations may use purposeful, optional interactions with plain labels. Preserve keyboard access, visible selection and focus, reduced-motion support and a meaningful initial state. Do not mount the old complex walkthrough wholesale. Preserve its existing pause, reduced-motion, viewport and document-visibility fixes in the retained components.
-- Consent precedes every analytics request. Explicit events accept only fixed identifiers. Recording and automatic interaction capture stay disabled. Verify grant, rejection, withdrawal, regrant and blocked storage.
-- `/cookies` has its own canonical metadata and prerendered body. Unknown addresses return HTTP 404 with noindex. Verify robots, sitemap and sharing image through the public canonical domain, not only a preview.
-
-## Verification boundaries
-
-Record repository SHA, deployed SHA, host and viewport. Distinguish local tests, preview acceptance, public delivery and live account data. Core Web Vitals targets are p75 LCP <=2.5 s, INP <=200 ms and CLS <=0.1; only real-user data establishes a field pass. Do not invent scores, enquiry rates or product capabilities from the fictional examples.
+Programme marketing, File Login, context statistics and unsupported Quantum/Final Account marketing remain removed. Current source, tests, rendered verification and release limits are set out in the [acceptance report](../../reviews/optimisation/implementation-acceptance-2026-10-03.md).

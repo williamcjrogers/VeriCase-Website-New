@@ -1,11 +1,11 @@
 import { CLAIMS, IN_BRIEF } from '@/content/home';
-import { ArgumentIllustration } from './EvidenceIllustrations';
+import { ProductFigure } from './ProductFigure';
 import { CapabilityFeatures } from './CapabilityDetails';
 
 export const SharedWorkspace = () => (
   <section id="worked-example" aria-labelledby="worked-example-title" className="clarity-section shared-workspace bg-parchment">
     <div className="container">
-      <div id="claims" tabIndex={-1} aria-labelledby="worked-example-title" className="workspace-intro">
+      <div id="claims" role="region" tabIndex={-1} aria-labelledby="worked-example-title" className="workspace-intro">
         <h2 id="worked-example-title" tabIndex={-1} className="clarity-heading">{CLAIMS.h2}</h2>
         <div>
           <p className="text-body max-w-measure">{CLAIMS.lead}</p>
@@ -13,12 +13,12 @@ export const SharedWorkspace = () => (
         </div>
       </div>
       <div className="claims-explanation">
-        <CapabilityFeatures items={CLAIMS.items.filter((item) => item.title !== 'Discussion on the document')} label="Claims preparation capabilities" />
+        <CapabilityFeatures items={CLAIMS.items.filter((item) => item.title !== 'Discussion on the document')} label="Claims preparation capabilities" mobileLabel="Explore drafting tools" />
       </div>
-      <ArgumentIllustration />
+      <ProductFigure kind="export" />
       <div className="workspace-detail">
         <div>
-          <h3 className="text-[1.625rem] leading-tight">One workspace for the whole team.</h3>
+          <h3 className="text-[1.625rem] leading-tight">{CLAIMS.collaborationHeading}</h3>
           <p className="mt-4 max-w-measure text-body">{CLAIMS.fail}</p>
           <p className="mt-4 max-w-measure text-body">{CLAIMS.items.find((item) => item.title === 'Discussion on the document').text}</p>
         </div>

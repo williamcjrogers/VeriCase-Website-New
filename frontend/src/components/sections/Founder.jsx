@@ -1,9 +1,7 @@
 import { FOUNDER } from '@/content/home';
 import { Gated } from '@/components/editorial/Gated';
 
-// Each person is one article: identity, biography, credentials, then matters or products. From
-// 1024 px the two articles of a pair share their row heights (subgrid, see clarity.css), so
-// the rows stay level across the pair; a phone reads each article in order.
+// Concise introductions keep the reading path short; native disclosures retain the full approved profiles.
 export const Founder = () => (
   <section id="about" aria-labelledby="about-title" className="clarity-section bg-parchment">
     <div className="container team-container">
@@ -16,8 +14,10 @@ export const Founder = () => (
             <article key={person.name} className="team-member" aria-labelledby={`team-${slug}`}>
               <div className="team-identity">
                 <img className="team-portrait" src={person.photo.src} alt={person.photo.alt} width="220" height="220" loading="lazy" decoding="async" />
-                <h3 id={`team-${slug}`} className="team-name">{person.name}</h3>
-                <p className="team-role">{person.role}</p>
+                <div className="team-heading">
+                  <h3 id={`team-${slug}`} className="team-name">{person.name}</h3>
+                  <p className="team-role">{person.role}</p>
+                </div>
                 {(person.email || person.tel) && (
                   <p className="team-contact">
                     {person.email && <a href={`mailto:${person.email}`}>{person.email}</a>}
@@ -26,6 +26,9 @@ export const Founder = () => (
                   </p>
                 )}
               </div>
+              <p className="team-bio team-summary">{person.summary}</p>
+              <details className="team-full-profile">
+                <summary>Full profile and experience<span className="sr-only"> for {person.name}</span></summary>
               <div className="team-cell">
                 {person.bio.split('\n\n').map((paragraph) => (
                   <p key={paragraph} className="team-bio">{paragraph}</p>
@@ -48,6 +51,7 @@ export const Founder = () => (
                   ))}
                 </ul>
               </div>
+              </details>
             </article>
           );
         })}

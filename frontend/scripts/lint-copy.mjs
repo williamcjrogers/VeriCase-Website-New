@@ -1,4 +1,4 @@
-// Copy check for the site. Run with `yarn lint:copy` from the frontend directory; the build runs
+// Copy check for the site. Run with `corepack pnpm run lint:copy` from the frontend directory; the build runs
 // it again with `--built` over the prerendered HTML.
 //
 // It fails on em and en dashes, unsubstantiated or banned claims, American spellings, real
@@ -27,7 +27,11 @@ const TEXT_RULES = [
   { name: 'military-grade claim', pattern: /military[-\s]grade/gi },
   { name: 'admissibility claim', pattern: /\bcourt[-\s](ready|admissible)\b|\badmissible\b/gi },
   { name: 'CPR claim', pattern: /\bCPR\b/g },
-  { name: 'outcome claim', pattern: /win your case|win more cases|irrefutable|bulletproof|\bguarantee/gi },
+  { name: 'outcome claim', pattern: /win your case|win more cases|\bwinning\b|irrefutable|bulletproof|\bguarantee/gi },
+  { name: 'truth guarantee', pattern: /reconstruct(?:s|ing)? (?:the )?truth|forensic[-\s]grade/gi },
+  { name: 'fear-based urgency', pattern: /gold rush|fall behind your competitors/gi },
+  { name: 'unsubstantiated speed claim', pattern: /not in days, weeks, or months|but in minutes/gi },
+  { name: 'immutable storage claim', pattern: /\bWORM\b|\bimmutable (?:originals?|storage)\b/gi },
   { name: 'tamper-proof claim', pattern: /tamper[-\s]?proof/gi },
   { name: 'banned term', pattern: /\bproportionate\b|Microsoft 365|Office 365|delay analysis|critical path|\bGantt\b|defence bundle/gi },
   { name: 'banned term (programme)', pattern: /\bprogramm?e?s?\b/gi },
@@ -98,7 +102,7 @@ const applyRules = (where, text, rules) => {
       const start = Math.max(0, text.lastIndexOf('.', m.index) + 1);
       const end = text.indexOf('.', m.index);
       const sentence = text.slice(start, end < 0 ? undefined : end + 1);
-      if (!ALLOWED_SENTENCES.some((a) => a.test(sentence))) fail(where, `${rule.name}: "${m[0]}"`);
+      if (!(rule.name === 'admissibility claim' && ALLOWED_SENTENCES.some((a) => a.test(sentence)))) fail(where, `${rule.name}: "${m[0]}"`);
     }
   }
 };
@@ -248,14 +252,14 @@ if (!BUILT) {
       if (href.startsWith('mailto:enquiries@veri-case.com?subject=') && label !== 'Request a demonstration') {
         fail(page, `demonstration link reads "${label}", not "Request a demonstration"`);
       }
-      if (label === 'Sign in' && href !== 'https://app.veri-case.com/ui/login.html') fail(page, `Sign in points to ${href}`);
+      if (label === 'Sign in' && href !== 'https://app.veri-case.com/login') fail(page, `Sign in points to ${href}`);
     }
     // As registered at Companies House (company 16562435); 14789532 belongs to another company.
     if (!text.includes('VeriCase Ltd is registered in England and Wales (company number 16562435). Registered office: 85 Great Portland Street, London, England, W1W 7LT.')) {
       fail(page, 'the footer legal line does not match section 3.14');
     }
-    if (!text.includes('The Chronology Lens™ is a trade mark of VeriCase Ltd. VeriCase is software and does not give legal advice. Illustrations on this site use a fictional matter.')) {
-      fail(page, 'the footer trade mark line does not match section 3.14');
+    if (!text.includes('The Chronology Lens™ is a trade mark of VeriCase Ltd. VeriCase is software and does not give legal advice. Product views use illustrative records and sample content.')) {
+      fail(page, 'the footer trade mark and illustrative-content notice do not match the current content contract');
     }
     if (/\bVAT\b/i.test(text)) fail(page, 'a VAT line is present');
   }

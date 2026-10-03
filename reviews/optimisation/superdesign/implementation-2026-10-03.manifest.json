@@ -1,0 +1,108 @@
+{
+  "createdAt": "2026-10-03T17:49:19.116355+00:00",
+  "sourceBuild": "frontend/build/index.html",
+  "sourceBuildSha256": "0f07c93926a1e6f868cbb63ab5088fcf987742b180ee1b8d0f8018f4f99e89c7",
+  "exportSha256": "aa3c0b4fe7a098652719c808709f6342732ff21ba8009126d3efd49db95de490",
+  "exportBytes": 1671851,
+  "embeddedAssets": {
+    "fonts/newsreader-roman.woff2": {
+      "bytes": 85680,
+      "sha256": "f8e7dca5223cfddb6f11cc0747f5a111d352847e4ee57dc7728627f6cf8d64f1",
+      "mime": "font/woff2"
+    },
+    "fonts/newsreader-italic.woff2": {
+      "bytes": 58008,
+      "sha256": "d57f1f2bfb86f1d37d95deee2cb4a5ab52a4da2b75430dbf254a376dad745676",
+      "mime": "font/woff2"
+    },
+    "fonts/plex-sans-400.woff2": {
+      "bytes": 20684,
+      "sha256": "0421f5fc2b19c478e1b8698de3497851b4da7bf9fe8076aef4cf096d30b7c51f",
+      "mime": "font/woff2"
+    },
+    "fonts/plex-sans-400-italic.woff2": {
+      "bytes": 22228,
+      "sha256": "16754655e3eb6151b7273463d1586b46c88d14e3f82781f08d969cb031a566cf",
+      "mime": "font/woff2"
+    },
+    "fonts/plex-sans-500.woff2": {
+      "bytes": 22196,
+      "sha256": "cbcada6696dd29eab5e37eedc6ea57d2c5e745e99e4128521ff411924e7d377e",
+      "mime": "font/woff2"
+    },
+    "fonts/plex-sans-600.woff2": {
+      "bytes": 22344,
+      "sha256": "6e0e2a80e1d1df48a5ebdb9c292c533de44ab252925f263c0d7265901c89fb17",
+      "mime": "font/woff2"
+    },
+    "fonts/plex-mono-400.woff2": {
+      "bytes": 12868,
+      "sha256": "90e5a949e172c33dde3d84b14ed3af612d7fe7af935c86b73409c7368129ddd3",
+      "mime": "font/woff2"
+    },
+    "fonts/plex-mono-500.woff2": {
+      "bytes": 13200,
+      "sha256": "6cd87cc7caf8ac4de086d3cc06298b8d51c441ef17da88d63044c85bfe2caed5",
+      "mime": "font/woff2"
+    },
+    "static/media/noise.ca8846ff7f0a67a8c7a4.png": {
+      "bytes": 56132,
+      "sha256": "f80920d2ac8c0e1465c352d0e6431b6984c31909fe9f679db0b5fbec8243c8b9",
+      "mime": "image/png"
+    },
+    "logo-reversed.svg": {
+      "bytes": 17452,
+      "sha256": "5449bd607d6cc1fcf34652d1d187273efeb98430a901e3a911c8547cbf763e8a",
+      "mime": "image/svg+xml"
+    },
+    "images/product/document-reader-qa-2026-09-06.png": {
+      "bytes": 174866,
+      "sha256": "65d0eeb34f9226fcf0e327b5504cddec42d381120bae6f56dea4656cd78ccede",
+      "mime": "image/png"
+    },
+    "images/product/files-search-qa-2026-09-05.png": {
+      "bytes": 255235,
+      "sha256": "68f57cf492dbd4881836ecc3b18568d2732dab2ea410ec697d12af61b7c0bdf2",
+      "mime": "image/png"
+    },
+    "images/product/report-export-qa-2026-09-12.png": {
+      "bytes": 128366,
+      "sha256": "2089de031b425e91ecd6681d97aa485a807f8c83735eff6b29b35a75062eb7c3",
+      "mime": "image/png"
+    },
+    "assets/team/william-rogers.jpg": {
+      "bytes": 15189,
+      "sha256": "2c46d27a5aed265ccb6f9c221d2e0e3df44baff8b20d3a2ce60eda28caa06350",
+      "mime": "image/jpeg"
+    },
+    "assets/team/warren-kemp.jpg": {
+      "bytes": 34480,
+      "sha256": "4aefa43a4d23437089edac955e198951d279739aee1bd52e0695410a0887518b",
+      "mime": "image/jpeg"
+    },
+    "assets/team/malcolm-brechin.jpg": {
+      "bytes": 12429,
+      "sha256": "fc9a0b7ebfd2ed76bb5b6c712a74df19428765dd0dfc0b58319a525f66d62483",
+      "mime": "image/jpeg"
+    },
+    "assets/team/sam-whisker.jpg": {
+      "bytes": 18438,
+      "sha256": "ba716dec8f480dc8f78ab0370efbae255c852fd23c23ea45244adf3d6d5b28cc",
+      "mime": "image/jpeg"
+    }
+  },
+  "anchorsWithUniqueIds": 27,
+  "disabledButtons": 9,
+  "nativeDisclosures": 14,
+  "nativeCapabilityDisclosures": 4,
+  "boundaries": [
+    "Static visual review of the implemented website, not a second design proposal.",
+    "Images, portraits, fonts and logos are embedded unchanged from the existing public build.",
+    "The application JavaScript, analytics, JSON-LD and asset-preload links were removed.",
+    "Enquiry mail links point to the contact section in the canvas; the email address stays visible.",
+    "Native profile, FAQ and capability disclosures remain functional. Other buttons are disabled.",
+    "Capability details start closed on mobile. Browsers supporting ::details-content show them expanded on desktop; other browsers retain a working native summary.",
+    "Historical screenshot crops remain defined by the production CSS.",
+    "The mobile footer is expanded so static navigation content remains available."
+  ]
+}
