@@ -29,6 +29,10 @@ Static preview: https://p.superdesign.dev/draft/425b94c7-c50b-4d91-9bd9-edc56154
 
 ## Release and limits
 
-Draft PR #5 is the existing delivery path. Hosted preview verification will be recorded after the branch update. Production has not been changed.
+Implementation commit `f36a9d90dd1e51c175bfcb98b7dba4232e49e3d8` is pushed to the existing draft PR #5. Vercel deployment `6830633044` reports success for the primary website project.
+
+Verified hosted preview: https://veri-case-website-hgy2oalyi-quantum-commercial-solutions.vercel.app/
+
+The deployed page renders the exact approved headline, revised section headings, title and description. The opening product capture loads; the new product-fit FAQ expands to its intended answer, rejecting analytics dismisses the consent banner and the home link restores focus to `top-title`. Desktop geometry at 1440 pixels has no page overflow. The hosted opening was visually inspected and saved as `screenshots/copy-2026-10-03/hosted-desktop-1440.jpg`. This preview uses the existing Vercel access controls. Production has not been changed.
 
 This copy revision does not establish product availability, current data-processing arrangements, buyer acceptance or conversion performance. The independent editorial reviews assess the copy against supplied records, not advertising-law compliance or measured commercial results. The broader manual screen-reader, cross-browser and buyer-test limits from the preceding implementation remain.
