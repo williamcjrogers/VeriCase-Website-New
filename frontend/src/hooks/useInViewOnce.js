@@ -16,11 +16,16 @@ export function useInViewOnce({ threshold = 0.2, rootMargin = '0px' } = {}) {
       return undefined;
     }
     // Some browsers report an entry as soon as an edge enters the viewport, whatever the
-    // threshold, so the share in view is checked here rather than assumed.
+    // threshold, so the share in view is checked here rather than assumed. A cross-origin frame
+    // reports no root bounds, so the frame's own viewport stands in for them.
+    const rootHeight = (e) => (e.rootBounds && e.rootBounds.height) || window.innerHeight;
     const seen = (e) => e.isIntersecting && (
       e.intersectionRatio + 0.001 >= threshold
-      || (e.rootBounds && e.rootBounds.height > 0 && e.intersectionRect.height + 1 >= threshold * e.rootBounds.height)
+      || e.intersectionRect.height + 1 >= threshold * rootHeight(e)
     );
+    // Steps of 5% let an element taller than the viewport (at high zoom, for example) be checked
+    // against the viewport as it scrolls in.
+    const steps = Array.from({ length: 21 }, (_, i) => i / 20);
     const io = new IntersectionObserver(
       (entries) => {
         if (entries.some(seen)) {
@@ -28,8 +33,7 @@ export function useInViewOnce({ threshold = 0.2, rootMargin = '0px' } = {}) {
           io.disconnect();
         }
       },
-      // Intermediate steps let a tall element be checked against the viewport as it scrolls in.
-      { threshold: [...new Set([0, 0.25, 0.5, threshold, 0.75, 1])].sort((a, b) => a - b), rootMargin }
+      { threshold: [...new Set([...steps, threshold])].sort((a, b) => a - b), rootMargin }
     );
     io.observe(el);
     return () => io.disconnect();
