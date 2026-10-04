@@ -58,7 +58,7 @@
 .product-toolbar p { font-size: 0.875rem; font-weight: 500; }
 .product-enlarge { display: inline-flex; gap: 0.5rem; align-items: center; min-height: 44px; flex-shrink: 0; padding: 0 0.35rem; color: var(--vc-azure-700); font-size: 0.875rem; text-decoration: underline; text-underline-offset: 4px; }
 .product-enlarge:hover { background: var(--vc-parchment-300); }
-.product-figure figcaption { margin-top: 0.8rem; font-size: 0.8125rem; line-height: 1.6; color: var(--vc-graphite); max-width: 90ch; }
+.product-figure figcaption, .evidence-figure > figcaption { margin-top: 0.8rem; font-size: 0.8125rem; line-height: 1.6; color: var(--vc-graphite); max-width: 90ch; }
 .product-pan-hint { display: none; }
 .product-fallback { padding: 2rem; min-height: 12rem; }
 .product-figure-search { max-width: 59.25rem; margin-left: auto; margin-right: auto; }
@@ -76,6 +76,52 @@
 .product-inspector[data-zoomed='true'] .product-inspector-scroll .product-crop { width: max(150%, var(--capture-width)); max-width: none; }
 .product-inspector-tools { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem 1rem; margin-bottom: 1rem; font-size: 0.8125rem; color: var(--vc-graphite); }
 .product-zoom { min-height: 44px; padding: 0.5rem 0.875rem; border: 1px solid var(--vc-rule-strong); color: var(--vc-ink); font-weight: 500; }
+
+/* Illustrations: fictional records framed apart from the captures (parchment, brass top rule, no
+   shadow or toolbar). Every string uses an existing type role through its own class; this block
+   sets layout and colour only. */
+.evidence-figure { min-width: 0; margin: 3rem 0 0; padding: clamp(1rem, 2.5vw, 2rem); background: var(--vc-parchment); border: 1px solid var(--vc-rule); border-top: 3px solid var(--vc-brass-400); }
+.evidence-figure .section-kicker { margin-bottom: 0.5rem; }
+.evidence-figure > figcaption { margin-top: 1.25rem; padding-top: 0.875rem; border-top: 1px solid var(--vc-rule); max-width: none; }
+/* From documents to chronology: each document beside one ruled record of dated entries, below the
+   search capture and on its measure and left edge. */
+.chronology-illustration { container: chronology / inline-size; max-width: 59.25rem; margin-inline: auto; }
+.evidence-flow-head, .evidence-flow li { display: grid; grid-template-columns: minmax(0, 1fr) 2.25rem minmax(0, 1.15fr); column-gap: 0.5rem; }
+/* The title and kicker over the documents; the record's label over the record. */
+.evidence-flow-head { align-items: end; }
+.evidence-flow-head > div { grid-column: 1 / 3; }
+.evidence-flow-head h4 { grid-column: 3; padding-left: 1.25rem; }
+.evidence-flow { list-style: none; margin: 0.75rem 0 0; padding: 0; }
+.evidence-flow-doc { display: flex; gap: 0.75rem; align-items: center; margin: 0.5rem 0; padding: 0.625rem 0.875rem; background: var(--vc-paper); border: 1px solid var(--vc-rule); }
+.evidence-flow-icon { flex-shrink: 0; color: var(--vc-graphite); }
+.evidence-flow-arrow { align-self: center; justify-self: center; color: var(--vc-brass-700); }
+/* Drawn only once the figure is in view (see the motion rules), never backwards as the script loads. */
+.evidence-figure .draw-x { transition: none; }
+.evidence-flow-entry { position: relative; display: flex; flex-direction: column; justify-content: center; padding: 0.75rem 0 0.75rem 1.25rem; border-left: 1px solid var(--vc-rule-strong); }
+.evidence-flow li:first-child .evidence-flow-entry { margin-top: 0.5rem; padding-top: 0.25rem; }
+.evidence-flow li:last-child .evidence-flow-entry { margin-bottom: 0.5rem; padding-bottom: 0.25rem; }
+/* Each entry's node on the record, level with its arrow. */
+.evidence-flow-entry::before { content: ''; position: absolute; left: -5px; top: 50%; width: 9px; height: 9px; margin-top: -4.5px; border: 1.5px solid var(--vc-brass-400); border-radius: 50%; background: var(--vc-brass-400); }
+.evidence-flow li:first-child .evidence-flow-entry::before { top: calc(50% - 0.25rem); }
+.evidence-flow li:last-child .evidence-flow-entry::before { top: calc(50% + 0.25rem); }
+/* Phones: the same three columns, closer together, with each document's icon above its name. */
+@container chronology (max-width: 26rem) {
+  .evidence-flow-head, .evidence-flow li { grid-template-columns: minmax(0, 1fr) 0.875rem minmax(0, 1.05fr); column-gap: 0.25rem; }
+  .evidence-flow-head > div { grid-column: 1 / -1; }
+  .evidence-flow-head h4 { margin-top: 0.75rem; }
+  .evidence-flow-head h4, .evidence-flow-entry { padding-left: 0.75rem; }
+  .evidence-flow-doc { flex-direction: column; align-items: flex-start; gap: 0.25rem; padding: 0.5rem 0.375rem 0.5rem 0.5rem; }
+  .evidence-flow-icon { width: 18px; height: 23px; }
+  .evidence-flow-arrow { width: 14px; }
+}
+/* An argument with its sources: the point, with a citation after each sentence, beside the quoted
+   records. A quotation keeps its attribution outside the quoted words. */
+.argument-illustration { display: grid; gap: 1.5rem 2.5rem; }
+.argument-illustration > figcaption { margin-top: 0; }
+.evidence-argument-text { margin-top: 1rem; }
+.evidence-source { position: relative; margin-top: 1rem; padding-left: 1rem; border-left: 2px solid var(--vc-rule); }
+.evidence-source::before { content: ''; position: absolute; left: -2px; top: 0; bottom: 0; width: 2px; background: var(--vc-brass-400); transform-origin: top; }
+.evidence-source > figcaption { margin-top: 0.25rem; }
 
 /* A useful introduction, with every approved profile still available. */
 .clarity-team { display: grid; gap: 3rem; margin-top: 3rem; }
@@ -108,6 +154,14 @@
   .capability-features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .workspace-detail, .clarity-team { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 3rem; }
   .claims-explanation .capability-features { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  /* The three jobs share a title row, so their paragraphs start level; the arrow sits in the
+     corner under the brass rule, outside the title's measure. Layout only: type is unchanged. */
+  .clarity-jobs { grid-template-rows: auto auto; }
+  .capability-group { position: relative; display: grid; grid-row: span 2; grid-template-rows: subgrid; row-gap: 0; }
+  .capability-title-link { display: block; }
+  .capability-title-link > span { position: absolute; top: 0.25rem; right: 0; }
+  .argument-illustration { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .argument-illustration > figcaption { grid-column: 1 / -1; }
 }
 @media (min-width: 1024px) {
   .clarity-hero-grid { grid-template-columns: 1.3fr 1fr; gap: 5rem; }
@@ -167,11 +221,15 @@
   .rebuttal-section .capability-introduction { border-top: 1px solid var(--vc-rule); padding-top: 2rem; }
   .claims-explanation { margin-top: 1.25rem; }
   .workspace-detail { margin-top: 2rem; padding-top: 1.5rem; }
-  .workspace-detail h3 { font-size: 1.375rem; }
+  .workspace-detail h3, .evidence-figure-title { font-size: 1.375rem; }
   .workspace-collaboration { margin-top: 1.5rem; }
   .workspace-collaboration .workspace-detail { margin-top: 0; padding-top: 1rem; border: 0; }
   .product-figure { margin-top: 1.5rem; }
   .product-frame { box-shadow: none; border-color: var(--vc-rule); }
+  .evidence-figure { margin-top: 1.5rem; padding: 1rem; }
+  .evidence-figure > figcaption { margin-top: 1rem; padding-top: 0.75rem; }
+  .argument-illustration { gap: 1.25rem; }
+  .evidence-argument-text { margin-top: 0.75rem; }
   .product-inspector { padding: 0.75rem; }
   .product-inspector-heading h2 { font-size: 1.5rem; }
   .clarity-team { gap: 1.5rem; margin-top: 2rem; }
@@ -194,6 +252,7 @@
   #demonstration .mt-8 { margin-top: 1.5rem; }
 }
 @media (max-width: 359px) {
+  .evidence-figure { padding-inline: 0.75rem; }
   .header-menu-label { display: none; }
   .site-header-row, .clarity-hero > .container, .clarity-section > .container { padding-inline: 20px; }
 }
@@ -201,6 +260,21 @@
 @media (prefers-reduced-motion: no-preference) {
   .clarity-hero .product-frame { animation: record-rule 700ms ease-out both; }
   @keyframes record-rule { from { border-top-color: var(--vc-brass-400); } to { border-top-color: var(--vc-rule-strong); } }
+
+  /* The illustrations reuse the page's draw-once hairline (.draw-x) and record highlight
+     (note-flash). Each plays once, in date order, when it comes into view and ends still; all
+     text is shown throughout. Chronology: an arrow is drawn from each document to its entry,
+     whose node fills and which is highlighted. */
+  .js .chronology-illustration:not(.is-in) .evidence-flow-entry::before { background: var(--vc-parchment); }
+  .chronology-illustration.is-in .draw-x { transition: transform 400ms var(--ease-settle) calc(200ms + var(--i) * 450ms); }
+  .chronology-illustration.is-in .evidence-flow-entry::before { transition: background-color 200ms var(--ease-settle) calc(550ms + var(--i) * 450ms); }
+  .chronology-illustration.is-in .evidence-flow-entry { animation: note-flash 900ms var(--ease-settle) calc(550ms + var(--i) * 450ms); }
+  /* Argument: each citation and its record are highlighted together, and the record's brass rule
+     is drawn. */
+  .js .argument-illustration:not(.is-in) .evidence-source::before { transform: scaleY(0); }
+  .argument-illustration.is-in .evidence-cite { animation: note-flash 1000ms var(--ease-settle) calc(150ms + var(--i) * 550ms); }
+  .argument-illustration.is-in .evidence-source { animation: note-flash 1000ms var(--ease-settle) calc(250ms + var(--i) * 550ms); }
+  .argument-illustration.is-in .evidence-source::before { transition: transform 450ms var(--ease-settle) calc(250ms + var(--i) * 550ms); }
 }
 @media print {
   .desktop-context { display: block; }
@@ -215,4 +289,10 @@
   .product-frame { box-shadow: none; }
   .clarity-section, .clarity-hero { padding: 2rem 0; }
   .team-full-profile > :not(.team-summary-mobile) { display: block !important; }
+  /* The illustrations print in their end state. */
+  .evidence-figure { break-inside: avoid; }
+  .evidence-figure *, .evidence-figure *::before { animation: none !important; transition: none !important; }
+  .js .evidence-figure .draw-x { transform: none !important; }
+  .js .chronology-illustration .evidence-flow-entry::before { background: var(--vc-brass-400) !important; }
+  .js .argument-illustration .evidence-source::before { transform: none !important; }
 }

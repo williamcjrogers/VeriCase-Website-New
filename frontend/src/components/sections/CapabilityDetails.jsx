@@ -2,9 +2,11 @@ import { CASE_ROOM, INTEGRITY, LENS_CHAPTER, RESEARCH } from '@/content/home';
 import { Gated, isShown } from '@/components/editorial/Gated';
 import { ProductFigure } from './ProductFigure';
 import { MobileDetails } from './MobileDetails';
+import { ArgumentIllustration, ChronologyIllustration } from './EvidenceIllustrations';
 
-// Capability detail remains visible. Publication gates still govern each passage.
-export const CapabilityFeatures = ({ items, label, mobileLabel = 'Explore the tools', children }) => (
+// Capability detail remains visible. Publication gates still govern each passage. On phones a
+// section's illustration closes its disclosure; elsewhere the section shows it in place.
+export const CapabilityFeatures = ({ items, label, mobileLabel = 'Explore the tools', children, illustration }) => (
   <MobileDetails label={mobileLabel}>
   {children && <div className="capability-context mobile-context">{children}</div>}
   <ul className="capability-features" aria-label={label}>
@@ -15,6 +17,7 @@ export const CapabilityFeatures = ({ items, label, mobileLabel = 'Explore the to
       </li>
     ))}
   </ul>
+  {illustration && <div className="mobile-context">{illustration}</div>}
   </MobileDetails>
 );
 
@@ -29,12 +32,13 @@ export const RecordExplanation = () => (
         <p className="mt-5 text-body">{LENS_CHAPTER.fail}</p>
         <p className="mt-4 text-body desktop-context"><Gated id={LENS_CHAPTER.recoverGate}>{LENS_CHAPTER.recover}</Gated></p>
       </div>
-      <CapabilityFeatures items={LENS_CHAPTER.items} label="Ingestion and chronology capabilities" mobileLabel="Explore chronology tools">
+      <CapabilityFeatures items={LENS_CHAPTER.items} label="Ingestion and chronology capabilities" mobileLabel="Explore chronology tools" illustration={<ChronologyIllustration id="chronology-illustration-phone" />}>
         <p className="text-body">{LENS_CHAPTER.lead}</p>
         <p className="mt-4 text-body"><Gated id={LENS_CHAPTER.recoverGate}>{LENS_CHAPTER.recover}</Gated></p>
       </CapabilityFeatures>
       </div>
       <ProductFigure kind="search" />
+      <div className="desktop-context"><ChronologyIllustration /></div>
     </div>
   </section>
 );
@@ -91,8 +95,9 @@ export const IntegrityExplanation = () => (
           {INTEGRITY.fail && <p className="mt-4 text-body">{INTEGRITY.fail}</p>}
           {INTEGRITY.recover && <p className="mt-4 text-body">{INTEGRITY.recover}</p>}
         </div>
-        <CapabilityFeatures items={INTEGRITY.controls} label="Integrity and access controls" mobileLabel="Explore source review" />
+        <CapabilityFeatures items={INTEGRITY.controls} label="Integrity and access controls" mobileLabel="Explore source review" illustration={<ArgumentIllustration id="argument-illustration-phone" />} />
       </div>
+      <div className="desktop-context"><ArgumentIllustration /></div>
       <div id="notes" role="region" className="workspace-detail capability-positioning" aria-labelledby="notes-title">
         <div>
           <h3 id="notes-title" tabIndex={-1} className="text-[1.625rem] leading-tight">{INTEGRITY.positioning.h3}</h3>

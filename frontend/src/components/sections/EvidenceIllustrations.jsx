@@ -1,65 +1,89 @@
 import { Fragment } from 'react';
-import { EVIDENCE_ILLUSTRATION } from '@/content/marketing';
+import { ARGUMENT_ILLUSTRATION, CHRONOLOGY_ILLUSTRATION, EVIDENCE_ILLUSTRATION, ILLUSTRATION_LABEL } from '@/content/marketing';
 import { useInViewOnce } from '@/hooks/useInViewOnce';
 import { cn } from '@/lib/utils';
-import { useSourceSheet } from '@/components/mock/SourceSheet';
 
-// Semantic documents with no simulated software controls. Motion is procedure and plays once:
-// each document is filed into the chronology in date order (CSS only, see clarity.css), and
-// each citation in the argument draws to its source when the figure comes into view. Every
-// state is readable, and reduced motion shows the final state from first paint.
-export const ChronologyIllustration = () => (
-  <figure className="evidence-figure chronology-illustration" aria-labelledby="chronology-illustration-title">
-    <h2 id="chronology-illustration-title" className="evidence-figure-title">From documents to chronology.</h2>
-    <div className="evidence-documents" aria-label="Three source documents">
-      {EVIDENCE_ILLUSTRATION.map((source, i) => (
-        <div className="evidence-document" key={source.id} style={{ '--i': i }}>
-          <svg width="26" height="32" viewBox="0 0 26 32" fill="none" aria-hidden="true">
-            <path d="M1 1h16l8 8v22H1zM17 1v8h8M6 15h14M6 20h14M6 25h9" stroke="currentColor" strokeWidth="1.4" />
-          </svg>
-          <p>{source.document}</p>
-        </div>
-      ))}
-    </div>
-    <p className="evidence-order-label">One record, in date order</p>
-    <ol className="evidence-chronology">
-      {EVIDENCE_ILLUSTRATION.map((source, i) => (
-        <li key={source.id} style={{ '--i': i }}>
-          <time dateTime={source.isoDate}>{source.date}</time>
-          <div><p>{source.title}</p><span>{source.id}</span></div>
-        </li>
-      ))}
-    </ol>
-    <figcaption>Illustrative chronology from a fictional construction matter.</figcaption>
-  </figure>
+// Illustrations, not application captures: fictional records set in the page's own type roles, with
+// no simulated controls. Each plays one operation once when it comes into view (see clarity.css).
+// All text is readable in every frame; reduced motion, print and pages without JavaScript show the
+// end state. A section mounts each one twice, in place and inside its phone disclosure, so `id`
+// keeps the two titles distinct.
+
+// A date is never split across lines ("03 March 2025").
+const keepDates = (text) => text.replace(/(\d{2}) ([A-Z][a-z]+) (\d{4})/g, '$1\u00a0$2\u00a0$3');
+
+const DocumentIcon = () => (
+  <svg className="evidence-flow-icon" width="22" height="28" viewBox="0 0 26 32" fill="none" aria-hidden="true">
+    <path d="M1 1h16l8 8v22H1zM17 1v8h8M6 15h14M6 20h14M6 25h9" stroke="currentColor" strokeWidth="1.4" />
+  </svg>
 );
 
-export const ArgumentIllustration = () => {
-  const { open } = useSourceSheet();
-  const [ref, inView] = useInViewOnce({ threshold: 0.35 });
-  const last = EVIDENCE_ILLUSTRATION.length - 1;
+// Each document beside one ruled record. Once in view, in date order, an arrow is drawn from each
+// document to its dated entry, and the entry is marked on the record. The record stays drawn.
+export const ChronologyIllustration = ({ id = 'chronology-illustration' }) => {
+  const [ref, inView] = useInViewOnce({ threshold: 0.6 });
   return (
-    <figure ref={ref} className={cn('evidence-figure argument-illustration', inView && 'is-in')} aria-labelledby="argument-illustration-title">
+    <figure className={cn('evidence-figure chronology-illustration', inView && 'is-in')} aria-labelledby={`${id}-title`}>
+      <div className="evidence-flow-head">
+        <div>
+          <p className="section-kicker">{ILLUSTRATION_LABEL}</p>
+          <h3 id={`${id}-title`} className="evidence-figure-title text-[1.625rem] leading-tight">{CHRONOLOGY_ILLUSTRATION.title}</h3>
+        </div>
+        <h4 className="capability-feature-title">{CHRONOLOGY_ILLUSTRATION.recordLabel}</h4>
+      </div>
+      <ol ref={ref} className="evidence-flow">
+        {EVIDENCE_ILLUSTRATION.map((source, i) => (
+          <li key={source.id} style={{ '--i': i }}>
+            <div className="evidence-flow-doc">
+              <DocumentIcon />
+              <p className="capability-feature-title text-navy">{source.document}</p>
+            </div>
+            <svg className="evidence-flow-arrow draw-x" width="28" height="12" viewBox="0 0 28 12" fill="none" aria-hidden="true">
+              <path d="M0 6h26m0 0-5-5m5 5-5 5" stroke="currentColor" strokeWidth="1.4" />
+            </svg>
+            <div className="evidence-flow-entry">
+              <time className="text-small text-graphite" dateTime={source.isoDate}>{keepDates(source.date)}</time>
+              <p className="capability-feature-title text-navy">{source.title}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <figcaption>{CHRONOLOGY_ILLUSTRATION.caption}</figcaption>
+    </figure>
+  );
+};
+
+// The point beside the records it cites. Once in view, in turn, each citation and its record are
+// highlighted together and a brass rule is drawn beside the record. The rules stay drawn.
+export const ArgumentIllustration = ({ id = 'argument-illustration' }) => {
+  const [ref, inView] = useInViewOnce({ threshold: 0.6 });
+  return (
+    <figure className={cn('evidence-figure argument-illustration', inView && 'is-in')} aria-labelledby={`${id}-title`}>
       <div className="evidence-argument">
-        <h3 id="argument-illustration-title" className="evidence-figure-title">An argument with its sources.</h3>
-        <p className="evidence-argument-text">The change was instructed on 03 March. The ten-week lead time was recorded on 12 March. Delivery was confirmed on 26 March for the week commencing 19 May 2025.</p>
-        <p className="text-small text-azure-700 mt-2">
-          Supported by{' '}
-          <button type="button" onClick={(e) => open('EV-0131', ['EV-0131'], e.currentTarget)} className="ev-chip mr-1">EV-0131</button>,{' '}
-          <button type="button" onClick={(e) => open('EV-0138', ['EV-0138'], e.currentTarget)} className="ev-chip mr-1">EV-0138</button> and{' '}
-          <button type="button" onClick={(e) => open('EV-0147', ['EV-0147'], e.currentTarget)} className="ev-chip">EV-0147</button>.
+        <p className="section-kicker">{ILLUSTRATION_LABEL}</p>
+        <h3 id={`${id}-title`} className="evidence-figure-title text-[1.625rem] leading-tight">{ARGUMENT_ILLUSTRATION.title}</h3>
+        <p className="evidence-argument-text text-body">
+          {ARGUMENT_ILLUSTRATION.points.map((point, i) => (
+            <Fragment key={EVIDENCE_ILLUSTRATION[i].id}>
+              {i > 0 && ' '}
+              {keepDates(point)}{' '}
+              <span className="evidence-cite" style={{ '--i': i }}>({EVIDENCE_ILLUSTRATION[i].document})</span>.
+            </Fragment>
+          ))}
         </p>
       </div>
-      <div className="evidence-sources">
-        <h4 className="text-body font-medium">Supporting records</h4>
+      <div ref={ref} className="evidence-sources">
+        <h4 className="capability-feature-title">{ARGUMENT_ILLUSTRATION.sourcesLabel}</h4>
         {EVIDENCE_ILLUSTRATION.map((source, i) => (
-          <blockquote className="evidence-source" key={source.id} style={{ '--i': i }}>
-            <p>“{source.excerpt}”</p>
-            <footer>{source.document}, {source.date}<span>{source.id}</span></footer>
-          </blockquote>
+          <figure className="evidence-source" key={source.id} style={{ '--i': i }}>
+            <blockquote>
+              <p className="text-body">“{keepDates(source.excerpt)}”</p>
+            </blockquote>
+            <figcaption className="text-small text-graphite">{source.document}, {keepDates(source.date)}</figcaption>
+          </figure>
         ))}
       </div>
-      <figcaption id="notes" tabIndex={-1}>The documents and argument shown here are fictional. The source references connect each point to the record behind it.</figcaption>
+      <figcaption>{ARGUMENT_ILLUSTRATION.caption}</figcaption>
     </figure>
   );
 };
