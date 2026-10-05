@@ -1,0 +1,60 @@
+/* An opposing assertion, tested against the record: facing pages on the ink. The opposing
+   paragraph is typed on the left-hand page, in Newsreader as everything the user writes is; the
+   records answer on the right-hand page as paper slips, each with its attribution, and what each
+   says to the assertion is stated in words on the ink beneath it. The proposed reply then arrives
+   below as a drafted sheet, at the assertion's own scale, so the claim and the reply face each
+   other. One drawn element: the gutter between the pages, drawn down as the record page opens. */
+
+.rebuttal-illustration { --rebuttal-after: 320ms; --rebuttal-step: 480ms; --rebuttal-beat: 240ms; --rebuttal-inset: 1rem; }
+.live-figure.rebuttal-illustration [data-appear] { --after: var(--rebuttal-after); --step: var(--rebuttal-step); }
+/* Each relation follows its slip by a beat, and the reply follows its label by the same beat. */
+.live-figure.rebuttal-illustration :is(.rebuttal-relation, .rebuttal-reply-page) { --after: calc(var(--rebuttal-after) + var(--rebuttal-beat)); }
+
+/* The pages: the assertion, then the record under its label. From 768px up they face each other. */
+.rebuttal-pages { display: grid; }
+/* The typed line keeps its finished height from the start: the complete copy the kit holds for
+   assistive technology lays out the line, invisibly, and the typed copy is written over it, so
+   nothing below moves as the assertion grows to its second and third lines. */
+.rebuttal-assertion .typed { display: grid; }
+.rebuttal-assertion .typed > .sr-only { position: static; width: auto; height: auto; margin: 0; overflow: visible; clip: auto; white-space: pre-wrap; opacity: 0; pointer-events: none; user-select: none; grid-area: 1 / 1; }
+.rebuttal-assertion .typed > .typed-visual { grid-area: 1 / 1; }
+.rebuttal-records-page { position: relative; }
+.rebuttal-records { list-style: none; margin: 0; padding: 0; display: grid; align-content: start; gap: 1rem; }
+.rebuttal-slip { padding: 0.75rem var(--rebuttal-inset); }
+.rebuttal-quote { margin: 0; }
+.rebuttal-attribution { margin-top: 0.25rem; }
+/* What the record says to the assertion: stated on the ink beneath the slip, at the quotation's
+   size, so it reads as the finding and not as a caption. */
+.rebuttal-relation { margin: 0.5rem 0 0 var(--rebuttal-inset); font-size: 1.0625rem; line-height: 1.5; color: var(--vc-parchment); }
+
+/* The reply: a sheet below both pages, set in Newsreader at the typed line's size. */
+.rebuttal-reply { margin-top: 1.75rem; }
+.rebuttal-reply-page { margin: 0; padding: 0.875rem 1rem; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1.25rem; line-height: 1.35; text-wrap: pretty; }
+.rebuttal-cite { white-space: nowrap; }
+
+@media (min-width: 768px) {
+  .rebuttal-pages { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 0; align-items: stretch; }
+  .rebuttal-pages > .rebuttal-assertion { margin-top: 1.25rem; padding-right: 2.5rem; }
+  .rebuttal-pages > .rebuttal-records-page { margin-top: 1.25rem; padding-left: 2.5rem; }
+  .rebuttal-records-page::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: var(--live-rule); transform-origin: top; }
+  .rebuttal-reply { margin-top: 2.25rem; }
+  /* The sheet spans both pages; its text keeps a readable measure, leaving a margin for review. */
+  .rebuttal-reply-page { padding: 1.25rem 1.5rem; padding-right: max(1.5rem, calc(100% - 66ch - 1.5rem)); font-size: 1.375rem; }
+}
+@media (min-width: 1024px) {
+  .rebuttal-illustration { --rebuttal-inset: 1.125rem; }
+  .rebuttal-slip { padding-block: 0.875rem; }
+  .rebuttal-reply-page { padding: 1.5rem 1.75rem; padding-right: max(1.75rem, calc(100% - 66ch - 1.75rem)); font-size: 1.5rem; line-height: 1.3; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js .rebuttal-illustration:not(.is-in) .rebuttal-records-page::before { transform: scaleY(0); }
+  .rebuttal-illustration.is-in:not(.is-settled) .rebuttal-records-page::before { animation: rebuttal-gutter 520ms var(--ease-settle) both; animation-delay: calc(var(--typed-ms, 0ms) + var(--rebuttal-after)); }
+  @keyframes rebuttal-gutter { from { transform: scaleY(0); } to { transform: none; } }
+}
+@media print {
+  .rebuttal-reply-page { font-size: 1.125rem; }
+  .rebuttal-relation { color: var(--vc-ink); }
+  .js .rebuttal-illustration:not(.is-in) [data-appear] { opacity: 1; }
+  .js .rebuttal-illustration:not(.is-in) .typed-visual { visibility: visible; }
+  .js .rebuttal-illustration:not(.is-in) .rebuttal-records-page::before { transform: none; }
+}

@@ -1,60 +1,65 @@
 import { EVIDENCE_ILLUSTRATION, REBUTTAL_ILLUSTRATION } from '@/content/marketing';
-import { ILLUSTRATION_LABEL } from '@/content/marketing';
-import { cn } from '@/lib/utils';
+import { LiveFigure, Typed, keepDates, useFigurePlay, useTypewriter } from './illustrationKit';
+import './rebuttal-illustration.css';
 
-const keepDates = (text) => text.replace(/(\d{2}) ([A-Z][a-z]+) (\d{4})/g, '$1\u00a0$2\u00a0$3');
+// The opposing account: the assertion is typed in front of the reader, in quotation marks, on the
+// left-hand page; the record then answers on the facing page, each quoted record arriving as paper
+// with its attribution, and its bearing on the assertion stated in words beneath it; last, the
+// proposed reply arrives below as a drafted sheet, marked for review. Relations are stated in
+// words, never in colour. The figure is mounted once, inside the phone disclosure that wider
+// screens keep open, so `play` is only passed when two copies must share one performance.
+//
+// The sequence, in ms from the start (rebuttal-illustration.css sets the rhythm): the assertion is
+// typed by 2623 (81 characters at the kit's pace); then, 320 later, "The record"; then one turn of
+// 480 for each record, its slip first and its relation 240 after it; then the reply's label and,
+// 240 after it, the reply. The reply appears at 2623 + 320 + 3 * 480 + 240 = 4623 and has settled
+// 420 later, at 5043; the duration adds 300.
+export const REBUTTAL_DURATION = 5350;
 
-// The four static illustrations below show capabilities that no application capture shows. They
-// share one frame and the page's type roles, and they do not move.
-const Illustration = ({ id, className, title, caption, children }) => (
-  <figure className={cn('evidence-figure', className)} aria-labelledby={`${id}-title`}>
-    <p className="section-kicker">{ILLUSTRATION_LABEL}</p>
-    <h3 id={`${id}-title`} className="evidence-figure-title text-[1.625rem] leading-tight">{title}</h3>
-    {children}
-    <figcaption>{caption}</figcaption>
-  </figure>
-);
+// Turn 0 is the records label; record k takes turn k + 1 with its relation; the reply takes the
+// turn after the last record.
+const turn = (k) => k + 1;
 
-// A quoted record with its attribution outside the quoted words, as in the argument illustration.
-// Anything said about the record (its relation to an assertion) belongs to the caption.
-const QuotedRecord = ({ source, children }) => (
-  <figure className="evidence-source">
-    <blockquote>
-      <p className="text-body">“{keepDates(source.excerpt)}”</p>
-    </blockquote>
-    <figcaption className="text-small text-graphite">{source.document}, {keepDates(source.date)}{children}</figcaption>
-  </figure>
-);
-
-const attribution = (source) => `${source.document}, ${keepDates(source.date)}`;
-
-// The opposing account: the assertion and the record on facing pages, then a proposed reply that
-// the team reviews. Relations are stated in words, never in colour.
-export const RebuttalIllustration = ({ id = 'rebuttal-illustration' }) => (
-  <Illustration id={id} className="rebuttal-illustration" title={REBUTTAL_ILLUSTRATION.title} caption={REBUTTAL_ILLUSTRATION.caption}>
-    <div className="rebuttal-pair">
-      <div>
-        <h4 className="capability-feature-title">{REBUTTAL_ILLUSTRATION.assertionLabel}</h4>
-        <blockquote className="evidence-assertion">
-          <p className="text-body">“{keepDates(REBUTTAL_ILLUSTRATION.assertion)}”</p>
-        </blockquote>
+export const RebuttalIllustration = ({ id = 'rebuttal-illustration', play: shared }) => {
+  const [ref, playClass, play] = useFigurePlay(shared, { duration: REBUTTAL_DURATION });
+  const R = REBUTTAL_ILLUSTRATION;
+  const assertion = `“${keepDates(R.assertion)}”`;
+  const { ms } = useTypewriter(assertion, play);
+  const replyTurn = turn(R.records.length);
+  return (
+    <LiveFigure id={id} className="rebuttal-illustration" title={R.title} caption={R.caption} play={play} playClass={playClass} figureRef={ref} style={{ '--typed-ms': `${ms}ms` }}>
+      <div className="rebuttal-pages">
+        <p className="live-prompt rebuttal-assertion">
+          <span className="live-prompt-label">{R.assertionLabel}</span>
+          <Typed className="live-prompt-line" text={assertion} play={play} />
+        </p>
+        <div className="live-output rebuttal-records-page">
+          <h4 className="live-output-label rebuttal-records-label" data-appear style={{ '--i': 0 }}>{R.recordsLabel}</h4>
+          <ol className="rebuttal-records" role="list">
+            {R.records.map(({ index, relation }, k) => {
+              const source = EVIDENCE_ILLUSTRATION[index];
+              return (
+                <li key={source.id} className="rebuttal-record">
+                  <div className="rebuttal-slip on-paper" data-appear style={{ '--i': turn(k) }}>
+                    <blockquote className="rebuttal-quote">
+                      <p className="text-body">“{keepDates(source.excerpt)}”</p>
+                    </blockquote>
+                    <p className="rebuttal-attribution text-small text-graphite">{source.document}, {keepDates(source.date)}</p>
+                  </div>
+                  <p className="rebuttal-relation" data-appear style={{ '--i': turn(k) }}>{relation}</p>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
       </div>
-      <div>
-        <h4 className="capability-feature-title">{REBUTTAL_ILLUSTRATION.recordsLabel}</h4>
-        {REBUTTAL_ILLUSTRATION.records.map(({ index, relation }) => (
-          <QuotedRecord key={EVIDENCE_ILLUSTRATION[index].id} source={EVIDENCE_ILLUSTRATION[index]}>
-            <span className="evidence-relation">{relation}</span>
-          </QuotedRecord>
-        ))}
+      <div className="live-output rebuttal-reply">
+        <h4 className="live-output-label rebuttal-reply-label" data-appear style={{ '--i': replyTurn }}>{R.replyLabel}</h4>
+        <p className="rebuttal-reply-page on-paper" data-appear style={{ '--i': replyTurn }}>
+          {keepDates(R.reply)}{' '}
+          <span className="rebuttal-cite">({EVIDENCE_ILLUSTRATION[R.replySource].document})</span>.
+        </p>
       </div>
-    </div>
-    <div className="evidence-reply">
-      <h4 className="capability-feature-title">{REBUTTAL_ILLUSTRATION.replyLabel}</h4>
-      <p className="text-body">
-        {keepDates(REBUTTAL_ILLUSTRATION.reply)}{' '}
-        <span className="whitespace-nowrap">({EVIDENCE_ILLUSTRATION[REBUTTAL_ILLUSTRATION.replySource].document})</span>.
-      </p>
-    </div>
-  </Illustration>
-);
-
+    </LiveFigure>
+  );
+};

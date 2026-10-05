@@ -1,45 +1,50 @@
 import { Fragment } from 'react';
-import { ARGUMENT_ILLUSTRATION, EVIDENCE_ILLUSTRATION, ILLUSTRATION_LABEL } from '@/content/marketing';
-import { cn } from '@/lib/utils';
-import { useFigurePlay } from './illustrationKit';
+import { ARGUMENT_ILLUSTRATION, EVIDENCE_ILLUSTRATION } from '@/content/marketing';
+import { LiveFigure, keepDates, useFigurePlay } from './illustrationKit';
+import './argument-illustration.css';
 
-// In running text a date is never split across lines ("03 March 2025").
-const keepDates = (text) => text.replace(/(\d{2}) ([A-Z][a-z]+) (\d{4})/g, '$1\u00a0$2\u00a0$3');
+// Argument: nothing is typed. The user's own drafted points, each citing its record, appear as a
+// page of paper; then, in turn, each citation is marked in brass as the record it cites arrives
+// beside it with a brass rule drawn down its edge. The marks and the rules stay. Two copies (in
+// place and in the phone disclosure) share one performance through `play`.
+//
+// The sequence, in ms from the start (argument-illustration.css sets the rhythm): the page at
+// 160, the records label at 960, then one turn of 800 for each record: its citation is marked,
+// its slip appears 160 later and its rule is drawn from 280 to 760. The last rule is drawn by
+// 160 + 4 * 800 + 760 = 4120; the duration adds 300.
+export const ARGUMENT_DURATION = 4420;
 
-export const ARGUMENT_DURATION = 2500;
+// Turns 0 and 1 are the page and the records label; record k takes turn k + 2, and its citation
+// in the page carries the same turn so the two are marked together.
+const turn = (k) => k + 2;
 
-// The point beside the records it cites. Once in view, in turn, each citation and its record are
-// highlighted together and a brass rule is drawn beside the record. The rules stay drawn.
-export const ArgumentIllustration = ({ id = 'argument-illustration', play }) => {
-  const [ref, playClass] = useFigurePlay(play);
+export const ArgumentIllustration = ({ id = 'argument-illustration', play: shared }) => {
+  const [ref, playClass, play] = useFigurePlay(shared, { duration: ARGUMENT_DURATION });
+  const A = ARGUMENT_ILLUSTRATION;
   return (
-    <figure className={cn('evidence-figure argument-illustration', playClass)} aria-labelledby={`${id}-title`}>
-      <div className="evidence-argument">
-        <p className="section-kicker">{ILLUSTRATION_LABEL}</p>
-        <h3 id={`${id}-title`} className="evidence-figure-title text-[1.625rem] leading-tight">{ARGUMENT_ILLUSTRATION.title}</h3>
-        <p className="evidence-argument-text text-body">
-          {ARGUMENT_ILLUSTRATION.points.map((point, i) => (
-            <Fragment key={EVIDENCE_ILLUSTRATION[i].id}>
-              {i > 0 && ' '}
+    <LiveFigure id={id} className="argument-illustration" title={A.title} caption={A.caption} play={play} playClass={playClass} figureRef={ref}>
+      <div className="argument-stage">
+        <p className="argument-page on-paper" data-appear style={{ '--i': 0 }}>
+          {A.points.map((point, k) => (
+            <Fragment key={EVIDENCE_ILLUSTRATION[k].id}>
+              {k > 0 && ' '}
               {keepDates(point)}{' '}
-              <span className="evidence-cite" style={{ '--i': i }}>({EVIDENCE_ILLUSTRATION[i].document})</span>.
+              <span className="argument-cite" style={{ '--i': turn(k) }}>({EVIDENCE_ILLUSTRATION[k].document})</span>.
             </Fragment>
           ))}
         </p>
+        <h4 className="live-output-label argument-records-label" data-appear style={{ '--i': 1 }}>{A.sourcesLabel}</h4>
+        <ol className="argument-records" role="list">
+          {EVIDENCE_ILLUSTRATION.map((source, k) => (
+            <li key={source.id} className="argument-record on-paper" data-appear style={{ '--i': turn(k) }}>
+              <blockquote className="argument-quote">
+                <p className="text-body">“{keepDates(source.excerpt)}”</p>
+              </blockquote>
+              <p className="argument-attribution text-small text-graphite">{source.document}, {keepDates(source.date)}</p>
+            </li>
+          ))}
+        </ol>
       </div>
-      <div ref={ref} className="evidence-sources">
-        <h4 className="capability-feature-title">{ARGUMENT_ILLUSTRATION.sourcesLabel}</h4>
-        {EVIDENCE_ILLUSTRATION.map((source, i) => (
-          <figure className="evidence-source" key={source.id} style={{ '--i': i }}>
-            <blockquote>
-              <p className="text-body">“{keepDates(source.excerpt)}”</p>
-            </blockquote>
-            <figcaption className="text-small text-graphite">{source.document}, {keepDates(source.date)}</figcaption>
-          </figure>
-        ))}
-      </div>
-      <figcaption>{ARGUMENT_ILLUSTRATION.caption}</figcaption>
-    </figure>
+    </LiveFigure>
   );
 };
-
