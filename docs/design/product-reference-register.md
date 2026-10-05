@@ -2,6 +2,8 @@
 
 Reviewed: 03 October 2026.
 
+> **Status, 05 October 2026.** The captures are no longer displayed. The owner replaced them with illustrations of what the application does, drawn in the site’s own type and colours (`frontend/src/components/sections/ReaderIllustration.jsx`, `SearchIllustration.jsx` and `ReportIllustration.jsx`). This register still governs what those illustrations may depict: each shows only the relationship recorded below for its capture (PR-03, PR-02 and PR-04). The reviewed originals are kept, byte for byte, in `docs/design/product-references/` as evidence and no longer ship with the site. The crop, caption and inspector requirements below are historical.
+
 This register records the four actual application QA captures recovered from WR2.0 Git history for the screenshot-led website. All four were inspected visually at their original resolution. Their fixture provenance was checked against the source repository. They are suitable for public display as **historical QA views with synthetic content**, using the presentation boundaries below.
 
 They are not confirmed to be the complete screenshot set originally supplied by the owner. They do not prove the latest deployed interface, feature availability, production performance, completeness of retrieval or the results of a real claim. The live-matter Case Configuration attachments remain excluded from the website repository and public assets.
@@ -10,7 +12,7 @@ They are not confirmed to be the complete screenshot set originally supplied by 
 
 - Source repository: `/Users/williamrogers/Projects/WR2.0`.
 - Private recovered originals: `/Users/williamrogers/Documents/VeriCase/Website product references/2026-10-03/`.
-- Public copies: `frontend/public/images/product/`.
+- Kept copies: `docs/design/product-references/` (the public copies in `frontend/public/images/product/` were removed from the site on 05 October 2026).
 - Review contact sheet: [product-references/contact-sheet.html](../../reviews/optimisation/product-references/contact-sheet.html).
 - Extraction: `git show <revision>:<path>`, copied without rewriting the image bytes.
 - Sanitisation review: the selected captures contain synthetic fixture records or an explicitly illustrative report. No redaction was necessary. No client identifiers, real correspondence, personal account details, credentials or confidential material were visible in the four inspected images.

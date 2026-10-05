@@ -1,0 +1,39 @@
+/* A matching passage and the document it comes from: the title and the query in a column beside
+   the results. Each result pairs the file record (IBM Plex Sans) with a paper slip carrying the
+   passage (Newsreader); the match is marked as the opening illustration marks a found passage. */
+
+.search-illustration { --tint: rgb(191 155 88 / 0.38); container: search / inline-size; max-width: 59.25rem; margin-inline: auto; }
+.search-split { display: grid; gap: 1.25rem; }
+.search-head, .search-main { min-width: 0; }
+.search-query { margin-top: 1rem; }
+.search-query-label { display: block; font-size: 0.8125rem; line-height: 1.4; color: var(--vc-graphite); }
+.search-query-term { display: block; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-style: italic; font-size: 1.625rem; line-height: 1.2; color: var(--vc-navy); }
+.search-rank { padding-bottom: 0.625rem; border-bottom: 1px solid var(--vc-rule-strong); font-size: 0.875rem; line-height: 1.4; font-weight: 500; color: var(--vc-ink); }
+.search-results { list-style: none; margin: 0; padding: 0; }
+.search-result { display: grid; gap: 0.5rem; padding: 1rem 0; border-bottom: 1px solid var(--vc-rule); }
+.search-result:last-child { padding-bottom: 0; border-bottom: 0; }
+.search-result-name { font-size: 1rem; line-height: 1.4; font-weight: 500; color: var(--vc-ink); }
+.search-result-meta { font-size: 0.875rem; line-height: 1.5; color: var(--vc-graphite); }
+.search-result-meta time { white-space: nowrap; }
+.search-slip { margin: 0; padding: 0.75rem 1rem; background: var(--vc-paper); border: 1px solid var(--vc-rule); }
+.search-slip p { margin: 0; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1.125rem; line-height: 1.55; color: var(--vc-ink); }
+.search-match { color: inherit; padding: 0.04em 0.12em 0.02em; margin: 0 -0.12em; border-radius: 1px; background: linear-gradient(var(--tint), var(--tint)) no-repeat 0 0 / 100% 100%, linear-gradient(var(--vc-brass-700), var(--vc-brass-700)) no-repeat 0 100% / 100% 2px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+@container search (min-width: 44rem) {
+  .search-split { grid-template-columns: 14rem minmax(0, 1fr); column-gap: 2.5rem; }
+  .search-result { grid-template-columns: 12.25rem minmax(0, 1fr); column-gap: 1.5rem; align-items: start; }
+  .search-result-record { padding-top: 0.75rem; }
+  /* Folder and date on their own lines; the comma stays for a screen reader. */
+  .search-result-meta > span, .search-result-meta > time { display: block; }
+  .search-comma { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+@supports not (container-type: inline-size) {
+  @media (min-width: 768px) {
+    .search-split { grid-template-columns: 14rem minmax(0, 1fr); column-gap: 2.5rem; }
+    .search-result { grid-template-columns: 12.25rem minmax(0, 1fr); column-gap: 1.5rem; }
+  }
+}
+@media (max-width: 767px) {
+  .search-query-term { font-size: 1.375rem; }
+  .search-slip p { font-size: 1.0625rem; }
+}

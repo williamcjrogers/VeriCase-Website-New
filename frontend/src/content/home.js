@@ -653,7 +653,7 @@ export const FOOTER = {
   cookies: { settings: 'Cookie settings', notice: 'Cookie notice' },
   legal: [
     'VeriCase Ltd is registered in England and Wales (company number 16562435). Registered office: 85 Great Portland Street, London, England, W1W 7LT.',
-    'The Chronology Lens™ is a trade mark of VeriCase Ltd. VeriCase is software and does not give legal advice. Product views use illustrative records and sample content. Illustrations on this site use a fictional matter.',
+    'The Chronology Lens™ is a trade mark of VeriCase Ltd. VeriCase is software and does not give legal advice. Illustrations on this site use a fictional matter.',
   ],
 };
 

@@ -258,7 +258,7 @@ if (!BUILT) {
     if (!text.includes('VeriCase Ltd is registered in England and Wales (company number 16562435). Registered office: 85 Great Portland Street, London, England, W1W 7LT.')) {
       fail(page, 'the footer legal line does not match section 3.14');
     }
-    if (!text.includes('The Chronology Lens™ is a trade mark of VeriCase Ltd. VeriCase is software and does not give legal advice. Product views use illustrative records and sample content. Illustrations on this site use a fictional matter.')) {
+    if (!text.includes('The Chronology Lens™ is a trade mark of VeriCase Ltd. VeriCase is software and does not give legal advice. Illustrations on this site use a fictional matter.')) {
       fail(page, 'the footer trade mark and illustrative-content notice do not match the current content contract');
     }
     if (/\bVAT\b/i.test(text)) fail(page, 'a VAT line is present');

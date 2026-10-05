@@ -1,6 +1,6 @@
 import { CASE_ROOM, INTEGRITY, LENS_CHAPTER, RESEARCH } from '@/content/home';
 import { Gated, isShown } from '@/components/editorial/Gated';
-import { ProductFigure } from './ProductFigure';
+import { SearchIllustration } from './SearchIllustration';
 import { MobileDetails } from './MobileDetails';
 import { ArgumentIllustration, ChronologyIllustration, RebuttalIllustration, ResearchIllustration, useIllustrationPlay } from './EvidenceIllustrations';
 
@@ -40,7 +40,7 @@ export const RecordExplanation = () => {
         <p className="mt-4 text-body"><Gated id={LENS_CHAPTER.recoverGate}>{LENS_CHAPTER.recover}</Gated></p>
       </CapabilityFeatures>
       </div>
-      <ProductFigure kind="search" />
+      <SearchIllustration />
       <div className="desktop-context"><ChronologyIllustration play={chronology} /></div>
     </div>
   </section>

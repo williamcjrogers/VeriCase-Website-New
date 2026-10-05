@@ -1,6 +1,6 @@
 import { COVER } from '@/content/home';
 import { DemoCTA } from '@/components/editorial/DemoCTA';
-import { ProductFigure } from './ProductFigure';
+import { ReaderIllustration } from './ReaderIllustration';
 
 // The italic line breaks after its first word ("Arguments / on the record."); the rest is kept
 // together so that browsers without balanced wrapping never leave "record." alone.
@@ -19,7 +19,7 @@ export const Hero = () => (
           <DemoCTA placement="hero" section="top" className="hero-action mt-6" microcopy="By email. Please use sample material." />
         </div>
       </div>
-      <ProductFigure kind="reader" priority />
+      <ReaderIllustration />
     </div>
   </section>
 );

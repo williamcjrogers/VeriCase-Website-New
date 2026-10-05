@@ -1,5 +1,5 @@
 import { CLAIMS, IN_BRIEF } from '@/content/home';
-import { ProductFigure } from './ProductFigure';
+import { ReportIllustration } from './ReportIllustration';
 import { CapabilityFeatures } from './CapabilityDetails';
 import { MobileDetails } from './MobileDetails';
 import { DiscussionIllustration, DraftingIllustration } from './EvidenceIllustrations';
@@ -19,7 +19,7 @@ export const SharedWorkspace = () => (
         <CapabilityFeatures items={CLAIMS.items.filter((item) => item.title !== 'Discussion on the document')} label="Claims preparation capabilities" mobileLabel="Explore drafting tools" illustration={<DraftingIllustration id="drafting-illustration-phone" />} />
       </div>
       <div className="desktop-context"><DraftingIllustration /></div>
-      <ProductFigure kind="export" />
+      <ReportIllustration />
       <div className="workspace-collaboration">
       <MobileDetails label="Working with your team">
       <div className="workspace-detail">

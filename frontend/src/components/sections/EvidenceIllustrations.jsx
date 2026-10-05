@@ -36,7 +36,7 @@ export function useIllustrationPlay() {
 }
 
 // The figure's classes: is-in once its sequence has started, is-settled once it has ended.
-function useFigurePlay(play) {
+export function useFigurePlay(play) {
   const own = useIllustrationPlay();
   const { state, seen } = play || own;
   const [ref, inView] = useInViewOnce({ threshold: 0.6 });

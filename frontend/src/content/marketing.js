@@ -96,3 +96,81 @@ export const DISCUSSION_ILLUSTRATION = {
   ],
   caption: 'Illustrative discussion from a fictional construction matter.',
 };
+
+// The workspace illustrations replace the three historical application captures (owner, 05 October
+// 2026). Each depicts one relationship the product reference register supports: a document read
+// beside its file record (PR-03), a matching passage beside the document it comes from (PR-02),
+// and a report exported with its structure and source links (PR-04). They are drawn in the page's
+// own type and colours, show no controls, and use the same fictional matter as the other figures.
+// The matter's records, in date order. Three of them are the EVIDENCE_ILLUSTRATION records above.
+export const MATTER_RECORDS = [
+  { document: 'Contract particulars', date: '14 January 2025', isoDate: '2025-01-14', folder: 'Contract' },
+  { document: 'Instruction', date: '03 March 2025', isoDate: '2025-03-03', folder: 'Correspondence' },
+  { document: 'Site diary', date: '10 March 2025', isoDate: '2025-03-10', folder: 'Site records' },
+  { document: 'Lead-time email', date: '12 March 2025', isoDate: '2025-03-12', folder: 'Correspondence' },
+  { document: 'Progress meeting minutes', date: '20 March 2025', isoDate: '2025-03-20', folder: 'Meetings' },
+  { document: 'Delivery confirmation', date: '26 March 2025', isoDate: '2025-03-26', folder: 'Correspondence' },
+  { document: 'Photographic record', date: '02 April 2025', isoDate: '2025-04-02', folder: 'Site records' },
+];
+
+export const READER_ILLUSTRATION = {
+  title: 'The document beside its file record.',
+  recordsLabel: 'Records',
+  recordsName: 'The matter’s records, in date order',
+  selected: 3, // Lead-time email
+  // The selected record's details, as its file record holds them.
+  details: [['From', 'Supplier'], ['To', 'Package manager'], ['Date', '12 March 2025'], ['Folder', 'Correspondence']],
+  // The reader's views, named as the product reference register records them (PR-03).
+  views: ['Document', 'Details', 'Text', 'Revisions', 'Notes'],
+  findLabel: 'Find in document',
+  findTerm: 'ten weeks from order',
+  page: 'Page 1 of 1',
+  // The original page: an email, with its header and the found passage in its text.
+  email: {
+    header: [['From', 'Supplier'], ['Sent', '12 March 2025'], ['To', 'Package manager'], ['Subject', 'Bracket type B']],
+    before: 'Thank you for the instruction of 03 March 2025. Stainless brackets are ',
+    found: 'ten weeks from order',
+    after: '. We will confirm the delivery week once the order is placed.',
+  },
+  // Marginal notes, in the manner of a figure in an expert's report, naming what each part is.
+  notes: {
+    selected: 'The record selected',
+    details: 'Its file record',
+    page: 'Its original page',
+    found: 'The passage found in the document',
+  },
+  caption: 'Illustrative records from a fictional construction matter.',
+};
+
+export const SEARCH_ILLUSTRATION = {
+  title: 'A matching passage and the document it comes from.',
+  queryLabel: 'Searched for',
+  query: 'ten weeks',
+  rankLabel: 'Ranked by match strength',
+  columns: ['Document', 'Matching passage'],
+  // Strongest match first. Each passage is quoted from a record in MATTER_RECORDS.
+  results: [
+    { record: 3, before: 'Stainless brackets are ', match: 'ten weeks', after: ' from order.' },
+    { record: 4, before: 'Supplier lead time for bracket type B noted as ', match: 'ten weeks', after: ' from order; order date to be confirmed.' },
+  ],
+  caption: 'Illustrative search from a fictional construction matter.',
+};
+
+export const REPORT_ILLUSTRATION = {
+  title: 'A report exported with its structure and sources.',
+  pageName: 'Exported report page',
+  reportTitle: 'Bracket type B: the record',
+  heading: 'Lead time',
+  // The paragraph cites its record as a source link; the quotation is kept distinct from the analysis.
+  paragraph: 'The lead time of ten weeks from order was recorded on 12 March 2025',
+  source: 'Lead-time email',
+  sourceNote: 'source link',
+  quote: 'Stainless brackets are ten weeks from order.',
+  quoteSource: 1, // EVIDENCE_ILLUSTRATION index: the lead-time email
+  tableCaption: 'Table 1. Events and their records',
+  columns: ['Event', 'Record', 'Date'],
+  // One row for each EVIDENCE_ILLUSTRATION record, in the same order.
+  rows: ['Change instructed', 'Lead time given', 'Delivery date confirmed'],
+  folio: 'Page 1 of 1',
+  caption: 'Illustrative report from a fictional construction matter.',
+};

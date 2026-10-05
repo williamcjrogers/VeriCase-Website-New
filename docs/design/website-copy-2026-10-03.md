@@ -1,6 +1,6 @@
 # Website copy deck
 
-03 October 2026. Current public wording after the owner requested a shorter opening, concise section headings and evidence/software terminology. This document mirrors the active content modules and component wiring. It supersedes the previous commercial-copy deck; earlier review proposals remain historical. The three genuine captures, full profile records, substantive capability explanations and professional-review boundaries are preserved. Inactive historical chapters are excluded.
+03 October 2026. Current public wording after the owner requested a shorter opening, concise section headings and evidence/software terminology. This document mirrors the active content modules and component wiring. It supersedes the previous commercial-copy deck; earlier review proposals remain historical. The three historical captures were replaced on 05 October 2026 by illustrations of what the application does (see “Workspace illustrations”); full profile records, substantive capability explanations and professional-review boundaries are preserved. Inactive historical chapters are excluded.
 
 ## Navigation and page labels
 
@@ -41,6 +41,16 @@ Investigate the records that support a position and those that challenge it, wit
 
 Use drafting tools to work on the claim or response, with relevant evidence alongside the narrative.
 
+### Illustration: A claim section built from its records.
+
+Placement: after the drafting capabilities on tablet and desktop; at the end of “Explore drafting tools” on phones.
+
+Section 4. Bracket type B. Record. 4.1 The change to bracket type B was instructed. Instruction, 03 March 2025. 4.2 The lead time was ten weeks from order. Lead-time email, 12 March 2025. 4.3 Delivery was confirmed for the week commencing 19 May 2025. Delivery confirmation, 26 March 2025.
+
+Draft, for review before export.
+
+Caption: Illustrative claim section from a fictional construction matter.
+
 ## Follow the sequence.
 
 Bring project correspondence and documents into VeriCase, follow the chronology and examine the records behind it. Threading, quoted-text handling and relevance controls help you work through the material in context.
@@ -77,7 +87,7 @@ Choose supporting records for the next stage of the work, keeping the source sel
 
 ### Illustration: From documents to chronology.
 
-Placement: after the file search capture on tablet and desktop; at the end of “Explore chronology tools” on phones.
+Placement: after the search illustration on tablet and desktop; at the end of “Explore chronology tools” on phones.
 
 Label: Illustration
 
@@ -113,11 +123,35 @@ Follow source references into the underlying messages and documents, bringing th
 
 Select useful records for the work ahead and identify reported gaps. Search results depend on the scope and material examined; they do not establish a complete account of the matter.
 
+### Illustration: A question traced to its sources.
+
+Placement: after the research process on tablet and desktop; at the end of “Explore the research process” on phones.
+
+Question: When was the ten-week lead time recorded?
+
+Findings: The change to bracket type B was instructed on 03 March 2025. Instruction, 03 March 2025. The lead time of ten weeks from order was recorded on 12 March 2025. Lead-time email, 12 March 2025. Delivery was then confirmed for the week commencing 19 May 2025. Delivery confirmation, 26 March 2025.
+
+Not found in the records examined: the date on which the brackets were ordered.
+
+Caption: Illustrative research from a fictional construction matter.
+
 ## Test the opposing account.
 
 Examine an opposing submission, investigate its factual assertions and develop proposed replies with the supporting and contradictory records alongside them.
 
 See where the account holds, where it is challenged and what needs further investigation before you respond.
+
+### Illustration: An opposing assertion, tested against the record.
+
+Placement: inside “See an example”, which tablet and desktop show open.
+
+Opposing submission, paragraph 12: “The Contractor did not know the lead time for the brackets until 26 March 2025.”
+
+The record: “Stainless brackets are ten weeks from order.” Lead-time email, 12 March 2025. Challenges the assertion. “Supplier confirms delivery week commencing 19 May 2025.” Delivery confirmation, 26 March 2025. Consistent with the date given.
+
+Proposed reply, for review: The Contractor was told the lead time on 12 March 2025, fourteen days before the date alleged (Lead-time email).
+
+Caption: Illustrative rebuttal from a fictional construction matter.
 
 ## Develop the argument.
 
@@ -150,6 +184,16 @@ Phone disclosure: Working with your team
 An important document can generate a long email chain of its own.
 
 Discuss the record with colleagues in the workspace, keeping the conversation connected to the material under examination.
+
+### Illustration: A discussion kept with the record.
+
+Placement: inside “Working with your team”, which tablet and desktop show open.
+
+“Stainless brackets are ten weeks from order.” Lead-time email, 12 March 2025.
+
+Comments on this record: Commercial manager: Does this come before the delivery confirmation? Claims consultant: Yes, by fourteen days. Paragraph 4.2 of the draft relies on it.
+
+Caption: Illustrative discussion from a fictional construction matter.
 
 ## Who it is for
 
@@ -388,27 +432,47 @@ Or write to enquiries@veri-case.com.
 
 Copy control: Copy email address
 
-## Capture labels
+## Workspace illustrations
 
-Desktop labels retain capture dates. Phone labels are compact; the inspector retains the complete dated caption and the wider approved crop.
+Three illustrations stand where the application captures stood (owner, 05 October 2026). Each is labelled Illustration, shows no controls and uses the fictional matter’s records.
 
-### Document reader
+### Illustration: The document beside its file record.
 
-Desktop and inspector: Document reader, September 2026. Illustrative records in a captured application view.
+Placement: the opening, under the heading, at every width.
 
-Phone: Application capture. Illustrative records.
+Records (in date order): Contract particulars, 14 January 2025, Contract. Instruction, 03 March 2025, Correspondence. Site diary, 10 March 2025, Site records. Lead-time email, 12 March 2025, Correspondence. Progress meeting minutes, 20 March 2025, Meetings. Delivery confirmation, 26 March 2025, Correspondence. Photographic record, 02 April 2025, Site records.
 
-### File search
+Selected record: Lead-time email. From Supplier. To Package manager. Date 12 March 2025. Folder Correspondence.
 
-Desktop and inspector: File search, September 2026. The highlighted matches and document records are illustrative.
+Views: Document, Details, Text, Revisions, Notes.
 
-Phone: Application capture. Illustrative search results.
+Find in document: ten weeks from order. Page 1 of 1.
 
-### Report export
+Original page: From Supplier. Sent 12 March 2025. To Package manager. Subject Bracket type B. “Thank you for the instruction of 03 March 2025. Stainless brackets are ten weeks from order. We will confirm the delivery week once the order is placed.”
 
-Desktop and inspector: Illustrative report export, September 2026. A sample of report formatting, containing no findings about a real dispute.
+Notes: The record selected. Its file record. Its original page. The passage found in the document.
 
-Phone: Illustrative export. No findings about a real dispute.
+Caption: Illustrative records from a fictional construction matter.
+
+### Illustration: A matching passage and the document it comes from.
+
+Placement: after the chronology capabilities, before “From documents to chronology.”, at every width.
+
+Searched for “ten weeks”. Ranked by match strength.
+
+Lead-time email, Correspondence, 12 March 2025: “Stainless brackets are ten weeks from order.”
+
+Progress meeting minutes, Meetings, 20 March 2025: “Supplier lead time for bracket type B noted as ten weeks from order; order date to be confirmed.”
+
+Caption: Illustrative search from a fictional construction matter.
+
+### Illustration: A report exported with its structure and sources.
+
+Placement: after “A claim section built from its records.”, at every width.
+
+Bracket type B: the record. Lead time. The lead time of ten weeks from order was recorded on 12 March 2025 (Lead-time email). “Stainless brackets are ten weeks from order.” Lead-time email, 12 March 2025. Table 1. Events and their records: Change instructed, Instruction, 03 March 2025. Lead time given, Lead-time email, 12 March 2025. Delivery date confirmed, Delivery confirmation, 26 March 2025. Page 1 of 1.
+
+Caption: Illustrative report from a fictional construction matter.
 
 ## Footer
 
@@ -416,4 +480,4 @@ Evidence investigation and case preparation for construction claims and disputes
 
 VeriCase Ltd is registered in England and Wales (company number 16562435). Registered office: 85 Great Portland Street, London, England, W1W 7LT.
 
-The Chronology Lens™ is a trade mark of VeriCase Ltd. VeriCase is software and does not give legal advice. Product views use illustrative records and sample content. Illustrations on this site use a fictional matter.
+The Chronology Lens™ is a trade mark of VeriCase Ltd. VeriCase is software and does not give legal advice. Illustrations on this site use a fictional matter.
