@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { act } from 'react';
 import { createRoot } from 'react-dom/client';
-import { DRAFTING_DURATION, DraftingIllustration, HEADING_LABEL } from './DraftingIllustration';
+import { DRAFTING_DURATION, DraftingIllustration } from './DraftingIllustration';
 import { DRAFTING_ILLUSTRATION, EVIDENCE_ILLUSTRATION } from '@/content/marketing';
 
 // The checks every live illustration passes: labelled and captioned as fictional; inert apart from
@@ -67,7 +67,7 @@ it('types the section heading, then sets the section as numbered paragraphs on o
   act(() => root.render(<DraftingIllustration />));
   // The input: the section heading under its label, typed.
   const prompt = container.querySelector('figure > p.live-prompt');
-  expect(prompt.querySelector('.live-prompt-label').textContent).toBe(HEADING_LABEL);
+  expect(prompt.querySelector('.live-prompt-label').textContent).toBe(DRAFTING_ILLUSTRATION.sectionHeadingLabel);
   expect(prompt.querySelector('.typed.live-prompt-line .sr-only').textContent).toBe(DRAFTING_ILLUSTRATION.sectionLabel);
   // The answer: the margin's label (a column label, hidden from assistive technology, since every
   // paragraph names its record), the page as paper (decorative), the paragraphs and the status.
@@ -248,12 +248,15 @@ it('hides or undraws nothing except with the script and when motion is welcome, 
     expect(rule.media).toMatch(/prefers-reduced-motion: no-preference/);
     expect(rule.body).not.toMatch(/infinite/);
   }
-  // The replay control's place is held while the figure plays, so nothing moves when it appears.
-  expect(all.some((rule) => /:not\(\.is-settled\) \.live-replay$/.test(rule.selector) && /visibility:\s*hidden/.test(rule.body) && /display:\s*inline-block/.test(rule.body))).toBe(true);
-  // Printed at any moment the heading is whole: the complete copy is shown, the typed one not.
-  const print = all.filter((rule) => /@media print/.test(rule.media));
-  expect(print.some((rule) => /\.typed > \.sr-only$/.test(rule.selector) && /position:\s*static/.test(rule.body) && /clip:\s*auto/.test(rule.body))).toBe(true);
-  expect(print.some((rule) => /\.typed > \.typed-visual$/.test(rule.selector) && /display:\s*none/.test(rule.body))).toBe(true);
+  // The kit holds the replay control's place while the figure plays, so nothing moves when it
+  // appears, and prints each typed line whole: the whole line is shown, the typed copy not.
+  const shared = rules(kit);
+  expect(shared.some((rule) => /^\.js \.live-figure:not\(\.is-settled\) \.live-replay$/.test(rule.selector) && /screen and \(prefers-reduced-motion: no-preference\)/.test(rule.media) && /visibility:\s*hidden/.test(rule.body) && /display:\s*inline-block/.test(rule.body))).toBe(true);
+  const print = shared.filter((rule) => /@media print/.test(rule.media));
+  expect(print.some((rule) => /^\.typed > \.typed-whole$/.test(rule.selector) && /opacity:\s*1/.test(rule.body))).toBe(true);
+  expect(print.some((rule) => /^\.typed > \.typed-visual$/.test(rule.selector) && /visibility:\s*hidden/.test(rule.body))).toBe(true);
+  // The figure overrides neither.
+  expect(all.some((rule) => /live-replay|\.typed\b/.test(rule.selector))).toBe(false);
   // The caption keeps the kit's colours on screen and in print.
   expect(all.some((rule) => /figcaption/.test(rule.selector))).toBe(false);
 });

@@ -106,7 +106,6 @@ it('types the find term after its label, holding its place and the whole term fo
   // The term is typed in the strip, after "Find in document:", not in a prompt of its own.
   expect(container.querySelector('.live-prompt')).toBeNull();
   const field = container.querySelector('.reader-find-input > .reader-find-field');
-  expect(field.getAttribute('data-term')).toBe(R.findTerm);
   const typed = field.querySelector(':scope > .typed.reader-find-term');
   expect(typed.querySelector('.sr-only').textContent).toBe(R.findTerm);
   // Idle: the visual copy is complete (the script hides it until the figure plays).

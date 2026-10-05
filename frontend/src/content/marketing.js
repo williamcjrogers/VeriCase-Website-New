@@ -75,6 +75,8 @@ export const REBUTTAL_ILLUSTRATION = {
 
 export const DRAFTING_ILLUSTRATION = {
   title: 'A claim section built from its records.',
+  // The prompt's label, over the section heading typed under it.
+  sectionHeadingLabel: 'Section heading',
   sectionLabel: 'Section 4. Bracket type B',
   recordsLabel: 'Record',
   // One paragraph for each record above, in the same order.
@@ -150,7 +152,6 @@ export const SEARCH_ILLUSTRATION = {
   rankLabel: 'Ranked by match strength',
   // Why someone would look: a dispute moment, stated as a scenario and never as an outcome.
   context: 'The opposing submission says the lead time was not known until 26 March 2025.',
-  columns: ['Document', 'Matching passage'],
   // Strongest match first. Each passage is quoted from a record in MATTER_RECORDS.
   results: [
     { record: 3, before: 'Stainless brackets are ', match: 'ten weeks', after: ' from order.' },

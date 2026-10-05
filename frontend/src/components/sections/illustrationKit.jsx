@@ -60,18 +60,22 @@ export function useTypewriter(text, play, { cps = 34, delay = 240 } = {}) {
   return { shown, ms, typing: play.state === 'playing' && shown < text.length };
 }
 
-// The typed line: the whole text for assistive technology, and the visual copy that is typed.
+// The typed line: the whole text, and the visual copy that is typed over it. The whole text is
+// read by assistive technology and, unseen, holds the finished line's place (with room for the
+// caret), so nothing around the line moves as it is typed; print shows it in place of the typed
+// copy (live-figure.css).
 export const Typed = ({ text, play, className, cps, delay }) => {
   const { shown, typing } = useTypewriter(text, play, { cps, delay });
   return (
     <span className={cn('typed', typing && 'is-typing', className)}>
-      <span className="sr-only">{text}</span>
+      <span className="sr-only typed-whole">{text}<span className="typed-caret" /></span>
       <span className="typed-visual" aria-hidden="true">{text.slice(0, shown)}<span className="typed-caret" /></span>
     </span>
   );
 };
 
-// Shown once the performance has settled (and never under reduced motion): plays it again.
+// Shown once the performance has settled (and never under reduced motion): plays it again. Until
+// then its place is held, unseen and unread, so the caption does not move when it appears.
 export const Replay = ({ play, label = 'Play again' }) => (
   <button type="button" className="live-replay" onClick={play.replay}>{label}</button>
 );

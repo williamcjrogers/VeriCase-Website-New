@@ -67,8 +67,7 @@ export const ReaderIllustration = ({ id = 'reader-illustration', play: shared })
           <div className="reader-strip">
             <p className="reader-views"><span className="sr-only">Views: </span>{R.views.map((view, i) => <span key={view} className={cn(i === 0 && 'is-current')}>{view}</span>)}</p>
             <p className="reader-find">
-              {/* The field holds the term's place at its full width, so nothing moves while it is typed. */}
-              <span className="reader-find-input">{R.findLabel}: <span className="reader-find-field" data-term={R.findTerm}><Typed className="reader-find-term" text={R.findTerm} play={play} /></span></span>
+              <span className="reader-find-input">{R.findLabel}: <span className="reader-find-field"><Typed className="reader-find-term" text={R.findTerm} play={play} /></span></span>
               <span className="reader-find-page">{R.page.replace(/ /g, ' ')}</span>
             </p>
           </div>

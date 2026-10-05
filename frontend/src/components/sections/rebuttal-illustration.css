@@ -12,12 +12,6 @@
 
 /* The pages: the assertion, then the record under its label. From 768px up they face each other. */
 .rebuttal-pages { display: grid; }
-/* The typed line keeps its finished height from the start: the complete copy the kit holds for
-   assistive technology lays out the line, invisibly, and the typed copy is written over it, so
-   nothing below moves as the assertion grows to its second and third lines. */
-.rebuttal-assertion .typed { display: grid; }
-.rebuttal-assertion .typed > .sr-only { position: static; width: auto; height: auto; margin: 0; overflow: visible; clip: auto; white-space: pre-wrap; opacity: 0; pointer-events: none; user-select: none; grid-area: 1 / 1; }
-.rebuttal-assertion .typed > .typed-visual { grid-area: 1 / 1; }
 .rebuttal-records-page { position: relative; }
 .rebuttal-records { list-style: none; margin: 0; padding: 0; display: grid; align-content: start; gap: 1rem; }
 .rebuttal-slip { padding: 0.75rem var(--rebuttal-inset); }
@@ -54,7 +48,5 @@
 @media print {
   .rebuttal-reply-page { font-size: 1.125rem; }
   .rebuttal-relation { color: var(--vc-ink); }
-  .js .rebuttal-illustration:not(.is-in) [data-appear] { opacity: 1; }
-  .js .rebuttal-illustration:not(.is-in) .typed-visual { visibility: visible; }
   .js .rebuttal-illustration:not(.is-in) .rebuttal-records-page::before { transform: none; }
 }

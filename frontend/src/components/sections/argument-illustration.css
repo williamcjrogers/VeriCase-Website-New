@@ -4,10 +4,6 @@
    down its edge; the two are made together, one record at a time, and both stay. */
 
 .argument-illustration { --argument-after: 160ms; --argument-step: 800ms; --argument-mark: rgb(191 155 88 / 0.4); --argument-rule: 3px; }
-/* The figure's root keeps the kit's flow; the static two-column rules for it in clarity.css are
-   to be deleted, and these neutralise them until then. */
-.live-figure.argument-illustration { display: block; }
-.live-figure.argument-illustration > figcaption { margin-top: 1.25rem; }
 .argument-illustration [data-appear] { --after: var(--argument-after); --step: var(--argument-step); }
 /* The stage: the page, then the records under their label. From 768px up the page stands beside
    the records, its top level with the first slip and its foot with the last. */
@@ -32,9 +28,6 @@
 }
 @media (min-width: 1024px) {
   .argument-page { font-size: 1.3125rem; line-height: 1.55; }
-}
-@media (max-width: 767px) {
-  .live-figure.argument-illustration > figcaption { margin-top: 1rem; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .js .argument-illustration:not(.is-in) .argument-cite { background-size: 0% 100%; }

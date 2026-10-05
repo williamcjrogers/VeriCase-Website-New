@@ -16,9 +16,6 @@ import './drafting-illustration.css';
 // 976 + 160 + 4 * 640 + 420 = 4116; the duration adds 300.
 export const DRAFTING_DURATION = 4416;
 
-// The prompt's label; the heading typed under it is the section's heading from the content file.
-export const HEADING_LABEL = 'Section heading';
-
 // Turn 0 is the page and the margin's label; paragraph k and its record take turn k + 1; the
 // status line takes the turn after the last paragraph.
 const turn = (k) => k + 1;
@@ -30,7 +27,7 @@ export const DraftingIllustration = ({ id = 'drafting-illustration', play: share
   return (
     <LiveFigure id={id} className="drafting-illustration" title={D.title} caption={D.caption} play={play} playClass={playClass} figureRef={ref} style={{ '--typed-ms': `${ms}ms` }}>
       <p className="live-prompt">
-        <span className="live-prompt-label">{HEADING_LABEL}</span>
+        <span className="live-prompt-label">{D.sectionHeadingLabel}</span>
         <Typed className="live-prompt-line" text={D.sectionLabel} play={play} />
       </p>
       <div className="live-output drafting-output">

@@ -84,13 +84,10 @@
 .reader-views > span { padding: 0.5rem 0 0.4375rem; }
 .reader-views > .is-current { color: var(--vc-ink); font-weight: 500; }
 .reader-find { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 1rem; padding: 0.5rem 0 0.4375rem; }
-/* The find term, typed in ink after its label. Its place is held at its full width (the ghost
-   beneath it, which is never seen or read), so the label and the page number never move while it
-   is typed; the ghost allows for the caret. */
-.reader-find-field { display: inline-grid; color: var(--vc-ink); font-size: 0.875rem; font-weight: 500; }
-.reader-find-field::before { content: attr(data-term); grid-area: 1 / 1; padding-right: 3px; visibility: hidden; white-space: pre; }
-.reader-find-field > .typed { grid-area: 1 / 1; white-space: pre; }
-.reader-find-field .typed-caret { background: var(--vc-ink); }
+/* The find term, typed in ink after its label, on one line. The kit holds its place at its full
+   width, so the label and the page number never move while it is typed. */
+.reader-find-field { color: var(--vc-ink); font-size: 0.875rem; font-weight: 500; }
+.reader-find-field .typed > span { white-space: pre; }
 .reader-desk { display: flex; flex: 1 1 auto; flex-direction: column; padding: 0.75rem var(--desk-x) 0; background: var(--vc-parchment-300); }
 .reader-page { position: relative; flex: 1 1 auto; padding: 1.25rem 2.25rem 2rem; background: var(--vc-paper); border: var(--page-b) solid var(--hair); border-bottom: 0; }
 .reader-page > .reader-note { --d: calc(var(--page-b) + var(--desk-x) + 1px); --in: 0px; top: calc(1.125rem - 0.65em); }
@@ -203,18 +200,8 @@
   @keyframes reader-sideline { from { transform: scaleY(0); } to { transform: scaleY(1); } }
   @keyframes reader-leader { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 }
-/* The replay control's place is held, unseen and unread, until the performance settles, so that
-   the caption (and the page beneath the opening figure) does not move when it appears. */
-@media screen and (prefers-reduced-motion: no-preference) {
-  .js .evidence-figure.live-figure.reader-illustration:not(.is-settled) .live-replay { display: inline-block; visibility: hidden; }
-}
 @media print {
   /* On white, the notes and their leaders take the paper's brass. */
   .reader-illustration { --note-c: var(--vc-brass-700); }
-  /* The find term prints whole even if the page is printed while it is being typed: the field's
-     ghost, which holds the whole term, is shown in place of the typed copy. */
-  .reader-find-field::before { visibility: visible; }
-  .reader-illustration .reader-find-field > .typed .typed-visual,
-  .js .reader-illustration:not(.is-in) .reader-find-field > .typed .typed-visual { visibility: hidden; }
   .reader-illustration *, .reader-illustration *::before, .reader-illustration *::after { animation: none !important; }
 }

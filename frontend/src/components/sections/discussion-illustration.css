@@ -40,12 +40,6 @@
 .discussion-role { margin: 0; font-size: 0.875rem; line-height: 1.5; font-weight: 500; }
 .discussion-question .discussion-role { color: var(--vc-parchment-300); }
 .discussion-question-text { margin: 0; }
-/* The question keeps its finished height from the start: the complete copy the kit holds for
-   assistive technology lays out the line, invisibly, and the typed copy is written over it, so
-   the thread and the reply do not move as the question runs on to a second line. */
-.discussion-question .typed { display: grid; }
-.discussion-question .typed > .sr-only { position: static; width: auto; height: auto; margin: 0; padding: 0; overflow: visible; clip: auto; white-space: pre-wrap; opacity: 0; pointer-events: none; user-select: none; grid-area: 1 / 1; }
-.discussion-question .typed > .typed-visual { grid-area: 1 / 1; }
 
 /* The reply: paper at the end of the thread. The thread's last length comes down the gap from the
    question and turns into the reply's edge level with the role. */
@@ -100,8 +94,4 @@
   .discussion-question .discussion-role { color: var(--vc-graphite); }
   .js .discussion-illustration:not(.is-in) [data-appear] { opacity: 1; }
   .js .discussion-illustration:not(.is-in) .discussion-answer::before { clip-path: none; }
-  /* Printed at any moment, the question is whole: the complete copy shows, never the typed one
-     (five classes, to outrank the kit's print rule that shows the typed copy before play). */
-  .discussion-question .typed > .sr-only { opacity: 1; }
-  .live-figure.discussion-illustration .discussion-question .typed > .typed-visual { visibility: hidden; }
 }

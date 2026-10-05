@@ -45,7 +45,7 @@ Use drafting tools to work on the claim or response, with relevant evidence alon
 
 Placement: after the drafting capabilities on tablet and desktop; at the end of “Explore drafting tools” on phones.
 
-Section 4. Bracket type B. Record. 4.1 The change to bracket type B was instructed. Instruction, 03 March 2025. 4.2 The lead time was ten weeks from order. Lead-time email, 12 March 2025. 4.3 Delivery was confirmed for the week commencing 19 May 2025. Delivery confirmation, 26 March 2025.
+Section heading (typed): Section 4. Bracket type B. Record. 4.1 The change to bracket type B was instructed. Instruction, 03 March 2025. 4.2 The lead time was ten weeks from order. Lead-time email, 12 March 2025. 4.3 Delivery was confirmed for the week commencing 19 May 2025. Delivery confirmation, 26 March 2025.
 
 Draft, for review before export.
 

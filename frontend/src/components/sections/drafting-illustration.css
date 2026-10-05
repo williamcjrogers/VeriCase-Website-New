@@ -67,17 +67,10 @@
   .js .drafting-illustration:not(.is-in) .drafting-record::before { transform: scaleX(0); }
   .drafting-illustration.is-in:not(.is-settled) .drafting-record::before { animation: drafting-leader 360ms var(--ease-settle) both; animation-delay: calc(var(--typed-ms, 0ms) + var(--after) + var(--i, 0) * var(--step)); }
   @keyframes drafting-leader { from { transform: scaleX(0); } to { transform: none; } }
-  /* The replay control's place is held, unseen and unread, until the performance settles, so
-     that the caption and what follows the figure do not move when it appears. */
-  .js .evidence-figure.live-figure.drafting-illustration:not(.is-settled) .live-replay { display: inline-block; visibility: hidden; }
 }
 @media print {
   .drafting-record, .drafting-record-doc { color: var(--vc-graphite); }
   .drafting-record::before { border-top-color: var(--vc-brass-700); }
   .drafting-record::after { background: var(--vc-brass-700); }
   .drafting-status { color: var(--vc-brass-700); }
-  /* Printed at any moment, the heading is whole: the complete copy the kit holds for assistive
-     technology is shown in place of the typed one. */
-  .drafting-illustration .live-prompt .typed > .sr-only { position: static; width: auto; height: auto; margin: 0; padding: 0; overflow: visible; clip: auto; white-space: normal; }
-  .drafting-illustration .live-prompt .typed > .typed-visual { display: none; }
 }
