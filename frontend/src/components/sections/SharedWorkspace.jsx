@@ -3,9 +3,13 @@ import { ReportIllustration } from './ReportIllustration';
 import { CapabilityFeatures } from './CapabilityDetails';
 import { MobileDetails } from './MobileDetails';
 import { DiscussionIllustration } from './DiscussionIllustration';
-import { DraftingIllustration } from './DraftingIllustration';
+import { DraftingIllustration, DRAFTING_DURATION } from './DraftingIllustration';
+import { useIllustrationPlay } from './illustrationKit';
 
-export const SharedWorkspace = () => (
+export const SharedWorkspace = () => {
+  // The in-place copy and the phone copy of the drafting figure share one performance.
+  const drafting = useIllustrationPlay({ duration: DRAFTING_DURATION });
+  return (
   <section id="worked-example" aria-labelledby="worked-example-title" className="clarity-section shared-workspace bg-parchment">
     <div className="container">
       {/* A group, not a second region: the section is already the "Develop the argument." landmark. */}
@@ -17,9 +21,9 @@ export const SharedWorkspace = () => (
         </div>
       </div>
       <div className="claims-explanation">
-        <CapabilityFeatures items={CLAIMS.items.filter((item) => item.title !== 'Discussion on the document')} label="Claims preparation capabilities" mobileLabel="Explore drafting tools" illustration={<DraftingIllustration id="drafting-illustration-phone" />} />
+        <CapabilityFeatures items={CLAIMS.items.filter((item) => item.title !== 'Discussion on the document')} label="Claims preparation capabilities" mobileLabel="Explore drafting tools" illustration={<DraftingIllustration id="drafting-illustration-phone" play={drafting} />} />
       </div>
-      <div className="desktop-context"><DraftingIllustration /></div>
+      <div className="desktop-context"><DraftingIllustration play={drafting} /></div>
       <ReportIllustration />
       <div className="workspace-collaboration">
       <MobileDetails label="Working with your team">
@@ -39,4 +43,5 @@ export const SharedWorkspace = () => (
       </div>
     </div>
   </section>
-);
+  );
+};

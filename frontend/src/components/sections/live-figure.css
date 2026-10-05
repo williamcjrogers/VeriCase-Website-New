@@ -22,6 +22,8 @@
 .typed.is-typing .typed-caret { opacity: 1; }
 .live-output { margin-top: 1.5rem; }
 .live-output-label { margin-bottom: 0.75rem; }
+/* A label set as a heading keeps its brass: the panel's .on-ink heading rule would otherwise make it parchment. */
+.live-figure .live-output-label, .live-figure .live-prompt-label { color: var(--vc-brass-400); }
 
 /* The answer appears in sequence once the typing ends: each part waits for --typed-ms (set by
    the figure), then --after, then its own turn (--i times --step). */
@@ -43,6 +45,10 @@
   .evidence-figure.live-figure > figcaption, .live-figure .text-graphite { color: var(--vc-graphite); }
   .live-replay { display: none; }
   .live-figure *, .live-figure *::before, .live-figure *::after { animation: none !important; }
+  /* A figure printed before it has played shows its end state. */
+  .js .live-figure:not(.is-in) [data-appear] { opacity: 1; transform: none; }
+  .js .live-figure:not(.is-in) .typed-visual { visibility: visible; }
+  .live-figure .live-output-label, .live-figure .live-prompt-label { color: var(--vc-brass-700); }
 }
 @media (max-width: 767px) {
   .live-prompt-line { font-size: 1.25rem; }
