@@ -77,9 +77,12 @@ it('keeps the comments as a list of two under their label, by role and in order'
   act(() => root.render(<DiscussionIllustration />));
   const label = container.querySelector('h4.live-prompt-label');
   expect(label.textContent).toBe(D.commentsLabel);
+  // The heading introduces the list, which follows it directly and is not labelled a second time.
   const list = container.querySelector('ol.discussion-thread');
   expect(list.getAttribute('role')).toBe('list');
-  expect(list.getAttribute('aria-labelledby')).toBe(label.id);
+  expect(label.nextElementSibling).toBe(list);
+  expect(list.hasAttribute('aria-labelledby')).toBe(false);
+  expect(list.hasAttribute('aria-label')).toBe(false);
   const items = list.querySelectorAll(':scope > li');
   expect(items).toHaveLength(2);
   // The first comment: its role, then the question, typed.
@@ -157,9 +160,15 @@ it('shares one performance between two copies', () => {
   for (const figure of [first, second]) expect(figure.classList.contains('is-settled')).toBe(true);
   const ids = [...container.querySelectorAll('[id]')].map((el) => el.id);
   expect(new Set(ids).size).toBe(ids.length);
-  // Each copy's list is labelled by its own label.
+  // Each copy is labelled by its own title.
   for (const figure of [first, second]) {
-    const list = figure.querySelector('ol');
-    expect(figure.querySelector(`#${list.getAttribute('aria-labelledby')}`)).not.toBeNull();
+    expect(figure.querySelector(`#${figure.getAttribute('aria-labelledby')}`).textContent).toBe(D.title);
   }
+});
+
+it('ships no regular expression lookbehind, which Safari before 16.4 cannot parse', () => {
+  // The production browser list includes iOS Safari 15; one lookbehind literal in this module
+  // would stop the whole main bundle parsing there, and Babel does not transform it.
+  const source = require('fs').readFileSync(require('path').join(__dirname, 'DiscussionIllustration.jsx'), 'utf8');
+  expect(source).not.toMatch(/\(\?<[=!]/);
 });

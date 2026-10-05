@@ -4,15 +4,17 @@ import './drafting-illustration.css';
 
 // Drafting: the section heading is typed in front of the reader; a blank page then lies on the
 // panel and the section is written onto it one numbered paragraph at a time, each paragraph's
-// record cited a beat later in the margin beside it; last, the status of the draft beneath the
-// page. Two copies (in place and in the phone disclosure) share one performance through `play`.
+// record cited a beat later in the margin beside it, a brass leader drawn to it from the page's
+// edge; last, the status of the draft beneath the page. Two copies (in place and in the phone
+// disclosure) share one performance through `play`.
 //
 // The sequence, in ms from the start (drafting-illustration.css sets the rhythm): the heading
 // types for --typed-ms (976 at the kit's rate, for 25 characters); the page and the margin's
-// label appear at +320; then one turn of 640 for each paragraph, its record arriving 240 later;
-// then the status line, in the turn after the last paragraph. Each part settles 420 after it
-// starts, so the last settles at 976 + 320 + 4 * 640 + 420 = 4276; the duration adds 300.
-export const DRAFTING_DURATION = 4576;
+// label appear at +320; the first paragraph at +800, once the page has settled; then one
+// paragraph every 640, its record (and leader) arriving 320 later; then the status line, 320
+// after the last record. Each part settles 420 after it starts, so the last settles at
+// 976 + 160 + 4 * 640 + 420 = 4116; the duration adds 300.
+export const DRAFTING_DURATION = 4416;
 
 // The prompt's label; the heading typed under it is the section's heading from the content file.
 export const HEADING_LABEL = 'Section heading';
@@ -43,7 +45,10 @@ export const DraftingIllustration = ({ id = 'drafting-illustration', play: share
                 <span className="drafting-n">{paragraph.n}</span>{' '}
                 <span className="drafting-body">{keepDates(paragraph.text)}</span>
               </p>
-              <p className="drafting-record" data-appear style={{ '--i': turn(k) }}>{EVIDENCE_ILLUSTRATION[k].document}, {keepDates(EVIDENCE_ILLUSTRATION[k].date)}</p>
+              <p className="drafting-record" data-appear style={{ '--i': turn(k) }}>
+                <span className="drafting-record-doc">{EVIDENCE_ILLUSTRATION[k].document},</span>{' '}
+                <span className="drafting-record-date">{keepDates(EVIDENCE_ILLUSTRATION[k].date)}</span>
+              </p>
             </li>
           ))}
         </ol>

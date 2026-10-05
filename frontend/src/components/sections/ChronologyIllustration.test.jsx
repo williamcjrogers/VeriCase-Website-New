@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ChronologyIllustration, CHRONOLOGY_DURATION } from './ChronologyIllustration';
@@ -8,7 +10,9 @@ import { CHRONOLOGY_ILLUSTRATION, EVIDENCE_ILLUSTRATION } from '@/content/market
 // YYYY and never split; the whole text present from the start; one performance that starts in
 // view, settles, and can be played again. Then the chronology's own sequence: nothing is typed;
 // the documents appear in turn, then the record's label, then each entry in date order, with an
-// arrow drawn from its document.
+// arrow drawn from its document. The timeline is held in the stylesheet, so the last checks read
+// it: the duration follows the sequence, print shows a figure that has not played complete, and
+// the layouts follow the reader's text size.
 let container;
 let root;
 let observers;
@@ -57,7 +61,13 @@ it('is labelled, captioned, inert and set in the fictional matter', () => {
 
 it('pairs each document with its dated entry on one record, in date order', () => {
   act(() => root.render(<ChronologyIllustration />));
-  expect(container.querySelector('.chronology-record-label').textContent).toBe(CHRONOLOGY_ILLUSTRATION.recordLabel);
+  const label = container.querySelector('.chronology-record-label');
+  expect(label.textContent).toBe(CHRONOLOGY_ILLUSTRATION.recordLabel);
+  // The list loses its markers, so its role is explicit, and the record's label names it.
+  const list = container.querySelector('ol.chronology-flow');
+  expect(list.getAttribute('role')).toBe('list');
+  expect(label.id).toBe('chronology-illustration-record');
+  expect(list.getAttribute('aria-labelledby')).toBe(label.id);
   const items = container.querySelectorAll('.chronology-flow > li');
   expect(items).toHaveLength(EVIDENCE_ILLUSTRATION.length);
   items.forEach((item, i) => {
@@ -138,4 +148,63 @@ it('shares one performance between its two copies', () => {
   const ids = [...container.querySelectorAll('[id]')].map((el) => el.id);
   expect(new Set(ids).size).toBe(ids.length);
   for (const figure of container.querySelectorAll('figure[aria-labelledby]')) expect(document.getElementById(figure.getAttribute('aria-labelledby'))).not.toBeNull();
+});
+
+// The stylesheet, read as text (the test environment does not apply it).
+const css = fs.readFileSync(path.join(__dirname, 'chronology-illustration.css'), 'utf8');
+const kit = fs.readFileSync(path.join(__dirname, 'live-figure.css'), 'utf8');
+const block = (at) => {
+  const start = css.indexOf(at);
+  let depth = 0;
+  for (let i = css.indexOf('{', start); i < css.length; i += 1) {
+    if (css[i] === '{') depth += 1;
+    else if (css[i] === '}') { depth -= 1; if (depth === 0) return css.slice(start, i + 1); }
+  }
+  return '';
+};
+const ms = (source, pattern) => Number(source.match(pattern)[1]);
+
+it('ends its performance 300ms after the last entry settles, with each stage in turn', () => {
+  const t = (name) => ms(css, new RegExp(`--chronology-${name}:\\s*(\\d+)ms`));
+  const step = ms(kit, /--step:\s*(\d+)ms/);
+  const appear = ms(kit, /live-appear (\d+)ms/);
+  const stroke = ms(css, /chronology-rule (\d+)ms/);
+  const count = EVIDENCE_ILLUSTRATION.length;
+  // The documents are all down before the record opens, and its rule is drawn before the first arrow.
+  expect(t('docs') + (count - 1) * step + appear).toBeLessThanOrEqual(t('record'));
+  expect(t('record') + count * stroke).toBeLessThanOrEqual(t('arrow'));
+  // Each entry appears once its arrow has been drawn.
+  expect(t('entry')).toBeGreaterThanOrEqual(ms(css, /chronology-shaft (\d+)ms/) - 60);
+  const lastSettles = t('arrow') + t('entry') + (count - 1) * t('turn') + appear;
+  expect(CHRONOLOGY_DURATION).toBe(lastSettles + 300);
+});
+
+it('holds parts back only for the script and motion, and prints a figure that has not played complete', () => {
+  const motion = block('@media (prefers-reduced-motion: no-preference)');
+  const print = block('@media print');
+  const heldIn = (source) => source.split('\n').filter((line) => line.includes(':not(.is-in)')).map((line) => line.slice(0, line.indexOf('{')).trim());
+  const held = heldIn(motion);
+  expect(held.length).toBeGreaterThanOrEqual(4);
+  for (const selector of held) {
+    expect(selector.startsWith('.js .chronology-illustration:not(.is-in) ')).toBe(true);
+    // Print resets every part the script holds back.
+    expect(print).toContain(selector);
+  }
+  // Nothing outside the motion and print blocks holds a part back.
+  const rest = css.replace(motion, '').replace(print, '');
+  expect(heldIn(rest)).toEqual([]);
+  expect(print).toMatch(/transform:\s*none/);
+  expect(print).toMatch(/opacity:\s*1/);
+  // Print sets the drawn parts in the darker brass, for contrast on paper.
+  expect(print).toMatch(/\.chronology-arrow \{ color: var\(--vc-brass-700\)/);
+});
+
+it('lays itself out by its own width in rem, so that larger text stacks it rather than clips a date', () => {
+  const thresholds = [...css.matchAll(/@container chronology \((?:min|max)-width: ([\d.]+)(\w+)\)/g)];
+  expect(thresholds.length).toBeGreaterThanOrEqual(3);
+  for (const [, , unit] of thresholds) expect(unit).toBe('rem');
+  // On phones the record's column never narrows below its widest date.
+  expect(css).toMatch(/--chronology-cols: minmax\(0, 1fr\) [\d.]+rem minmax\([\d.]+rem, [\d.]+fr\)/);
+  // The narrowest panels stack each document above its entry, with a single column.
+  expect(css).toMatch(/@container chronology \(max-width: [\d.]+rem\) \{\s*\.chronology-head, \.chronology-flow \{ --chronology-cols: minmax\(0, 1fr\);/);
 });

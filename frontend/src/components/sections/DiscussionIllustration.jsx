@@ -19,7 +19,12 @@ export const DISCUSSION_DURATION = 3172;
 
 // The reply is set a sentence to a line (the answer, then what rests on it), and a paragraph
 // reference is never split from its number at a line's end. The words and spaces are unchanged.
-const sentences = (text) => text.replace(/\b(Paragraph) (\d)/g, '$1\u00a0$2').split(/(?<=\.) /);
+// A plain split, then each full stop restored: a lookbehind would stop the whole bundle parsing
+// on Safari before 16.4, which the production browser list still includes.
+const sentences = (text) => {
+  const parts = text.replace(/\b(Paragraph) (\d)/g, '$1\u00a0$2').split('. ');
+  return parts.map((part, k) => (k < parts.length - 1 ? `${part}.` : part));
+};
 
 export const DiscussionIllustration = ({ id = 'discussion-illustration', play: shared }) => {
   const [ref, playClass, play] = useFigurePlay(shared, { duration: DISCUSSION_DURATION });
@@ -37,8 +42,9 @@ export const DiscussionIllustration = ({ id = 'discussion-illustration', play: s
           </blockquote>
           <p className="discussion-attribution text-small text-graphite">{record.document}, {keepDates(record.date)}</p>
         </div>
-        <h4 id={`${id}-comments`} className="live-prompt-label discussion-label">{D.commentsLabel}</h4>
-        <ol className="discussion-thread" role="list" aria-labelledby={`${id}-comments`}>
+        {/* The heading introduces the list; the list is not labelled again, so it is announced once. */}
+        <h4 className="live-prompt-label discussion-label">{D.commentsLabel}</h4>
+        <ol className="discussion-thread" role="list">
           {/* The comment typed in front of the reader, under its author's role. */}
           <li className="discussion-comment discussion-question">
             <p className="discussion-role">{question.role}</p>

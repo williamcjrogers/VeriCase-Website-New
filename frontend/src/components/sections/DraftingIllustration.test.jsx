@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import { DRAFTING_DURATION, DraftingIllustration, HEADING_LABEL } from './DraftingIllustration';
@@ -8,7 +10,9 @@ import { DRAFTING_ILLUSTRATION, EVIDENCE_ILLUSTRATION } from '@/content/marketin
 // YYYY and never split; the whole typed text present from the start; one performance that starts
 // in view, settles, and can be played again. Then the drafting figure's own sequence: the section
 // heading is typed, the page and the margin's label come first, each numbered paragraph takes a
-// turn with the record it rests on, and the status line comes last.
+// turn with the record it rests on (its leader drawn as the record appears), and the status line
+// comes last; and its stylesheet: the duration follows from its rhythm, and everything it hides or
+// undraws is hidden only by the script, only when motion is welcome, and never in print.
 let container;
 let root;
 let observers;
@@ -88,6 +92,10 @@ it('types the section heading, then sets the section as numbered paragraphs on o
     const record = item.querySelector(':scope > p.drafting-record');
     expect(p.nextElementSibling).toBe(record);
     expect(text(record)).toBe(`${EVIDENCE_ILLUSTRATION[i].document}, ${EVIDENCE_ILLUSTRATION[i].date}`);
+    // The document and its date are set apart (the margin sets the document brighter), and the
+    // date never splits across lines.
+    expect(record.querySelector('.drafting-record-doc').textContent).toBe(`${EVIDENCE_ILLUSTRATION[i].document},`);
+    expect(record.querySelector('.drafting-record-date').textContent).toBe(EVIDENCE_ILLUSTRATION[i].date.replace(/ /g, ' '));
   });
   const status = output.querySelector(':scope > p.drafting-status');
   expect(status.textContent).toBe(DRAFTING_ILLUSTRATION.status);
@@ -174,4 +182,78 @@ it('shares one performance between its two copies', () => {
   const ids = [...container.querySelectorAll('[id]')].map((el) => el.id);
   expect(new Set(ids).size).toBe(ids.length);
   for (const figure of [first, second]) expect(document.getElementById(figure.getAttribute('aria-labelledby'))).not.toBeNull();
+});
+
+// The figure's stylesheet as rules, each with the media queries it sits in (comments removed).
+const css = fs.readFileSync(path.join(__dirname, 'drafting-illustration.css'), 'utf8');
+const kit = fs.readFileSync(path.join(__dirname, 'live-figure.css'), 'utf8');
+const rules = (source) => {
+  const out = [];
+  const walk = (s, media) => {
+    let i = 0;
+    while (i < s.length) {
+      const open = s.indexOf('{', i);
+      if (open < 0) break;
+      const prelude = s.slice(i, open).trim();
+      let depth = 1;
+      let j = open + 1;
+      while (depth && j < s.length) { if (s[j] === '{') depth += 1; else if (s[j] === '}') depth -= 1; j += 1; }
+      const body = s.slice(open + 1, j - 1);
+      if (prelude.startsWith('@media')) walk(body, [...media, prelude]);
+      else if (!prelude.startsWith('@keyframes')) out.push({ media: media.join(' '), selector: prelude, body });
+      i = j;
+    }
+  };
+  walk(source.replace(/\/\*[\s\S]*?\*\//g, ''), []);
+  return out;
+};
+const ms = (source, name) => Number(source.match(new RegExp(`${name}:\\s*(\\d+)ms`))[1]);
+
+it('sets its duration from the rhythm in its stylesheet, the first paragraph waiting for the page to settle', () => {
+  act(() => root.render(<DraftingIllustration />));
+  const figure = container.querySelector('figure');
+  const typed = parseInt(figure.style.getPropertyValue('--typed-ms'), 10);
+  const lead = ms(css, '--drafting-lead');
+  const step = ms(css, '--drafting-step');
+  const beat = ms(css, '--drafting-beat');
+  const settle = 420;
+  const last = Math.max(...[...container.querySelectorAll('[data-appear]')].map((part) => Number(turn(part))));
+  // The status line is the last part: it starts in its turn, settles, and the performance ends 300ms later.
+  expect(DRAFTING_DURATION).toBe(typed + lead + last * step + settle + 300);
+  // The page (the kit's own wait, turn 0) has settled before the first paragraph is written on it.
+  expect(ms(kit, '--after') + settle).toBeLessThanOrEqual(lead + step);
+  // Each record arrives half a turn after its paragraph, and the last record's leader is drawn
+  // before the status line has settled.
+  expect(beat * 2).toBe(step);
+  const leader = Number(css.match(/animation:\s*drafting-leader (\d+)ms/)[1]);
+  expect(lead + beat + (last - 1) * step + leader).toBeLessThan(lead + last * step + settle);
+});
+
+it('hides or undraws nothing except with the script and when motion is welcome, and prints whole', () => {
+  const all = rules(css);
+  // Whatever is hidden or undrawn before the figure plays is hidden by the script only, on screen
+  // only, and only when motion is welcome; the settled figure, reduced motion, print and pages
+  // without the script show the end state.
+  const hiding = all.filter((rule) => /opacity:\s*0(?![.\d])|visibility:\s*hidden|scaleX\(0\)/.test(rule.body) && !/@media print/.test(rule.media));
+  expect(hiding.length).toBeGreaterThan(0);
+  for (const rule of hiding) {
+    expect(rule.selector).toMatch(/^\.js /);
+    expect(rule.media).toMatch(/screen and \(prefers-reduced-motion: no-preference\)/);
+  }
+  // Motion runs only while the figure plays, and only when motion is welcome; nothing loops.
+  const moving = all.filter((rule) => /animation:/.test(rule.body));
+  expect(moving.length).toBeGreaterThan(0);
+  for (const rule of moving) {
+    expect(rule.selector).toMatch(/\.is-in:not\(\.is-settled\)/);
+    expect(rule.media).toMatch(/prefers-reduced-motion: no-preference/);
+    expect(rule.body).not.toMatch(/infinite/);
+  }
+  // The replay control's place is held while the figure plays, so nothing moves when it appears.
+  expect(all.some((rule) => /:not\(\.is-settled\) \.live-replay$/.test(rule.selector) && /visibility:\s*hidden/.test(rule.body) && /display:\s*inline-block/.test(rule.body))).toBe(true);
+  // Printed at any moment the heading is whole: the complete copy is shown, the typed one not.
+  const print = all.filter((rule) => /@media print/.test(rule.media));
+  expect(print.some((rule) => /\.typed > \.sr-only$/.test(rule.selector) && /position:\s*static/.test(rule.body) && /clip:\s*auto/.test(rule.body))).toBe(true);
+  expect(print.some((rule) => /\.typed > \.typed-visual$/.test(rule.selector) && /display:\s*none/.test(rule.body))).toBe(true);
+  // The caption keeps the kit's colours on screen and in print.
+  expect(all.some((rule) => /figcaption/.test(rule.selector))).toBe(false);
 });

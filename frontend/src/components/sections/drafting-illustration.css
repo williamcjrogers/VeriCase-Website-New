@@ -1,61 +1,83 @@
 /* A claim section built from its records: the heading typed on the panel, then one page of paper
    on which the section is written a numbered paragraph at a time, as a pleading is set, with the
    numeral hanging in the page's margin. Each paragraph's record is cited beside it in the panel's
-   margin, under the label "Record", where there is room; on phones it is cited beneath the
-   paragraph on the page. Beneath the page, the status of the draft in brass italic, as a note on
-   it. The page lies down first and the paragraphs are written onto it; nothing is drawn beyond the
-   kit's own motion, so reduced motion, print and pages without the script need no rules of their
-   own here beyond the margin's colours. */
+   margin, under the label "Record", where there is room, with a brass leader drawn to it from a
+   pin at the page's edge level with the paragraph; on phones it is cited beneath the paragraph on
+   the page. Beneath the page, the status of the draft in brass italic, as a note on it. */
 
-/* The caption keeps the kit's parchment on the ink (clarity.css's graphite caption rule for the
-   static figures outranks the kit's by load order at equal specificity; this holds until that
-   rule is deleted or the kit's is raised). */
-.evidence-figure.live-figure.drafting-illustration > figcaption { color: var(--vc-parchment-300); }
-
-/* The rhythm: one turn for each paragraph, its record a beat after it, so that the parts arrive
-   on a steady pulse of half a turn (paragraph, record, paragraph, record, and so on, then the
-   status). DRAFTING_DURATION in DraftingIllustration.jsx is set from these. */
-.drafting-illustration { --drafting-step: 640ms; --drafting-beat: 320ms; }
+/* The rhythm: the page lies down, and once it has settled the first paragraph is written; then
+   one turn for each paragraph, its record a beat after it, so that the parts arrive on a steady
+   pulse of half a turn (paragraph, record, paragraph, record, and so on, then the status).
+   DRAFTING_DURATION in DraftingIllustration.jsx is set from these. */
+.drafting-illustration {
+  --drafting-step: 640ms; --drafting-lead: 160ms; --drafting-beat: 320ms;
+  /* The stage's columns, shared by each paragraph's row so that the page lies exactly under the
+     paragraphs; the numeral's column and the page's side margin. */
+  --drafting-cols: minmax(0, 1fr); --drafting-gap: 0px; --drafting-n: 2.25rem; --drafting-pad: 0.875rem;
+}
 .live-figure.drafting-illustration [data-appear] { --step: var(--drafting-step); }
-.live-figure.drafting-illustration .drafting-record { --after: calc(320ms + var(--drafting-beat)); }
+.live-figure.drafting-illustration .drafting-text,
+.live-figure.drafting-illustration .drafting-status { --after: var(--drafting-lead); }
+.live-figure.drafting-illustration .drafting-record { --after: calc(var(--drafting-lead) + var(--drafting-beat)); }
 
 /* The stage: the page and the paragraphs share one cell, the page beneath them. */
-.drafting-output { display: grid; grid-template-columns: minmax(0, 1fr); }
+.drafting-output { display: grid; grid-template-columns: var(--drafting-cols); column-gap: var(--drafting-gap); }
 .drafting-record-label { display: none; margin: 0; }
 .drafting-page { grid-area: 1 / 1; }
 .drafting-paragraphs { position: relative; grid-area: 1 / 1; list-style: none; margin: 0; padding: 1.125rem 0; display: grid; align-content: start; row-gap: 0.875rem; }
 .drafting-paragraph { min-width: 0; }
 /* A numbered paragraph of the section: the numeral hangs in its own column, as in a pleading. */
-.drafting-text { display: grid; grid-template-columns: 2.75rem minmax(0, 1fr); margin: 0; padding: 0 1.25rem; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1.125rem; line-height: 1.5; color: var(--vc-ink); text-wrap: pretty; }
+.drafting-text { display: grid; grid-template-columns: var(--drafting-n) minmax(0, 1fr); margin: 0; padding: 0 var(--drafting-pad); font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1.0625rem; line-height: 1.5; color: var(--vc-ink); text-wrap: pretty; }
 .drafting-n { font-variant-numeric: tabular-nums; }
 /* The record, cited by document and date: beneath the paragraph on the page, level with its text. */
-.drafting-record { margin: 0.25rem 0 0; padding: 0 1.25rem 0 4rem; font-size: 0.875rem; line-height: 1.5; color: var(--vc-graphite); }
+.drafting-record { margin: 0.25rem 0 0; padding: 0 var(--drafting-pad) 0 calc(var(--drafting-pad) + var(--drafting-n)); font-size: 0.875rem; line-height: 1.5; color: var(--vc-graphite); }
 /* The status of the draft, as a note beneath the page. */
 .drafting-status { margin: 1rem 0 0; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-style: italic; font-size: 1.0625rem; line-height: 1.4; color: var(--vc-brass-400); }
 
 /* From 768px up the records stand in the panel's margin beside the page, under their label,
-   each level with the first line of its paragraph. The list and each item take the same two
-   columns, so the page (in the first column of the stage) lies exactly under the paragraphs. */
+   each level with the first line of its paragraph and tied to it by a leader across the gutter.
+   The margin is kept to the width of the longest record, so it stands close to the page. */
 @media (min-width: 768px) {
-  .drafting-output { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); column-gap: 2.5rem; grid-template-rows: auto auto auto; }
+  .drafting-illustration { --drafting-cols: minmax(0, 1fr) 15rem; --drafting-gap: 2rem; --drafting-n: 2.5rem; --drafting-pad: 1rem; }
+  .drafting-output { grid-template-rows: auto auto auto; }
   .drafting-record-label { display: block; grid-area: 1 / 2; margin-bottom: 0.375rem; }
   .drafting-page { grid-area: 2 / 1; }
   .drafting-paragraphs { grid-area: 2 / 1 / 3 / 3; }
-  .drafting-paragraph { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); column-gap: 2.5rem; align-items: baseline; }
-  .drafting-record { margin: 0; padding: 0; color: var(--vc-parchment-300); }
+  .drafting-paragraph { display: grid; grid-template-columns: var(--drafting-cols); column-gap: var(--drafting-gap); align-items: baseline; }
+  .drafting-text { font-size: 1.125rem; }
+  .drafting-record { position: relative; margin: 0; padding: 0; color: var(--vc-parchment-300); }
+  .drafting-record-doc { color: var(--vc-parchment); }
+  /* The leader: from a pin on the page's edge, level with the record's text, across the gutter. */
+  .drafting-record::before { content: ''; position: absolute; top: 0.86em; left: calc(-1 * var(--drafting-gap)); width: calc(var(--drafting-gap) - 0.625rem); border-top: 1px solid var(--vc-brass-400); transform-origin: left center; }
+  .drafting-record::after { content: ''; position: absolute; top: calc(0.86em - 3px); left: calc(-1 * var(--drafting-gap) - 3.5px); width: 7px; height: 7px; border-radius: 50%; background: var(--vc-brass-400); }
   .drafting-status { grid-area: 3 / 1 / 4 / 2; }
 }
 @media (min-width: 1024px) {
-  /* The page takes more of the width, and the records read as its margin. */
-  .drafting-output, .drafting-paragraph { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
-  .drafting-text { grid-template-columns: 3.25rem minmax(0, 1fr); padding: 0 1.5rem; font-size: 1.3125rem; line-height: 1.55; }
+  /* The page takes the measure of its longest paragraph; the margin stands beside it. */
+  .drafting-illustration { --drafting-cols: minmax(0, 42.5rem) minmax(16.5rem, 1fr); --drafting-gap: 3rem; --drafting-n: 3.25rem; --drafting-pad: 1.5rem; }
+  .drafting-text { font-size: 1.3125rem; line-height: 1.55; }
+  .drafting-record { font-size: 0.9375rem; }
   .drafting-paragraphs { padding: 1.375rem 0; row-gap: 1rem; }
 }
-@media (max-width: 767px) {
-  .drafting-text { padding: 0 1rem; }
-  .drafting-record { padding: 0 1rem 0 3.75rem; }
+
+/* Motion beyond the kit's: each leader is drawn from the page to its record as the record
+   appears. Before the figure plays (with the script) it is undrawn; the settled figure, reduced
+   motion, print and pages without the script show it drawn. */
+@media screen and (prefers-reduced-motion: no-preference) {
+  .js .drafting-illustration:not(.is-in) .drafting-record::before { transform: scaleX(0); }
+  .drafting-illustration.is-in:not(.is-settled) .drafting-record::before { animation: drafting-leader 360ms var(--ease-settle) both; animation-delay: calc(var(--typed-ms, 0ms) + var(--after) + var(--i, 0) * var(--step)); }
+  @keyframes drafting-leader { from { transform: scaleX(0); } to { transform: none; } }
+  /* The replay control's place is held, unseen and unread, until the performance settles, so
+     that the caption and what follows the figure do not move when it appears. */
+  .js .evidence-figure.live-figure.drafting-illustration:not(.is-settled) .live-replay { display: inline-block; visibility: hidden; }
 }
 @media print {
-  .drafting-record { color: var(--vc-graphite); }
+  .drafting-record, .drafting-record-doc { color: var(--vc-graphite); }
+  .drafting-record::before { border-top-color: var(--vc-brass-700); }
+  .drafting-record::after { background: var(--vc-brass-700); }
   .drafting-status { color: var(--vc-brass-700); }
+  /* Printed at any moment, the heading is whole: the complete copy the kit holds for assistive
+     technology is shown in place of the typed one. */
+  .drafting-illustration .live-prompt .typed > .sr-only { position: static; width: auto; height: auto; margin: 0; padding: 0; overflow: visible; clip: auto; white-space: normal; }
+  .drafting-illustration .live-prompt .typed > .typed-visual { display: none; }
 }

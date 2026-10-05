@@ -61,21 +61,28 @@
   .discussion-illustration { --discussion-spine: 0px; --discussion-indent: 1.5rem; --discussion-gutter: 2.5rem; --discussion-inset: 1.25rem; --discussion-reply-pad: 1rem; --discussion-label-block: calc(var(--discussion-label-line) + 0.5rem); }
   .discussion-stage { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); grid-template-rows: auto auto; column-gap: var(--discussion-gutter); }
   .discussion-record { grid-area: 1 / 1 / 3 / 2; align-self: start; padding-top: calc(var(--discussion-label-block) - 1.0625rem * 1.65 / 2); padding-bottom: 1rem; }
-  .discussion-record::after { content: ''; position: absolute; left: 100%; top: calc(var(--discussion-label-block) - 1px); width: calc(var(--discussion-gutter) + 2px); height: var(--discussion-line); background: var(--discussion-thread); }
+  /* Drawn as a border, as the thread's other lengths are, so it holds in forced colours. */
+  .discussion-record::after { content: ''; position: absolute; left: 100%; top: calc(var(--discussion-label-block) - 1px); width: calc(var(--discussion-gutter) + 2px); height: 0; border-top: var(--discussion-line) solid var(--discussion-thread); }
   .discussion-record::before { display: block; left: calc(100% - 2px); top: calc(var(--discussion-label-block) - 3px); }
   .discussion-label { grid-area: 1 / 2; padding-top: 0; border-left: 0; }
   .discussion-label::before { display: none; }
   .discussion-thread { grid-area: 2 / 2; }
   .discussion-reply { padding-inline: 1.25rem; }
-  .discussion-reply-text { font-size: 1.375rem; }
+  /* The reply at the typed question's size (the kit's 1.5rem from 768px). */
+  .discussion-reply-text { font-size: 1.5rem; }
 }
 @media (min-width: 1024px) {
   .discussion-illustration { --discussion-gutter: 3rem; }
-  .discussion-reply-text { font-size: 1.5rem; }
 }
 @media (max-width: 374px) {
   .discussion-illustration { --discussion-inset: 0.75rem; --discussion-indent: 1rem; }
   .discussion-reply { padding-inline: 0.875rem; }
+}
+
+/* Forced colours: the beads are backgrounds, which the browser would reset to the canvas; they keep
+   the system's text colour, as the thread's borders do. */
+@media (forced-colors: active) {
+  .discussion-record::before, .discussion-label::before { forced-color-adjust: none; background: CanvasText; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
