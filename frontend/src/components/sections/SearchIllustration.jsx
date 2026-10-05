@@ -1,4 +1,4 @@
-import { ILLUSTRATION_LABEL, MATTER_RECORDS, SEARCH_ILLUSTRATION } from '@/content/marketing';
+import { CONTEXT_LABEL, ILLUSTRATION_LABEL, MATTER_RECORDS, SEARCH_ILLUSTRATION } from '@/content/marketing';
 import './search-illustration.css';
 
 // A matching passage and the document it comes from (product reference PR-02): the query set as
@@ -17,6 +17,7 @@ export const SearchIllustration = ({ id = 'search-illustration' }) => {
           <p className="section-kicker">{ILLUSTRATION_LABEL}</p>
           <h3 id={`${id}-title`} className="evidence-figure-title text-[1.625rem] leading-tight">{S.title}</h3>
           <p className="search-query"><span className="search-query-label">{S.queryLabel}</span> <span className="search-query-term">“{S.query}”</span></p>
+          <p className="evidence-context"><span className="evidence-context-label">{CONTEXT_LABEL}</span> <span className="evidence-context-text">{keepDates(S.context)}</span></p>
         </div>
         <div className="search-main">
           <p id={`${id}-rank`} className="search-rank">{S.rankLabel}</p>

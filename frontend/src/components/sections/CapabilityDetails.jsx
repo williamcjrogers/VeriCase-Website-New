@@ -2,7 +2,11 @@ import { CASE_ROOM, INTEGRITY, LENS_CHAPTER, RESEARCH } from '@/content/home';
 import { Gated, isShown } from '@/components/editorial/Gated';
 import { SearchIllustration } from './SearchIllustration';
 import { MobileDetails } from './MobileDetails';
-import { ArgumentIllustration, ChronologyIllustration, RebuttalIllustration, ResearchIllustration, useIllustrationPlay } from './EvidenceIllustrations';
+import { useIllustrationPlay } from './illustrationKit';
+import { ArgumentIllustration, ARGUMENT_DURATION } from './ArgumentIllustration';
+import { ChronologyIllustration, CHRONOLOGY_DURATION } from './ChronologyIllustration';
+import { RebuttalIllustration } from './RebuttalIllustration';
+import { ResearchIllustration, RESEARCH_DURATION } from './ResearchIllustration';
 
 // Capability detail remains visible. Publication gates still govern each passage. On phones a
 // section's illustration closes its disclosure; elsewhere the section shows it in place.
@@ -23,7 +27,7 @@ export const CapabilityFeatures = ({ items, label, mobileLabel = 'Explore the to
 
 export const RecordExplanation = () => {
   // The in-place copy and the phone copy share one performance (see EvidenceIllustrations).
-  const chronology = useIllustrationPlay();
+  const chronology = useIllustrationPlay({ duration: CHRONOLOGY_DURATION });
   return (
   <section id="chronology-lens" aria-labelledby="chronology-lens-title" className="clarity-section capability-explanation bg-paper">
     <div className="container">
@@ -47,7 +51,9 @@ export const RecordExplanation = () => {
   );
 };
 
-export const EvidenceExplanation = () => (
+export const EvidenceExplanation = () => {
+  const research = useIllustrationPlay({ duration: RESEARCH_DURATION });
+  return (
   <>
     <section id="research" aria-labelledby="research-title" className="clarity-section capability-explanation research-section bg-parchment">
       <div className="container capability-explanation-grid">
@@ -71,10 +77,10 @@ export const EvidenceExplanation = () => (
             </li>
           ))}
         </ol>
-        <div className="mobile-context"><ResearchIllustration id="research-illustration-phone" /></div>
+        <div className="mobile-context"><ResearchIllustration id="research-illustration-phone" play={research} /></div>
         </MobileDetails>
       </div>
-      <div className="container desktop-context"><ResearchIllustration /></div>
+      <div className="container desktop-context"><ResearchIllustration play={research} /></div>
     </section>
     <section id="case-room" aria-labelledby="case-room-title" className="clarity-section capability-explanation rebuttal-section bg-parchment">
       <div className="container capability-explanation-grid">
@@ -94,10 +100,11 @@ export const EvidenceExplanation = () => (
       </div>
     </section>
   </>
-);
+  );
+};
 
 export const IntegrityExplanation = () => {
-  const argument = useIllustrationPlay();
+  const argument = useIllustrationPlay({ duration: ARGUMENT_DURATION });
   return (
   <section id="integrity" aria-labelledby="integrity-title" className="clarity-section capability-explanation bg-paper">
     <div className="container">

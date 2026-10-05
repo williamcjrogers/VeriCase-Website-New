@@ -21,10 +21,10 @@
   --page-b: 1px;    /* the page's border */
   --side: 0.875rem; /* the sideline's distance from the page's edge */
   container: reader / inline-size;
-  margin-top: 3.25rem;
+  margin-top: 2.5rem;
 }
 .reader-illustration .section-kicker { margin-bottom: 0.375rem; }
-.reader-plate { position: relative; display: grid; grid-template-columns: minmax(0, 32fr) minmax(0, 68fr); margin: 1.625rem var(--mr) 0 var(--ml); background: var(--vc-paper); border: 1px solid var(--vc-rule-strong); }
+.reader-plate { position: relative; display: grid; grid-template-columns: minmax(0, 32fr) minmax(0, 68fr); margin: 1.25rem var(--mr) 0 var(--ml); background: var(--vc-paper); border: 1px solid var(--vc-rule-strong); }
 .reader-plate p, .reader-plate dl, .reader-plate dd, .reader-plate ol { margin: 0; }
 
 /* Notes. */
@@ -72,15 +72,19 @@
 .reader-details dt { width: 2.75rem; flex-shrink: 0; font-size: 0.8125rem; line-height: 1.5; color: var(--vc-graphite); }
 .reader-details dd { font-size: 0.875rem; line-height: 1.5; color: var(--vc-ink); }
 .reader-head .reader-note { top: calc(50% - 0.65em); }
-.reader-views { display: flex; flex-wrap: wrap; gap: 0 1.5rem; padding: 0 var(--hx); border-bottom: 1px solid var(--hair); font-size: 0.8125rem; line-height: 1.4; color: var(--vc-graphite); }
+/* One row: the views on the left, what was found on the right; it wraps where the reader is narrow. */
+.reader-strip { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0 1.5rem; padding: 0 var(--hx); border-bottom: 1px solid var(--hair); font-size: 0.8125rem; line-height: 1.4; color: var(--vc-graphite); }
+.reader-views { display: flex; flex-wrap: wrap; gap: 0 1.5rem; }
 .reader-views > span { padding: 0.5rem 0 0.4375rem; }
 .reader-views > .is-current { color: var(--vc-ink); font-weight: 500; }
-.reader-desk { display: flex; flex: 1 1 auto; flex-direction: column; padding: 0.625rem var(--desk-x) 0; background: var(--vc-parchment-300); }
-.reader-find { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 1rem; margin-bottom: 0.625rem; font-size: 0.8125rem; line-height: 1.5; color: var(--vc-graphite); }
+.reader-find { display: flex; flex-wrap: wrap; gap: 0 1rem; padding: 0.5rem 0 0.4375rem; }
+.reader-desk { display: flex; flex: 1 1 auto; flex-direction: column; padding: 0.75rem var(--desk-x) 0; background: var(--vc-parchment-300); }
 .reader-find-term { color: var(--vc-ink); font-weight: 500; }
 .reader-page { position: relative; flex: 1 1 auto; padding: 1.25rem 2.25rem 2rem; background: var(--vc-paper); border: var(--page-b) solid var(--hair); border-bottom: 0; }
 .reader-page > .reader-note { --d: calc(var(--page-b) + var(--desk-x) + 1px); --in: 0px; top: calc(1.125rem - 0.65em); }
-.reader-mailhead { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 0.125rem 1rem; padding-bottom: 0.75rem; margin-bottom: 0.875rem; border-bottom: 1px solid var(--hair); font-size: 0.8125rem; line-height: 1.5; }
+/* The email's header in two columns of two rows, as a printed email sets it. */
+.reader-mailhead { display: grid; grid-template-columns: max-content minmax(0, 1fr) max-content minmax(0, 1fr); gap: 0.125rem 0.875rem; padding-bottom: 0.625rem; margin-bottom: 0.75rem; border-bottom: 1px solid var(--hair); font-size: 0.8125rem; line-height: 1.5; }
+.reader-mailhead dd { padding-right: 1rem; }
 .reader-mailhead > div { display: contents; }
 .reader-mailhead dt { color: var(--vc-graphite); }
 .reader-mailhead dd { color: var(--vc-ink); }
@@ -145,11 +149,14 @@
   .reader-details dt { width: 2.375rem; font-size: 0.75rem; line-height: 1.4; }
   .reader-details dd { font-size: 0.8125rem; line-height: 1.4; }
   .reader-views { display: none; }
-  .reader-desk { padding: 0; background: var(--vc-paper); }
-  .reader-find { margin: 0; padding: 0.375rem var(--hx); border-bottom: 1px solid var(--hair); background: var(--vc-parchment); font-size: 0.75rem; }
+  .reader-strip { padding: 0.375rem var(--hx); background: var(--vc-parchment); font-size: 0.75rem; }
+  .reader-find { padding: 0; }
   .reader-find-page { display: none; }
+  .reader-desk { padding: 0; background: var(--vc-paper); }
+  .reader-mailhead { grid-template-columns: max-content minmax(0, 1fr); }
   .reader-page { padding: 0.75rem 0.75rem 0.875rem; }
   .reader-mailhead { font-size: 0.75rem; padding-bottom: 0.5rem; margin-bottom: 0.625rem; }
+  .reader-mailhead dd { padding-right: 0; }
   .reader-body { font-size: 0.9375rem; line-height: 1.5; }
   .reader-pin { height: 1.5em; }
 }

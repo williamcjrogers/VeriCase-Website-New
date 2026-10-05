@@ -18,6 +18,7 @@ export const EVIDENCE_ILLUSTRATION = [
 // order; a point read with its sources), are labelled as illustrations and show no application
 // controls. A record is cited as the report export cites one: by document and date.
 export const ILLUSTRATION_LABEL = 'Illustration';
+export const CONTEXT_LABEL = 'In context';
 
 export const CHRONOLOGY_ILLUSTRATION = {
   title: 'From documents to chronology.',
@@ -147,6 +148,8 @@ export const SEARCH_ILLUSTRATION = {
   queryLabel: 'Searched for',
   query: 'ten weeks',
   rankLabel: 'Ranked by match strength',
+  // Why someone would look: a dispute moment, stated as a scenario and never as an outcome.
+  context: 'The opposing submission says the lead time was not known until 26 March 2025.',
   columns: ['Document', 'Matching passage'],
   // Strongest match first. Each passage is quoted from a record in MATTER_RECORDS.
   results: [
@@ -159,6 +162,7 @@ export const SEARCH_ILLUSTRATION = {
 export const REPORT_ILLUSTRATION = {
   title: 'A report exported with its structure and sources.',
   pageName: 'Exported report page',
+  context: 'A short note for the solicitor on when the lead time was first recorded.',
   reportTitle: 'Bracket type B: the record',
   heading: 'Lead time',
   // The paragraph cites its record as a source link; the quotation is kept distinct from the analysis.

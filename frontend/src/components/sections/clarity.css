@@ -58,6 +58,10 @@
 .evidence-figure { min-width: 0; margin: 3rem 0 0; padding: clamp(1rem, 2.5vw, 2rem); background: var(--vc-parchment); border: 1px solid var(--vc-rule); border-top: 3px solid var(--vc-brass-400); }
 .evidence-figure .section-kicker { margin-bottom: 0.5rem; }
 .evidence-figure > figcaption { margin-top: 1.25rem; padding-top: 0.875rem; border-top: 1px solid var(--vc-rule); max-width: none; }
+/* In context: why someone would look, as a scenario in the title column. */
+.evidence-context { margin-top: 1.25rem; }
+.evidence-context-label { display: block; font-size: 0.8125rem; line-height: 1.4; font-weight: 500; color: var(--vc-graphite); }
+.evidence-context-text { display: block; margin-top: 0.125rem; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-style: italic; font-size: 1.125rem; line-height: 1.45; color: var(--vc-ink); text-wrap: pretty; }
 /* From documents to chronology: each document beside one ruled record of dated entries, below the
    search capture and on its measure and left edge. */
 .chronology-illustration { container: chronology / inline-size; max-width: 59.25rem; margin-inline: auto; }

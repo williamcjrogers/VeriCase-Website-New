@@ -1,6 +1,6 @@
 import { ILLUSTRATION_LABEL, MATTER_RECORDS, READER_ILLUSTRATION } from '@/content/marketing';
 import { cn } from '@/lib/utils';
-import { useFigurePlay } from './EvidenceIllustrations';
+import { useFigurePlay } from './illustrationKit';
 import './reader-illustration.css';
 
 // The opening illustration: a document read beside its file record (product reference PR-03),
@@ -19,11 +19,11 @@ const Note = ({ side, joined, hidden, children }) => (
 );
 
 export const ReaderIllustration = ({ id = 'reader-illustration' }) => {
-  const [ref, playClass] = useFigurePlay();
+  const [ref, playClass] = useFigurePlay(undefined, { threshold: 0.95 });
   const R = READER_ILLUSTRATION;
   const selected = MATTER_RECORDS[R.selected];
   return (
-    <figure ref={ref} className={cn('evidence-figure reader-illustration', playClass)} aria-labelledby={`${id}-title`}>
+    <figure className={cn('evidence-figure reader-illustration', playClass)} aria-labelledby={`${id}-title`}>
       <p className="section-kicker">{ILLUSTRATION_LABEL}</p>
       {/* A paragraph, not a heading: the figure sits directly under the h1 and takes its name from it. */}
       <p id={`${id}-title`} className="evidence-figure-title font-display text-[1.625rem] leading-tight">{R.title}</p>
@@ -58,14 +58,17 @@ export const ReaderIllustration = ({ id = 'reader-illustration' }) => {
               <Note side="right" joined>{R.notes.details}</Note>
             </div>
           </div>
-          {/* The reader's views, as type: the current one in ink, the rest in graphite. */}
-          <p className="reader-views"><span className="sr-only">Views: </span>{R.views.map((view, i) => <span key={view} className={cn(i === 0 && 'is-current')}>{view}</span>)}</p>
-          <div className="reader-desk">
+          {/* The reader's views, as type with the current one in ink, and what was found in the document. */}
+          <div className="reader-strip">
+            <p className="reader-views"><span className="sr-only">Views: </span>{R.views.map((view, i) => <span key={view} className={cn(i === 0 && 'is-current')}>{view}</span>)}</p>
             <p className="reader-find">
-              <span>{R.findLabel}: <span className="reader-find-term">{R.findTerm}</span></span>
-              <span className="reader-find-page">{R.page.replace(/ /g, ' ')}</span>
+                <span>{R.findLabel}: <span className="reader-find-term">{R.findTerm}</span></span>
+                <span className="reader-find-page">{R.page.replace(/ /g, ' ')}</span>
             </p>
-            <div className="reader-page" role="group" aria-label={`${selected.document}, original page`}>
+          </div>
+          <div className="reader-desk">
+            {/* The moment starts when the page itself is in view, not when the figure's top edge is. */}
+            <div ref={ref} className="reader-page" role="group" aria-label={`${selected.document}, original page`}>
               <Note side="right">{R.notes.page}</Note>
               <dl className="reader-mailhead">
                 {R.email.header.map(([term, value]) => <div key={term}><dt>{term}</dt><dd>{keepDates(value)}</dd></div>)}

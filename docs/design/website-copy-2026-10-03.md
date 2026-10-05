@@ -434,7 +434,7 @@ Copy control: Copy email address
 
 ## Workspace illustrations
 
-Three illustrations stand where the application captures stood (owner, 05 October 2026). Each is labelled Illustration, shows no controls and uses the fictional matter’s records.
+Three illustrations stand where the application captures stood (owner, 05 October 2026). Each is labelled Illustration and uses the fictional matter’s records. Every illustration on the page is live (owner, later on 05 October 2026): the input is typed in front of the reader and the answer appears; each caption ends with the control “Play again”.
 
 ### Illustration: The document beside its file record.
 
@@ -458,7 +458,7 @@ Caption: Illustrative records from a fictional construction matter.
 
 Placement: after the chronology capabilities, before “From documents to chronology.”, at every width.
 
-Searched for “ten weeks”. Ranked by match strength.
+Searched for “ten weeks”. In context: The opposing submission says the lead time was not known until 26 March 2025. Ranked by match strength (each result numbered).
 
 Lead-time email, Correspondence, 12 March 2025: “Stainless brackets are ten weeks from order.”
 
@@ -469,6 +469,8 @@ Caption: Illustrative search from a fictional construction matter.
 ### Illustration: A report exported with its structure and sources.
 
 Placement: after “A claim section built from its records.”, at every width.
+
+In context: A short note for the solicitor on when the lead time was first recorded.
 
 Bracket type B: the record. Lead time. The lead time of ten weeks from order was recorded on 12 March 2025 (Lead-time email). “Stainless brackets are ten weeks from order.” Lead-time email, 12 March 2025. Table 1. Events and their records: Change instructed, Instruction, 03 March 2025. Lead time given, Lead-time email, 12 March 2025. Delivery date confirmed, Delivery confirmation, 26 March 2025. Page 1 of 1.
 

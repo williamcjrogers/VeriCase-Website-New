@@ -1,0 +1,48 @@
+/* Live illustrations: an ink panel, as the header is, with the fictional records on it as paper.
+   Parchment and brass carry the type; the records keep the page's paper roles (.on-paper). The
+   panel is the one place the page's own dark ground returns, so the figures stand apart from the
+   parchment sections around them. */
+
+.evidence-figure.live-figure { --live-rule: rgb(191 155 88 / 0.32); background: var(--vc-ink); border-color: var(--live-rule); border-top-color: var(--vc-brass-400); color: var(--vc-parchment); }
+.live-figure .section-kicker { color: var(--vc-brass-400); }
+.live-figure .evidence-figure-title { color: var(--vc-parchment); }
+.live-figure > figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.25rem 1.5rem; border-top-color: var(--live-rule); color: var(--vc-parchment-300); }
+.live-figure .text-graphite { color: var(--vc-parchment-300); }
+/* Paper on the panel: records, slips, pages and replies keep the page's paper roles. */
+.live-figure .on-paper { background: var(--vc-paper); color: var(--vc-ink); border: 1px solid var(--vc-rule); }
+.live-figure .on-paper .text-graphite { color: var(--vc-graphite); }
+
+/* The input, typed in front of the reader: a label in brass over the line in Newsreader. */
+.live-prompt { margin-top: 1.25rem; }
+.live-prompt-label, .live-output-label { display: block; font-family: 'IBM Plex Sans', 'IBM Plex Sans Fallback', Arial, sans-serif; font-size: 0.8125rem; line-height: 1.4; font-weight: 500; color: var(--vc-brass-400); }
+.live-prompt-line { display: block; margin-top: 0.25rem; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1.5rem; line-height: 1.3; color: var(--vc-parchment); }
+.typed-visual { white-space: pre-wrap; }
+.typed-caret { display: inline-block; width: 2px; height: 1em; margin-left: 1px; vertical-align: -0.12em; background: var(--vc-brass-400); opacity: 0; }
+.typed.is-typing .typed-caret { opacity: 1; }
+.live-output { margin-top: 1.5rem; }
+.live-output-label { margin-bottom: 0.75rem; }
+
+/* The answer appears in sequence once the typing ends: each part waits for --typed-ms (set by
+   the figure), then --after, then its own turn (--i times --step). */
+.live-figure [data-appear] { --after: 320ms; --step: 380ms; }
+.live-replay { min-height: 44px; padding: 0 0.25rem; font-size: 0.8125rem; font-weight: 500; color: var(--vc-brass-400); text-decoration: underline; text-underline-offset: 4px; }
+.live-replay:hover { color: var(--vc-parchment); }
+.live-figure:not(.is-settled) .live-replay { display: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .js .live-figure:not(.is-in) .typed-visual { visibility: hidden; }
+  .js .live-figure:not(.is-in) [data-appear] { opacity: 0; }
+  .live-figure.is-in:not(.is-settled) [data-appear] { animation: live-appear 420ms var(--ease-settle) both; animation-delay: calc(var(--typed-ms, 0ms) + var(--after) + var(--i, 0) * var(--step)); }
+  @keyframes live-appear { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+}
+@media (prefers-reduced-motion: reduce) { .live-replay { display: none; } }
+@media print {
+  .evidence-figure.live-figure { background: none; color: var(--vc-ink); border-color: var(--vc-rule); }
+  .live-figure .section-kicker, .live-prompt-label, .live-output-label { color: var(--vc-brass-700); }
+  .live-figure .evidence-figure-title, .live-prompt-line { color: var(--vc-ink); }
+  .live-figure > figcaption, .live-figure .text-graphite { color: var(--vc-graphite); }
+  .live-replay { display: none; }
+  .live-figure *, .live-figure *::before, .live-figure *::after { animation: none !important; }
+}
+@media (max-width: 767px) {
+  .live-prompt-line { font-size: 1.25rem; }
+}

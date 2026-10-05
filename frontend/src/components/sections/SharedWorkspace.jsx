@@ -2,7 +2,8 @@ import { CLAIMS, IN_BRIEF } from '@/content/home';
 import { ReportIllustration } from './ReportIllustration';
 import { CapabilityFeatures } from './CapabilityDetails';
 import { MobileDetails } from './MobileDetails';
-import { DiscussionIllustration, DraftingIllustration } from './EvidenceIllustrations';
+import { DiscussionIllustration } from './DiscussionIllustration';
+import { DraftingIllustration } from './DraftingIllustration';
 
 export const SharedWorkspace = () => (
   <section id="worked-example" aria-labelledby="worked-example-title" className="clarity-section shared-workspace bg-parchment">

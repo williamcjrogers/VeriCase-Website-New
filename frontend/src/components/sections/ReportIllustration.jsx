@@ -1,4 +1,4 @@
-import { EVIDENCE_ILLUSTRATION, ILLUSTRATION_LABEL, REPORT_ILLUSTRATION } from '@/content/marketing';
+import { CONTEXT_LABEL, EVIDENCE_ILLUSTRATION, ILLUSTRATION_LABEL, REPORT_ILLUSTRATION } from '@/content/marketing';
 import './report-illustration.css';
 
 // A report exported with its structure and sources (product reference PR-04): one page of output
@@ -17,6 +17,7 @@ export const ReportIllustration = ({ id = 'report-illustration' }) => {
         <div className="report-head">
           <p className="section-kicker">{ILLUSTRATION_LABEL}</p>
           <h3 id={`${id}-title`} className="evidence-figure-title text-[1.625rem] leading-tight">{E.title}</h3>
+          <p className="evidence-context"><span className="evidence-context-label">{CONTEXT_LABEL}</span> <span className="evidence-context-text">{E.context}</span></p>
         </div>
         <div className="report-main">
           <div className="report-page" role="group" aria-label={E.pageName}>
