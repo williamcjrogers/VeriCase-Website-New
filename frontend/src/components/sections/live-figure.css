@@ -6,7 +6,8 @@
 .evidence-figure.live-figure { --live-rule: rgb(191 155 88 / 0.32); background: var(--vc-ink); border-color: var(--live-rule); border-top-color: var(--vc-brass-400); color: var(--vc-parchment); }
 .live-figure .section-kicker { color: var(--vc-brass-400); }
 .live-figure .evidence-figure-title { color: var(--vc-parchment); }
-.live-figure > figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.25rem 1.5rem; border-top-color: var(--live-rule); color: var(--vc-parchment-300); }
+/* Two classes: the parchment frame's caption rule in clarity.css loads later and would otherwise win. */
+.evidence-figure.live-figure > figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.25rem 1.5rem; border-top-color: var(--live-rule); color: var(--vc-parchment-300); }
 .live-figure .text-graphite { color: var(--vc-parchment-300); }
 /* Paper on the panel: records, slips, pages and replies keep the page's paper roles. */
 .live-figure .on-paper { background: var(--vc-paper); color: var(--vc-ink); border: 1px solid var(--vc-rule); }
@@ -39,7 +40,7 @@
   .evidence-figure.live-figure { background: none; color: var(--vc-ink); border-color: var(--vc-rule); }
   .live-figure .section-kicker, .live-prompt-label, .live-output-label { color: var(--vc-brass-700); }
   .live-figure .evidence-figure-title, .live-prompt-line { color: var(--vc-ink); }
-  .live-figure > figcaption, .live-figure .text-graphite { color: var(--vc-graphite); }
+  .evidence-figure.live-figure > figcaption, .live-figure .text-graphite { color: var(--vc-graphite); }
   .live-replay { display: none; }
   .live-figure *, .live-figure *::before, .live-figure *::after { animation: none !important; }
 }
