@@ -63,6 +63,8 @@ it('mounts every illustration with unique ids and its own title, each in place a
   expect(container.querySelectorAll('.desktop-context > figure.evidence-figure')).toHaveLength(4);
   expect(container.querySelectorAll('.mobile-context > figure.evidence-figure')).toHaveLength(4);
   expect(container.querySelectorAll('.mobile-details-content > figure.evidence-figure')).toHaveLength(2);
+  // Every phone copy closes its section's disclosure.
+  expect(container.querySelectorAll('.mobile-details-content .mobile-context > figure.evidence-figure')).toHaveLength(4);
 });
 
 it('follows an initial legacy fragment to its mounted heading', async () => {

@@ -38,7 +38,7 @@ const tab = () => {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${side} ${side}">
 <rect width="${side}" height="${side}" rx="13" fill="${INK}"/>
 <path transform="translate(${tx.toFixed(2)} ${ty.toFixed(2)})" d="${V}" fill="${PARCHMENT}" stroke="${PARCHMENT}" stroke-width="2.6" stroke-linejoin="round"/>
-<rect x="17" y="59.5" width="38" height="2.4" fill="${BRASS}"/>
+<rect x="18" y="58.5" width="36" height="4.5" fill="${BRASS}"/>
 </svg>
 `;
 };

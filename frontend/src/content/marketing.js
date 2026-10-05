@@ -67,14 +67,14 @@ export const REBUTTAL_ILLUSTRATION = {
   ],
   replyLabel: 'Proposed reply, for review',
   // The reply cites its record as the argument illustration does: "(document)." after the point.
-  reply: 'The lead time was recorded on 12 March 2025, fourteen days before the delivery confirmation',
+  reply: 'The Contractor was told the lead time on 12 March 2025, fourteen days before the date alleged',
   replySource: 1,
   caption: 'Illustrative rebuttal from a fictional construction matter.',
 };
 
 export const DRAFTING_ILLUSTRATION = {
   title: 'A claim section built from its records.',
-  sectionLabel: 'Section 4. Delay to bracket delivery',
+  sectionLabel: 'Section 4. Bracket type B',
   recordsLabel: 'Record',
   // One paragraph for each record above, in the same order.
   paragraphs: [

@@ -5,7 +5,7 @@
 .clarity-title { max-width: 13ch; font-size: clamp(2.75rem, 5.2vw, 4.875rem); font-weight: 500; letter-spacing: -0.025em; line-height: 1.02; text-wrap: initial; }
 .clarity-title > span, .clarity-title > em { display: block; }
 .clarity-title em { color: var(--vc-brass-700); font-weight: 450; }
-/* "Arguments on the record." takes two lines in the hero's column; balanced, "the record." stays together. */
+/* "Arguments on the record." takes two lines in the hero's column; Hero.jsx keeps "on the record." together, and balance evens the lines. */
 .clarity-title > em { text-wrap: balance; }
 .hero-action .vc-btn svg { display: none; }
 .capability-title-link { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 44px; text-decoration: none; }
@@ -44,6 +44,7 @@
 .research-explanation-steps p { color: var(--vc-graphite); }
 .rebuttal-section { padding-top: 2rem; }
 .rebuttal-section > .container { border-top: 1px solid var(--vc-rule-strong); padding-top: 3rem; }
+.rebuttal-section > .container + .container { border-top: 0; padding-top: 0; }
 .rebuttal-review { border-left: 3px solid var(--vc-brass-400); padding-left: 1.25rem; margin-top: 1.5rem; }
 .claims-explanation { margin-top: 2.5rem; }
 .workspace-detail { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--vc-rule-strong); }
@@ -150,7 +151,7 @@
 .evidence-gap { margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--vc-rule-strong); }
 .rebuttal-pair { display: grid; gap: 1.25rem; margin-top: 1rem; }
 .evidence-assertion { margin-top: 0.5rem; padding-left: 1rem; border-left: 2px solid var(--vc-rule-strong); }
-.rebuttal-pair .evidence-source > .text-small:last-child { margin-top: 0.125rem; }
+.evidence-relation { display: block; margin-top: 0.125rem; }
 .draft-head { margin-top: 1rem; }
 .draft-record-label { display: none; }
 .draft-outline > li { padding: 0.75rem 0; border-top: 1px solid var(--vc-rule); }

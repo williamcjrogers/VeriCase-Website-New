@@ -132,13 +132,13 @@ const Illustration = ({ id, className, title, caption, children }) => (
 );
 
 // A quoted record with its attribution outside the quoted words, as in the argument illustration.
+// Anything said about the record (its relation to an assertion) belongs to the caption.
 const QuotedRecord = ({ source, children }) => (
   <figure className="evidence-source">
     <blockquote>
       <p className="text-body">“{keepDates(source.excerpt)}”</p>
     </blockquote>
-    <figcaption className="text-small text-graphite">{source.document}, {keepDates(source.date)}</figcaption>
-    {children}
+    <figcaption className="text-small text-graphite">{source.document}, {keepDates(source.date)}{children}</figcaption>
   </figure>
 );
 
@@ -179,7 +179,7 @@ export const RebuttalIllustration = ({ id = 'rebuttal-illustration' }) => (
         <h4 className="capability-feature-title">{REBUTTAL_ILLUSTRATION.recordsLabel}</h4>
         {REBUTTAL_ILLUSTRATION.records.map(({ index, relation }) => (
           <QuotedRecord key={EVIDENCE_ILLUSTRATION[index].id} source={EVIDENCE_ILLUSTRATION[index]}>
-            <p className="text-small text-graphite">{relation}</p>
+            <span className="evidence-relation">{relation}</span>
           </QuotedRecord>
         ))}
       </div>
@@ -199,7 +199,8 @@ export const DraftingIllustration = ({ id = 'drafting-illustration' }) => (
   <Illustration id={id} className="drafting-illustration" title={DRAFTING_ILLUSTRATION.title} caption={DRAFTING_ILLUSTRATION.caption}>
     <div className="draft-head">
       <h4 className="capability-feature-title">{DRAFTING_ILLUSTRATION.sectionLabel}</h4>
-      <h4 className="capability-feature-title draft-record-label">{DRAFTING_ILLUSTRATION.recordsLabel}</h4>
+      {/* A column label, not a heading: every paragraph already names its record. */}
+      <p className="capability-feature-title draft-record-label" aria-hidden="true">{DRAFTING_ILLUSTRATION.recordsLabel}</p>
     </div>
     <ol className="draft-outline">
       {DRAFTING_ILLUSTRATION.paragraphs.map((paragraph, i) => (
