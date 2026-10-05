@@ -75,6 +75,22 @@ Compare dates and follow the underlying records to distinguish forecasts, instru
 
 Choose supporting records for the next stage of the work, keeping the source selection connected to the issue you are developing.
 
+### Illustration: From documents to chronology.
+
+Placement: after the file search capture on tablet and desktop; at the end of “Explore chronology tools” on phones.
+
+Label: Illustration
+
+Record label: One record, in date order
+
+Documents: Instruction. Lead-time email. Delivery confirmation.
+
+Entries: 03 March 2025, Change instructed. 12 March 2025, Lead time given. 26 March 2025, Delivery date confirmed.
+
+Caption: Illustrative chronology from a fictional construction matter.
+
+Motion: once, when the record comes into view, an arrow is drawn from each document to its entry in date order and the entry is marked on the record. Reduced motion, print and pages without JavaScript show the completed record.
+
 ## Ask the question that matters.
 
 Investigate focused questions across the project material and follow the source references behind the findings.
@@ -162,6 +178,26 @@ A report, an evidence selection and a bundle serve different purposes. Examine t
 ### Agree access for the team
 
 Discuss how the workspace will be used by your commercial team, claims consultants and legal advisers, and which records each person needs.
+
+### Illustration: An argument with its sources.
+
+Placement: between the source-review points and “Work alongside your existing systems.” on tablet and desktop; at the end of “Explore source review” on phones.
+
+Label: Illustration
+
+The change was instructed on 03 March 2025 (Instruction). The ten-week lead time was recorded on 12 March 2025 (Lead-time email). Delivery was confirmed on 26 March 2025 for the week commencing 19 May 2025 (Delivery confirmation).
+
+Supporting records
+
+“Please proceed with bracket type B. This is an instruction requiring a Change.” Instruction, 03 March 2025
+
+“Stainless brackets are ten weeks from order.” Lead-time email, 12 March 2025
+
+“Supplier confirms delivery week commencing 19 May 2025.” Delivery confirmation, 26 March 2025
+
+Caption: Illustrative argument from a fictional construction matter. The source references connect each point to the record behind it.
+
+Motion: once, when the records come into view, each citation and its record are highlighted in turn and a brass rule is drawn beside the record. Reduced motion, print and pages without JavaScript show the completed state.
 
 ## Work alongside your existing systems.
 
@@ -380,4 +416,4 @@ Evidence investigation and case preparation for construction claims and disputes
 
 VeriCase Ltd is registered in England and Wales (company number 16562435). Registered office: 85 Great Portland Street, London, England, W1W 7LT.
 
-The Chronology Lens™ is a trade mark of VeriCase Ltd. VeriCase is software and does not give legal advice. Product views use illustrative records and sample content.
+The Chronology Lens™ is a trade mark of VeriCase Ltd. VeriCase is software and does not give legal advice. Product views use illustrative records and sample content. Illustrations on this site use a fictional matter.
