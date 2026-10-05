@@ -1,5 +1,8 @@
 import { Fragment, useCallback, useEffect, useState } from 'react';
-import { ARGUMENT_ILLUSTRATION, CHRONOLOGY_ILLUSTRATION, EVIDENCE_ILLUSTRATION, ILLUSTRATION_LABEL } from '@/content/marketing';
+import {
+  ARGUMENT_ILLUSTRATION, CHRONOLOGY_ILLUSTRATION, DISCUSSION_ILLUSTRATION, DRAFTING_ILLUSTRATION, EVIDENCE_ILLUSTRATION,
+  ILLUSTRATION_LABEL, REBUTTAL_ILLUSTRATION, RESEARCH_ILLUSTRATION,
+} from '@/content/marketing';
 import { useInViewOnce } from '@/hooks/useInViewOnce';
 import { cn } from '@/lib/utils';
 
@@ -116,3 +119,117 @@ export const ArgumentIllustration = ({ id = 'argument-illustration', play }) => 
     </figure>
   );
 };
+
+// The four static illustrations below show capabilities that no application capture shows. They
+// share one frame and the page's type roles, and they do not move.
+const Illustration = ({ id, className, title, caption, children }) => (
+  <figure className={cn('evidence-figure', className)} aria-labelledby={`${id}-title`}>
+    <p className="section-kicker">{ILLUSTRATION_LABEL}</p>
+    <h3 id={`${id}-title`} className="evidence-figure-title text-[1.625rem] leading-tight">{title}</h3>
+    {children}
+    <figcaption>{caption}</figcaption>
+  </figure>
+);
+
+// A quoted record with its attribution outside the quoted words, as in the argument illustration.
+const QuotedRecord = ({ source, children }) => (
+  <figure className="evidence-source">
+    <blockquote>
+      <p className="text-body">“{keepDates(source.excerpt)}”</p>
+    </blockquote>
+    <figcaption className="text-small text-graphite">{source.document}, {keepDates(source.date)}</figcaption>
+    {children}
+  </figure>
+);
+
+const attribution = (source) => `${source.document}, ${keepDates(source.date)}`;
+
+// Research: a focused question, each finding with the record behind it, and what was not found.
+export const ResearchIllustration = ({ id = 'research-illustration' }) => (
+  <Illustration id={id} className="research-illustration" title={RESEARCH_ILLUSTRATION.title} caption={RESEARCH_ILLUSTRATION.caption}>
+    <div className="evidence-question">
+      <h4 className="capability-feature-title">{RESEARCH_ILLUSTRATION.questionLabel}</h4>
+      <p className="text-body">{RESEARCH_ILLUSTRATION.question}</p>
+    </div>
+    <h4 className="capability-feature-title evidence-subhead">{RESEARCH_ILLUSTRATION.findingsLabel}</h4>
+    <ol className="evidence-findings">
+      {RESEARCH_ILLUSTRATION.findings.map((finding, i) => (
+        <li key={EVIDENCE_ILLUSTRATION[i].id}>
+          <p className="text-body">{keepDates(finding)}</p>
+          <p className="text-small text-graphite">{attribution(EVIDENCE_ILLUSTRATION[i])}</p>
+        </li>
+      ))}
+    </ol>
+    <p className="evidence-gap text-small text-graphite">{RESEARCH_ILLUSTRATION.gap}</p>
+  </Illustration>
+);
+
+// The opposing account: the assertion and the record on facing pages, then a proposed reply that
+// the team reviews. Relations are stated in words, never in colour.
+export const RebuttalIllustration = ({ id = 'rebuttal-illustration' }) => (
+  <Illustration id={id} className="rebuttal-illustration" title={REBUTTAL_ILLUSTRATION.title} caption={REBUTTAL_ILLUSTRATION.caption}>
+    <div className="rebuttal-pair">
+      <div>
+        <h4 className="capability-feature-title">{REBUTTAL_ILLUSTRATION.assertionLabel}</h4>
+        <blockquote className="evidence-assertion">
+          <p className="text-body">“{keepDates(REBUTTAL_ILLUSTRATION.assertion)}”</p>
+        </blockquote>
+      </div>
+      <div>
+        <h4 className="capability-feature-title">{REBUTTAL_ILLUSTRATION.recordsLabel}</h4>
+        {REBUTTAL_ILLUSTRATION.records.map(({ index, relation }) => (
+          <QuotedRecord key={EVIDENCE_ILLUSTRATION[index].id} source={EVIDENCE_ILLUSTRATION[index]}>
+            <p className="text-small text-graphite">{relation}</p>
+          </QuotedRecord>
+        ))}
+      </div>
+    </div>
+    <div className="evidence-reply">
+      <h4 className="capability-feature-title">{REBUTTAL_ILLUSTRATION.replyLabel}</h4>
+      <p className="text-body">
+        {keepDates(REBUTTAL_ILLUSTRATION.reply)}{' '}
+        <span className="whitespace-nowrap">({EVIDENCE_ILLUSTRATION[REBUTTAL_ILLUSTRATION.replySource].document})</span>.
+      </p>
+    </div>
+  </Illustration>
+);
+
+// Drafting: a claim section whose paragraphs each rest on a named record.
+export const DraftingIllustration = ({ id = 'drafting-illustration' }) => (
+  <Illustration id={id} className="drafting-illustration" title={DRAFTING_ILLUSTRATION.title} caption={DRAFTING_ILLUSTRATION.caption}>
+    <div className="draft-head">
+      <h4 className="capability-feature-title">{DRAFTING_ILLUSTRATION.sectionLabel}</h4>
+      <h4 className="capability-feature-title draft-record-label">{DRAFTING_ILLUSTRATION.recordsLabel}</h4>
+    </div>
+    <ol className="draft-outline">
+      {DRAFTING_ILLUSTRATION.paragraphs.map((paragraph, i) => (
+        <li key={paragraph.n}>
+          <p className="text-body">{paragraph.n} {keepDates(paragraph.text)}</p>
+          <p className="text-small text-graphite">{attribution(EVIDENCE_ILLUSTRATION[i])}</p>
+        </li>
+      ))}
+    </ol>
+    <p className="evidence-gap text-small text-graphite">{DRAFTING_ILLUSTRATION.status}</p>
+  </Illustration>
+);
+
+// Discussion: comments kept with the record they concern. Roles, not people; no mentions or
+// notifications.
+export const DiscussionIllustration = ({ id = 'discussion-illustration' }) => (
+  <Illustration id={id} className="discussion-illustration" title={DISCUSSION_ILLUSTRATION.title} caption={DISCUSSION_ILLUSTRATION.caption}>
+    <div className="discussion-body">
+      <QuotedRecord source={EVIDENCE_ILLUSTRATION[DISCUSSION_ILLUSTRATION.recordIndex]} />
+      <div>
+        <h4 className="capability-feature-title">{DISCUSSION_ILLUSTRATION.commentsLabel}</h4>
+        <ol className="evidence-thread">
+          {DISCUSSION_ILLUSTRATION.comments.map((comment) => (
+            <li key={comment.role}>
+              <p className="text-small text-graphite">{comment.role}</p>
+              <p className="text-body">{comment.text}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </Illustration>
+);

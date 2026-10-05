@@ -58,7 +58,8 @@ module.exports = {
       },
       borderRadius: { none: '0', sm: '2px', DEFAULT: '2px', md: '4px', lg: 'var(--radius)' },
       boxShadow: { paper: 'var(--shadow-paper)', lift: 'var(--shadow-lift)' },
-      maxWidth: { measure: '68ch' },
+      // At most about 75 characters a line in IBM Plex Sans (68ch allowed about 89).
+      maxWidth: { measure: '56ch' },
       transitionTimingFunction: {
         settle: 'cubic-bezier(0.2,0,0,1)',
         exit: 'cubic-bezier(0.4,0,1,1)',

@@ -17,7 +17,7 @@ Existing-user action: Sign in.
 
 Construction claims and disputes
 
-# Complex evidence. Compelling arguments.
+# Evidence in order. Arguments on the record.
 
 Investigate the record, test competing accounts and develop your claim or response, with the evidence beside you.
 

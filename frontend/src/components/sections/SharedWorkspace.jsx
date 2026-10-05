@@ -2,6 +2,7 @@ import { CLAIMS, IN_BRIEF } from '@/content/home';
 import { ProductFigure } from './ProductFigure';
 import { CapabilityFeatures } from './CapabilityDetails';
 import { MobileDetails } from './MobileDetails';
+import { DiscussionIllustration, DraftingIllustration } from './EvidenceIllustrations';
 
 export const SharedWorkspace = () => (
   <section id="worked-example" aria-labelledby="worked-example-title" className="clarity-section shared-workspace bg-parchment">
@@ -15,8 +16,9 @@ export const SharedWorkspace = () => (
         </div>
       </div>
       <div className="claims-explanation">
-        <CapabilityFeatures items={CLAIMS.items.filter((item) => item.title !== 'Discussion on the document')} label="Claims preparation capabilities" mobileLabel="Explore drafting tools" />
+        <CapabilityFeatures items={CLAIMS.items.filter((item) => item.title !== 'Discussion on the document')} label="Claims preparation capabilities" mobileLabel="Explore drafting tools" illustration={<DraftingIllustration id="drafting-illustration-phone" />} />
       </div>
+      <div className="desktop-context"><DraftingIllustration /></div>
       <ProductFigure kind="export" />
       <div className="workspace-collaboration">
       <MobileDetails label="Working with your team">
@@ -31,6 +33,7 @@ export const SharedWorkspace = () => (
           <p className="mt-4 max-w-measure text-body">{IN_BRIEF.audience.text}</p>
         </div>
       </div>
+      <DiscussionIllustration />
       </MobileDetails>
       </div>
     </div>

@@ -36,3 +36,63 @@ export const ARGUMENT_ILLUSTRATION = {
   sourcesLabel: 'Supporting records',
   caption: 'Illustrative argument from a fictional construction matter. The source references connect each point to the record behind it.',
 };
+
+// Four further illustrations, one for each capability no application capture shows. Each depicts an
+// outcome the capability register supports, uses the same fictional records, and shows no
+// controls, counts, mentions or notifications.
+export const RESEARCH_ILLUSTRATION = {
+  title: 'A question traced to its sources.',
+  questionLabel: 'Question',
+  question: 'When was the ten-week lead time recorded?',
+  findingsLabel: 'Findings',
+  // Each finding cites one record above, in the same order.
+  findings: [
+    'The change to bracket type B was instructed on 03 March 2025.',
+    'The lead time of ten weeks from order was recorded on 12 March 2025.',
+    'Delivery was then confirmed for the week commencing 19 May 2025.',
+  ],
+  gap: 'Not found in the records examined: the date on which the brackets were ordered.',
+  caption: 'Illustrative research from a fictional construction matter.',
+};
+
+export const REBUTTAL_ILLUSTRATION = {
+  title: 'An opposing assertion, tested against the record.',
+  assertionLabel: 'Opposing submission, paragraph 12',
+  assertion: 'The Contractor did not know the lead time for the brackets until 26 March 2025.',
+  recordsLabel: 'The record',
+  // Indexes into EVIDENCE_ILLUSTRATION, each with how it bears on the assertion.
+  records: [
+    { index: 1, relation: 'Challenges the assertion.' },
+    { index: 2, relation: 'Consistent with the date given.' },
+  ],
+  replyLabel: 'Proposed reply, for review',
+  // The reply cites its record as the argument illustration does: "(document)." after the point.
+  reply: 'The lead time was recorded on 12 March 2025, fourteen days before the delivery confirmation',
+  replySource: 1,
+  caption: 'Illustrative rebuttal from a fictional construction matter.',
+};
+
+export const DRAFTING_ILLUSTRATION = {
+  title: 'A claim section built from its records.',
+  sectionLabel: 'Section 4. Delay to bracket delivery',
+  recordsLabel: 'Record',
+  // One paragraph for each record above, in the same order.
+  paragraphs: [
+    { n: '4.1', text: 'The change to bracket type B was instructed.' },
+    { n: '4.2', text: 'The lead time was ten weeks from order.' },
+    { n: '4.3', text: 'Delivery was confirmed for the week commencing 19 May 2025.' },
+  ],
+  status: 'Draft, for review before export.',
+  caption: 'Illustrative claim section from a fictional construction matter.',
+};
+
+export const DISCUSSION_ILLUSTRATION = {
+  title: 'A discussion kept with the record.',
+  recordIndex: 1,
+  commentsLabel: 'Comments on this record',
+  comments: [
+    { role: 'Commercial manager', text: 'Does this come before the delivery confirmation?' },
+    { role: 'Claims consultant', text: 'Yes, by fourteen days. Paragraph 4.2 of the draft relies on it.' },
+  ],
+  caption: 'Illustrative discussion from a fictional construction matter.',
+};

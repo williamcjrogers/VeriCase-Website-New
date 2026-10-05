@@ -1,7 +1,9 @@
 import { act } from 'react';
 import { createRoot } from 'react-dom/client';
-import { ArgumentIllustration, ChronologyIllustration, useIllustrationPlay } from './EvidenceIllustrations';
-import { ARGUMENT_ILLUSTRATION, EVIDENCE_ILLUSTRATION } from '@/content/marketing';
+import {
+  ArgumentIllustration, ChronologyIllustration, DiscussionIllustration, DraftingIllustration, RebuttalIllustration, ResearchIllustration, useIllustrationPlay,
+} from './EvidenceIllustrations';
+import { ARGUMENT_ILLUSTRATION, EVIDENCE_ILLUSTRATION, REBUTTAL_ILLUSTRATION } from '@/content/marketing';
 
 let container;
 let root;
@@ -173,4 +175,38 @@ it('cites a record after each point and keeps each attribution outside the quota
     expect(source.querySelector('blockquote figcaption')).toBeNull();
     expect(source.querySelector(':scope > figcaption').textContent.replace(/ /g, ' ')).toBe(`${EVIDENCE_ILLUSTRATION[i].document}, ${EVIDENCE_ILLUSTRATION[i].date}`);
   });
+});
+
+// The four static illustrations: labelled, captioned as fictional, inert, still, and citing
+// records only in the way the report export does (document and date).
+it.each([
+  ['research', ResearchIllustration], ['rebuttal', RebuttalIllustration], ['drafting', DraftingIllustration], ['discussion', DiscussionIllustration],
+])('the %s illustration is labelled, still and inert, and cites records by document and date', (name, Illustration) => {
+  act(() => root.render(<Illustration />));
+  const figure = container.querySelector(':scope > figure');
+  expect(figure.getAttribute('aria-labelledby')).toBe(`${name}-illustration-title`);
+  expect(container.querySelector(`#${name}-illustration-title`).tagName).toBe('H3');
+  expect(container.querySelector('.section-kicker').textContent).toBe('Illustration');
+  expect(container.querySelector(':scope > figure > figcaption').textContent).toMatch(/^Illustrative .* fictional construction matter\.$/);
+  expect(container.querySelectorAll('button, a, input, [tabindex]')).toHaveLength(0);
+  expect(container.textContent).not.toMatch(/EV-\d|@\w/);
+  expect(observers).toHaveLength(0);
+  const dates = container.textContent.match(new RegExp(`(?<!\\d)\\d{1,2}[ \\u00a0](${MONTHS})[ \\u00a0]?\\d{0,4}`, 'g')) || [];
+  for (const date of dates) expect(date).toMatch(new RegExp(`^\\d{2}\\u00a0(${MONTHS})\\u00a0\\d{4}$`));
+  const cited = EVIDENCE_ILLUSTRATION.filter((source) => container.textContent.replace(/\u00a0/g, ' ').includes(`${source.document}, ${source.date}`));
+  expect(cited.length).toBeGreaterThan(0);
+});
+
+it('sets the opposing assertion and the record side by side, with each relation stated in words', () => {
+  act(() => root.render(<RebuttalIllustration />));
+  const [assertion, record] = container.querySelectorAll('.rebuttal-pair > div');
+  expect(assertion.textContent).toContain(REBUTTAL_ILLUSTRATION.assertionLabel);
+  expect(record.querySelectorAll('.evidence-source')).toHaveLength(REBUTTAL_ILLUSTRATION.records.length);
+  REBUTTAL_ILLUSTRATION.records.forEach(({ relation }) => expect(record.textContent).toContain(relation));
+  const reply = container.querySelector('.evidence-reply');
+  expect(reply.textContent).toContain('for review');
+  // The reply cites its record as the argument does, and the record's name never splits at its hyphen.
+  const source = EVIDENCE_ILLUSTRATION[REBUTTAL_ILLUSTRATION.replySource].document;
+  expect(reply.querySelector('p').textContent).toMatch(new RegExp(` \\(${source}\\)\\.$`));
+  expect(reply.querySelector('.whitespace-nowrap').textContent).toBe(`(${source})`);
 });

@@ -2,7 +2,7 @@ import { CASE_ROOM, INTEGRITY, LENS_CHAPTER, RESEARCH } from '@/content/home';
 import { Gated, isShown } from '@/components/editorial/Gated';
 import { ProductFigure } from './ProductFigure';
 import { MobileDetails } from './MobileDetails';
-import { ArgumentIllustration, ChronologyIllustration, useIllustrationPlay } from './EvidenceIllustrations';
+import { ArgumentIllustration, ChronologyIllustration, RebuttalIllustration, ResearchIllustration, useIllustrationPlay } from './EvidenceIllustrations';
 
 // Capability detail remains visible. Publication gates still govern each passage. On phones a
 // section's illustration closes its disclosure; elsewhere the section shows it in place.
@@ -71,8 +71,10 @@ export const EvidenceExplanation = () => (
             </li>
           ))}
         </ol>
+        <div className="mobile-context"><ResearchIllustration id="research-illustration-phone" /></div>
         </MobileDetails>
       </div>
+      <div className="container desktop-context"><ResearchIllustration /></div>
     </section>
     <section id="case-room" aria-labelledby="case-room-title" className="clarity-section capability-explanation rebuttal-section bg-parchment">
       <div className="container capability-explanation-grid">
@@ -84,6 +86,11 @@ export const EvidenceExplanation = () => (
           <p className="text-body">{CASE_ROOM.fail}</p>
           {CASE_ROOM.recover && <p className="mt-4 text-body">{CASE_ROOM.recover}</p>}
         </div>
+      </div>
+      <div className="container">
+        <MobileDetails label="See an example">
+          <RebuttalIllustration />
+        </MobileDetails>
       </div>
     </section>
   </>

@@ -51,15 +51,18 @@ it('gives every region landmark a distinct name', async () => {
   expect(regions.filter((n, i) => regions.indexOf(n) !== i)).toEqual([]);
 });
 
-it('mounts each illustration in place and in its phone disclosure, with unique ids and its own title', async () => {
+it('mounts every illustration with unique ids and its own title, each in place and inside a phone disclosure', async () => {
   await render();
   const ids = [...container.querySelectorAll('[id]')].map((el) => el.id);
   expect(ids.filter((id, i) => ids.indexOf(id) !== i)).toEqual([]);
   const figures = [...container.querySelectorAll('figure.evidence-figure')];
-  expect(figures).toHaveLength(4);
+  // Chronology, argument, research and drafting each have an in-place and a phone copy; the
+  // opposing account and the discussion sit once inside a disclosure that wider screens open.
+  expect(figures).toHaveLength(10);
   for (const figure of figures) expect(figure.querySelector(`h3[id="${figure.getAttribute('aria-labelledby')}"]`)).not.toBeNull();
-  expect(container.querySelectorAll('.desktop-context > figure.evidence-figure')).toHaveLength(2);
-  expect(container.querySelectorAll('.mobile-context > figure.evidence-figure')).toHaveLength(2);
+  expect(container.querySelectorAll('.desktop-context > figure.evidence-figure')).toHaveLength(4);
+  expect(container.querySelectorAll('.mobile-context > figure.evidence-figure')).toHaveLength(4);
+  expect(container.querySelectorAll('.mobile-details-content > figure.evidence-figure')).toHaveLength(2);
 });
 
 it('follows an initial legacy fragment to its mounted heading', async () => {

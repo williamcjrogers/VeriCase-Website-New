@@ -3,57 +3,35 @@
 <head>
 <meta charset="utf-8" />
 <title>VeriCase social card</title>
-<!-- Rendered to public/og-image.png (1200 x 630) by scripts/render-og.mjs. Built from the site's
-     own type, colours and sample matter; nothing here is AI-generated. -->
+<!-- Rendered to public/og-card.png (1200 x 630) by scripts/render-og.mjs. Built from the site's own
+     wordmark, type, colours and opening copy; it shows no product screen, so it claims nothing
+     beyond the page it links to. Nothing here is AI-generated. -->
 <style>
   @font-face { font-family: 'Newsreader'; font-style: normal; font-weight: 400 600; src: url('../public/fonts/newsreader-roman.woff2') format('woff2'); }
   @font-face { font-family: 'Newsreader'; font-style: italic; font-weight: 400; src: url('../public/fonts/newsreader-italic.woff2') format('woff2'); }
-  @font-face { font-family: 'IBM Plex Mono'; font-weight: 400; src: url('../public/fonts/plex-mono-400.woff2') format('woff2'); }
-  @font-face { font-family: 'IBM Plex Mono'; font-weight: 500; src: url('../public/fonts/plex-mono-500.woff2') format('woff2'); }
+  @font-face { font-family: 'IBM Plex Sans'; font-weight: 400; src: url('../public/fonts/plex-sans-400.woff2') format('woff2'); }
   @font-face { font-family: 'IBM Plex Sans'; font-weight: 500; src: url('../public/fonts/plex-sans-500.woff2') format('woff2'); }
-  :root { --navy: #1A2550; --ink: #232C4A; --graphite: #535A6E; --azure: #2D78B7; --azure-50: #E7EFF8; --parchment: #F5F0E6; --paper: #FCFAF5; --rule: #D8CDB6; --rule-strong: #857A62; --brass: #BF9B58; --brass-700: #7A5A28; }
+  /* The site's tokens: --vc-ink, --vc-parchment, --vc-parchment-300, --vc-brass-400. */
+  :root { --ink: #0B2516; --parchment: #F5F0E6; --parchment-300: #ECE4D3; --brass: #BF9B58; }
   * { box-sizing: border-box; margin: 0; }
   html, body { width: 1200px; height: 630px; }
-  body { position: relative; overflow: hidden; background: var(--parchment); color: var(--ink); font-family: 'IBM Plex Sans', sans-serif; }
-  body::before {
-    content: ''; position: absolute; inset: 0; opacity: 0.04; mix-blend-mode: multiply;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.10  0 0 0 0 0.14  0 0 0 0 0.31  0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  }
-  .masthead { position: absolute; left: 72px; top: 64px; font-family: 'Newsreader', serif; font-style: italic; font-size: 40px; line-height: 1; color: var(--azure); letter-spacing: -0.01em; }
-  .masthead::after { content: ''; display: block; width: 100%; height: 1px; margin-top: 12px; background: var(--brass); }
-  h1 { position: absolute; left: 72px; top: 150px; width: 640px; font-family: 'Newsreader', serif; font-weight: 500; font-size: 60px; line-height: 1.06; letter-spacing: -0.02em; color: var(--navy); }
-  .logo { position: absolute; left: 72px; bottom: 60px; height: 40px; }
-  .url { position: absolute; right: 64px; bottom: 66px; font-family: 'IBM Plex Mono', monospace; font-size: 18px; color: var(--graphite); letter-spacing: 0.02em; }
-  .lens { position: absolute; left: 760px; top: 118px; width: 380px; height: 362px; background: var(--paper); border: 1px solid rgb(133 122 98 / 0.6); box-shadow: 0 1px 0 rgba(26,37,80,0.06), 0 18px 40px -20px rgba(26,37,80,0.35); }
-  .bar { height: 34px; padding: 0 14px; display: flex; align-items: center; justify-content: space-between; background: var(--azure); color: #fff; font-size: 13px; font-weight: 500; }
-  .bar span { font-family: 'IBM Plex Mono', monospace; font-size: 12px; opacity: 0.9; }
-  .rows { position: relative; z-index: 1; list-style: none; padding: 18px 18px 0; }
-  .row { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 8px 12px; padding: 16px 0 17px; border-bottom: 1px solid var(--rule); }
-  .date { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--graphite); }
-  .excerpt { grid-column: 1 / -1; }
-  .excerpt { font-family: 'Newsreader', serif; font-size: 19px; line-height: 1.25; color: var(--navy); }
-  .stamp { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 12px; letter-spacing: 0.04em; color: var(--brass-700); border: 1px solid var(--brass); padding: 3px 7px; background: var(--paper); transform: rotate(-2deg); }
-  .band { position: absolute; z-index: 0; top: 34px; bottom: 0; left: 212px; width: 62px; background: rgb(231 239 248 / 0.55); border-left: 2px solid var(--azure); border-right: 2px solid var(--azure); }
-  .band i { position: absolute; left: -7px; right: -7px; height: 0; border-top: 2px solid var(--brass); }
-  .band i:nth-child(1) { top: 12px; } .band i:nth-child(2) { top: 24px; } .band i:nth-child(3) { bottom: 24px; } .band i:nth-child(4) { bottom: 12px; }
-  .foot { position: absolute; z-index: 1; left: 18px; right: 18px; bottom: 14px; display: flex; align-items: center; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--graphite); }
-  .foot svg { width: 14px; height: 14px; }
+  body { position: relative; overflow: hidden; background: var(--ink); color: var(--parchment); font-family: 'IBM Plex Sans', sans-serif; }
+  .frame { position: absolute; inset: 40px; border: 1px solid rgb(191 155 88 / 0.35); }
+  .logo { position: absolute; left: 88px; top: 82px; height: 50px; }
+  .kicker { position: absolute; left: 88px; top: 196px; font-size: 18px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brass); }
+  h1 { position: absolute; left: 88px; top: 236px; font-family: 'Newsreader', serif; font-weight: 500; font-size: 84px; line-height: 1.02; letter-spacing: -0.025em; color: var(--parchment); }
+  h1 span, h1 em { display: block; }
+  h1 em { font-weight: 400; color: var(--brass); }
+  .lead { position: absolute; left: 88px; bottom: 82px; width: 760px; font-size: 22px; line-height: 1.5; color: var(--parchment-300); }
+  .url { position: absolute; right: 88px; bottom: 86px; font-size: 20px; font-weight: 500; letter-spacing: 0.02em; color: var(--brass); }
 </style>
 </head>
 <body>
-  <p class="masthead">Records, records, records.</p>
-  <h1>Years of project correspondence. One cited chronology.</h1>
-  <img class="logo" src="../public/logo-positive.svg" alt="VeriCase" />
+  <div class="frame" aria-hidden="true"></div>
+  <img class="logo" src="../public/logo-reversed.svg" alt="VeriCase" />
+  <p class="kicker">Construction claims and disputes</p>
+  <h1><span>Evidence in order.</span> <em>Arguments on the record.</em></h1>
+  <p class="lead">Investigate the record, test competing accounts and develop your claim or response, with the evidence beside you.</p>
   <p class="url">veri-case.com</p>
-  <div class="lens">
-    <div class="bar">The Chronology Lens™ <span>Sample matter</span></div>
-    <ol class="rows">
-      <li class="row"><span class="date">03 March 2025 · 09:14</span><span class="stamp">EV-0131</span><span class="excerpt">Please proceed with bracket type B.</span></li>
-      <li class="row"><span class="date">12 March 2025 · 16:42</span><span class="stamp">EV-0138</span><span class="excerpt">Stainless brackets are ten weeks from order.</span></li>
-      <li class="row"><span class="date">28 March 2025 · 15:48</span><span class="stamp">EV-0151</span><span class="excerpt">Notice under clause 2.24.</span></li>
-    </ol>
-    <div class="band" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-    <p class="foot">3 of 3 linked to source</p>
-  </div>
 </body>
 </html>

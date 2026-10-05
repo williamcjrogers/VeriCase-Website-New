@@ -49,9 +49,9 @@ export const HEADER = {
 export const COVER = {
   masthead: ['Records,', 'records,', 'records.'],
   eyebrow: "Construction claims and disputes",
-  h1: "Complex evidence. Compelling arguments.",
-  h1Lead: "Complex evidence.",
-  h1Emphasis: "Compelling arguments.",
+  h1: "Evidence in order. Arguments on the record.",
+  h1Lead: "Evidence in order.",
+  h1Emphasis: "Arguments on the record.",
   subhead: "Investigate the record, test competing accounts and develop your claim or response, with the evidence beside you.",
   practitionerProof: "Founded by construction claims and dispute resolution practitioners.",
   audience: "For construction claims and commercial teams, working with solicitors, counsel and experts.",

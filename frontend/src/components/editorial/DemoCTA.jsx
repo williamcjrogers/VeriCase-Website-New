@@ -91,7 +91,7 @@ export const DemoCTA = ({ onInk = false, withCopy = false, compact = false, micr
           </span>
         )}
       </div>
-      {microcopy && <p className={cn('max-w-[34rem] text-caption', onInk ? 'text-mist' : 'text-graphite')}>{microcopy}</p>}
+      {microcopy && <p className={cn('max-w-[30rem] text-caption', onInk ? 'text-mist' : 'text-graphite')}>{microcopy}</p>}
       {withCopy && (
         <p className={cn('text-caption', onInk ? 'text-mist' : 'text-graphite')}>
           Or write to{' '}
