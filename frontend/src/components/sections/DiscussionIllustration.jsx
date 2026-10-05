@@ -1,50 +1,62 @@
+import { Fragment } from 'react';
 import { DISCUSSION_ILLUSTRATION, EVIDENCE_ILLUSTRATION } from '@/content/marketing';
-import { ILLUSTRATION_LABEL } from '@/content/marketing';
-import { cn } from '@/lib/utils';
+import { LiveFigure, Typed, keepDates, useFigurePlay, useTypewriter } from './illustrationKit';
+import './discussion-illustration.css';
 
-const keepDates = (text) => text.replace(/(\d{2}) ([A-Z][a-z]+) (\d{4})/g, '$1\u00a0$2\u00a0$3');
+// Discussion: the record under discussion lies on the panel as paper from the start, its
+// attribution beneath the quoted words, and a brass thread runs from it to the comments on it.
+// The first comment is typed in front of the reader under its author's role; the thread is then
+// drawn on down to the reply, which arrives at its end as paper. Roles, not people: no mentions,
+// notifications or avatars. The figure is mounted once, inside the phone disclosure that wider
+// screens keep open, so `play` is only passed when two copies must share one performance.
+//
+// The sequence, in ms from the start (discussion-illustration.css sets the rhythm): the question
+// is typed by 1652 (48 characters at the kit's pace); 440 later the thread is drawn on towards
+// the reply, down and then across, over 560; the reply appears one step of 360 after the thread
+// starts, as the thread turns towards it, and has settled 420 later, at
+// 1652 + 440 + 360 + 420 = 2872; the duration adds 300.
+export const DISCUSSION_DURATION = 3172;
 
-// The four static illustrations below show capabilities that no application capture shows. They
-// share one frame and the page's type roles, and they do not move.
-const Illustration = ({ id, className, title, caption, children }) => (
-  <figure className={cn('evidence-figure', className)} aria-labelledby={`${id}-title`}>
-    <p className="section-kicker">{ILLUSTRATION_LABEL}</p>
-    <h3 id={`${id}-title`} className="evidence-figure-title text-[1.625rem] leading-tight">{title}</h3>
-    {children}
-    <figcaption>{caption}</figcaption>
-  </figure>
-);
+// The reply is set a sentence to a line (the answer, then what rests on it), and a paragraph
+// reference is never split from its number at a line's end. The words and spaces are unchanged.
+const sentences = (text) => text.replace(/\b(Paragraph) (\d)/g, '$1\u00a0$2').split(/(?<=\.) /);
 
-// A quoted record with its attribution outside the quoted words, as in the argument illustration.
-// Anything said about the record (its relation to an assertion) belongs to the caption.
-const QuotedRecord = ({ source, children }) => (
-  <figure className="evidence-source">
-    <blockquote>
-      <p className="text-body">“{keepDates(source.excerpt)}”</p>
-    </blockquote>
-    <figcaption className="text-small text-graphite">{source.document}, {keepDates(source.date)}{children}</figcaption>
-  </figure>
-);
-
-const attribution = (source) => `${source.document}, ${keepDates(source.date)}`;
-
-// Discussion: comments kept with the record they concern. Roles, not people; no mentions or
-// notifications.
-export const DiscussionIllustration = ({ id = 'discussion-illustration' }) => (
-  <Illustration id={id} className="discussion-illustration" title={DISCUSSION_ILLUSTRATION.title} caption={DISCUSSION_ILLUSTRATION.caption}>
-    <div className="discussion-body">
-      <QuotedRecord source={EVIDENCE_ILLUSTRATION[DISCUSSION_ILLUSTRATION.recordIndex]} />
-      <div>
-        <h4 className="capability-feature-title">{DISCUSSION_ILLUSTRATION.commentsLabel}</h4>
-        <ol className="evidence-thread">
-          {DISCUSSION_ILLUSTRATION.comments.map((comment) => (
-            <li key={comment.role}>
-              <p className="text-small text-graphite">{comment.role}</p>
-              <p className="text-body">{comment.text}</p>
-            </li>
-          ))}
+export const DiscussionIllustration = ({ id = 'discussion-illustration', play: shared }) => {
+  const [ref, playClass, play] = useFigurePlay(shared, { duration: DISCUSSION_DURATION });
+  const D = DISCUSSION_ILLUSTRATION;
+  const record = EVIDENCE_ILLUSTRATION[D.recordIndex];
+  const [question, reply] = D.comments;
+  const { ms } = useTypewriter(question.text, play);
+  return (
+    <LiveFigure id={id} className="discussion-illustration" title={D.title} caption={D.caption} play={play} playClass={playClass} figureRef={ref} style={{ '--typed-ms': `${ms}ms` }}>
+      <div className="discussion-stage">
+        {/* The record: a quotation, with its attribution outside the quoted words. */}
+        <div className="discussion-record on-paper">
+          <blockquote className="discussion-quote">
+            <p className="text-body">“{keepDates(record.excerpt)}”</p>
+          </blockquote>
+          <p className="discussion-attribution text-small text-graphite">{record.document}, {keepDates(record.date)}</p>
+        </div>
+        <h4 id={`${id}-comments`} className="live-prompt-label discussion-label">{D.commentsLabel}</h4>
+        <ol className="discussion-thread" role="list" aria-labelledby={`${id}-comments`}>
+          {/* The comment typed in front of the reader, under its author's role. */}
+          <li className="discussion-comment discussion-question">
+            <p className="discussion-role">{question.role}</p>
+            <p className="discussion-question-text"><Typed className="live-prompt-line" text={question.text} play={play} /></p>
+          </li>
+          {/* The reply, as paper, at the end of the thread (drawn by the item's ::before). */}
+          <li className="discussion-comment discussion-answer">
+            <div className="discussion-reply on-paper" data-appear style={{ '--i': 1 }}>
+              <p className="discussion-role text-graphite">{reply.role}</p>
+              <p className="discussion-reply-text">
+                {sentences(reply.text).map((sentence, k) => (
+                  <Fragment key={sentence}>{k > 0 && ' '}<span className="discussion-sentence">{sentence}</span></Fragment>
+                ))}
+              </p>
+            </div>
+          </li>
         </ol>
       </div>
-    </div>
-  </Illustration>
-);
+    </LiveFigure>
+  );
+};

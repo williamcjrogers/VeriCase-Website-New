@@ -1,48 +1,111 @@
-/* A matching passage and the document it comes from: the title and the query in a column beside
-   the results. Each result pairs the file record (IBM Plex Sans) with a paper slip carrying the
-   passage (Newsreader); the match is marked as the opening illustration marks a found passage. */
+/* A matching passage and the document it comes from, on the ink. The title column holds the query,
+   typed in front of the reader in Newsreader as everything the user writes is, and why someone
+   would look; the answer arrives beside it, ranked by match strength. Each result pairs its rank
+   (a brass numeral) and its file record (IBM Plex Sans, on the ink) with the passage on a paper
+   slip (Newsreader), where the match is marked in brass as the opening illustration marks a found
+   passage. Drawn elements: the rule beneath the ranking's label, the rule above each later result
+   and the marks; all stay. */
 
-/* On the chronology's measure and centred with it (the frame rule sets side margins, so this one outranks it). */
-.evidence-figure.search-illustration { --tint: rgb(191 155 88 / 0.38); container: search / inline-size; max-width: 59.25rem; margin-inline: auto; }
-.search-split { display: grid; gap: 1.25rem; }
-.search-head, .search-main { min-width: 0; }
-.search-query { margin-top: 1rem; }
-.search-query-label { display: block; font-size: 0.8125rem; line-height: 1.4; color: var(--vc-graphite); }
-.search-query-term { display: block; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-style: italic; font-size: 1.625rem; line-height: 1.2; color: var(--vc-navy); }
-.search-rank { padding-bottom: 0.625rem; border-bottom: 1px solid var(--vc-rule-strong); font-size: 0.875rem; line-height: 1.4; font-weight: 500; color: var(--vc-ink); }
-.search-results { list-style: none; margin: 0; padding: 0; counter-reset: result; }
-/* The rank, set as a numeral: the order is the ranking, and there is no count. */
-.search-result { display: grid; grid-template-columns: 1.75rem minmax(0, 1fr); column-gap: 0.5rem; row-gap: 0.5rem; padding: 1rem 0; border-bottom: 1px solid var(--vc-rule); counter-increment: result; }
-.search-result::before { content: counter(result); grid-row: 1; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1.375rem; line-height: 1; font-weight: 500; color: var(--vc-brass-700); }
-.search-result-record { grid-column: 2; }
-.search-slip { grid-column: 1 / -1; }
-.search-result:last-child { padding-bottom: 0; border-bottom: 0; }
-.search-result-name { font-size: 1rem; line-height: 1.4; font-weight: 500; color: var(--vc-ink); }
-.search-result-meta { font-size: 0.875rem; line-height: 1.5; color: var(--vc-graphite); }
+.search-illustration {
+  --search-after: 360ms; --search-lead: 440ms; --search-step: 860ms; --search-beat: 160ms; --search-mark-at: 300ms; --search-mark-ms: 480ms;
+  --search-tint: rgb(191 155 88 / 0.38); --search-rule: rgb(191 155 88 / 0.6);
+}
+
+/* On the chronology's measure and centred with it (the frame rule sets side margins, so this one
+   outranks it). The figure is its own grid: the kit sets the kicker and title as its children, so
+   the title column is built from them, the query and the context, with the results beside them
+   from 44rem up. Below that every part spans the figure, in reading order. */
+.evidence-figure.search-illustration { container: search / inline-size; max-width: 59.25rem; margin-inline: auto; display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); grid-template-rows: auto auto auto 1fr auto; }
+.live-figure.search-illustration > * { grid-column: 1 / -1; min-width: 0; }
+
+/* The query: the kit's typed line, a little larger, as a search term stands alone. */
+.live-figure .search-query-line { font-size: 1.875rem; line-height: 1.2; }
+
+/* In context: why someone would look, as a scenario, on the ink. */
+.search-illustration .evidence-context { margin: 1.25rem 0 0; }
+.search-illustration .evidence-context-label { display: block; font-size: 0.8125rem; line-height: 1.4; font-weight: 500; color: var(--vc-parchment-300); }
+.search-illustration .evidence-context-text { display: block; margin-top: 0.125rem; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-style: italic; font-size: 1.125rem; line-height: 1.45; color: var(--vc-parchment); text-wrap: pretty; }
+
+/* The answer. The ranking's label carries a brass rule, drawn beneath it as the answer begins. */
+.search-main { container: search-results / inline-size; }
+.live-figure .search-rank { position: relative; margin: 0; padding-bottom: 0.625rem; }
+.search-rank::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--search-rule); transform-origin: left; }
+.search-results { list-style: none; margin: 0; padding: 0; }
+/* Each result: its rank and record on one line, the slip beneath; from 34rem up the three stand in
+   a row, the rank, the record's name and the passage's first line on one baseline. A rule stands
+   between results, drawn above each later result as it comes. */
+.search-result { position: relative; display: grid; grid-template-columns: 2rem minmax(0, 1fr); column-gap: 0.5rem; row-gap: 0.625rem; align-items: baseline; padding: 1.125rem 0; }
+.search-result:last-child { padding-bottom: 0; }
+.search-result + .search-result::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: var(--live-rule); transform-origin: left; }
+.search-result-rank { font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1.625rem; line-height: 1; font-weight: 500; color: var(--vc-brass-400); }
+.search-result-record { min-width: 0; }
+.search-result-name { font-size: 1rem; line-height: 1.4; font-weight: 500; color: var(--vc-parchment); }
+.search-result-meta { font-size: 0.875rem; line-height: 1.5; color: var(--vc-parchment-300); }
 .search-result-meta time { white-space: nowrap; }
-.search-slip { margin: 0; padding: 0.75rem 1rem; background: var(--vc-paper); border: 1px solid var(--vc-rule); }
-.search-slip p { margin: 0; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1.125rem; line-height: 1.55; color: var(--vc-ink); }
-.search-match { color: inherit; padding: 0.04em 0.12em 0.02em; margin: 0 -0.12em; border-radius: 1px; background: linear-gradient(var(--tint), var(--tint)) no-repeat 0 0 / 100% 100%, linear-gradient(var(--vc-brass-700), var(--vc-brass-700)) no-repeat 0 100% / 100% 2px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.search-slip { grid-column: 1 / -1; margin: 0; padding: 0.75rem 1rem; }
+.search-slip p { margin: 0; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1.125rem; line-height: 1.55; color: var(--vc-ink); text-wrap: pretty; }
+/* The match: brass laid on like a highlighter, with a brass-700 line beneath it so the mark reads
+   at low contrast as well; kept to one line, so the mark is one sweep. */
+.search-match { white-space: nowrap; color: inherit; padding: 0.04em 0.12em 0.02em; margin: 0 -0.12em; border-radius: 1px; background: linear-gradient(var(--search-tint), var(--search-tint)) no-repeat 0 0 / 100% 100%, linear-gradient(var(--vc-brass-700), var(--vc-brass-700)) no-repeat 0 100% / 100% 2px; }
 
 @container search (min-width: 44rem) {
-  .search-split { grid-template-columns: 14rem minmax(0, 1fr); column-gap: 2.5rem; }
-  .search-result { grid-template-columns: 1.75rem 11rem minmax(0, 1fr); column-gap: 1.25rem; align-items: start; }
-  .search-result::before { padding-top: 0.75rem; line-height: 1.4; }
-  .search-result-record { grid-column: 2; padding-top: 0.75rem; }
-  .search-slip { grid-column: 3; }
-  /* Folder and date on their own lines; the comma stays for a screen reader. */
+  .live-figure.search-illustration > .section-kicker { grid-area: 1 / 1; }
+  .live-figure.search-illustration > .evidence-figure-title { grid-area: 2 / 1; }
+  .live-figure.search-illustration > .search-head { grid-area: 3 / 1; }
+  .live-figure.search-illustration > .search-main { grid-area: 1 / 2 / 5 / 3; margin-top: 0; padding-left: 2.5rem; }
+  .live-figure.search-illustration > figcaption { grid-area: 5 / 1 / 6 / 3; }
+}
+@container search-results (min-width: 34rem) {
+  .search-result { grid-template-columns: 2rem 11rem minmax(0, 1fr); column-gap: 1.25rem; }
+  .search-result-rank { font-size: 1.75rem; }
+  .search-slip { grid-column: 3; padding: 0.875rem 1.125rem; }
+  .search-slip p { font-size: 1.1875rem; line-height: 1.5; }
   .search-result-meta > span, .search-result-meta > time { display: block; }
+  /* Folder and date on their own lines; the comma stays for a screen reader. */
   .search-comma { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 }
 @supports not (container-type: inline-size) {
+  @media (min-width: 1024px) {
+    .live-figure.search-illustration > .section-kicker { grid-area: 1 / 1; }
+    .live-figure.search-illustration > .evidence-figure-title { grid-area: 2 / 1; }
+    .live-figure.search-illustration > .search-head { grid-area: 3 / 1; }
+    .live-figure.search-illustration > .search-main { grid-area: 1 / 2 / 5 / 3; margin-top: 0; padding-left: 2.5rem; }
+    .live-figure.search-illustration > figcaption { grid-area: 5 / 1 / 6 / 3; }
+  }
   @media (min-width: 768px) {
-    .search-split { grid-template-columns: 14rem minmax(0, 1fr); column-gap: 2.5rem; }
-    .search-result { grid-template-columns: 1.75rem 11rem minmax(0, 1fr); column-gap: 1.25rem; }
-    .search-result-record { grid-column: 2; }
+    .search-result { grid-template-columns: 2rem 11rem minmax(0, 1fr); column-gap: 1.25rem; }
     .search-slip { grid-column: 3; }
+    .search-result-meta > span, .search-result-meta > time { display: block; }
+    .search-comma { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   }
 }
 @media (max-width: 767px) {
-  .search-query-term { font-size: 1.375rem; }
+  .live-figure .search-query-line { font-size: 1.5rem; }
   .search-slip p { font-size: 1.0625rem; }
+}
+
+/* The rhythm: the label after the typing, the first result a lead after the label, then one turn
+   for each later result; a result's slip follows its record by a beat, and its match is marked
+   once the slip has landed. */
+.live-figure.search-illustration [data-appear] { --after: var(--search-after); --step: var(--search-step); }
+.live-figure.search-illustration .search-result [data-appear] { --after: calc(var(--search-after) + var(--search-lead)); }
+.live-figure.search-illustration .search-result .search-slip[data-appear] { --after: calc(var(--search-after) + var(--search-lead) + var(--search-beat)); }
+@media (prefers-reduced-motion: no-preference) {
+  .js .search-illustration:not(.is-in) .search-rank::after { transform: scaleX(0); }
+  .js .search-illustration:not(.is-in) .search-match { background-size: 0% 100%, 0% 2px; }
+  .js .search-illustration:not(.is-in) .search-result::before { transform: scaleX(0); }
+  .search-illustration.is-in:not(.is-settled) .search-result::before { animation: search-rule 560ms var(--ease-settle) both; animation-delay: calc(var(--typed-ms, 0ms) + var(--search-after) + var(--search-lead) + var(--i, 0) * var(--search-step) - 80ms); }
+  .search-illustration.is-in:not(.is-settled) .search-rank::after { animation: search-rule 560ms var(--ease-settle) both; animation-delay: calc(var(--typed-ms, 0ms) + var(--search-after) + 120ms); }
+  .search-illustration.is-in:not(.is-settled) .search-match { animation: search-mark var(--search-mark-ms) var(--ease-settle) both; animation-delay: calc(var(--typed-ms, 0ms) + var(--search-after) + var(--search-lead) + var(--search-beat) + var(--i, 0) * var(--search-step) + var(--search-mark-at)); }
+  @keyframes search-rule { from { transform: scaleX(0); } to { transform: none; } }
+  @keyframes search-mark { from { background-size: 0% 100%, 0% 2px; } to { background-size: 100% 100%, 100% 2px; } }
+}
+@media print {
+  .search-result-name, .search-illustration .evidence-context-text { color: var(--vc-ink); }
+  .search-result-meta, .search-illustration .evidence-context-label { color: var(--vc-graphite); }
+  .search-result-rank { color: var(--vc-brass-700); }
+  .search-illustration { --search-rule: var(--vc-rule-strong); }
+  .search-result + .search-result::before { background: var(--vc-rule); }
+  .js .search-illustration:not(.is-in) .search-rank::after, .js .search-illustration:not(.is-in) .search-result::before { transform: none; }
+  .js .search-illustration:not(.is-in) .search-match { background-size: 100% 100%, 100% 2px; }
 }
