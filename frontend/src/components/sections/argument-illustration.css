@@ -11,7 +11,9 @@
 .argument-page { margin: 0; padding: 1rem 1.125rem; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1.125rem; line-height: 1.5; text-wrap: pretty; }
 .argument-records-label { margin: 1.25rem 0 0.75rem; }
 .argument-records { list-style: none; margin: 0; padding: 0; display: grid; align-content: start; gap: 0.625rem; }
-/* The citation keeps to one line, so its mark is one piece. */
+/* The citation keeps to one line, so its mark is one piece; on phones it may run on to the next
+   line rather than push the page wider than the screen (the mark then continues across the
+   break). */
 .argument-cite { white-space: nowrap; padding: 0.08em 0.2em; margin: 0 -0.2em; border-radius: 2px; background-image: linear-gradient(var(--argument-mark), var(--argument-mark)); background-repeat: no-repeat; background-size: 100% 100%; }
 .argument-record { position: relative; padding: 0.75rem 1rem 0.75rem 1.125rem; }
 .argument-record::before { content: ''; position: absolute; top: -1px; bottom: -1px; left: -1px; width: var(--argument-rule); background: var(--vc-brass-400); transform-origin: top; }
@@ -28,6 +30,9 @@
 }
 @media (min-width: 1024px) {
   .argument-page { font-size: 1.3125rem; line-height: 1.55; }
+}
+@media (max-width: 767px) {
+  .argument-cite { white-space: normal; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .js .argument-illustration:not(.is-in) .argument-cite { background-size: 0% 100%; }

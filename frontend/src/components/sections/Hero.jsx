@@ -12,7 +12,7 @@ export const Hero = () => (
       <p className="section-kicker">{COVER.eyebrow}</p>
       <div className="clarity-hero-grid">
         <div>
-          <h1 id="top-title" tabIndex={-1} className="clarity-title"><span>{COVER.h1Lead}</span> <em>{emphasisFirst} <span className="whitespace-nowrap">{emphasisRest.join(' ')}</span></em></h1>
+          <h1 id="top-title" tabIndex={-1} className="clarity-title"><span>{COVER.h1Lead}</span> <em>{emphasisFirst} <span className="inline-block max-w-full">{emphasisRest.join(' ')}</span></em></h1>
         </div>
         <div className="hero-introduction">
           <p className="clarity-lead">{COVER.subhead}</p>
