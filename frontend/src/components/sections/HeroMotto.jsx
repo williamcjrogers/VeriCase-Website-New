@@ -1,16 +1,18 @@
 import { COVER } from '@/content/home';
 import { Gated } from '@/components/editorial/Gated';
+import { onSectionClick } from '@/lib/navigate';
 
 const { motto } = COVER;
 
 // The motto's timeline, in milliseconds from the moment the fonts are ready (the owner's
-// direction, 06 October 2026): "Records,", a two-second pause, "records,", four seconds in which a
-// third "records" is expected, "VeriCase.", a second's pause, and then the line typed patiently
-// beneath it. Each word takes WORD_MS to settle; each pause runs from one word settling to the
-// next beginning. The motion is CSS (clarity.css), so the prerendered page plays it at once.
+// direction, 06 October 2026, with each pause shortened to a second the same day): "Records,", a
+// pause, "records,", a pause in which a third "records" is expected, "VeriCase.", a pause, and then
+// the line typed patiently beneath it. Each word takes WORD_MS to settle; each pause runs from one
+// word settling to the next beginning. The motion is CSS (clarity.css), so the prerendered page
+// plays it at once.
 export const LEAD_MS = 400;
 export const WORD_MS = 600;
-export const PAUSES_MS = [2000, 4000, 1000];
+export const PAUSES_MS = [1000, 1000, 1000];
 export const WORD_AT = [
   LEAD_MS,
   LEAD_MS + WORD_MS + PAUSES_MS[0],
@@ -41,7 +43,7 @@ export const keyTimes = (text, from = TYPE_FROM) => {
 
 const ms = (n) => `${n}ms`;
 
-// The motto opposite the kicker, with its source beneath. Assistive technology reads the whole
+// The motto opposite the kicker, with its source beneath and a link to the passage in full. Assistive technology reads the whole
 // motto once; the copy that plays is hidden from it, and every word and letter of that copy holds
 // its place from the start, so nothing around it moves.
 export const HeroMotto = () => {
@@ -55,10 +57,14 @@ export const HeroMotto = () => {
           <span className="hero-motto-words">
             {motto.words.map((word, i) => (
               <span key={word}>
-                <span className="motto-word" style={{ '--at': ms(WORD_AT[i]) }}>{word}</span>{' '}
+                <span className="motto-word" style={{ '--at': ms(WORD_AT[i]) }}>
+                  {i === 0 && <span className="motto-quote motto-quote-open">{motto.open}</span>}{word}
+                </span>{' '}
               </span>
             ))}
-            <span className="motto-word motto-brand" style={{ '--at': ms(WORD_AT[2]) }}>{motto.brand}</span>
+            <span className="motto-word" style={{ '--at': ms(WORD_AT[2]) }}>
+              <span className="motto-brand">{motto.brand}</span><span className="motto-quote">{motto.close}</span>
+            </span>
           </span>
           <span className="hero-motto-line">
             {[...motto.line].map((key, i) => (
@@ -68,8 +74,7 @@ export const HeroMotto = () => {
         </span>
       </p>
       <Gated id="G11_attribution" block className="hero-motto-source">
-        <p>{motto.attribution} “{motto.quote}”.</p>
-        <p className="hero-motto-cite"><cite>{motto.source}</cite> {motto.sourceNote}</p>
+        <p>{motto.attribution} <a href="#lessons" onClick={onSectionClick('lessons')}>{motto.toPassage}</a></p>
       </Gated>
     </div>
   );

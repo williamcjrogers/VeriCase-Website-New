@@ -30,15 +30,27 @@ Primary action: Request a demonstration
 
 Email microcopy: By email. Please use sample material.
 
-Motto, opposite the kicker from 1024 pixels and after the introduction on narrower screens (owner, 06 October 2026):
+Motto, opposite the kicker from 1024 pixels and after the introduction on narrower screens (owner, 06 October 2026), in display italic within quotation marks:
 
-Records, records, *VeriCase.*
+*“Records, records, VeriCase.”*
 
 *Making Time Your Ally*
 
-Source beneath it: Adapted from Max W. Abrahamson’s three lessons for a party to a dispute: “the importance of records, the importance of records and the importance of records”. *Engineering Law and the I.C.E. Contracts* (first published 1965)
+Credit beneath it: Adapted from Max W. Abrahamson’s three lessons for a party to a dispute. [Read the passage](#lessons)
 
-It plays once from first paint: “Records,”, a two-second pause, “records,”, a four-second pause where a third “records” is expected, “VeriCase.”, a one-second pause, then “Making Time Your Ally” typed patiently with a brass caret, and the source last. Reduced motion, print and pages without scripts show it whole; assistive technology reads “Records, records, VeriCase. Making Time Your Ally.” once.
+It plays once from first paint: “Records,”, a one-second pause, “records,”, a one-second pause where a third “records” is expected, “VeriCase.”, a one-second pause, then “Making Time Your Ally” typed patiently with a brass caret, and the credit last. Reduced motion, print and pages without scripts show it whole; assistive technology reads “Records, records, VeriCase.” Making Time Your Ally. once.
+
+## Why VeriCase exists
+
+Directly after the opening, on the deeper parchment under a brass rule (owner, 06 October 2026: “it's the very grounds that VeriCase was built on”):
+
+As Max W. Abrahamson observed in *Engineering Law and the I.C.E. Contracts* (first published in 1965):
+
+> “A party to a dispute, particularly if there is arbitration, will learn three lessons (often too late): the importance of records, the importance of records and the importance of records. It is impossible to exaggerate the extent to which lawyers can find unexpected grounds, often quite real, on which to cast doubt on evidence if it is not backed by *meticulously established records*.” [Emphasis added]
+
+Those words have been in print for half a century, yet the industry has still to learn the three lessons.
+
+*They are the very grounds on which VeriCase was built.*
 
 The email opens a prefilled enquiry. It does not confirm a booking. Audience detail appears with the collaboration explanation; practitioner proof appears in the team introduction.
 

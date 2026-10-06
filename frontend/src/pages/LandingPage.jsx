@@ -2,6 +2,7 @@ import { MarketingProgress } from '@/components/MarketingProgress';
 import { useEffect } from 'react';
 import { SiteHeader } from '@/components/sections/SiteHeader';
 import { Hero } from '@/components/sections/Hero';
+import { Lessons } from '@/components/sections/Lessons';
 import { TimeAdvantage } from '@/components/sections/TimeAdvantage';
 import { SharedWorkspace } from '@/components/sections/SharedWorkspace';
 import { Collaboration } from '@/components/sections/Collaboration';
@@ -56,6 +57,7 @@ export const LandingPage = () => {
       <SiteHeader />
       <main id="main" tabIndex={-1} className="outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azure-500">
         <Hero />
+        <Lessons />
         <InBrief />
         <RecordExplanation />
         <EvidenceExplanation />
