@@ -5,13 +5,13 @@ import { onSectionClick } from '@/lib/navigate';
 const { motto } = COVER;
 
 // The motto's timeline, in milliseconds from the moment the fonts are ready (the owner's
-// direction, 06 October 2026, with each pause shortened to a second the same day): "Records,", a
-// pause, "records,", a pause in which a third "records" is expected, "VeriCase.", a pause, and then
-// the line typed patiently beneath it. Each word takes WORD_MS to settle; each pause runs from one
-// word settling to the next beginning. The motion is CSS (clarity.css), so the prerendered page
-// plays it at once.
-export const LEAD_MS = 400;
-export const WORD_MS = 600;
+// direction, 06 October 2026, with each pause shortened to a second and the whole sped up the same
+// day): "Records,", a pause, "records,", a pause in which a third "records" is expected,
+// "VeriCase.", a pause, and then the two lines typed beneath it. Each word takes WORD_MS to settle;
+// each pause runs from one word settling to the next beginning. The motion is CSS (clarity.css), so
+// the prerendered page plays it at once.
+export const LEAD_MS = 300;
+export const WORD_MS = 450;
 export const PAUSES_MS = [1000, 1000, 1000];
 export const WORD_AT = [
   LEAD_MS,
@@ -20,24 +20,27 @@ export const WORD_AT = [
 ];
 export const TYPE_FROM = WORD_AT[2] + WORD_MS + PAUSES_MS[2];
 
-// Patient typing: an unhurried key, a little longer after each space and longer again before the
-// last word, with a fixed, slight unevenness so that it reads as a hand rather than a machine. The
-// times are fixed, so the prerendered page and the app agree.
-const KEY_MS = 125;
-const UNEVEN_MS = [0, 30, -15, 40, -10, 15, 50, -20];
-const AFTER_SPACE_MS = 120;
-const BEFORE_LAST_WORD_MS = 300;
+// Brisk typing: a quick key, a beat after each space and a longer one where the first line ends,
+// with a fixed, slight unevenness so that it reads as a hand rather than a machine. The times are
+// fixed, so the prerendered page and the app agree. `lines` are typed one after the other.
+const KEY_MS = 62;
+const UNEVEN_MS = [0, 14, -8, 18, -5, 8, 22, -10];
+const AFTER_SPACE_MS = 45;
+const BETWEEN_LINES_MS = 380;
 
-export const keyTimes = (text, from = TYPE_FROM) => {
-  const lastSpace = text.lastIndexOf(' ');
+export const keyTimes = (lines, from = TYPE_FROM) => {
   const times = [];
   let t = from;
-  for (let i = 0; i < text.length; i += 1) {
-    times.push(t);
-    t += KEY_MS + UNEVEN_MS[i % UNEVEN_MS.length];
-    if (text[i] === ' ') t += AFTER_SPACE_MS;
-    if (i === lastSpace) t += BEFORE_LAST_WORD_MS;
-  }
+  let n = 0;
+  lines.forEach((line, l) => {
+    if (l > 0) t += BETWEEN_LINES_MS;
+    for (const key of line) {
+      times.push(t);
+      t += KEY_MS + UNEVEN_MS[n % UNEVEN_MS.length];
+      if (key === ' ') t += AFTER_SPACE_MS;
+      n += 1;
+    }
+  });
   return times;
 };
 
@@ -47,7 +50,7 @@ const ms = (n) => `${n}ms`;
 // motto once; the copy that plays is hidden from it, and every word and letter of that copy holds
 // its place from the start, so nothing around it moves.
 export const HeroMotto = () => {
-  const times = keyTimes(motto.line);
+  const times = keyTimes(motto.lines);
   const typedEnd = times[times.length - 1];
   return (
     <div className="hero-motto" style={{ '--caret-from': ms(WORD_AT[2] + WORD_MS), '--typed-end': ms(typedEnd) }}>
@@ -67,9 +70,17 @@ export const HeroMotto = () => {
             </span>
           </span>
           <span className="hero-motto-line">
-            {[...motto.line].map((key, i) => (
-              <span key={i} className="motto-key" style={{ '--d': ms(times[i]), '--w': ms((times[i + 1] ?? times[i]) - times[i]) }}>{key}</span>
-            ))}
+            {motto.lines.map((line, l) => {
+              const start = motto.lines.slice(0, l).join('').length;
+              return (
+                <span key={line} className="hero-motto-line-row">
+                  {[...line].map((key, k) => {
+                    const i = start + k;
+                    return <span key={i} className="motto-key" style={{ '--d': ms(times[i]), '--w': ms((times[i + 1] ?? times[i]) - times[i]) }}>{key}</span>;
+                  })}
+                </span>
+              );
+            })}
           </span>
         </span>
       </p>

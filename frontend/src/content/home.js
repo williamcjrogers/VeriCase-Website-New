@@ -58,8 +58,10 @@ export const COVER = {
     words: ['Records,', 'records,'],
     brand: 'VeriCase.',
     close: '”',
-    line: 'Making Time Your Ally',
-    whole: '“Records, records, VeriCase.” Making Time Your Ally.',
+    // Typed in two lines (owner, 06 October 2026), with a comma where the owner wrote a dash,
+    // which the house style does not use.
+    lines: ['Making Time Your Ally,', 'Not Your Enemy.'],
+    whole: '“Records, records, VeriCase.” Making Time Your Ally, Not Your Enemy.',
     attribution: 'Adapted from Max W. Abrahamson.',
     toPassage: 'Read the passage',
   },

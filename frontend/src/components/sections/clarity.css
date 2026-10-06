@@ -30,7 +30,8 @@
 .motto-quote-open { margin-left: -0.36em; }
 /* "VeriCase." takes the second line, beneath "Records, records,". */
 .motto-word-last { display: block; width: fit-content; }
-.hero-motto-line { position: relative; display: block; margin-top: 0.75rem; font-size: clamp(1.375rem, 2.35vw, 2.125rem); font-style: italic; line-height: 1.35; color: var(--vc-brass-700); }
+.hero-motto-line { position: relative; display: block; margin-top: 0.75rem; font-size: clamp(1.375rem, 2.35vw, 2.125rem); font-style: italic; line-height: 1.3; color: var(--vc-ink); }
+.hero-motto-line-row { display: block; }
 .motto-key { position: relative; }
 .hero-motto-source { position: relative; margin-top: 1.5rem; padding-top: 1rem; font-size: 0.9375rem; line-height: 1.55; color: var(--vc-graphite); text-wrap: pretty; }
 .hero-motto-source::before { content: ''; position: absolute; top: 0; left: 0; width: 2.5rem; height: 1px; background: var(--vc-brass-400); transform-origin: left; }
@@ -42,14 +43,14 @@
    public/index.html) so that it never plays in a fallback face. Reduced motion, print and pages
    without scripts show it whole. */
 @media screen and (prefers-reduced-motion: no-preference) {
-  .hero-motto .motto-word { animation: motto-word 600ms var(--ease-settle) var(--at) both; }
-  .hero-motto .motto-key { animation: motto-key 90ms ease-out var(--d) both; }
+  .hero-motto .motto-word { animation: motto-word 450ms var(--ease-settle) var(--at) both; }
+  .hero-motto .motto-key { animation: motto-key 60ms ease-out var(--d) both; }
   .hero-motto .motto-key::after, .hero-motto-line::before { content: ''; position: absolute; top: 0.22em; bottom: 0.1em; width: 1.5px; background: var(--vc-brass-700); opacity: 0; pointer-events: none; }
   .hero-motto .motto-key::after { right: -1px; animation: motto-caret var(--w) step-end var(--d); }
-  .hero-motto .motto-key:last-child::after { animation: motto-blink 1060ms step-end var(--d) 2; }
-  .hero-motto-line::before { left: 0; top: 0.3em; bottom: 0.18em; animation: motto-blink 1000ms step-end var(--caret-from); }
-  .hero-motto-source::before { animation: motto-rule 500ms var(--ease-settle) calc(var(--typed-end) + 700ms) both; }
-  .hero-motto-source > * { animation: motto-fade 700ms var(--ease-settle) calc(var(--typed-end) + 1000ms) both; }
+  .hero-motto-line-row:last-child .motto-key:last-child::after { animation: motto-blink 900ms step-end var(--d) 2; }
+  .hero-motto-line::before { left: 0; top: 0.22em; bottom: auto; height: 0.95em; animation: motto-blink 1000ms step-end var(--caret-from); }
+  .hero-motto-source::before { animation: motto-rule 400ms var(--ease-settle) calc(var(--typed-end) + 300ms) both; }
+  .hero-motto-source > * { animation: motto-fade 500ms var(--ease-settle) calc(var(--typed-end) + 500ms) both; }
   html:not(.fonts-ready) .hero-motto *, html:not(.fonts-ready) .hero-motto *::before, html:not(.fonts-ready) .hero-motto *::after { animation-play-state: paused; }
 }
 @keyframes motto-word { from { opacity: 0; transform: translateY(0.22em); } to { opacity: 1; transform: none; } }
