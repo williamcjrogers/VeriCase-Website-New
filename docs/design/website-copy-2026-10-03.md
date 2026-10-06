@@ -424,7 +424,7 @@ Beneath the role (positions and recognition):
 
 - MCIArb, Chartered Institute of Arbitrators
 - Testifying quantum expert
-- RICS Level 5 Diploma in Adjudication
+- Live instructions in excess of £100m
 
 William brings more than 15 years of construction claims and disputes experience across infrastructure, water, power, rail and residential projects. A quantity surveying and commercial management specialist and Member of the Chartered Institute of Arbitrators, he acts as a testifying quantum expert. His work spans adjudication, arbitration and TCC litigation. He brings the practical demands of preparing evidence, developing claims and briefing experts and counsel into VeriCase’s product direction.
 
