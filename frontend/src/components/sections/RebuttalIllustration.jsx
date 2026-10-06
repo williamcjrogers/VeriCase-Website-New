@@ -10,11 +10,10 @@ import './rebuttal-illustration.css';
 // screens keep open, so `play` is only passed when two copies must share one performance.
 //
 // The sequence, in ms from the start (rebuttal-illustration.css sets the rhythm): the assertion is
-// typed by 2623 (81 characters at the kit's pace); then, 320 later, "The record"; then one turn of
+// typed, in its quotation marks, at the kit's pace; then, 320 later, "The record"; then one turn of
 // 480 for each record, its slip first and its relation 240 after it; then the reply's label and,
-// 240 after it, the reply. The reply appears at 2623 + 320 + 3 * 480 + 240 = 4623 and has settled
-// 420 later, at 5043; the duration adds 300.
-export const REBUTTAL_DURATION = 5350;
+// 240 after it, the reply, which has settled 420 later; the duration adds 300.
+export const REBUTTAL_DURATION = typedMs(`“${REBUTTAL_ILLUSTRATION.assertion}”`) + 320 + 3 * 480 + 240 + 420 + 300;
 
 // Turn 0 is the records label; record k takes turn k + 1 with its relation; the reply takes the
 // turn after the last record.

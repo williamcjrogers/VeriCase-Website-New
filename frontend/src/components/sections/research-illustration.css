@@ -1,7 +1,7 @@
 /* A question traced to its sources: the findings as paper slips on the panel, each with its record
    beside it where there is room, and what was not found beneath a dashed brass rule. */
 
-.research-findings { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.625rem; }
+.research-findings { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.625rem; }
 .research-findings > li { padding: 0.75rem 1rem; }
 .research-findings > li > .text-small { margin-top: 0.125rem; }
 .research-gap { margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--live-rule); color: var(--vc-parchment-300); }

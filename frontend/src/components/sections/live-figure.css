@@ -3,7 +3,9 @@
    panel is the one place the page's own dark ground returns, so the figures stand apart from the
    parchment sections around them. */
 
-.live-figure { --live-rule: rgb(191 155 88 / 0.32); background: var(--vc-ink); border-color: var(--live-rule); border-top-color: var(--vc-brass-400); color: var(--vc-parchment); }
+/* With very large text a word too long for its line breaks, rather than leave the panel; this
+   changes nothing at sizes where every word fits, and leaves intrinsic sizes alone. */
+.live-figure { --live-rule: rgb(191 155 88 / 0.32); background: var(--vc-ink); border-color: var(--live-rule); border-top-color: var(--vc-brass-400); color: var(--vc-parchment); overflow-wrap: break-word; }
 .live-figure .section-kicker { color: var(--vc-brass-400); }
 .live-figure .evidence-figure-title { color: var(--vc-parchment); }
 .live-figure > figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.25rem 1.5rem; border-top-color: var(--live-rule); color: var(--vc-parchment-300); }
@@ -20,7 +22,7 @@
    size from the start, so nothing around the line moves as it is typed. It stays in the
    accessibility tree (the typed copy is hidden from it). */
 .typed { display: inline-grid; }
-.typed.live-prompt-line { display: grid; }
+.typed.live-prompt-line { display: grid; grid-template-columns: minmax(0, 1fr); }
 .typed > .typed-whole, .typed > .typed-visual { grid-area: 1 / 1; white-space: pre-wrap; }
 .typed > .typed-whole { position: static; width: auto; height: auto; margin: 0; padding: 0; overflow: visible; clip: auto; opacity: 0; pointer-events: none; user-select: none; }
 /* The caret: a shadow on the right edge of the typed part, shown only while it is typed. It takes

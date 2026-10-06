@@ -6,6 +6,7 @@ import { typedSoFar } from './liveTestUtils';
 let container;
 let root;
 beforeEach(() => {
+  global.IS_REACT_ACT_ENVIRONMENT = true;
   container = document.createElement('div');
   document.body.appendChild(container);
   root = createRoot(container);

@@ -41,7 +41,6 @@
 .search-result-record { min-width: 0; }
 .search-result-name { font-size: 1rem; line-height: 1.4; font-weight: 500; color: var(--vc-parchment); }
 .search-result-meta { font-size: 0.875rem; line-height: 1.5; color: var(--vc-parchment-300); }
-.search-result-meta time { white-space: nowrap; }
 .search-slip { grid-column: 1 / -1; margin: 0; padding: 0.75rem 1rem; }
 .search-slip p { margin: 0; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1.125rem; line-height: 1.55; color: var(--vc-ink); text-wrap: pretty; }
 /* The match: brass laid on like a highlighter, with a brass-700 line beneath it so the mark reads

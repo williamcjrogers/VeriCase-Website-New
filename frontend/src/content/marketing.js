@@ -59,17 +59,19 @@ export const RESEARCH_ILLUSTRATION = {
 export const REBUTTAL_ILLUSTRATION = {
   title: 'An opposing assertion, tested against the record.',
   assertionLabel: 'Opposing submission, paragraph 12',
-  assertion: 'The Contractor did not know the lead time for the brackets until 26 March 2025.',
+  // The page acts for the Contractor throughout: the Employer's Response says the delay was apparent
+  // on 12 March 2025, so that the Contractor's notice of 28 March came too late.
+  assertion: 'Delay was reasonably apparent to the Contractor on 12 March 2025.',
   recordsLabel: 'The record',
   // Indexes into EVIDENCE_ILLUSTRATION, each with how it bears on the assertion.
   records: [
-    { index: 1, relation: 'Challenges the assertion.' },
-    { index: 2, relation: 'Consistent with the date alleged.' },
+    { index: 1, relation: 'Gives a lead time from order, not a delivery week.' },
+    { index: 2, relation: 'Confirms the delivery week, fourteen days later.' },
   ],
   replyLabel: 'Proposed reply, for review',
   // The reply cites its record as the argument illustration does: "(document)." after the point.
-  reply: 'The Contractor was told the lead time on 12 March 2025, fourteen days before the date alleged',
-  replySource: 1,
+  reply: 'On 12 March 2025 the Contractor knew the lead time but not the delivery week, which the supplier confirmed on 26 March 2025',
+  replySource: 2,
   caption: 'Illustrative rebuttal from a fictional construction matter.',
 };
 
@@ -98,6 +100,49 @@ export const DISCUSSION_ILLUSTRATION = {
     { role: 'Claims consultant', text: 'Yes, by fourteen days. Paragraph 4.2 of the draft relies on it.' },
   ],
   caption: 'Illustrative discussion from a fictional construction matter.',
+};
+
+// Lanes (owner, 06 October 2026): the record the discussion figure shows, discussed in three
+// lanes, each naming the roles taking part in it. Roles only; it depicts how the discussion is
+// organised, not an application screen: no controls, reference numbers, counts or states, and no
+// claim about who may read a lane (gate G14). The lanes and their members are illustrative.
+export const LANES_ILLUSTRATION = {
+  title: 'One record, discussed in lanes.',
+  record: 'EV-0138',
+  lanesLabel: 'The discussion, in three lanes',
+  // Who is talking in each lane. It names the participants, not who may read the lane: in the
+  // product source of 01 October 2026 lanes organise the discussion and are not access control.
+  audienceLead: 'Discussed by',
+  lanes: [
+    {
+      id: 'core',
+      name: 'Core team',
+      audience: ['Project manager', 'Commercial manager', 'Solicitor'],
+      comments: [
+        { role: 'Project manager', text: 'When this email arrived, the brackets were still forecast to arrive in time. The supplier confirmed the delivery week on 26 March 2025.' },
+        { role: 'Solicitor', text: 'Please send me the bracket order and the delivery forecast current on 12 March 2025.' },
+      ],
+    },
+    {
+      id: 'counsel',
+      name: 'With counsel',
+      audience: ['Solicitor', 'Counsel'],
+      comments: [
+        { role: 'Counsel', text: 'The Employer will say that delay was reasonably apparent from this email. What the project team expected on that date is central to the answer.' },
+        { role: 'Solicitor', text: 'The project team is locating its forecast for that date. The delay expert will receive the same records.' },
+      ],
+    },
+    {
+      id: 'expert',
+      name: 'With the delay expert',
+      audience: ['Solicitor', 'Delay expert'],
+      comments: [
+        { role: 'Solicitor', text: 'Please consider whether, on the records available at 12 March 2025, the ten-week lead time was likely to delay completion.' },
+        { role: 'Delay expert', text: 'I will also need the records available at 26 March 2025, so that the two dates can be compared.' },
+      ],
+    },
+  ],
+  caption: 'Illustrative discussion in lanes, from a fictional construction matter.',
 };
 
 // The workspace illustrations replace the three historical application captures (owner, 05 October
@@ -151,7 +196,7 @@ export const SEARCH_ILLUSTRATION = {
   query: 'ten weeks',
   rankLabel: 'Ranked by match strength',
   // Why someone would look: a dispute moment, stated as a scenario and never as an outcome.
-  context: 'The opposing submission says the lead time was not known until 26 March 2025.',
+  context: 'The Employer says the delay was apparent once the lead time was known, on 12 March 2025.',
   // Strongest match first. Each passage is quoted from a record in MATTER_RECORDS.
   results: [
     { record: 3, before: 'Stainless brackets are ', match: 'ten weeks', after: ' from order.' },

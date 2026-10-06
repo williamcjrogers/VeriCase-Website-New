@@ -11,7 +11,7 @@
 .live-figure.rebuttal-illustration :is(.rebuttal-relation, .rebuttal-reply-page) { --after: calc(var(--rebuttal-after) + var(--rebuttal-beat)); }
 
 /* The pages: the assertion, then the record under its label. From 768px up they face each other. */
-.rebuttal-pages { display: grid; }
+.rebuttal-pages { display: grid; grid-template-columns: minmax(0, 1fr); }
 .rebuttal-records-page { position: relative; }
 .rebuttal-records { list-style: none; margin: 0; padding: 0; display: grid; align-content: start; gap: 1rem; }
 .rebuttal-slip { padding: 0.75rem var(--rebuttal-inset); }
@@ -28,7 +28,10 @@
 /* The reply: a sheet below both pages, set in Newsreader at the typed line's size. */
 .rebuttal-reply { margin-top: 1.75rem; }
 .rebuttal-reply-page { margin: 0; padding: 0.875rem 1rem; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1.25rem; line-height: 1.35; text-wrap: pretty; }
+/* The citation keeps to the line where it fits; on a narrow sheet or with larger text it may wrap
+   between its words, never away from its parentheses. */
 .rebuttal-cite { white-space: nowrap; }
+@media (max-width: 767px) { .rebuttal-cite { white-space: normal; } }
 
 @media (min-width: 768px) {
   .rebuttal-pages { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 0; align-items: stretch; }

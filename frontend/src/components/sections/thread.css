@@ -1,0 +1,115 @@
+/* The thread: a section's steps as marked points on one brass line, as the chronology figure marks
+   its entries on the record. Brass-400 for the line and its points: decoration, since the ordered
+   list and the step titles carry the sequence (it measures 2.5:1 on paper and 2.3:1 on parchment,
+   so it must not carry meaning alone); the step titles in Newsreader, their text in ink; the line
+   that introduces the illustration in Newsreader italic, brass-700. The thread ends there, and on wider screens runs on
+   (--thread-drop) into the illustration's brass top rule below. */
+
+.thread {
+  --thread-x: 0.4375rem;        /* the line's centre, from the thread's left edge */
+  --thread-w: 2px;
+  --thread-indent: 2.25rem;     /* where the text starts */
+  --thread-node: 0.875rem;
+  --thread-title: 1.375rem;
+  --thread-title-lh: 1.25;
+  --thread-bg: var(--vc-paper); /* the ground a point shows before it is marked */
+  --thread-drop: 0px;
+  --thread-draw: 1100ms;
+  position: relative;
+  padding-left: var(--thread-indent);
+}
+.bg-parchment .thread { --thread-bg: var(--vc-parchment); }
+/* The line: from the first point to the end of the thread, and on through the drop. */
+.thread::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--thread-x) - var(--thread-w) / 2);
+  top: calc(var(--thread-title) * var(--thread-title-lh) / 2);
+  bottom: calc(-1 * var(--thread-drop));
+  width: var(--thread-w);
+  background: var(--vc-brass-400);
+  transform-origin: top;
+}
+.thread-steps { list-style: none; margin: 0; padding: 0; }
+.thread-step { position: relative; }
+.thread-step + .thread-step { margin-top: 1.875rem; }
+/* Each point, centred on the line and level with the step's title. */
+.thread-step::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--thread-x) - var(--thread-indent) - var(--thread-node) / 2);
+  top: calc(var(--thread-title) * var(--thread-title-lh) / 2 - var(--thread-node) / 2);
+  width: var(--thread-node);
+  height: var(--thread-node);
+  box-sizing: border-box;
+  border: 2px solid var(--vc-brass-400);
+  border-radius: 50%;
+  background: var(--vc-brass-400);
+}
+.thread-title { margin: 0; font-size: var(--thread-title); line-height: var(--thread-title-lh); text-wrap: balance; }
+.thread-text { max-width: 46ch; margin: 0.375rem 0 0; font-size: 1.0625rem; line-height: 1.6; color: var(--vc-ink); }
+/* A qualification the step must carry, set quieter than the step itself. */
+.thread-note { max-width: 46ch; margin: 0.5rem 0 0; font-size: 0.9375rem; line-height: 1.55; color: var(--vc-graphite); }
+/* The line that introduces the illustration: where the thread turns, a smaller square point. */
+.thread-lead-in { position: relative; max-width: 40ch; margin: 2.25rem 0 0; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-style: italic; font-size: 1.1875rem; line-height: 1.45; color: var(--vc-brass-700); }
+.thread-lead-in::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--thread-x) - var(--thread-indent) - 0.3125rem);
+  top: calc(0.725em - 0.3125rem);
+  width: 0.625rem;
+  height: 0.625rem;
+  background: var(--vc-brass-400);
+  transform: rotate(45deg);
+}
+
+/* From 768px the thread stands beside or below the section's introduction and fills its column to
+   the foot, so that the line can run on into the illustration that follows (the frame's 3rem top
+   margin). */
+@media (min-width: 768px) {
+  .thread.has-lead-in { --thread-drop: 3rem; }
+  .capability-explanation-grid > .mobile-details,
+  .capability-explanation-grid > .mobile-details > .mobile-details-content,
+  .capability-explanation-grid > .thread-column { display: flex; flex-direction: column; }
+  .capability-explanation-grid > .mobile-details > .mobile-details-content { flex: 1 1 auto; }
+  .capability-explanation-grid .thread { flex: 1 1 auto; display: flex; flex-direction: column; }
+  .capability-explanation-grid .thread-steps { margin-bottom: 2.25rem; }
+  .capability-explanation-grid .thread-lead-in { margin-top: auto; }
+  /* Beside the collaboration section's taller introduction, the lead-in follows the steps, and the
+     column's spare length becomes the line's run into the illustration. */
+  .collaboration-section .capability-explanation-grid .thread-lead-in { margin-top: 0; }
+}
+/* Beside the thread, the introduction stays in view while the steps pass, where the window is tall
+   enough to hold it (the height is in em, so larger text releases it). */
+@media (min-width: 1024px) and (min-height: 44em) {
+  .capability-explanation-grid > .capability-introduction:not(.has-figures) { position: sticky; top: calc(var(--header-h) + 2.5rem); align-self: start; }
+}
+@media (max-width: 767px) {
+  .thread { --thread-indent: 1.875rem; --thread-node: 0.75rem; --thread-title: 1.1875rem; --thread-x: 0.375rem; }
+  .thread-step + .thread-step { margin-top: 1.375rem; }
+  .thread-text { font-size: 0.9375rem; line-height: 1.6; }
+  .thread-note { font-size: 0.875rem; }
+  .thread-lead-in { margin-top: 1.5rem; font-size: 1.0625rem; }
+}
+
+/* Drawn once, when the thread comes into view: the line from the top down (and on into the drop),
+   each point filling as the line reaches it, then the turn to the illustration. Only on screen,
+   with the script, and when motion is welcome; otherwise it is simply drawn. */
+@media screen and (prefers-reduced-motion: no-preference) {
+  .js .thread:not(.is-drawn)::before { transform: scaleY(0); }
+  .js .thread:not(.is-drawn) .thread-step::before { background: var(--thread-bg); }
+  .js .thread:not(.is-drawn) .thread-lead-in::before { transform: rotate(45deg) scale(0); }
+  .thread.is-drawn::before { transition: transform var(--thread-draw) cubic-bezier(0.3, 0, 0.7, 1); }
+  .thread.is-drawn .thread-step::before { transition: background-color 260ms var(--ease-settle); transition-delay: calc(var(--thread-draw) * (var(--i) + 0.25) / (var(--steps) + 1)); }
+  .thread.is-drawn .thread-lead-in::before { transition: transform 320ms var(--ease-settle); transition-delay: calc(var(--thread-draw) * var(--steps) / (var(--steps) + 1)); }
+}
+/* On phones the line runs on to meet the illustration's top rule below the steps, except where the
+   opposing account's "See an example" control follows instead. */
+@media screen and (max-width: 767px) {
+  .thread.has-lead-in { --thread-drop: 1.5rem; }
+  .rebuttal-section .thread.has-lead-in { --thread-drop: 0px; }
+}
+@media print {
+  .thread, .thread.has-lead-in { --thread-drop: 0px; }
+  .thread-step { break-inside: avoid; }
+}
