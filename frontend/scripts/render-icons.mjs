@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // Builds the favicon and app icons from the genuine wordmark (public/logo-reversed.svg), so the
-// icons always match it: parchment V, brass rule and C on the header's ink green.
-//   public/favicon.svg, favicon.ico (16, 32, 48), favicon-32.png: the V alone, which stays legible
-//     in a 16 px browser tab.
+// icons always match it, on the header's ink green.
+//   public/favicon.svg, favicon.ico (16, 32, 48), favicon-32.png: the V alone, in brass and set
+//     large, which stays legible in a 16 px browser tab.
 //   public/apple-touch-icon.png (180), icon-192.png, icon-512.png: the V | C monogram, full bleed,
 //     inside the maskable safe zone (platforms round the corners themselves).
 // Run by hand after changing the wordmark (it needs Playwright with Chromium, as render-og.mjs
@@ -29,16 +29,17 @@ const [V, C] = [paths[0], paths[4]];
 const V_BOX = { x: 47.64, y: 70.6, w: 48.82, h: 45.22 };
 const C_X = 275.5;
 
-// Tab icon: the V, with a brass rule beneath it, on a rounded square. A same-colour stroke
-// carries the light serif at small sizes.
+// Tab icon: the V alone in brass, set large on a rounded square of ink, so that it stays bold and
+// legible in a 16 px tab on light and dark browser chrome (owner's choice, 06 October 2026). A
+// same-colour stroke carries the light serif at small sizes.
 const tab = () => {
   const side = 72;
-  const tx = (side - V_BOX.w) / 2 - V_BOX.x;
-  const ty = 9.5 - V_BOX.y;
+  const scale = 1.22;
+  const tx = (side - V_BOX.w * scale) / 2;
+  const ty = (side - V_BOX.h * scale) / 2 + 1;
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${side} ${side}">
 <rect width="${side}" height="${side}" rx="13" fill="${INK}"/>
-<path transform="translate(${tx.toFixed(2)} ${ty.toFixed(2)})" d="${V}" fill="${PARCHMENT}" stroke="${PARCHMENT}" stroke-width="2.6" stroke-linejoin="round"/>
-<rect x="18" y="58.5" width="36" height="4.5" fill="${BRASS}"/>
+<path transform="translate(${tx.toFixed(2)} ${ty.toFixed(2)}) scale(${scale}) translate(${-V_BOX.x} ${-V_BOX.y})" d="${V}" fill="${BRASS}" stroke="${BRASS}" stroke-width="${(3.4 / scale).toFixed(2)}" stroke-linejoin="round"/>
 </svg>
 `;
 };
