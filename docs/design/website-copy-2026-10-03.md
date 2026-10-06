@@ -416,9 +416,15 @@ Findings and drafts require professional review. Your team assesses the evidence
 
 Founded by construction claims and dispute resolution practitioners. Built around the demands of real casework.
 
-## William Rogers MCIArb
+## William Rogers
 
 Co-Founder · Claims, Forensic Quantum & Testifying Expert
+
+Beneath the role (positions and recognition):
+
+- MCIArb, Chartered Institute of Arbitrators
+- Testifying quantum expert
+- RICS Level 5 Diploma in Adjudication
 
 William brings more than 15 years of construction claims and disputes experience across infrastructure, water, power, rail and residential projects. A quantity surveying and commercial management specialist and Member of the Chartered Institute of Arbitrators, he acts as a testifying quantum expert. His work spans adjudication, arbitration and TCC litigation. He brings the practical demands of preparing evidence, developing claims and briefing experts and counsel into VeriCase’s product direction.
 
@@ -454,11 +460,16 @@ A construction claims and disputes specialist with over 15 years across the wate
 
 ## Warren Kemp
 
-Co-Founder · Dispute Resolution | Partner, gunnercooke LLP
+Co-Founder · Dispute Resolution
 
-warren.kemp@gunnercooke.com
+Beneath the role (positions and recognition):
 
-+44 (0) 7470 332 945
+- Partner, gunnercooke LLP
+- Co-founded DAC Beachcroft’s construction practice (2013), circa 50 lawyers
+- Former Joint Head of Construction & Engineering, DAC Beachcroft
+- Ranked in Chambers UK and The Legal 500
+
+No contact details are shown (owner, 06 October 2026).
 
 Warren is a construction and engineering disputes solicitor and a partner at gunnercooke LLP. His practice spans adjudication, arbitration, mediation and TCC litigation, advising contractors, developers, consultants and insurers. Previously joint head of construction and engineering at DAC Beachcroft, he brings more than twenty years of legal practice to VeriCase. His contribution centres on the commercial judgement, evidential discipline and clear argument that construction disputes require.
 
@@ -468,13 +479,13 @@ On phones the introduction and full biography sit inside the disclosure; desktop
 
 ### Full approved biography
 
-Warren is a construction and engineering disputes solicitor of more than twenty years’ standing, admitted in 2002, who advises developers, contractors, subcontractors, professional consultants and their insurers across the public and private sectors. He trained and built his practice in Newcastle, first at Watson Burton and then at DAC Beachcroft, which he joined as a partner on 01 November 2013 and where, with James Harrison, he established the firm’s Newcastle construction practice and grew it to more than 25 specialist construction lawyers. He went on to lead DAC Beachcroft’s national construction and engineering team jointly with Mark Roach, a practice of over 50 senior lawyers in the United Kingdom and internationally, until joining gunnercooke LLP in February 2024. His work spans adjudication, arbitration, mediation and Technology and Construction Court litigation, together with the professional indemnity dimension of construction claims and the non-contentious drafting that prevents them. He is ranked in Chambers UK and The Legal 500, which has described him as “simply the best around”, and he writes regularly on construction law, including on CC Construction Limited v Mincione and on the contractual treatment of anaerobic digestion plants. Warren acts, among his various roles, as General Counsel to United Living, a business approaching £1bn turnover with a telecoms division, and previously spent 18 months in house on secondment at the global consultancy WS Atkins. He combines a pragmatic, commercial approach with the tenacity to see a dispute through to decision.
+Warren is a construction and engineering disputes solicitor of more than twenty years’ standing, admitted in 2002, who advises developers, contractors, subcontractors, professional consultants and their insurers across the public and private sectors. He trained and built his practice in Newcastle, first at Watson Burton and then at DAC Beachcroft, which he joined as a partner on 01 November 2013 and where he and James Harrison set up the firm’s construction practice that year. He went on to lead DAC Beachcroft’s national construction and engineering team jointly with Mark Roach, a practice of circa 50 lawyers in the United Kingdom and internationally, until joining gunnercooke LLP in February 2024. His work spans adjudication, arbitration, mediation and Technology and Construction Court litigation, together with the professional indemnity dimension of construction claims and the non-contentious drafting that prevents them. He is ranked in Chambers UK and The Legal 500, which has described him as “simply the best around”, and he writes regularly on construction law, including on CC Construction Limited v Mincione and on the contractual treatment of anaerobic digestion plants. Warren acts, among his various roles, as General Counsel to United Living, a business approaching £1bn turnover with a telecoms division, and previously spent 18 months in house on secondment at the global consultancy WS Atkins. He combines a pragmatic, commercial approach with the tenacity to see a dispute through to decision.
 
 ### Credentials
 
 - Dispute Resolution Partner, gunnercooke LLP
 - Former Joint Head of Construction & Engineering, DAC Beachcroft
-- Co-founded DAC Beachcroft’s Newcastle construction practice (2013)
+- Co-founded DAC Beachcroft’s construction practice with James Harrison (2013)
 - General Counsel, United Living Group
 - Admitted as a solicitor, 15 August 2002
 - Ranked, Chambers UK, Construction (North East)
@@ -495,6 +506,12 @@ Warren is a construction and engineering disputes solicitor of more than twenty 
 ## Malcolm Brechin
 
 Managing Director · Commercial Strategy & Go-to-Market
+
+Beneath the role (positions and recognition):
+
+- CEO, Invent Group
+- Former Director of Strategic Development, Mobile Rocket
+- Over 25 years in commercial strategy and go-to-market
 
 Malcolm brings more than 25 years of experience in commercial strategy and taking technology products to market. His career includes leadership roles at OfficeTeam, OT Group and Mobile Rocket, working across sectors including healthcare, recruitment and government. As Managing Director, he focuses on understanding customers’ operational needs and translating them into practical products, working with the team to make VeriCase useful and commercially relevant to the organisations adopting it.
 
@@ -524,6 +541,12 @@ Malcolm is a commercial strategist with more than 25 years’ experience buildin
 ## Sam Whisker
 
 Chief Technology Officer · Automation & Product Engineering
+
+Beneath the role (positions and recognition):
+
+- CTO, Invent Group
+- Former Chief Technology Officer, Mobile Rocket
+- Shortlisted, Recruiter Awards 2023
 
 Sam is a software engineer and automation specialist with experience taking products from early ideas to working systems. A Teesside University graduate and former Chief Technology Officer at Mobile Rocket, he has worked on recruitment and workforce platforms and, since 2024, focused on automation. As Chief Technology Officer, he leads the engineering behind VeriCase, bringing software development and automation together around the needs of complex casework.
 
