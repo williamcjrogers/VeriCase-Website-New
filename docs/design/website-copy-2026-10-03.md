@@ -24,13 +24,11 @@ Construction claims and disputes
 
 # Evidence in order. Arguments on the record.
 
-Turn years of correspondence into a cited chronology. Test the other side’s account against it. Draft your claim or response from it.
-
 Primary action: Request a demonstration
 
 Email microcopy: By email. Please use sample material.
 
-Motto, opposite the kicker from 1024 pixels and after the introduction on narrower screens (owner, 06 October 2026), in display italic within quotation marks:
+Motto, opposite the heading from 1024 pixels with its capitals level with “Evidence in order.”, and after the heading on narrower screens (owner, 06 October 2026), enlarged, in display italic within quotation marks. There is no supporting sentence; the demonstration action follows the motto's credit:
 
 *“Records, records, VeriCase.”*
 

@@ -67,13 +67,6 @@ export const COVER = {
   h1: "Evidence in order. Arguments on the record.",
   h1Lead: "Evidence in order.",
   h1Emphasis: "Arguments on the record.",
-  // Three lines, one for each thing the application does, in the order the page shows them; set
-  // one to a line from 1200px, where the column holds the longest.
-  subheadLines: [
-    "Turn years of correspondence into a cited chronology.",
-    "Test the other side’s account against it.",
-    "Draft your claim or response from it.",
-  ],
   practitionerProof: "Founded by construction claims and dispute resolution practitioners.",
   audience: "For construction claims and commercial teams, working with solicitors, counsel and experts.",
   fastPath: "Explore how it works",

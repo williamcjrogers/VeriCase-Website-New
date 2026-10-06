@@ -17,19 +17,20 @@
 .hero-audience { margin-top: 1.6rem; max-width: 44ch; color: var(--vc-graphite); font-size: 1rem; }
 .clarity-lead { font-size: 1.125rem; line-height: 1.65; max-width: 47ch; }
 .hero-introduction { padding-bottom: 0.2rem; }
-/* The motto (HeroMotto): opposite the kicker from 1024px, after the introduction below that. */
+/* The motto (HeroMotto): level with the heading's first line from 1024px, the demonstration
+   action beneath it. */
 .hero-side { display: flex; flex-direction: column; gap: 2.25rem; min-width: 0; }
-.hero-motto { order: 2; max-width: 30rem; }
+.hero-motto { max-width: 34rem; }
 .hero-motto-text { margin: 0; }
 .hero-motto-visual, .hero-motto-words { display: block; }
 /* The quoted line in display italic, its opening mark hung in the margin so the words align. */
-.hero-motto-words { font-size: clamp(1.75rem, 2.6vw, 2.375rem); font-style: italic; font-weight: 400; line-height: 1.12; letter-spacing: -0.015em; color: var(--vc-ink); }
+.hero-motto-words { font-size: clamp(1.875rem, 3.2vw, 2.875rem); font-style: italic; font-weight: 400; line-height: 1.12; letter-spacing: -0.015em; color: var(--vc-ink); }
 .motto-word { display: inline-block; }
 .motto-brand, .motto-quote { color: var(--vc-brass-700); }
 .motto-quote-open { margin-left: -0.36em; }
-.hero-motto-line { position: relative; display: block; margin-top: 0.5rem; font-size: clamp(1.1875rem, 1.5vw, 1.375rem); font-style: italic; line-height: 1.35; color: var(--vc-brass-700); }
+.hero-motto-line { position: relative; display: block; margin-top: 0.6rem; font-size: clamp(1.3125rem, 1.95vw, 1.75rem); font-style: italic; line-height: 1.35; color: var(--vc-brass-700); }
 .motto-key { position: relative; }
-.hero-motto-source { position: relative; margin-top: 1.25rem; padding-top: 0.875rem; font-size: 0.8125rem; line-height: 1.55; color: var(--vc-graphite); text-wrap: pretty; }
+.hero-motto-source { position: relative; margin-top: 1.5rem; padding-top: 1rem; font-size: 0.875rem; line-height: 1.55; color: var(--vc-graphite); text-wrap: pretty; }
 .hero-motto-source::before { content: ''; position: absolute; top: 0; left: 0; width: 2.5rem; height: 1px; background: var(--vc-brass-400); transform-origin: left; }
 .hero-motto-source a { color: var(--vc-brass-700); text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
 /* It plays once, from first paint, in CSS alone, so the prerendered page needs no script to start
@@ -99,8 +100,6 @@
 .collaboration-audience-lead { display: block; font-size: clamp(1.625rem, 1.2rem + 1.6vw, 2.5rem); line-height: 1.18; letter-spacing: -0.012em; color: var(--vc-navy); }
 .collaboration-audience-rest { display: block; max-width: 40rem; margin-top: 0.75rem; font-size: clamp(1.25rem, 1.05rem + 0.75vw, 1.625rem); line-height: 1.35; color: var(--vc-ink); }
 @media (min-width: 1024px) { .collaboration-audience { grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); } .collaboration-audience-label { padding-top: 0.75rem; } }
-/* The opening's three lines, one to a line where the column holds the longest (from 1200px). */
-@media (min-width: 1200px) { .clarity-lead-line { display: block; } }
 /* Why VeriCase exists (Lessons): Abrahamson's passage in full, on the deeper parchment under a
    brass rule, its label in the margin from 1024px as in the audience band. */
 .lessons { background: var(--vc-parchment-300); border-top: 3px solid var(--vc-brass-400); }
@@ -170,7 +169,8 @@
 }
 @media (min-width: 1024px) {
   .clarity-hero-grid { grid-template-columns: 1.3fr 1fr; gap: 5rem; align-items: start; }
-  .hero-motto { order: 0; }
+  /* The motto's capitals level with the heading's: its line box is taller than its capitals. */
+  .hero-motto-words { margin-top: -0.1em; }
   .time-advantage-grid, .capability-explanation-grid { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 5rem; }
   .clarity-team { gap: 3.5rem 4rem; }
   .clarity-jobs { grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 2.5rem; }
