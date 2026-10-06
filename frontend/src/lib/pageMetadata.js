@@ -9,6 +9,11 @@ export const PAGE_METADATA = {
     description: 'How VeriCase uses consent-based website analytics and browser storage, and how to change your cookie choice.',
     url: 'https://veri-case.com/cookies',
   },
+  '/notes': {
+    title: 'Notes and sources | VeriCase',
+    description: 'The sources and assumptions behind the figures on the VeriCase home page: email volume, a modelled round of email, and the modelled cost of professional time.',
+    url: 'https://veri-case.com/notes',
+  },
   '/discussion-cost': {
     title: 'What does discussing the evidence cost? | VeriCase',
     description: 'Estimate the cost of the professional time your team spends discussing, finding, reading, meeting about and bundling the evidence in a construction dispute, with the basis of every rate shown.',

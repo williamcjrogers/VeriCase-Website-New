@@ -10,6 +10,9 @@
    --in is how far inside the part its dot lands; --gap is the space between the drawing and every
    note. Change a padding inside the drawing and the matching --d must change with it. */
 
+/* The opening figure keeps the page's own light paper: the old ivory and grain the other
+   illustrations' records take (live-figure.css) is not used here (owner, 06 October 2026). */
+.live-figure .reader-plate.on-paper { background-color: var(--vc-paper); background-image: none; }
 .reader-illustration {
   --note-c: var(--vc-brass-400);  /* the notes, and their leaders on the ink */
   --line-c: var(--vc-brass-700);  /* the lines drawn on the paper */

@@ -1,0 +1,22 @@
+/* Notes and sources: each note as readable text, not small print, numbered in brass. A note reached
+   from its marker (/notes#note-n) is flashed once so the eye finds it. */
+.notes-group { margin-top: 3.5rem; padding-top: 1.75rem; border-top: 1px solid var(--vc-rule-strong); }
+.notes-group-kicker { margin: 0; font-size: 0.8125rem; line-height: 1.4; font-weight: 500; color: var(--vc-brass-700); }
+.notes-group-title { margin: 0.375rem 0 0; font-size: clamp(1.375rem, 1.236rem + 0.571vw, 1.75rem); line-height: 1.2; }
+.notes-list { list-style: none; margin: 1.75rem 0 0; padding: 0; }
+.notes-item { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); column-gap: 0.5rem; margin-inline: -1rem; padding: 1.5rem 1rem; border-top: 1px solid var(--vc-rule); }
+.notes-item:first-child { border-top: 0; }
+.notes-n { font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1.5rem; line-height: 1.1; color: var(--vc-brass-700); font-variant-numeric: lining-nums; }
+.notes-title { margin: 0; font-size: 1.25rem; line-height: 1.3; }
+.notes-body { max-width: 68ch; margin: 0.625rem 0 0; font-size: 1rem; line-height: 1.7; color: var(--vc-ink); overflow-wrap: break-word; }
+.notes-body + .notes-body { margin-top: 0.875rem; }
+.notes-back { display: inline-flex; align-items: center; min-height: 44px; margin-top: 0.25rem; font-size: 0.9375rem; font-weight: 500; color: var(--vc-azure-700); text-decoration: underline; text-underline-offset: 3px; }
+.notes-back:hover { color: var(--vc-navy); }
+.notes-item:target { animation: note-flash 2.4s var(--ease-settle); }
+@media (prefers-reduced-motion: reduce) { .notes-item:target { animation: none; } }
+@media (max-width: 767px) {
+  .notes-group { margin-top: 2.5rem; padding-top: 1.25rem; }
+  .notes-item { grid-template-columns: 2rem minmax(0, 1fr); }
+  .notes-n { font-size: 1.25rem; }
+  .notes-body { font-size: 0.9375rem; }
+}

@@ -10,8 +10,8 @@
 .live-figure .evidence-figure-title { color: var(--vc-parchment); }
 .live-figure > figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.25rem 1.5rem; border-top-color: var(--live-rule); color: var(--vc-parchment-300); }
 .live-figure .text-graphite { color: var(--vc-parchment-300); }
-/* Paper on the panel: records, slips, pages and replies keep the page's paper roles. */
-.live-figure .on-paper { background: var(--vc-paper); color: var(--vc-ink); border: 1px solid var(--vc-rule); }
+/* Paper on the panel: records, slips, pages and replies, as old ivory with a faint grain. */
+.live-figure .on-paper { background-color: var(--vc-ivory); background-image: var(--vc-paper-texture); color: var(--vc-ink); border: 1px solid var(--vc-rule); }
 .live-figure .on-paper .text-graphite { color: var(--vc-graphite); }
 
 /* The function an illustration shows (Executive Analysis, Deep Research), named as the application

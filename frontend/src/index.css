@@ -13,6 +13,13 @@
     --vc-parchment: #F5F0E6; --vc-parchment-300: #ECE4D3; --vc-paper: #FCFAF5;
     --vc-rule: #D8CDB6; --vc-rule-strong: #857A62; --vc-brass-400: #BF9B58; --vc-brass-700: #7A5A28;
     --vc-signal: #A8352A; --vc-signal-300: #EE8E7E;
+    /* Old ivory for the records on the ink panels: a warmer, aged sheet with a faint laid-paper
+       grain (fibres and mottling drawn by SVG noise, so it tiles without seams and costs no
+       request), a lighter centre and slightly deeper edges. The text colours keep at least 4.5:1
+       on the darkest of it. */
+    --vc-ivory: #F0E7D2; --vc-ivory-deep: #E6DABF;
+    --vc-paper-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='m' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.008 0.012' numOctaves='3' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.42  0 0 0 0 0.32  0 0 0 0 0.16  0.24 0 0 0 -0.08'/%3E%3C/filter%3E%3Cfilter id='r' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.02 0.45' numOctaves='2' seed='23' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.40  0 0 0 0 0.31  0 0 0 0 0.16  0.2 0 0 0 -0.07'/%3E%3C/filter%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.36  0 0 0 0 0.28  0 0 0 0 0.14  0.32 0 0 0 -0.11'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23m%29'/%3E%3Crect width='100%25' height='100%25' filter='url%28%23r%29'/%3E%3Crect width='100%25' height='100%25' filter='url%28%23f%29'/%3E%3C/svg%3E");
+    --vc-paper-texture: var(--vc-paper-grain), radial-gradient(120% 110% at 45% 35%, rgb(255 252 242 / 0.45), rgb(255 252 242 / 0) 62%), radial-gradient(150% 150% at 50% 50%, rgb(110 80 30 / 0) 55%, rgb(110 80 30 / 0.06) 100%);
     --ease-settle: cubic-bezier(0.2, 0, 0, 1); --ease-exit: cubic-bezier(0.4, 0, 1, 1); --ease-glide: cubic-bezier(0.45, 0, 0.2, 1);
     --shadow-paper: 0 1px 0 rgba(26, 37, 80, 0.06), 0 12px 32px -16px rgba(26, 37, 80, 0.22);
     --shadow-lift: 0 1px 0 rgba(26, 37, 80, 0.08), 0 24px 48px -24px rgba(26, 37, 80, 0.35);

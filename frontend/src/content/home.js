@@ -520,9 +520,12 @@ export const IN_BRIEF = {
     gate: 'G4_benchmarks',
     text: 'In benchmark testing, VeriCase processed more than 50,000 documents per hour[[note:9]] and extracted dates with 99.7% accuracy.[[note:10]] The notes describe how each figure was measured, so that you can judge them for yourself.',
   },
+  // Set as the collaboration section's closing statement, in two lines: who uses VeriCase, then
+  // who they work with (the wording approved on 06 October 2026, unchanged).
   audience: {
     label: 'Who it is for',
-    text: 'For construction claims consultants and contractors’ commercial teams, working with solicitors, counsel, quantum and other experts, and in-house legal advisers.',
+    lead: 'For construction claims consultants and contractors’ commercial teams,',
+    rest: 'working with solicitors, counsel, quantum and other experts, and in-house legal advisers.',
   },
   questionsLabel: 'Questions',
   questions: [
@@ -561,9 +564,12 @@ export const FOUNDER = {
   // Portraits are 440 px greyscale JPEG squares in /public/assets/team, drawn at 220 px.
   people: [
     {
-      name: 'William Rogers MCIArb',
+      name: 'William Rogers',
+      // Beneath the name and role: short accolades drawn from the credentials below (owner,
+      // 06 October 2026: MCIArb moves here from the name; no contact details are shown).
+      accolades: ['MCIArb, Chartered Institute of Arbitrators', 'Forensic quantum expert', 'Live instructions in excess of £100m'],
       summary: "William brings more than 15 years of construction claims and disputes experience across infrastructure, water, power, rail and residential projects. A quantity surveying and commercial management specialist and Member of the Chartered Institute of Arbitrators, he acts as a testifying quantum expert. His work spans adjudication, arbitration and TCC litigation. He brings the practical demands of preparing evidence, developing claims and briefing experts and counsel into VeriCase’s product direction.",
-      role: 'Co-Founder · Claims, Forensic Quantum & Testifying Expert',
+      role: 'Co-Founder · Claims Advisory and Forensic Quantum Expert',
       photo: { src: '/assets/team/william-rogers.jpg', alt: 'William Rogers' },
       bio:
         'A construction claims and disputes specialist with over 15 years across the water, power, rail, infrastructure and residential sectors, qualified in quantity surveying and commercial management and a Member of the Chartered Institute of Arbitrators. He founded his first commercial management consultancy in 2016 and has since built Meritus Group, Orrery Group, Peak Developments and VeriCase, a legal technology platform combining forensic evidence review with a chronology engine built to the SCL Protocol. His portfolio spans adjudication, arbitration and TCC litigation under NEC, JCT, FIDIC and IChemE forms, with live instructions in excess of £100m across residential, regeneration and infrastructure schemes, and prior roles on international arbitrations exceeding $600m. He acts as a testifying quantum expert and leads claims and recovery across a national contractor’s distressed portfolio, preparing each case in house so that experts and counsel are instructed only when it is ready.',
@@ -594,16 +600,15 @@ export const FOUNDER = {
     {
       name: 'Warren Kemp',
       summary: "Warren is a construction and engineering disputes solicitor and a partner at gunnercooke LLP. His practice spans adjudication, arbitration, mediation and TCC litigation, advising contractors, developers, consultants and insurers. Previously joint head of construction and engineering at DAC Beachcroft, he brings more than twenty years of legal practice to VeriCase. His contribution centres on the commercial judgement, evidential discipline and clear argument that construction disputes require.",
-      role: 'Co-Founder · Dispute Resolution | Partner, gunnercooke LLP',
+      role: 'Co-Founder · Dispute Resolution',
       photo: { src: '/assets/team/warren-kemp.jpg', alt: 'Warren Kemp' },
-      email: 'warren.kemp@gunnercooke.com',
-      tel: '+44 (0) 7470 332 945',
+      accolades: ['Partner, gunnercooke LLP', 'Co-founded DAC Beachcroft’s construction practice (2013), circa 50 lawyers', 'Former Joint Head of Construction & Engineering, DAC Beachcroft', 'Ranked in Chambers UK and The Legal 500'],
       bio:
-        'Warren is a construction and engineering disputes solicitor of more than twenty years’ standing, admitted in 2002, who advises developers, contractors, subcontractors, professional consultants and their insurers across the public and private sectors. He trained and built his practice in Newcastle, first at Watson Burton and then at DAC Beachcroft, which he joined as a partner on 01 November 2013 and where, with James Harrison, he established the firm’s Newcastle construction practice and grew it to more than 25 specialist construction lawyers. He went on to lead DAC Beachcroft’s national construction and engineering team jointly with Mark Roach, a practice of over 50 senior lawyers in the United Kingdom and internationally, until joining gunnercooke LLP in February 2024. His work spans adjudication, arbitration, mediation and Technology and Construction Court litigation, together with the professional indemnity dimension of construction claims and the non-contentious drafting that prevents them. He is ranked in Chambers UK and The Legal 500, which has described him as “simply the best around”, and he writes regularly on construction law, including on CC Construction Limited v Mincione and on the contractual treatment of anaerobic digestion plants. Warren acts, among his various roles, as General Counsel to United Living, a business approaching £1bn turnover with a telecoms division, and previously spent 18 months in house on secondment at the global consultancy WS Atkins. He combines a pragmatic, commercial approach with the tenacity to see a dispute through to decision.',
+        'Warren is a construction and engineering disputes solicitor of more than twenty years’ standing, admitted in 2002, who advises developers, contractors, subcontractors, professional consultants and their insurers across the public and private sectors. He trained and built his practice in Newcastle, first at Watson Burton and then at DAC Beachcroft, which he joined as a partner on 01 November 2013 and where he and James Harrison set up the firm’s construction practice that year. He went on to lead DAC Beachcroft’s national construction and engineering team jointly with Mark Roach, a practice of circa 50 lawyers in the United Kingdom and internationally, until joining gunnercooke LLP in February 2024. His work spans adjudication, arbitration, mediation and Technology and Construction Court litigation, together with the professional indemnity dimension of construction claims and the non-contentious drafting that prevents them. He is ranked in Chambers UK and The Legal 500, which has described him as “simply the best around”, and he writes regularly on construction law, including on CC Construction Limited v Mincione and on the contractual treatment of anaerobic digestion plants. Warren acts, among his various roles, as General Counsel to United Living, a business approaching £1bn turnover with a telecoms division, and previously spent 18 months in house on secondment at the global consultancy WS Atkins. He combines a pragmatic, commercial approach with the tenacity to see a dispute through to decision.',
       credentials: [
         'Dispute Resolution Partner, gunnercooke LLP',
         'Former Joint Head of Construction & Engineering, DAC Beachcroft',
-        'Co-founded DAC Beachcroft’s Newcastle construction practice (2013)',
+        'Co-founded DAC Beachcroft’s construction practice with James Harrison (2013)',
         'General Counsel, United Living Group',
         'Admitted as a solicitor, 15 August 2002',
         'Ranked, Chambers UK, Construction (North East)',
@@ -629,6 +634,7 @@ export const FOUNDER = {
       summary: "Malcolm brings more than 25 years of experience in commercial strategy and taking technology products to market. His career includes leadership roles at OfficeTeam, OT Group and Mobile Rocket, working across sectors including healthcare, recruitment and government. As Managing Director, he focuses on understanding customers’ operational needs and translating them into practical products, working with the team to make VeriCase useful and commercially relevant to the organisations adopting it.",
       role: 'Managing Director · Commercial Strategy & Go-to-Market',
       photo: { src: '/assets/team/malcolm-brechin.jpg', alt: 'Malcolm Brechin' },
+      accolades: ['CEO, Invent Group', 'Former Director of Strategic Development, Mobile Rocket', 'Over 25 years in commercial strategy and go-to-market'],
       bio:
         'Malcolm is a commercial strategist with more than 25 years’ experience building and scaling technology businesses across finance, retail, healthcare, hospitality and government. His career has centred on taking products to market: as business development director at OfficeTeam he led a national sales team and secured the William Hill distribution outsourcing contract; as National Director of New Business at OT Group he positioned the business on the Crown Commercial Service Tail Spend Solution framework; and as Director of Strategic Development at Mobile Rocket he led the go-to-market for its recruitment and healthcare platforms, now used by Amazon, Waitrose and the NHS, during the period in which the company was shortlisted for Recruitment Technology Innovation of the Year at the Recruiter Awards 2023. In 2025 he established NE Tech in County Durham, rebranded as Invent Group in 2026, which has since released VeriCase, Bid King and Schools-safe. Malcolm’s focus is on identifying real operational challenges and turning them, in partnership with clients, into practical and commercially viable technology.',
       credentials: [
@@ -653,6 +659,7 @@ export const FOUNDER = {
       summary: "Sam is a software engineer and automation specialist with experience taking products from early ideas to working systems. A Teesside University graduate and former Chief Technology Officer at Mobile Rocket, he has worked on recruitment and workforce platforms and, since 2024, focused on automation. As Chief Technology Officer, he leads the engineering behind VeriCase, bringing software development and automation together around the needs of complex casework.",
       role: 'Chief Technology Officer · Automation & Product Engineering',
       photo: { src: '/assets/team/sam-whisker.jpg', alt: 'Sam Whisker' },
+      accolades: ['CTO, Invent Group', 'Former Chief Technology Officer, Mobile Rocket', 'Shortlisted, Recruiter Awards 2023'],
       bio:
         'Sam is a software engineer and automation specialist who has spent his entire career writing code that changes how organisations operate. A Teesside University graduate, he began as a senior PHP developer at Stockton-based web development firm Koodoo Creative before becoming Chief Technology Officer of Mobile Rocket, the Newton Aycliffe company whose recruitment and workforce platforms are now used by organisations including Amazon, Waitrose and the NHS. During his time as CTO, Mobile Rocket was shortlisted for Recruitment Technology Innovation of the Year at the Recruiter Awards 2023. Since 2024 he has concentrated on automation, advising businesses in sectors from manufacturing to recruitment on process automation, custom GPT systems and automated workflows. In 2025 he started NE Tech, now Invent Group, with Malcolm Brechin and leads its technology, building software products including VeriCase, for managing complex legal disputes, and Bid King, for tenders and proposals. Sam’s strength lies in moving ideas from prototype to working, scalable systems that deliver measurable gains in operational efficiency.',
       credentials: [
@@ -703,19 +710,29 @@ export const DEMONSTRATION = {
   plain: 'Or write to enquiries@veri-case.com.',
 };
 
+// The notes have a page of their own (/notes): a marker in the text opens its note in a pop-up,
+// which links through to the full note there, and each note links back to the section citing it.
 export const NOTES_SECTION = {
   heading: 'Notes',
-  intro: 'Each note marker on this page links here, and each note links back to where it was cited.',
-  back: 'Back to text',
+  back: 'Back to the text',
   readInNotes: 'Read in Notes',
   // A note of several paragraphs shows its first in the pop-up; the rest is read in Notes.
   continueInNotes: 'Continue reading in Notes',
+};
+
+export const NOTES_PAGE = {
+  eyebrow: 'Notes',
+  h1: 'Notes and sources',
+  intro: 'The sources and assumptions behind the figures on our home page. Each note links back to the text that cites it.',
+  // The notes cited on the home page, grouped by the section that cites them.
+  groups: [{ id: 'collaboration', kicker: 'Collaboration', title: 'Keep the discussion with the evidence.', notes: [1, 2, 3] }],
 };
 
 export const FOOTER = {
   descriptor: 'Evidence investigation and case preparation for construction claims and disputes.',
   heads: { contents: 'Contents', company: 'Company', cookies: 'Cookies' },
   company: { about: 'Who is behind it', demo: 'Request a demonstration', signIn: 'Sign in' },
+  notes: 'Notes and sources',
   cookies: { settings: 'Cookie settings', notice: 'Cookie notice' },
   legal: [
     'VeriCase Ltd is registered in England and Wales (company number 16562435). Registered office: 85 Great Portland Street, London, England, W1W 7LT.',
