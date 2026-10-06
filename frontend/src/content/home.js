@@ -66,7 +66,7 @@ export const COVER = {
   h1: "Evidence in order. Arguments on the record.",
   h1Lead: "Evidence in order.",
   h1Emphasis: "Arguments on the record.",
-  subhead: "Investigate the record, test competing accounts and develop your claim or response, with the evidence beside you.",
+  subhead: "The importance of records is often learnt too late. VeriCase puts yours in order in time to test the competing accounts and develop your claim or response, with the evidence beside you.",
   practitionerProof: "Founded by construction claims and dispute resolution practitioners.",
   audience: "For construction claims and commercial teams, working with solicitors, counsel and experts.",
   fastPath: "Explore how it works",

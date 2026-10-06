@@ -24,7 +24,7 @@ Construction claims and disputes
 
 # Evidence in order. Arguments on the record.
 
-Investigate the record, test competing accounts and develop your claim or response, with the evidence beside you.
+The importance of records is often learnt too late. VeriCase puts yours in order in time to test the competing accounts and develop your claim or response, with the evidence beside you.
 
 Primary action: Request a demonstration
 
