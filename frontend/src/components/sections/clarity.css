@@ -169,8 +169,9 @@
 }
 @media (min-width: 1024px) {
   .clarity-hero-grid { grid-template-columns: 1.3fr 1fr; gap: 5rem; align-items: start; }
-  /* The motto's capitals level with the heading's: its line box is taller than its capitals. */
-  .hero-motto-words { margin-top: -0.1em; }
+  /* The motto on the same baseline as "Evidence in order." (owner, 06 October 2026: "move it
+     down more" after its capitals were set level with the heading's). */
+  .hero-motto-words { margin-top: 0.42em; }
   .time-advantage-grid, .capability-explanation-grid { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 5rem; }
   .clarity-team { gap: 3.5rem 4rem; }
   .clarity-jobs { grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 2.5rem; }

@@ -28,7 +28,7 @@ Primary action: Request a demonstration
 
 Email microcopy: By email. Please use sample material.
 
-Motto, opposite the heading from 1024 pixels with its capitals level with “Evidence in order.”, and after the heading on narrower screens (owner, 06 October 2026), enlarged, in display italic within quotation marks. There is no supporting sentence; the demonstration action follows the motto's credit:
+Motto, opposite the heading from 1024 pixels on the same baseline as “Evidence in order.”, and after the heading on narrower screens (owner, 06 October 2026), enlarged, in display italic within quotation marks. There is no supporting sentence; the demonstration action follows the motto's credit:
 
 *“Records, records, VeriCase.”*
 
