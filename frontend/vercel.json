@@ -2,6 +2,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "routes": [
     { "src": "/cookies/?", "dest": "/cookies.html" },
+    { "src": "/discussion-cost/?", "dest": "/discussion-cost.html" },
+    { "src": "/evidence-cost/?", "dest": "/evidence-cost.html" },
     { "src": "/login/?", "status": 307, "headers": { "Location": "https://app.veri-case.com/login" } },
     { "src": "/[Ff]ileserver/?", "status": 307, "headers": { "Location": "https://files.veri-case.com" } },
     { "handle": "filesystem" },

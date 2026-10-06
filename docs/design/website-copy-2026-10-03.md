@@ -1,11 +1,16 @@
 # Website copy deck
 
-03 October 2026. Current public wording after the owner requested a shorter opening, concise section headings and evidence/software terminology. This document mirrors the active content modules and component wiring. It supersedes the previous commercial-copy deck; earlier review proposals remain historical. The three genuine captures, full profile records, substantive capability explanations and professional-review boundaries are preserved. Inactive historical chapters are excluded.
+03 October 2026. Current public wording after the owner requested a shorter opening, concise section headings and evidence/software terminology. This document mirrors the active content modules and component wiring. It supersedes the previous commercial-copy deck; earlier review proposals remain historical. The three historical captures were replaced on 05 October 2026 by illustrations of what the application does (see “Workspace illustrations”); full profile records, substantive capability explanations and professional-review boundaries are preserved. Inactive historical chapters are excluded.
+
+06 October 2026: section copy rewritten in the issue, method, steps and lead-in structure, and the collaboration section added; approved by the owner on 06 October 2026, with the collaboration figures (gate G13), the lane visibility note (gate G14) and the cost calculators (gate G15) confirmed. The calculators’ own words are in `frontend/src/content/calculators.js`.
+
+06 October 2026, later: a new fictional matter drawn from the patterns of real adjudications, with each illustration on a different strand, and the research section showing Executive Analysis, Deep Research and the bundle; awaiting the owner’s approval.
 
 ## Navigation and page labels
 
 - How it works (`#platform`)
 - Preparing the case (`#worked-example`)
+- Collaboration (`#collaboration`)
 - About (`#about`)
 - Questions (`#questions`)
 
@@ -17,7 +22,7 @@ Existing-user action: Sign in.
 
 Construction claims and disputes
 
-# Complex evidence. Compelling arguments.
+# Evidence in order. Arguments on the record.
 
 Investigate the record, test competing accounts and develop your claim or response, with the evidence beside you.
 
@@ -29,63 +34,77 @@ The email opens a prefilled enquiry. It does not confirm a booking. Audience det
 
 ## From evidence to argument.
 
+Each job’s title links to the section that explains it.
+
 ### Understand what happened.
 
 Bring correspondence and documents together and examine the sequence of events around the disputed issue.
+
+Links to: “Follow the sequence.” (`#chronology-lens`)
 
 ### Test the competing accounts.
 
 Investigate the records that support a position and those that challenge it, with references back to the sources.
 
+Links to: “Test the opposing account.” (`#case-room`)
+
 ### Develop the argument.
 
 Use drafting tools to work on the claim or response, with relevant evidence alongside the narrative.
 
+Links to: “Develop the argument.” (`#claims`)
+
+### Work on the evidence together.
+
+Discuss a record with your team, solicitors, counsel and experts, and keep the discussion with the evidence.
+
+Links to: “Keep the discussion with the evidence.” (`#collaboration`)
+
 ## Follow the sequence.
 
-Bring project correspondence and documents into VeriCase, follow the chronology and examine the records behind it. Threading, quoted-text handling and relevance controls help you work through the material in context.
+Issue: An instruction, a revised delivery date and a warning of delay can sit in different mailboxes. Read together, they can change how an event is understood.
+
+Method: Read the correspondence and documents you bring into VeriCase together, as one sequence in date order.
 
 Phone disclosure: Explore chronology tools
 
-An instruction, a revised delivery date and a warning of delay can sit in different mailboxes. Read together, they can change how an event is understood.
+### Gather the records
 
-Duplicate handling helps reduce repeated material in the working view. Near-duplicate checks cover certain similar messages; exclusions remain part of assessing the record.
-
-### Bring the records together
-
-Work with email archives and individual messages, their attachments, PDFs, Word documents, spreadsheets and images. Text recognition helps make scanned pages searchable.
+Add email archives and individual messages with their attachments, as well as PDFs, Word documents, spreadsheets and images. Text recognition helps make scanned pages searchable.
 
 ### Follow the correspondence
 
-Read messages in context, with threading and quoted-text handling to help distinguish a new reply from earlier correspondence.
+Threading and quoted-text handling help you tell a new reply from the history beneath it. (gate G5_quoted)
 
-### Reduce repeated material
+### Set duplicates aside
 
-Set repeated messages aside in the working view, with scoped near-duplicate checks to help identify certain similar messages.
+Set repeated messages aside in the working view, with checks that help identify certain near-duplicates, and review what has been set aside as you assess the record.
 
-### Focus on the matter
+### Focus on the issue
 
-Use dates, search terms and relevance controls to focus the investigation on the issue and the material within scope.
+Narrow the material with dates, search terms and relevance controls.
 
-### Examine the sequence
+### Read each date for what it is
 
-Compare dates and follow the underlying records to distinguish forecasts, instructions and confirmations within the sequence of events.
+Compare the dates and the records behind them, so that a forecast is not taken for an instruction or a confirmation.
 
-### Select the supporting records
+### Take the key records forward
 
-Choose supporting records for the next stage of the work, keeping the source selection connected to the issue you are developing.
+Select the records the case will rely on, and keep them with the issue they concern.
+
+Lead-in: Watch a search for “time impact” set a façade instruction beside the risk register, then see a road approval traced through the record in date order.
 
 ### Illustration: From documents to chronology.
 
-Placement: after the file search capture on tablet and desktop; at the end of “Explore chronology tools” on phones.
+Placement: after the search illustration (“A matching passage and the document it comes from.”), at every width.
 
 Label: Illustration
 
 Record label: One record, in date order
 
-Documents: Instruction. Lead-time email. Delivery confirmation.
+Documents: Road design pack. Road authority comments. Technical approval.
 
-Entries: 03 March 2025, Change instructed. 12 March 2025, Lead time given. 26 March 2025, Delivery date confirmed.
+Entries: 05 March 2025, Design and approval passed to the Contractor. 19 May 2025, Not approved: a form missing. 11 August 2025, Technical approval granted.
 
 Caption: Illustrative chronology from a fictional construction matter.
 
@@ -93,67 +112,249 @@ Motion: once, when the record comes into view, an arrow is drawn from each docum
 
 ## Ask the question that matters.
 
-Investigate focused questions across the project material and follow the source references behind the findings.
+Issue: What was instructed, and when? Who set the date the other side now relies on? Which records support the account you have been given?
+
+Method: Put questions to the material in scope in Executive Analysis, or set Deep Research to work through an issue and report, with the evidence for and against your position cited.
+
+The section shows the application’s two research functions (owner, 06 October 2026): Executive Analysis, questions and answers back and forth; and Deep Research, a full report with an evidence appendix, from which a bundle is built, titled, ordered and downloaded. Nothing claims completeness, accuracy, a count or validation. (gate G5_research)
 
 Phone disclosure: Explore the research process
 
-What was instructed? When did the delivery date change? Which records support the account you have been given?
+### Ask, then ask again
 
-Bring supporting and contradictory evidence into the same analysis, so you can develop the argument with a clearer view of the record.
+Put a question to the record in Executive Analysis, and follow up on the answer as you would with a colleague. (gate G5_research)
 
-### Define the question
+### Commission a full report
 
-Set out the issue and the records you want to examine. Refine the proposed scope around the dates, parties and material relevant to the question.
+Deep Research works through the research angles of an issue and sets out its findings, each referenced to an evidence appendix. (gate G5_research)
 
-### Follow the evidence
+### Build the bundle
 
-Follow source references into the underlying messages and documents, bringing their dates, context and qualifications into the analysis.
+Create a bundle from the report’s evidence: give it a title and a cover page, set the order, and download it. (gate G5_research)
 
-### Collect what matters
+### Note the gaps
 
-Select useful records for the work ahead and identify reported gaps. Search results depend on the scope and material examined; they do not establish a complete account of the matter.
+Keep the records the work needs, and note what the search did not find.
+
+Step note: Results depend on the scope and material examined; they are not a complete account of the matter.
+
+Lead-in: Watch a question about early access answered and a follow-up find a gap, then see a full report and the bundle built from it.
+
+### Illustration: A question answered, then the next one.
+
+Placement: after the research steps, before “A full report, and the bundle built from it.”, at every width.
+
+Tag: Executive Analysis
+
+Question (typed): Who set the date for early access to the nursery?
+
+Answer: The Employer’s project manager confirmed a requirement for fit-out access by 01 September 2025. Email, 12 March 2025. The Employer’s representative then wrote that later access would not be acceptable to the nursery’s funder. Email, 26 March 2025.
+
+Follow-up (typed): Was that date ever instructed as a Change?
+
+The follow-up’s answer (no label of its own): A change request on early access was issued after completion, on 14 January 2026. Change request 21, 14 January 2026.
+
+Not found in the records examined: an instruction setting that date before completion.
+
+Caption: Illustrative questions and answers from a fictional construction matter.
+
+Motion: the question is typed; the label “Answer” and each finding with its record then appear in turn, followed by the label “Follow-up”. The follow-up is then typed, and its answer and the line on what was not found appear in turn. Reduced motion, print and pages without JavaScript show the completed state.
+
+### Illustration: A full report, and the bundle built from it.
+
+Placement: after “A question answered, then the next one.”, at every width.
+
+Tag: Deep Research
+
+Question (typed): What notice did the Contractor give of delay from the loading bay reduction?
+
+Report label: Report. The report is headed with the question.
+
+Research angles: Whether the early warning in monthly report 11 was a notice under clause 2.24. Whether the reduced bay was a Change or the road authority’s requirement.
+
+Section, with superscript references to the appendix: The early warning and what followed. Monthly report 11 gave an early warning of double handling, its effect still being assessed.¹ Six weeks later the Contractor’s commercial manager put the delay at two months.² The Employer’s Agent replied by asking which clause the Contractor relied on.³
+
+Evidence appendix: 1. Report. Monthly report 11, 30 April 2025. 2. Email. Loading bay: delay assessment, 11 June 2025. 3. Email. Re: Loading bay: delay assessment, 13 June 2025.
+
+Bundle, as downloaded: Loading bay: notice of delay. Contents: 1. Cover page. 2. Monthly report 11, 30 April 2025. 3. Loading bay: delay assessment, 11 June 2025. 4. Re: Loading bay: delay assessment, 13 June 2025. Downloaded with its cover page first and every page numbered.
+
+Caption: Illustrative report and bundle from a fictional construction matter.
+
+Motion: the question is typed; the report’s label, its title, the research angles, the section, the evidence appendix and the bundle then appear in turn. The bundle is shown as downloaded, an output, not the controls that build it, and the references are text, not links. Reduced motion, print and pages without JavaScript show the completed state.
 
 ## Test the opposing account.
 
-Examine an opposing submission, investigate its factual assertions and develop proposed replies with the supporting and contradictory records alongside them.
+Issue: The other side’s submission describes an event one way; your team remembers it another. Before you respond, you need to know which account the documents bear out.
 
-See where the account holds, where it is challenged and what needs further investigation before you respond.
+Method: Answer the submission in VeriCase from the record, with proposed replies for your team to review. (gate G5_rebuttalReview)
+
+### Take the submission point by point
+
+Add the other side’s submission to the matter and set out the factual assertions it makes.
+
+### Test the assertions
+
+Set records that support or challenge an assertion beside it, and see where the account holds, where it is challenged and what needs further investigation before you respond.
+
+### Prepare the reply
+
+Revise the proposed replies, with the records they rely on, before anything is served.
+
+Lead-in: Watch an assertion about the landscaping meet two records, and see which way each one points.
+
+### Illustration: An opposing assertion, tested against the record.
+
+Placement: inside “See an example”, which tablet and desktop show open.
+
+Employer’s Response, paragraph 31 (typed): “The courtyard paving revisions were design development by the Contractor’s landscape architect.”
+
+The record: “Revise the courtyard paving to the layout attached.” Change request 14, 16 June 2025. Issued by the Employer’s Agent, as a change. “Revision C: courtyard paving, following change request 14.” Drawing issue sheet, 22 July 2025. Revises the drawings five weeks after the change request.
+
+Proposed reply, for review: The paving was revised in answer to the Employer’s change request of 16 June 2025, not as design development (Change request 14).
+
+Caption: Illustrative rebuttal from a fictional construction matter.
 
 ## Develop the argument.
 
-Develop your claim or response around the points you need to establish.
+Issue: The narrative is drafted in one file and the evidence kept in another. By the fifth draft, which document does paragraph 5.2 rely on?
 
-Bring the narrative, supporting records and drafting tools into the same workspace, from the structure of the argument to the detail of each section.
+Method: Write the claim or response in VeriCase, with the records each paragraph relies on in the same workspace as the wording.
 
 Phone disclosure: Explore drafting tools
 
 ### Structure the argument
 
-Develop the claim or response in sections, bringing the relevant facts and evidence together for each point.
+Set out the points you need to establish, with a section for each.
 
-### Connect the point to its evidence
+### Find the evidence
 
-Use source references to examine the records behind the wording, keeping the argument connected to the material that supports it.
+Search the record for the section you are drafting, including material that tells against your position.
 
-### Find evidence for the work
+### Cite the record
 
-Investigate the records for the issue you are drafting. Select useful evidence and examine material that challenges your position.
+Use source references to check each factual point against the record it rests on.
 
-### Prepare the document for sharing
+### Finalise the draft
 
-Examine the document and its source references before export or sharing, including any qualifications relevant to the submission.
+Go through it with its source references, add any qualification the submission needs, then export or share it.
 
-Phone disclosure: Working with your team
+Lead-in: Watch section 5 take shape beside its records, then see a short report as exported.
+
+### Illustration: A claim section built from its records.
+
+Placement: after the drafting steps on tablet and desktop; at the end of “Explore drafting tools” on phones.
+
+Section heading (typed): Section 5. Access control and cameras.
+
+Record (margin label).
+
+5.1 The Contractor asked for an instruction on the police adviser’s additional security works. RFI 112, 14 November 2024. 5.2 The Employer’s Agent answered nine months later: comply. Answer to RFI 112, 21 August 2025. 5.3 The Contractor confirmed the same day that it would carry out the works as a variation. Contractor’s reply, 21 August 2025.
+
+Draft, for review before export.
+
+Caption: Illustrative claim section from a fictional construction matter.
 
 ## Keep the discussion with the evidence.
 
-An important document can generate a long email chain of its own.
+Issue: A document is sent to the solicitor, forwarded to counsel, then to each expert, and the replies split into separate chains. Before long, no single inbox holds the whole discussion.
 
-Discuss the record with colleagues in the workspace, keeping the conversation connected to the material under examination.
+Method: In VeriCase the discussion takes place on the record itself, and the people who need it come to it, each from their own organisation.
 
-## Who it is for
+Figures, beneath the method at every width: a list named “What discussion by email costs” (its accessible name; there is no visible heading) (gate G13_collabStats, confirmed). Note markers are shown here as “(note n)”.
+
+| Figure | Label | Text |
+| --- | --- | --- |
+| 117 |  | emails a day: the average a worker receives in Microsoft’s data from its workplace software. (note 1) |
+| 6 emails | Modelled example | and 14 inbox deliveries in one modelled round of email about one document between a contractor, a solicitor (with a partner copied), counsel and two experts. In VeriCase, that round is one thread on the record. (note 2) |
+| About £18,300 | Modelled cost, not a measured saving | of professional time on those rounds in one modelled adjudication of 120 rounds, and between about £22,900 and £137,400 over a dispute lasting two to three years. (note 3) |
+
+Phone disclosure: Working with your team
+
+### Open a thread on the record
+
+Start the discussion on the email or document itself, not in a covering email.
+
+### Bring in the people who need it
+
+Solicitors, counsel and experts can join from their own organisations, with access agreed for each matter. The record is discussed where it is, without attaching it or forwarding a chain. (gate G5_collab)
+
+### Organise the discussion in lanes
+
+Post a comment in a lane, such as one for the core team, one with counsel and one with the expert, so that each strand of the discussion can be followed on its own. (gate G5_collab)
+
+Step note: Each lane is read only by the people added to it, and lanes and their members are set for each matter. (gate G14_laneAccess, confirmed)
+
+### Come back to it later
+
+The discussion is kept with the record, so what was said there does not have to be pieced together from old email. (gate G5_collab)
+
+Lead-in: Watch an email the Contractor says was notice discussed on the record, then the same discussion organised in three lanes.
+
+### Illustration: A discussion kept with the record.
+
+Placement: after the collaboration steps, at every width.
+
+“Please treat this email as early notice: the off-site road works are a Relevant Event under clause 2.26.13.” Early notice email, 14 February 2025.
+
+Comments on this record: Commercial manager (typed): Is this enough to count as notice under clause 2.24? Claims consultant: It names the Relevant Event but gives no estimate of delay. Paragraph 3.2 of the draft deals with that.
+
+Caption: Illustrative discussion from a fictional construction matter.
+
+### Illustration: One record, discussed in lanes.
+
+Placement: after “A discussion kept with the record.”, at every width.
+
+Record shown, as the discussion figure shows it: “Please treat this email as early notice: the off-site road works are a Relevant Event under clause 2.26.13.” Early notice email, 14 February 2025.
+
+Lanes label: The discussion, in three lanes
+
+- Core team. Discussed by the project manager, commercial manager and solicitor.
+  - Project manager: Our revised forecast went with monthly report 9 on 28 February 2025, two weeks after this email.
+  - Solicitor: Please send me report 9 and anything else that gave the Employer an estimate of the delay.
+- With counsel. Discussed by the solicitor and counsel.
+  - Counsel: The Employer will say this email names a Relevant Event but is not a notice under clause 2.24. Read with report 9, it may be.
+  - Solicitor: Both documents are going into the bundle together, and the delay expert will have both.
+- With the delay expert. Discussed by the solicitor and delay expert.
+  - Solicitor: Please consider what delay to completion the road works were causing on 14 February 2025.
+  - Delay expert: I will also need the road design pack and the authority’s comments, to see when the works could start.
+
+Caption: Illustrative discussion in lanes, from a fictional construction matter.
+
+Each “Discussed by” line names who takes part in the lane, not who may read it.
+
+Motion: nothing is typed. Once, when the figure comes into view, a brass line runs down from the record and branches into the lanes (side by side on a wide panel, stacked on a narrow one); the label appears and each lane opens in turn with its participants and comments. Reduced motion, print and pages without JavaScript show every lane open.
+
+### Who it is for
+
+Placement: after the two illustrations, before the section’s notes, at every width.
 
 For construction claims consultants and contractors’ commercial teams, working with solicitors, counsel, quantum and other experts, and in-house legal advisers.
+
+### Notes
+
+The section’s own notes, under the heading “Notes”, after “Who it is for”. Each note ends with the link “Back to text”, which returns to its marker. A marker opens its note in a pop-up with the link “Read in Notes”; for note 3, which has several paragraphs, the pop-up shows the first paragraph and the link reads “Continue reading in Notes”.
+
+#### 1. Email volume.
+
+Microsoft WorkLab, “Breaking down the infinite workday”, Work Trend Index Special Report, 17 June 2025: the average worker receives 117 emails a day, most of them skimmed in under a minute. The figure is a mean across aggregated and anonymised productivity signals from Microsoft’s workplace software, to 15 February 2025, excluding education and European Union customers. It is not specific to construction or legal work. (gate G13_collabStats, confirmed)
+
+#### 2. One round by email: a modelled example.
+
+A modelled example, not a measurement. (1) The contractor’s commercial manager emails the document to the solicitor, copying the supervising partner: two deliveries. (2) The solicitor forwards it to counsel, copying the partner: two. (3) The solicitor forwards it to both experts, copying the partner: three. (4) Counsel replies to the solicitor and the partner: two. (5) One expert replies to all: three. (6) The solicitor reports back to the commercial manager, copying the partner: two. That is six emails and fourteen inbox deliveries, with the document in five inboxes. In VeriCase the same round is one thread on the record, with nothing attached; VeriCase may still notify people by email. (gate G13_collabStats, confirmed)
+
+#### 3. Professional time: a modelled cost.
+
+A modelled cost of the time spent on the email rounds, not a measured saving: what share of that time a shared thread removes has not been measured. Each round is assumed to take 40 minutes of professional time in all: the contractor’s commercial manager 10 minutes at £47.50 an hour, the solicitor 12 minutes at £305, the supervising partner 3 minutes at £579, counsel 5 minutes at £150, and each of two experts, on delay and on quantum, 5 minutes at £253.73. That is £152.66 a round: £18,318.60 for 120 rounds in one adjudication and, over a dispute lasting two to three years, £137,389.50 for 900 rounds (300 documents, each discussed three times), £22,898.25 on a conservative case of 300 rounds at half the minutes, and £366,372.00 on a high case of 2,400 rounds (600 documents, each discussed four times).
+
+The commercial manager’s rate is an estimate of the internal cost to the contractor, not a charge-out rate: a gross salary of £57,000 (the lower end of the range RICS publishes for senior and management quantity surveyors), with employer National Insurance at 15% of earnings above £5,000 (HMRC, rates and thresholds for employers 2026 to 2027), the statutory minimum employer pension contribution of 3% of qualifying earnings and a 25% overhead, divided by 1,740 working hours a year (a 37.5-hour week, less 5.6 weeks’ statutory holiday).
+
+The solicitor’s and partner’s rates are the HMCTS guideline hourly rates for Grade C and Grade A fee earners in London 1 (very heavy commercial and corporate work by centrally based London firms), in effect from 01 January 2026. The courts use guideline rates as a starting point for the summary assessment of costs; actual charges may be higher.
+
+There is no official guideline hourly rate for barristers, so counsel’s rate is the Attorney General’s London A Panel rate for government civil work, in effect from 01 April 2025: a conservative figure, as rates charged to private clients in construction disputes are typically higher.
+
+The experts’ rate is the average hourly rate for report writing reported by expert witnesses working in the civil courts, across all disciplines, in the Bond Solon Expert Witness Survey 2025 (published 07 November 2025; 525 respondents). It is not specific to delay or quantum experts.
+
+The minutes, the numbers of rounds, the overhead and the working week are our assumptions; the rates are as checked on 06 October 2026. Much of the time in a round is reading and replying, which takes place wherever the discussion is held. The cost in any matter depends on its volume of correspondence and the rates paid. (gate G13_collabStats, confirmed)
 
 ## The project took years. Your response cannot.
 
@@ -163,37 +364,41 @@ Use VeriCase to follow disputed events through the record and prepare a response
 
 ## Keep the source in sight.
 
-Follow source references back to the underlying documents. Examine the wording, dates and context behind a finding as you develop your position.
+Issue: An extract can read differently once the whole document is in front of you.
+
+Method: Before you rely on a finding, a paragraph or a reply, read it against the document it cites: its wording, its date and its context. (gate G5_sourceReview)
 
 Phone disclosure: Explore source review
 
-### Understand the record behind the finding
+### Open the source
 
-Read the underlying document in context, including the wording and qualifications behind an extract or finding.
+Go from the reference to the document it points to.
 
-### Choose what the next stage needs
+### Read the whole document
 
-A report, an evidence selection and a bundle serve different purposes. Examine the selected documents and output for the work you need to take forward.
+See the extract in place, with what comes before and after it and any qualification it carries.
 
-### Agree access for the team
+### Choose the output
 
-Discuss how the workspace will be used by your commercial team, claims consultants and legal advisers, and which records each person needs.
+A report, a selection of evidence and a bundle serve different purposes; know what yours contains before it goes out.
+
+Lead-in: Watch the points of an argument marked, one by one, with the records behind them.
 
 ### Illustration: An argument with its sources.
 
-Placement: between the source-review points and “Work alongside your existing systems.” on tablet and desktop; at the end of “Explore source review” on phones.
+Placement: between the source-review steps and “Work alongside your existing systems.” on tablet and desktop; at the end of “Explore source review” on phones.
 
 Label: Illustration
 
-The change was instructed on 03 March 2025 (Instruction). The ten-week lead time was recorded on 12 March 2025 (Lead-time email). Delivery was confirmed on 26 March 2025 for the week commencing 19 May 2025 (Delivery confirmation).
+Before contract, the Employer kept the road agreement and its approvals (Agreed items schedule). The Contractor priced the road works at nil (Contract sum analysis). The Employer’s road design pack arrived after the Date for Completion (Road design pack).
 
 Supporting records
 
-“Please proceed with bracket type B. This is an instruction requiring a Change.” Instruction, 03 March 2025
+“The Employer retains the road agreement and its approvals; the Contractor supplies supporting information only.” Agreed items schedule, 09 September 2024
 
-“Stainless brackets are ten weeks from order.” Lead-time email, 12 March 2025
+“Off-site road works, footways and street lighting: nil.” Contract sum analysis, 30 September 2024
 
-“Supplier confirms delivery week commencing 19 May 2025.” Delivery confirmation, 26 March 2025
+“The Contractor is to design the drainage and levels and obtain technical approval.” Road design pack, 05 March 2025
 
 Caption: Illustrative argument from a fictional construction matter. The source references connect each point to the record behind it.
 
@@ -368,11 +573,11 @@ Admissibility and weight are for the tribunal. Review the underlying records, th
 
 ### How can our team work together?
 
-Discuss records with colleagues in the workspace, keeping the conversation connected to the evidence. During the demonstration, we can discuss the access arrangements for your team and its advisers.
+Discuss each record where it sits. Your team, solicitors, counsel and experts can join from their own organisations, and comments can be organised in lanes. We can go through the access arrangements for your team and its advisers in the demonstration.
 
 ### How will you handle our project and client material?
 
-Demonstrations use sample material. Before introducing your own records, discuss your organisation's requirements for hosting, access, retention and automated processing with us.
+Demonstrations use sample material. Before introducing your own records, discuss your organisation’s requirements for hosting, access, retention and automated processing with us.
 
 ## See VeriCase in practice.
 
@@ -388,27 +593,51 @@ Or write to enquiries@veri-case.com.
 
 Copy control: Copy email address
 
-## Capture labels
+## Workspace illustrations
 
-Desktop labels retain capture dates. Phone labels are compact; the inspector retains the complete dated caption and the wider approved crop.
+Three illustrations stand where the application captures stood (owner, 05 October 2026). Each is labelled Illustration and uses the fictional matter’s records. Every illustration on the page is live (owner, later on 05 October 2026). Where the operation starts with something the user writes (a find term, a search term, a question or its follow-up, an opposing assertion taken from the submission, a section heading or a comment), that text is typed in front of the reader and the answer then appears; the chronology, the argument and the report have no typed input, and their answer appears in turn. Each caption ends with the control “Play again”.
 
-### Document reader
+The fictional matter (owner, 06 October 2026, “make it varied”): a nine-storey residential building with a ground-floor nursery, under the JCT Design and Build Contract 2016 with the Employer’s amendments; the page acts for the Contractor. Its strands are drawn from the patterns of real adjudications (late answers, a “no time impact” instruction, a road approval cycle, early access, a reduced loading bay, landscaping and notices), with no names, places, sums or wording from any real matter. Each illustration takes its own strand and carries its own records, cited by document and date.
 
-Desktop and inspector: Document reader, September 2026. Illustrative records in a captured application view.
+### Illustration: The document beside its file record.
 
-Phone: Application capture. Illustrative records.
+Placement: the opening, under the heading, at every width.
 
-### File search
+Records (in date order): Agreed items schedule, 09 September 2024, Contract. Façade instruction, 21 October 2024, Instructions. RFI 112, 14 November 2024, RFIs. Risk register, 25 November 2024, Reports. Monthly report 11, 30 April 2025, Reports. Road authority comments, 19 May 2025, Correspondence. Answer to RFI 112, 21 August 2025, Correspondence.
 
-Desktop and inspector: File search, September 2026. The highlighted matches and document records are illustrative.
+Selected record: Answer to RFI 112. From Employer’s Agent. To Design manager. Date 21 August 2025. Folder Correspondence.
 
-Phone: Application capture. Illustrative search results.
+Views: Document, Details, Text, Revisions, Notes.
 
-### Report export
+Find in document (typed): police adviser. Page 1 of 1.
 
-Desktop and inspector: Illustrative report export, September 2026. A sample of report formatting, containing no findings about a real dispute.
+Original page: From Employer’s Agent. Sent 21 August 2025. To Design manager. Subject RFI 112: access control and cameras. “In answer to RFI 112 of 14 November 2024, please comply with the police adviser’s requirements for the access control and camera works.”
 
-Phone: Illustrative export. No findings about a real dispute.
+Notes: The record selected. Its file record. Its original page. The passage found in the document.
+
+Caption: Illustrative records from a fictional construction matter.
+
+### Illustration: A matching passage and the document it comes from.
+
+Placement: after the chronology capabilities, before “From documents to chronology.”, at every width.
+
+Searched for “time impact” (typed). In context: The Employer says the façade change had no effect on completion, as its instruction recorded. Ranked by match strength (each result numbered).
+
+Façade instruction, Instructions, 21 October 2024: “Change from render to brick-slip panels. Cost: a saving; time impact: none.”
+
+Risk register, Reports, 25 November 2024: “Brick-slip panels: bespoke sizes required; time impact six to eight weeks.”
+
+Caption: Illustrative search from a fictional construction matter.
+
+### Illustration: A report exported with its structure and sources.
+
+Placement: after “A claim section built from its records.”, at every width.
+
+In context: A short note for the solicitor on how the forecast completion date moved.
+
+Forecast completion: the monthly reports. How the date moved. By monthly report 13 the forecast completion date had moved to 12 December 2025, more than nine months after the Date for Completion (Monthly report 13). “Forecast completion: 12 December 2025, subject to technical approval of the road works.” Monthly report 13, 30 June 2025. Table 1. Forecast completion, by report (columns: Forecast completion, Record, Date): 28 February 2025, Monthly report 7, 31 December 2024. 25 July 2025, Monthly report 9, 28 February 2025. 12 December 2025, Monthly report 13, 30 June 2025. Page 1 of 1.
+
+Caption: Illustrative report from a fictional construction matter.
 
 ## Footer
 
@@ -416,4 +645,4 @@ Evidence investigation and case preparation for construction claims and disputes
 
 VeriCase Ltd is registered in England and Wales (company number 16562435). Registered office: 85 Great Portland Street, London, England, W1W 7LT.
 
-The Chronology Lens™ is a trade mark of VeriCase Ltd. VeriCase is software and does not give legal advice. Product views use illustrative records and sample content. Illustrations on this site use a fictional matter.
+The Chronology Lens™ is a trade mark of VeriCase Ltd. VeriCase is software and does not give legal advice. Illustrations on this site use a fictional matter.

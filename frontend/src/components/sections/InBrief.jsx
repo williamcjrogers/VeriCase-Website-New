@@ -8,9 +8,9 @@ export const InBrief = () => (
     <div className="container">
       <h2 id="platform-title" tabIndex={-1} className="clarity-heading">{IN_BRIEF.h2}</h2>
       <div className="clarity-jobs mt-8">
-        {IN_BRIEF.jobs.map((job, index) => (
+        {IN_BRIEF.jobs.map((job) => (
           <article key={job.title} className="capability-group">
-            <h3 className="text-[1.625rem] leading-tight"><a className="capability-title-link" href={`#${['chronology-lens', 'research', 'claims'][index]}`} onClick={onSectionClick(['chronology-lens', 'research', 'claims'][index])}>{job.title}<span aria-hidden="true">↗</span></a></h3>
+            <h3 className="text-[1.625rem] leading-tight"><a className="capability-title-link" href={`#${job.section}`} onClick={onSectionClick(job.section)}>{job.title}<span aria-hidden="true">↗</span></a></h3>
             <p className="mt-3 max-w-measure text-body">{job.text}</p>
           </article>
         ))}

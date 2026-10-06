@@ -1,0 +1,96 @@
+/* A discussion kept with the record: the record lies on the panel as a paper slip, and the comments
+   on it hang from it on one brass thread. What people write is set in Newsreader (the question
+   typed on the ink, the reply on paper, at the same size, as two voices of equal standing); the
+   record and the roles keep IBM Plex. On phones the thread drops from the foot of the record, in
+   line with its text; from 768px the comments stand beside the record, as comments stand in a
+   document's margin, and the thread leaves the record's edge level with its first line, crosses
+   the gutter and runs down beside them. The one drawn element is the thread's last length, down
+   from the question and across to the reply, drawn on as the reply arrives; everything else is
+   the kit's own motion. */
+
+.discussion-illustration {
+  --discussion-after: 440ms; --discussion-step: 360ms; --discussion-draw: 560ms;
+  /* The thread: brass, a hairline as the opening figure's leaders are. */
+  --discussion-thread: var(--vc-brass-400); --discussion-line: 1px;
+  /* The thread stands --discussion-spine in from the stage's edge (in line with the record's
+     text on phones), and the comments stand --discussion-indent to its right. */
+  --discussion-inset: 1rem; --discussion-spine: var(--discussion-inset); --discussion-indent: 1.25rem;
+  --discussion-gap: 1.25rem; --discussion-reply-pad: 0.875rem;
+  /* Fixed line boxes, from which the thread's joins are set. */
+  --discussion-label-line: calc(0.8125rem * 1.4); --discussion-role-line: calc(0.875rem * 1.5);
+}
+.live-figure.discussion-illustration [data-appear] { --after: var(--discussion-after); --step: var(--discussion-step); }
+
+/* The stage: the record, then the comments under their label. */
+.discussion-stage { display: grid; grid-template-columns: minmax(0, 1fr); margin-top: 1.25rem; }
+.discussion-record { position: relative; padding: 0.875rem var(--discussion-inset); }
+.discussion-quote { margin: 0; }
+.discussion-quote > p { text-wrap: balance; }
+.discussion-attribution { margin-top: 0.25rem; }
+
+/* The label and the question carry the thread down their left edge; it starts at the record's foot,
+   tied there by a bead, as the opening figure's leaders start at the part they name. */
+.discussion-label { position: relative; margin: 0 0 0 var(--discussion-spine); padding: 1rem 0 0.5rem var(--discussion-indent); border-left: var(--discussion-line) solid var(--discussion-thread); }
+.discussion-label::before, .discussion-record::before { content: ''; position: absolute; width: 5px; height: 5px; border-radius: 50%; background: var(--discussion-thread); }
+.discussion-label::before { left: -3px; top: -3px; }
+.discussion-record::before { display: none; }
+.discussion-thread { list-style: none; margin: 0 0 0 var(--discussion-spine); padding: 0; display: grid; row-gap: var(--discussion-gap); }
+.discussion-comment { position: relative; min-width: 0; padding-left: var(--discussion-indent); }
+.discussion-question { border-left: var(--discussion-line) solid var(--discussion-thread); }
+.discussion-role { margin: 0; font-size: 0.875rem; line-height: 1.5; font-weight: 500; }
+.discussion-question .discussion-role { color: var(--vc-parchment-300); }
+.discussion-question-text { margin: 0; }
+
+/* The reply: paper at the end of the thread. The thread's last length comes down the gap from the
+   question and turns into the reply's edge level with the role. */
+.discussion-reply { padding: var(--discussion-reply-pad) 1rem; }
+.discussion-reply-text { margin: 0.25rem 0 0; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1.25rem; line-height: 1.3; color: var(--vc-ink); }
+.discussion-sentence { display: block; text-wrap: balance; }
+.discussion-answer::before { content: ''; position: absolute; left: 0; top: calc(-1 * var(--discussion-gap)); width: var(--discussion-indent); height: calc(var(--discussion-gap) + var(--discussion-reply-pad) + var(--discussion-role-line) / 2); box-sizing: border-box; border-left: var(--discussion-line) solid var(--discussion-thread); border-bottom: var(--discussion-line) solid var(--discussion-thread); }
+
+/* From 768px the comments stand beside the record, its top level with their label's. The record's
+   first line is set level with the top of the first comment, and the thread leaves the record's
+   edge there, crosses the gutter and turns down beside the comments. */
+@media (min-width: 768px) {
+  .discussion-illustration { --discussion-spine: 0px; --discussion-indent: 1.5rem; --discussion-gutter: 2.5rem; --discussion-inset: 1.25rem; --discussion-reply-pad: 1rem; --discussion-label-block: calc(var(--discussion-label-line) + 0.5rem); }
+  .discussion-stage { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); grid-template-rows: auto auto; column-gap: var(--discussion-gutter); }
+  .discussion-record { grid-area: 1 / 1 / 3 / 2; align-self: start; padding-top: calc(var(--discussion-label-block) - 1.0625rem * 1.65 / 2); padding-bottom: 1rem; }
+  /* Drawn as a border, as the thread's other lengths are, so it holds in forced colours. */
+  .discussion-record::after { content: ''; position: absolute; left: 100%; top: calc(var(--discussion-label-block) - 1px); width: calc(var(--discussion-gutter) + 2px); height: 0; border-top: var(--discussion-line) solid var(--discussion-thread); }
+  .discussion-record::before { display: block; left: calc(100% - 2px); top: calc(var(--discussion-label-block) - 3px); }
+  .discussion-label { grid-area: 1 / 2; padding-top: 0; border-left: 0; }
+  .discussion-label::before { display: none; }
+  .discussion-thread { grid-area: 2 / 2; }
+  .discussion-reply { padding-inline: 1.25rem; }
+  /* The reply at the typed question's size (the kit's 1.5rem from 768px). */
+  .discussion-reply-text { font-size: 1.5rem; }
+}
+@media (min-width: 1024px) {
+  .discussion-illustration { --discussion-gutter: 3rem; }
+}
+@media (max-width: 374px) {
+  .discussion-illustration { --discussion-inset: 0.75rem; --discussion-indent: 1rem; }
+  .discussion-reply { padding-inline: 0.875rem; }
+}
+
+/* Forced colours: the beads are backgrounds, which the browser would reset to the canvas; they keep
+   the system's text colour, as the thread's borders do. */
+@media (forced-colors: active) {
+  .discussion-record::before, .discussion-label::before { forced-color-adjust: none; background: CanvasText; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* The thread's last length: down from the question, then across to the reply. */
+  .js .discussion-illustration:not(.is-in) .discussion-answer::before { clip-path: inset(0 100% 100% 0); }
+  .discussion-illustration.is-in:not(.is-settled) .discussion-answer::before { animation: discussion-thread var(--discussion-draw) both; animation-delay: calc(var(--typed-ms, 0ms) + var(--discussion-after)); }
+  @keyframes discussion-thread {
+    0% { clip-path: inset(0 calc(100% - var(--discussion-line)) 100% 0); animation-timing-function: cubic-bezier(0.45, 0, 0.8, 0.6); }
+    60% { clip-path: inset(0 calc(100% - var(--discussion-line)) 0 0); animation-timing-function: var(--ease-settle); }
+    100% { clip-path: inset(0 0 0 0); }
+  }
+}
+@media print {
+  .discussion-illustration { --discussion-thread: var(--vc-brass-700); }
+  .discussion-question .discussion-role { color: var(--vc-graphite); }
+  .js .discussion-illustration:not(.is-in) .discussion-answer::before { clip-path: none; }
+}

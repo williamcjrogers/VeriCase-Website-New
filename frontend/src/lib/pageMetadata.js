@@ -1,13 +1,23 @@
 export const PAGE_METADATA = {
   '/': {
     title: 'VeriCase | Construction claims and disputes',
-    description: 'Complex evidence. Compelling arguments. Evidence investigation, chronology and drafting for construction claims and disputes.',
+    description: 'Evidence in order. Arguments on the record. Evidence investigation, chronology and drafting for construction claims and disputes.',
     url: 'https://veri-case.com/',
   },
   '/cookies': {
     title: 'Cookie notice | VeriCase',
     description: 'How VeriCase uses consent-based website analytics and browser storage, and how to change your cookie choice.',
     url: 'https://veri-case.com/cookies',
+  },
+  '/discussion-cost': {
+    title: 'What does discussing the evidence cost? | VeriCase',
+    description: 'Estimate the cost of the professional time your team spends discussing, finding, reading, meeting about and bundling the evidence in a construction dispute, with the basis of every rate shown.',
+    url: 'https://veri-case.com/discussion-cost',
+  },
+  '/evidence-cost': {
+    title: 'What does the evidence cost your team? | VeriCase',
+    description: 'Price the hours your counsel, solicitors, experts and project team spend on the evidence in a construction dispute, with the basis of every rate and reduction shown.',
+    url: 'https://veri-case.com/evidence-cost',
   },
   '*': {
     title: 'Page not found | VeriCase',

@@ -1,107 +1,102 @@
 import { CASE_ROOM, INTEGRITY, LENS_CHAPTER, RESEARCH } from '@/content/home';
-import { Gated, isShown } from '@/components/editorial/Gated';
-import { ProductFigure } from './ProductFigure';
+import { CALCULATOR_GATE, CALCULATOR_LINKS } from '@/content/calculatorLinks';
+import { Gated } from '@/components/editorial/Gated';
+import { cn } from '@/lib/utils';
+import { SearchIllustration } from './SearchIllustration';
 import { MobileDetails } from './MobileDetails';
-import { ArgumentIllustration, ChronologyIllustration, useIllustrationPlay } from './EvidenceIllustrations';
+import { Thread } from './Thread';
+import { useIllustrationPlay } from './illustrationKit';
+import { ArgumentIllustration, ARGUMENT_DURATION } from './ArgumentIllustration';
+import { ChronologyIllustration } from './ChronologyIllustration';
+import { RebuttalIllustration } from './RebuttalIllustration';
+import { ResearchIllustration } from './ResearchIllustration';
+import { DeepResearchIllustration } from './DeepResearchIllustration';
 
-// Capability detail remains visible. Publication gates still govern each passage. On phones a
-// section's illustration closes its disclosure; elsewhere the section shows it in place.
-export const CapabilityFeatures = ({ items, label, mobileLabel = 'Explore the tools', children, illustration }) => (
+// Each capability section reads as a journey: its heading; the issue, the problem as the reader
+// meets it in a dispute, set large; the method, what VeriCase does about it; the steps, marked on
+// a brass thread; and a line that introduces the illustration, into which the thread runs on.
+// Publication gates still govern each passage.
+export const SectionIntroduction = ({ id, kicker, h2, issue, method, methodGate, className, children }) => (
+  <div className={cn('capability-introduction', className)}>
+    {kicker && <p className="section-kicker">{kicker}</p>}
+    <h2 id={`${id}-title`} tabIndex={-1} className="clarity-heading">{h2}</h2>
+    <p className="section-issue">{issue}</p>
+    <p className="section-method">{methodGate ? <Gated id={methodGate}>{method}</Gated> : method}</p>
+    {children}
+  </div>
+);
+
+// The steps on the thread. On phones they sit in a disclosure, which the section's phone copy of
+// its illustration closes; elsewhere they stand beside or below the introduction.
+export const CapabilityFeatures = ({ steps, label, mobileLabel = 'Explore the tools', leadIn, illustration }) => (
   <MobileDetails label={mobileLabel}>
-  {children && <div className="capability-context mobile-context">{children}</div>}
-  <ul className="capability-features" aria-label={label}>
-    {items.filter((item) => isShown(item.gate)).map((item) => (
-      <li key={item.title}>
-        <h3 className="capability-feature-title">{item.title}</h3>
-        <p className="text-body mt-2">{item.gate ? <Gated id={item.gate}>{item.text}</Gated> : item.text}</p>
-      </li>
-    ))}
-  </ul>
-  {illustration && <div className="mobile-context">{illustration}</div>}
+    <Thread steps={steps} label={label} leadIn={leadIn} />
+    {illustration && <div className="mobile-context">{illustration}</div>}
   </MobileDetails>
 );
 
+// The lead-in promises the search, then the chronology, so both stand in place at every width, in
+// that order, after the steps.
 export const RecordExplanation = () => {
-  // The in-place copy and the phone copy share one performance (see EvidenceIllustrations).
-  const chronology = useIllustrationPlay();
+  const L = LENS_CHAPTER;
   return (
   <section id="chronology-lens" aria-labelledby="chronology-lens-title" className="clarity-section capability-explanation bg-paper">
     <div className="container">
-      <p className="section-kicker">Preparation and chronology</p>
       <div className="capability-explanation-grid">
-      <div className="capability-introduction">
-        <h2 id="chronology-lens-title" tabIndex={-1} className="clarity-heading">{LENS_CHAPTER.h2}</h2>
-        <p className="mt-5 text-body desktop-context">{LENS_CHAPTER.lead}</p>
-        <p className="mt-5 text-body">{LENS_CHAPTER.fail}</p>
-        <p className="mt-4 text-body desktop-context"><Gated id={LENS_CHAPTER.recoverGate}>{LENS_CHAPTER.recover}</Gated></p>
+        <SectionIntroduction id="chronology-lens" kicker="Preparation and chronology" h2={L.h2} issue={L.issue} method={L.method} />
+        <CapabilityFeatures steps={L.steps} label="Ingestion and chronology capabilities" mobileLabel="Explore chronology tools" leadIn={L.leadIn} />
       </div>
-      <CapabilityFeatures items={LENS_CHAPTER.items} label="Ingestion and chronology capabilities" mobileLabel="Explore chronology tools" illustration={<ChronologyIllustration id="chronology-illustration-phone" play={chronology} />}>
-        <p className="text-body">{LENS_CHAPTER.lead}</p>
-        <p className="mt-4 text-body"><Gated id={LENS_CHAPTER.recoverGate}>{LENS_CHAPTER.recover}</Gated></p>
-      </CapabilityFeatures>
-      </div>
-      <ProductFigure kind="search" />
-      <div className="desktop-context"><ChronologyIllustration play={chronology} /></div>
+      <SearchIllustration />
+      <ChronologyIllustration />
     </div>
   </section>
   );
 };
 
+// The research section shows both of the application's research functions, in place at every
+// width and in the order its lead-in gives: Executive Analysis, then Deep Research and its bundle.
 export const EvidenceExplanation = () => (
   <>
     <section id="research" aria-labelledby="research-title" className="clarity-section capability-explanation research-section bg-parchment">
       <div className="container capability-explanation-grid">
-        <div className="capability-introduction">
-          <p className="section-kicker">Evidence investigation</p>
-          <h2 id="research-title" tabIndex={-1} className="clarity-heading">{RESEARCH.h2}</h2>
-          <p className="mt-5 text-body desktop-context">{RESEARCH.lead}</p>
-          <p className="mt-5 text-body">{RESEARCH.fail}</p>
-          <p className="mt-4 text-body desktop-context">{RESEARCH.recover}</p>
-        </div>
-        <MobileDetails label="Explore the research process">
-        <div className="capability-context mobile-context">
-          <p className="text-body">{RESEARCH.lead}</p>
-          <p className="mt-4 text-body">{RESEARCH.recover}</p>
-        </div>
-        <ol className="research-explanation-steps" aria-label="Research process">
-          {RESEARCH.steps.map((step) => (
-            <li key={step.n}>
-              <h3>{step.title}</h3>
-              <p className="text-body mt-2">{step.text}</p>
-            </li>
-          ))}
-        </ol>
-        </MobileDetails>
+        <SectionIntroduction id="research" kicker="Evidence investigation" h2={RESEARCH.h2} issue={RESEARCH.issue} method={RESEARCH.method} />
+        <CapabilityFeatures steps={RESEARCH.steps} label="Research process" mobileLabel="Explore the research process" leadIn={RESEARCH.leadIn} />
+      </div>
+      <div className="container">
+        <ResearchIllustration />
+        <DeepResearchIllustration />
+        <Gated id={CALCULATOR_GATE} block>
+          <aside className="calculator-aside" aria-labelledby="evidence-calculator-title">
+            <p className="eyebrow">{CALCULATOR_LINKS.research.eyebrow}</p>
+            <h3 id="evidence-calculator-title" className="calculator-aside-title">{CALCULATOR_LINKS.research.title}</h3>
+            <p className="calculator-aside-text">{CALCULATOR_LINKS.research.text}</p>
+            <a className="vc-link calculator-aside-link" href={CALCULATOR_LINKS.research.href}>{CALCULATOR_LINKS.research.link}</a>
+          </aside>
+        </Gated>
       </div>
     </section>
     <section id="case-room" aria-labelledby="case-room-title" className="clarity-section capability-explanation rebuttal-section bg-parchment">
       <div className="container capability-explanation-grid">
-        <div className="capability-introduction">
-          <h2 id="case-room-title" tabIndex={-1} className="clarity-heading">{CASE_ROOM.h2}</h2>
-          <p className="mt-5 text-body"><Gated id={CASE_ROOM.leadGate}>{CASE_ROOM.lead}</Gated></p>
-        </div>
-        <div className="rebuttal-explanation">
-          <p className="text-body">{CASE_ROOM.fail}</p>
-          {CASE_ROOM.recover && <p className="mt-4 text-body">{CASE_ROOM.recover}</p>}
-        </div>
+        <SectionIntroduction id="case-room" h2={CASE_ROOM.h2} issue={CASE_ROOM.issue} method={CASE_ROOM.method} methodGate={CASE_ROOM.methodGate} />
+        <div className="thread-column"><Thread steps={CASE_ROOM.steps} label="Testing an opposing account" leadIn={CASE_ROOM.leadIn} /></div>
+      </div>
+      <div className="container">
+        <MobileDetails label="See an example">
+          <RebuttalIllustration />
+        </MobileDetails>
       </div>
     </section>
   </>
 );
 
 export const IntegrityExplanation = () => {
-  const argument = useIllustrationPlay();
+  const argument = useIllustrationPlay({ duration: ARGUMENT_DURATION });
   return (
   <section id="integrity" aria-labelledby="integrity-title" className="clarity-section capability-explanation bg-paper">
     <div className="container">
       <div className="capability-explanation-grid">
-        <div className="capability-introduction">
-          <h2 id="integrity-title" tabIndex={-1} className="clarity-heading">{INTEGRITY.h2}</h2>
-          <p className="mt-5 text-body"><Gated id={INTEGRITY.leadGate}>{INTEGRITY.lead}</Gated></p>
-          {INTEGRITY.fail && <p className="mt-4 text-body">{INTEGRITY.fail}</p>}
-          {INTEGRITY.recover && <p className="mt-4 text-body">{INTEGRITY.recover}</p>}
-        </div>
-        <CapabilityFeatures items={INTEGRITY.controls} label="Integrity and access controls" mobileLabel="Explore source review" illustration={<ArgumentIllustration id="argument-illustration-phone" play={argument} />} />
+        <SectionIntroduction id="integrity" h2={INTEGRITY.h2} issue={INTEGRITY.issue} method={INTEGRITY.method} methodGate={INTEGRITY.methodGate} />
+        <CapabilityFeatures steps={INTEGRITY.steps} label="Source review" mobileLabel="Explore source review" leadIn={INTEGRITY.leadIn} illustration={<ArgumentIllustration id="argument-illustration-phone" play={argument} />} />
       </div>
       <div className="desktop-context"><ArgumentIllustration play={argument} /></div>
       <div id="notes" role="region" className="workspace-detail capability-positioning" aria-labelledby="notes-title">

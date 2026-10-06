@@ -24,6 +24,7 @@ export const CHAPTERS = [
 export const HOME_NAV = [
   { id: 'platform', title: 'How it works', nav: 'How it works' },
   { id: 'worked-example', title: 'Preparing the case', nav: 'Preparing the case' },
+  { id: 'collaboration', title: 'Collaboration', nav: 'Collaboration' },
   { id: 'about', title: 'About', nav: 'About' },
   { id: 'questions', title: 'Questions', nav: 'Questions' },
 ];
@@ -49,9 +50,9 @@ export const HEADER = {
 export const COVER = {
   masthead: ['Records,', 'records,', 'records.'],
   eyebrow: "Construction claims and disputes",
-  h1: "Complex evidence. Compelling arguments.",
-  h1Lead: "Complex evidence.",
-  h1Emphasis: "Compelling arguments.",
+  h1: "Evidence in order. Arguments on the record.",
+  h1Lead: "Evidence in order.",
+  h1Emphasis: "Arguments on the record.",
   subhead: "Investigate the record, test competing accounts and develop your claim or response, with the evidence beside you.",
   practitionerProof: "Founded by construction claims and dispute resolution practitioners.",
   audience: "For construction claims and commercial teams, working with solicitors, counsel and experts.",
@@ -113,7 +114,7 @@ export const CLOCK = {
     label: 'The sample matter (fictional)',
     title: 'Example Contractor Ltd and Example Employer Ltd',
     body:
-      'A residential building let under the JCT Design and Build Contract 2016, with the Employer’s amendments. On 03 March 2025 the Employer’s Agent instructed a Change: stainless steel cladding brackets (type B) in place of aluminium brackets (type A) on Levels 3 to 6. The Contractor gave notice under clause 2.24 on 28 March 2025.[[note:1]]',
+      'A residential building let under the JCT Design and Build Contract 2016, with the Employer’s amendments. On 03 March 2025 the Employer’s Agent instructed a Change: stainless steel cladding brackets (type B) in place of aluminium brackets (type A) on Levels 3 to 6. The Contractor gave notice under clause 2.24 on 28 March 2025.[[note:12]]',
     issueLabel: 'The point in issue',
     issue:
       'In this fictional contract, clause 2.24 has been amended to make notice a condition precedent to a later Completion Date under clause 2.25. The Employer contends that notice was not given forthwith. The date on which it became reasonably apparent that progress was being or was likely to be delayed is therefore decisive.',
@@ -146,33 +147,33 @@ export const CLOCK = {
         period: '28 days',
         provision: 'HGCRA 1996, s 108',
         summary:
-          'An adjudicator must reach a decision within 28 days of referral, extendable to 42 days with the referring party’s consent, or longer if both parties agree after referral.[[note:2]]',
+          'An adjudicator must reach a decision within 28 days of referral, extendable to 42 days with the referring party’s consent, or longer if both parties agree after referral.[[note:13]]',
       },
       {
         period: 'Forthwith',
         provision: 'JCT D&B 2016, cl 2.24',
         summary:
-          'The Contractor must give written notice forthwith when it becomes reasonably apparent that the progress of the Works is being or is likely to be delayed. Whether late notice bars a later Completion Date depends on the terms of the contract, including any amendments.[[note:1]]',
+          'The Contractor must give written notice forthwith when it becomes reasonably apparent that the progress of the Works is being or is likely to be delayed. Whether late notice bars a later Completion Date depends on the terms of the contract, including any amendments.[[note:12]]',
       },
       {
         period: 'Eight weeks',
         provision: 'NEC4, cl 61.3',
         summary:
-          'A compensation event notified more than eight weeks after the Contractor became aware that it had happened is barred, subject to the exceptions in the clause.[[note:3]]',
+          'A compensation event notified more than eight weeks after the Contractor became aware that it had happened is barred, subject to the exceptions in the clause.[[note:14]]',
         timeBar: true,
       },
       {
         period: '28 days',
         provision: 'FIDIC 2017, sub-cl 20.2.1',
         summary:
-          'Notice of a claim is required as soon as practicable, and no later than 28 days after the claiming party became aware, or should have become aware, of the event or circumstance.[[note:4]]',
+          'Notice of a claim is required as soon as practicable, and no later than 28 days after the claiming party became aware, or should have become aware, of the event or circumstance.[[note:15]]',
         timeBar: true,
       },
       {
         period: 'Six and twelve years',
         provision: 'Limitation Act 1980, ss 5 and 8',
         summary:
-          'Six years for an action founded on simple contract; twelve years for an action upon a specialty, which includes a contract made by deed (England and Wales).[[note:5]]',
+          'Six years for an action founded on simple contract; twelve years for an action upon a specialty, which includes a contract made by deed (England and Wales).[[note:16]]',
       },
     ],
     timeBarLabel: 'Time bar',
@@ -195,42 +196,38 @@ export const LENS_CHAPTER = {
   numeral: 'II',
   eyebrow: 'Chapter II · The Chronology Lens™',
   h2: "Follow the sequence.",
-  lead: "An instruction, a revised delivery date and a warning of delay can sit in different mailboxes. Read together, they can change how an event is understood.",
-  fail: "Bring project correspondence and documents into VeriCase, follow the chronology and examine the records behind it. Threading, quoted-text handling and relevance controls help you work through the material in context.",
-  recover: "Duplicate handling helps reduce repeated material in the working view. Near-duplicate checks cover certain similar messages; exclusions remain part of assessing the record.",
-  recoverGate: 'G5_quoted',
-  items: [
+  // The section reads as a journey: the issue (the problem, in the reader's world), the method
+  // (what VeriCase does), the steps on the thread, and the line that introduces the illustration.
+  issue: "An instruction, a revised delivery date and a warning of delay can sit in different mailboxes. Read together, they can change how an event is understood.",
+  method: "Read the correspondence and documents you bring into VeriCase together, as one sequence in date order.",
+  steps: [
     {
-      "icon": "EmailArchive",
-      "title": "Bring the records together",
-      "text": "Work with email archives and individual messages, their attachments, PDFs, Word documents, spreadsheets and images. Text recognition helps make scanned pages searchable."
+      "title": "Gather the records",
+      "text": "Add email archives and individual messages with their attachments, as well as PDFs, Word documents, spreadsheets and images. Text recognition helps make scanned pages searchable."
     },
     {
-      "icon": "Thread",
       "title": "Follow the correspondence",
-      "text": "Read messages in context, with threading and quoted-text handling to help distinguish a new reply from earlier correspondence."
+      "text": "Threading and quoted-text handling help you tell a new reply from the history beneath it.",
+      "gate": "G5_quoted"
     },
     {
-      "icon": "NearDuplicate",
-      "title": "Reduce repeated material",
-      "text": "Set repeated messages aside in the working view, with scoped near-duplicate checks to help identify certain similar messages."
+      "title": "Set duplicates aside",
+      "text": "Set repeated messages aside in the working view, with checks that help identify certain near-duplicates, and review what has been set aside as you assess the record."
     },
     {
-      "icon": "ExcludedProject",
-      "title": "Focus on the matter",
-      "text": "Use dates, search terms and relevance controls to focus the investigation on the issue and the material within scope."
+      "title": "Focus on the issue",
+      "text": "Narrow the material with dates, search terms and relevance controls."
     },
     {
-      "icon": "ChronologyLens",
-      "title": "Examine the sequence",
-      "text": "Compare dates and follow the underlying records to distinguish forecasts, instructions and confirmations within the sequence of events."
+      "title": "Read each date for what it is",
+      "text": "Compare the dates and the records behind them, so that a forecast is not taken for an instruction or a confirmation."
     },
     {
-      "icon": "TabbedBundle",
-      "title": "Select the supporting records",
-      "text": "Choose supporting records for the next stage of the work, keeping the source selection connected to the issue you are developing."
+      "title": "Take the key records forward",
+      "text": "Select the records the case will rely on, and keep them with the issue they concern."
     }
   ],
+  leadIn: "Watch a search for “time impact” set a façade instruction beside the risk register, then see a road approval traced through the record in date order.",
   plate: {
     number: 2,
     caption: 'Plate 2. The record as it is often kept. Illustrative image (computer-generated). See note B.',
@@ -254,26 +251,34 @@ export const RESEARCH = {
   numeral: 'IV',
   eyebrow: 'Chapter IV · Research',
   h2: "Ask the question that matters.",
-  lead: "What was instructed? When did the delivery date change? Which records support the account you have been given?",
-  fail: "Investigate focused questions across the project material and follow the source references behind the findings.",
-  recover: "Bring supporting and contradictory evidence into the same analysis, so you can develop the argument with a clearer view of the record.",
+  issue: "What was instructed, and when? Who set the date the other side now relies on? Which records support the account you have been given?",
+  // The application's two research functions (owner, 06 October 2026): Executive Analysis, questions
+  // and answers back and forth; Deep Research, a full report with an evidence appendix, from which a
+  // bundle can be built, titled, ordered and downloaded. No claim of completeness or accuracy.
+  method: "Put questions to the material in scope in Executive Analysis, or set Deep Research to work through an issue and report, with the evidence for and against your position cited.",
   steps: [
     {
-      "n": "1",
-      "title": "Define the question",
-      "text": "Set out the issue and the records you want to examine. Refine the proposed scope around the dates, parties and material relevant to the question."
+      title: 'Ask, then ask again',
+      text: 'Put a question to the record in Executive Analysis, and follow up on the answer as you would with a colleague.',
+      gate: 'G5_research',
     },
     {
-      "n": "2",
-      "title": "Follow the evidence",
-      "text": "Follow source references into the underlying messages and documents, bringing their dates, context and qualifications into the analysis."
+      title: 'Commission a full report',
+      text: 'Deep Research works through the research angles of an issue and sets out its findings, each referenced to an evidence appendix.',
+      gate: 'G5_research',
     },
     {
-      "n": "3",
-      "title": "Collect what matters",
-      "text": "Select useful records for the work ahead and identify reported gaps. Search results depend on the scope and material examined; they do not establish a complete account of the matter."
-    }
+      title: 'Build the bundle',
+      text: 'Create a bundle from the report’s evidence: give it a title and a cover page, set the order, and download it.',
+      gate: 'G5_research',
+    },
+    {
+      title: 'Note the gaps',
+      text: 'Keep the records the work needs, and note what the search did not find.',
+      note: 'Results depend on the scope and material examined; they are not a complete account of the matter.',
+    },
   ],
+  leadIn: 'Watch a question about early access answered and a follow-up find a gap, then see a full report and the bundle built from it.',
   fig: {
     number: 4,
     summary:
@@ -287,32 +292,27 @@ export const CLAIMS = {
   numeral: 'V',
   eyebrow: 'Chapter V · Claims builder and collaboration',
   h2: "Develop the argument.",
-  lead: "Develop your claim or response around the points you need to establish.",
-  recover: "Bring the narrative, supporting records and drafting tools into the same workspace, from the structure of the argument to the detail of each section.",
-  collaborationHeading: "Keep the discussion with the evidence.",
-  fail: "An important document can generate a long email chain of its own.",
-  items: [
+  issue: "The narrative is drafted in one file and the evidence kept in another. By the fifth draft, which document does paragraph 5.2 rely on?",
+  method: "Write the claim or response in VeriCase, with the records each paragraph relies on in the same workspace as the wording.",
+  steps: [
     {
       "title": "Structure the argument",
-      "text": "Develop the claim or response in sections, bringing the relevant facts and evidence together for each point."
+      "text": "Set out the points you need to establish, with a section for each."
     },
     {
-      "title": "Connect the point to its evidence",
-      "text": "Use source references to examine the records behind the wording, keeping the argument connected to the material that supports it."
+      "title": "Find the evidence",
+      "text": "Search the record for the section you are drafting, including material that tells against your position."
     },
     {
-      "title": "Find evidence for the work",
-      "text": "Investigate the records for the issue you are drafting. Select useful evidence and examine material that challenges your position."
+      "title": "Cite the record",
+      "text": "Use source references to check each factual point against the record it rests on."
     },
     {
-      "title": "Prepare the document for sharing",
-      "text": "Examine the document and its source references before export or sharing, including any qualifications relevant to the submission."
-    },
-    {
-      "title": "Discussion on the document",
-      "text": "Discuss the record with colleagues in the workspace, keeping the conversation connected to the material under examination."
+      "title": "Finalise the draft",
+      "text": "Go through it with its source references, add any qualification the submission needs, then export or share it."
     }
   ],
+  leadIn: "Watch section 5 take shape beside its records, then see a short report as exported.",
   fig: {
     caption: 'Fig. 5. The claims builder, illustrated with the sample matter. See note A.',
     summary:
@@ -324,15 +324,73 @@ export const CLAIMS = {
   },
 };
 
+// The collaboration section (owner, 06 October 2026). The capabilities are owner-confirmed (see
+// docs/design/website-capability-register.md, E12): a discussion on a single record, people from
+// different organisations, its history kept with the record, and comments organised in lanes set
+// for each matter. Who may read a lane is held behind gate G14 until the owner confirms it, as the
+// product source reviewed describes lanes as organisational, not as access control. Nothing here
+// claims privilege protection, court-rule compliance, legal hold, audit trails or notifications.
+export const COLLABORATION = {
+  h2: 'Keep the discussion with the evidence.',
+  issue: 'A document is sent to the solicitor, forwarded to counsel, then to each expert, and the replies split into separate chains. Before long, no single inbox holds the whole discussion.',
+  method: 'In VeriCase the discussion takes place on the record itself, and the people who need it come to it, each from their own organisation.',
+  steps: [
+    {
+      title: 'Open a thread on the record',
+      text: 'Start the discussion on the email or document itself, not in a covering email.',
+    },
+    {
+      title: 'Bring in the people who need it',
+      text: 'Solicitors, counsel and experts can join from their own organisations, with access agreed for each matter. The record is discussed where it is, without attaching it or forwarding a chain.',
+      gate: 'G5_collab',
+    },
+    {
+      title: 'Organise the discussion in lanes',
+      text: 'Post a comment in a lane, such as one for the core team, one with counsel and one with the expert, so that each strand of the discussion can be followed on its own.',
+      gate: 'G5_collab',
+      note: 'Each lane is read only by the people added to it, and lanes and their members are set for each matter.',
+      noteGate: 'G14_laneAccess',
+    },
+    {
+      title: 'Come back to it later',
+      text: 'The discussion is kept with the record, so what was said there does not have to be pieced together from old email.',
+      gate: 'G5_collab',
+    },
+  ],
+  leadIn: 'Watch an email the Contractor says was notice discussed on the record, then the same discussion organised in three lanes.',
+  // What the email relay costs. The second and third figures come from a model (notes 2 and 3, the
+  // rates verified by the owner on 06 October 2026) and are labelled as modelled on the page.
+  statsName: 'What discussion by email costs',
+  stats: [
+    { figure: '117', text: 'emails a day: the average a worker receives in Microsoft’s data from its workplace software.[[note:1]]' },
+    { figure: '6 emails', label: 'Modelled example', text: 'and 14 inbox deliveries in one modelled round of email about one document between a contractor, a solicitor (with a partner copied), counsel and two experts. In VeriCase, that round is one thread on the record.[[note:2]]' },
+    { figure: 'About £18,300', label: 'Modelled cost, not a measured saving', text: 'of professional time on those rounds in one modelled adjudication of 120 rounds, and between about £22,900 and £137,400 over a dispute lasting two to three years.[[note:3]]' },
+  ],
+};
+
 export const CASE_ROOM = {
   numeral: 'III',
   kicker: 'Project time ends. Case time begins.',
   cut: 'Case time',
   h2: "Test the opposing account.",
-  lead: "Examine an opposing submission, investigate its factual assertions and develop proposed replies with the supporting and contradictory records alongside them.",
-  leadGate: 'G5_rebuttalReview',
-  fail: "See where the account holds, where it is challenged and what needs further investigation before you respond.",
-  recover: "",
+  issue: "The other side’s submission describes an event one way; your team remembers it another. Before you respond, you need to know which account the documents bear out.",
+  method: "Answer the submission in VeriCase from the record, with proposed replies for your team to review.",
+  methodGate: 'G5_rebuttalReview',
+  steps: [
+    {
+      "title": "Take the submission point by point",
+      "text": "Add the other side’s submission to the matter and set out the factual assertions it makes."
+    },
+    {
+      "title": "Test the assertions",
+      "text": "Set records that support or challenge an assertion beside it, and see where the account holds, where it is challenged and what needs further investigation before you respond."
+    },
+    {
+      "title": "Prepare the reply",
+      "text": "Revise the proposed replies, with the records they rely on, before anything is served."
+    }
+  ],
+  leadIn: "Watch an assertion about the landscaping meet two records, and see which way each one points.",
   plate: {
     number: 3,
     caption: 'Plate 3. A meeting room with the bundles, on a wet evening. Illustrative image and video (computer-generated). See note B.',
@@ -356,27 +414,24 @@ export const CASE_ROOM = {
 export const INTEGRITY = {
   numeral: 'VI',
   h2: "Keep the source in sight.",
-  lead: "Follow source references back to the underlying documents. Examine the wording, dates and context behind a finding as you develop your position.",
-  leadGate: 'G5_sourceReview',
-  fail: "",
-  recover: "",
-  controls: [
+  issue: "An extract can read differently once the whole document is in front of you.",
+  method: "Before you rely on a finding, a paragraph or a reply, read it against the document it cites: its wording, its date and its context.",
+  methodGate: 'G5_sourceReview',
+  steps: [
     {
-      "icon": "CitedReport",
-      "title": "Understand the record behind the finding",
-      "text": "Read the underlying document in context, including the wording and qualifications behind an extract or finding."
+      "title": "Open the source",
+      "text": "Go from the reference to the document it points to."
     },
     {
-      "icon": "TabbedBundle",
-      "title": "Choose what the next stage needs",
-      "text": "A report, an evidence selection and a bundle serve different purposes. Examine the selected documents and output for the work you need to take forward."
+      "title": "Read the whole document",
+      "text": "See the extract in place, with what comes before and after it and any qualification it carries."
     },
     {
-      "icon": "RebuttalPair",
-      "title": "Agree access for the team",
-      "text": "Discuss how the workspace will be used by your commercial team, claims consultants and legal advisers, and which records each person needs."
+      "title": "Choose the output",
+      "text": "A report, a selection of evidence and a bundle serve different purposes; know what yours contains before it goes out."
     }
   ],
+  leadIn: "Watch the points of an argument marked, one by one, with the records behind them.",
   declaration: {
     label: 'Your judgement. Supported by the record.',
     text: 'Findings and drafts require professional review. Your team assesses the evidence, develops the argument and approves the final work.',
@@ -397,18 +452,27 @@ export const INTEGRITY = {
 };
 
 export const IN_BRIEF = {
+  // Each job links to the section that explains it.
   jobs: [
     {
       "title": "Understand what happened.",
-      "text": "Bring correspondence and documents together and examine the sequence of events around the disputed issue."
+      "text": "Bring correspondence and documents together and examine the sequence of events around the disputed issue.",
+      "section": "chronology-lens"
     },
     {
       "title": "Test the competing accounts.",
-      "text": "Investigate the records that support a position and those that challenge it, with references back to the sources."
+      "text": "Investigate the records that support a position and those that challenge it, with references back to the sources.",
+      "section": "case-room"
     },
     {
       "title": "Develop the argument.",
-      "text": "Use drafting tools to work on the claim or response, with relevant evidence alongside the narrative."
+      "text": "Use drafting tools to work on the claim or response, with relevant evidence alongside the narrative.",
+      "section": "claims"
+    },
+    {
+      "title": "Work on the evidence together.",
+      "text": "Discuss a record with your team, solicitors, counsel and experts, and keep the discussion with the evidence.",
+      "section": "collaboration"
     }
   ],
   eyebrow: 'In brief',
@@ -454,7 +518,7 @@ export const IN_BRIEF = {
   ],
   benchmarks: {
     gate: 'G4_benchmarks',
-    text: 'In benchmark testing, VeriCase processed more than 50,000 documents per hour[[note:6]] and extracted dates with 99.7% accuracy.[[note:7]] The notes describe how each figure was measured, so that you can judge them for yourself.',
+    text: 'In benchmark testing, VeriCase processed more than 50,000 documents per hour[[note:9]] and extracted dates with 99.7% accuracy.[[note:10]] The notes describe how each figure was measured, so that you can judge them for yourself.',
   },
   audience: {
     label: 'Who it is for',
@@ -480,11 +544,11 @@ export const IN_BRIEF = {
     },
     {
       "q": "How can our team work together?",
-      "a": "Discuss records with colleagues in the workspace, keeping the conversation connected to the evidence. During the demonstration, we can discuss the access arrangements for your team and its advisers."
+      "a": "Discuss each record where it sits. Your team, solicitors, counsel and experts can join from their own organisations, and comments can be organised in lanes. We can go through the access arrangements for your team and its advisers in the demonstration."
     },
     {
       "q": "How will you handle our project and client material?",
-      "a": "Demonstrations use sample material. Before introducing your own records, discuss your organisation's requirements for hosting, access, retention and automated processing with us."
+      "a": "Demonstrations use sample material. Before introducing your own records, discuss your organisation’s requirements for hosting, access, retention and automated processing with us."
     }
   ],
 };
@@ -621,7 +685,7 @@ export const FOUNDER = {
     text: 'United Infrastructure is an associated company of VeriCase’s founder, William Rogers. Warren Kemp serves as General Counsel for United Living. We state these connections before the account, so that you can give the account the weight you think it deserves.',
   },
   h3: 'A record of use: United Infrastructure',
-  account: '{{UI_CASE}}[[note:8]]',
+  account: '{{UI_CASE}}[[note:11]]',
   accountGate: 'G6_ui',
   closing:
     'Each adjudication turns on its own facts, its own law and its own adjudicator. This account describes one use of VeriCase. It is not a prediction or a promise of the result in any other matter.',
@@ -644,6 +708,8 @@ export const NOTES_SECTION = {
   intro: 'Each note marker on this page links here, and each note links back to where it was cited.',
   back: 'Back to text',
   readInNotes: 'Read in Notes',
+  // A note of several paragraphs shows its first in the pop-up; the rest is read in Notes.
+  continueInNotes: 'Continue reading in Notes',
 };
 
 export const FOOTER = {
@@ -653,7 +719,7 @@ export const FOOTER = {
   cookies: { settings: 'Cookie settings', notice: 'Cookie notice' },
   legal: [
     'VeriCase Ltd is registered in England and Wales (company number 16562435). Registered office: 85 Great Portland Street, London, England, W1W 7LT.',
-    'The Chronology Lens™ is a trade mark of VeriCase Ltd. VeriCase is software and does not give legal advice. Product views use illustrative records and sample content. Illustrations on this site use a fictional matter.',
+    'The Chronology Lens™ is a trade mark of VeriCase Ltd. VeriCase is software and does not give legal advice. Illustrations on this site use a fictional matter.',
   ],
 };
 

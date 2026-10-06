@@ -6,6 +6,8 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/component
 import { Logo } from '@/components/brand/Logo';
 import { Rich } from '@/components/editorial/Rich';
 import { HOME_NAV, FOOTER } from '@/content/home';
+import { CALCULATOR_GATE, CALCULATOR_LINKS } from '@/content/calculatorLinks';
+import { isShown } from '@/components/editorial/Gated';
 import { COMPANY, CONTACT_EMAIL, DEMO_MAILTO, SIGN_IN_URL, SITE } from '@/lib/site';
 import { onSectionClick, sectionHref } from '@/lib/navigate';
 import { cn } from '@/lib/utils';
@@ -56,7 +58,7 @@ export const SiteFooter = () => {
             <p className="mt-5 max-w-[30rem] text-small text-mist">{FOOTER.descriptor}</p>
           </div>
 
-          <div className="grid md:col-span-12 md:grid-cols-3 md:gap-6 lg:col-span-7">
+          <div className="grid md:col-span-12 md:grid-cols-4 md:gap-6 lg:col-span-7">
             <Column title={FOOTER.heads.contents}>
               {contents.map((c) => (
                 <Item key={c.id}>
@@ -88,6 +90,20 @@ export const SiteFooter = () => {
                 </a>
               </Item>
             </Column>
+            {isShown(CALCULATOR_GATE) && (
+              <Column title={CALCULATOR_LINKS.footer.title}>
+                <Item>
+                  <a href="/discussion-cost" className={linkClass}>
+                    {CALCULATOR_LINKS.footer.discussion}
+                  </a>
+                </Item>
+                <Item>
+                  <a href="/evidence-cost" className={linkClass}>
+                    {CALCULATOR_LINKS.footer.evidence}
+                  </a>
+                </Item>
+              </Column>
+            )}
             <Column title={FOOTER.heads.cookies}>
               <Item>
                 <button type="button" onClick={openCookies} className={cn(linkClass, 'text-left')}>

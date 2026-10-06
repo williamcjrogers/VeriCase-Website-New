@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-// Postbuild: renders the home page into build/index.html and the 404 page into build/404.html,
+// Postbuild: renders the home page into build/index.html, the cookie notice and the two cost
+// calculators into their own files, and the 404 page into build/404.html,
 // so that the argument, the figure summaries and the first viewport arrive as HTML. It uses
 // esbuild and react-dom/server (no browser), with the same REACT_APP_* values as the CRA build.
 // The client hydrates this markup (src/index.js); public/index.html clears it first on any
@@ -85,9 +86,12 @@ const home = withMetadata(fill(entry.render('/'), '/'), '/').replace('</head>', 
 writeFileSync(join(buildDir, 'index.html'), home);
 const cookies = withMetadata(fill(entry.render('/cookies'), '/cookies'), '/cookies');
 writeFileSync(join(buildDir, 'cookies.html'), cookies);
+for (const route of entry.CALCULATOR_ROUTES) {
+  writeFileSync(join(buildDir, `${route.slice(1)}.html`), withMetadata(fill(entry.render(route), route), route));
+}
 const notFound = withMetadata(fill(entry.render('/__vc-not-found__'), '*'), '*');
 writeFileSync(join(buildDir, '404.html'), notFound);
 
 rmSync(join(buildDir, '.prerender'), { recursive: true, force: true });
 const kb = (s) => `${(Buffer.byteLength(s) / 1024).toFixed(1)} KB`;
-console.log(`Prerendered build/index.html (${kb(home)}) build/cookies.html and build/404.html (${kb(notFound)}).`);
+console.log(`Prerendered build/index.html (${kb(home)}), build/cookies.html, the calculators (${entry.CALCULATOR_ROUTES.join(', ')}) and build/404.html (${kb(notFound)}).`);

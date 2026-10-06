@@ -10,7 +10,8 @@ createServer(async (req, res) => {
   try {
     const path = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
     if (/^\/login\/?$/.test(path)) { res.writeHead(307, { Location: 'https://app.veri-case.com/ui/login.html' }); res.end(); return; }
-    let file = resolve(root, '.' + (path === '/' ? '/index.html' : /^\/cookies\/?$/.test(path) ? '/cookies.html' : path));
+    const page = path.match(/^\/(cookies|discussion-cost|evidence-cost)\/?$/);
+    let file = resolve(root, '.' + (path === '/' ? '/index.html' : page ? `/${page[1]}.html` : path));
     let status = 200;
     if (!file.startsWith(root + sep) || !(await stat(file).catch(() => null))?.isFile()) {
       file = resolve(root, '404.html'); status = 404;

@@ -1,16 +1,8 @@
 import { LETTERED_NOTES, NOTES } from '@/content/notes';
 import { NOTES_SECTION } from '@/content/home';
-import { isShown, Placeholder } from '@/components/editorial/Gated';
+import { isShown } from '@/components/editorial/Gated';
+import { NoteBody } from '@/components/editorial/NoteBody';
 import { backToText } from '@/components/editorial/NoteRef';
-
-// Renders a note body, with any {{TOKEN}} shown as an owner placeholder.
-const Body = ({ text }) =>
-  String(text)
-    .split(/(\{\{[A-Z0-9_]+\}\})/g)
-    .map((part, i) => {
-      const m = part.match(/^\{\{([A-Z0-9_]+)\}\}$/);
-      return m ? <Placeholder key={i} token={m[1]} /> : <span key={i}>{part}</span>;
-    });
 
 // Numbered notes with back-links (each returns to the marker the reader came from), then the
 // lettered notes that cover the page as a whole.
@@ -41,9 +33,9 @@ export const Notes = () => (
             <div className="min-w-0">
               <p className="sr-only">Note {note.n}.</p>
               <p className="font-display text-[1.0625rem] font-medium leading-snug text-navy">{note.title}</p>
-              <p className="mt-1.5 text-caption text-ink">
-                <Body text={note.body} />
-              </p>
+              <div className="mt-1.5">
+                <NoteBody body={note.body} className="text-caption text-ink" />
+              </div>
               <a
                 href={`#${note.citedIn}`}
                 onClick={(e) => {

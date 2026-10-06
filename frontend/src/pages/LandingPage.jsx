@@ -4,6 +4,7 @@ import { SiteHeader } from '@/components/sections/SiteHeader';
 import { Hero } from '@/components/sections/Hero';
 import { TimeAdvantage } from '@/components/sections/TimeAdvantage';
 import { SharedWorkspace } from '@/components/sections/SharedWorkspace';
+import { Collaboration } from '@/components/sections/Collaboration';
 import { InBrief, Questions } from '@/components/sections/InBrief';
 import { Founder } from '@/components/sections/Founder';
 import { Demonstration } from '@/components/sections/Demonstration';
@@ -59,6 +60,7 @@ export const LandingPage = () => {
         <RecordExplanation />
         <EvidenceExplanation />
         <SharedWorkspace />
+        <Collaboration />
         <TimeAdvantage />
         <IntegrityExplanation />
         <Founder />

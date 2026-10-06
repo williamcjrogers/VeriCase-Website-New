@@ -1,0 +1,13 @@
+/* Executive Analysis: the answers as paper slips on the panel, each with its record beside it where
+   there is room; the follow-up beneath a rule; what was not found beneath a dashed brass rule. */
+
+.research-findings { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.625rem; }
+.research-findings > li { padding: 0.75rem 1rem; }
+.research-findings > li > .text-small { margin-top: 0.125rem; }
+.research-gap { margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--live-rule); color: var(--vc-parchment-300); }
+@media (min-width: 768px) {
+  .research-findings > li { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); column-gap: 2rem; align-items: baseline; }
+  .research-findings > li > .text-small { margin-top: 0; }
+}
+.research-follow-up { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--live-rule); }
+.research-follow-up + .live-output { margin-top: 1rem; }

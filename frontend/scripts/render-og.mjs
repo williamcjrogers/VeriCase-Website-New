@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Renders og/og.html to public/og-image.png at 1200 x 630 for Open Graph and Twitter cards.
+// Renders og/og.html to public/og-card.png at 1200 x 630 for Open Graph and Twitter cards.
 // Run by hand after changing the card (it needs a Playwright install with Chromium; set
 // PLAYWRIGHT_MODULE to its path if it is not resolvable from here). The PNG is committed, so the
 // site build does not depend on a browser.
@@ -16,7 +16,8 @@ const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
 await page.goto(pathToFileURL(join(root, 'og', 'og.html')).href, { waitUntil: 'load' });
 await page.evaluate(() => document.fonts.ready);
-const out = join(root, 'public', 'og-image.png');
+// A new file name makes social platforms fetch the card again instead of showing a cached copy.
+const out = join(root, 'public', 'og-card.png');
 await page.screenshot({ path: out, type: 'png' });
 await browser.close();
-console.log(`Wrote public/og-image.png (${(statSync(out).size / 1024).toFixed(0)} KB).`);
+console.log(`Wrote public/og-card.png (${(statSync(out).size / 1024).toFixed(0)} KB).`);

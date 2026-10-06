@@ -161,7 +161,7 @@
   .superscript-ref.is-cite { color: var(--vc-azure-700); }
   .superscript-ref:hover { text-decoration: underline; text-underline-offset: 2px; }
   /* Enlarge the hit area to about 24 x 24 px without moving the text. */
-  .superscript-ref::after { content: ''; position: absolute; inset: -7px -7px; }
+  .superscript-ref::after { content: ''; position: absolute; inset: -7px -9px; }
 
   /* Product citation chip inside mocks: [EV-0138] */
   .ev-chip {
@@ -227,7 +227,8 @@
   .skip-link {
     position: absolute;
     left: 1rem;
-    top: -100px;
+    top: 0;
+    transform: translateY(-100%);
     z-index: 100;
     padding: 0.6rem 1rem;
     background: var(--vc-navy);
@@ -235,7 +236,8 @@
     border-radius: 2px;
     font-weight: 500;
   }
-  .skip-link:focus { top: 0.75rem; }
+  /* Off the top edge at any text size until focused. */
+  .skip-link:focus { top: 0.75rem; transform: none; }
 
   /* Container side padding: 16 px, 24 px from 640 px and 40 px from 1024 px. (Tailwind applies
      the container's padding keys only at the container's own screens, and it has just one.) */
