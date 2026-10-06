@@ -10,14 +10,14 @@ import './search-illustration.css';
 // search. The figure is mounted once; `play` lets two copies share one performance if ever needed.
 //
 // The sequence, in ms from the start (search-illustration.css sets the rhythm): the query is
-// short, so it is typed at a deliberate pace, 11 characters at 16 a second after 360, by 1048;
+// short, so it is typed at a deliberate pace, 16 characters a second after 360;
 // then, 360 later, "Ranked by match strength" with its rule drawn beneath it; 440 after the label,
 // the first result, and each later result 860 after the one before, its rule drawn above it as it
 // comes: the rank and record, the slip 160 after them, and the match marked from 300 after the
-// slip for 480. The last match is marked by 1048 + 360 + 440 + 860 + 160 + 300 + 480 = 3648; the
+// slip for 480. The last match is marked by typed + 360 + 440 + 860 + 160 + 300 + 480; the
 // duration adds 300.
-export const SEARCH_DURATION = 3948;
 export const SEARCH_TYPING = { cps: 16, delay: 360 };
+export const SEARCH_DURATION = typedMs(`“${SEARCH_ILLUSTRATION.query}”`, SEARCH_TYPING) + 360 + 440 + 860 + 160 + 300 + 480 + 300;
 
 export const SearchIllustration = ({ id = 'search-illustration', play: shared }) => {
   const [ref, playClass, play] = useFigurePlay(shared, { duration: SEARCH_DURATION });

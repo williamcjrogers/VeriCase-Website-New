@@ -8,7 +8,8 @@ import { useIllustrationPlay } from './illustrationKit';
 import { ArgumentIllustration, ARGUMENT_DURATION } from './ArgumentIllustration';
 import { ChronologyIllustration } from './ChronologyIllustration';
 import { RebuttalIllustration } from './RebuttalIllustration';
-import { ResearchIllustration, RESEARCH_DURATION } from './ResearchIllustration';
+import { ResearchIllustration } from './ResearchIllustration';
+import { DeepResearchIllustration } from './DeepResearchIllustration';
 
 // Each capability section reads as a journey: its heading; the issue, the problem as the reader
 // meets it in a dispute, set large; the method, what VeriCase does about it; the steps, marked on
@@ -51,16 +52,19 @@ export const RecordExplanation = () => {
   );
 };
 
-export const EvidenceExplanation = () => {
-  const research = useIllustrationPlay({ duration: RESEARCH_DURATION });
-  return (
+// The research section shows both of the application's research functions, in place at every
+// width and in the order its lead-in gives: Executive Analysis, then Deep Research and its bundle.
+export const EvidenceExplanation = () => (
   <>
     <section id="research" aria-labelledby="research-title" className="clarity-section capability-explanation research-section bg-parchment">
       <div className="container capability-explanation-grid">
         <SectionIntroduction id="research" kicker="Evidence investigation" h2={RESEARCH.h2} issue={RESEARCH.issue} method={RESEARCH.method} />
-        <CapabilityFeatures steps={RESEARCH.steps} label="Research process" mobileLabel="Explore the research process" leadIn={RESEARCH.leadIn} illustration={<ResearchIllustration id="research-illustration-phone" play={research} />} />
+        <CapabilityFeatures steps={RESEARCH.steps} label="Research process" mobileLabel="Explore the research process" leadIn={RESEARCH.leadIn} />
       </div>
-      <div className="container desktop-context"><ResearchIllustration play={research} /></div>
+      <div className="container">
+        <ResearchIllustration />
+        <DeepResearchIllustration />
+      </div>
     </section>
     <section id="case-room" aria-labelledby="case-room-title" className="clarity-section capability-explanation rebuttal-section bg-parchment">
       <div className="container capability-explanation-grid">
@@ -74,8 +78,7 @@ export const EvidenceExplanation = () => {
       </div>
     </section>
   </>
-  );
-};
+);
 
 export const IntegrityExplanation = () => {
   const argument = useIllustrationPlay({ duration: ARGUMENT_DURATION });

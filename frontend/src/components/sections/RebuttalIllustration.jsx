@@ -1,4 +1,4 @@
-import { EVIDENCE_ILLUSTRATION, REBUTTAL_ILLUSTRATION } from '@/content/marketing';
+import { REBUTTAL_ILLUSTRATION } from '@/content/marketing';
 import { LiveFigure, Typed, keepDates, typedMs, useFigurePlay } from './illustrationKit';
 import './rebuttal-illustration.css';
 
@@ -36,7 +36,7 @@ export const RebuttalIllustration = ({ id = 'rebuttal-illustration', play: share
           <h4 className="live-output-label rebuttal-records-label" data-appear style={{ '--i': 0 }}>{R.recordsLabel}</h4>
           <ol className="rebuttal-records" role="list">
             {R.records.map(({ index, relation }, k) => {
-              const source = EVIDENCE_ILLUSTRATION[index];
+              const source = R.sources[index];
               return (
                 <li key={source.id} className="rebuttal-record">
                   <div className="rebuttal-slip on-paper" data-appear style={{ '--i': turn(k) }}>
@@ -56,7 +56,7 @@ export const RebuttalIllustration = ({ id = 'rebuttal-illustration', play: share
         <h4 className="live-output-label rebuttal-reply-label" data-appear style={{ '--i': replyTurn }}>{R.replyLabel}</h4>
         <p className="rebuttal-reply-page on-paper" data-appear style={{ '--i': replyTurn }}>
           {keepDates(R.reply)}{' '}
-          <span className="rebuttal-cite">({EVIDENCE_ILLUSTRATION[R.replySource].document})</span>.
+          <span className="rebuttal-cite">({R.sources[R.replySource].document})</span>.
         </p>
       </div>
     </LiveFigure>

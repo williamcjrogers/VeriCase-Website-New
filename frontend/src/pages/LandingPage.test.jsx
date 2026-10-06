@@ -56,23 +56,26 @@ it('mounts every illustration with unique ids and its own title, each in place a
   const ids = [...container.querySelectorAll('[id]')].map((el) => el.id);
   expect(ids.filter((id, i) => ids.indexOf(id) !== i)).toEqual([]);
   const figures = [...container.querySelectorAll('figure.evidence-figure')];
-  // Argument, research and drafting each have an in-place and a phone copy; the opposing account
-  // sits once inside a disclosure that wider screens open; the reader, search, chronology and
-  // report illustrations stand in place, the search before the chronology as the lead-in promises,
-  // and the collaboration section's discussion and lanes stand in place too, at every width.
+  // Argument and drafting each have an in-place and a phone copy; the opposing account sits once
+  // inside a disclosure that wider screens open; the reader, search, chronology, research (Executive
+  // Analysis, then Deep Research) and report illustrations stand in place, the search before the
+  // chronology as the lead-in promises, and the collaboration section's discussion and lanes stand
+  // in place too, at every width.
   expect(figures).toHaveLength(13);
-  const workspace = container.querySelectorAll('figure.reader-illustration, figure.search-illustration, figure.chronology-illustration, figure.report-illustration, figure.discussion-illustration, figure.lanes-illustration');
-  expect(workspace).toHaveLength(6);
+  const workspace = container.querySelectorAll('figure.reader-illustration, figure.search-illustration, figure.chronology-illustration, figure.research-illustration, figure.deep-research-illustration, figure.report-illustration, figure.discussion-illustration, figure.lanes-illustration');
+  expect(workspace).toHaveLength(8);
+  const research = container.querySelector('figure.research-illustration');
+  expect(research.compareDocumentPosition(container.querySelector('figure.deep-research-illustration')) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   const search = container.querySelector('figure.search-illustration');
   expect(search.compareDocumentPosition(container.querySelector('figure.chronology-illustration')) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   for (const figure of workspace) expect(figure.closest('.mobile-details-content, .desktop-context, .mobile-context')).toBeNull();
   // Each is named by its own title: an h3, or a paragraph for the opening figure under the h1.
   for (const figure of figures) expect(figure.querySelector(`h3[id="${figure.getAttribute('aria-labelledby')}"], p.evidence-figure-title[id="${figure.getAttribute('aria-labelledby')}"]`)).not.toBeNull();
-  expect(container.querySelectorAll('.desktop-context > figure.evidence-figure')).toHaveLength(3);
-  expect(container.querySelectorAll('.mobile-context > figure.evidence-figure')).toHaveLength(3);
+  expect(container.querySelectorAll('.desktop-context > figure.evidence-figure')).toHaveLength(2);
+  expect(container.querySelectorAll('.mobile-context > figure.evidence-figure')).toHaveLength(2);
   expect(container.querySelectorAll('.mobile-details-content > figure.evidence-figure')).toHaveLength(1);
   // Every phone copy closes its section's disclosure.
-  expect(container.querySelectorAll('.mobile-details-content .mobile-context > figure.evidence-figure')).toHaveLength(3);
+  expect(container.querySelectorAll('.mobile-details-content .mobile-context > figure.evidence-figure')).toHaveLength(2);
 });
 
 it('follows an initial legacy fragment to its mounted heading', async () => {

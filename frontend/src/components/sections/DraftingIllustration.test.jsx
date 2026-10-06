@@ -3,8 +3,9 @@ import path from 'path';
 import { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import { DRAFTING_DURATION, DraftingIllustration } from './DraftingIllustration';
-import { DRAFTING_ILLUSTRATION, EVIDENCE_ILLUSTRATION } from '@/content/marketing';
+import { DRAFTING_ILLUSTRATION } from '@/content/marketing';
 import { typedSoFar } from './liveTestUtils';
+import { typedMs } from './illustrationKit';
 
 // The checks every live illustration passes: labelled and captioned as fictional; inert apart from
 // the replay control in its caption; no reference scheme, dashes or formats; dates as DD Month
@@ -61,7 +62,7 @@ it('is labelled, captioned, inert and set in the fictional matter', () => {
   const dates = container.textContent.match(new RegExp(`(?<!\\d)\\d{1,2}[ \\u00a0](${MONTHS})[ \\u00a0]?\\d{0,4}`, 'g')) || [];
   expect(dates.length).toBeGreaterThan(0);
   for (const date of dates) expect(date).toMatch(new RegExp(`^\\d{2}\\u00a0(${MONTHS})\\u00a0\\d{4}$`));
-  for (const source of EVIDENCE_ILLUSTRATION) expect(text()).toContain(`${source.document}, ${source.date}`);
+  for (const source of DRAFTING_ILLUSTRATION.sources) expect(text()).toContain(`${source.document}, ${source.date}`);
 });
 
 it('types the section heading, then sets the section as numbered paragraphs on one page, each with its record beside it, and the status last', () => {
@@ -83,7 +84,7 @@ it('types the section heading, then sets the section as numbered paragraphs on o
   expect(list.getAttribute('role')).toBe('list');
   const items = list.querySelectorAll(':scope > li.drafting-paragraph');
   expect(items).toHaveLength(DRAFTING_ILLUSTRATION.paragraphs.length);
-  expect(items).toHaveLength(EVIDENCE_ILLUSTRATION.length);
+  expect(items).toHaveLength(DRAFTING_ILLUSTRATION.sources.length);
   items.forEach((item, i) => {
     const paragraph = DRAFTING_ILLUSTRATION.paragraphs[i];
     const p = item.querySelector(':scope > p.drafting-text');
@@ -92,17 +93,17 @@ it('types the section heading, then sets the section as numbered paragraphs on o
     // The record it rests on, cited by document and date, is the next thing read.
     const record = item.querySelector(':scope > p.drafting-record');
     expect(p.nextElementSibling).toBe(record);
-    expect(text(record)).toBe(`${EVIDENCE_ILLUSTRATION[i].document}, ${EVIDENCE_ILLUSTRATION[i].date}`);
+    expect(text(record)).toBe(`${DRAFTING_ILLUSTRATION.sources[i].document}, ${DRAFTING_ILLUSTRATION.sources[i].date}`);
     // The document and its date are set apart (the margin sets the document brighter), and the
     // date never splits across lines.
-    expect(record.querySelector('.drafting-record-doc').textContent).toBe(`${EVIDENCE_ILLUSTRATION[i].document},`);
-    expect(record.querySelector('.drafting-record-date').textContent).toBe(EVIDENCE_ILLUSTRATION[i].date.replace(/ /g, ' '));
+    expect(record.querySelector('.drafting-record-doc').textContent).toBe(`${DRAFTING_ILLUSTRATION.sources[i].document},`);
+    expect(record.querySelector('.drafting-record-date').textContent).toBe(DRAFTING_ILLUSTRATION.sources[i].date.replace(/ /g, ' '));
   });
   const status = output.querySelector(':scope > p.drafting-status');
   expect(status.textContent).toBe(DRAFTING_ILLUSTRATION.status);
   expect(list.nextElementSibling).toBe(status);
   // Nothing about the draft is said that the content file does not say.
-  expect(text(output)).toBe([DRAFTING_ILLUSTRATION.recordsLabel, ...DRAFTING_ILLUSTRATION.paragraphs.map((paragraph, i) => `${paragraph.n} ${paragraph.text}${EVIDENCE_ILLUSTRATION[i].document}, ${EVIDENCE_ILLUSTRATION[i].date}`), DRAFTING_ILLUSTRATION.status].join(''));
+  expect(text(output)).toBe([DRAFTING_ILLUSTRATION.recordsLabel, ...DRAFTING_ILLUSTRATION.paragraphs.map((paragraph, i) => `${paragraph.n} ${paragraph.text}${DRAFTING_ILLUSTRATION.sources[i].document}, ${DRAFTING_ILLUSTRATION.sources[i].date}`), DRAFTING_ILLUSTRATION.status].join(''));
 });
 
 it('holds the whole heading for assistive technology and types it only while playing', () => {
@@ -120,7 +121,7 @@ it('holds the whole heading for assistive technology and types it only while pla
   act(() => jest.advanceTimersByTime(16));
   expect(typedSoFar(typed).length).toBeLessThan(DRAFTING_ILLUSTRATION.sectionLabel.length);
   expect(typed.classList.contains('is-typing')).toBe(true);
-  expect(figure.style.getPropertyValue('--typed-ms')).toBe('976ms');
+  expect(figure.style.getPropertyValue('--typed-ms')).toBe(`${typedMs(DRAFTING_ILLUSTRATION.sectionLabel)}ms`);
   act(() => jest.advanceTimersByTime(DRAFTING_DURATION - 116));
   expect(typedSoFar(typed)).toBe(DRAFTING_ILLUSTRATION.sectionLabel);
   expect(figure.classList.contains('is-settled')).toBe(false);

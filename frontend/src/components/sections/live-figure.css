@@ -14,6 +14,11 @@
 .live-figure .on-paper { background: var(--vc-paper); color: var(--vc-ink); border: 1px solid var(--vc-rule); }
 .live-figure .on-paper .text-graphite { color: var(--vc-graphite); }
 
+/* The function an illustration shows (Executive Analysis, Deep Research), named as the application
+   names it: a quiet tag above the input, not a control. */
+.live-mode { display: inline-block; margin: 1rem 0 0; padding: 0.125rem 0.625rem; border: 1px solid var(--live-rule); border-radius: 2px; font-size: 0.8125rem; line-height: 1.5; font-weight: 500; color: var(--vc-parchment); }
+.live-mode + .live-prompt { margin-top: 0.875rem; }
+
 /* The input, typed in front of the reader: a label in brass over the line in Newsreader. */
 .live-prompt { margin-top: 1.25rem; }
 .live-prompt-label, .live-output-label { display: block; font-family: 'IBM Plex Sans', 'IBM Plex Sans Fallback', Arial, sans-serif; font-size: 0.8125rem; line-height: 1.4; font-weight: 500; color: var(--vc-brass-400); }

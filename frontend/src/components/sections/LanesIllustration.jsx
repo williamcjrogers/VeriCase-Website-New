@@ -1,4 +1,4 @@
-import { EVIDENCE_ILLUSTRATION, LANES_ILLUSTRATION } from '@/content/marketing';
+import { LANES_ILLUSTRATION } from '@/content/marketing';
 import { LiveFigure, keepDates, useFigurePlay } from './illustrationKit';
 import './lanes-illustration.css';
 
@@ -24,7 +24,7 @@ export const audienceOf = (roles) => {
 export const LanesIllustration = ({ id = 'lanes-illustration', play: shared }) => {
   const [ref, playClass, play] = useFigurePlay(shared, { duration: LANES_DURATION });
   const L = LANES_ILLUSTRATION;
-  const record = EVIDENCE_ILLUSTRATION.find((source) => source.id === L.record);
+  const record = L.sources.find((source) => source.id === L.record);
   return (
     <LiveFigure id={id} className="lanes-illustration" title={L.title} caption={L.caption} play={play} playClass={playClass} figureRef={ref}>
       <div className="lanes-stage">

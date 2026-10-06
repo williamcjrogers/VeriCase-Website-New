@@ -10,7 +10,7 @@
 .argument-stage { display: grid; grid-template-columns: minmax(0, 1fr); row-gap: 0; margin-top: 1.25rem; }
 .argument-page { margin: 0; padding: 1rem 1.125rem; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1.125rem; line-height: 1.5; text-wrap: pretty; }
 .argument-records-label { margin: 1.25rem 0 0.75rem; }
-.argument-records { list-style: none; margin: 0; padding: 0; display: grid; align-content: start; gap: 0.625rem; }
+.argument-records { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: 0.625rem; }
 /* The citation keeps to one line, so its mark is one piece; on phones it may run on to the next
    line rather than push the page wider than the screen (the mark then continues across the
    break). */

@@ -3,7 +3,7 @@ import path from 'path';
 import { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ChronologyIllustration, CHRONOLOGY_DURATION } from './ChronologyIllustration';
-import { CHRONOLOGY_ILLUSTRATION, EVIDENCE_ILLUSTRATION } from '@/content/marketing';
+import { CHRONOLOGY_ILLUSTRATION } from '@/content/marketing';
 
 // The checks every live illustration passes: labelled and captioned as fictional; inert apart from
 // the replay control in its caption; no reference scheme, dashes or formats; dates as DD Month
@@ -55,7 +55,7 @@ it('is labelled, captioned, inert and set in the fictional matter', () => {
   expect(text()).not.toMatch(/programme|delay analysis|\.pdf|\.docx|Word|PDF/i);
   expect(container.querySelector('.mono, code')).toBeNull();
   const dates = container.textContent.match(new RegExp(`(?<!\\d)\\d{1,2}[ \\u00a0](${MONTHS})[ \\u00a0]?\\d{0,4}`, 'g')) || [];
-  expect(dates).toHaveLength(EVIDENCE_ILLUSTRATION.length);
+  expect(dates).toHaveLength(CHRONOLOGY_ILLUSTRATION.sources.length);
   for (const date of dates) expect(date).toMatch(new RegExp(`^\\d{2}\\u00a0(${MONTHS})\\u00a0\\d{4}$`));
 });
 
@@ -69,9 +69,9 @@ it('pairs each document with its dated entry on one record, in date order', () =
   expect(label.id).toBe('chronology-illustration-record');
   expect(list.getAttribute('aria-labelledby')).toBe(label.id);
   const items = container.querySelectorAll('.chronology-flow > li');
-  expect(items).toHaveLength(EVIDENCE_ILLUSTRATION.length);
+  expect(items).toHaveLength(CHRONOLOGY_ILLUSTRATION.sources.length);
   items.forEach((item, i) => {
-    const source = EVIDENCE_ILLUSTRATION[i];
+    const source = CHRONOLOGY_ILLUSTRATION.sources[i];
     // Reading order: the document, then its entry's date and title; the arrow between them is decorative.
     expect(item.textContent.replace(/ /g, ' ')).toBe(`${source.document}${source.date}${source.title}`);
     expect(item.querySelector('.chronology-doc').classList.contains('on-paper')).toBe(true);
@@ -169,7 +169,7 @@ it('ends its performance 300ms after the last entry settles, with each stage in 
   const step = ms(kit, /--step:\s*(\d+)ms/);
   const appear = ms(kit, /live-appear (\d+)ms/);
   const stroke = ms(css, /chronology-rule (\d+)ms/);
-  const count = EVIDENCE_ILLUSTRATION.length;
+  const count = CHRONOLOGY_ILLUSTRATION.sources.length;
   // The documents are all down before the record opens, and its rule is drawn before the first arrow.
   expect(t('docs') + (count - 1) * step + appear).toBeLessThanOrEqual(t('record'));
   expect(t('record') + count * stroke).toBeLessThanOrEqual(t('arrow'));

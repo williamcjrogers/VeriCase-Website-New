@@ -39,6 +39,7 @@ export const GATES = {
   // The collaboration section's figures (06 October 2026): open until the owner approves the
   // wording and the model, so a production build cannot ship them unapproved.
   // Collaboration capabilities, confirmed by the owner on 06 October 2026 (capability register E12).
+  G5_research: { status: 'confirmed', gate: 'G5', label: 'Research functions: Executive Analysis (questions and answers), Deep Research (a report with an evidence appendix) and a bundle built from it, titled, ordered and downloaded (owner-confirmed with screenshots, 06 October 2026; no completeness, accuracy, count or validation claim)' },
   G5_collab: { status: 'confirmed', gate: 'G5', label: 'Collaboration: a discussion on one record, people from different organisations, comments in lanes set for each matter, history kept with the record (owner-confirmed; no privilege, compliance, legal hold, audit or notification claim)' },
   // Lane visibility (06 October 2026): the owner describes lanes each read only by their members and
   // set for each matter; the product source of 01 October 2026 has three fixed lanes that are not

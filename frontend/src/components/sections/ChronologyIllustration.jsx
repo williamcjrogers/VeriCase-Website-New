@@ -1,4 +1,4 @@
-import { CHRONOLOGY_ILLUSTRATION, EVIDENCE_ILLUSTRATION } from '@/content/marketing';
+import { CHRONOLOGY_ILLUSTRATION } from '@/content/marketing';
 import { LiveFigure, keepDates, useFigurePlay } from './illustrationKit';
 import './chronology-illustration.css';
 
@@ -30,7 +30,7 @@ export const ChronologyIllustration = ({ id = 'chronology-illustration', play: s
       </div>
       {/* The list is restyled (no markers), so its role is explicit; the record's label names it. */}
       <ol className="chronology-flow" role="list" aria-labelledby={`${id}-record`}>
-        {EVIDENCE_ILLUSTRATION.map((source, i) => (
+        {C.sources.map((source, i) => (
           // --i on the item gives its document, arrow, node and entry their turn.
           <li key={source.id} style={{ '--i': i }}>
             <div className="chronology-doc on-paper" data-appear>

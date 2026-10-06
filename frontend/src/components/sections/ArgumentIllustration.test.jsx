@@ -1,7 +1,7 @@
 import { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ARGUMENT_DURATION, ArgumentIllustration } from './ArgumentIllustration';
-import { ARGUMENT_ILLUSTRATION, EVIDENCE_ILLUSTRATION } from '@/content/marketing';
+import { ARGUMENT_ILLUSTRATION } from '@/content/marketing';
 
 // The checks every live illustration passes: labelled and captioned as fictional; inert apart from
 // the replay control in its caption; no reference scheme, dashes or formats; dates as DD Month
@@ -53,27 +53,27 @@ it('is labelled, captioned, inert and set in the fictional matter', () => {
   const dates = container.textContent.match(new RegExp(`(?<!\\d)\\d{1,2}[ \\u00a0](${MONTHS})[ \\u00a0]?\\d{0,4}`, 'g')) || [];
   expect(dates.length).toBeGreaterThan(0);
   for (const date of dates) expect(date).toMatch(new RegExp(`^\\d{2}\\u00a0(${MONTHS})\\u00a0\\d{4}$`));
-  for (const source of EVIDENCE_ILLUSTRATION) expect(text()).toContain(`${source.document}, ${source.date}`);
+  for (const source of ARGUMENT_ILLUSTRATION.sources) expect(text()).toContain(`${source.document}, ${source.date}`);
 });
 
 it('sets the argument as a page citing each record, beside the records with each attribution outside its quotation', () => {
   act(() => root.render(<ArgumentIllustration />));
   // The page: every point, then its citation in brackets, then the full stop, in one paragraph on paper.
   const page = container.querySelector('.argument-stage > p.argument-page.on-paper');
-  ARGUMENT_ILLUSTRATION.points.forEach((point, i) => expect(text(page)).toContain(`${point} (${EVIDENCE_ILLUSTRATION[i].document}).`));
+  ARGUMENT_ILLUSTRATION.points.forEach((point, i) => expect(text(page)).toContain(`${point} (${ARGUMENT_ILLUSTRATION.sources[i].document}).`));
   const cites = page.querySelectorAll('.argument-cite');
-  expect(cites).toHaveLength(EVIDENCE_ILLUSTRATION.length);
-  cites.forEach((cite, i) => expect(cite.textContent).toBe(`(${EVIDENCE_ILLUSTRATION[i].document})`));
+  expect(cites).toHaveLength(ARGUMENT_ILLUSTRATION.sources.length);
+  cites.forEach((cite, i) => expect(cite.textContent).toBe(`(${ARGUMENT_ILLUSTRATION.sources[i].document})`));
   // The records: under their label, as a list that stays a list once restyled, each a paper slip.
   expect(container.querySelector('.argument-stage > h4.live-output-label').textContent).toBe(ARGUMENT_ILLUSTRATION.sourcesLabel);
   const list = container.querySelector('.argument-stage > ol.argument-records');
   expect(list.getAttribute('role')).toBe('list');
   const records = list.querySelectorAll(':scope > li.argument-record.on-paper');
-  expect(records).toHaveLength(EVIDENCE_ILLUSTRATION.length);
+  expect(records).toHaveLength(ARGUMENT_ILLUSTRATION.sources.length);
   records.forEach((record, i) => {
-    expect(text(record.querySelector('blockquote'))).toBe(`“${EVIDENCE_ILLUSTRATION[i].excerpt}”`);
+    expect(text(record.querySelector('blockquote'))).toBe(`“${ARGUMENT_ILLUSTRATION.sources[i].excerpt}”`);
     expect(record.querySelector('blockquote .argument-attribution, blockquote figcaption')).toBeNull();
-    expect(text(record.querySelector(':scope > .argument-attribution'))).toBe(`${EVIDENCE_ILLUSTRATION[i].document}, ${EVIDENCE_ILLUSTRATION[i].date}`);
+    expect(text(record.querySelector(':scope > .argument-attribution'))).toBe(`${ARGUMENT_ILLUSTRATION.sources[i].document}, ${ARGUMENT_ILLUSTRATION.sources[i].date}`);
   });
   // Nothing is typed in this figure.
   expect(container.querySelector('.typed, .live-prompt')).toBeNull();
@@ -87,7 +87,7 @@ it('holds the whole argument from the start, then plays the page, the label and 
   // Idle: the whole text is in the document (the script hides the parts until the figure plays).
   const complete = text();
   for (const point of ARGUMENT_ILLUSTRATION.points) expect(complete).toContain(point);
-  for (const source of EVIDENCE_ILLUSTRATION) expect(complete).toContain(source.excerpt);
+  for (const source of ARGUMENT_ILLUSTRATION.sources) expect(complete).toContain(source.excerpt);
   expect(figure.classList.contains('is-in')).toBe(false);
   // The parts in their turns: the page, the records label, then one record a turn.
   const parts = [...container.querySelectorAll('[data-appear]')];

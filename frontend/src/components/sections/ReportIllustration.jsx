@@ -1,4 +1,4 @@
-import { CONTEXT_LABEL, EVIDENCE_ILLUSTRATION, REPORT_ILLUSTRATION } from '@/content/marketing';
+import { CONTEXT_LABEL, REPORT_ILLUSTRATION } from '@/content/marketing';
 import { LiveFigure, keepDates, useFigurePlay } from './illustrationKit';
 import './report-illustration.css';
 
@@ -28,7 +28,7 @@ const at = (turn) => ({ '--i': turn });
 export const ReportIllustration = ({ id = 'report-illustration', play: shared }) => {
   const [ref, playClass, play] = useFigurePlay(shared, { duration: REPORT_DURATION });
   const E = REPORT_ILLUSTRATION;
-  const quoted = EVIDENCE_ILLUSTRATION[E.quoteSource];
+  const quoted = E.sources[E.quoteSource];
   return (
     <LiveFigure id={id} className="report-illustration" title={E.title} caption={E.caption} play={play} playClass={playClass} figureRef={ref}>
       <p className="report-context"><span className="report-context-label">{CONTEXT_LABEL}</span> <span className="report-context-text">{E.context}</span></p>
@@ -53,9 +53,9 @@ export const ReportIllustration = ({ id = 'report-illustration', play: shared })
             <tbody role="rowgroup">
               {E.rows.map((event, k) => (
                 <tr key={event} role="row" data-appear style={at(row(k))}>
-                  <td role="cell">{event}</td>
-                  <td role="cell">{EVIDENCE_ILLUSTRATION[k].document}</td>
-                  <td role="cell"><time dateTime={EVIDENCE_ILLUSTRATION[k].isoDate}>{keepDates(EVIDENCE_ILLUSTRATION[k].date)}</time></td>
+                  <td role="cell">{keepDates(event)}</td>
+                  <td role="cell">{E.sources[k].document}</td>
+                  <td role="cell"><time dateTime={E.sources[k].isoDate}>{keepDates(E.sources[k].date)}</time></td>
                 </tr>
               ))}
             </tbody>

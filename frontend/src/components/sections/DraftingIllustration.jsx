@@ -1,4 +1,4 @@
-import { DRAFTING_ILLUSTRATION, EVIDENCE_ILLUSTRATION } from '@/content/marketing';
+import { DRAFTING_ILLUSTRATION } from '@/content/marketing';
 import { LiveFigure, Typed, keepDates, typedMs, useFigurePlay } from './illustrationKit';
 import './drafting-illustration.css';
 
@@ -9,12 +9,12 @@ import './drafting-illustration.css';
 // disclosure) share one performance through `play`.
 //
 // The sequence, in ms from the start (drafting-illustration.css sets the rhythm): the heading
-// types for --typed-ms (976 at the kit's rate, for 25 characters); the page and the margin's
+// types for --typed-ms (at the kit's rate: 240, then 34 characters a second); the page and the margin's
 // label appear at +320; the first paragraph at +800, once the page has settled; then one
 // paragraph every 640, its record (and leader) arriving 320 later; then the status line, 320
 // after the last record. Each part settles 420 after it starts, so the last settles at
-// 976 + 160 + 4 * 640 + 420 = 4116; the duration adds 300.
-export const DRAFTING_DURATION = 4416;
+// typed + 160 + 4 * 640 + 420; the duration adds 300.
+export const DRAFTING_DURATION = typedMs(DRAFTING_ILLUSTRATION.sectionLabel) + 160 + 4 * 640 + 420 + 300;
 
 // Turn 0 is the page and the margin's label; paragraph k and its record take turn k + 1; the
 // status line takes the turn after the last paragraph.
@@ -43,8 +43,8 @@ export const DraftingIllustration = ({ id = 'drafting-illustration', play: share
                 <span className="drafting-body">{keepDates(paragraph.text)}</span>
               </p>
               <p className="drafting-record" data-appear style={{ '--i': turn(k) }}>
-                <span className="drafting-record-doc">{EVIDENCE_ILLUSTRATION[k].document},</span>{' '}
-                <span className="drafting-record-date">{keepDates(EVIDENCE_ILLUSTRATION[k].date)}</span>
+                <span className="drafting-record-doc">{D.sources[k].document},</span>{' '}
+                <span className="drafting-record-date">{keepDates(D.sources[k].date)}</span>
               </p>
             </li>
           ))}

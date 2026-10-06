@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { ARGUMENT_ILLUSTRATION, EVIDENCE_ILLUSTRATION } from '@/content/marketing';
+import { ARGUMENT_ILLUSTRATION } from '@/content/marketing';
 import { LiveFigure, keepDates, useFigurePlay } from './illustrationKit';
 import './argument-illustration.css';
 
@@ -26,16 +26,16 @@ export const ArgumentIllustration = ({ id = 'argument-illustration', play: share
       <div className="argument-stage">
         <p className="argument-page on-paper" data-appear style={{ '--i': 0 }}>
           {A.points.map((point, k) => (
-            <Fragment key={EVIDENCE_ILLUSTRATION[k].id}>
+            <Fragment key={A.sources[k].id}>
               {k > 0 && ' '}
               {keepDates(point)}{' '}
-              <span className="argument-cite" style={{ '--i': turn(k) }}>({EVIDENCE_ILLUSTRATION[k].document})</span>.
+              <span className="argument-cite" style={{ '--i': turn(k) }}>({A.sources[k].document})</span>.
             </Fragment>
           ))}
         </p>
         <h4 className="live-output-label argument-records-label" data-appear style={{ '--i': 1 }}>{A.sourcesLabel}</h4>
         <ol className="argument-records" role="list">
-          {EVIDENCE_ILLUSTRATION.map((source, k) => (
+          {A.sources.map((source, k) => (
             <li key={source.id} className="argument-record on-paper" data-appear style={{ '--i': turn(k) }}>
               <blockquote className="argument-quote">
                 <p className="text-body">“{keepDates(source.excerpt)}”</p>

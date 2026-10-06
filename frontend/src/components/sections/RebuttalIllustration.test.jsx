@@ -1,7 +1,7 @@
 import { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import { REBUTTAL_DURATION, RebuttalIllustration } from './RebuttalIllustration';
-import { EVIDENCE_ILLUSTRATION, REBUTTAL_ILLUSTRATION } from '@/content/marketing';
+import { REBUTTAL_ILLUSTRATION } from '@/content/marketing';
 import { typedSoFar } from './liveTestUtils';
 
 // The checks every live illustration passes: labelled and captioned as fictional; inert apart from
@@ -39,7 +39,7 @@ const NBSP = '\u00a0';
 const R = REBUTTAL_ILLUSTRATION;
 const keepDates = (text) => text.replace(/(\d{2}) ([A-Z][a-z]+) (\d{4})/g, `$1${NBSP}$2${NBSP}$3`);
 const ASSERTION = `“${keepDates(R.assertion)}”`;
-const records = R.records.map(({ index, relation }) => ({ source: EVIDENCE_ILLUSTRATION[index], relation }));
+const records = R.records.map(({ index, relation }) => ({ source: REBUTTAL_ILLUSTRATION.sources[index], relation }));
 const inView = (observer = observers[0]) => act(() => observer.callback([{ isIntersecting: true, intersectionRatio: 0.7, intersectionRect: { height: 400 }, rootBounds: { height: 800 } }]));
 const text = () => container.textContent.replace(/\u00a0/g, ' ');
 
@@ -65,7 +65,7 @@ it('is labelled, captioned, inert and set in the fictional matter', () => {
     expect(text()).toContain(`${source.document}, ${source.date}`);
     expect(text()).toContain(relation);
   }
-  expect(text()).toContain(`${R.reply} (${EVIDENCE_ILLUSTRATION[R.replySource].document}).`);
+  expect(text()).toContain(`${R.reply} (${REBUTTAL_ILLUSTRATION.sources[R.replySource].document}).`);
   expect(text()).toContain(R.assertionLabel);
   expect(text()).toContain(R.recordsLabel);
   expect(text()).toContain(R.replyLabel);
@@ -98,8 +98,8 @@ it('sets the assertion on the ink, each record on paper with its relation beneat
   const reply = container.querySelector('.rebuttal-pages ~ .live-output.rebuttal-reply');
   expect(reply.querySelector('h4.live-output-label').textContent).toBe(R.replyLabel);
   const sheet = reply.querySelector('p.rebuttal-reply-page.on-paper');
-  expect(sheet.textContent).toBe(`${keepDates(R.reply)} (${EVIDENCE_ILLUSTRATION[R.replySource].document}).`);
-  expect(sheet.querySelector('.rebuttal-cite').textContent).toBe(`(${EVIDENCE_ILLUSTRATION[R.replySource].document})`);
+  expect(sheet.textContent).toBe(`${keepDates(R.reply)} (${REBUTTAL_ILLUSTRATION.sources[R.replySource].document}).`);
+  expect(sheet.querySelector('.rebuttal-cite').textContent).toBe(`(${REBUTTAL_ILLUSTRATION.sources[R.replySource].document})`);
 });
 
 it('holds the whole assertion for assistive technology and types it only while playing', () => {

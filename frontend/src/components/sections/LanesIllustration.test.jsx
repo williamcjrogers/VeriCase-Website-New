@@ -3,7 +3,7 @@ import path from 'path';
 import { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import { LanesIllustration, LANES_DURATION, audienceOf } from './LanesIllustration';
-import { EVIDENCE_ILLUSTRATION, LANES_ILLUSTRATION } from '@/content/marketing';
+import { LANES_ILLUSTRATION } from '@/content/marketing';
 
 // The checks every live illustration passes: labelled and captioned as fictional; inert apart from
 // the replay control in its caption; no reference scheme, dashes or formats; dates as DD Month
@@ -59,7 +59,7 @@ it('is labelled, captioned, inert and set in the fictional matter', () => {
   expect(dates.length).toBeGreaterThan(0);
   for (const date of dates) expect(date).toMatch(new RegExp(`^\\d{2}\\u00a0(${MONTHS})\\u00a0\\d{4}$`));
   // The record is the lead-time email, quoted and cited as the export cites one.
-  const record = EVIDENCE_ILLUSTRATION.find((source) => source.id === LANES_ILLUSTRATION.record);
+  const record = LANES_ILLUSTRATION.sources.find((source) => source.id === LANES_ILLUSTRATION.record);
   const paper = container.querySelector('.lanes-record');
   expect(paper.classList.contains('on-paper')).toBe(true);
   expect(text(paper.querySelector('blockquote'))).toBe(`“${record.excerpt}”`);

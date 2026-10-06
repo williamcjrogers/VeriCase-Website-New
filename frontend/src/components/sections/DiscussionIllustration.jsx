@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { DISCUSSION_ILLUSTRATION, EVIDENCE_ILLUSTRATION } from '@/content/marketing';
+import { DISCUSSION_ILLUSTRATION } from '@/content/marketing';
 import { LiveFigure, Typed, keepDates, typedMs, useFigurePlay } from './illustrationKit';
 import './discussion-illustration.css';
 
@@ -11,11 +11,11 @@ import './discussion-illustration.css';
 // screens keep open, so `play` is only passed when two copies must share one performance.
 //
 // The sequence, in ms from the start (discussion-illustration.css sets the rhythm): the question
-// is typed by 1652 (48 characters at the kit's pace); 440 later the thread is drawn on towards
+// is typed at the kit's pace (240, then 34 characters a second); 440 later the thread is drawn on towards
 // the reply, down and then across, over 560; the reply appears one step of 360 after the thread
 // starts, as the thread turns towards it, and has settled 420 later, at
-// 1652 + 440 + 360 + 420 = 2872; the duration adds 300.
-export const DISCUSSION_DURATION = 3172;
+// typed + 440 + 360 + 420; the duration adds 300.
+export const DISCUSSION_DURATION = typedMs(DISCUSSION_ILLUSTRATION.comments[0].text) + 440 + 360 + 420 + 300;
 
 // The reply is set a sentence to a line (the answer, then what rests on it), and a paragraph
 // reference is never split from its number at a line's end. The words and spaces are unchanged.
@@ -29,7 +29,7 @@ const sentences = (text) => {
 export const DiscussionIllustration = ({ id = 'discussion-illustration', play: shared }) => {
   const [ref, playClass, play] = useFigurePlay(shared, { duration: DISCUSSION_DURATION });
   const D = DISCUSSION_ILLUSTRATION;
-  const record = EVIDENCE_ILLUSTRATION[D.recordIndex];
+  const record = D.sources[D.recordIndex];
   const [question, reply] = D.comments;
   const ms = typedMs(question.text);
   return (

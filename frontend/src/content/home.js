@@ -227,7 +227,7 @@ export const LENS_CHAPTER = {
       "text": "Select the records the case will rely on, and keep them with the issue they concern."
     }
   ],
-  leadIn: "Watch a search for “ten weeks” find the lead-time email, then see the records that came before and after it.",
+  leadIn: "Watch a search for “time impact” set a façade instruction beside the risk register, then see a road approval traced through the record in date order.",
   plate: {
     number: 2,
     caption: 'Plate 2. The record as it is often kept. Illustrative image (computer-generated). See note B.',
@@ -251,24 +251,34 @@ export const RESEARCH = {
   numeral: 'IV',
   eyebrow: 'Chapter IV · Research',
   h2: "Ask the question that matters.",
-  issue: "What was instructed? When did the delivery date change? Which records support the account you have been given?",
-  method: "Put a focused question to the material in scope, and bring the evidence for and against your position into one analysis.",
+  issue: "What was instructed, and when? Who set the date the other side now relies on? Which records support the account you have been given?",
+  // The application's two research functions (owner, 06 October 2026): Executive Analysis, questions
+  // and answers back and forth; Deep Research, a full report with an evidence appendix, from which a
+  // bundle can be built, titled, ordered and downloaded. No claim of completeness or accuracy.
+  method: "Put questions to the material in scope in Executive Analysis, or set Deep Research to work through an issue and report, with the evidence for and against your position cited.",
   steps: [
     {
-      "title": "Define the question",
-      "text": "Set out the issue, then refine the scope proposed for it: the dates, the parties and the material to search."
+      title: 'Ask, then ask again',
+      text: 'Put a question to the record in Executive Analysis, and follow up on the answer as you would with a colleague.',
+      gate: 'G5_research',
     },
     {
-      "title": "Weigh the findings",
-      "text": "Findings come with source references to the messages and documents behind them. Read each with its date, its context and any qualification in the source."
+      title: 'Commission a full report',
+      text: 'Deep Research works through the research angles of an issue and sets out its findings, each referenced to an evidence appendix.',
+      gate: 'G5_research',
     },
     {
-      "title": "Note the gaps",
-      "text": "Keep the records the work needs, and note what the search did not find.",
-      "note": "Results depend on the scope and material examined; they are not a complete account of the matter."
-    }
+      title: 'Build the bundle',
+      text: 'Create a bundle from the report’s evidence: give it a title and a cover page, set the order, and download it.',
+      gate: 'G5_research',
+    },
+    {
+      title: 'Note the gaps',
+      text: 'Keep the records the work needs, and note what the search did not find.',
+      note: 'Results depend on the scope and material examined; they are not a complete account of the matter.',
+    },
   ],
-  leadIn: "Watch a question about the lead time traced to three records, and look for the date they do not give.",
+  leadIn: 'Watch a question about early access answered and a follow-up find a gap, then see a full report and the bundle built from it.',
   fig: {
     number: 4,
     summary:
@@ -282,7 +292,7 @@ export const CLAIMS = {
   numeral: 'V',
   eyebrow: 'Chapter V · Claims builder and collaboration',
   h2: "Develop the argument.",
-  issue: "The narrative is drafted in one file and the evidence kept in another. By the fifth draft, which document does paragraph 4.2 rely on?",
+  issue: "The narrative is drafted in one file and the evidence kept in another. By the fifth draft, which document does paragraph 5.2 rely on?",
   method: "Write the claim or response in VeriCase, with the records each paragraph relies on in the same workspace as the wording.",
   steps: [
     {
@@ -302,7 +312,7 @@ export const CLAIMS = {
       "text": "Go through it with its source references, add any qualification the submission needs, then export or share it."
     }
   ],
-  leadIn: "Watch paragraph 4.2 take its place beside the lead-time email, then see a short report as exported.",
+  leadIn: "Watch section 5 take shape beside its records, then see a short report as exported.",
   fig: {
     caption: 'Fig. 5. The claims builder, illustrated with the sample matter. See note A.',
     summary:
@@ -347,7 +357,7 @@ export const COLLABORATION = {
       gate: 'G5_collab',
     },
   ],
-  leadIn: 'Watch the lead-time email discussed on the record, then the same discussion organised in three lanes.',
+  leadIn: 'Watch an email the Contractor says was notice discussed on the record, then the same discussion organised in three lanes.',
   // What the email relay costs. The second and third figures come from a model (notes 2 and 3, the
   // rates verified by the owner on 06 October 2026) and are labelled as modelled on the page.
   statsName: 'What discussion by email costs',
@@ -363,7 +373,7 @@ export const CASE_ROOM = {
   kicker: 'Project time ends. Case time begins.',
   cut: 'Case time',
   h2: "Test the opposing account.",
-  issue: "The other side’s submission gives one date; your team remembers another. Before you respond, you need to know which one the documents bear out.",
+  issue: "The other side’s submission describes an event one way; your team remembers it another. Before you respond, you need to know which account the documents bear out.",
   method: "Answer the submission in VeriCase from the record, with proposed replies for your team to review.",
   methodGate: 'G5_rebuttalReview',
   steps: [
@@ -380,7 +390,7 @@ export const CASE_ROOM = {
       "text": "Revise the proposed replies, with the records they rely on, before anything is served."
     }
   ],
-  leadIn: "Watch an assertion about the lead time meet two records, and see which way each one points.",
+  leadIn: "Watch an assertion about the landscaping meet two records, and see which way each one points.",
   plate: {
     number: 3,
     caption: 'Plate 3. A meeting room with the bundles, on a wet evening. Illustrative image and video (computer-generated). See note B.',

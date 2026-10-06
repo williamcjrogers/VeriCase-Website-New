@@ -1,7 +1,7 @@
 import { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import { DiscussionIllustration, DISCUSSION_DURATION } from './DiscussionIllustration';
-import { DISCUSSION_ILLUSTRATION, EVIDENCE_ILLUSTRATION } from '@/content/marketing';
+import { DISCUSSION_ILLUSTRATION } from '@/content/marketing';
 import { typedSoFar } from './liveTestUtils';
 
 // The checks every live illustration passes: labelled and captioned as fictional; inert apart from
@@ -39,7 +39,7 @@ const inView = (observer = observers[0]) => act(() => observer.callback([{ isInt
 const plain = (s) => s.replace(/\u00a0/g, ' ');
 const text = () => plain(container.textContent);
 const D = DISCUSSION_ILLUSTRATION;
-const record = EVIDENCE_ILLUSTRATION[D.recordIndex];
+const record = DISCUSSION_ILLUSTRATION.sources[D.recordIndex];
 const [question, reply] = D.comments;
 
 it('is labelled, captioned, inert and set in the fictional matter', () => {
@@ -96,7 +96,9 @@ it('keeps the comments as a list of two under their label, by role and in order'
   expect(plain(paper.querySelector('.discussion-reply-text').textContent)).toBe(reply.text);
   expect(paper.querySelectorAll('.discussion-sentence')).toHaveLength(2);
   // A paragraph reference stays with its number.
-  expect(paper.querySelector('.discussion-reply-text').textContent).toContain('Paragraph\u00a04.2');
+  // A paragraph reference in the reply is never split from its number.
+  const reference = DISCUSSION_ILLUSTRATION.comments[1].text.match(/Paragraph \d+(\.\d+)?/)[0];
+  expect(paper.querySelector('.discussion-reply-text').textContent).toContain(reference.replace(' ', '\u00a0'));
   // Only the reply waits its turn; the question's role is there as it is typed.
   const parts = container.querySelectorAll('[data-appear]');
   expect(parts).toHaveLength(1);
