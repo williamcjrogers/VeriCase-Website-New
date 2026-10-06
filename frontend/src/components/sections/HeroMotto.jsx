@@ -62,7 +62,7 @@ export const HeroMotto = () => {
                 </span>{' '}
               </span>
             ))}
-            <span className="motto-word" style={{ '--at': ms(WORD_AT[2]) }}>
+            <span className="motto-word motto-word-last" style={{ '--at': ms(WORD_AT[2]) }}>
               <span className="motto-brand">{motto.brand}</span><span className="motto-quote">{motto.close}</span>
             </span>
           </span>
