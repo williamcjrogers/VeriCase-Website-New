@@ -567,9 +567,9 @@ export const FOUNDER = {
       name: 'William Rogers',
       // Beneath the name and role: short accolades drawn from the credentials below (owner,
       // 06 October 2026: MCIArb moves here from the name; no contact details are shown).
-      accolades: ['MCIArb, Chartered Institute of Arbitrators', 'Testifying quantum expert', 'Live instructions in excess of £100m'],
+      accolades: ['MCIArb, Chartered Institute of Arbitrators', 'Forensic quantum expert', 'Live instructions in excess of £100m'],
       summary: "William brings more than 15 years of construction claims and disputes experience across infrastructure, water, power, rail and residential projects. A quantity surveying and commercial management specialist and Member of the Chartered Institute of Arbitrators, he acts as a testifying quantum expert. His work spans adjudication, arbitration and TCC litigation. He brings the practical demands of preparing evidence, developing claims and briefing experts and counsel into VeriCase’s product direction.",
-      role: 'Co-Founder · Claims, Forensic Quantum & Testifying Expert',
+      role: 'Co-Founder · Claims Advisory and Forensic Quantum Expert',
       photo: { src: '/assets/team/william-rogers.jpg', alt: 'William Rogers' },
       bio:
         'A construction claims and disputes specialist with over 15 years across the water, power, rail, infrastructure and residential sectors, qualified in quantity surveying and commercial management and a Member of the Chartered Institute of Arbitrators. He founded his first commercial management consultancy in 2016 and has since built Meritus Group, Orrery Group, Peak Developments and VeriCase, a legal technology platform combining forensic evidence review with a chronology engine built to the SCL Protocol. His portfolio spans adjudication, arbitration and TCC litigation under NEC, JCT, FIDIC and IChemE forms, with live instructions in excess of £100m across residential, regeneration and infrastructure schemes, and prior roles on international arbitrations exceeding $600m. He acts as a testifying quantum expert and leads claims and recovery across a national contractor’s distressed portfolio, preparing each case in house so that experts and counsel are instructed only when it is ready.',
