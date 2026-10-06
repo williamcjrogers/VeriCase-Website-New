@@ -2,14 +2,15 @@
 // builds the JSON-LD blocks from the same content the page renders.
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
-import App, { KNOWN_ROUTES } from '@/App';
+import App, { KNOWN_ROUTES, CALCULATOR_ROUTES } from '@/App';
+import * as calculators from '@/pages/calculators';
 import { IN_BRIEF } from '@/content/home';
 import { GATES } from '@/content/gates';
 import { COMPANY, CONTACT_EMAIL, SITE } from '@/lib/site';
 
-export { KNOWN_ROUTES };
+export { KNOWN_ROUTES, CALCULATOR_ROUTES };
 
-export const render = (url) => renderToString(<App Router={StaticRouter} routerProps={{ location: url }} />);
+export const render = (url) => renderToString(<App Router={StaticRouter} routerProps={{ location: url }} calculators={calculators} />);
 
 const resolved = (gate) => !gate || GATES[gate]?.status === 'confirmed';
 const hasToken = (s) => /\{\{[A-Z0-9_]+\}\}/.test(s);

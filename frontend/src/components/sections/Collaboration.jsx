@@ -1,4 +1,5 @@
 import { COLLABORATION, IN_BRIEF } from '@/content/home';
+import { CALCULATOR_GATE, CALCULATOR_LINKS } from '@/content/calculatorLinks';
 import { Gated } from '@/components/editorial/Gated';
 import { Rich } from '@/components/editorial/Rich';
 import { CapabilityFeatures, SectionIntroduction } from './CapabilityDetails';
@@ -30,6 +31,11 @@ export const Collaboration = () => (
                 </li>
               ))}
             </ul>
+          </Gated>
+          <Gated id={CALCULATOR_GATE} block>
+            <p className="section-figures-link">
+              <a className="vc-link" href={CALCULATOR_LINKS.collaboration.href}>{CALCULATOR_LINKS.collaboration.text}</a>
+            </p>
           </Gated>
         </SectionIntroduction>
         <CapabilityFeatures steps={C.steps} label="Working on one record together" mobileLabel="Working with your team" leadIn={C.leadIn} />

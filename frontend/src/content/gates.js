@@ -45,6 +45,9 @@ export const GATES = {
   // set for each matter; the product source of 01 October 2026 has three fixed lanes that are not
   // access control. Open until a recorded check with two accounts confirms it on the live service.
   G14_laneAccess: { status: 'open', gate: 'G14', label: 'Lane visibility: each lane read only by the people added to it; lanes and members set for each matter (needs a recorded two-account check)' },
+  // The cost calculators (owner, 06 October 2026, reviewed and refined): open until the owner
+  // approves their wording, defaults and sources, so a production build cannot publish them.
+  G15_calculators: { status: 'open', gate: 'G15', label: 'Cost calculators: the two pages, their default figures, the basis labels and the sources (verified 06 October 2026)' },
   G13_collabStats: { status: 'open', gate: 'G13', label: 'Collaboration figures: the Microsoft email figure and the modelled estimates (notes 1 to 3)' },
   G9_names: { status: 'confirmed', gate: 'G9', label: 'Fictional names checked and resemblance to real matters ruled out' },
   G10_images: { status: 'struck', gate: 'G10', label: 'Every Higgsfield image approved' },

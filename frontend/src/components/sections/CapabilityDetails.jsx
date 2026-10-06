@@ -1,4 +1,5 @@
 import { CASE_ROOM, INTEGRITY, LENS_CHAPTER, RESEARCH } from '@/content/home';
+import { CALCULATOR_GATE, CALCULATOR_LINKS } from '@/content/calculatorLinks';
 import { Gated } from '@/components/editorial/Gated';
 import { cn } from '@/lib/utils';
 import { SearchIllustration } from './SearchIllustration';
@@ -64,6 +65,14 @@ export const EvidenceExplanation = () => (
       <div className="container">
         <ResearchIllustration />
         <DeepResearchIllustration />
+        <Gated id={CALCULATOR_GATE} block>
+          <aside className="calculator-aside" aria-labelledby="evidence-calculator-title">
+            <p className="eyebrow">{CALCULATOR_LINKS.research.eyebrow}</p>
+            <h3 id="evidence-calculator-title" className="calculator-aside-title">{CALCULATOR_LINKS.research.title}</h3>
+            <p className="calculator-aside-text">{CALCULATOR_LINKS.research.text}</p>
+            <a className="vc-link calculator-aside-link" href={CALCULATOR_LINKS.research.href}>{CALCULATOR_LINKS.research.link}</a>
+          </aside>
+        </Gated>
       </div>
     </section>
     <section id="case-room" aria-labelledby="case-room-title" className="clarity-section capability-explanation rebuttal-section bg-parchment">
