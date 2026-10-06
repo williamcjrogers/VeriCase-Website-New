@@ -18,13 +18,6 @@ export const Founder = () => (
                   <h3 id={`team-${slug}`} className="team-name">{person.name}</h3>
                   <p className="team-role">{person.role}</p>
                 </div>
-                {(person.email || person.tel) && (
-                  <p className="team-contact">
-                    {person.email && <a href={`mailto:${person.email}`}>{person.email}</a>}
-                    {person.email && person.tel && <span aria-hidden="true"> &nbsp; </span>}
-                    {person.tel && <a href={`tel:${person.tel.replace(/\(0\)/, '').replace(/[^+\d]/g, '')}`}>{person.tel}</a>}
-                  </p>
-                )}
               </div>
               <p className="team-bio team-summary team-summary-desktop">{person.summary}</p>
               <details className="team-full-profile">

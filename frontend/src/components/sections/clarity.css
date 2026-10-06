@@ -137,17 +137,15 @@
 .evidence-source::before { content: ''; position: absolute; left: -2px; top: 0; bottom: 0; width: 2px; background: var(--vc-brass-400); transform-origin: top; }
 .evidence-source > figcaption { margin-top: 0.25rem; }
 
-/* A useful introduction, with every approved profile still available. */
+/* A useful introduction, with every approved profile still available. The introduction starts
+   beneath the role and runs on beside the portrait before taking the full width. */
 .clarity-team { display: grid; gap: 3rem; margin-top: 3rem; }
 .team-member { min-width: 0; border-top: 1px solid var(--vc-rule-strong); padding-top: 1.5rem; }
-.team-identity { min-height: 112px; }
 .team-portrait { float: left; width: 100px; height: 100px; object-fit: cover; margin: 0 1.5rem 0.75rem 0; filter: saturate(0.7); }
 .team-name { font-size: 1.875rem; line-height: 1.15; padding-top: 0.1rem; }
 .team-role { color: var(--vc-brass-700); font-size: 0.875rem; line-height: 1.5; margin-top: 0.4rem; }
-.team-contact { font-size: 0.8125rem; margin-top: 0.4rem; overflow-wrap: anywhere; }
-.team-contact a { display: inline-flex; align-items: center; min-height: 44px; color: var(--vc-azure-700); text-decoration: underline; text-underline-offset: 3px; }
-.team-summary { clear: both; margin-top: 1.25rem; font-size: 0.9375rem; color: var(--vc-graphite); }
-.team-full-profile { margin-top: 1rem; }
+.team-summary { margin-top: 0.875rem; font-size: 0.9375rem; color: var(--vc-graphite); }
+.team-full-profile { clear: both; margin-top: 1rem; }
 .team-full-profile > summary { cursor: pointer; padding: 0.6rem 0; min-height: 44px; font-size: 0.9375rem; font-weight: 500; color: var(--vc-azure-700); text-decoration: underline; text-underline-offset: 4px; }
 .team-cell { margin-top: 1.5rem; font-size: 0.9375rem; }
 .team-bio + .team-bio { margin-top: 1rem; }
@@ -251,9 +249,6 @@
   .team-heading { min-width: 0; overflow-wrap: anywhere; }
   .team-name { font-size: 1.5rem; line-height: 1.15; padding: 0; text-wrap: initial; }
   .team-role { font-size: 0.8125rem; line-height: 1.45; color: var(--vc-graphite); }
-  .team-contact { grid-column: 1 / -1; display: flex; flex-wrap: wrap; column-gap: 1rem; margin-top: 0; font-size: 0.8125rem; }
-  .team-contact > span { display: none; }
-  .team-contact a { min-height: 36px; }
   .team-summary-desktop { display: none; }
   .team-summary-mobile { display: block; }
   .team-summary { margin-top: 1rem; font-size: 0.9375rem; line-height: 1.6; }
