@@ -30,6 +30,16 @@ Primary action: Request a demonstration
 
 Email microcopy: By email. Please use sample material.
 
+Motto, opposite the kicker from 1024 pixels and after the introduction on narrower screens (owner, 06 October 2026):
+
+Records, records, *VeriCase.*
+
+*Making Time Your Ally*
+
+Source beneath it: Adapted from Max W. Abrahamson’s three lessons for a party to a dispute: “the importance of records, the importance of records and the importance of records”. *Engineering Law and the I.C.E. Contracts* (first published 1965)
+
+It plays once from first paint: “Records,”, a two-second pause, “records,”, a four-second pause where a third “records” is expected, “VeriCase.”, a one-second pause, then “Making Time Your Ally” typed patiently with a brass caret, and the source last. Reduced motion, print and pages without scripts show it whole; assistive technology reads “Records, records, VeriCase. Making Time Your Ally.” once.
+
 The email opens a prefilled enquiry. It does not confirm a booking. Audience detail appears with the collaboration explanation; practitioner proof appears in the team introduction.
 
 ## From evidence to argument.

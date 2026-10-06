@@ -48,7 +48,20 @@ export const HEADER = {
 };
 
 export const COVER = {
-  masthead: ['Records,', 'records,', 'records.'],
+  // The motto beside the heading (owner, 06 October 2026): "Records," and "records," then, where a
+  // third "records" is expected, "VeriCase.", with the line typed patiently beneath it. It adapts
+  // Abrahamson's three lessons, whose wording and source are checked in
+  // docs/source-check-2026-09-25.md (item 10).
+  motto: {
+    words: ['Records,', 'records,'],
+    brand: 'VeriCase.',
+    line: 'Making Time Your Ally',
+    whole: 'Records, records, VeriCase. Making Time Your Ally.',
+    attribution: 'Adapted from Max W. Abrahamson’s three lessons for a party to a dispute:',
+    quote: 'the importance of records, the importance of records and the importance of records',
+    source: 'Engineering Law and the I.C.E. Contracts',
+    sourceNote: '(first published 1965)',
+  },
   eyebrow: "Construction claims and disputes",
   h1: "Evidence in order. Arguments on the record.",
   h1Lead: "Evidence in order.",

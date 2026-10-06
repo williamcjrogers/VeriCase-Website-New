@@ -11,6 +11,7 @@
 // restore an item, supply its text in place of each token and set the gate to 'confirmed'.
 // The screenshot-led revision (03 October 2026) strikes unsubstantiated storage, universal
 // roles, broad near-duplicate and edited-citation claims. New review gates cover narrower copy.
+// On 06 October 2026 the owner asked for the hero motto to credit Abrahamson, so G11 is confirmed.
 // The gate numbers follow the design specification (docs/design/the-working-record.md, section 8).
 
 export const GATES = {
@@ -51,7 +52,7 @@ export const GATES = {
   G13_collabStats: { status: 'confirmed', gate: 'G13', label: 'Collaboration figures: the Microsoft email figure and the modelled estimates (notes 1 to 3)' },
   G9_names: { status: 'confirmed', gate: 'G9', label: 'Fictional names checked and resemblance to real matters ruled out' },
   G10_images: { status: 'struck', gate: 'G10', label: 'Every Higgsfield image approved' },
-  G11_attribution: { status: 'struck', gate: 'G11', label: 'Abrahamson attribution verified (until then the masthead stays unattributed)' },
+  G11_attribution: { status: 'confirmed', gate: 'G11', label: 'Abrahamson attribution beneath the hero motto (wording and source verified 25 September 2026; shown at the owner’s request, 06 October 2026)' },
   G12_typeface: { status: 'confirmed', gate: 'G12', label: 'Typeface accepted (Newsreader, or Playfair for headings)' },
 };
 
