@@ -24,7 +24,7 @@ Construction claims and disputes
 
 # Evidence in order. Arguments on the record.
 
-The importance of records is often learnt too late. VeriCase puts yours in order in time to test the competing accounts and develop your claim or response, with the evidence beside you.
+Turn years of correspondence into a cited chronology. Test the other side’s account against it. Draft your claim or response from it.
 
 Primary action: Request a demonstration
 
@@ -36,7 +36,7 @@ Motto, opposite the kicker from 1024 pixels and after the introduction on narrow
 
 *Making Time Your Ally*
 
-Credit beneath it: Adapted from Max W. Abrahamson’s three lessons for a party to a dispute. [Read the passage](#lessons)
+Credit beneath it: Adapted from Max W. Abrahamson. [Read the passage](#lessons)
 
 It plays once from first paint: “Records,”, a one-second pause, “records,”, a one-second pause where a third “records” is expected, “VeriCase.”, a one-second pause, then “Making Time Your Ally” typed patiently with a brass caret, and the credit last. Reduced motion, print and pages without scripts show it whole; assistive technology reads “Records, records, VeriCase.” Making Time Your Ally. once.
 

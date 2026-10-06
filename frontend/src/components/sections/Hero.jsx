@@ -20,7 +20,9 @@ export const Hero = () => (
         <div className="hero-side">
           <HeroMotto />
           <div className="hero-introduction">
-            <p className="clarity-lead">{COVER.subhead}</p>
+            <p className="clarity-lead">
+              {COVER.subheadLines.map((line, i) => [i > 0 && ' ', <span key={line} className="clarity-lead-line">{line}</span>])}
+            </p>
             <DemoCTA placement="hero" section="top" className="hero-action mt-6" microcopy="By email. Please use sample material." />
           </div>
         </div>

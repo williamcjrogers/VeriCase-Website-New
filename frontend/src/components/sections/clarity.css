@@ -31,7 +31,7 @@
 .motto-key { position: relative; }
 .hero-motto-source { position: relative; margin-top: 1.25rem; padding-top: 0.875rem; font-size: 0.8125rem; line-height: 1.55; color: var(--vc-graphite); text-wrap: pretty; }
 .hero-motto-source::before { content: ''; position: absolute; top: 0; left: 0; width: 2.5rem; height: 1px; background: var(--vc-brass-400); transform-origin: left; }
-.hero-motto-source a { color: var(--vc-brass-700); text-decoration: underline; text-underline-offset: 3px; }
+.hero-motto-source a { color: var(--vc-brass-700); text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
 /* It plays once, from first paint, in CSS alone, so the prerendered page needs no script to start
    it: each word settles at its time (--at), then each letter appears at its own (--d) with the
    caret on its right edge until the next (--w), and the source follows. Every word and letter
@@ -99,6 +99,8 @@
 .collaboration-audience-lead { display: block; font-size: clamp(1.625rem, 1.2rem + 1.6vw, 2.5rem); line-height: 1.18; letter-spacing: -0.012em; color: var(--vc-navy); }
 .collaboration-audience-rest { display: block; max-width: 40rem; margin-top: 0.75rem; font-size: clamp(1.25rem, 1.05rem + 0.75vw, 1.625rem); line-height: 1.35; color: var(--vc-ink); }
 @media (min-width: 1024px) { .collaboration-audience { grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); } .collaboration-audience-label { padding-top: 0.75rem; } }
+/* The opening's three lines, one to a line where the column holds the longest (from 1200px). */
+@media (min-width: 1200px) { .clarity-lead-line { display: block; } }
 /* Why VeriCase exists (Lessons): Abrahamson's passage in full, on the deeper parchment under a
    brass rule, its label in the margin from 1024px as in the audience band. */
 .lessons { background: var(--vc-parchment-300); border-top: 3px solid var(--vc-brass-400); }
