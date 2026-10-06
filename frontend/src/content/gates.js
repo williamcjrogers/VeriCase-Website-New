@@ -36,19 +36,19 @@ export const GATES = {
   G7_office: { status: 'confirmed', gate: 'G7', label: 'Registered office' },
   G8_data: { status: 'struck', gate: 'G8', label: 'Data policy answer (hosting, sub-processors, retention, model training)', tokens: ['DATA_POLICY'] },
   G8_host: { status: 'confirmed', gate: 'G8', label: 'PostHog host (EU or US) and the cookie notice to match' },
-  // The collaboration section's figures (06 October 2026): open until the owner approves the
-  // wording and the model, so a production build cannot ship them unapproved.
+  // The collaboration section's figures (06 October 2026): wording and model approved by the owner
+  // on 06 October 2026.
   // Collaboration capabilities, confirmed by the owner on 06 October 2026 (capability register E12).
   G5_research: { status: 'confirmed', gate: 'G5', label: 'Research functions: Executive Analysis (questions and answers), Deep Research (a report with an evidence appendix) and a bundle built from it, titled, ordered and downloaded (owner-confirmed with screenshots, 06 October 2026; no completeness, accuracy, count or validation claim)' },
   G5_collab: { status: 'confirmed', gate: 'G5', label: 'Collaboration: a discussion on one record, people from different organisations, comments in lanes set for each matter, history kept with the record (owner-confirmed; no privilege, compliance, legal hold, audit or notification claim)' },
   // Lane visibility (06 October 2026): the owner describes lanes each read only by their members and
   // set for each matter; the product source of 01 October 2026 has three fixed lanes that are not
-  // access control. Open until a recorded check with two accounts confirms it on the live service.
-  G14_laneAccess: { status: 'open', gate: 'G14', label: 'Lane visibility: each lane read only by the people added to it; lanes and members set for each matter (needs a recorded two-account check)' },
-  // The cost calculators (owner, 06 October 2026, reviewed and refined): open until the owner
-  // approves their wording, defaults and sources, so a production build cannot publish them.
-  G15_calculators: { status: 'open', gate: 'G15', label: 'Cost calculators: the two pages, their default figures, the basis labels and the sources (verified 06 October 2026)' },
-  G13_collabStats: { status: 'open', gate: 'G13', label: 'Collaboration figures: the Microsoft email figure and the modelled estimates (notes 1 to 3)' },
+  // access control. Confirmed by the owner on 06 October 2026 ("Approve it all").
+  G14_laneAccess: { status: 'confirmed', gate: 'G14', label: 'Lane visibility: each lane read only by the people added to it; lanes and members set for each matter (needs a recorded two-account check)' },
+  // The cost calculators (owner, 06 October 2026, reviewed and refined): wording, defaults and
+  // sources approved by the owner on 06 October 2026.
+  G15_calculators: { status: 'confirmed', gate: 'G15', label: 'Cost calculators: the two pages, their default figures, the basis labels and the sources (verified 06 October 2026)' },
+  G13_collabStats: { status: 'confirmed', gate: 'G13', label: 'Collaboration figures: the Microsoft email figure and the modelled estimates (notes 1 to 3)' },
   G9_names: { status: 'confirmed', gate: 'G9', label: 'Fictional names checked and resemblance to real matters ruled out' },
   G10_images: { status: 'struck', gate: 'G10', label: 'Every Higgsfield image approved' },
   G11_attribution: { status: 'struck', gate: 'G11', label: 'Abrahamson attribution verified (until then the masthead stays unattributed)' },

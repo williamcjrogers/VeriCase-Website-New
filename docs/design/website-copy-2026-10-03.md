@@ -2,7 +2,7 @@
 
 03 October 2026. Current public wording after the owner requested a shorter opening, concise section headings and evidence/software terminology. This document mirrors the active content modules and component wiring. It supersedes the previous commercial-copy deck; earlier review proposals remain historical. The three historical captures were replaced on 05 October 2026 by illustrations of what the application does (see “Workspace illustrations”); full profile records, substantive capability explanations and professional-review boundaries are preserved. Inactive historical chapters are excluded.
 
-06 October 2026: section copy rewritten in the issue, method, steps and lead-in structure, and the collaboration section added, awaiting the owner’s approval. The collaboration figures (gate G13) and the lane visibility note (gate G14) remain open.
+06 October 2026: section copy rewritten in the issue, method, steps and lead-in structure, and the collaboration section added; approved by the owner on 06 October 2026, with the collaboration figures (gate G13), the lane visibility note (gate G14) and the cost calculators (gate G15) confirmed. The calculators’ own words are in `frontend/src/content/calculators.js`.
 
 06 October 2026, later: a new fictional matter drawn from the patterns of real adjudications, with each illustration on a different strand, and the research section showing Executive Analysis, Deep Research and the bundle; awaiting the owner’s approval.
 
@@ -260,7 +260,7 @@ Issue: A document is sent to the solicitor, forwarded to counsel, then to each e
 
 Method: In VeriCase the discussion takes place on the record itself, and the people who need it come to it, each from their own organisation.
 
-Figures, beneath the method at every width: a list named “What discussion by email costs” (its accessible name; there is no visible heading) (gate G13_collabStats, open). Note markers are shown here as “(note n)”.
+Figures, beneath the method at every width: a list named “What discussion by email costs” (its accessible name; there is no visible heading) (gate G13_collabStats, confirmed). Note markers are shown here as “(note n)”.
 
 | Figure | Label | Text |
 | --- | --- | --- |
@@ -282,7 +282,7 @@ Solicitors, counsel and experts can join from their own organisations, with acce
 
 Post a comment in a lane, such as one for the core team, one with counsel and one with the expert, so that each strand of the discussion can be followed on its own. (gate G5_collab)
 
-Step note: Each lane is read only by the people added to it, and lanes and their members are set for each matter. (gate G14_laneAccess, open)
+Step note: Each lane is read only by the people added to it, and lanes and their members are set for each matter. (gate G14_laneAccess, confirmed)
 
 ### Come back to it later
 
@@ -336,11 +336,11 @@ The section’s own notes, under the heading “Notes”, after “Who it is for
 
 #### 1. Email volume.
 
-Microsoft WorkLab, “Breaking down the infinite workday”, Work Trend Index Special Report, 17 June 2025: the average worker receives 117 emails a day, most of them skimmed in under a minute. The figure is a mean across aggregated and anonymised productivity signals from Microsoft’s workplace software, to 15 February 2025, excluding education and European Union customers. It is not specific to construction or legal work. (gate G13_collabStats, open)
+Microsoft WorkLab, “Breaking down the infinite workday”, Work Trend Index Special Report, 17 June 2025: the average worker receives 117 emails a day, most of them skimmed in under a minute. The figure is a mean across aggregated and anonymised productivity signals from Microsoft’s workplace software, to 15 February 2025, excluding education and European Union customers. It is not specific to construction or legal work. (gate G13_collabStats, confirmed)
 
 #### 2. One round by email: a modelled example.
 
-A modelled example, not a measurement. (1) The contractor’s commercial manager emails the document to the solicitor, copying the supervising partner: two deliveries. (2) The solicitor forwards it to counsel, copying the partner: two. (3) The solicitor forwards it to both experts, copying the partner: three. (4) Counsel replies to the solicitor and the partner: two. (5) One expert replies to all: three. (6) The solicitor reports back to the commercial manager, copying the partner: two. That is six emails and fourteen inbox deliveries, with the document in five inboxes. In VeriCase the same round is one thread on the record, with nothing attached; VeriCase may still notify people by email. (gate G13_collabStats, open)
+A modelled example, not a measurement. (1) The contractor’s commercial manager emails the document to the solicitor, copying the supervising partner: two deliveries. (2) The solicitor forwards it to counsel, copying the partner: two. (3) The solicitor forwards it to both experts, copying the partner: three. (4) Counsel replies to the solicitor and the partner: two. (5) One expert replies to all: three. (6) The solicitor reports back to the commercial manager, copying the partner: two. That is six emails and fourteen inbox deliveries, with the document in five inboxes. In VeriCase the same round is one thread on the record, with nothing attached; VeriCase may still notify people by email. (gate G13_collabStats, confirmed)
 
 #### 3. Professional time: a modelled cost.
 
@@ -354,7 +354,7 @@ There is no official guideline hourly rate for barristers, so counsel’s rate i
 
 The experts’ rate is the average hourly rate for report writing reported by expert witnesses working in the civil courts, across all disciplines, in the Bond Solon Expert Witness Survey 2025 (published 07 November 2025; 525 respondents). It is not specific to delay or quantum experts.
 
-The minutes, the numbers of rounds, the overhead and the working week are our assumptions; the rates are as checked on 06 October 2026. Much of the time in a round is reading and replying, which takes place wherever the discussion is held. The cost in any matter depends on its volume of correspondence and the rates paid. (gate G13_collabStats, open)
+The minutes, the numbers of rounds, the overhead and the working week are our assumptions; the rates are as checked on 06 October 2026. Much of the time in a round is reading and replying, which takes place wherever the discussion is held. The cost in any matter depends on its volume of correspondence and the rates paid. (gate G13_collabStats, confirmed)
 
 ## The project took years. Your response cannot.
 
