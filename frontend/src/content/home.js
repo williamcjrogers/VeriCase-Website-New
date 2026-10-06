@@ -48,12 +48,26 @@ export const HEADER = {
 };
 
 export const COVER = {
-  masthead: ['Records,', 'records,', 'records.'],
+  // The motto beside the heading (owner, 06 October 2026): "Records," and "records," then, where a
+  // third "records" is expected, "VeriCase.", with the line typed patiently beneath it. It adapts
+  // Abrahamson's three lessons, whose wording and source are checked in
+  // docs/source-check-2026-09-25.md (item 10).
+  motto: {
+    // Set in italic within quotation marks (owner, 06 October 2026).
+    open: '“',
+    words: ['Records,', 'records,'],
+    brand: 'VeriCase.',
+    close: '”',
+    line: 'Making Time Your Ally',
+    whole: '“Records, records, VeriCase.” Making Time Your Ally.',
+    attribution: 'Adapted from Max W. Abrahamson’s three lessons for a party to a dispute.',
+    toPassage: 'Read the passage',
+  },
   eyebrow: "Construction claims and disputes",
   h1: "Evidence in order. Arguments on the record.",
   h1Lead: "Evidence in order.",
   h1Emphasis: "Arguments on the record.",
-  subhead: "Investigate the record, test competing accounts and develop your claim or response, with the evidence beside you.",
+  subhead: "The importance of records is often learnt too late. VeriCase puts yours in order in time to test the competing accounts and develop your claim or response, with the evidence beside you.",
   practitionerProof: "Founded by construction claims and dispute resolution practitioners.",
   audience: "For construction claims and commercial teams, working with solicitors, counsel and experts.",
   fastPath: "Explore how it works",
@@ -449,6 +463,25 @@ export const INTEGRITY = {
   fig9Caption: 'Fig. 9. The hash check runs on fictional text. See note A.',
   fig10Caption: 'Fig. 10. The entries shown are an extract from a bundle manifest for the sample matter. See note A.',
   fig11Caption: 'Fig. 11. The diagram shows where VeriCase sits. See note A.',
+};
+
+// The passage the motto adapts, in full, under the opening (owner, 06 October 2026: "it's the very
+// grounds that VeriCase was built on"). Both sentences are checked word for word against the 1975
+// and 1979 editions (docs/source-check-2026-09-25.md, item 10 and its addendum); the passage is
+// confirmed from 1975, and the book was first published in 1965. The emphasis is VeriCase's.
+export const LESSONS = {
+  kicker: 'Why VeriCase exists',
+  intro: ['As Max W. Abrahamson observed in ', 'Engineering Law and the I.C.E. Contracts', ' (first published in 1965):'],
+  quote: [
+    'A party to a dispute, particularly if there is arbitration, will learn three lessons (often too late): the importance of records, the importance of records and the importance of records. It is impossible to exaggerate the extent to which lawyers can find unexpected grounds, often quite real, on which to cast doubt on evidence if it is not backed by ',
+    'meticulously established records',
+    '.',
+  ],
+  emphasis: '[Emphasis added]',
+  close: [
+    'Those words have been in print for half a century, yet the industry has still to learn the three lessons.',
+    'They are the very grounds on which VeriCase was built.',
+  ],
 };
 
 export const IN_BRIEF = {

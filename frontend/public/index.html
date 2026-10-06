@@ -71,6 +71,8 @@
                 setTimeout(ready, 1000);
             })(document);
         </script>
+        <!-- Without scripts "fonts-ready" is never set, so the hero motto would wait unplayed: show it whole. -->
+        <noscript><style>.hero-motto *, .hero-motto *::before, .hero-motto *::after { animation: none !important; }</style></noscript>
     </head>
     <body>
         <noscript>The demonstrations on this site need JavaScript. The text, notes and links work without it.</noscript>

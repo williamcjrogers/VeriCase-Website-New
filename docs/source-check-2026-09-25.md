@@ -211,6 +211,14 @@ Caveats. The page images are lending-restricted, so the page numbers come from t
 
 Site. The site paraphrases the passage and introduces it with "After", with the footnote "After Max W. Abrahamson, *Engineering Law and the I.C.E. Contracts* (first published 1965)." That footnote is accurate and is not changed. If a pinpoint is wanted, check the printed page first, then use: "After Max W. Abrahamson, *Engineering Law and the I.C.E. Contracts* (4th edn, Applied Science Publishers 1979) p 443 (first published 1965)."
 
+Addendum, 06 October 2026: the sentence that follows. The VeriCase report quotes a second sentence after the passage. A full-text search of the Internet Archive (its `fts` search service, which returns matching snippets even for lending-restricted scans) finds it, word for word, in both the 3rd edition (1975, `engineeringlawic0000abra`) and the 4th edition (1979, `engineeringlawic0000abra_x7a6`), and in no other book:
+
+> "It is impossible to exaggerate the extent to which lawyers can find unexpected grounds, often quite real, on which to cast doubt on evidence if it is not backed by meticulously established records."
+
+In the 4th edition the next sentence begins "It must also be remembered that the". The same search shows the imprint of both editions ("© Max W. Abrahamson 1965, 1969, 1975" and "1965, 1969, 1975, 1979") and "First published in 1965"; no 1965 or 1969 scan is available, so it remains unestablished that the passage itself was in the first edition. Later works quoting the first sentence include Thomas, *Construction Contract Claims* (1993), Knowles, *150 Contractual Problems and their Solutions* (2005), Wilmot-Smith, *Construction Contracts: Law and Practice* (2010) and *McCann FitzGerald: Origins and 50 Years* (2016).
+
+Corrections for the report's version: "particularly if there is arbitration" (no "an"); the title is *Engineering Law and the I.C.E. Contracts* (plural); the quotation closes with the same mark it opens with; and "published in 1965" should read that the book was first published in 1965, the passage being confirmed from the 1975 edition.
+
 ## 11. Legal AI and evidence authorities
 
 **Status: confirmed, with two corrections.** None of these authorities is cited on the site at present.
