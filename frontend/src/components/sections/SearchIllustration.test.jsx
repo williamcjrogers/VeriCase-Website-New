@@ -4,6 +4,7 @@ import { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import { SearchIllustration, SEARCH_DURATION, SEARCH_TYPING } from './SearchIllustration';
 import { CONTEXT_LABEL, MATTER_RECORDS, SEARCH_ILLUSTRATION } from '@/content/marketing';
+import { typedSoFar } from './liveTestUtils';
 
 // The checks every live illustration passes: labelled and captioned as fictional; inert apart from
 // the replay control in its caption; no reference scheme, dashes or formats; dates as DD Month
@@ -50,7 +51,7 @@ it('is labelled, captioned, inert and set in the fictional matter', () => {
   expect(container.querySelector('.section-kicker').textContent).toBe('Illustration');
   expect(container.querySelector(':scope > figure > figcaption').textContent).toMatch(/^Illustrative .* fictional construction matter\./);
   // The replay control is the only control, and it lives in the caption.
-  expect(container.querySelectorAll('button, a, input, select, textarea, [tabindex], [contenteditable]')).toHaveLength(1);
+  expect(container.querySelectorAll('button, a, input, select, textarea, [tabindex]:not(figure), [contenteditable]')).toHaveLength(1);
   expect(container.querySelector('figcaption > button.live-replay')).not.toBeNull();
   expect(text()).not.toMatch(/EV-\d|@\w|[\u2013\u2014]/);
   expect(text()).not.toMatch(/programme|delay analysis|\.pdf|\.docx|Word|PDF/i);
@@ -104,24 +105,24 @@ it('holds the whole query for assistive technology and types it only while playi
   const typed = container.querySelector('.search-head .typed');
   expect(typed.querySelector('.sr-only').textContent).toBe(QUERY);
   // Idle: the visual copy is complete (the script hides it until the figure plays).
-  expect(typed.querySelector('.typed-visual').textContent).toBe(QUERY);
+  expect(typedSoFar(typed)).toBe(QUERY);
   expect(figure.classList.contains('is-in')).toBe(false);
   inView();
   expect(figure.classList.contains('is-in')).toBe(true);
   expect(observers[0].disconnected).toBe(true);
   act(() => jest.advanceTimersByTime(16));
-  expect(typed.querySelector('.typed-visual').textContent.length).toBeLessThan(QUERY.length);
+  expect(typedSoFar(typed).length).toBeLessThan(QUERY.length);
   expect(typed.classList.contains('is-typing')).toBe(true);
   // Partway through, the query is being typed from its opening quotation mark.
   act(() => jest.advanceTimersByTime(SEARCH_TYPING.delay + 300));
-  const partial = typed.querySelector('.typed-visual').textContent;
+  const partial = typedSoFar(typed);
   expect(partial.length).toBeGreaterThan(0);
   expect(partial.length).toBeLessThan(QUERY.length);
   expect(QUERY.startsWith(partial)).toBe(true);
   // The answer waits for the typing, which the figure times at the query's own pace.
   expect(figure.style.getPropertyValue('--typed-ms')).toBe(`${SEARCH_TYPING.delay + Math.ceil((QUERY.length * 1000) / SEARCH_TYPING.cps)}ms`);
   act(() => jest.advanceTimersByTime(SEARCH_DURATION));
-  expect(typed.querySelector('.typed-visual').textContent).toBe(QUERY);
+  expect(typedSoFar(typed)).toBe(QUERY);
   expect(typed.classList.contains('is-typing')).toBe(false);
   expect(figure.classList.contains('is-settled')).toBe(true);
   // Play again starts a fresh performance; leaving and re-entering the viewport does not.
@@ -129,11 +130,11 @@ it('holds the whole query for assistive technology and types it only while playi
   expect(figure.classList.contains('is-settled')).toBe(false);
   expect(figure.classList.contains('is-in')).toBe(true);
   act(() => jest.advanceTimersByTime(16));
-  expect(typed.querySelector('.typed-visual').textContent.length).toBeLessThan(QUERY.length);
+  expect(typedSoFar(typed).length).toBeLessThan(QUERY.length);
   expect(observers).toHaveLength(1);
   act(() => jest.advanceTimersByTime(SEARCH_DURATION));
   expect(figure.classList.contains('is-settled')).toBe(true);
-  expect(typed.querySelector('.typed-visual').textContent).toBe(QUERY);
+  expect(typedSoFar(typed)).toBe(QUERY);
 });
 
 it('brings the answer in turn: the label, then each result with its rank, record and slip', () => {

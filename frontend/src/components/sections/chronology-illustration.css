@@ -57,7 +57,7 @@
 /* Phones: the same three columns, closer together, with each document's icon above its name. The
    record's column never narrows below its widest date (measured in rem, so it grows with the text). */
 @container chronology (max-width: 26rem) {
-  .chronology-head, .chronology-flow { --chronology-cols: minmax(0, 1fr) 1.125rem minmax(7.25rem, 1.05fr); --chronology-gap: 0.25rem; }
+  .chronology-head, .chronology-flow { --chronology-cols: minmax(0, 1fr) 1.125rem minmax(min-content, 1.05fr); --chronology-gap: 0.25rem; }
   .chronology-record-label, .chronology-entry { padding-left: 0.75rem; }
   .chronology-doc { flex-direction: column; align-items: flex-start; gap: 0.25rem; padding: 0.5rem 0.375rem 0.5rem 0.5rem; }
   .chronology-doc-icon { width: 18px; height: 23px; }
@@ -93,7 +93,7 @@
    em so that they too follow the text size (gutters, padding and border included). */
 @supports not (container-type: inline-size) {
   @media (max-width: 31.125em) {
-    .chronology-head, .chronology-flow { --chronology-cols: minmax(0, 1fr) 1.125rem minmax(7.25rem, 1.05fr); --chronology-gap: 0.25rem; }
+    .chronology-head, .chronology-flow { --chronology-cols: minmax(0, 1fr) 1.125rem minmax(min-content, 1.05fr); --chronology-gap: 0.25rem; }
     .chronology-record-label, .chronology-entry { padding-left: 0.75rem; }
     .chronology-doc { flex-direction: column; align-items: flex-start; gap: 0.25rem; padding: 0.5rem 0.375rem 0.5rem 0.5rem; }
     .chronology-doc-icon { width: 18px; height: 23px; }

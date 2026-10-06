@@ -34,7 +34,7 @@ export const ReportIllustration = ({ id = 'report-illustration', play: shared })
       <p className="report-context"><span className="report-context-label">{CONTEXT_LABEL}</span> <span className="report-context-text">{E.context}</span></p>
       <div className="report-main">
         <div className="report-page on-paper" role="group" aria-label={E.pageName}>
-          <p className="report-title" data-appear style={at(TITLE)}>{E.reportTitle.replace(/type B/g, 'type\u00a0B')}</p>
+          <p className="report-title" data-appear style={at(TITLE)}>{keepDates(E.reportTitle)}</p>
           <p className="report-heading" data-appear style={at(HEADING)}>{E.heading}</p>
           {/* The citation is a source link in the report, not a control here: nothing to focus. */}
           <p className="report-para" data-appear style={at(PARAGRAPH)}>

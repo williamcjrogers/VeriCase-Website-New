@@ -72,6 +72,21 @@
   .report-table td + td { display: inline; font-size: 0.8125rem; color: var(--vc-graphite); }
   .report-table td:nth-child(2)::after { content: ', '; }
 }
+/* Browsers without container queries (iOS Safari 15) stack the table by the width of the page
+   instead: the page is 26rem wide at about 31.5em (gutters, padding and border included). */
+@supports not (container-type: inline-size) {
+  @media (max-width: 31.5em) {
+    .report-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .report-table, .report-table tbody, .report-table tr, .report-table td { display: block; }
+    .report-table caption { display: block; }
+    .report-table tbody tr { padding: 0.4375rem 0; border-top: 1px solid var(--vc-rule); }
+    .report-table tbody tr:last-child { border-bottom: 1px solid var(--vc-rule); }
+    .report-table td { padding: 0; border: 0; }
+    .report-table td:first-child { font-weight: 500; }
+    .report-table td + td { display: inline; font-size: 0.8125rem; color: var(--vc-graphite); }
+    .report-table td:nth-child(2)::after { content: ', '; }
+  }
+}
 
 /* Wide screens: the title column beside the page, its top level with the kicker and the caption
    across both beneath. */

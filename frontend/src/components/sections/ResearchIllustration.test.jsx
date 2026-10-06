@@ -1,7 +1,8 @@
 import { act } from 'react';
 import { createRoot } from 'react-dom/client';
-import { ResearchIllustration } from './ResearchIllustration';
+import { RESEARCH_DURATION, ResearchIllustration } from './ResearchIllustration';
 import { EVIDENCE_ILLUSTRATION, RESEARCH_ILLUSTRATION } from '@/content/marketing';
+import { typedSoFar } from './liveTestUtils';
 
 // The checks every live illustration passes: labelled and captioned as fictional; inert apart from
 // the replay control in its caption; no reference scheme, dashes or formats; dates as DD Month
@@ -43,7 +44,7 @@ it('is labelled, captioned, inert and set in the fictional matter', () => {
   expect(container.querySelector('.section-kicker').textContent).toBe('Illustration');
   expect(container.querySelector(':scope > figure > figcaption').textContent).toMatch(/^Illustrative .* fictional construction matter\./);
   // The replay control is the only control, and it lives in the caption.
-  expect(container.querySelectorAll('button, a, input, select, textarea, [tabindex], [contenteditable]')).toHaveLength(1);
+  expect(container.querySelectorAll('button, a, input, select, textarea, [tabindex]:not(figure), [contenteditable]')).toHaveLength(1);
   expect(container.querySelector('figcaption > button.live-replay')).not.toBeNull();
   expect(text()).not.toMatch(/EV-\d|@\w|[\u2013\u2014]/);
   expect(text()).not.toMatch(/programme|delay analysis|\.pdf|\.docx|Word|PDF/i);
@@ -60,27 +61,27 @@ it('holds the whole question for assistive technology and types it only while pl
   const typed = container.querySelector('.typed');
   expect(typed.querySelector('.sr-only').textContent).toBe(RESEARCH_ILLUSTRATION.question);
   // Idle: the visual copy is complete (the script hides it until the figure plays).
-  expect(typed.querySelector('.typed-visual').textContent).toBe(RESEARCH_ILLUSTRATION.question);
+  expect(typedSoFar(typed)).toBe(RESEARCH_ILLUSTRATION.question);
   expect(figure.classList.contains('is-in')).toBe(false);
   inView();
   expect(figure.classList.contains('is-in')).toBe(true);
   expect(observers[0].disconnected).toBe(true);
   act(() => jest.advanceTimersByTime(16));
-  expect(typed.querySelector('.typed-visual').textContent.length).toBeLessThan(RESEARCH_ILLUSTRATION.question.length);
+  expect(typedSoFar(typed).length).toBeLessThan(RESEARCH_ILLUSTRATION.question.length);
   expect(typed.classList.contains('is-typing')).toBe(true);
   // The findings wait for the typing: each has its turn.
   const parts = container.querySelectorAll('[data-appear]');
   expect(parts).toHaveLength(RESEARCH_ILLUSTRATION.findings.length + 2);
   expect(figure.style.getPropertyValue('--typed-ms')).toMatch(/^\d+ms$/);
-  act(() => jest.advanceTimersByTime(4600));
-  expect(typed.querySelector('.typed-visual').textContent).toBe(RESEARCH_ILLUSTRATION.question);
+  act(() => jest.advanceTimersByTime(RESEARCH_DURATION));
+  expect(typedSoFar(typed)).toBe(RESEARCH_ILLUSTRATION.question);
   expect(figure.classList.contains('is-settled')).toBe(true);
   // Play again starts a fresh performance; leaving and re-entering the viewport does not.
   act(() => container.querySelector('.live-replay').click());
   expect(figure.classList.contains('is-settled')).toBe(false);
   expect(figure.classList.contains('is-in')).toBe(true);
   act(() => jest.advanceTimersByTime(16));
-  expect(typed.querySelector('.typed-visual').textContent.length).toBeLessThan(RESEARCH_ILLUSTRATION.question.length);
+  expect(typedSoFar(typed).length).toBeLessThan(RESEARCH_ILLUSTRATION.question.length);
   expect(observers).toHaveLength(1);
 });
 
@@ -88,7 +89,7 @@ it('shares one performance between its two copies', () => {
   jest.useFakeTimers();
   const { useIllustrationPlay } = require('./illustrationKit');
   const Pair = () => {
-    const play = useIllustrationPlay({ duration: 4600 });
+    const play = useIllustrationPlay({ duration: RESEARCH_DURATION });
     return <><ResearchIllustration play={play} /><ResearchIllustration id="research-illustration-phone" play={play} /></>;
   };
   act(() => root.render(<Pair />));
@@ -96,9 +97,23 @@ it('shares one performance between its two copies', () => {
   inView(observers[0]);
   expect(first.classList.contains('is-in')).toBe(true);
   expect(second.classList.contains('is-in')).toBe(true);
-  act(() => jest.advanceTimersByTime(4600));
+  act(() => jest.advanceTimersByTime(RESEARCH_DURATION));
   inView(observers[1]);
   for (const figure of [first, second]) expect(figure.classList.contains('is-settled')).toBe(true);
   const ids = [...container.querySelectorAll('[id]')].map((el) => el.id);
   expect(new Set(ids).size).toBe(ids.length);
+});
+
+it('lasts as long as its sequence, and no longer', () => {
+  // The kit's rhythm, read from its stylesheet: the wait after typing and the turn of each part.
+  const kit = require('fs').readFileSync(require('path').join(__dirname, 'live-figure.css'), 'utf8');
+  const after = Number(kit.match(/--after:\s*(\d+)ms/)[1]);
+  const step = Number(kit.match(/--step:\s*(\d+)ms/)[1]);
+  act(() => root.render(<ResearchIllustration />));
+  const typing = parseInt(container.querySelector('figure').style.getPropertyValue('--typed-ms'), 10);
+  expect(typing).toBe(240 + Math.ceil((RESEARCH_ILLUSTRATION.question.length * 1000) / 34));
+  // The last part to appear (what was not found) starts in its turn and settles 420 later.
+  const last = Math.max(...[...container.querySelectorAll('[data-appear]')].map((part) => Number(part.style.getPropertyValue('--i'))));
+  expect(last).toBe(RESEARCH_ILLUSTRATION.findings.length + 1);
+  expect(RESEARCH_DURATION).toBe(typing + after + last * step + 420 + 300);
 });

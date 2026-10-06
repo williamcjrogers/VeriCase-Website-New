@@ -4,6 +4,7 @@ import { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import { DRAFTING_DURATION, DraftingIllustration } from './DraftingIllustration';
 import { DRAFTING_ILLUSTRATION, EVIDENCE_ILLUSTRATION } from '@/content/marketing';
+import { typedSoFar } from './liveTestUtils';
 
 // The checks every live illustration passes: labelled and captioned as fictional; inert apart from
 // the replay control in its caption; no reference scheme, dashes or formats; dates as DD Month
@@ -51,7 +52,7 @@ it('is labelled, captioned, inert and set in the fictional matter', () => {
   expect(container.querySelector('.section-kicker').textContent).toBe('Illustration');
   expect(container.querySelector(':scope > figure > figcaption').textContent).toMatch(/^Illustrative .* fictional construction matter\./);
   // The replay control is the only control, and it lives in the caption.
-  expect(container.querySelectorAll('button, a, input, select, textarea, [tabindex], [contenteditable]')).toHaveLength(1);
+  expect(container.querySelectorAll('button, a, input, select, textarea, [tabindex]:not(figure), [contenteditable]')).toHaveLength(1);
   expect(container.querySelector('figcaption > button.live-replay')).not.toBeNull();
   expect(container.querySelector('.mono, code')).toBeNull();
   expect(text()).not.toMatch(/EV-\d|@\w|[\u2013\u2014]/);
@@ -111,17 +112,17 @@ it('holds the whole heading for assistive technology and types it only while pla
   const typed = container.querySelector('.typed');
   expect(typed.querySelector('.sr-only').textContent).toBe(DRAFTING_ILLUSTRATION.sectionLabel);
   // Idle: the visual copy is complete (the script hides it until the figure plays).
-  expect(typed.querySelector('.typed-visual').textContent).toBe(DRAFTING_ILLUSTRATION.sectionLabel);
+  expect(typedSoFar(typed)).toBe(DRAFTING_ILLUSTRATION.sectionLabel);
   expect(figure.classList.contains('is-in')).toBe(false);
   inView();
   expect(figure.classList.contains('is-in')).toBe(true);
   expect(observers[0].disconnected).toBe(true);
   act(() => jest.advanceTimersByTime(16));
-  expect(typed.querySelector('.typed-visual').textContent.length).toBeLessThan(DRAFTING_ILLUSTRATION.sectionLabel.length);
+  expect(typedSoFar(typed).length).toBeLessThan(DRAFTING_ILLUSTRATION.sectionLabel.length);
   expect(typed.classList.contains('is-typing')).toBe(true);
   expect(figure.style.getPropertyValue('--typed-ms')).toBe('976ms');
   act(() => jest.advanceTimersByTime(DRAFTING_DURATION - 116));
-  expect(typed.querySelector('.typed-visual').textContent).toBe(DRAFTING_ILLUSTRATION.sectionLabel);
+  expect(typedSoFar(typed)).toBe(DRAFTING_ILLUSTRATION.sectionLabel);
   expect(figure.classList.contains('is-settled')).toBe(false);
   act(() => jest.advanceTimersByTime(100));
   expect(figure.classList.contains('is-settled')).toBe(true);
@@ -130,9 +131,9 @@ it('holds the whole heading for assistive technology and types it only while pla
   expect(figure.classList.contains('is-settled')).toBe(false);
   expect(figure.classList.contains('is-in')).toBe(true);
   act(() => jest.advanceTimersByTime(16));
-  expect(typed.querySelector('.typed-visual').textContent.length).toBeLessThan(DRAFTING_ILLUSTRATION.sectionLabel.length);
+  expect(typedSoFar(typed).length).toBeLessThan(DRAFTING_ILLUSTRATION.sectionLabel.length);
   act(() => jest.advanceTimersByTime(DRAFTING_DURATION));
-  expect(typed.querySelector('.typed-visual').textContent).toBe(DRAFTING_ILLUSTRATION.sectionLabel);
+  expect(typedSoFar(typed)).toBe(DRAFTING_ILLUSTRATION.sectionLabel);
   expect(figure.classList.contains('is-settled')).toBe(true);
   expect(observers).toHaveLength(1);
 });

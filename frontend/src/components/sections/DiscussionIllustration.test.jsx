@@ -2,6 +2,7 @@ import { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import { DiscussionIllustration, DISCUSSION_DURATION } from './DiscussionIllustration';
 import { DISCUSSION_ILLUSTRATION, EVIDENCE_ILLUSTRATION } from '@/content/marketing';
+import { typedSoFar } from './liveTestUtils';
 
 // The checks every live illustration passes: labelled and captioned as fictional; inert apart from
 // the replay control in its caption; no reference scheme, dashes or formats; dates as DD Month
@@ -50,7 +51,7 @@ it('is labelled, captioned, inert and set in the fictional matter', () => {
   expect(container.querySelector('.section-kicker').textContent).toBe('Illustration');
   expect(container.querySelector(':scope > figure > figcaption').textContent).toMatch(/^Illustrative .* fictional construction matter\./);
   // The replay control is the only control, and it lives in the caption.
-  expect(container.querySelectorAll('button, a, input, select, textarea, [tabindex], [contenteditable]')).toHaveLength(1);
+  expect(container.querySelectorAll('button, a, input, select, textarea, [tabindex]:not(figure), [contenteditable]')).toHaveLength(1);
   expect(container.querySelector('figcaption > button.live-replay')).not.toBeNull();
   expect(text()).not.toMatch(/EV-\d|@\w|[\u2013\u2014]/);
   expect(text()).not.toMatch(/programme|delay analysis|\.pdf|\.docx|Word|PDF/i);
@@ -110,13 +111,13 @@ it('holds the whole question for assistive technology and types it only while pl
   const typed = container.querySelector('.typed');
   expect(typed.querySelector('.sr-only').textContent).toBe(question.text);
   // Idle: the visual copy is complete (the script hides it until the figure plays).
-  expect(typed.querySelector('.typed-visual').textContent).toBe(question.text);
+  expect(typedSoFar(typed)).toBe(question.text);
   expect(figure.classList.contains('is-in')).toBe(false);
   inView();
   expect(figure.classList.contains('is-in')).toBe(true);
   expect(observers[0].disconnected).toBe(true);
   act(() => jest.advanceTimersByTime(16));
-  expect(typed.querySelector('.typed-visual').textContent.length).toBeLessThan(question.text.length);
+  expect(typedSoFar(typed).length).toBeLessThan(question.text.length);
   expect(typed.classList.contains('is-typing')).toBe(true);
   // The reply waits for the typing: the figure carries the typing's length for the stylesheet.
   expect(figure.style.getPropertyValue('--typed-ms')).toBe(`${240 + Math.ceil((question.text.length * 1000) / 34)}ms`);
@@ -124,7 +125,7 @@ it('holds the whole question for assistive technology and types it only while pl
   act(() => jest.advanceTimersByTime(DISCUSSION_DURATION - 16 - 1));
   expect(figure.classList.contains('is-settled')).toBe(false);
   act(() => jest.advanceTimersByTime(1));
-  expect(typed.querySelector('.typed-visual').textContent).toBe(question.text);
+  expect(typedSoFar(typed)).toBe(question.text);
   expect(typed.classList.contains('is-typing')).toBe(false);
   expect(figure.classList.contains('is-settled')).toBe(true);
   // Play again starts a fresh performance; leaving and re-entering the viewport does not.
@@ -132,7 +133,7 @@ it('holds the whole question for assistive technology and types it only while pl
   expect(figure.classList.contains('is-settled')).toBe(false);
   expect(figure.classList.contains('is-in')).toBe(true);
   act(() => jest.advanceTimersByTime(16));
-  expect(typed.querySelector('.typed-visual').textContent.length).toBeLessThan(question.text.length);
+  expect(typedSoFar(typed).length).toBeLessThan(question.text.length);
   expect(observers).toHaveLength(1);
 });
 

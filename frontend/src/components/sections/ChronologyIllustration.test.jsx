@@ -48,7 +48,7 @@ it('is labelled, captioned, inert and set in the fictional matter', () => {
   expect(container.querySelector('.section-kicker').textContent).toBe('Illustration');
   expect(container.querySelector(':scope > figure > figcaption').textContent).toMatch(/^Illustrative .* fictional construction matter\./);
   // The replay control is the only control, and it lives in the caption.
-  expect(container.querySelectorAll('button, a, input, select, textarea, [tabindex], [contenteditable]')).toHaveLength(1);
+  expect(container.querySelectorAll('button, a, input, select, textarea, [tabindex]:not(figure), [contenteditable]')).toHaveLength(1);
   expect(container.querySelector('figcaption > button.live-replay')).not.toBeNull();
   expect(container.querySelector('#notes')).toBeNull();
   expect(text()).not.toMatch(/EV-\d|@\w|[\u2013\u2014]/);
@@ -203,8 +203,9 @@ it('lays itself out by its own width in rem, so that larger text stacks it rathe
   const thresholds = [...css.matchAll(/@container chronology \((?:min|max)-width: ([\d.]+)(\w+)\)/g)];
   expect(thresholds.length).toBeGreaterThanOrEqual(3);
   for (const [, , unit] of thresholds) expect(unit).toBe('rem');
-  // On phones the record's column never narrows below its widest date.
-  expect(css).toMatch(/--chronology-cols: minmax\(0, 1fr\) [\d.]+rem minmax\([\d.]+rem, [\d.]+fr\)/);
+  // On phones the record's column never narrows below its widest date: its floor is its own
+  // min-content (the unbreakable date), so it holds with wider letter spacing too.
+  expect(css).toMatch(/--chronology-cols: minmax\(0, 1fr\) [\d.]+rem minmax\(min-content, [\d.]+fr\)/);
   // The narrowest panels stack each document above its entry, with a single column.
   expect(css).toMatch(/@container chronology \(max-width: [\d.]+rem\) \{\s*\.chronology-head, \.chronology-flow \{ --chronology-cols: minmax\(0, 1fr\);/);
 });

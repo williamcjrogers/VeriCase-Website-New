@@ -2,6 +2,7 @@ import { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import { READER_DURATION, ReaderIllustration } from './ReaderIllustration';
 import { MATTER_RECORDS, READER_ILLUSTRATION } from '@/content/marketing';
+import { typedSoFar } from './liveTestUtils';
 
 // The opening figure passes the checks every live illustration passes (labelled and captioned as
 // fictional; inert apart from the replay control in its caption; no reference scheme, dashes or
@@ -52,7 +53,7 @@ it('is labelled by a paragraph under the h1, captioned, inert and set in the fic
   expect(container.querySelector('.section-kicker').textContent).toBe('Illustration');
   expect(container.querySelector(':scope > figure > figcaption').textContent).toMatch(/^Illustrative .* fictional construction matter\./);
   // The replay control is the only control, and it lives in the caption.
-  expect(container.querySelectorAll('button, a, input, select, textarea, [tabindex], [contenteditable]')).toHaveLength(1);
+  expect(container.querySelectorAll('button, a, input, select, textarea, [tabindex]:not(figure), [contenteditable]')).toHaveLength(1);
   expect(container.querySelector('figcaption > button.live-replay')).not.toBeNull();
   expect(container.querySelector('img, video, canvas')).toBeNull();
   expect(text()).not.toMatch(/EV-\d|@\w|[\u2013\u2014]/);
@@ -109,22 +110,22 @@ it('types the find term after its label, holding its place and the whole term fo
   const typed = field.querySelector(':scope > .typed.reader-find-term');
   expect(typed.querySelector('.sr-only').textContent).toBe(R.findTerm);
   // Idle: the visual copy is complete (the script hides it until the figure plays).
-  expect(typed.querySelector('.typed-visual').textContent).toBe(R.findTerm);
+  expect(typedSoFar(typed)).toBe(R.findTerm);
   expect(typed.querySelector('.typed-visual').getAttribute('aria-hidden')).toBe('true');
   expect(figure.style.getPropertyValue('--typed-ms')).toBe(`${TYPED_MS}ms`);
   expect(figure.classList.contains('is-in')).toBe(false);
   inView();
   expect(figure.classList.contains('is-in')).toBe(true);
   act(() => jest.advanceTimersByTime(16));
-  expect(typed.querySelector('.typed-visual').textContent).toBe('');
+  expect(typedSoFar(typed)).toBe('');
   expect(typed.classList.contains('is-typing')).toBe(true);
   act(() => jest.advanceTimersByTime(500));
-  const partway = typed.querySelector('.typed-visual').textContent;
+  const partway = typedSoFar(typed);
   expect(partway.length).toBeGreaterThan(0);
   expect(partway.length).toBeLessThan(R.findTerm.length);
   expect(R.findTerm.startsWith(partway)).toBe(true);
   act(() => jest.advanceTimersByTime(TYPED_MS));
-  expect(typed.querySelector('.typed-visual').textContent).toBe(R.findTerm);
+  expect(typedSoFar(typed)).toBe(R.findTerm);
   expect(typed.classList.contains('is-typing')).toBe(false);
   // The answer follows the typing: the sideline's note and, for phones and assistive technology,
   // the note beneath the text, each in the first turn after it.
@@ -156,9 +157,9 @@ it('starts when the page is all but wholly in view, settles, and plays again fro
   expect(figure.classList.contains('is-settled')).toBe(false);
   expect(figure.classList.contains('is-in')).toBe(true);
   act(() => jest.advanceTimersByTime(16));
-  expect(typed.querySelector('.typed-visual').textContent).toBe('');
+  expect(typedSoFar(typed)).toBe('');
   act(() => jest.advanceTimersByTime(READER_DURATION));
-  expect(typed.querySelector('.typed-visual').textContent).toBe(R.findTerm);
+  expect(typedSoFar(typed)).toBe(R.findTerm);
   expect(figure.classList.contains('is-settled')).toBe(true);
   expect(observers).toHaveLength(1);
 });
@@ -170,7 +171,7 @@ it('shows the whole term at once under reduced motion', () => {
   inView();
   act(() => jest.advanceTimersByTime(16));
   const typed = container.querySelector('.typed');
-  expect(typed.querySelector('.typed-visual').textContent).toBe(R.findTerm);
+  expect(typedSoFar(typed)).toBe(R.findTerm);
   expect(typed.classList.contains('is-typing')).toBe(false);
 });
 

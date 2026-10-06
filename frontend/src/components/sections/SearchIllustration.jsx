@@ -1,5 +1,5 @@
 import { CONTEXT_LABEL, MATTER_RECORDS, SEARCH_ILLUSTRATION } from '@/content/marketing';
-import { LiveFigure, Typed, keepDates, useFigurePlay, useTypewriter } from './illustrationKit';
+import { LiveFigure, Typed, keepDates, typedMs, useFigurePlay } from './illustrationKit';
 import './search-illustration.css';
 
 // A matching passage and the document it comes from (product reference PR-02). The query is typed
@@ -23,7 +23,7 @@ export const SearchIllustration = ({ id = 'search-illustration', play: shared })
   const [ref, playClass, play] = useFigurePlay(shared, { duration: SEARCH_DURATION });
   const S = SEARCH_ILLUSTRATION;
   const query = `“${S.query}”`;
-  const { ms } = useTypewriter(query, play, SEARCH_TYPING);
+  const ms = typedMs(query, SEARCH_TYPING);
   return (
     <LiveFigure id={id} className="search-illustration" title={S.title} caption={S.caption} play={play} playClass={playClass} figureRef={ref} style={{ '--typed-ms': `${ms}ms` }}>
       <div className="search-head">

@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import { DISCUSSION_ILLUSTRATION, EVIDENCE_ILLUSTRATION } from '@/content/marketing';
-import { LiveFigure, Typed, keepDates, useFigurePlay, useTypewriter } from './illustrationKit';
+import { LiveFigure, Typed, keepDates, typedMs, useFigurePlay } from './illustrationKit';
 import './discussion-illustration.css';
 
 // Discussion: the record under discussion lies on the panel as paper from the start, its
@@ -31,7 +31,7 @@ export const DiscussionIllustration = ({ id = 'discussion-illustration', play: s
   const D = DISCUSSION_ILLUSTRATION;
   const record = EVIDENCE_ILLUSTRATION[D.recordIndex];
   const [question, reply] = D.comments;
-  const { ms } = useTypewriter(question.text, play);
+  const ms = typedMs(question.text);
   return (
     <LiveFigure id={id} className="discussion-illustration" title={D.title} caption={D.caption} play={play} playClass={playClass} figureRef={ref} style={{ '--typed-ms': `${ms}ms` }}>
       <div className="discussion-stage">

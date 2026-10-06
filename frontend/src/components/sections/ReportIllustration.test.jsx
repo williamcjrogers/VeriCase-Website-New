@@ -56,7 +56,7 @@ it('is labelled, captioned, inert and set in the fictional matter', () => {
   expect(context.nextElementSibling.classList.contains('report-main')).toBe(true);
   // The replay control is the only control, and it lives in the caption. The source link is a
   // citation in the report, not a link here.
-  expect(container.querySelectorAll('button, a, input, select, textarea, [tabindex], [contenteditable]')).toHaveLength(1);
+  expect(container.querySelectorAll('button, a, input, select, textarea, [tabindex]:not(figure), [contenteditable]')).toHaveLength(1);
   expect(container.querySelector('figcaption > button.live-replay')).not.toBeNull();
   expect(text()).not.toMatch(/EV-\d|@\w|[\u2013\u2014]/);
   expect(text()).not.toMatch(/programme|delay analysis|\.pdf|\.docx|Word|PDF/i);

@@ -1,6 +1,6 @@
 import { MATTER_RECORDS, READER_ILLUSTRATION } from '@/content/marketing';
 import { cn } from '@/lib/utils';
-import { LiveFigure, Typed, keepDates, useFigurePlay, useTypewriter } from './illustrationKit';
+import { LiveFigure, Typed, keepDates, typedMs, useFigurePlay } from './illustrationKit';
 import './reader-illustration.css';
 
 // The opening illustration: a document read beside its file record (product reference PR-03),
@@ -28,14 +28,14 @@ export const ReaderIllustration = ({ id = 'reader-illustration', play: shared })
   const [ref, playClass, play] = useFigurePlay(shared, { threshold: 0.95, duration: READER_DURATION });
   const R = READER_ILLUSTRATION;
   const selected = MATTER_RECORDS[R.selected];
-  const { ms } = useTypewriter(R.findTerm, play);
+  const ms = typedMs(R.findTerm);
   return (
     // A paragraph names the figure, not a heading: it sits directly under the h1 and takes its name from it.
     <LiveFigure id={id} className="reader-illustration" title={R.title} caption={R.caption} play={play} playClass={playClass} titleTag="p" style={{ '--typed-ms': `${ms}ms` }}>
       <div className="reader-plate on-paper">
         <div className="reader-records">
           <p className="reader-records-label" aria-hidden="true">{R.recordsLabel}</p>
-          <ol className="reader-list" aria-label={R.recordsName}>
+          <ol className="reader-list" role="list" aria-label={R.recordsName}>
             {MATTER_RECORDS.map((record, i) => (
               <li
                 key={record.document}

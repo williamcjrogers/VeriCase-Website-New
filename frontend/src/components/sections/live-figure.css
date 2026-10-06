@@ -3,11 +3,10 @@
    panel is the one place the page's own dark ground returns, so the figures stand apart from the
    parchment sections around them. */
 
-.evidence-figure.live-figure { --live-rule: rgb(191 155 88 / 0.32); background: var(--vc-ink); border-color: var(--live-rule); border-top-color: var(--vc-brass-400); color: var(--vc-parchment); }
+.live-figure { --live-rule: rgb(191 155 88 / 0.32); background: var(--vc-ink); border-color: var(--live-rule); border-top-color: var(--vc-brass-400); color: var(--vc-parchment); }
 .live-figure .section-kicker { color: var(--vc-brass-400); }
 .live-figure .evidence-figure-title { color: var(--vc-parchment); }
-/* Two classes: the parchment frame's caption rule in clarity.css loads later and would otherwise win. */
-.evidence-figure.live-figure > figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.25rem 1.5rem; border-top-color: var(--live-rule); color: var(--vc-parchment-300); }
+.live-figure > figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.25rem 1.5rem; border-top-color: var(--live-rule); color: var(--vc-parchment-300); }
 .live-figure .text-graphite { color: var(--vc-parchment-300); }
 /* Paper on the panel: records, slips, pages and replies keep the page's paper roles. */
 .live-figure .on-paper { background: var(--vc-paper); color: var(--vc-ink); border: 1px solid var(--vc-rule); }
@@ -24,10 +23,14 @@
 .typed.live-prompt-line { display: grid; }
 .typed > .typed-whole, .typed > .typed-visual { grid-area: 1 / 1; white-space: pre-wrap; }
 .typed > .typed-whole { position: static; width: auto; height: auto; margin: 0; padding: 0; overflow: visible; clip: auto; opacity: 0; pointer-events: none; user-select: none; }
-.typed-caret { display: inline-block; width: 2px; height: 1em; margin-left: 1px; vertical-align: -0.12em; background: var(--vc-brass-400); opacity: 0; }
-.typed.is-typing > .typed-visual > .typed-caret { opacity: 1; }
+/* The caret: a shadow on the right edge of the typed part, shown only while it is typed. It takes
+   no space and adds no place to break the line, so the typed copy wraps exactly as the whole line
+   does. The untyped rest holds its place unseen. */
+.typed { --caret: var(--vc-brass-400); }
+.typed.is-typing > .typed-visual > .typed-done { box-shadow: 2px 0 0 var(--caret); }
+.typed-rest { visibility: hidden; }
 /* On paper the caret is ink. */
-.live-figure .on-paper .typed-caret { background: var(--vc-ink); }
+.live-figure .on-paper .typed { --caret: var(--vc-ink); }
 .live-output { margin-top: 1.5rem; }
 .live-output-label { margin-bottom: 0.75rem; }
 /* A label set as a heading keeps its brass: the panel's .on-ink heading rule would otherwise make it parchment. */
@@ -36,7 +39,7 @@
 /* The answer appears in sequence once the typing ends: each part waits for --typed-ms (set by
    the figure), then --after, then its own turn (--i times --step). */
 .live-figure [data-appear] { --after: 320ms; --step: 380ms; }
-.live-replay { min-height: 44px; padding: 0 0.25rem; font-size: 0.8125rem; font-weight: 500; color: var(--vc-brass-400); text-decoration: underline; text-underline-offset: 4px; }
+.live-replay { min-height: 44px; padding: 0 0.25rem; margin-inline: -0.25rem; font-size: 0.8125rem; font-weight: 500; color: var(--vc-brass-400); text-decoration: underline; text-underline-offset: 4px; }
 .live-replay:hover { color: var(--vc-parchment); }
 .live-figure:not(.is-settled) .live-replay { display: none; }
 /* While the figure plays, the control's place is held, unseen and unread, so that the caption and
@@ -52,10 +55,11 @@
 }
 @media (prefers-reduced-motion: reduce) { .live-replay { display: none; } }
 @media print {
-  .evidence-figure.live-figure { background: none; color: var(--vc-ink); border-color: var(--vc-rule); }
-  .live-figure .section-kicker, .live-prompt-label, .live-output-label { color: var(--vc-brass-700); }
+  .live-figure { background: none; color: var(--vc-ink); border-color: var(--vc-rule); border-top-color: var(--vc-brass-400); }
+  .live-figure .section-kicker { color: var(--vc-brass-700); }
   .live-figure .evidence-figure-title, .live-prompt-line { color: var(--vc-ink); }
-  .evidence-figure.live-figure > figcaption, .live-figure .text-graphite { color: var(--vc-graphite); }
+  .live-figure > figcaption { border-top-color: var(--vc-rule); }
+  .live-figure > figcaption, .live-figure .text-graphite { color: var(--vc-graphite); }
   .live-replay { display: none; }
   .live-figure *, .live-figure *::before, .live-figure *::after { animation: none !important; }
   /* A figure printed at any moment shows its end state: everything that appears in turn, and

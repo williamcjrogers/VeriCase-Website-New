@@ -1,5 +1,5 @@
 import { DRAFTING_ILLUSTRATION, EVIDENCE_ILLUSTRATION } from '@/content/marketing';
-import { LiveFigure, Typed, keepDates, useFigurePlay, useTypewriter } from './illustrationKit';
+import { LiveFigure, Typed, keepDates, typedMs, useFigurePlay } from './illustrationKit';
 import './drafting-illustration.css';
 
 // Drafting: the section heading is typed in front of the reader; a blank page then lies on the
@@ -23,7 +23,7 @@ const turn = (k) => k + 1;
 export const DraftingIllustration = ({ id = 'drafting-illustration', play: shared }) => {
   const [ref, playClass, play] = useFigurePlay(shared, { duration: DRAFTING_DURATION });
   const D = DRAFTING_ILLUSTRATION;
-  const { ms } = useTypewriter(D.sectionLabel, play);
+  const ms = typedMs(D.sectionLabel);
   return (
     <LiveFigure id={id} className="drafting-illustration" title={D.title} caption={D.caption} play={play} playClass={playClass} figureRef={ref} style={{ '--typed-ms': `${ms}ms` }}>
       <p className="live-prompt">

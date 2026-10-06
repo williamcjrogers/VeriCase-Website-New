@@ -11,7 +11,7 @@ export const TIME_ADVANTAGE = {
 export const EVIDENCE_ILLUSTRATION = [
   { id: 'EV-0131', date: '03 March 2025', isoDate: '2025-03-03', document: 'Instruction', title: 'Change instructed', excerpt: 'Please proceed with bracket type B. This is an instruction requiring a Change.' },
   { id: 'EV-0138', date: '12 March 2025', isoDate: '2025-03-12', document: 'Lead-time email', title: 'Lead time given', excerpt: 'Stainless brackets are ten weeks from order.' },
-  { id: 'EV-0147', date: '26 March 2025', isoDate: '2025-03-26', document: 'Delivery confirmation', title: 'Delivery date confirmed', excerpt: 'Supplier confirms delivery week commencing 19 May 2025.' },
+  { id: 'EV-0147', date: '26 March 2025', isoDate: '2025-03-26', document: 'Delivery confirmation', title: 'Delivery confirmed', excerpt: 'Supplier confirms delivery week commencing 19 May 2025.' },
 ];
 
 // The two illustrations draw on the records above. They depict outcomes (records read in date
@@ -64,7 +64,7 @@ export const REBUTTAL_ILLUSTRATION = {
   // Indexes into EVIDENCE_ILLUSTRATION, each with how it bears on the assertion.
   records: [
     { index: 1, relation: 'Challenges the assertion.' },
-    { index: 2, relation: 'Consistent with the date given.' },
+    { index: 2, relation: 'Consistent with the date alleged.' },
   ],
   replyLabel: 'Proposed reply, for review',
   // The reply cites its record as the argument illustration does: "(document)." after the point.
@@ -155,7 +155,7 @@ export const SEARCH_ILLUSTRATION = {
   // Strongest match first. Each passage is quoted from a record in MATTER_RECORDS.
   results: [
     { record: 3, before: 'Stainless brackets are ', match: 'ten weeks', after: ' from order.' },
-    { record: 4, before: 'Supplier lead time for bracket type B noted as ', match: 'ten weeks', after: ' from order; order date to be confirmed.' },
+    { record: 4, before: 'Supplier lead time for bracket type B noted as ', match: 'ten weeks', after: ' from order; order placed, date of order to be confirmed.' },
   ],
   caption: 'Illustrative search from a fictional construction matter.',
 };
@@ -175,7 +175,7 @@ export const REPORT_ILLUSTRATION = {
   tableCaption: 'Table 1. Events and their records',
   columns: ['Event', 'Record', 'Date'],
   // One row for each EVIDENCE_ILLUSTRATION record, in the same order.
-  rows: ['Change instructed', 'Lead time given', 'Delivery date confirmed'],
+  rows: ['Change instructed', 'Lead time given', 'Delivery confirmed'],
   folio: 'Page 1 of 1',
   caption: 'Illustrative report from a fictional construction matter.',
 };

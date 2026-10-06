@@ -28,7 +28,7 @@
 
 /* The answer. The ranking's label carries a brass rule, drawn beneath it as the answer begins. */
 .search-main { container: search-results / inline-size; }
-.live-figure .search-rank { position: relative; margin: 0; padding-bottom: 0.625rem; }
+.live-figure .search-rank { position: relative; margin: 0; padding-bottom: 0.625rem; line-height: 1.65; }
 .search-rank::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--search-rule); transform-origin: left; }
 .search-results { list-style: none; margin: 0; padding: 0; }
 /* Each result: its rank and record on one line, the slip beneath; from 34rem up the three stand in

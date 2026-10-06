@@ -37,13 +37,16 @@ export function useFigurePlay(shared, { threshold = 0.6, duration = 2500 } = {})
   return [ref, cn(play.state !== 'idle' && 'is-in', play.state === 'settled' && 'is-settled'), play];
 }
 
+// How long `text` takes to type, for the sequence that follows it (the figure sets --typed-ms).
+export const typedMs = (text, { cps = 34, delay = 240 } = {}) => delay + Math.ceil((text.length * 1000) / cps);
+
 // Types `text` in front of the reader while the figure plays. Idle and settled figures hold the
 // whole text, so the prerendered page and pages without the script are complete; before the
 // figure plays, the script hides the typed copy (see live-figure.css). Returns how much of the text
-// to show and how long the typing takes, for the sequence that follows it.
+// to show and how long the typing takes.
 export function useTypewriter(text, play, { cps = 34, delay = 240 } = {}) {
   const [shown, setShown] = useState(text.length);
-  const ms = delay + Math.ceil((text.length * 1000) / cps);
+  const ms = typedMs(text, { cps, delay });
   const frame = useRef(0);
   useEffect(() => {
     if (play.state !== 'playing' || reducedMotion()) { setShown(text.length); return undefined; }
@@ -61,34 +64,59 @@ export function useTypewriter(text, play, { cps = 34, delay = 240 } = {}) {
 }
 
 // The typed line: the whole text, and the visual copy that is typed over it. The whole text is
-// read by assistive technology and, unseen, holds the finished line's place (with room for the
-// caret), so nothing around the line moves as it is typed; print shows it in place of the typed
-// copy (live-figure.css).
+// read by assistive technology; print shows it in place of the typed copy (live-figure.css). The
+// visual copy always holds the whole text too, the untyped rest unseen, so both copies wrap alike
+// and a word being typed never hops to the next line. The caret is a shadow on the typed part's
+// edge: an element of its own between the letters, even an empty one, changes where the browser
+// breaks the line.
 export const Typed = ({ text, play, className, cps, delay }) => {
   const { shown, typing } = useTypewriter(text, play, { cps, delay });
   return (
     <span className={cn('typed', typing && 'is-typing', className)}>
-      <span className="sr-only typed-whole">{text}<span className="typed-caret" /></span>
-      <span className="typed-visual" aria-hidden="true">{text.slice(0, shown)}<span className="typed-caret" /></span>
+      <span className="sr-only typed-whole">{text}</span>
+      <span className="typed-visual" aria-hidden="true"><span className="typed-done">{text.slice(0, shown)}</span>{shown < text.length && <span className="typed-rest">{text.slice(shown)}</span>}</span>
     </span>
   );
 };
 
 // Shown once the performance has settled (and never under reduced motion): plays it again. Until
-// then its place is held, unseen and unread, so the caption does not move when it appears.
-export const Replay = ({ play, label = 'Play again' }) => (
-  <button type="button" className="live-replay" onClick={play.replay}>{label}</button>
-);
+// then its place is held, unseen and unread, so the caption does not move when it appears. A
+// hidden control cannot hold focus, so a replay started from the keyboard moves focus to the
+// figure while it plays and back to the control once it has settled.
+export const Replay = ({ play, label = 'Play again', describedBy }) => {
+  const button = useRef(null);
+  const returning = useRef(false);
+  const { state } = play;
+  useEffect(() => {
+    if (state !== 'settled' || !returning.current) return;
+    returning.current = false;
+    const figure = button.current && button.current.closest('figure');
+    if (figure && document.activeElement === figure) button.current.focus({ preventScroll: true });
+  }, [state]);
+  const replay = () => {
+    const figure = button.current && button.current.closest('figure');
+    if (figure && document.activeElement === button.current) {
+      returning.current = true;
+      figure.focus({ preventScroll: true });
+    }
+    play.replay();
+  };
+  return <button ref={button} type="button" className="live-replay" onClick={replay} aria-describedby={describedBy}>{label}</button>;
+};
 
 // The frame every live illustration shares: kicker, title, the stage, and a caption with the
-// replay control. `titleTag` is a paragraph for the opening figure, which sits under the h1.
+// replay control. `titleTag` is a paragraph for the opening figure, which sits under the h1. The
+// figure takes focus only from the replay control, while the performance it started plays.
 export const LiveFigure = ({ id, className, title, caption, play, playClass, figureRef, titleTag: Title = 'h3', style, children }) => (
-  <figure ref={figureRef} className={cn('evidence-figure live-figure on-ink', className, playClass)} aria-labelledby={`${id}-title`} style={style}>
+  <figure ref={figureRef} tabIndex={-1} className={cn('evidence-figure live-figure on-ink', className, playClass)} aria-labelledby={`${id}-title`} style={style}>
     <p className="section-kicker">Illustration</p>
     <Title id={`${id}-title`} className="evidence-figure-title font-display text-[1.625rem] leading-tight">{title}</Title>
     {children}
-    <figcaption><span>{caption}</span><Replay play={play} /></figcaption>
+    <figcaption><span>{caption}</span><Replay play={play} describedBy={`${id}-title`} /></figcaption>
   </figure>
 );
 
-export const keepDates = (text) => text.replace(/(\d{2}) ([A-Z][a-z]+) (\d{4})/g, '$1 $2 $3');
+// Dates and the bracket designation are never split across lines.
+export const keepDates = (text) => text
+  .replace(/(\d{2}) ([A-Z][a-z]+) (\d{4})/g, '$1\u00a0$2\u00a0$3')
+  .replace(/\btype B\b/g, 'type\u00a0B');

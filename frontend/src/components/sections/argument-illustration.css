@@ -44,7 +44,6 @@
 }
 @media print {
   .argument-page { font-size: 1.0625rem; }
-  .js .argument-illustration:not(.is-in) [data-appear] { opacity: 1; }
   .js .argument-illustration:not(.is-in) .argument-cite { background-size: 100% 100%; }
   .js .argument-illustration:not(.is-in) .argument-record::before { transform: none; }
 }

@@ -20,6 +20,10 @@
 /* What the record says to the assertion: stated on the ink beneath the slip, at the quotation's
    size, so it reads as the finding and not as a caption. */
 .rebuttal-relation { margin: 0.5rem 0 0 var(--rebuttal-inset); font-size: 1.0625rem; line-height: 1.5; color: var(--vc-parchment); }
+/* On phones the comment on a record is no larger than the quotation it comments on. */
+@media (max-width: 767px) {
+  .rebuttal-relation { font-size: 0.9375rem; line-height: 1.65; }
+}
 
 /* The reply: a sheet below both pages, set in Newsreader at the typed line's size. */
 .rebuttal-reply { margin-top: 1.75rem; }

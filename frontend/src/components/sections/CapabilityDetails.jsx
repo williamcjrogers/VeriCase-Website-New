@@ -26,7 +26,7 @@ export const CapabilityFeatures = ({ items, label, mobileLabel = 'Explore the to
 );
 
 export const RecordExplanation = () => {
-  // The in-place copy and the phone copy share one performance (see EvidenceIllustrations).
+  // The in-place copy and the phone copy share one performance (useIllustrationPlay, illustrationKit.jsx).
   const chronology = useIllustrationPlay({ duration: CHRONOLOGY_DURATION });
   return (
   <section id="chronology-lens" aria-labelledby="chronology-lens-title" className="clarity-section capability-explanation bg-paper">

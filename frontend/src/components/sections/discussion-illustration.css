@@ -92,6 +92,5 @@
 @media print {
   .discussion-illustration { --discussion-thread: var(--vc-brass-700); }
   .discussion-question .discussion-role { color: var(--vc-graphite); }
-  .js .discussion-illustration:not(.is-in) [data-appear] { opacity: 1; }
   .js .discussion-illustration:not(.is-in) .discussion-answer::before { clip-path: none; }
 }

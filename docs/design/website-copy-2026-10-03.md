@@ -41,16 +41,6 @@ Investigate the records that support a position and those that challenge it, wit
 
 Use drafting tools to work on the claim or response, with relevant evidence alongside the narrative.
 
-### Illustration: A claim section built from its records.
-
-Placement: after the drafting capabilities on tablet and desktop; at the end of “Explore drafting tools” on phones.
-
-Section heading (typed): Section 4. Bracket type B. Record. 4.1 The change to bracket type B was instructed. Instruction, 03 March 2025. 4.2 The lead time was ten weeks from order. Lead-time email, 12 March 2025. 4.3 Delivery was confirmed for the week commencing 19 May 2025. Delivery confirmation, 26 March 2025.
-
-Draft, for review before export.
-
-Caption: Illustrative claim section from a fictional construction matter.
-
 ## Follow the sequence.
 
 Bring project correspondence and documents into VeriCase, follow the chronology and examine the records behind it. Threading, quoted-text handling and relevance controls help you work through the material in context.
@@ -95,7 +85,7 @@ Record label: One record, in date order
 
 Documents: Instruction. Lead-time email. Delivery confirmation.
 
-Entries: 03 March 2025, Change instructed. 12 March 2025, Lead time given. 26 March 2025, Delivery date confirmed.
+Entries: 03 March 2025, Change instructed. 12 March 2025, Lead time given. 26 March 2025, Delivery confirmed.
 
 Caption: Illustrative chronology from a fictional construction matter.
 
@@ -147,7 +137,7 @@ Placement: inside “See an example”, which tablet and desktop show open.
 
 Opposing submission, paragraph 12: “The Contractor did not know the lead time for the brackets until 26 March 2025.”
 
-The record: “Stainless brackets are ten weeks from order.” Lead-time email, 12 March 2025. Challenges the assertion. “Supplier confirms delivery week commencing 19 May 2025.” Delivery confirmation, 26 March 2025. Consistent with the date given.
+The record: “Stainless brackets are ten weeks from order.” Lead-time email, 12 March 2025. Challenges the assertion. “Supplier confirms delivery week commencing 19 May 2025.” Delivery confirmation, 26 March 2025. Consistent with the date alleged.
 
 Proposed reply, for review: The Contractor was told the lead time on 12 March 2025, fourteen days before the date alleged (Lead-time email).
 
@@ -176,6 +166,20 @@ Investigate the records for the issue you are drafting. Select useful evidence a
 ### Prepare the document for sharing
 
 Examine the document and its source references before export or sharing, including any qualifications relevant to the submission.
+
+### Illustration: A claim section built from its records.
+
+Placement: after the drafting capabilities on tablet and desktop; at the end of “Explore drafting tools” on phones.
+
+Section heading (typed): Section 4. Bracket type B.
+
+Record (margin label).
+
+4.1 The change to bracket type B was instructed. Instruction, 03 March 2025. 4.2 The lead time was ten weeks from order. Lead-time email, 12 March 2025. 4.3 Delivery was confirmed for the week commencing 19 May 2025. Delivery confirmation, 26 March 2025.
+
+Draft, for review before export.
+
+Caption: Illustrative claim section from a fictional construction matter.
 
 Phone disclosure: Working with your team
 
@@ -434,7 +438,7 @@ Copy control: Copy email address
 
 ## Workspace illustrations
 
-Three illustrations stand where the application captures stood (owner, 05 October 2026). Each is labelled Illustration and uses the fictional matter’s records. Every illustration on the page is live (owner, later on 05 October 2026): the input is typed in front of the reader and the answer appears; each caption ends with the control “Play again”.
+Three illustrations stand where the application captures stood (owner, 05 October 2026). Each is labelled Illustration and uses the fictional matter’s records. Every illustration on the page is live (owner, later on 05 October 2026). Where the operation starts with something the user writes (a find term, a search term, a question, an opposing assertion taken from the submission, a section heading or a comment), that text is typed in front of the reader and the answer then appears; the chronology, the argument and the report have no typed input, and their answer appears in turn. Each caption ends with the control “Play again”.
 
 ### Illustration: The document beside its file record.
 
@@ -462,7 +466,7 @@ Searched for “ten weeks”. In context: The opposing submission says the lead 
 
 Lead-time email, Correspondence, 12 March 2025: “Stainless brackets are ten weeks from order.”
 
-Progress meeting minutes, Meetings, 20 March 2025: “Supplier lead time for bracket type B noted as ten weeks from order; order date to be confirmed.”
+Progress meeting minutes, Meetings, 20 March 2025: “Supplier lead time for bracket type B noted as ten weeks from order; order placed, date of order to be confirmed.”
 
 Caption: Illustrative search from a fictional construction matter.
 
@@ -472,7 +476,7 @@ Placement: after “A claim section built from its records.”, at every width.
 
 In context: A short note for the solicitor on when the lead time was first recorded.
 
-Bracket type B: the record. Lead time. The lead time of ten weeks from order was recorded on 12 March 2025 (Lead-time email). “Stainless brackets are ten weeks from order.” Lead-time email, 12 March 2025. Table 1. Events and their records: Change instructed, Instruction, 03 March 2025. Lead time given, Lead-time email, 12 March 2025. Delivery date confirmed, Delivery confirmation, 26 March 2025. Page 1 of 1.
+Bracket type B: the record. Lead time. The lead time of ten weeks from order was recorded on 12 March 2025 (Lead-time email). “Stainless brackets are ten weeks from order.” Lead-time email, 12 March 2025. Table 1. Events and their records: Change instructed, Instruction, 03 March 2025. Lead time given, Lead-time email, 12 March 2025. Delivery confirmed, Delivery confirmation, 26 March 2025. Page 1 of 1.
 
 Caption: Illustrative report from a fictional construction matter.
 

@@ -51,13 +51,12 @@
 .workspace-detail { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--vc-rule-strong); }
 .workspace-detail p { color: var(--vc-graphite); }
 
-.evidence-figure > figcaption { margin-top: 0.8rem; font-size: 0.8125rem; line-height: 1.6; color: var(--vc-graphite); max-width: 90ch; }
 
-/* Illustrations: the frame every figure of fictional records shares (a brass top rule, no shadow
-   or toolbar). The live figures set it on ink (live-figure.css); this block sets layout only. */
-.evidence-figure { min-width: 0; margin: 3rem 0 0; padding: clamp(1rem, 2.5vw, 2rem); background: var(--vc-parchment); border: 1px solid var(--vc-rule); border-top: 3px solid var(--vc-brass-400); }
+/* Illustrations: the frame every figure of fictional records shares (a top rule heavier than its
+   sides, no shadow or toolbar). This block sets layout only; live-figure.css sets the colours. */
+.evidence-figure { min-width: 0; margin: 3rem 0 0; padding: clamp(1rem, 2.5vw, 2rem); border-style: solid; border-width: 3px 1px 1px; }
 .evidence-figure .section-kicker { margin-bottom: 0.5rem; }
-.evidence-figure > figcaption { margin-top: 1.25rem; padding-top: 0.875rem; border-top: 1px solid var(--vc-rule); max-width: none; }
+.evidence-figure > figcaption { margin-top: 1.25rem; padding-top: 0.875rem; border-top-style: solid; border-top-width: 1px; font-size: 0.8125rem; line-height: 1.6; }
 
 /* A useful introduction, with every approved profile still available. */
 .clarity-team { display: grid; gap: 3rem; margin-top: 3rem; }
@@ -194,5 +193,4 @@
   .team-full-profile > :not(.team-summary-mobile) { display: block !important; }
   /* The illustrations print in their end state. */
   .evidence-figure { break-inside: avoid; }
-  .evidence-figure *, .evidence-figure *::before { animation: none !important; transition: none !important; }
 }

@@ -1,16 +1,21 @@
 import { EVIDENCE_ILLUSTRATION, RESEARCH_ILLUSTRATION } from '@/content/marketing';
-import { LiveFigure, Typed, keepDates, useFigurePlay, useTypewriter } from './illustrationKit';
+import { LiveFigure, Typed, keepDates, typedMs, useFigurePlay } from './illustrationKit';
 import './research-illustration.css';
 
 // Research: the question is typed in front of the reader; the findings then appear in turn, each
 // with the record behind it, and last the plain statement of what was not found. Two copies (in
 // place and in the phone disclosure) share one performance through `play`.
-export const RESEARCH_DURATION = 4600;
+//
+// The sequence, at the kit's rhythm (live-figure.css): the question types (the kit's 240, then 34
+// characters a second); after the kit's wait of 320 the label and the three findings take a turn
+// of 380 each, and the statement of what was not found starts in the fifth turn (4 x 380) and
+// settles 420 later; the duration adds 300.
+export const RESEARCH_DURATION = typedMs(RESEARCH_ILLUSTRATION.question) + 320 + 4 * 380 + 420 + 300;
 
 export const ResearchIllustration = ({ id = 'research-illustration', play: shared }) => {
   const [ref, playClass, play] = useFigurePlay(shared, { duration: RESEARCH_DURATION });
   const R = RESEARCH_ILLUSTRATION;
-  const { ms } = useTypewriter(R.question, play);
+  const ms = typedMs(R.question);
   return (
     <LiveFigure id={id} className="research-illustration" title={R.title} caption={R.caption} play={play} playClass={playClass} figureRef={ref} style={{ '--typed-ms': `${ms}ms` }}>
       <p className="live-prompt">
@@ -19,7 +24,7 @@ export const ResearchIllustration = ({ id = 'research-illustration', play: share
       </p>
       <div className="live-output">
         <h4 className="live-output-label" data-appear style={{ '--i': 0 }}>{R.findingsLabel}</h4>
-        <ol className="research-findings">
+        <ol className="research-findings" role="list">
           {R.findings.map((finding, i) => (
             <li key={EVIDENCE_ILLUSTRATION[i].id} className="on-paper" data-appear style={{ '--i': i + 1 }}>
               <p className="text-body">{keepDates(finding)}</p>

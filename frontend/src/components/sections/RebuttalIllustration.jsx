@@ -1,5 +1,5 @@
 import { EVIDENCE_ILLUSTRATION, REBUTTAL_ILLUSTRATION } from '@/content/marketing';
-import { LiveFigure, Typed, keepDates, useFigurePlay, useTypewriter } from './illustrationKit';
+import { LiveFigure, Typed, keepDates, typedMs, useFigurePlay } from './illustrationKit';
 import './rebuttal-illustration.css';
 
 // The opposing account: the assertion is typed in front of the reader, in quotation marks, on the
@@ -24,7 +24,7 @@ export const RebuttalIllustration = ({ id = 'rebuttal-illustration', play: share
   const [ref, playClass, play] = useFigurePlay(shared, { duration: REBUTTAL_DURATION });
   const R = REBUTTAL_ILLUSTRATION;
   const assertion = `“${keepDates(R.assertion)}”`;
-  const { ms } = useTypewriter(assertion, play);
+  const ms = typedMs(assertion);
   const replyTurn = turn(R.records.length);
   return (
     <LiveFigure id={id} className="rebuttal-illustration" title={R.title} caption={R.caption} play={play} playClass={playClass} figureRef={ref} style={{ '--typed-ms': `${ms}ms` }}>
