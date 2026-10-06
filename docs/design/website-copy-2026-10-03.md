@@ -32,11 +32,14 @@ Motto, opposite the heading from 1024 pixels on the same baseline as “Evidence
 
 *“Records, records, VeriCase.”*
 
-*Making Time Your Ally*
+*Making Time Your Ally,*
+*Not Your Enemy.*
+
+(Typed in two lines, in black. The owner wrote “Making Time Your Ally - Not Your Enemy.”; a comma stands in place of the dash, which the house style does not use.)
 
 Credit beneath it: Adapted from Max W. Abrahamson. [Read the passage](#lessons)
 
-It plays once from first paint: “Records,”, a one-second pause, “records,”, a one-second pause where a third “records” is expected, “VeriCase.”, a one-second pause, then “Making Time Your Ally” typed patiently with a brass caret, and the credit last. Reduced motion, print and pages without scripts show it whole; assistive technology reads “Records, records, VeriCase.” Making Time Your Ally. once.
+It plays once from first paint, in about seven and a half seconds: “Records,”, a one-second pause, “records,”, a one-second pause where a third “records” is expected, “VeriCase.”, a one-second pause, then the two lines typed briskly with a brass caret, and the credit last. Reduced motion, print and pages without scripts show it whole; assistive technology reads “Records, records, VeriCase.” Making Time Your Ally, Not Your Enemy. once.
 
 ## Why VeriCase exists
 

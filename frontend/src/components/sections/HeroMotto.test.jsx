@@ -26,20 +26,22 @@ test('the timeline keeps the owner\'s pauses: a second after each word, then the
   expect(PAUSES_MS).toEqual([1000, 1000, 1000]);
 });
 
-test('the line is typed patiently: one key at a time, never faster than ten a second', () => {
-  const times = keyTimes(motto.line);
-  expect(times).toHaveLength(motto.line.length);
+test('the two lines are typed briskly, one key at a time, with the longest beat between them', () => {
+  const typed = motto.lines.join('');
+  const times = keyTimes(motto.lines);
+  expect(times).toHaveLength(typed.length);
   expect(times[0]).toBe(TYPE_FROM);
-  times.slice(1).forEach((t, i) => expect(t - times[i]).toBeGreaterThanOrEqual(100));
-  // A longer pause before the last word than between any two letters of a word.
-  const last = motto.line.lastIndexOf(' ') + 1;
   const gaps = times.slice(1).map((t, i) => t - times[i]);
-  expect(gaps[last - 1]).toBe(Math.max(...gaps));
+  gaps.forEach((g) => expect(g).toBeGreaterThanOrEqual(50));
+  expect(gaps[motto.lines[0].length - 1]).toBe(Math.max(...gaps));
+  // The whole sequence, typing included, is over in under eight seconds.
+  expect(times[times.length - 1]).toBeLessThan(8000);
 });
 
 test('assistive technology reads the whole motto once; the copy that plays is hidden from it', () => {
   const el = html();
-  expect(motto.whole).toBe(`“${motto.words.join(' ')} ${motto.brand}” ${motto.line}.`);
+  expect(motto.whole).toBe(`“${motto.words.join(' ')} ${motto.brand}” ${motto.lines.join(' ')}`);
+  expect(motto.lines).toEqual(['Making Time Your Ally,', 'Not Your Enemy.']);
   expect(el.querySelector('.sr-only').textContent).toBe(motto.whole);
   const visual = el.querySelector('.hero-motto-visual');
   expect(visual.getAttribute('aria-hidden')).toBe('true');
@@ -48,7 +50,8 @@ test('assistive technology reads the whole motto once; the copy that plays is hi
   expect(visual.querySelector('.hero-motto-words').textContent).toBe(`“${motto.words.join(' ')} ${motto.brand}”`);
   expect(visual.querySelector('.motto-quote-open').textContent).toBe('“');
   const keys = [...visual.querySelectorAll('.motto-key')];
-  expect(keys.map((k) => k.textContent).join('')).toBe(motto.line);
+  expect(keys.map((k) => k.textContent).join('')).toBe(motto.lines.join(''));
+  expect([...visual.querySelectorAll('.hero-motto-line-row')].map((r) => r.textContent)).toEqual(motto.lines);
   expect(keys[0].getAttribute('style')).toContain(`--d:${TYPE_FROM}ms`);
 });
 
