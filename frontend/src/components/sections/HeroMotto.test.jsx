@@ -77,13 +77,16 @@ test('the passage follows the opening on the home page', () => {
   expect(page).toMatch(/<Hero \/>\s*<Lessons \/>\s*<InBrief \/>/);
 });
 
-test('the motto sits beside the heading, with the introduction after it', () => {
+test('the motto stands beside the heading with the demonstration action beneath it, and no lead paragraph', () => {
   const el = document.createElement('div');
   el.innerHTML = renderToString(<Hero />);
-  const side = el.querySelector('.hero-side');
+  const side = el.querySelector('.clarity-hero-grid > .hero-side');
   expect(side.firstElementChild.className).toBe('hero-motto');
   expect(side.lastElementChild.className).toBe('hero-introduction');
-  expect(el.querySelector('.clarity-hero-grid > div:first-child .section-kicker')).not.toBeNull();
+  expect(el.querySelector('.clarity-hero-grid > div:first-child > h1')).not.toBeNull();
+  // The kicker sits above both columns, so the motto starts level with the heading.
+  expect(el.querySelector('.container > .section-kicker + .clarity-hero-grid')).not.toBeNull();
+  expect(el.querySelector('.clarity-lead')).toBeNull();
 });
 
 test('the motion is CSS alone, only on screen when motion is welcome, and waits for the fonts', () => {

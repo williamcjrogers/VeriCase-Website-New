@@ -17,21 +17,24 @@
 .hero-audience { margin-top: 1.6rem; max-width: 44ch; color: var(--vc-graphite); font-size: 1rem; }
 .clarity-lead { font-size: 1.125rem; line-height: 1.65; max-width: 47ch; }
 .hero-introduction { padding-bottom: 0.2rem; }
-/* The motto (HeroMotto): opposite the kicker from 1024px, after the introduction below that. */
+/* The motto (HeroMotto): level with the heading's first line from 1024px, the demonstration
+   action beneath it. */
 .hero-side { display: flex; flex-direction: column; gap: 2.25rem; min-width: 0; }
-.hero-motto { order: 2; max-width: 30rem; }
+.hero-motto { max-width: 34rem; }
 .hero-motto-text { margin: 0; }
 .hero-motto-visual, .hero-motto-words { display: block; }
 /* The quoted line in display italic, its opening mark hung in the margin so the words align. */
-.hero-motto-words { font-size: clamp(1.75rem, 2.6vw, 2.375rem); font-style: italic; font-weight: 400; line-height: 1.12; letter-spacing: -0.015em; color: var(--vc-ink); }
+.hero-motto-words { font-size: clamp(2.25rem, 4vw, 3.75rem); font-style: italic; font-weight: 400; line-height: 1.04; letter-spacing: -0.015em; color: var(--vc-ink); }
 .motto-word { display: inline-block; }
 .motto-brand, .motto-quote { color: var(--vc-brass-700); }
 .motto-quote-open { margin-left: -0.36em; }
-.hero-motto-line { position: relative; display: block; margin-top: 0.5rem; font-size: clamp(1.1875rem, 1.5vw, 1.375rem); font-style: italic; line-height: 1.35; color: var(--vc-brass-700); }
+/* "VeriCase." takes the second line, beneath "Records, records,". */
+.motto-word-last { display: block; width: fit-content; }
+.hero-motto-line { position: relative; display: block; margin-top: 0.75rem; font-size: clamp(1.375rem, 2.35vw, 2.125rem); font-style: italic; line-height: 1.35; color: var(--vc-brass-700); }
 .motto-key { position: relative; }
-.hero-motto-source { position: relative; margin-top: 1.25rem; padding-top: 0.875rem; font-size: 0.8125rem; line-height: 1.55; color: var(--vc-graphite); text-wrap: pretty; }
+.hero-motto-source { position: relative; margin-top: 1.5rem; padding-top: 1rem; font-size: 0.9375rem; line-height: 1.55; color: var(--vc-graphite); text-wrap: pretty; }
 .hero-motto-source::before { content: ''; position: absolute; top: 0; left: 0; width: 2.5rem; height: 1px; background: var(--vc-brass-400); transform-origin: left; }
-.hero-motto-source a { color: var(--vc-brass-700); text-decoration: underline; text-underline-offset: 3px; }
+.hero-motto-source a { color: var(--vc-brass-700); text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
 /* It plays once, from first paint, in CSS alone, so the prerendered page needs no script to start
    it: each word settles at its time (--at), then each letter appears at its own (--d) with the
    caret on its right edge until the next (--w), and the source follows. Every word and letter
@@ -168,7 +171,9 @@
 }
 @media (min-width: 1024px) {
   .clarity-hero-grid { grid-template-columns: 1.3fr 1fr; gap: 5rem; align-items: start; }
-  .hero-motto { order: 0; }
+  /* The motto on the same baseline as "Evidence in order." (owner, 06 October 2026: "move it
+     down more" after its capitals were set level with the heading's). */
+  .hero-motto-words { margin-top: 0.2em; }
   .time-advantage-grid, .capability-explanation-grid { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 5rem; }
   .clarity-team { gap: 3.5rem 4rem; }
   .clarity-jobs { grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 2.5rem; }
