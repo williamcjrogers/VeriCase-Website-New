@@ -4,6 +4,8 @@
 
 06 October 2026: section copy rewritten in the issue, method, steps and lead-in structure, and the collaboration section added, awaiting the owner’s approval. The collaboration figures (gate G13) and the lane visibility note (gate G14) remain open.
 
+06 October 2026, later: a new fictional matter drawn from the patterns of real adjudications, with each illustration on a different strand, and the research section showing Executive Analysis, Deep Research and the bundle; awaiting the owner’s approval.
+
 ## Navigation and page labels
 
 - How it works (`#platform`)
@@ -90,7 +92,7 @@ Compare the dates and the records behind them, so that a forecast is not taken f
 
 Select the records the case will rely on, and keep them with the issue they concern.
 
-Lead-in: Watch a search for “ten weeks” find the lead-time email, then see the records that came before and after it.
+Lead-in: Watch a search for “time impact” set a façade instruction beside the risk register, then see a road approval traced through the record in date order.
 
 ### Illustration: From documents to chronology.
 
@@ -100,9 +102,9 @@ Label: Illustration
 
 Record label: One record, in date order
 
-Documents: Instruction. Lead-time email. Delivery confirmation.
+Documents: Road design pack. Road authority comments. Technical approval.
 
-Entries: 03 March 2025, Change instructed. 12 March 2025, Lead time given. 26 March 2025, Delivery confirmed.
+Entries: 05 March 2025, Design and approval passed to the Contractor. 19 May 2025, Not approved: a form missing. 11 August 2025, Technical approval granted.
 
 Caption: Illustrative chronology from a fictional construction matter.
 
@@ -110,19 +112,25 @@ Motion: once, when the record comes into view, an arrow is drawn from each docum
 
 ## Ask the question that matters.
 
-Issue: What was instructed? When did the delivery date change? Which records support the account you have been given?
+Issue: What was instructed, and when? Who set the date the other side now relies on? Which records support the account you have been given?
 
-Method: Put a focused question to the material in scope, and bring the evidence for and against your position into one analysis.
+Method: Put questions to the material in scope in Executive Analysis, or set Deep Research to work through an issue and report, with the evidence for and against your position cited.
+
+The section shows the application’s two research functions (owner, 06 October 2026): Executive Analysis, questions and answers back and forth; and Deep Research, a full report with an evidence appendix, from which a bundle is built, titled, ordered and downloaded. Nothing claims completeness, accuracy, a count or validation. (gate G5_research)
 
 Phone disclosure: Explore the research process
 
-### Define the question
+### Ask, then ask again
 
-Set out the issue, then refine the scope proposed for it: the dates, the parties and the material to search.
+Put a question to the record in Executive Analysis, and follow up on the answer as you would with a colleague. (gate G5_research)
 
-### Weigh the findings
+### Commission a full report
 
-Findings come with source references to the messages and documents behind them. Read each with its date, its context and any qualification in the source.
+Deep Research works through the research angles of an issue and sets out its findings, each referenced to an evidence appendix. (gate G5_research)
+
+### Build the bundle
+
+Create a bundle from the report’s evidence: give it a title and a cover page, set the order, and download it. (gate G5_research)
 
 ### Note the gaps
 
@@ -130,23 +138,53 @@ Keep the records the work needs, and note what the search did not find.
 
 Step note: Results depend on the scope and material examined; they are not a complete account of the matter.
 
-Lead-in: Watch a question about the lead time traced to three records, and look for the date they do not give.
+Lead-in: Watch a question about early access answered and a follow-up find a gap, then see a full report and the bundle built from it.
 
-### Illustration: A question traced to its sources.
+### Illustration: A question answered, then the next one.
 
-Placement: after the research steps on tablet and desktop; at the end of “Explore the research process” on phones.
+Placement: after the research steps, before “A full report, and the bundle built from it.”, at every width.
 
-Question: When was the ten-week lead time recorded?
+Tag: Executive Analysis
 
-Findings: The change to bracket type B was instructed on 03 March 2025. Instruction, 03 March 2025. The lead time of ten weeks from order was recorded on 12 March 2025. Lead-time email, 12 March 2025. Delivery was then confirmed for the week commencing 19 May 2025. Delivery confirmation, 26 March 2025.
+Question (typed): Who set the date for early access to the nursery?
 
-Not found in the records examined: the date on which the brackets were ordered.
+Answer: The Employer’s project manager confirmed a requirement for fit-out access by 01 September 2025. Email, 12 March 2025. The Employer’s representative then wrote that later access would not be acceptable to the nursery’s funder. Email, 26 March 2025.
 
-Caption: Illustrative research from a fictional construction matter.
+Follow-up (typed): Was that date ever instructed as a Change?
+
+The follow-up’s answer (no label of its own): A change request on early access was issued after completion, on 14 January 2026. Change request 21, 14 January 2026.
+
+Not found in the records examined: an instruction setting that date before completion.
+
+Caption: Illustrative questions and answers from a fictional construction matter.
+
+Motion: the question is typed; the label “Answer” and each finding with its record then appear in turn, followed by the label “Follow-up”. The follow-up is then typed, and its answer and the line on what was not found appear in turn. Reduced motion, print and pages without JavaScript show the completed state.
+
+### Illustration: A full report, and the bundle built from it.
+
+Placement: after “A question answered, then the next one.”, at every width.
+
+Tag: Deep Research
+
+Question (typed): What notice did the Contractor give of delay from the loading bay reduction?
+
+Report label: Report. The report is headed with the question.
+
+Research angles: Whether the early warning in monthly report 11 was a notice under clause 2.24. Whether the reduced bay was a Change or the road authority’s requirement.
+
+Section, with superscript references to the appendix: The early warning and what followed. Monthly report 11 gave an early warning of double handling, its effect still being assessed.¹ Six weeks later the Contractor’s commercial manager put the delay at two months.² The Employer’s Agent replied by asking which clause the Contractor relied on.³
+
+Evidence appendix: 1. Report. Monthly report 11, 30 April 2025. 2. Email. Loading bay: delay assessment, 11 June 2025. 3. Email. Re: Loading bay: delay assessment, 13 June 2025.
+
+Bundle, as downloaded: Loading bay: notice of delay. Contents: 1. Cover page. 2. Monthly report 11, 30 April 2025. 3. Loading bay: delay assessment, 11 June 2025. 4. Re: Loading bay: delay assessment, 13 June 2025. Downloaded with its cover page first and every page numbered.
+
+Caption: Illustrative report and bundle from a fictional construction matter.
+
+Motion: the question is typed; the report’s label, its title, the research angles, the section, the evidence appendix and the bundle then appear in turn. The bundle is shown as downloaded, an output, not the controls that build it, and the references are text, not links. Reduced motion, print and pages without JavaScript show the completed state.
 
 ## Test the opposing account.
 
-Issue: The other side’s submission gives one date; your team remembers another. Before you respond, you need to know which one the documents bear out.
+Issue: The other side’s submission describes an event one way; your team remembers it another. Before you respond, you need to know which account the documents bear out.
 
 Method: Answer the submission in VeriCase from the record, with proposed replies for your team to review. (gate G5_rebuttalReview)
 
@@ -162,23 +200,23 @@ Set records that support or challenge an assertion beside it, and see where the 
 
 Revise the proposed replies, with the records they rely on, before anything is served.
 
-Lead-in: Watch an assertion about the lead time meet two records, and see which way each one points.
+Lead-in: Watch an assertion about the landscaping meet two records, and see which way each one points.
 
 ### Illustration: An opposing assertion, tested against the record.
 
 Placement: inside “See an example”, which tablet and desktop show open.
 
-Opposing submission, paragraph 12: “Delay was reasonably apparent to the Contractor on 12 March 2025.”
+Employer’s Response, paragraph 31 (typed): “The courtyard paving revisions were design development by the Contractor’s landscape architect.”
 
-The record: “Stainless brackets are ten weeks from order.” Lead-time email, 12 March 2025. Gives a lead time from order, not a delivery week. “Supplier confirms delivery week commencing 19 May 2025.” Delivery confirmation, 26 March 2025. Confirms the delivery week, fourteen days later.
+The record: “Revise the courtyard paving to the layout attached.” Change request 14, 16 June 2025. Issued by the Employer’s Agent, as a change. “Revision C: courtyard paving, following change request 14.” Drawing issue sheet, 22 July 2025. Revises the drawings five weeks after the change request.
 
-Proposed reply, for review: On 12 March 2025 the Contractor knew the lead time but not the delivery week, which the supplier confirmed on 26 March 2025 (Delivery confirmation).
+Proposed reply, for review: The paving was revised in answer to the Employer’s change request of 16 June 2025, not as design development (Change request 14).
 
 Caption: Illustrative rebuttal from a fictional construction matter.
 
 ## Develop the argument.
 
-Issue: The narrative is drafted in one file and the evidence kept in another. By the fifth draft, which document does paragraph 4.2 rely on?
+Issue: The narrative is drafted in one file and the evidence kept in another. By the fifth draft, which document does paragraph 5.2 rely on?
 
 Method: Write the claim or response in VeriCase, with the records each paragraph relies on in the same workspace as the wording.
 
@@ -200,17 +238,17 @@ Use source references to check each factual point against the record it rests on
 
 Go through it with its source references, add any qualification the submission needs, then export or share it.
 
-Lead-in: Watch paragraph 4.2 take its place beside the lead-time email, then see a short report as exported.
+Lead-in: Watch section 5 take shape beside its records, then see a short report as exported.
 
 ### Illustration: A claim section built from its records.
 
 Placement: after the drafting steps on tablet and desktop; at the end of “Explore drafting tools” on phones.
 
-Section heading (typed): Section 4. Bracket type B.
+Section heading (typed): Section 5. Access control and cameras.
 
 Record (margin label).
 
-4.1 The change to bracket type B was instructed. Instruction, 03 March 2025. 4.2 The lead time was ten weeks from order. Lead-time email, 12 March 2025. 4.3 Delivery was confirmed for the week commencing 19 May 2025. Delivery confirmation, 26 March 2025.
+5.1 The Contractor asked for an instruction on the police adviser’s additional security works. RFI 112, 14 November 2024. 5.2 The Employer’s Agent answered nine months later: comply. Answer to RFI 112, 21 August 2025. 5.3 The Contractor confirmed the same day that it would carry out the works as a variation. Contractor’s reply, 21 August 2025.
 
 Draft, for review before export.
 
@@ -250,15 +288,15 @@ Step note: Each lane is read only by the people added to it, and lanes and their
 
 The discussion is kept with the record, so what was said there does not have to be pieced together from old email. (gate G5_collab)
 
-Lead-in: Watch the lead-time email discussed on the record, then the same discussion organised in three lanes.
+Lead-in: Watch an email the Contractor says was notice discussed on the record, then the same discussion organised in three lanes.
 
 ### Illustration: A discussion kept with the record.
 
 Placement: after the collaboration steps, at every width.
 
-“Stainless brackets are ten weeks from order.” Lead-time email, 12 March 2025.
+“Please treat this email as early notice: the off-site road works are a Relevant Event under clause 2.26.13.” Early notice email, 14 February 2025.
 
-Comments on this record: Commercial manager: Does this come before the delivery confirmation? Claims consultant: Yes, by fourteen days. Paragraph 4.2 of the draft relies on it.
+Comments on this record: Commercial manager (typed): Is this enough to count as notice under clause 2.24? Claims consultant: It names the Relevant Event but gives no estimate of delay. Paragraph 3.2 of the draft deals with that.
 
 Caption: Illustrative discussion from a fictional construction matter.
 
@@ -266,19 +304,19 @@ Caption: Illustrative discussion from a fictional construction matter.
 
 Placement: after “A discussion kept with the record.”, at every width.
 
-Record shown, as the discussion figure shows it: “Stainless brackets are ten weeks from order.” Lead-time email, 12 March 2025.
+Record shown, as the discussion figure shows it: “Please treat this email as early notice: the off-site road works are a Relevant Event under clause 2.26.13.” Early notice email, 14 February 2025.
 
 Lanes label: The discussion, in three lanes
 
 - Core team. Discussed by the project manager, commercial manager and solicitor.
-  - Project manager: When this email arrived, the brackets were still forecast to arrive in time. The supplier confirmed the delivery week on 26 March 2025.
-  - Solicitor: Please send me the bracket order and the delivery forecast current on 12 March 2025.
+  - Project manager: Our revised forecast went with monthly report 9 on 28 February 2025, two weeks after this email.
+  - Solicitor: Please send me report 9 and anything else that gave the Employer an estimate of the delay.
 - With counsel. Discussed by the solicitor and counsel.
-  - Counsel: The Employer will say that delay was reasonably apparent from this email. What the project team expected on that date is central to the answer.
-  - Solicitor: The project team is locating its forecast for that date. The delay expert will receive the same records.
+  - Counsel: The Employer will say this email names a Relevant Event but is not a notice under clause 2.24. Read with report 9, it may be.
+  - Solicitor: Both documents are going into the bundle together, and the delay expert will have both.
 - With the delay expert. Discussed by the solicitor and delay expert.
-  - Solicitor: Please consider whether, on the records available at 12 March 2025, the ten-week lead time was likely to delay completion.
-  - Delay expert: I will also need the records available at 26 March 2025, so that the two dates can be compared.
+  - Solicitor: Please consider what delay to completion the road works were causing on 14 February 2025.
+  - Delay expert: I will also need the road design pack and the authority’s comments, to see when the works could start.
 
 Caption: Illustrative discussion in lanes, from a fictional construction matter.
 
@@ -352,15 +390,15 @@ Placement: between the source-review steps and “Work alongside your existing s
 
 Label: Illustration
 
-The change was instructed on 03 March 2025 (Instruction). The ten-week lead time was recorded on 12 March 2025 (Lead-time email). Delivery was confirmed on 26 March 2025 for the week commencing 19 May 2025 (Delivery confirmation).
+Before contract, the Employer kept the road agreement and its approvals (Agreed items schedule). The Contractor priced the road works at nil (Contract sum analysis). The Employer’s road design pack arrived after the Date for Completion (Road design pack).
 
 Supporting records
 
-“Please proceed with bracket type B. This is an instruction requiring a Change.” Instruction, 03 March 2025
+“The Employer retains the road agreement and its approvals; the Contractor supplies supporting information only.” Agreed items schedule, 09 September 2024
 
-“Stainless brackets are ten weeks from order.” Lead-time email, 12 March 2025
+“Off-site road works, footways and street lighting: nil.” Contract sum analysis, 30 September 2024
 
-“Supplier confirms delivery week commencing 19 May 2025.” Delivery confirmation, 26 March 2025
+“The Contractor is to design the drainage and levels and obtain technical approval.” Road design pack, 05 March 2025
 
 Caption: Illustrative argument from a fictional construction matter. The source references connect each point to the record behind it.
 
@@ -539,7 +577,7 @@ Discuss each record where it sits. Your team, solicitors, counsel and experts ca
 
 ### How will you handle our project and client material?
 
-Demonstrations use sample material. Before introducing your own records, discuss your organisation's requirements for hosting, access, retention and automated processing with us.
+Demonstrations use sample material. Before introducing your own records, discuss your organisation’s requirements for hosting, access, retention and automated processing with us.
 
 ## See VeriCase in practice.
 
@@ -557,21 +595,23 @@ Copy control: Copy email address
 
 ## Workspace illustrations
 
-Three illustrations stand where the application captures stood (owner, 05 October 2026). Each is labelled Illustration and uses the fictional matter’s records. Every illustration on the page is live (owner, later on 05 October 2026). Where the operation starts with something the user writes (a find term, a search term, a question, an opposing assertion taken from the submission, a section heading or a comment), that text is typed in front of the reader and the answer then appears; the chronology, the argument and the report have no typed input, and their answer appears in turn. Each caption ends with the control “Play again”.
+Three illustrations stand where the application captures stood (owner, 05 October 2026). Each is labelled Illustration and uses the fictional matter’s records. Every illustration on the page is live (owner, later on 05 October 2026). Where the operation starts with something the user writes (a find term, a search term, a question or its follow-up, an opposing assertion taken from the submission, a section heading or a comment), that text is typed in front of the reader and the answer then appears; the chronology, the argument and the report have no typed input, and their answer appears in turn. Each caption ends with the control “Play again”.
+
+The fictional matter (owner, 06 October 2026, “make it varied”): a nine-storey residential building with a ground-floor nursery, under the JCT Design and Build Contract 2016 with the Employer’s amendments; the page acts for the Contractor. Its strands are drawn from the patterns of real adjudications (late answers, a “no time impact” instruction, a road approval cycle, early access, a reduced loading bay, landscaping and notices), with no names, places, sums or wording from any real matter. Each illustration takes its own strand and carries its own records, cited by document and date.
 
 ### Illustration: The document beside its file record.
 
 Placement: the opening, under the heading, at every width.
 
-Records (in date order): Contract particulars, 14 January 2025, Contract. Instruction, 03 March 2025, Correspondence. Site diary, 10 March 2025, Site records. Lead-time email, 12 March 2025, Correspondence. Progress meeting minutes, 20 March 2025, Meetings. Delivery confirmation, 26 March 2025, Correspondence. Photographic record, 02 April 2025, Site records.
+Records (in date order): Agreed items schedule, 09 September 2024, Contract. Façade instruction, 21 October 2024, Instructions. RFI 112, 14 November 2024, RFIs. Risk register, 25 November 2024, Reports. Monthly report 11, 30 April 2025, Reports. Road authority comments, 19 May 2025, Correspondence. Answer to RFI 112, 21 August 2025, Correspondence.
 
-Selected record: Lead-time email. From Supplier. To Package manager. Date 12 March 2025. Folder Correspondence.
+Selected record: Answer to RFI 112. From Employer’s Agent. To Design manager. Date 21 August 2025. Folder Correspondence.
 
 Views: Document, Details, Text, Revisions, Notes.
 
-Find in document: ten weeks from order. Page 1 of 1.
+Find in document (typed): police adviser. Page 1 of 1.
 
-Original page: From Supplier. Sent 12 March 2025. To Package manager. Subject Bracket type B. “Thank you for the instruction of 03 March 2025. Stainless brackets are ten weeks from order. We will confirm the delivery week once the order is placed.”
+Original page: From Employer’s Agent. Sent 21 August 2025. To Design manager. Subject RFI 112: access control and cameras. “In answer to RFI 112 of 14 November 2024, please comply with the police adviser’s requirements for the access control and camera works.”
 
 Notes: The record selected. Its file record. Its original page. The passage found in the document.
 
@@ -581,11 +621,11 @@ Caption: Illustrative records from a fictional construction matter.
 
 Placement: after the chronology capabilities, before “From documents to chronology.”, at every width.
 
-Searched for “ten weeks”. In context: The Employer says the delay was apparent once the lead time was known, on 12 March 2025. Ranked by match strength (each result numbered).
+Searched for “time impact” (typed). In context: The Employer says the façade change had no effect on completion, as its instruction recorded. Ranked by match strength (each result numbered).
 
-Lead-time email, Correspondence, 12 March 2025: “Stainless brackets are ten weeks from order.”
+Façade instruction, Instructions, 21 October 2024: “Change from render to brick-slip panels. Cost: a saving; time impact: none.”
 
-Progress meeting minutes, Meetings, 20 March 2025: “Supplier lead time for bracket type B noted as ten weeks from order; order placed, date of order to be confirmed.”
+Risk register, Reports, 25 November 2024: “Brick-slip panels: bespoke sizes required; time impact six to eight weeks.”
 
 Caption: Illustrative search from a fictional construction matter.
 
@@ -593,9 +633,9 @@ Caption: Illustrative search from a fictional construction matter.
 
 Placement: after “A claim section built from its records.”, at every width.
 
-In context: A short note for the solicitor on when the lead time was first recorded.
+In context: A short note for the solicitor on how the forecast completion date moved.
 
-Bracket type B: the record. Lead time. The lead time of ten weeks from order was recorded on 12 March 2025 (Lead-time email). “Stainless brackets are ten weeks from order.” Lead-time email, 12 March 2025. Table 1. Events and their records: Change instructed, Instruction, 03 March 2025. Lead time given, Lead-time email, 12 March 2025. Delivery confirmed, Delivery confirmation, 26 March 2025. Page 1 of 1.
+Forecast completion: the monthly reports. How the date moved. By monthly report 13 the forecast completion date had moved to 12 December 2025, more than nine months after the Date for Completion (Monthly report 13). “Forecast completion: 12 December 2025, subject to technical approval of the road works.” Monthly report 13, 30 June 2025. Table 1. Forecast completion, by report (columns: Forecast completion, Record, Date): 28 February 2025, Monthly report 7, 31 December 2024. 25 July 2025, Monthly report 9, 28 February 2025. 12 December 2025, Monthly report 13, 30 June 2025. Page 1 of 1.
 
 Caption: Illustrative report from a fictional construction matter.
 
