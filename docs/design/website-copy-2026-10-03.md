@@ -2,10 +2,13 @@
 
 03 October 2026. Current public wording after the owner requested a shorter opening, concise section headings and evidence/software terminology. This document mirrors the active content modules and component wiring. It supersedes the previous commercial-copy deck; earlier review proposals remain historical. The three historical captures were replaced on 05 October 2026 by illustrations of what the application does (see “Workspace illustrations”); full profile records, substantive capability explanations and professional-review boundaries are preserved. Inactive historical chapters are excluded.
 
+06 October 2026: section copy rewritten in the issue, method, steps and lead-in structure, and the collaboration section added, awaiting the owner’s approval. The collaboration figures (gate G13) and the lane visibility note (gate G14) remain open.
+
 ## Navigation and page labels
 
 - How it works (`#platform`)
 - Preparing the case (`#worked-example`)
+- Collaboration (`#collaboration`)
 - About (`#about`)
 - Questions (`#questions`)
 
@@ -29,55 +32,69 @@ The email opens a prefilled enquiry. It does not confirm a booking. Audience det
 
 ## From evidence to argument.
 
+Each job’s title links to the section that explains it.
+
 ### Understand what happened.
 
 Bring correspondence and documents together and examine the sequence of events around the disputed issue.
+
+Links to: “Follow the sequence.” (`#chronology-lens`)
 
 ### Test the competing accounts.
 
 Investigate the records that support a position and those that challenge it, with references back to the sources.
 
+Links to: “Test the opposing account.” (`#case-room`)
+
 ### Develop the argument.
 
 Use drafting tools to work on the claim or response, with relevant evidence alongside the narrative.
 
+Links to: “Develop the argument.” (`#claims`)
+
+### Work on the evidence together.
+
+Discuss a record with your team, solicitors, counsel and experts, and keep the discussion with the evidence.
+
+Links to: “Keep the discussion with the evidence.” (`#collaboration`)
+
 ## Follow the sequence.
 
-Bring project correspondence and documents into VeriCase, follow the chronology and examine the records behind it. Threading, quoted-text handling and relevance controls help you work through the material in context.
+Issue: An instruction, a revised delivery date and a warning of delay can sit in different mailboxes. Read together, they can change how an event is understood.
+
+Method: Read the correspondence and documents you bring into VeriCase together, as one sequence in date order.
 
 Phone disclosure: Explore chronology tools
 
-An instruction, a revised delivery date and a warning of delay can sit in different mailboxes. Read together, they can change how an event is understood.
+### Gather the records
 
-Duplicate handling helps reduce repeated material in the working view. Near-duplicate checks cover certain similar messages; exclusions remain part of assessing the record.
-
-### Bring the records together
-
-Work with email archives and individual messages, their attachments, PDFs, Word documents, spreadsheets and images. Text recognition helps make scanned pages searchable.
+Add email archives and individual messages with their attachments, as well as PDFs, Word documents, spreadsheets and images. Text recognition helps make scanned pages searchable.
 
 ### Follow the correspondence
 
-Read messages in context, with threading and quoted-text handling to help distinguish a new reply from earlier correspondence.
+Threading and quoted-text handling help you tell a new reply from the history beneath it. (gate G5_quoted)
 
-### Reduce repeated material
+### Set duplicates aside
 
-Set repeated messages aside in the working view, with scoped near-duplicate checks to help identify certain similar messages.
+Set repeated messages aside in the working view, with checks that help identify certain near-duplicates, and review what has been set aside as you assess the record.
 
-### Focus on the matter
+### Focus on the issue
 
-Use dates, search terms and relevance controls to focus the investigation on the issue and the material within scope.
+Narrow the material with dates, search terms and relevance controls.
 
-### Examine the sequence
+### Read each date for what it is
 
-Compare dates and follow the underlying records to distinguish forecasts, instructions and confirmations within the sequence of events.
+Compare the dates and the records behind them, so that a forecast is not taken for an instruction or a confirmation.
 
-### Select the supporting records
+### Take the key records forward
 
-Choose supporting records for the next stage of the work, keeping the source selection connected to the issue you are developing.
+Select the records the case will rely on, and keep them with the issue they concern.
+
+Lead-in: Watch a search for “ten weeks” find the lead-time email, then see the records that came before and after it.
 
 ### Illustration: From documents to chronology.
 
-Placement: after the search illustration on tablet and desktop; at the end of “Explore chronology tools” on phones.
+Placement: after the search illustration (“A matching passage and the document it comes from.”), at every width.
 
 Label: Illustration
 
@@ -93,29 +110,31 @@ Motion: once, when the record comes into view, an arrow is drawn from each docum
 
 ## Ask the question that matters.
 
-Investigate focused questions across the project material and follow the source references behind the findings.
+Issue: What was instructed? When did the delivery date change? Which records support the account you have been given?
+
+Method: Put a focused question to the material in scope, and bring the evidence for and against your position into one analysis.
 
 Phone disclosure: Explore the research process
 
-What was instructed? When did the delivery date change? Which records support the account you have been given?
-
-Bring supporting and contradictory evidence into the same analysis, so you can develop the argument with a clearer view of the record.
-
 ### Define the question
 
-Set out the issue and the records you want to examine. Refine the proposed scope around the dates, parties and material relevant to the question.
+Set out the issue, then refine the scope proposed for it: the dates, the parties and the material to search.
 
-### Follow the evidence
+### Weigh the findings
 
-Follow source references into the underlying messages and documents, bringing their dates, context and qualifications into the analysis.
+Findings come with source references to the messages and documents behind them. Read each with its date, its context and any qualification in the source.
 
-### Collect what matters
+### Note the gaps
 
-Select useful records for the work ahead and identify reported gaps. Search results depend on the scope and material examined; they do not establish a complete account of the matter.
+Keep the records the work needs, and note what the search did not find.
+
+Step note: Results depend on the scope and material examined; they are not a complete account of the matter.
+
+Lead-in: Watch a question about the lead time traced to three records, and look for the date they do not give.
 
 ### Illustration: A question traced to its sources.
 
-Placement: after the research process on tablet and desktop; at the end of “Explore the research process” on phones.
+Placement: after the research steps on tablet and desktop; at the end of “Explore the research process” on phones.
 
 Question: When was the ten-week lead time recorded?
 
@@ -127,49 +146,65 @@ Caption: Illustrative research from a fictional construction matter.
 
 ## Test the opposing account.
 
-Examine an opposing submission, investigate its factual assertions and develop proposed replies with the supporting and contradictory records alongside them.
+Issue: The other side’s submission gives one date; your team remembers another. Before you respond, you need to know which one the documents bear out.
 
-See where the account holds, where it is challenged and what needs further investigation before you respond.
+Method: Answer the submission in VeriCase from the record, with proposed replies for your team to review. (gate G5_rebuttalReview)
+
+### Take the submission point by point
+
+Add the other side’s submission to the matter and set out the factual assertions it makes.
+
+### Test the assertions
+
+Set records that support or challenge an assertion beside it, and see where the account holds, where it is challenged and what needs further investigation before you respond.
+
+### Prepare the reply
+
+Revise the proposed replies, with the records they rely on, before anything is served.
+
+Lead-in: Watch an assertion about the lead time meet two records, and see which way each one points.
 
 ### Illustration: An opposing assertion, tested against the record.
 
 Placement: inside “See an example”, which tablet and desktop show open.
 
-Opposing submission, paragraph 12: “The Contractor did not know the lead time for the brackets until 26 March 2025.”
+Opposing submission, paragraph 12: “Delay was reasonably apparent to the Contractor on 12 March 2025.”
 
-The record: “Stainless brackets are ten weeks from order.” Lead-time email, 12 March 2025. Challenges the assertion. “Supplier confirms delivery week commencing 19 May 2025.” Delivery confirmation, 26 March 2025. Consistent with the date alleged.
+The record: “Stainless brackets are ten weeks from order.” Lead-time email, 12 March 2025. Gives a lead time from order, not a delivery week. “Supplier confirms delivery week commencing 19 May 2025.” Delivery confirmation, 26 March 2025. Confirms the delivery week, fourteen days later.
 
-Proposed reply, for review: The Contractor was told the lead time on 12 March 2025, fourteen days before the date alleged (Lead-time email).
+Proposed reply, for review: On 12 March 2025 the Contractor knew the lead time but not the delivery week, which the supplier confirmed on 26 March 2025 (Delivery confirmation).
 
 Caption: Illustrative rebuttal from a fictional construction matter.
 
 ## Develop the argument.
 
-Develop your claim or response around the points you need to establish.
+Issue: The narrative is drafted in one file and the evidence kept in another. By the fifth draft, which document does paragraph 4.2 rely on?
 
-Bring the narrative, supporting records and drafting tools into the same workspace, from the structure of the argument to the detail of each section.
+Method: Write the claim or response in VeriCase, with the records each paragraph relies on in the same workspace as the wording.
 
 Phone disclosure: Explore drafting tools
 
 ### Structure the argument
 
-Develop the claim or response in sections, bringing the relevant facts and evidence together for each point.
+Set out the points you need to establish, with a section for each.
 
-### Connect the point to its evidence
+### Find the evidence
 
-Use source references to examine the records behind the wording, keeping the argument connected to the material that supports it.
+Search the record for the section you are drafting, including material that tells against your position.
 
-### Find evidence for the work
+### Cite the record
 
-Investigate the records for the issue you are drafting. Select useful evidence and examine material that challenges your position.
+Use source references to check each factual point against the record it rests on.
 
-### Prepare the document for sharing
+### Finalise the draft
 
-Examine the document and its source references before export or sharing, including any qualifications relevant to the submission.
+Go through it with its source references, add any qualification the submission needs, then export or share it.
+
+Lead-in: Watch paragraph 4.2 take its place beside the lead-time email, then see a short report as exported.
 
 ### Illustration: A claim section built from its records.
 
-Placement: after the drafting capabilities on tablet and desktop; at the end of “Explore drafting tools” on phones.
+Placement: after the drafting steps on tablet and desktop; at the end of “Explore drafting tools” on phones.
 
 Section heading (typed): Section 4. Bracket type B.
 
@@ -181,17 +216,45 @@ Draft, for review before export.
 
 Caption: Illustrative claim section from a fictional construction matter.
 
-Phone disclosure: Working with your team
-
 ## Keep the discussion with the evidence.
 
-An important document can generate a long email chain of its own.
+Issue: A document is sent to the solicitor, forwarded to counsel, then to each expert, and the replies split into separate chains. Before long, no single inbox holds the whole discussion.
 
-Discuss the record with colleagues in the workspace, keeping the conversation connected to the material under examination.
+Method: In VeriCase the discussion takes place on the record itself, and the people who need it come to it, each from their own organisation.
+
+Figures, beneath the method at every width: a list named “What discussion by email costs” (its accessible name; there is no visible heading) (gate G13_collabStats, open). Note markers are shown here as “(note n)”.
+
+| Figure | Label | Text |
+| --- | --- | --- |
+| 117 |  | emails a day: the average a worker receives in Microsoft’s data from its workplace software. (note 1) |
+| 6 emails | Modelled example | and 14 inbox deliveries in one modelled round of email about one document between a contractor, a solicitor (with a partner copied), counsel and two experts. In VeriCase, that round is one thread on the record. (note 2) |
+| About £18,300 | Modelled cost, not a measured saving | of professional time on those rounds in one modelled adjudication of 120 rounds, and between about £22,900 and £137,400 over a dispute lasting two to three years. (note 3) |
+
+Phone disclosure: Working with your team
+
+### Open a thread on the record
+
+Start the discussion on the email or document itself, not in a covering email.
+
+### Bring in the people who need it
+
+Solicitors, counsel and experts can join from their own organisations, with access agreed for each matter. The record is discussed where it is, without attaching it or forwarding a chain. (gate G5_collab)
+
+### Organise the discussion in lanes
+
+Post a comment in a lane, such as one for the core team, one with counsel and one with the expert, so that each strand of the discussion can be followed on its own. (gate G5_collab)
+
+Step note: Each lane is read only by the people added to it, and lanes and their members are set for each matter. (gate G14_laneAccess, open)
+
+### Come back to it later
+
+The discussion is kept with the record, so what was said there does not have to be pieced together from old email. (gate G5_collab)
+
+Lead-in: Watch the lead-time email discussed on the record, then the same discussion organised in three lanes.
 
 ### Illustration: A discussion kept with the record.
 
-Placement: inside “Working with your team”, which tablet and desktop show open.
+Placement: after the collaboration steps, at every width.
 
 “Stainless brackets are ten weeks from order.” Lead-time email, 12 March 2025.
 
@@ -199,9 +262,61 @@ Comments on this record: Commercial manager: Does this come before the delivery 
 
 Caption: Illustrative discussion from a fictional construction matter.
 
-## Who it is for
+### Illustration: One record, discussed in lanes.
+
+Placement: after “A discussion kept with the record.”, at every width.
+
+Record shown, as the discussion figure shows it: “Stainless brackets are ten weeks from order.” Lead-time email, 12 March 2025.
+
+Lanes label: The discussion, in three lanes
+
+- Core team. Discussed by the project manager, commercial manager and solicitor.
+  - Project manager: When this email arrived, the brackets were still forecast to arrive in time. The supplier confirmed the delivery week on 26 March 2025.
+  - Solicitor: Please send me the bracket order and the delivery forecast current on 12 March 2025.
+- With counsel. Discussed by the solicitor and counsel.
+  - Counsel: The Employer will say that delay was reasonably apparent from this email. What the project team expected on that date is central to the answer.
+  - Solicitor: The project team is locating its forecast for that date. The delay expert will receive the same records.
+- With the delay expert. Discussed by the solicitor and delay expert.
+  - Solicitor: Please consider whether, on the records available at 12 March 2025, the ten-week lead time was likely to delay completion.
+  - Delay expert: I will also need the records available at 26 March 2025, so that the two dates can be compared.
+
+Caption: Illustrative discussion in lanes, from a fictional construction matter.
+
+Each “Discussed by” line names who takes part in the lane, not who may read it.
+
+Motion: nothing is typed. Once, when the figure comes into view, a brass line runs down from the record and branches into the lanes (side by side on a wide panel, stacked on a narrow one); the label appears and each lane opens in turn with its participants and comments. Reduced motion, print and pages without JavaScript show every lane open.
+
+### Who it is for
+
+Placement: after the two illustrations, before the section’s notes, at every width.
 
 For construction claims consultants and contractors’ commercial teams, working with solicitors, counsel, quantum and other experts, and in-house legal advisers.
+
+### Notes
+
+The section’s own notes, under the heading “Notes”, after “Who it is for”. Each note ends with the link “Back to text”, which returns to its marker. A marker opens its note in a pop-up with the link “Read in Notes”; for note 3, which has several paragraphs, the pop-up shows the first paragraph and the link reads “Continue reading in Notes”.
+
+#### 1. Email volume.
+
+Microsoft WorkLab, “Breaking down the infinite workday”, Work Trend Index Special Report, 17 June 2025: the average worker receives 117 emails a day, most of them skimmed in under a minute. The figure is a mean across aggregated and anonymised productivity signals from Microsoft’s workplace software, to 15 February 2025, excluding education and European Union customers. It is not specific to construction or legal work. (gate G13_collabStats, open)
+
+#### 2. One round by email: a modelled example.
+
+A modelled example, not a measurement. (1) The contractor’s commercial manager emails the document to the solicitor, copying the supervising partner: two deliveries. (2) The solicitor forwards it to counsel, copying the partner: two. (3) The solicitor forwards it to both experts, copying the partner: three. (4) Counsel replies to the solicitor and the partner: two. (5) One expert replies to all: three. (6) The solicitor reports back to the commercial manager, copying the partner: two. That is six emails and fourteen inbox deliveries, with the document in five inboxes. In VeriCase the same round is one thread on the record, with nothing attached; VeriCase may still notify people by email. (gate G13_collabStats, open)
+
+#### 3. Professional time: a modelled cost.
+
+A modelled cost of the time spent on the email rounds, not a measured saving: what share of that time a shared thread removes has not been measured. Each round is assumed to take 40 minutes of professional time in all: the contractor’s commercial manager 10 minutes at £47.50 an hour, the solicitor 12 minutes at £305, the supervising partner 3 minutes at £579, counsel 5 minutes at £150, and each of two experts, on delay and on quantum, 5 minutes at £253.73. That is £152.66 a round: £18,318.60 for 120 rounds in one adjudication and, over a dispute lasting two to three years, £137,389.50 for 900 rounds (300 documents, each discussed three times), £22,898.25 on a conservative case of 300 rounds at half the minutes, and £366,372.00 on a high case of 2,400 rounds (600 documents, each discussed four times).
+
+The commercial manager’s rate is an estimate of the internal cost to the contractor, not a charge-out rate: a gross salary of £57,000 (the lower end of the range RICS publishes for senior and management quantity surveyors), with employer National Insurance at 15% of earnings above £5,000 (HMRC, rates and thresholds for employers 2026 to 2027), the statutory minimum employer pension contribution of 3% of qualifying earnings and a 25% overhead, divided by 1,740 working hours a year (a 37.5-hour week, less 5.6 weeks’ statutory holiday).
+
+The solicitor’s and partner’s rates are the HMCTS guideline hourly rates for Grade C and Grade A fee earners in London 1 (very heavy commercial and corporate work by centrally based London firms), in effect from 01 January 2026. The courts use guideline rates as a starting point for the summary assessment of costs; actual charges may be higher.
+
+There is no official guideline hourly rate for barristers, so counsel’s rate is the Attorney General’s London A Panel rate for government civil work, in effect from 01 April 2025: a conservative figure, as rates charged to private clients in construction disputes are typically higher.
+
+The experts’ rate is the average hourly rate for report writing reported by expert witnesses working in the civil courts, across all disciplines, in the Bond Solon Expert Witness Survey 2025 (published 07 November 2025; 525 respondents). It is not specific to delay or quantum experts.
+
+The minutes, the numbers of rounds, the overhead and the working week are our assumptions; the rates are as checked on 06 October 2026. Much of the time in a round is reading and replying, which takes place wherever the discussion is held. The cost in any matter depends on its volume of correspondence and the rates paid. (gate G13_collabStats, open)
 
 ## The project took years. Your response cannot.
 
@@ -211,25 +326,29 @@ Use VeriCase to follow disputed events through the record and prepare a response
 
 ## Keep the source in sight.
 
-Follow source references back to the underlying documents. Examine the wording, dates and context behind a finding as you develop your position.
+Issue: An extract can read differently once the whole document is in front of you.
+
+Method: Before you rely on a finding, a paragraph or a reply, read it against the document it cites: its wording, its date and its context. (gate G5_sourceReview)
 
 Phone disclosure: Explore source review
 
-### Understand the record behind the finding
+### Open the source
 
-Read the underlying document in context, including the wording and qualifications behind an extract or finding.
+Go from the reference to the document it points to.
 
-### Choose what the next stage needs
+### Read the whole document
 
-A report, an evidence selection and a bundle serve different purposes. Examine the selected documents and output for the work you need to take forward.
+See the extract in place, with what comes before and after it and any qualification it carries.
 
-### Agree access for the team
+### Choose the output
 
-Discuss how the workspace will be used by your commercial team, claims consultants and legal advisers, and which records each person needs.
+A report, a selection of evidence and a bundle serve different purposes; know what yours contains before it goes out.
+
+Lead-in: Watch the points of an argument marked, one by one, with the records behind them.
 
 ### Illustration: An argument with its sources.
 
-Placement: between the source-review points and “Work alongside your existing systems.” on tablet and desktop; at the end of “Explore source review” on phones.
+Placement: between the source-review steps and “Work alongside your existing systems.” on tablet and desktop; at the end of “Explore source review” on phones.
 
 Label: Illustration
 
@@ -416,7 +535,7 @@ Admissibility and weight are for the tribunal. Review the underlying records, th
 
 ### How can our team work together?
 
-Discuss records with colleagues in the workspace, keeping the conversation connected to the evidence. During the demonstration, we can discuss the access arrangements for your team and its advisers.
+Discuss each record where it sits. Your team, solicitors, counsel and experts can join from their own organisations, and comments can be organised in lanes. We can go through the access arrangements for your team and its advisers in the demonstration.
 
 ### How will you handle our project and client material?
 
@@ -462,7 +581,7 @@ Caption: Illustrative records from a fictional construction matter.
 
 Placement: after the chronology capabilities, before “From documents to chronology.”, at every width.
 
-Searched for “ten weeks”. In context: The opposing submission says the lead time was not known until 26 March 2025. Ranked by match strength (each result numbered).
+Searched for “ten weeks”. In context: The Employer says the delay was apparent once the lead time was known, on 12 March 2025. Ranked by match strength (each result numbered).
 
 Lead-time email, Correspondence, 12 March 2025: “Stainless brackets are ten weeks from order.”
 
