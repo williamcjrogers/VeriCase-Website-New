@@ -10,6 +10,9 @@
    --in is how far inside the part its dot lands; --gap is the space between the drawing and every
    note. Change a padding inside the drawing and the matching --d must change with it. */
 
+/* The opening figure keeps the page's own light paper: the old ivory and grain the other
+   illustrations' records take (live-figure.css) is not used here (owner, 06 October 2026). */
+.live-figure .reader-plate.on-paper { background-color: var(--vc-paper); background-image: none; }
 .reader-illustration {
   --note-c: var(--vc-brass-400);  /* the notes, and their leaders on the ink */
   --line-c: var(--vc-brass-700);  /* the lines drawn on the paper */
@@ -65,7 +68,7 @@
 .reader-row-name { display: block; font-size: 0.875rem; line-height: 1.35; font-weight: 500; color: var(--vc-ink); }
 .reader-row-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 0.625rem; margin-top: 0.125rem; font-size: 0.8125rem; line-height: 1.35; color: var(--vc-graphite); }
 .reader-row-meta time { white-space: nowrap; }
-.reader-row.is-selected { background: var(--vc-ivory-deep); box-shadow: inset 3px 0 0 var(--vc-brass-400); }
+.reader-row.is-selected { background: var(--vc-parchment-300); box-shadow: inset 3px 0 0 var(--vc-brass-400); }
 .reader-row .reader-note { --in: calc(var(--px) / 2 + 1px); top: calc(0.5625rem + 0.875rem * 0.675 - 0.65em); }
 
 /* The reader: the selected record's details, its views and the find term, then its original page
@@ -90,8 +93,8 @@
    width, so the label and the page number never move while it is typed. */
 .reader-find-field { color: var(--vc-ink); font-size: 0.875rem; font-weight: 500; }
 .reader-find-field .typed > span { white-space: pre-wrap; }
-.reader-desk { display: flex; flex: 1 1 auto; flex-direction: column; padding: 0.75rem var(--desk-x) 0; background: var(--vc-ivory-deep); }
-.reader-page { position: relative; flex: 1 1 auto; padding: 1.25rem 2.25rem 2rem; background-color: var(--vc-ivory); background-image: var(--vc-paper-texture); border: var(--page-b) solid var(--hair); border-bottom: 0; }
+.reader-desk { display: flex; flex: 1 1 auto; flex-direction: column; padding: 0.75rem var(--desk-x) 0; background: var(--vc-parchment-300); }
+.reader-page { position: relative; flex: 1 1 auto; padding: 1.25rem 2.25rem 2rem; background: var(--vc-paper); border: var(--page-b) solid var(--hair); border-bottom: 0; }
 .reader-page > .reader-note { --d: calc(var(--page-b) + var(--desk-x) + 1px); --in: 0px; top: calc(1.125rem - 0.65em); }
 /* The email's header in two columns of two rows, as a printed email sets it. Each value keeps to
    one line where the page allows it. */
@@ -171,17 +174,17 @@
   .reader-row-meta { font-size: 0.75rem; }
   .reader-row-folder { display: none; }
   .reader-row.is-selected { border-bottom: 0; }
-  .reader-head { padding: 0.125rem var(--hx) 0.625rem; background: var(--vc-ivory-deep); box-shadow: inset 3px 0 0 var(--vc-brass-400); }
+  .reader-head { padding: 0.125rem var(--hx) 0.625rem; background: var(--vc-parchment-300); box-shadow: inset 3px 0 0 var(--vc-brass-400); }
   .reader-details { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .reader-details > div { gap: 0.5rem; }
   .reader-details dt { width: 2.375rem; font-size: 0.75rem; line-height: 1.4; }
   .reader-details dd { font-size: 0.8125rem; line-height: 1.4; }
   .reader-views { display: none; }
-  .reader-strip { padding: 0.375rem var(--hx); background: var(--vc-ivory-deep); font-size: 0.75rem; }
+  .reader-strip { padding: 0.375rem var(--hx); background: var(--vc-parchment); font-size: 0.75rem; }
   .reader-find { padding: 0; }
   .reader-find-field { font-size: 0.8125rem; }
   .reader-find-page { display: none; }
-  .reader-desk { padding: 0; background: transparent; }
+  .reader-desk { padding: 0; background: var(--vc-paper); }
   .reader-mailhead { grid-template-columns: max-content minmax(0, 1fr); }
   .reader-page { padding: 0.75rem 0.75rem 0.875rem; }
   .reader-mailhead { font-size: 0.75rem; padding-bottom: 0.5rem; margin-bottom: 0.625rem; }
