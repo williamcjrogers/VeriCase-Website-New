@@ -2,6 +2,7 @@ import { Suspense, lazy, useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LandingPage } from '@/pages/LandingPage';
 import { Cookies } from '@/pages/Cookies';
+import { NotesPage } from '@/pages/NotesPage';
 import { NotFound } from '@/pages/NotFound';
 import { RouteMetadata } from '@/components/RouteMetadata';
 import { SIGN_IN_URL } from '@/lib/site';
@@ -24,7 +25,7 @@ const CalculatorLoading = () => <div className="min-h-screen bg-parchment" role=
 
 // The routes the site serves. index.html uses the same list to decide whether the prerendered
 // markup belongs to the page being opened (see public/index.html and src/index.js).
-export const KNOWN_ROUTES = ['/', '/login', '/cookies', ...CALCULATOR_ROUTES, '/fileserver', '/Fileserver'];
+export const KNOWN_ROUTES = ['/', '/login', '/cookies', '/notes', ...CALCULATOR_ROUTES, '/fileserver', '/Fileserver'];
 
 // Hands the visitor on to the app's sign-in page or the file server.
 const ExternalRedirect = ({ url, label }) => {
@@ -55,6 +56,7 @@ function App({ Router = BrowserRouter, routerProps = {}, calculators = null }) {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<ExternalRedirect url={SIGN_IN_URL} label="Redirecting to sign in…" />} />
         <Route path="/cookies" element={<Cookies />} />
+        <Route path="/notes" element={<NotesPage />} />
         {isShown('G15_calculators') && <Route path="/discussion-cost" element={<Suspense fallback={<CalculatorLoading />}><DiscussionCost /></Suspense>} />}
         {isShown('G15_calculators') && <Route path="/evidence-cost" element={<Suspense fallback={<CalculatorLoading />}><EvidenceCost /></Suspense>} />}
         <Route path="/Fileserver" element={<ExternalRedirect url="https://files.veri-case.com" label="Redirecting to the file server…" />} />

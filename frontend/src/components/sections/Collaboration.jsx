@@ -5,13 +5,13 @@ import { Rich } from '@/components/editorial/Rich';
 import { CapabilityFeatures, SectionIntroduction } from './CapabilityDetails';
 import { DiscussionIllustration } from './DiscussionIllustration';
 import { LanesIllustration } from './LanesIllustration';
-import { SectionNotes } from './SectionNotes';
 
 // Collaboration (owner, 06 October 2026): one record discussed by everyone who needs it, from
 // their own organisations, with the history kept on the record. Beneath the method, what the email
-// relay costs, each figure with its note (the modelled ones marked as estimates). The thread leads
-// into two illustrations, shown in place at every width: the discussion kept with the record, then
-// the same record discussed in lanes.
+// relay costs, each figure with a note marker (the full notes are on /notes; the modelled figures
+// are marked as estimates). The thread leads into two illustrations, shown in place at every width:
+// the discussion kept with the record, then the same record discussed in lanes. The section closes
+// on who VeriCase is for, set large.
 const C = COLLABORATION;
 
 export const Collaboration = () => (
@@ -42,11 +42,13 @@ export const Collaboration = () => (
       </div>
       <DiscussionIllustration />
       <LanesIllustration />
-      <div className="collaboration-audience">
-        <h3 className="text-[1.625rem] leading-tight">{IN_BRIEF.audience.label}</h3>
-        <p className="mt-3 max-w-measure text-body">{IN_BRIEF.audience.text}</p>
-      </div>
-      <SectionNotes numbers={[1, 2, 3]} sectionId="collaboration" />
+      <aside className="collaboration-audience" aria-labelledby="collaboration-audience-title">
+        <h3 id="collaboration-audience-title" className="collaboration-audience-label">{IN_BRIEF.audience.label}</h3>
+        <p className="collaboration-audience-text">
+          <span className="collaboration-audience-lead">{IN_BRIEF.audience.lead}</span>{' '}
+          <span className="collaboration-audience-rest">{IN_BRIEF.audience.rest}</span>
+        </p>
+      </aside>
     </div>
   </section>
 );

@@ -87,7 +87,7 @@
                 if (!pre) return;
                 var path = location.pathname.replace(/\/index\.html$/, "/");
                 if (path.length > 1) path = path.replace(/\/+$/, "");
-                var known = ["/", "/login", "/cookies", "/discussion-cost", "/evidence-cost", "/fileserver"];
+                var known = ["/", "/login", "/cookies", "/notes", "/discussion-cost", "/evidence-cost", "/fileserver"];
                 var belongs = pre === "*" ? known.indexOf(path.toLowerCase()) < 0 : pre === path;
                 if (!belongs) {
                     root.textContent = "";

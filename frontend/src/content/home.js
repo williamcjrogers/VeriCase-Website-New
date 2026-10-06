@@ -520,9 +520,12 @@ export const IN_BRIEF = {
     gate: 'G4_benchmarks',
     text: 'In benchmark testing, VeriCase processed more than 50,000 documents per hour[[note:9]] and extracted dates with 99.7% accuracy.[[note:10]] The notes describe how each figure was measured, so that you can judge them for yourself.',
   },
+  // Set as the collaboration section's closing statement, in two lines: who uses VeriCase, then
+  // who they work with (the wording approved on 06 October 2026, unchanged).
   audience: {
     label: 'Who it is for',
-    text: 'For construction claims consultants and contractors’ commercial teams, working with solicitors, counsel, quantum and other experts, and in-house legal advisers.',
+    lead: 'For construction claims consultants and contractors’ commercial teams,',
+    rest: 'working with solicitors, counsel, quantum and other experts, and in-house legal advisers.',
   },
   questionsLabel: 'Questions',
   questions: [
@@ -703,19 +706,29 @@ export const DEMONSTRATION = {
   plain: 'Or write to enquiries@veri-case.com.',
 };
 
+// The notes have a page of their own (/notes): a marker in the text opens its note in a pop-up,
+// which links through to the full note there, and each note links back to the section citing it.
 export const NOTES_SECTION = {
   heading: 'Notes',
-  intro: 'Each note marker on this page links here, and each note links back to where it was cited.',
-  back: 'Back to text',
+  back: 'Back to the text',
   readInNotes: 'Read in Notes',
   // A note of several paragraphs shows its first in the pop-up; the rest is read in Notes.
   continueInNotes: 'Continue reading in Notes',
+};
+
+export const NOTES_PAGE = {
+  eyebrow: 'Notes',
+  h1: 'Notes and sources',
+  intro: 'The sources and assumptions behind the figures on our home page. Each note links back to the text that cites it.',
+  // The notes cited on the home page, grouped by the section that cites them.
+  groups: [{ id: 'collaboration', kicker: 'Collaboration', title: 'Keep the discussion with the evidence.', notes: [1, 2, 3] }],
 };
 
 export const FOOTER = {
   descriptor: 'Evidence investigation and case preparation for construction claims and disputes.',
   heads: { contents: 'Contents', company: 'Company', cookies: 'Cookies' },
   company: { about: 'Who is behind it', demo: 'Request a demonstration', signIn: 'Sign in' },
+  notes: 'Notes and sources',
   cookies: { settings: 'Cookie settings', notice: 'Cookie notice' },
   legal: [
     'VeriCase Ltd is registered in England and Wales (company number 16562435). Registered office: 85 Great Portland Street, London, England, W1W 7LT.',

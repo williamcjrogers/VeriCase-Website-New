@@ -67,6 +67,11 @@ export const SiteFooter = () => {
                   </a>
                 </Item>
               ))}
+              <Item>
+                <a href="/notes" className={`${linkClass} inline-flex min-h-11 items-center`}>
+                  <span>{FOOTER.notes}</span>
+                </a>
+              </Item>
             </Column>
             <Column title={FOOTER.heads.company}>
               <Item>

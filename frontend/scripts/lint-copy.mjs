@@ -201,7 +201,7 @@ if (!BUILT) {
   for (const g of GATES.filter((x) => x.status === 'open')) report('src/content/gates.js', `open gate ${g.gate} (${g.id}): ${g.label}`);
 } else {
   // ---- The prerendered pages -----------------------------------------------------------------
-  const pages = ['build/index.html', 'build/cookies.html', 'build/discussion-cost.html', 'build/evidence-cost.html', 'build/404.html'];
+  const pages = ['build/index.html', 'build/cookies.html', 'build/notes.html', 'build/discussion-cost.html', 'build/evidence-cost.html', 'build/404.html'];
   for (const page of pages) {
     const file = join(root, page);
     if (!existsSync(file)) {
