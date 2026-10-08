@@ -17,9 +17,9 @@ const pub = (name) => join(root, 'public', name);
 const require = createRequire(import.meta.url);
 const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
 
-const INK = '#0B2516'; // --vc-ink, the header ground and the page's theme colour
-const PARCHMENT = '#E8DCC8'; // the wordmark's "VERI"
-const BRASS = '#C4A05A'; // the wordmark's rule and "CASE"
+const INK = '#132842'; // --vc-ink, the header ground and the page's theme colour
+const PARCHMENT = '#DEE4EB'; // the wordmark's "VERI"
+const BRASS = '#FF8C4A'; // the wordmark's rule and "CASE"
 
 // The wordmark's first path is the V and its fifth the C; their boxes, measured in the
 // wordmark's own units, place them.

@@ -8,7 +8,7 @@
 
 .search-illustration {
   --search-after: 360ms; --search-lead: 440ms; --search-step: 860ms; --search-beat: 160ms; --search-mark-at: 300ms; --search-mark-ms: 480ms;
-  --search-tint: rgb(191 155 88 / 0.38); --search-rule: rgb(191 155 88 / 0.6);
+  --search-tint: rgb(255 125 51 / 0.38); --search-rule: rgb(255 125 51 / 0.6);
 }
 
 /* On the chronology's measure and centred with it (the frame rule sets side margins, so this one

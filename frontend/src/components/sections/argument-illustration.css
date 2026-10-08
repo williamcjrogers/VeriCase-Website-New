@@ -3,7 +3,7 @@
    citation carries a brass mark, as a highlighter leaves on paper, and each record a brass rule
    down its edge; the two are made together, one record at a time, and both stay. */
 
-.argument-illustration { --argument-after: 160ms; --argument-step: 800ms; --argument-mark: rgb(191 155 88 / 0.4); --argument-rule: 3px; }
+.argument-illustration { --argument-after: 160ms; --argument-step: 800ms; --argument-mark: rgb(255 125 51 / 0.4); --argument-rule: 3px; }
 .argument-illustration [data-appear] { --after: var(--argument-after); --step: var(--argument-step); }
 /* The stage: the page, then the records under their label. From 768px up the page stands beside
    the records, its top level with the first slip and its foot with the last. */

@@ -224,14 +224,14 @@
     align-items: flex-end;
     height: 4rem;
     padding: 0 0.75rem 0.625rem;
-    background: linear-gradient(rgb(245 240 230 / 0), var(--vc-parchment) 70%);
+    background: linear-gradient(rgb(244 245 247 / 0), var(--vc-parchment) 70%);
     pointer-events: none;
     opacity: 0;
     transition: opacity 160ms var(--ease-settle);
   }
   .wb-more[data-shown] { opacity: 1; }
   [data-view='cards'] > .wb-more { padding-left: 9rem; }
-  [data-view='table'] > .wb-more { background: linear-gradient(rgb(252 250 245 / 0), var(--vc-paper) 70%); }
+  [data-view='table'] > .wb-more { background: linear-gradient(rgb(255 255 255 / 0), var(--vc-paper) 70%); }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   .wb-main[data-drawer] .wb-more { visibility: hidden; }
@@ -433,7 +433,7 @@
 /* The entry drawer: over the list from 1024 px; below that it takes the list's place. */
 .wb-drawer { position: absolute; inset: 0; z-index: 5; display: flex; flex-direction: column; min-height: 0; background: var(--vc-paper); animation: wb-drawer-in 240ms var(--ease-settle) both; }
 @media (min-width: 1024px) {
-  .wb-drawer { left: auto; width: min(24rem, 66%); border-left: 1px solid var(--vc-rule-strong); box-shadow: -20px 0 32px -26px rgb(26 37 80 / 0.4); }
+  .wb-drawer { left: auto; width: min(24rem, 66%); border-left: 1px solid var(--vc-rule-strong); box-shadow: -20px 0 32px -26px rgb(19 40 66 / 0.4); }
 }
 @media (max-width: 1023px) {
   .wb-main[data-drawer] > .wb-toolbar,
