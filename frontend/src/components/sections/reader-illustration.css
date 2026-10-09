@@ -17,7 +17,7 @@
   --note-c: var(--vc-brass-400);  /* the notes, and their leaders on the ink */
   --line-c: var(--vc-brass-700);  /* the lines drawn on the paper */
   --hair: var(--vc-rule);
-  --tint: rgb(255 125 51 / 0.38);
+  --tint: rgb(222 167 89 / 0.38);
   --gap: 1.5rem;
   --ml: 11rem;      /* margin for the notes on the left */
   --mr: 11.5rem;    /* margin for the notes on the right */

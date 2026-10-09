@@ -25,13 +25,13 @@
 
 /* The ink panel that holds the hash check */
 .ri-hash-fig { align-self: start; }
-.ri-panel { padding: 1.5rem 1.125rem 1.75rem; background: #132842; border: 1px solid #243F60; border-radius: 4px; }
+.ri-panel { padding: 1.5rem 1.125rem 1.75rem; background: #0F192F; border: 1px solid #26324D; border-radius: 4px; }
 @media (min-width: 640px) { .ri-panel { padding: 2rem 2rem 2.25rem; } }
 .ri-panel-title { font-size: clamp(1.5rem, 1.3rem + 0.8vw, 2rem); line-height: 1.15; }
 .ri-panel-intro { max-width: 34rem; margin-top: 0.625rem; font-size: 0.9375rem; line-height: 1.6; color: var(--vc-parchment); }
 .ri-hash-mount { margin-top: 1.5rem; }
 .ri-panel-note { margin-top: 1.5rem; font-size: 0.8125rem; line-height: 1.5; color: var(--vc-mist); }
-.ri-panel-meaning { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgb(255 125 51 / 0.55); font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1.125rem; line-height: 1.45; color: var(--vc-parchment); }
+.ri-panel-meaning { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgb(222 167 89 / 0.55); font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1.125rem; line-height: 1.45; color: var(--vc-parchment); }
 
 /* Room held for Figs. 9 and 10 while their skeletons show: each figure's mounted height,
    measured at the narrowest width of every range in which it holds, so the chapter keeps its

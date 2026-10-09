@@ -8,36 +8,37 @@
 
 @layer base {
   :root {
-    /* Site palette (08 October 2026): blueprint navy, clean light grey and white, safety orange.
-       The token names are the earlier palette's: "ink"/"navy" are the navy, "parchment"/"paper"
-       the light grounds, "brass" and "azure" the orange accent (400/300 on the navy, 700 for text
-       and actions on light grounds). */
-    --vc-ink-950: #0A1424; --vc-navy: #0F1F36; --vc-ink: #132842; --vc-graphite: #515A68; --vc-mist: #BAC2CE;
-    --vc-azure-50: #FFEDE2; --vc-azure-300: #FF8C4A; --vc-azure-500: #E0601F; --vc-azure-700: #C2410C;
-    --vc-parchment: #F4F5F7; --vc-parchment-300: #E8EBEF; --vc-paper: #FFFFFF;
-    --vc-rule: #D4D9E0; --vc-rule-strong: #6E7886; --vc-brass-400: #FF7D33; --vc-brass-700: #B4441A;
+    /* Site palette (09 October 2026), taken from the VeriCase app: its sidebar navy, warm white
+       grounds, teal for actions and links, and amber for rules and highlights. The token names
+       are the earlier palette's: "ink"/"navy" are the navy, "parchment"/"paper" the warm white
+       grounds, "brass-400"/"azure-300" the amber (on the navy and as rules), "brass-700" and
+       "azure-700" the teal (text and actions on light grounds), "azure-500" a deep amber. */
+    --vc-ink-950: #09111F; --vc-navy: #0B1426; --vc-ink: #0F192F; --vc-graphite: #535A6A; --vc-mist: #B7BECC;
+    --vc-azure-50: #E2EFEE; --vc-azure-300: #E3B266; --vc-azure-500: #B4640C; --vc-azure-700: #0E6A6A;
+    --vc-parchment: #F3F1EC; --vc-parchment-300: #EFE9DD; --vc-paper: #FCFAF6;
+    --vc-rule: #DCD7CC; --vc-rule-strong: #7B766A; --vc-brass-400: #DEA759; --vc-brass-700: #0E6A6A;
     --vc-signal: #A8352A; --vc-signal-300: #EE8E7E;
-    /* The records on the ink panels: a clean sheet with a very faint grain (fibres and mottling
-       drawn by SVG noise, so it tiles without seams and costs no request), a lighter centre and
-       slightly deeper edges. The text colours keep at least 4.5:1
+    /* The records on the ink panels: the app's warm white sheet with a very faint grain (fibres
+       and mottling drawn by SVG noise, so it tiles without seams and costs no request), a lighter
+       centre and slightly deeper edges. The text colours keep at least 4.5:1
        on the darkest of it. */
-    --vc-ivory: #F9F9F7; --vc-ivory-deep: #EDEEEA;
-    --vc-paper-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='m' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.008 0.012' numOctaves='3' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.32  0 0 0 0 0.34  0 0 0 0 0.38  0.12 0 0 0 -0.04'/%3E%3C/filter%3E%3Cfilter id='r' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.02 0.45' numOctaves='2' seed='23' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.32  0 0 0 0 0.34  0 0 0 0 0.38  0.1 0 0 0 -0.035'/%3E%3C/filter%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.32  0 0 0 0 0.34  0 0 0 0 0.38  0.16 0 0 0 -0.055'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23m%29'/%3E%3Crect width='100%25' height='100%25' filter='url%28%23r%29'/%3E%3Crect width='100%25' height='100%25' filter='url%28%23f%29'/%3E%3C/svg%3E");
-    --vc-paper-texture: var(--vc-paper-grain), radial-gradient(120% 110% at 45% 35%, rgb(252 253 255 / 0.45), rgb(252 253 255 / 0) 62%), radial-gradient(150% 150% at 50% 50%, rgb(25 40 65 / 0) 55%, rgb(25 40 65 / 0.06) 100%);
+    --vc-ivory: #FCFAF6; --vc-ivory-deep: #F0ECE3;
+    --vc-paper-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='m' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.008 0.012' numOctaves='3' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.36  0 0 0 0 0.33  0 0 0 0 0.27  0.12 0 0 0 -0.04'/%3E%3C/filter%3E%3Cfilter id='r' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.02 0.45' numOctaves='2' seed='23' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.36  0 0 0 0 0.33  0 0 0 0 0.27  0.1 0 0 0 -0.035'/%3E%3C/filter%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.36  0 0 0 0 0.33  0 0 0 0 0.27  0.16 0 0 0 -0.055'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23m%29'/%3E%3Crect width='100%25' height='100%25' filter='url%28%23r%29'/%3E%3Crect width='100%25' height='100%25' filter='url%28%23f%29'/%3E%3C/svg%3E");
+    --vc-paper-texture: var(--vc-paper-grain), radial-gradient(120% 110% at 45% 35%, rgb(255 253 248 / 0.45), rgb(255 253 248 / 0) 62%), radial-gradient(150% 150% at 50% 50%, rgb(60 48 28 / 0) 55%, rgb(60 48 28 / 0.06) 100%);
     --ease-settle: cubic-bezier(0.2, 0, 0, 1); --ease-exit: cubic-bezier(0.4, 0, 1, 1); --ease-glide: cubic-bezier(0.45, 0, 0.2, 1);
-    --shadow-paper: 0 1px 0 rgba(19, 40, 66, 0.06), 0 12px 32px -16px rgba(19, 40, 66, 0.22);
-    --shadow-lift: 0 1px 0 rgba(19, 40, 66, 0.08), 0 24px 48px -24px rgba(19, 40, 66, 0.35);
+    --shadow-paper: 0 1px 0 rgba(15, 25, 47, 0.06), 0 12px 32px -16px rgba(15, 25, 47, 0.22);
+    --shadow-lift: 0 1px 0 rgba(15, 25, 47, 0.08), 0 24px 48px -24px rgba(15, 25, 47, 0.35);
     --header-h: 64px;
     /* shadcn tokens (HSL triplets) */
-    --background: 220 16% 96%; --foreground: 213 55% 17%;
-    --card: 0 0% 100%; --card-foreground: 213 55% 17%;
-    --popover: 0 0% 100%; --popover-foreground: 213 55% 17%;
-    --primary: 17 88% 40%; --primary-foreground: 0 0% 100%;
-    --secondary: 214 18% 92%; --secondary-foreground: 213 55% 17%;
-    --muted: 214 18% 92%; --muted-foreground: 217 12% 36%;
-    --accent: 23 100% 94%; --accent-foreground: 215 57% 14%;
+    --background: 43 23% 94%; --foreground: 221 52% 12%;
+    --card: 40 50% 98%; --card-foreground: 221 52% 12%;
+    --popover: 40 50% 98%; --popover-foreground: 221 52% 12%;
+    --primary: 180 77% 24%; --primary-foreground: 0 0% 100%;
+    --secondary: 40 36% 90%; --secondary-foreground: 221 52% 12%;
+    --muted: 40 36% 90%; --muted-foreground: 222 12% 37%;
+    --accent: 175 29% 91%; --accent-foreground: 220 55% 10%;
     --destructive: 5 60% 41%; --destructive-foreground: 0 0% 100%;
-    --border: 215 16% 85%; --input: 215 10% 48%; --ring: 20 76% 50%;
+    --border: 41 19% 83%; --input: 42 7% 45%; --ring: 31 88% 38%;
     --radius: 0.25rem;
   }
   @media (max-width: 1023px) { :root { --header-h: 56px; } }
@@ -90,11 +91,11 @@
   ::selection { background: var(--vc-azure-50); color: var(--vc-navy); }
 
   /* Dark grounds: case room, footer, hash-check panel, demonstration panel */
-  .on-ink { color: var(--vc-parchment); --ring: 22 100% 65%; }
+  .on-ink { color: var(--vc-parchment); --ring: 36 69% 65%; }
   .on-ink :is(h1, h2, h3, h4) { color: var(--vc-parchment); }
   .on-ink :focus-visible { outline-color: var(--vc-azure-300); }
   /* Paper panels inside a dark ground (Rebuttal table, Day 28 card) */
-  .on-ink .on-paper { color: var(--vc-ink); --ring: 20 76% 50%; }
+  .on-ink .on-paper { color: var(--vc-ink); --ring: 31 88% 38%; }
   .on-ink .on-paper :is(h1, h2, h3, h4) { color: var(--vc-navy); }
   .on-ink .on-paper :focus-visible { outline-color: var(--vc-azure-500); }
 }
@@ -119,7 +120,7 @@
     border-top: 1px solid var(--vc-rule);
     border-bottom: 1px solid var(--vc-rule);
   }
-  .on-ink .double-rule { border-color: rgb(255 125 51 / 0.55); }
+  .on-ink .double-rule { border-color: rgb(222 167 89 / 0.55); }
   .double-rule.is-brass { border-color: var(--vc-brass-400); }
 
   /* Decorative rain/light hairlines on dark ground */
@@ -187,13 +188,13 @@
     letter-spacing: 0.01em;
     color: var(--vc-azure-700);
     background: var(--vc-azure-50);
-    border: 1px solid rgb(194 65 12 / 0.4);
+    border: 1px solid rgb(14 106 106 / 0.4);
     border-radius: 2px;
     white-space: nowrap;
     cursor: pointer;
     transition: background-color 150ms var(--ease-settle), border-color 150ms var(--ease-settle);
   }
-  .ev-chip:hover { background: #FFDCC7; border-color: var(--vc-azure-700); }
+  .ev-chip:hover { background: #CDE4E2; border-color: var(--vc-azure-700); }
 
   /* Exhibit stamp: a brass-edged mono tab. */
   .ev-stamp {
@@ -286,9 +287,9 @@
   .vc-btn-primary.vc-btn-on-ink { background: var(--vc-parchment); border-color: var(--vc-parchment); color: var(--vc-navy); }
   .vc-btn-primary.vc-btn-on-ink:hover { background: #fff; border-color: #fff; }
   .vc-btn-secondary.vc-btn-secondary-on-ink { border-color: var(--vc-mist); color: var(--vc-parchment); }
-  .vc-btn-secondary.vc-btn-secondary-on-ink:hover { background: rgb(244 245 247 / 0.08); border-color: var(--vc-parchment); }
+  .vc-btn-secondary.vc-btn-secondary-on-ink:hover { background: rgb(243 241 236 / 0.08); border-color: var(--vc-parchment); }
   .on-ink .vc-btn-quiet { color: var(--vc-azure-300); }
-  .on-ink .vc-btn-quiet:hover { background: rgb(255 140 74 / 0.1); }
+  .on-ink .vc-btn-quiet:hover { background: rgb(227 178 102 / 0.1); }
   .on-ink .on-paper .vc-btn-quiet { color: var(--vc-azure-700); }
 
   /* Text links in running copy */
@@ -338,13 +339,13 @@
      like a print awaiting its plate, and labelled for gate G10. */
   .vc-plate-standin {
     background-color: var(--vc-parchment-300);
-    background-image: repeating-linear-gradient(135deg, rgb(110 120 134 / 0.12) 0 1px, transparent 1px 11px);
+    background-image: repeating-linear-gradient(135deg, rgb(123 118 106 / 0.12) 0 1px, transparent 1px 11px);
   }
   .vc-plate-standin::before {
     content: '';
     position: absolute;
     inset: 12px;
-    border: 1px solid rgb(110 120 134 / 0.35);
+    border: 1px solid rgb(123 118 106 / 0.35);
   }
   .vc-plate-standin::after {
     content: 'Image awaiting approval (G10)';
@@ -360,15 +361,15 @@
     white-space: nowrap;
     color: var(--vc-graphite);
     background: var(--vc-parchment-300);
-    border: 1px solid rgb(110 120 134 / 0.35);
+    border: 1px solid rgb(123 118 106 / 0.35);
   }
-  .on-ink .vc-plate-standin { background-color: #1A314E; background-image: repeating-linear-gradient(135deg, rgb(186 194 206 / 0.08) 0 1px, transparent 1px 11px); }
-  .on-ink .vc-plate-standin::before { border-color: rgb(186 194 206 / 0.25); }
-  .on-ink .vc-plate-standin::after { color: var(--vc-mist); background: #1A314E; border-color: rgb(186 194 206 / 0.25); }
+  .on-ink .vc-plate-standin { background-color: #1A2540; background-image: repeating-linear-gradient(135deg, rgb(183 190 204 / 0.08) 0 1px, transparent 1px 11px); }
+  .on-ink .vc-plate-standin::before { border-color: rgb(183 190 204 / 0.25); }
+  .on-ink .vc-plate-standin::after { color: var(--vc-mist); background: #1A2540; border-color: rgb(183 190 204 / 0.25); }
 
   /* Skeleton for lazily mounted demonstrations: the same size, no shimmer. */
   .vc-skeleton { background: var(--vc-paper); border: 1px solid var(--vc-rule); border-radius: 4px; }
-  .on-ink .vc-skeleton { background: rgb(255 255 255 / 0.04); border-color: rgb(186 194 206 / 0.2); }
+  .on-ink .vc-skeleton { background: rgb(252 250 246 / 0.04); border-color: rgb(183 190 204 / 0.2); }
 
   /* Verification tick that reveals itself left to right, once. */
   .vc-tick-draw { clip-path: inset(0 100% 0 0); animation: tick-draw 360ms var(--ease-settle) 80ms forwards; }
@@ -385,7 +386,7 @@
     color: inherit;
     opacity: 1;
   }
-  .vc-close:hover { background: rgb(19 40 66 / 0.06); }
+  .vc-close:hover { background: rgb(15 25 47 / 0.06); }
   .vc-close.on-azure { color: #fff; }
   .vc-close.on-azure:hover { background: rgb(255 255 255 / 0.14); }
 
@@ -413,7 +414,7 @@
     inset-block: 0;
     right: 100%;
     width: 24px;
-    background: rgb(255 237 226 / 0.55);
+    background: rgb(226 239 238 / 0.55);
     border-right: 2px solid var(--vc-azure-500);
   }
   .fonts-ready .masthead-lens { animation: lens-sweep 800ms var(--ease-glide) forwards; }

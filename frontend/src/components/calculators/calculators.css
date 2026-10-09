@@ -1,16 +1,16 @@
 /* The cost calculators, in the site's own type and colours: parchment ground, paper fields, ink
    text, brass rules. Activity colours and the four basis classes are the only additions. */
 .calc-page {
-  --act-email: #132842;
-  --act-search: #3B8A7E;
-  --act-meet: #FF7D33;
-  --act-read: #515A68;
-  --act-bund: #7A3E9D;
-  --cls-pub: #132842;
-  --cls-ven: #B4441A;
-  --cls-ven-fill: #FF7D33;
-  --cls-asm: #7A3E9D;
-  --cls-own: #515A68;
+  --act-email: #0F192F;
+  --act-search: #5B8A3A;
+  --act-meet: #DEA759;
+  --act-read: #535A6A;
+  --act-bund: #B4572E;
+  --cls-pub: #0F192F;
+  --cls-ven: #0E6A6A;
+  --cls-ven-fill: #DEA759;
+  --cls-asm: #B4572E;
+  --cls-own: #535A6A;
   font-variant-numeric: lining-nums;
 }
 
