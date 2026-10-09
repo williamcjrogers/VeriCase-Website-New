@@ -46,7 +46,7 @@
 .on-ink .dw-fill-line { fill: var(--vc-parchment); }
 .on-ink .dw-fill-thin { fill: var(--vc-mist); }
 .on-ink .dw-fill-paper { fill: var(--vc-ink-950); }
-.on-ink .dw-fill-tint { fill: rgb(252 250 245 / 0.06); }
+.on-ink .dw-fill-tint { fill: rgb(250 249 245 / 0.06); }
 .on-ink .dw-t, .on-ink .dw-t-label { fill: var(--vc-mist); }
 .on-ink .dw-t-strong, .on-ink .dw-t-title { fill: var(--vc-parchment); }
 .on-ink .dw-t-dim, .on-ink .dw-t-rev { fill: var(--vc-brass-400); }
@@ -97,8 +97,8 @@
 }
 
 @keyframes disputeGlow {
-  0%, 100% { stroke: #0B2516; stroke-width: 1; }
-  50% { stroke: #C4A05A; stroke-width: 1.5; }
+  0%, 100% { stroke: #232A38; stroke-width: 1; }
+  50% { stroke: #9CC4EA; stroke-width: 1.5; }
 }
 
 @keyframes strikethroughSweep {
@@ -154,9 +154,9 @@
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  background-color: rgba(252, 250, 245, 0.96);
+  background-color: rgba(250, 249, 245, 0.96);
   backdrop-filter: blur(6px);
-  border: 1px solid rgba(209, 199, 183, 0.9);
+  border: 1px solid rgba(211, 212, 206, 0.9);
   border-radius: 9999px;
   padding: 0.1875rem 0.5rem;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.06);
@@ -179,7 +179,7 @@
   border-radius: 9999px;
   transition-property: background-color, color;
   transition-duration: 150ms;
-  color: #0B2516;
+  color: #232A38;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -187,13 +187,13 @@
 }
 
 .plate-hud-btn:hover {
-  background-color: #EAE4D7;
+  background-color: #DFE0D9;
 }
 
 .plate-hud-divider {
   width: 1px;
   height: 0.75rem;
-  background-color: #D1C7B7;
+  background-color: #D3D4CE;
 }
 
 @media (max-width: 640px) {

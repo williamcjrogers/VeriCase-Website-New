@@ -16,7 +16,7 @@
   color: var(--vc-navy);
 }
 .cr-scott td { vertical-align: top; }
-.cr-row.is-suggested td { background: rgb(236 228 211 / 0.35); }
+.cr-row.is-suggested td { background: rgb(232 233 227 / 0.35); }
 
 /* Labels for each cell, shown only when the rows are cards. */
 .cr-label {

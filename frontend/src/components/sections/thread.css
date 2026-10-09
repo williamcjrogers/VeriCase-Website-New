@@ -1,8 +1,8 @@
 /* The thread: a section's steps as marked points on one brass line, as the chronology figure marks
    its entries on the record. Brass-400 for the line and its points: decoration, since the ordered
    list and the step titles carry the sequence (it measures 2.5:1 on paper and 2.3:1 on parchment,
-   so it must not carry meaning alone); the step titles in Newsreader, their text in ink; the line
-   that introduces the illustration in Newsreader italic, brass-700. The thread ends there, and on wider screens runs on
+   so it must not carry meaning alone); the step titles in the sans, their text in ink; the line
+   that introduces the illustration in the sans, italic, brass-700. The thread ends there, and on wider screens runs on
    (--thread-drop) into the illustration's brass top rule below. */
 
 .thread {
@@ -51,7 +51,7 @@
 /* A qualification the step must carry, set quieter than the step itself. */
 .thread-note { max-width: 46ch; margin: 0.5rem 0 0; font-size: 0.9375rem; line-height: 1.55; color: var(--vc-graphite); }
 /* The line that introduces the illustration: where the thread turns, a smaller square point. */
-.thread-lead-in { position: relative; max-width: 40ch; margin: 2.25rem 0 0; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-style: italic; font-size: 1.1875rem; line-height: 1.45; color: var(--vc-brass-700); }
+.thread-lead-in { position: relative; max-width: 40ch; margin: 2.25rem 0 0; font-family: 'IBM Plex Sans', 'IBM Plex Sans Fallback', Arial, sans-serif; font-style: italic; font-size: 1.1875rem; line-height: 1.45; color: var(--vc-brass-700); }
 .thread-lead-in::before {
   content: '';
   position: absolute;

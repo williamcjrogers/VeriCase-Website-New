@@ -128,7 +128,7 @@ function SourceSheet({ state, setState, onClose, invoker }) {
               </dl>
 
               <h3 className="mt-6 eyebrow">{r.kind === 'email' ? 'Authored text' : 'Text read by OCR'}</h3>
-              <p className="mt-2 font-display text-[1.0625rem] leading-relaxed text-ink">{r.authored}</p>
+              <p className="mt-2 font-document text-[1.0625rem] leading-relaxed text-ink">{r.authored}</p>
 
               {r.quoted.length > 0 && (
                 <Collapsible className="mt-5 border-t border-rule pt-3">

@@ -73,16 +73,16 @@
 .time-advantage-copy p + p { margin-top: 1rem; }
 .time-advantage-copy { color: var(--vc-parchment-300); }
 /* A section's introduction: the heading, then the issue (the problem as the reader meets it in a
-   dispute) set large in Newsreader, the one emphasis in the section, then the method in the body
+   dispute) set large in the sans, the one emphasis in the section, then the method in the body
    face. Both in ink. */
-.section-issue { max-width: 30ch; margin: 1.75rem 0 0; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: clamp(1.375rem, 1.05rem + 1vw, 1.875rem); line-height: 1.32; font-weight: 400; letter-spacing: -0.006em; color: var(--vc-ink); text-wrap: pretty; }
+.section-issue { max-width: 30ch; margin: 1.75rem 0 0; font-family: 'IBM Plex Sans', 'IBM Plex Sans Fallback', Arial, sans-serif; font-size: clamp(1.375rem, 1.05rem + 1vw, 1.875rem); line-height: 1.32; font-weight: 400; letter-spacing: -0.006em; color: var(--vc-ink); text-wrap: pretty; }
 .section-method { max-width: 44ch; margin: 1.25rem 0 0; font-size: 1.0625rem; line-height: 1.65; color: var(--vc-ink); }
 .capability-explanation-grid > * { min-width: 0; }
-/* Figures beneath an introduction's method: the number in Newsreader, smaller and lighter than the
+/* Figures beneath an introduction's method: the number in the sans, smaller and lighter than the
    issue above it, so that the issue stays the section's one large statement; what it measures in the
    body face, each with its note; a modelled figure carries its label on a line of its own. */
 .section-figures { list-style: none; display: grid; gap: 1.25rem; max-width: 44ch; margin: 2rem 0 0; padding: 1.5rem 0 0; border-top: 1px solid var(--vc-rule); }
-.section-figure-value { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.125rem 0.75rem; margin: 0; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: clamp(1.25rem, 0.95rem + 0.6vw, 1.5rem); line-height: 1.15; font-weight: 400; color: var(--vc-navy); font-variant-numeric: lining-nums; }
+.section-figure-value { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.125rem 0.75rem; margin: 0; font-family: 'IBM Plex Sans', 'IBM Plex Sans Fallback', Arial, sans-serif; font-size: clamp(1.25rem, 0.95rem + 0.6vw, 1.5rem); line-height: 1.15; font-weight: 400; color: var(--vc-navy); font-variant-numeric: lining-nums; }
 .section-figure-estimate { flex-basis: 100%; font-family: 'IBM Plex Sans', 'IBM Plex Sans Fallback', Arial, sans-serif; font-size: 0.8125rem; line-height: 1.4; font-weight: 500; color: var(--vc-brass-700); }
 .section-figure-text { margin: 0.375rem 0 0; font-size: 0.9375rem; line-height: 1.6; color: var(--vc-ink); }
 .section-figures-link { max-width: 44ch; margin: 1.25rem 0 0; font-size: 0.9375rem; line-height: 1.55; }
@@ -99,7 +99,7 @@
    under a brass rule, the label in the margin from 1024 px. */
 .collaboration-audience { display: grid; gap: 0.75rem 2.5rem; margin-top: 3.5rem; padding: 2.25rem clamp(1.25rem, 3vw, 2.5rem) 2.5rem; border-top: 3px solid var(--vc-brass-400); background: var(--vc-parchment-300); }
 .collaboration-audience-label { margin: 0; font-family: 'IBM Plex Mono', 'IBM Plex Mono Fallback', ui-monospace, monospace; font-size: 0.8125rem; line-height: 1.4; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--vc-brass-700); }
-.collaboration-audience-text { max-width: 48rem; margin: 0; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; text-wrap: pretty; }
+.collaboration-audience-text { max-width: 48rem; margin: 0; font-family: 'IBM Plex Sans', 'IBM Plex Sans Fallback', Arial, sans-serif; text-wrap: pretty; }
 .collaboration-audience-lead { display: block; font-size: clamp(1.625rem, 1.2rem + 1.6vw, 2.5rem); line-height: 1.18; letter-spacing: -0.012em; color: var(--vc-navy); }
 .collaboration-audience-rest { display: block; max-width: 40rem; margin-top: 0.75rem; font-size: clamp(1.25rem, 1.05rem + 0.75vw, 1.625rem); line-height: 1.35; color: var(--vc-ink); }
 @media (min-width: 1024px) { .collaboration-audience { grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); } .collaboration-audience-label { padding-top: 0.75rem; } }
@@ -115,7 +115,7 @@
 .lessons-emphasis { font-family: 'IBM Plex Sans', 'IBM Plex Sans Fallback', Arial, sans-serif; font-size: 0.8125rem; letter-spacing: 0.02em; color: var(--vc-graphite); white-space: nowrap; }
 .lessons-close { grid-column: 1 / -1; max-width: 48rem; margin-top: 1.75rem; }
 .lessons-close p { font-size: 1.0625rem; line-height: 1.6; color: var(--vc-ink); }
-.lessons-close p + p { margin-top: 0.5rem; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-style: italic; font-size: clamp(1.375rem, 1.15rem + 0.8vw, 1.75rem); line-height: 1.3; color: var(--vc-brass-700); }
+.lessons-close p + p { margin-top: 0.5rem; font-family: 'IBM Plex Sans', 'IBM Plex Sans Fallback', Arial, sans-serif; font-style: italic; font-size: clamp(1.375rem, 1.15rem + 0.8vw, 1.75rem); line-height: 1.3; color: var(--vc-brass-700); }
 @media (min-width: 1024px) {
   .lessons-inner { grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); }
   .lessons .section-kicker { padding-top: 0.2rem; }
@@ -153,7 +153,7 @@
 .team-credentials { margin-top: 1rem; padding-left: 1rem; border-left: 2px solid var(--vc-brass-400); list-style: none; }
 .team-credentials li + li { margin-top: 0.35rem; }
 .team-list { margin-top: 1rem; list-style: none; padding: 0; display: grid; gap: 1rem; }
-.team-list-name { display: block; font-family: 'Newsreader', Georgia, serif; font-size: 1.3125rem; line-height: 1.25; }
+.team-list-name { display: block; font-family: 'IBM Plex Sans', 'IBM Plex Sans Fallback', Arial, sans-serif; font-weight: 500; font-size: 1.25rem; line-height: 1.25; }
 .team-list-detail { display: block; margin-top: 0.3rem; color: var(--vc-graphite); font-size: 0.875rem; }
 .clarity-question { border-bottom: 1px solid var(--vc-rule); }
 .clarity-question:first-child { border-top: 1px solid var(--vc-rule); }
