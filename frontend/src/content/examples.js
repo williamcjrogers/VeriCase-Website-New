@@ -142,10 +142,14 @@ export const BUNDLE_EXAMPLE = {
   view: 'Bundles',
   bundleTitle: 'Loading bay: notice of delay',
   source: 'Deep Research',
+  // Built for you (owner, 09 October 2026): Create bundle on a Deep Research report gathers the
+  // evidence the report cites, in order, with the report itself on top, after the cover page.
+  auto: 'Built from the report: the report on top, then every item it cites.',
   contentsLabel: 'Bundle contents',
   cover: 'Cover page',
   fixed: 'Fixed',
   items: [
+    { title: 'VeriCase Analysis Report', sub: 'Deep Research, 09 October 2026', kind: 'Report' },
     { title: 'Monthly report 11', sub: '30 April 2025', kind: 'Document' },
     { title: 'Loading bay: delay assessment', sub: '11 June 2025', kind: 'Email' },
     { title: 'Re: Loading bay: delay assessment', sub: '13 June 2025', kind: 'Email' },

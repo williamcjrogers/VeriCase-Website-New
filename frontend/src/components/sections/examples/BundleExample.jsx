@@ -4,7 +4,8 @@ import { cn } from '@/lib/utils';
 import { keepDates, useFigurePlay } from '../illustrationKit';
 import { AppButton, AppFrame, Badge } from './AppFrame';
 
-// Bundles: the contents in order (the cover page fixed first), the PDF settings and the cover page
+// Bundles: built from a Deep Research report, the report on top of the evidence it cites. The
+// contents in order (the cover page fixed first), the PDF settings and the cover page
 // beside them, and the download, ready. After the kit's wait of 320 each item, then the settings,
 // then the download take a turn of 300, the last settling 420 later; the duration adds 300.
 const PARTS = B.items.length + 2;
@@ -19,6 +20,7 @@ export const BundleExample = ({ id = 'bundle-example', play: shared }) => {
         <Badge tone="azure">{B.source}</Badge>
         <AppButton icon={Download} primary>Download</AppButton>
       </div>
+      <p className="bundle-auto app-quiet" style={{ margin: '0.375rem 0 0' }}>{B.auto}</p>
       <div className="bundle-grid">
         <div>
           <span className="app-label">{B.contentsLabel}</span>
@@ -34,7 +36,7 @@ export const BundleExample = ({ id = 'bundle-example', play: shared }) => {
                 <span className="bundle-n" aria-hidden="true">{k + 2}</span>
                 <GripVertical className="bundle-grip" aria-hidden="true" />
                 <span className="bundle-item-title">{item.title}<span className="bundle-item-sub">{keepDates(item.sub)}</span></span>
-                <Badge>{item.kind === 'Email' ? <><Mail aria-hidden="true" style={{ width: '0.75rem', height: '0.75rem', marginRight: '0.25rem' }} />Email</> : item.kind}</Badge>
+                <Badge tone={item.kind === 'Report' ? 'azure' : undefined}>{item.kind === 'Email' ? <><Mail aria-hidden="true" style={{ width: '0.75rem', height: '0.75rem', marginRight: '0.25rem' }} />Email</> : item.kind}</Badge>
               </li>
             ))}
           </ol>
