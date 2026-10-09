@@ -63,7 +63,7 @@ export const DiscussionMock = () => {
               </div>
             ))}
           </dl>
-          <p className="px-4 pb-6 pt-4 font-display text-[1.125rem] leading-relaxed text-ink sm:px-5">{keepDates(doc.authored)}</p>
+          <p className="px-4 pb-6 pt-4 font-document text-[1.125rem] leading-relaxed text-ink sm:px-5">{keepDates(doc.authored)}</p>
         </article>
 
         <div className="bg-paper">
@@ -85,7 +85,7 @@ export const DiscussionMock = () => {
                   </p>
                   <p className="mt-1 text-small text-ink">
                     {c.mention && <span className="mr-1 inline-flex rounded-sm border border-rule-strong bg-parchment-300 px-1.5 text-meta font-medium text-navy">{c.mention}</span>}
-                    {c.quote && <span className="font-display text-[1.0625rem] italic text-navy">{c.quote}</span>} <WithChips text={c.text} />
+                    {c.quote && <span className="font-document text-[1.0625rem] italic text-navy">{c.quote}</span>} <WithChips text={c.text} />
                   </p>
                 </div>
               </li>

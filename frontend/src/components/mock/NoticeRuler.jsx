@@ -86,7 +86,7 @@ export const NoticeRuler = () => {
                   <span className="block font-mono text-[0.6875rem] leading-4 text-graphite">{formatDate(p.date)}</span>
                   <span className="block text-[0.875rem] font-medium leading-5 text-navy">{keepRefs(p.label)}</span>
                   <span className="block font-mono text-[0.75rem] leading-4 text-azure-700 underline decoration-azure-700/40 underline-offset-2">{p.ev}</span>
-                  {p.flag && <span className="mt-0.5 block font-display text-[0.875rem] italic leading-5 text-ink">{p.flag}</span>}
+                  {p.flag && <span className="mt-0.5 block font-document text-[0.875rem] italic leading-5 text-ink">{p.flag}</span>}
                 </button>
               </li>
             );
@@ -124,7 +124,7 @@ export const NoticeRuler = () => {
                   <span className="block text-[0.9375rem] font-medium text-navy">{keepRefs(p.label)}</span>
                   <span className="mt-0.5 block text-[0.8125rem]">
                     <span className="font-mono text-azure-700 underline decoration-azure-700/40 underline-offset-2">{p.ev}</span>
-                    {p.flag && <span className="ml-2 font-display text-[0.9375rem] italic text-ink">{p.flag}</span>}
+                    {p.flag && <span className="ml-2 font-document text-[0.9375rem] italic text-ink">{p.flag}</span>}
                   </span>
                 </span>
               </button>

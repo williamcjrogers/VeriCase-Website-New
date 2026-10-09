@@ -79,7 +79,7 @@ export const CookieConsent = () => {
       ref={bar}
       role="region"
       aria-label={COOKIE_BAR.region}
-      className="fixed inset-x-0 bottom-0 z-30 border-t border-rule-strong bg-paper text-ink shadow-[0_-12px_32px_-20px_rgba(15,25,47,0.35)]"
+      className="fixed inset-x-0 bottom-0 z-30 border-t border-rule-strong bg-paper text-ink shadow-[0_-12px_32px_-20px_rgba(35,42,56,0.35)]"
       data-testid="cookie-consent"
     >
       <div className="container flex flex-col gap-2.5 py-2.5 lg:flex-row lg:items-center lg:gap-6 lg:py-2">

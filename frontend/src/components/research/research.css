@@ -155,7 +155,7 @@
   transition: background-color 150ms var(--ease-settle), border-color 150ms var(--ease-settle);
 }
 .rs-chip:hover,
-.rs-chip[data-state='open'] { background: #E6E0D2; border-color: var(--vc-navy); }
+.rs-chip[data-state='open'] { background: #DFE0D9; border-color: var(--vc-navy); }
 .rs-chip-body { display: flex; flex-direction: column; gap: 0.125rem; min-width: 0; }
 .rs-chip .chip-key { font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
 .rs-chip .chip-value { overflow-wrap: anywhere; }
@@ -252,7 +252,7 @@
 /* ---- The report: a paper document with a VeriCase-blue header ------------------------------- */
 .rs-sheet-slot { margin-top: 1.25rem; }
 @media (min-width: 1024px) { .rs-sheet-slot { margin-top: 1.5rem; } }
-.rs-report { position: relative; background: var(--vc-paper); border: 1px solid rgb(123 118 106 / 0.5); }
+.rs-report { position: relative; background: var(--vc-paper); border: 1px solid rgb(116 118 109 / 0.5); }
 .rs-report-head {
   position: relative;
   display: flex;
@@ -309,7 +309,7 @@ p.rs-report-head {
   gap: 0.625rem;
   min-width: 0;
   padding: 0.75rem 0.875rem 0.8125rem;
-  background: #FCFAF6;
+  background: #FAF9F5;
   border: 1px solid var(--vc-rule);
 }
 .rs-stat dt {
@@ -328,7 +328,7 @@ p.rs-report-head {
   font-variant-numeric: tabular-nums slashed-zero;
   color: var(--vc-navy);
 }
-.rs-valid { grid-column: 1 / -1; border-color: var(--vc-azure-500); box-shadow: inset 0 0 0 1px rgb(180 100 12 / 0.35); }
+.rs-valid { grid-column: 1 / -1; border-color: var(--vc-azure-500); box-shadow: inset 0 0 0 1px rgb(45 120 183 / 0.35); }
 @media (min-width: 640px) { .rs-valid { grid-column: auto; } }
 .rs-stat.rs-valid dd { font-family: 'IBM Plex Sans', 'IBM Plex Sans Fallback', Arial, sans-serif; font-size: 1rem; line-height: 1.3; }
 .rs-valid-state { display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; color: var(--vc-azure-700); }
@@ -382,7 +382,7 @@ p.rs-report-head {
 @media (max-width: 639px) { .rs-actions > * { flex: 1 1 auto; } }
 
 /* ---- The bundle ---------------------------------------------------------------------------- */
-.rs-bundle { margin-top: 1.25rem; padding: 1.25rem 1rem 1.5rem; background: var(--vc-paper); border: 1px solid rgb(123 118 106 / 0.5); }
+.rs-bundle { margin-top: 1.25rem; padding: 1.25rem 1rem 1.5rem; background: var(--vc-paper); border: 1px solid rgb(116 118 109 / 0.5); }
 @media (min-width: 640px) { .rs-bundle { padding: 1.75rem 1.75rem 2rem; } }
 @media (min-width: 1024px) { .rs-bundle { padding: 2rem 2.5rem 2.25rem; } }
 .rs-bundle-title { outline-offset: 6px; }

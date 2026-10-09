@@ -3,8 +3,8 @@
   "short_name": "VeriCase",
   "start_url": "/",
   "display": "browser",
-  "theme_color": "#0F192F",
-  "background_color": "#0F192F",
+  "theme_color": "#232A38",
+  "background_color": "#232A38",
   "icons": [
     {
       "src": "/icon-192.png",

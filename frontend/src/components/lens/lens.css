@@ -12,7 +12,7 @@
   overflow: hidden;
   container: lens-frame / inline-size;
   background: var(--vc-paper);
-  border: 1px solid rgb(123 118 106 / 0.7);
+  border: 1px solid rgb(116 118 109 / 0.7);
   border-radius: 4px;
   box-shadow: var(--shadow-paper);
   color: var(--vc-ink);
@@ -195,7 +195,7 @@
   inset: 0;
   background: var(--vc-paper);
   border: 1px solid var(--vc-rule);
-  box-shadow: 0 1px 0 rgb(15 25 47 / 0.05), 0 8px 18px -10px rgb(15 25 47 / 0.34);
+  box-shadow: 0 1px 0 rgb(35 42 56 / 0.05), 0 8px 18px -10px rgb(35 42 56 / 0.34);
   transform-origin: top;
   transition: transform 300ms var(--ease-settle);
 }
@@ -277,7 +277,7 @@
   letter-spacing: -0.01em;
   color: var(--vc-azure-700);
   background: var(--vc-azure-50);
-  border: 1px solid rgb(14 106 106 / 0.4);
+  border: 1px solid rgb(58 108 171 / 0.4);
   border-radius: 2px;
 }
 .frag-chip {
@@ -307,7 +307,7 @@
 .frag-ghost {
   position: absolute;
   inset: 0;
-  background: rgb(252 250 246 / 0.5);
+  background: rgb(250 249 245 / 0.5);
   border: 1px dashed var(--vc-azure-500);
   opacity: 0;
   transform: translate(-12px, -12px);
@@ -323,7 +323,7 @@
 .frag[data-effect='fold'][data-processed] .frag-sheet { transform: scaleY(var(--fold)); }
 /* Set aside: the item fades into the desk (to about 35%) under a veil of the desk's colour,
    while its label, which says why, stays at full strength. */
-.frag-scrim { position: absolute; inset: 0; background: rgb(239 233 221 / 0.66); opacity: 0; transition: opacity 260ms var(--ease-settle); }
+.frag-scrim { position: absolute; inset: 0; background: rgb(232 233 227 / 0.66); opacity: 0; transition: opacity 260ms var(--ease-settle); }
 .frag.is-aside[data-processed] .frag-scrim { opacity: 1; }
 .frag.is-aside[data-processed] .frag-sheet { box-shadow: none; }
 .frag[data-effect='duplicate'][data-processed] { transform: translate(12px, 12px) rotate(var(--rot)); }
@@ -333,7 +333,7 @@
 .frag[data-effect='attachment'][data-processed] .frag-clip { opacity: 1; transform: none; }
 
 /* The scanned diary page, and the line that reads it once. */
-.frag-scan { position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: #f3f1ec; }
+.frag-scan { position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: #f0f1ec; }
 .frag-scan-label { height: 16px; margin-top: 5px; font-size: 0.75rem; line-height: 16px; color: var(--vc-graphite); }
 .frag[data-kind='scan'] .frag-content { padding: 5px 5px 6px; }
 /* The thumbnail is narrow, so its label hangs beside it, where the lens has not yet reached,
@@ -350,8 +350,8 @@
   100% { opacity: 0; transform: translateY(100%); }
 }
 .diary { display: block; width: 100%; height: 100%; }
-.diary-bed { fill: #f3f1ec; }
-.diary-page { fill: #fcfaf6; stroke: var(--vc-rule); stroke-width: 0.6; }
+.diary-bed { fill: #f0f1ec; }
+.diary-page { fill: #faf9f5; stroke: var(--vc-rule); stroke-width: 0.6; }
 .diary-box { fill: none; stroke: var(--vc-graphite); stroke-width: 0.5; opacity: 0.6; }
 .diary-rules { fill: none; stroke: var(--vc-azure-300); stroke-width: 0.5; opacity: 0.75; }
 .diary-margin { fill: none; stroke: var(--vc-brass-400); stroke-width: 0.5; opacity: 0.7; }
@@ -375,7 +375,7 @@
   inset-block: 0;
   left: -12px;
   width: 24px;
-  background: rgb(226 239 238 / 0.5);
+  background: rgb(231 240 251 / 0.5);
   border-inline: 2px solid var(--vc-azure-500);
 }
 .lens-bezel { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -425,7 +425,7 @@
   background: var(--vc-paper);
   border: 1px solid var(--vc-azure-500);
   border-radius: 2px;
-  box-shadow: 0 1px 0 rgb(15 25 47 / 0.06), 0 6px 16px -8px rgb(15 25 47 / 0.4);
+  box-shadow: 0 1px 0 rgb(35 42 56 / 0.06), 0 6px 16px -8px rgb(35 42 56 / 0.4);
   pointer-events: auto;
   cursor: grab;
 }

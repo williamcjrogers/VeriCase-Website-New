@@ -5,7 +5,7 @@
 
 /* With very large text a word too long for its line breaks, rather than leave the panel; this
    changes nothing at sizes where every word fits, and leaves intrinsic sizes alone. */
-.live-figure { --live-rule: rgb(222 167 89 / 0.32); background: var(--vc-ink); border-color: var(--live-rule); border-top-color: var(--vc-brass-400); color: var(--vc-parchment); overflow-wrap: break-word; }
+.live-figure { --live-rule: rgb(141 184 232 / 0.32); background: var(--vc-ink); border-color: var(--live-rule); border-top-color: var(--vc-brass-400); color: var(--vc-parchment); overflow-wrap: break-word; }
 .live-figure .section-kicker { color: var(--vc-brass-400); }
 .live-figure .evidence-figure-title { color: var(--vc-parchment); }
 .live-figure > figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.25rem 1.5rem; border-top-color: var(--live-rule); color: var(--vc-parchment-300); }

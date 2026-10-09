@@ -44,8 +44,8 @@ export const SiteHeader = () => {
     <>
       <header
         className={cn(
-          'sticky top-0 z-40 border-b bg-ink/95 backdrop-blur-[6px] transition-colors duration-200 text-paper',
-          scrolled ? 'border-mist/20 shadow-md' : 'border-transparent'
+          'sticky top-0 z-40 border-b border-rule bg-paper/95 backdrop-blur-[6px] transition-shadow duration-200 text-ink',
+          scrolled && 'shadow-paper'
         )}
       >
       <a href="#main" className="skip-link">
@@ -56,9 +56,9 @@ export const SiteHeader = () => {
           href={onHome ? '#top' : '/'}
           onClick={onHome ? onSectionClick('top') : undefined}
           aria-label={HEADER.logoAlt}
-          className="-mx-1 flex h-11 min-w-11 shrink-0 items-center rounded-sm px-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass-400"
+          className="-mx-1 flex h-11 min-w-11 shrink-0 items-center rounded-sm px-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azure-500"
         >
-          <Logo tone="reversed" decorative className="site-wordmark h-7 w-auto sm:h-8" />
+          <Logo decorative className="site-wordmark h-7 w-auto sm:h-8" />
         </a>
 
         <nav aria-label="Sections" className="hidden xl:block">
@@ -71,14 +71,14 @@ export const SiteHeader = () => {
                     href={sectionHref(s.id, onHome)}
                     onClick={onHome ? onSectionClick(s.id) : undefined}
                     aria-current={current ? 'location' : undefined}
-                    className="group relative inline-flex h-11 items-center px-3 text-small font-medium text-parchment-300 hover:text-white"
+                    className="group relative inline-flex h-11 items-center px-3 text-small font-medium text-graphite hover:text-navy"
                   >
                     {s.nav}
                     <span
                       aria-hidden="true"
                       className={cn(
-                        'absolute inset-x-3 bottom-1 h-0.5 origin-left bg-azure-300 transition-transform duration-200 ease-settle',
-                        current ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100 group-hover:bg-azure-300/70'
+                        'absolute inset-x-3 bottom-1 h-0.5 origin-left bg-azure-500 transition-transform duration-200 ease-settle',
+                        current ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100 group-hover:bg-azure-500/60'
                       )}
                     />
                   </a>
@@ -91,13 +91,13 @@ export const SiteHeader = () => {
         <div className="flex items-center gap-1 sm:gap-2">
           <a
             href={SIGN_IN_URL}
-            className="hidden h-11 items-center rounded-sm px-3 text-small font-medium text-parchment-300 underline-offset-4 hover:text-white hover:underline sm:inline-flex"
+            className="hidden h-11 items-center rounded-md px-3 text-small font-medium text-graphite underline-offset-4 hover:text-navy hover:underline sm:inline-flex"
           >
             {HEADER.signIn}
           </a>
           <a
             href={DEMO_MAILTO} onClick={() => trackDemonstration('header', 'top')}
-            className="header-demo inline-flex min-h-11 items-center justify-center gap-2 rounded-sm bg-brass-400 px-4 py-2 text-small font-medium text-ink transition-colors hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass-400 max-sm:px-3 max-sm:text-[0.875rem]"
+            className="header-demo inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-azure-700 px-4 py-2 text-small font-medium text-white shadow-sm transition-colors hover:bg-brass-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azure-500 max-sm:px-3 max-sm:text-[0.875rem]"
           >
             {CTA_LABEL}
           </a>
@@ -106,7 +106,7 @@ export const SiteHeader = () => {
               <button
                 type="button"
                 aria-label={HEADER.contents}
-                className="inline-flex h-11 min-w-[44px] items-center justify-center gap-2 rounded-sm border border-transparent px-2 text-small font-medium text-parchment-300 hover:border-mist/20 hover:text-white sm:border-mist/20 sm:px-3 xl:hidden"
+                className="inline-flex h-11 min-w-[44px] items-center justify-center gap-2 rounded-md border border-transparent px-2 text-small font-medium text-graphite hover:border-rule-strong hover:text-navy sm:border-rule sm:px-3 xl:hidden"
               >
                 <List className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" />
                 <span className="header-menu-label">{HEADER.contents}</span>

@@ -100,7 +100,7 @@ export const CaseRoom = () => {
   const [s14, s21, s28] = DAY_GRID.stations;
 
   return (
-    <section id="case-room" aria-labelledby="case-room-title" className="relative overflow-hidden on-ink bg-[#0F192F] border-y border-[#26324D]">
+    <section id="case-room" aria-labelledby="case-room-title" className="relative overflow-hidden on-ink bg-[#232A38] border-y border-[#3A4354]">
       <div className="vc-rain" aria-hidden="true" />
       <CaseBand>
         <div className="cr-band-inner container">
