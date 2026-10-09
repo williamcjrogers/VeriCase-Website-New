@@ -5,12 +5,12 @@ import { LandingPage } from './LandingPage';
 import { Cookies } from './Cookies';
 import { NotFound } from './NotFound';
 import { HOME_NAV } from '@/content/home';
-import { focusSection } from '@/lib/navigate';
+import { focusSection, LEGACY_FRAGMENTS } from '@/lib/navigate';
 
 let container;
 let root;
 let frames;
-const legacy = ['chronology-lens', 'research', 'case-room', 'integrity', 'clock', 'claims', 'notes'];
+const legacy = ['chronology-lens', 'research', 'integrity', 'clock', 'claims', 'notes'];
 beforeEach(() => {
   global.IS_REACT_ACT_ENVIRONMENT = true;
   container = document.createElement('div');
@@ -51,31 +51,31 @@ it('gives every region landmark a distinct name', async () => {
   expect(regions.filter((n, i) => regions.indexOf(n) !== i)).toEqual([]);
 });
 
-it('mounts every illustration with unique ids and its own title, each in place and inside a phone disclosure', async () => {
+it('sends the fragment of a removed section to the section that now covers it', async () => {
+  await render();
+  for (const [gone, now] of Object.entries(LEGACY_FRAGMENTS)) {
+    expect(document.getElementById(gone)).toBeNull();
+    expect(focusSection(gone, { smooth: false })).toBe(true);
+    expect(document.activeElement.id).toBe(`${now}-title`);
+  }
+});
+
+it('mounts every app example once, in place, in page order, each with unique ids and its own title', async () => {
   await render();
   const ids = [...container.querySelectorAll('[id]')].map((el) => el.id);
   expect(ids.filter((id, i) => ids.indexOf(id) !== i)).toEqual([]);
   const figures = [...container.querySelectorAll('figure.evidence-figure')];
-  // Argument and drafting each have an in-place and a phone copy; the opposing account sits once
-  // inside a disclosure that wider screens open; the reader, search, chronology, research (Executive
-  // Analysis, then Deep Research) and report illustrations stand in place, the search before the
-  // chronology as the lead-in promises, and the collaboration section's discussion and lanes stand
-  // in place too, at every width.
-  expect(figures).toHaveLength(13);
-  const workspace = container.querySelectorAll('figure.reader-illustration, figure.search-illustration, figure.chronology-illustration, figure.research-illustration, figure.deep-research-illustration, figure.report-illustration, figure.discussion-illustration, figure.lanes-illustration');
-  expect(workspace).toHaveLength(8);
-  const research = container.querySelector('figure.research-illustration');
-  expect(research.compareDocumentPosition(container.querySelector('figure.deep-research-illustration')) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-  const search = container.querySelector('figure.search-illustration');
-  expect(search.compareDocumentPosition(container.querySelector('figure.chronology-illustration')) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-  for (const figure of workspace) expect(figure.closest('.mobile-details-content, .desktop-context, .mobile-context')).toBeNull();
-  // Each is named by its own title: an h3, or a paragraph for the opening figure under the h1.
-  for (const figure of figures) expect(figure.querySelector(`h3[id="${figure.getAttribute('aria-labelledby')}"], p.evidence-figure-title[id="${figure.getAttribute('aria-labelledby')}"]`)).not.toBeNull();
-  expect(container.querySelectorAll('.desktop-context > figure.evidence-figure')).toHaveLength(2);
-  expect(container.querySelectorAll('.mobile-context > figure.evidence-figure')).toHaveLength(2);
-  expect(container.querySelectorAll('.mobile-details-content > figure.evidence-figure')).toHaveLength(1);
-  // Every phone copy closes its section's disclosure.
-  expect(container.querySelectorAll('.mobile-details-content .mobile-context > figure.evidence-figure')).toHaveLength(2);
+  // The search opens the page; then the upload (the record), the answer and the report (research),
+  // the bundle, the discussion on one email (collaboration) and the activity log (integrity). One
+  // copy of each at every width: none sits in a phone or desktop copy, or behind a disclosure.
+  expect(figures.map((f) => f.getAttribute('aria-labelledby'))).toEqual(
+    ['search', 'upload', 'analysis', 'report', 'bundle', 'item', 'activity'].map((name) => `${name}-example-title`),
+  );
+  for (const figure of figures) {
+    expect(figure.classList.contains('app-example')).toBe(true);
+    expect(figure.closest('details, .mobile-details-content, .desktop-context, .mobile-context')).toBeNull();
+    expect(figure.querySelector(`h3[id="${figure.getAttribute('aria-labelledby')}"]`)).not.toBeNull();
+  }
 });
 
 it('follows an initial legacy fragment to its mounted heading', async () => {

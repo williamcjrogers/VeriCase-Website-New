@@ -3,15 +3,14 @@ import { CALCULATOR_GATE, CALCULATOR_LINKS } from '@/content/calculatorLinks';
 import { Gated } from '@/components/editorial/Gated';
 import { Rich } from '@/components/editorial/Rich';
 import { CapabilityFeatures, SectionIntroduction } from './CapabilityDetails';
-import { DiscussionIllustration } from './DiscussionIllustration';
-import { LanesIllustration } from './LanesIllustration';
+import { ItemExample } from './examples/ItemExample';
 
 // Collaboration (owner, 06 October 2026): one record discussed by everyone who needs it, from
 // their own organisations, with the history kept on the record. Beneath the method, what the email
 // relay costs, each figure with a note marker (the full notes are on /notes; the modelled figures
-// are marked as estimates). The thread leads into two illustrations, shown in place at every width:
-// the discussion kept with the record, then the same record discussed in lanes. The section closes
-// on who VeriCase is for, set large.
+// are marked as estimates). The thread leads into the example of one email, tagged, a colleague
+// mentioned and the discussion that opens (lanes were removed on 09 October 2026: not seen in the
+// application). The section closes on who VeriCase is for, set large.
 const C = COLLABORATION;
 
 export const Collaboration = () => (
@@ -40,8 +39,7 @@ export const Collaboration = () => (
         </SectionIntroduction>
         <CapabilityFeatures steps={C.steps} label="Working on one record together" mobileLabel="Working with your team" leadIn={C.leadIn} />
       </div>
-      <DiscussionIllustration />
-      <LanesIllustration />
+      <ItemExample />
       <aside className="collaboration-audience" aria-labelledby="collaboration-audience-title">
         <h3 id="collaboration-audience-title" className="collaboration-audience-label">{IN_BRIEF.audience.label}</h3>
         <p className="collaboration-audience-text">

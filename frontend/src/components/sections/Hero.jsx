@@ -1,7 +1,7 @@
 import { COVER } from '@/content/home';
 import { DemoCTA } from '@/components/editorial/DemoCTA';
 import { HeroMotto } from './HeroMotto';
-import { ReaderIllustration } from './ReaderIllustration';
+import { SearchExample } from './examples/SearchExample';
 
 // The italic line breaks after its first word ("Arguments / on the record."); the rest is kept
 // together so that browsers without balanced wrapping never leave "record." alone.
@@ -24,7 +24,7 @@ export const Hero = () => (
           </div>
         </div>
       </div>
-      <ReaderIllustration />
+      <SearchExample className="hero-example" />
     </div>
   </section>
 );

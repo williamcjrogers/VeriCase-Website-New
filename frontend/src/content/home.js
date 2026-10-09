@@ -16,10 +16,9 @@ export const CHAPTERS = [
   { id: 'top', numeral: '', title: 'Records, records, records.', sheetLabel: 'Cover', nav: null },
   { id: 'clock', numeral: 'I', title: 'The clock', nav: 'The clock' },
   { id: 'chronology-lens', numeral: 'II', title: 'The Chronology Lens™', nav: 'Chronology Lens' },
-  { id: 'case-room', numeral: 'III', title: 'The case room', nav: 'Rebuttal' },
-  { id: 'research', numeral: 'IV', title: 'Ask, cite, bundle', nav: 'Ask, cite, bundle' },
-  { id: 'claims', numeral: 'V', title: 'Build the claim', nav: 'Build the claim' },
-  { id: 'integrity', numeral: 'VI', title: 'The record holds', nav: 'Integrity' },
+  { id: 'research', numeral: 'III', title: 'Ask, cite, report', nav: 'Research' },
+  { id: 'worked-example', numeral: 'IV', title: 'Build the bundle', nav: 'Bundles' },
+  { id: 'integrity', numeral: 'V', title: 'The record holds', nav: 'Integrity' },
 ];
 export const HOME_NAV = [
   { id: 'platform', title: 'How it works', nav: 'How it works' },
@@ -242,7 +241,7 @@ export const LENS_CHAPTER = {
       "text": "Select the records the case will rely on, and keep them with the issue they concern."
     }
   ],
-  leadIn: "Watch a search for “time impact” set a façade instruction beside the risk register, then see a road approval traced through the record in date order.",
+  leadIn: "Watch a site manager’s mailbox go in, pass through each step, and come out ready to search.",
   plate: {
     number: 2,
     caption: 'Plate 2. The record as it is often kept. Illustrative image (computer-generated). See note B.',
@@ -259,7 +258,7 @@ export const LENS_CHAPTER = {
       'Illustration: the sample matter in the Chronology Lens workbench, with eight entries from four parties in date order, controls for view, date window, Smart Filter, excluded keywords and Create bundle, and a File Manager view of attachments by type with a Show Noise switch.',
     caption: 'Fig. 3. The Chronology Lens™ workbench and File Manager, illustrated with the sample matter. Counts are illustrative. See note A.',
   },
-  next: { label: 'Next: test the case against the record', href: '#case-room' },
+  next: { label: 'Next: ask the record', href: '#research' },
 };
 
 export const RESEARCH = {
@@ -279,12 +278,12 @@ export const RESEARCH = {
     },
     {
       title: 'Commission a full report',
-      text: 'Deep Research works through the research angles of an issue and sets out its findings, each referenced to an evidence appendix.',
+      text: 'Deep Research works through the research angles of an issue and reports, with an executive summary and the sources it cites, ready to download as a PDF.',
       gate: 'G5_research',
     },
     {
-      title: 'Build the bundle',
-      text: 'Create a bundle from the report’s evidence: give it a title and a cover page, set the order, and download it.',
+      title: 'See how far the answer goes',
+      text: 'Each answer lists its supporting evidence and carries a confidence score, and each report shows how many sources it cites and whether it passed validation.',
       gate: 'G5_research',
     },
     {
@@ -293,41 +292,44 @@ export const RESEARCH = {
       note: 'Results depend on the scope and material examined; they are not a complete account of the matter.',
     },
   ],
-  leadIn: 'Watch a question about early access answered and a follow-up find a gap, then see a full report and the bundle built from it.',
+  leadIn: 'Watch a question about early access answered with its sources and a confidence score, then a full report on a notice of delay, with its checks.',
   fig: {
     number: 4,
     summary:
       'Illustration: a plain-English question about the sample matter, the Query Plan derived from it and the resulting Analysis Report with six numbered citations. Each citation opens its fictional source. Create bundle adds the six cited items to a bundle.',
     caption: 'Fig. 4. Research, illustrated with the sample matter. The report, sources and bundle are fictional. See note A.',
   },
-  cta: { line: 'See Research, the Chronology Lens™ and Rebuttal Mode on sample correspondence.' },
+  cta: { line: 'See Research and the Chronology Lens™ on sample correspondence.' },
 };
 
 export const CLAIMS = {
   numeral: 'V',
   eyebrow: 'Chapter V · Claims builder and collaboration',
-  h2: "Develop the argument.",
-  issue: "The narrative is drafted in one file and the evidence kept in another. By the fifth draft, which document does paragraph 5.2 rely on?",
-  method: "Write the claim or response in VeriCase, with the records each paragraph relies on in the same workspace as the wording.",
+  // Bundles (owner, 09 October 2026): Create bundle on a Deep Research report builds the bundle
+  // from the evidence it cites, the report on top; the PDF has a cover sheet, an index and page
+  // numbers. The drafting section this replaces was not seen in the application that day.
+  h2: "Build the bundle.",
+  issue: "The deadline is close and the bundle is still being put together by hand: finding each email, putting them in order, numbering pages, writing the index.",
+  method: "Create a bundle from a Deep Research report in one step: the report on top, every item it cites in order, a cover page and an index, numbered and ready to download.",
   steps: [
     {
-      "title": "Structure the argument",
-      "text": "Set out the points you need to establish, with a section for each."
+      "title": "Start from the report",
+      "text": "Create bundle on a Deep Research report gathers the evidence it cites, with the report itself on top."
     },
     {
-      "title": "Find the evidence",
-      "text": "Search the record for the section you are drafting, including material that tells against your position."
+      "title": "Set the order",
+      "text": "Drag items or use the arrows to change the order. The cover page always stays first."
     },
     {
-      "title": "Cite the record",
-      "text": "Use source references to check each factual point against the record it rests on."
+      "title": "Fill in the cover page",
+      "text": "Add the case or matter, court, reference, who prepared it and for whom, and the bundle date."
     },
     {
-      "title": "Finalise the draft",
-      "text": "Go through it with its source references, add any qualification the submission needs, then export or share it."
+      "title": "Download it",
+      "text": "Choose whether to include the cover page and how the pages are numbered, then download the PDF, with its index."
     }
   ],
-  leadIn: "Watch section 5 take shape beside its records, then see a short report as exported.",
+  leadIn: "Watch a bundle built from a report on the loading bay notice, then see the PDF as it downloads.",
   fig: {
     caption: 'Fig. 5. The claims builder, illustrated with the sample matter. See note A.',
     summary:
@@ -339,11 +341,10 @@ export const CLAIMS = {
   },
 };
 
-// The collaboration section (owner, 06 October 2026). The capabilities are owner-confirmed (see
-// docs/design/website-capability-register.md, E12): a discussion on a single record, people from
-// different organisations, its history kept with the record, and comments organised in lanes set
-// for each matter. Who may read a lane is held behind gate G14 until the owner confirms it, as the
-// product source reviewed describes lanes as organisational, not as access control. Nothing here
+// The collaboration section (owner, 06 October 2026; revised 09 October 2026 to the application as
+// seen that day): a discussion on a single record, opened by mentioning someone on it, people from
+// different organisations, tags, and the history kept with the record. Lanes were not seen in the
+// application on 09 October 2026 and are no longer shown (owner's decision). Nothing here
 // claims privilege protection, court-rule compliance, legal hold, audit trails or notifications.
 export const COLLABORATION = {
   h2: 'Keep the discussion with the evidence.',
@@ -360,11 +361,13 @@ export const COLLABORATION = {
       gate: 'G5_collab',
     },
     {
-      title: 'Organise the discussion in lanes',
-      text: 'Post a comment in a lane, such as one for the core team, one with counsel and one with the expert, so that each strand of the discussion can be followed on its own.',
+      title: 'Mention a colleague',
+      text: 'Mention someone on an email or document and a discussion opens with them, on that record.',
       gate: 'G5_collab',
-      note: 'Each lane is read only by the people added to it, and lanes and their members are set for each matter.',
-      noteGate: 'G14_laneAccess',
+    },
+    {
+      title: 'Tag what matters',
+      text: 'Tag evidence as you go, so that the team can find it again by issue.',
     },
     {
       title: 'Come back to it later',
@@ -372,7 +375,7 @@ export const COLLABORATION = {
       gate: 'G5_collab',
     },
   ],
-  leadIn: 'Watch an email the Contractor says was notice discussed on the record, then the same discussion organised in three lanes.',
+  leadIn: 'Watch an email the Contractor says was notice tagged, a colleague mentioned, and the discussion that follows on the record.',
   // What the email relay costs. The second and third figures come from a model (notes 2 and 3, the
   // rates verified by the owner on 06 October 2026) and are labelled as modelled on the page.
   statsName: 'What discussion by email costs',
@@ -442,11 +445,11 @@ export const INTEGRITY = {
       "text": "See the extract in place, with what comes before and after it and any qualification it carries."
     },
     {
-      "title": "Choose the output",
-      "text": "A report, a selection of evidence and a bundle serve different purposes; know what yours contains before it goes out."
+      "title": "See who did what",
+      "text": "The Activity Log records every upload, tag, message and access change in a project, with who made it and when."
     }
   ],
-  leadIn: "Watch the points of an argument marked, one by one, with the records behind them.",
+  leadIn: "See a project’s Activity Log, one entry at a time.",
   declaration: {
     label: 'Your judgement. Supported by the record.',
     text: 'Findings and drafts require professional review. Your team assesses the evidence, develops the argument and approves the final work.',
@@ -456,7 +459,7 @@ export const INTEGRITY = {
     text: 'Use VeriCase to investigate the project record and develop the case, alongside your existing document and disclosure systems. Your team decides which material to take forward into each stage of the matter.',
     stages: [
       'The project record: mailboxes, archives, site diaries, drawings and reports',
-      'VeriCase: evidence, chronology, claims and rebuttal',
+      'VeriCase: evidence, search, research, bundles and discussion',
       'The pack: chronology, cited analysis, bundle and manifest',
       'Outside VeriCase: your advisers’ disclosure platform, and the tribunal',
     ],
@@ -494,14 +497,14 @@ export const IN_BRIEF = {
       "section": "chronology-lens"
     },
     {
-      "title": "Test the competing accounts.",
-      "text": "Investigate the records that support a position and those that challenge it, with references back to the sources.",
-      "section": "case-room"
+      "title": "Ask the record.",
+      "text": "Put questions to the evidence and get answers with their sources, or commission a full report on an issue.",
+      "section": "research"
     },
     {
-      "title": "Develop the argument.",
-      "text": "Use drafting tools to work on the claim or response, with relevant evidence alongside the narrative.",
-      "section": "claims"
+      "title": "Build the bundle.",
+      "text": "Turn a report into a bundle, with a cover page, an index and page numbers, ready to download.",
+      "section": "worked-example"
     },
     {
       "title": "Work on the evidence together.",
@@ -511,7 +514,7 @@ export const IN_BRIEF = {
   ],
   eyebrow: 'In brief',
   h2: 'From evidence to argument.',
-  sub: "From project records to the work your team needs to prepare: evidence review, chronology, research, claims and responses.",
+  sub: "From project records to the work your team needs to prepare: evidence review, search, research, bundles and discussion.",
   ledger: [
     {
       "numeral": "II",
@@ -527,27 +530,27 @@ export const IN_BRIEF = {
     },
     {
       "numeral": "III",
-      "href": "#case-room",
-      "title": "Rebuttal",
-      "text": "Investigate opposing points and review proposed replies with supporting and contradictory records."
+      "href": "#research",
+      "title": "Executive Analysis",
+      "text": "Ask a focused question; each answer cites its sources and carries a confidence score."
+    },
+    {
+      "numeral": "III",
+      "href": "#research",
+      "title": "Deep Research",
+      "text": "A full report on one question, with the sources it cites and its checks."
     },
     {
       "numeral": "IV",
-      "href": "#research",
-      "title": "Research",
-      "text": "Ask a focused question, examine the findings and check their sources."
+      "href": "#worked-example",
+      "title": "Bundles",
+      "text": "Built from a report, with a cover page, an index and page numbers, ready to download."
     },
     {
       "numeral": "V",
-      "href": "#claims",
-      "title": "Drafting",
-      "text": "Develop the narrative in sections, check proposed wording and review its supporting evidence."
-    },
-    {
-      "numeral": "VI",
       "href": "#integrity",
-      "title": "Evidence and access",
-      "text": "Keep sources accessible to the work and discuss the arrangements your team needs before using client material."
+      "title": "Activity and access",
+      "text": "Every upload, tag, message and access change is logged, and advisers can be given access to a project."
     }
   ],
   benchmarks: {
@@ -565,15 +568,15 @@ export const IN_BRIEF = {
   questions: [
     {
       "q": "We already have a document system. Where does VeriCase fit?",
-      "a": "VeriCase focuses on developing the case from the project record: investigating disputed events, examining the chronology, testing opposing accounts and preparing claims and responses. It works alongside your existing document and disclosure systems."
+      "a": "VeriCase focuses on developing the case from the project record: investigating disputed events, searching the record, putting questions to it and building bundles. It works alongside your existing document and disclosure systems."
     },
     {
       "q": "What can we work with?",
-      "a": "Email archives and individual messages, PDFs, Word documents, spreadsheets and images. Text recognition helps make scanned pages searchable. We can discuss your record types and preparation needs during a demonstration."
+      "a": "Mailboxes (PST), individual emails (EML and MSG), PDFs, Word documents, spreadsheets and images. Text recognition helps make scanned pages searchable. We can discuss your record types and preparation needs during a demonstration."
     },
     {
-      "q": "Can VeriCase help draft a claim or response?",
-      "a": "Yes. Use drafting tools to develop the wording and identify supporting material, with the evidence alongside the argument. Your team revises the work and approves the final document before it is issued."
+      "q": "Can VeriCase build the bundle?",
+      "a": "Yes. Create a bundle from a Deep Research report: the report goes on top, followed by the evidence it cites, with a cover page, an index and page numbers. Change the order if you need to, then download it as a PDF."
     },
     {
       "q": "Will the output be accepted by the tribunal?",
@@ -581,7 +584,7 @@ export const IN_BRIEF = {
     },
     {
       "q": "How can our team work together?",
-      "a": "Discuss each record where it sits. Your team, solicitors, counsel and experts can join from their own organisations, and comments can be organised in lanes. We can go through the access arrangements for your team and its advisers in the demonstration."
+      "a": "Discuss each record where it sits. Your team, solicitors, counsel and experts can join from their own organisations, and mentioning someone on a record opens a discussion with them there. We can go through the access arrangements for your team and its advisers in the demonstration."
     },
     {
       "q": "How will you handle our project and client material?",
@@ -735,7 +738,7 @@ export const FOUNDER = {
 export const DEMONSTRATION = {
   eyebrow: 'Next step',
   h2: "See VeriCase in practice.",
-  body: "Explore evidence investigation and case preparation using sample material. Tell us whether your priority is understanding the record, testing an opposing position or developing a claim or response.",
+  body: "Explore evidence investigation and case preparation using sample material. Tell us whether your priority is understanding the record, researching an issue or building a bundle.",
   ownMaterial: "Please use sample material until confidentiality and data arrangements for your organisation have been agreed.",
   ownMaterialGate: 'G5_ownMaterial',
   copy: 'Copy email address',

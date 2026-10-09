@@ -4,7 +4,7 @@
 // nine-storey residential building with a ground-floor nursery, under JCT Design and Build 2016),
 // with no names, places or sums from a real matter. Counts are illustrative, and each caption says
 // so. Only features seen in the application on 09 October 2026 appear here
-// (docs/design/website-capability-register.md, E13).
+// (docs/design/website-capability-register.md, E18).
 
 export const EXAMPLE_LABEL = 'Example';
 export const PROJECT = 'Sample project';
@@ -164,7 +164,7 @@ export const BUNDLE_EXAMPLE = {
   // The PDF as the application builds it (the owner's bundle of 09 October 2026, read for its form
   // only): a cover sheet, an index with page numbers, then each item headed with its number and kind.
   pdfLabel: 'As downloaded',
-  pdfCover: { kicker: 'Evidence bundle', fields: [['Case / matter', 'Sample project'], ['Bundle date', '9 October 2026']] },
+  pdfCover: { kicker: 'Evidence bundle', fields: [['Case / matter', 'Sample project'], ['Bundle date', '09 October 2026']] },
   pdfIndex: { title: 'Index', columns: ['No.', 'Title', 'Date', 'Page'] },
   pdfItem: { kicker: 'Item 3 · Email', fields: [['From', 'Commercial manager'], ['To', 'Employer’s Agent'], ['Date', '11 June 2025, 16:05']] },
   ready: 'Download ready',
