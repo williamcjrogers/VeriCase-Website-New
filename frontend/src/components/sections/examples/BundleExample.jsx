@@ -6,9 +6,9 @@ import { AppButton, AppFrame, Badge } from './AppFrame';
 
 // Bundles: built from a Deep Research report, the report on top of the evidence it cites. The
 // contents in order (the cover page fixed first), the PDF settings and the cover page
-// beside them, and the download, ready. After the kit's wait of 320 each item, then the settings,
+// beside them, the download, ready, and the PDF as it reads: cover sheet, index, and an item. After the kit's wait of 320 each item, then the settings,
 // then the download take a turn of 300, the last settling 420 later; the duration adds 300.
-const PARTS = B.items.length + 2;
+const PARTS = B.items.length + 3;
 export const BUNDLE_DURATION = 320 + (PARTS - 1) * 300 + 420 + 300;
 
 export const BundleExample = ({ id = 'bundle-example', play: shared }) => {
@@ -59,6 +59,35 @@ export const BundleExample = ({ id = 'bundle-example', play: shared }) => {
             <span><strong>{B.ready}</strong><span className="bundle-ready-file">{B.file}</span></span>
           </p>
         </div>
+      </div>
+      <div className="bundle-pdf" role="group" aria-labelledby={`${id}-pdf`} data-appear style={{ '--i': B.items.length + 2 }}>
+        <span id={`${id}-pdf`} className="app-label">{B.pdfLabel}</span>
+        <ol className="bundle-pages" role="list">
+          <li className="bundle-page">
+            <span className="bundle-page-kicker">{B.pdfCover.kicker}</span>
+            <span className="bundle-page-title">{B.bundleTitle}</span>
+            <dl>{B.pdfCover.fields.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
+            <span className="bundle-page-n">1</span>
+          </li>
+          <li className="bundle-page">
+            <span className="bundle-page-title">{B.pdfIndex.title}</span>
+            <table className="bundle-index">
+              <thead><tr>{B.pdfIndex.columns.map((c) => <th key={c} scope="col">{c}</th>)}</tr></thead>
+              <tbody>
+                {B.items.map((item, k) => (
+                  <tr key={item.title}><td>{k + 1}</td><td>{item.title}</td><td>{item.sub.replace(/^Deep Research, /, '')}</td><td>{3 + k * 4}</td></tr>
+                ))}
+              </tbody>
+            </table>
+            <span className="bundle-page-n">2</span>
+          </li>
+          <li className="bundle-page">
+            <span className="bundle-page-kicker">{B.pdfItem.kicker}</span>
+            <span className="bundle-page-title">{B.items[2].title}</span>
+            <dl>{B.pdfItem.fields.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
+            <span className="bundle-page-n">11</span>
+          </li>
+        </ol>
       </div>
     </AppFrame>
   );

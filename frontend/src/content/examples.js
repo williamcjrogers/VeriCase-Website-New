@@ -161,6 +161,12 @@ export const BUNDLE_EXAMPLE = {
   numbering: ['1, 2, 3', 'a, b, c', 'I, II, III', '1, 1a, 2'],
   coverLabel: 'Cover page',
   coverFields: [['Case / matter', 'Sample project'], ['Prepared by', 'Contractor'], ['Bundle date', '09 October 2026']],
+  // The PDF as the application builds it (the owner's bundle of 09 October 2026, read for its form
+  // only): a cover sheet, an index with page numbers, then each item headed with its number and kind.
+  pdfLabel: 'As downloaded',
+  pdfCover: { kicker: 'Evidence bundle', fields: [['Case / matter', 'Sample project'], ['Bundle date', '9 October 2026']] },
+  pdfIndex: { title: 'Index', columns: ['No.', 'Title', 'Date', 'Page'] },
+  pdfItem: { kicker: 'Item 3 · Email', fields: [['From', 'Commercial manager'], ['To', 'Employer’s Agent'], ['Date', '11 June 2025, 16:05']] },
   ready: 'Download ready',
   file: 'Loading bay notice of delay.pdf',
   caption: 'Illustrative bundle from a fictional construction matter.',

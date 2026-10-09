@@ -187,6 +187,22 @@
 .bundle-ready { display: flex; align-items: center; gap: 0.625rem; padding: 0.75rem 0.875rem; border-color: #BFDCC8; background: #F1F8F3; }
 .bundle-ready svg { color: #2F7A4A; }
 .bundle-ready-file { display: block; font-size: 0.8125rem; color: var(--vc-graphite); overflow-wrap: anywhere; }
+/* The PDF as it reads: three pages, small, side by side where there is room. */
+.bundle-pdf { margin-top: 1rem; }
+.bundle-pages { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.75rem; margin: 0.5rem 0 0; padding: 0; list-style: none; }
+.bundle-page { position: relative; display: grid; align-content: start; gap: 0.375rem; min-height: 11rem; padding: 0.875rem 0.875rem 1.75rem; border: 1px solid var(--app-line); border-radius: 4px; background: #fff; box-shadow: var(--shadow-paper); font-size: 0.6875rem; line-height: 1.45; }
+.bundle-page-kicker { font-size: 0.625rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--vc-graphite); }
+.bundle-page-title { font-size: 0.875rem; line-height: 1.3; font-weight: 600; color: var(--vc-ink); }
+.bundle-page dl { margin: 0.25rem 0 0; display: grid; gap: 0.125rem; }
+.bundle-page dl > div { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); padding-bottom: 0.125rem; border-bottom: 1px solid var(--app-line); }
+.bundle-page dt { font-size: 0.625rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--vc-graphite); }
+.bundle-page dd { margin: 0; }
+.bundle-page-n { position: absolute; bottom: 0.5rem; left: 0; right: 0; text-align: center; font-size: 0.625rem; color: var(--vc-graphite); }
+.bundle-index { width: 100%; border-collapse: collapse; }
+.bundle-index th { padding: 0.125rem 0.25rem 0.125rem 0; border-bottom: 1px solid var(--vc-ink); text-align: left; font-size: 0.5625rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--vc-graphite); }
+.bundle-index td { padding: 0.1875rem 0.25rem 0.1875rem 0; border-bottom: 1px solid var(--app-line); vertical-align: top; }
+.bundle-index td:last-child, .bundle-index th:last-child { text-align: right; padding-right: 0; }
+@media (min-width: 640px) { .bundle-pages { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (min-width: 1024px) { .bundle-grid { grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); } }
 
 /* Activity Log: a table of who did what, and when. */
