@@ -3,8 +3,9 @@
 // own screen shows it, drawn more simply: the same fictional matter as the rest of the page (a
 // nine-storey residential building with a ground-floor nursery, under JCT Design and Build 2016),
 // with no names, places or sums from a real matter. Counts are illustrative, and each caption says
-// so. Only features seen in the application on 09 October 2026 appear here
-// (docs/design/website-capability-register.md, E18).
+// so. The features seen in the application on 09 October 2026 (E18), and lanes, rebuttal and
+// drafting, restored on the owner's word that day (E12, E4, E5; docs/design/website-capability-
+// register.md).
 
 export const EXAMPLE_LABEL = 'Example';
 export const PROJECT = 'Sample project';
@@ -93,24 +94,34 @@ export const ITEM_EXAMPLE = {
   caption: 'Illustrative evidence and discussion from a fictional construction matter.',
 };
 
-// Research, Executive Analysis: a question answered with its sources and a confidence score.
+// Research, Executive Analysis: quick questions to the evidence, as you would ask a colleague
+// (owner, 09 October 2026: "General searches and quick chatting with your evidence ... should also
+// be a focal point"). Two turns; the last answer carries its sources and a confidence score.
 export const ANALYSIS_EXAMPLE = {
-  title: 'Ask the record. See the sources.',
+  title: 'Just ask.',
   view: 'Research',
   mode: 'Executive Analysis',
   scope: '1,084 evidence items in scope',
-  question: 'Who set the date for early access to the nursery?',
-  answer: 'The Employer set it. Its project manager asked for fit-out access by 01 September 2025, and its representative then said later access was not acceptable to the nursery’s funder.',
+  turns: [
+    {
+      question: 'When did the client first ask for early access to the nursery?',
+      answer: 'On 12 March 2025. The client’s project manager asked for fit-out access by 01 September 2025.',
+    },
+    {
+      question: 'Did they ever confirm it as a change?',
+      answer: 'Not before completion. Two weeks later their representative said later access was not acceptable to the nursery’s funder, but the change request for early access only came on 14 January 2026.',
+    },
+  ],
   evidenceLabel: 'Supporting evidence',
   evidence: [
-    'Source 1, email of 12 March 2025, confirms fit-out access by 01 September 2025.',
-    'Source 2, email of 26 March 2025, says later access is not acceptable to the funder.',
+    'Email of 26 March 2025: later access not acceptable to the funder.',
+    'Change request 21, 14 January 2026: early access to the nursery.',
   ],
   confidenceLabel: 'Confidence score',
   confidence: 78,
-  confidenceNote: 'Consistent across both sources. No instruction setting the date before completion was found.',
+  confidenceNote: 'Consistent across both sources.',
   sources: 'View 2 sources',
-  caption: 'Illustrative question and answer from a fictional construction matter. The score is illustrative.',
+  caption: 'Illustrative questions and answers from a fictional construction matter. The score is illustrative.',
 };
 
 // Research, Deep Research: a report on one question, with its checks, from which a bundle is built.
@@ -144,7 +155,7 @@ export const BUNDLE_EXAMPLE = {
   source: 'Deep Research',
   // Built for you (owner, 09 October 2026): Create bundle on a Deep Research report gathers the
   // evidence the report cites, in order, with the report itself on top, after the cover page.
-  auto: 'Built from the report: the report on top, then every item it cites.',
+  auto: 'Built from the report in one step: the report on top, then every item it cites.',
   contentsLabel: 'Bundle contents',
   cover: 'Cover page',
   fixed: 'Fixed',
@@ -162,11 +173,12 @@ export const BUNDLE_EXAMPLE = {
   coverLabel: 'Cover page',
   coverFields: [['Case / matter', 'Sample project'], ['Prepared by', 'Contractor'], ['Bundle date', '09 October 2026']],
   // The PDF as the application builds it (the owner's bundle of 09 October 2026, read for its form
-  // only): a cover sheet, an index with page numbers, then each item headed with its number and kind.
+  // only, and the owner's confirmation that day that the report goes in it): a cover sheet, an index
+  // with page numbers, then the report on top of the items, each headed with its number and kind.
   pdfLabel: 'As downloaded',
   pdfCover: { kicker: 'Evidence bundle', fields: [['Case / matter', 'Sample project'], ['Bundle date', '09 October 2026']] },
   pdfIndex: { title: 'Index', columns: ['No.', 'Title', 'Date', 'Page'] },
-  pdfItem: { kicker: 'Item 3 · Email', fields: [['From', 'Commercial manager'], ['To', 'Employer’s Agent'], ['Date', '11 June 2025, 16:05']] },
+  pdfItem: { kicker: 'Item 1 · Report', page: 3, title: 'VeriCase Analysis Report', fields: [['Question', 'What notice did the Contractor give of delay from the loading bay reduction?'], ['Sources cited', '14'], ['Validation', 'Passed']] },
   ready: 'Download ready',
   file: 'Loading bay notice of delay.pdf',
   caption: 'Illustrative bundle from a fictional construction matter.',
@@ -186,4 +198,80 @@ export const ACTIVITY_EXAMPLE = {
     { activity: 'Project lead granted the delay expert member access', type: 'Access granted', date: '05 Feb 2026, 16:30' },
   ],
   caption: 'Illustrative activity from a fictional construction matter.',
+};
+
+// Collaboration, lanes (owner, 06 October 2026; restored on the owner's word of 09 October 2026):
+// one email discussed in separate lanes, each with its own members. Each lane is read only by the
+// people added to it (gate G14). Roles only; the lanes and their members are illustrative.
+export const LANES_EXAMPLE = {
+  title: 'Separate conversations, one email.',
+  view: 'Collaboration',
+  record: { subject: 'Road works: early notice', date: '14 Feb 2025' },
+  membersLabel: 'Members',
+  lanes: [
+    {
+      name: 'Site team',
+      members: ['Project manager', 'Site manager'],
+      messages: [
+        { who: 'Project manager', initials: 'PM', text: 'Our revised forecast went with monthly report 9, two weeks after this email.' },
+        { who: 'Site manager', initials: 'SM', text: 'The road closure started on 03 March. The site diary has it.' },
+      ],
+    },
+    {
+      name: 'Commercial',
+      members: ['Commercial manager', 'Quantity surveyor'],
+      messages: [
+        { who: 'Commercial manager', initials: 'CM', text: 'Put report 9 and the site diary in the bundle with this email.' },
+      ],
+    },
+    {
+      name: 'With the delay expert',
+      members: ['Commercial manager', 'Delay expert'],
+      messages: [
+        { who: 'Delay expert', initials: 'DE', text: 'I will need the road design pack too, to see when the works could start.' },
+      ],
+    },
+  ],
+  note: 'Each lane is read only by the people added to it.',
+  caption: 'Illustrative discussion in lanes, from a fictional construction matter.',
+};
+
+// Rebuttal (restored on the owner's word of 09 October 2026; product source E4): one point from the
+// other side's response, the records set beside it, and a proposed reply for your team to review.
+export const REBUTTAL_EXAMPLE = {
+  title: 'Answer the other side, point by point.',
+  view: 'Rebuttal',
+  mode: 'Rebuttal',
+  documentLabel: 'Their response',
+  pointLabel: 'Paragraph 31',
+  point: 'The courtyard paving revisions were design development by the Contractor’s landscape architect.',
+  recordsLabel: 'Evidence',
+  records: [
+    { title: 'Change request 14', date: '16 June 2025', text: 'Revise the courtyard paving to the layout attached.', relation: 'Challenges', tone: 'warn' },
+    { title: 'Drawing issue sheet', date: '22 July 2025', text: 'Revision C: courtyard paving, following change request 14.', relation: 'Challenges', tone: 'warn' },
+  ],
+  replyLabel: 'Proposed reply',
+  reply: 'The paving was revised in answer to the client’s change request of 16 June 2025, not as design development (Change request 14; Drawing issue sheet, 22 July 2025).',
+  review: 'For your team to review',
+  actions: ['Accept', 'Edit'],
+  caption: 'Illustrative rebuttal from a fictional construction matter.',
+};
+
+// Drafting (restored on the owner's word of 09 October 2026; product source E5, gate G5_claims): a
+// claim section written paragraph by paragraph from its records, exported as Word or PDF.
+export const DRAFTING_EXAMPLE = {
+  title: 'Draft the claim from the records.',
+  view: 'Drafting',
+  mode: 'Drafting',
+  documentTitle: 'Claim for additional security works',
+  sectionLabel: 'Section heading',
+  section: 'Section 5. Access control and cameras',
+  paragraphs: [
+    { n: '5.1', text: 'We asked for an instruction on the police adviser’s additional security works.', source: 'RFI 112, 14 November 2024' },
+    { n: '5.2', text: 'The client answered nine months later: comply.', source: 'Answer to RFI 112, 21 August 2025' },
+    { n: '5.3', text: 'We confirmed the same day that we would carry out the works as a variation.', source: 'Our reply, 21 August 2025' },
+  ],
+  status: 'Draft, for review before export',
+  actions: ['Export Word', 'Export PDF'],
+  caption: 'Illustrative claim section from a fictional construction matter.',
 };

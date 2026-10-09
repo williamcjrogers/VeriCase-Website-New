@@ -4,6 +4,7 @@ import { Gated } from '@/components/editorial/Gated';
 import { Rich } from '@/components/editorial/Rich';
 import { CapabilityFeatures, SectionIntroduction } from './CapabilityDetails';
 import { ItemExample } from './examples/ItemExample';
+import { LanesExample } from './examples/LanesExample';
 
 // Collaboration (owner, 06 October 2026): one record discussed by everyone who needs it, from
 // their own organisations, with the history kept on the record. Beneath the method, what the email
@@ -40,6 +41,7 @@ export const Collaboration = () => (
         <CapabilityFeatures steps={C.steps} label="Working on one record together" mobileLabel="Working with your team" leadIn={C.leadIn} />
       </div>
       <ItemExample />
+      <LanesExample />
       <aside className="collaboration-audience" aria-labelledby="collaboration-audience-title">
         <h3 id="collaboration-audience-title" className="collaboration-audience-label">{IN_BRIEF.audience.label}</h3>
         <p className="collaboration-audience-text">

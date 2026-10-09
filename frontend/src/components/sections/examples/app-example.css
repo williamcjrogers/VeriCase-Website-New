@@ -48,6 +48,7 @@
 .app-btn.is-primary { border-color: var(--vc-azure-700); background: var(--vc-azure-700); color: #fff; }
 .app-badge { display: inline-flex; align-items: center; padding: 0.0625rem 0.5rem; border-radius: 999px; background: var(--vc-parchment-300); font-size: 0.75rem; font-weight: 500; color: var(--vc-ink); white-space: nowrap; }
 .app-badge.is-good { background: #E3F1E6; color: #24603A; }
+.app-badge.is-warn { background: #FBEFD9; color: #7A4B0E; }
 .app-badge.is-azure { background: var(--vc-azure-50); color: var(--vc-brass-700); }
 .app-h { margin: 0; font-size: 1rem; line-height: 1.35; font-weight: 600; color: var(--vc-navy); letter-spacing: 0; }
 .app-quiet { color: var(--vc-graphite); }
@@ -219,6 +220,46 @@
   .activity-table tr:last-child { border-bottom: 0; }
   .activity-table td { padding: 0.125rem 0; border: 0; background: none; }
 }
+
+/* Lanes: the email at the top, and beneath it each lane with its members and its messages. */
+.lanes-record { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.625rem; margin: 0; padding: 0.625rem 0.875rem; }
+.lanes-record-subject { font-weight: 600; color: var(--vc-navy); }
+.lanes-record .app-quiet { margin-left: auto; font-size: 0.8125rem; }
+.lanes { display: grid; gap: 0.75rem; margin: 0.875rem 0 0; padding: 0; list-style: none; }
+.lane { padding: 0.75rem 0.875rem; }
+.lane-members { display: flex; align-items: center; gap: 0.375rem; margin: 0.25rem 0 0.625rem; font-size: 0.8125rem; color: var(--vc-graphite); }
+.lanes-note { display: flex; align-items: center; gap: 0.375rem; margin: 0.75rem 0 0; font-size: 0.8125rem; color: var(--vc-graphite); }
+@media (min-width: 1024px) { .lanes { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* Rebuttal: the other side's point, the evidence set beside it, and the proposed reply. */
+.rebuttal-point { padding: 0.875rem 1rem; border-left: 3px solid var(--vc-ink); }
+.rebuttal-point p { margin: 0.25rem 0 0; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1.0625rem; line-height: 1.5; }
+.rebuttal-records-label { margin: 0.875rem 0 0.5rem; }
+.rebuttal-records { display: grid; gap: 0.5rem; margin: 0; padding: 0; list-style: none; }
+.rebuttal-record { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: start; gap: 0.375rem 0.75rem; padding: 0.625rem 0.875rem; }
+.rebuttal-record > .app-badge { grid-column: 2; justify-self: start; }
+@media (min-width: 640px) {
+  .rebuttal-record { grid-template-columns: auto minmax(0, 1fr) auto; }
+  .rebuttal-record > .app-badge { grid-column: auto; }
+}
+.rebuttal-record p { margin: 0; }
+.rebuttal-record-title { font-weight: 600; }
+.rebuttal-record-title .app-quiet { margin-left: 0.375rem; font-weight: 400; font-size: 0.8125rem; }
+.rebuttal-record-text { font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 0.9375rem; }
+.rebuttal-reply { margin-top: 0.875rem; padding: 0.875rem 1rem; border-left: 3px solid var(--vc-azure-700); }
+.rebuttal-reply > p { margin: 0.25rem 0 0; }
+.rebuttal-reply-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; margin-top: 0.75rem; font-size: 0.8125rem; }
+
+/* Drafting: the claim section as a sheet, each paragraph with the record it rests on. */
+.drafting-doc { margin: 0 0 0.5rem; font-size: 0.8125rem; }
+.drafting-sheet { padding: 1rem 1.125rem; }
+.drafting-paras { display: grid; gap: 0.625rem; margin: 0.75rem 0 0; padding: 0; list-style: none; }
+.drafting-paras > li { display: grid; grid-template-columns: 2.25rem minmax(0, 1fr); column-gap: 0.25rem; }
+.drafting-n { font-weight: 600; color: var(--vc-graphite); }
+.drafting-text { margin: 0; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1rem; line-height: 1.5; }
+.drafting-source { grid-column: 2; display: inline-flex; align-items: center; gap: 0.25rem; margin-top: 0.125rem; font-size: 0.75rem; color: var(--vc-brass-700); }
+.drafting-source svg { width: 0.875rem; height: 0.875rem; }
+.drafting-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; margin-top: 0.875rem; font-size: 0.8125rem; }
 
 /* The meter and the progress steps fill as the example plays (once; reduced motion shows them full). */
 @media (prefers-reduced-motion: no-preference) {

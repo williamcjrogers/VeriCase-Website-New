@@ -31,12 +31,7 @@ function settleOn(section) {
   requestAnimationFrame(check);
 }
 
-// Fragments of sections the page no longer has, sent to the section that now covers their ground:
-// the case room (argument and rebuttal, removed 09 October 2026) to research, where the report is.
-export const LEGACY_FRAGMENTS = { 'case-room': 'research' };
-
-export function focusSection(requested, { smooth = true, updateHash = false } = {}) {
-  const id = document.getElementById(requested) ? requested : LEGACY_FRAGMENTS[requested] || requested;
+export function focusSection(id, { smooth = true, updateHash = false } = {}) {
   const section = document.getElementById(id);
   if (!section) return false;
   // A deep link can target the optional worked example while it is collapsed.

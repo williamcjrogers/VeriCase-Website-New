@@ -5,7 +5,7 @@
 .clarity-title { max-width: 13ch; font-size: clamp(2.75rem, 5.2vw, 4.875rem); font-weight: 500; letter-spacing: -0.025em; line-height: 1.02; text-wrap: initial; }
 .clarity-title > span, .clarity-title > em { display: block; }
 .clarity-title em { color: var(--vc-brass-700); font-weight: 450; }
-/* "Arguments on the record." takes two lines in the hero's column; Hero.jsx keeps "on the record." together (it breaks only where the phrase is wider than the line, as with enlarged text on a phone), and balance evens the lines. */
+/* The emphasised line takes two lines in the hero's column; Hero.jsx keeps all but its first word together (it breaks only where the phrase is wider than the line, as with enlarged text on a phone), and balance evens the lines. */
 .clarity-title > em { text-wrap: balance; }
 .hero-action .vc-btn svg { display: none; }
 /* A word wider than its column (enlarged text in three columns) breaks rather than widen the page. */
