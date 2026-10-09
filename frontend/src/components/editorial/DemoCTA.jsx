@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils';
 // microcopy. No form submits anything. The compact form is for the header band: the same
 // mailto and copy fallback, with the copy button reduced to an icon and the confirmation
 // announced rather than shown. Manual-copy guidance remains visible if copying fails.
-export const DemoCTA = ({ onInk = false, withCopy = false, compact = false, microcopy = CTA_MICROCOPY, className, align = 'start', placement, section }) => {
+export const DemoCTA = ({ onInk = false, withCopy = false, compact = false, microcopy = CTA_MICROCOPY, className, align = 'start', placement, section, secondary }) => {
   const plain = useRef(null);
   const [copied, setCopied] = useState(false);
   const [copyFailed, setCopyFailed] = useState(false);
@@ -79,6 +79,11 @@ export const DemoCTA = ({ onInk = false, withCopy = false, compact = false, micr
           <Mail className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
           {CTA_LABEL}
         </a>
+        {secondary && (
+          <a href={secondary.href} onClick={secondary.onClick} className={cn('vc-btn vc-btn-secondary', onInk && 'vc-btn-secondary-on-ink')}>
+            {secondary.label}
+          </a>
+        )}
         {withCopy && (
           <button type="button" onClick={copy} className={cn('vc-btn vc-btn-secondary', onInk && 'vc-btn-secondary-on-ink')}>
             <Copy className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
