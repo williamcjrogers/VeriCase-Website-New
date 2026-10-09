@@ -1,3 +1,4 @@
+import { MessageSquareText, Package } from 'lucide-react';
 import { COVER } from '@/content/home';
 import { Gated } from '@/components/editorial/Gated';
 import { onSectionClick } from '@/lib/navigate';
@@ -53,8 +54,15 @@ export const HeroMotto = () => {
   const times = keyTimes(motto.lines);
   const typedEnd = times[times.length - 1];
   return (
-    <div className="hero-motto" style={{ '--caret-from': ms(WORD_AT[2] + WORD_MS), '--typed-end': ms(typedEnd) }}>
-      <p className="hero-motto-text font-display">
+    <div className="hero-motto motto-card" style={{ '--caret-from': ms(WORD_AT[2] + WORD_MS), '--typed-end': ms(typedEnd) }}>
+      {/* A window like the app's: its bar, then the motto on a blue panel and the line typed
+          beneath it on the white card (owner, 09 October 2026: the plain motto looked "extremely
+          basic"). */}
+      <div className="motto-card-bar" aria-hidden="true">
+        <span className="app-dots"><span /><span /><span /></span>
+        <span className="motto-card-label">{motto.label}</span>
+      </div>
+      <p className="hero-motto-text">
         <span className="sr-only">{motto.whole}</span>
         <span className="hero-motto-visual" aria-hidden="true">
           <span className="hero-motto-words">
@@ -84,6 +92,14 @@ export const HeroMotto = () => {
           </span>
         </span>
       </p>
+      <span className="motto-chip motto-chip-answer" aria-hidden="true">
+        <span className="motto-chip-tile"><MessageSquareText size={18} strokeWidth={2} /></span>
+        <span><strong>{motto.chips[0].title}</strong><small>{motto.chips[0].text}</small></span>
+      </span>
+      <span className="motto-chip motto-chip-bundle" aria-hidden="true">
+        <span className="motto-chip-tile is-copper"><Package size={18} strokeWidth={2} /></span>
+        <span><strong>{motto.chips[1].title}</strong><small>{motto.chips[1].text}</small></span>
+      </span>
       <Gated id="G11_attribution" block className="hero-motto-source">
         <p>{motto.attribution} <a href="#lessons" onClick={onSectionClick('lessons')}>{motto.toPassage}</a></p>
       </Gated>

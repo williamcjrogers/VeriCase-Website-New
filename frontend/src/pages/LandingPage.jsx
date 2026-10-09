@@ -8,9 +8,10 @@ import { SharedWorkspace } from '@/components/sections/SharedWorkspace';
 import { Collaboration } from '@/components/sections/Collaboration';
 import { InBrief, Questions } from '@/components/sections/InBrief';
 import { Founder } from '@/components/sections/Founder';
+import { Difference } from '@/components/sections/Difference';
 import { Demonstration } from '@/components/sections/Demonstration';
 import { SiteFooter } from '@/components/sections/SiteFooter';
-import { RecordExplanation, EvidenceExplanation, IntegrityExplanation } from '@/components/sections/CapabilityDetails';
+import { RecordExplanation, EvidenceExplanation, CaseExplanation, ArgumentExplanation, IntegrityExplanation } from '@/components/sections/CapabilityDetails';
 import { focusSection } from '@/lib/navigate';
 import '@/components/sections/clarity.css';
 
@@ -59,10 +60,13 @@ export const LandingPage = () => {
         <Hero />
         <Lessons />
         <InBrief />
-        <RecordExplanation />
+        <Difference />
         <EvidenceExplanation />
+        <RecordExplanation />
         <SharedWorkspace />
         <Collaboration />
+        <CaseExplanation />
+        <ArgumentExplanation />
         <TimeAdvantage />
         <IntegrityExplanation />
         <Founder />

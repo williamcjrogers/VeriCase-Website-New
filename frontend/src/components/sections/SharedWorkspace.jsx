@@ -1,18 +1,19 @@
 import { CLAIMS } from '@/content/home';
 import { CapabilityFeatures, SectionIntroduction } from './CapabilityDetails';
+import { ReportExample } from './examples/ReportExample';
 import { BundleExample } from './examples/BundleExample';
 
-// Bundles (owner, 09 October 2026), in the place the claims drafting section held: the bundle
-// built from a Deep Research report, its PDF as downloaded. The section keeps its anchors
-// (worked-example, and claims for links made before) so that links to it still land.
+// A full report, then the bundle (owner, 06 and 09 October 2026): the Deep Research report, then
+// the bundle built from it with the report on top, its PDF as downloaded. The claims anchor belongs
+// to Develop the argument again (ArgumentExplanation).
 export const SharedWorkspace = () => (
   <section id="worked-example" aria-labelledby="worked-example-title" className="clarity-section capability-explanation shared-workspace bg-parchment">
     <div className="container">
-      {/* A group, not a second region: the section is already the "Build the bundle." landmark. */}
-      <div id="claims" role="group" tabIndex={-1} aria-labelledby="worked-example-title" className="capability-explanation-grid">
+      <div className="capability-explanation-grid">
         <SectionIntroduction id="worked-example" h2={CLAIMS.h2} issue={CLAIMS.issue} method={CLAIMS.method} />
-        <CapabilityFeatures steps={CLAIMS.steps} label="Building a bundle" mobileLabel="Explore bundles" leadIn={CLAIMS.leadIn} />
+        <CapabilityFeatures steps={CLAIMS.steps} label="A report and its bundle" mobileLabel="How the bundle is built" leadIn={CLAIMS.leadIn} />
       </div>
+      <ReportExample />
       <BundleExample />
     </div>
   </section>

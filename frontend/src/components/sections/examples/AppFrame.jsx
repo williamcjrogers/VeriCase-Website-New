@@ -24,6 +24,7 @@ export const AppFrame = ({ id, className, title, view, caption, play, playClass,
     <h3 id={`${id}-title`} className="evidence-figure-title text-[1.625rem] leading-tight">{title}</h3>
     <div className="app-window">
       <div className="app-bar">
+        <span className="app-dots" aria-hidden="true"><span /><span /><span /></span>
         <span className="app-mark" aria-hidden="true">V</span>
         <span className="app-project"><FolderOpen aria-hidden="true" />{PROJECT}</span>
         <span className="app-bar-view">{view}</span>

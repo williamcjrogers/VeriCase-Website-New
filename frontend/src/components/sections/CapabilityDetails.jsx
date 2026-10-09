@@ -1,4 +1,4 @@
-import { INTEGRITY, LENS_CHAPTER, RESEARCH } from '@/content/home';
+import { ARGUMENT, CASE_ROOM, INTEGRITY, LENS_CHAPTER, RESEARCH } from '@/content/home';
 import { CALCULATOR_GATE, CALCULATOR_LINKS } from '@/content/calculatorLinks';
 import { Gated } from '@/components/editorial/Gated';
 import { cn } from '@/lib/utils';
@@ -6,8 +6,12 @@ import { MobileDetails } from './MobileDetails';
 import { Thread } from './Thread';
 import { UploadExample } from './examples/UploadExample';
 import { AnalysisExample } from './examples/AnalysisExample';
-import { ReportExample } from './examples/ReportExample';
+import { RebuttalExample } from './examples/RebuttalExample';
+import { DraftingExample } from './examples/DraftingExample';
 import { ActivityExample } from './examples/ActivityExample';
+import { ReaderExample } from './examples/ReaderExample';
+import { ArgumentExample } from './examples/ArgumentExample';
+import { ExportExample } from './examples/ExportExample';
 
 // Each capability section reads as a journey: its heading; the issue, the problem as the reader
 // meets it in a dispute, set large; the method, what VeriCase does about it; the steps, marked on
@@ -32,35 +36,37 @@ export const CapabilityFeatures = ({ steps, label, mobileLabel = 'Explore the to
   </MobileDetails>
 );
 
-// The lead-in promises a mailbox going in and coming out searchable: the upload example, in place
-// at every width, after the steps. (The search itself is the opening example, under the heading.)
+// Getting the evidence in. The lead-in promises a mailbox going in and coming out searchable, then
+// a document read beside its file record: the upload and reader examples, in place at every width,
+// after the steps. (The search itself is the opening
+// example, under the heading.) It follows the quick questions, the page's focal point after search.
 export const RecordExplanation = () => {
   const L = LENS_CHAPTER;
   return (
   <section id="chronology-lens" aria-labelledby="chronology-lens-title" className="clarity-section capability-explanation bg-paper">
     <div className="container">
       <div className="capability-explanation-grid">
-        <SectionIntroduction id="chronology-lens" kicker="Preparation and chronology" h2={L.h2} issue={L.issue} method={L.method} />
-        <CapabilityFeatures steps={L.steps} label="Ingestion and chronology capabilities" mobileLabel="Explore chronology tools" leadIn={L.leadIn} />
+        <SectionIntroduction id="chronology-lens" kicker="Getting started" h2={L.h2} issue={L.issue} method={L.method} />
+        <CapabilityFeatures steps={L.steps} label="Getting the evidence in" mobileLabel="How it goes in" leadIn={L.leadIn} />
       </div>
       <UploadExample />
+      <ReaderExample />
     </div>
   </section>
   );
 };
 
-// The research section shows both of the application's research functions, in place at every
-// width and in the order its lead-in gives: Executive Analysis, then Deep Research. (The rebuttal
-// section that followed was removed on 09 October 2026: not seen in the application.)
+// Quick questions to the evidence (owner, 09 October 2026: with search, "a focal point ... an easy
+// way to understand the system"): Executive Analysis as a short chat, first after the overview.
+// Deep Research, the full report, now leads the bundle section it feeds.
 export const EvidenceExplanation = () => (
     <section id="research" aria-labelledby="research-title" className="clarity-section capability-explanation research-section bg-parchment">
       <div className="container capability-explanation-grid">
-        <SectionIntroduction id="research" kicker="Evidence investigation" h2={RESEARCH.h2} issue={RESEARCH.issue} method={RESEARCH.method} />
-        <CapabilityFeatures steps={RESEARCH.steps} label="Research process" mobileLabel="Explore the research process" leadIn={RESEARCH.leadIn} />
+        <SectionIntroduction id="research" kicker="Search and ask" h2={RESEARCH.h2} issue={RESEARCH.issue} method={RESEARCH.method} />
+        <CapabilityFeatures steps={RESEARCH.steps} label="Asking your evidence" mobileLabel="How to ask" leadIn={RESEARCH.leadIn} />
       </div>
       <div className="container">
         <AnalysisExample />
-        <ReportExample />
         <Gated id={CALCULATOR_GATE} block>
           <aside className="calculator-aside" aria-labelledby="evidence-calculator-title">
             <p className="eyebrow">{CALCULATOR_LINKS.research.eyebrow}</p>
@@ -73,6 +79,36 @@ export const EvidenceExplanation = () => (
     </section>
 );
 
+// Answering the other side (restored on the owner's word of 09 October 2026): the rebuttal, in place
+// at every width, after the steps.
+export const CaseExplanation = () => (
+  <section id="case-room" aria-labelledby="case-room-title" className="clarity-section capability-explanation rebuttal-section bg-parchment">
+    <div className="container">
+      <div className="capability-explanation-grid">
+        <SectionIntroduction id="case-room" kicker="Rebuttal" h2={CASE_ROOM.h2} issue={CASE_ROOM.issue} method={CASE_ROOM.method} methodGate={CASE_ROOM.methodGate} />
+        <CapabilityFeatures steps={CASE_ROOM.steps} label="Answering and drafting" mobileLabel="How answering works" leadIn={CASE_ROOM.leadIn} />
+      </div>
+      <RebuttalExample />
+    </div>
+  </section>
+);
+
+// Develop the argument (the section as it stood before PR #14, restored on the owner's word of
+// 09 October 2026): a claim section drafted from its records, then a short report as exported. It
+// carries the claims anchor, which links made before still use.
+export const ArgumentExplanation = () => (
+  <section id="claims" aria-labelledby="claims-title" className="clarity-section capability-explanation bg-paper">
+    <div className="container">
+      <div className="capability-explanation-grid">
+        <SectionIntroduction id="claims" kicker="Claims and responses" h2={ARGUMENT.h2} issue={ARGUMENT.issue} method={ARGUMENT.method} methodGate={ARGUMENT.methodGate} />
+        <CapabilityFeatures steps={ARGUMENT.steps} label="Claims preparation" mobileLabel="Explore drafting tools" leadIn={ARGUMENT.leadIn} />
+      </div>
+      <DraftingExample />
+      <ExportExample />
+    </div>
+  </section>
+);
+
 export const IntegrityExplanation = () => (
   <section id="integrity" aria-labelledby="integrity-title" className="clarity-section capability-explanation bg-paper">
     <div className="container">
@@ -80,6 +116,7 @@ export const IntegrityExplanation = () => (
         <SectionIntroduction id="integrity" h2={INTEGRITY.h2} issue={INTEGRITY.issue} method={INTEGRITY.method} methodGate={INTEGRITY.methodGate} />
         <CapabilityFeatures steps={INTEGRITY.steps} label="Source review and activity" mobileLabel="Explore source review" leadIn={INTEGRITY.leadIn} />
       </div>
+      <ArgumentExample />
       <ActivityExample />
       <div id="notes" role="region" className="workspace-detail capability-positioning" aria-labelledby="notes-title">
         <div>

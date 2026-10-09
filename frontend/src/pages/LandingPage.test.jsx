@@ -5,12 +5,12 @@ import { LandingPage } from './LandingPage';
 import { Cookies } from './Cookies';
 import { NotFound } from './NotFound';
 import { HOME_NAV } from '@/content/home';
-import { focusSection, LEGACY_FRAGMENTS } from '@/lib/navigate';
+import { focusSection } from '@/lib/navigate';
 
 let container;
 let root;
 let frames;
-const legacy = ['chronology-lens', 'research', 'integrity', 'clock', 'claims', 'notes'];
+const legacy = ['chronology-lens', 'research', 'case-room', 'integrity', 'clock', 'claims', 'notes'];
 beforeEach(() => {
   global.IS_REACT_ACT_ENVIRONMENT = true;
   container = document.createElement('div');
@@ -51,25 +51,18 @@ it('gives every region landmark a distinct name', async () => {
   expect(regions.filter((n, i) => regions.indexOf(n) !== i)).toEqual([]);
 });
 
-it('sends the fragment of a removed section to the section that now covers it', async () => {
-  await render();
-  for (const [gone, now] of Object.entries(LEGACY_FRAGMENTS)) {
-    expect(document.getElementById(gone)).toBeNull();
-    expect(focusSection(gone, { smooth: false })).toBe(true);
-    expect(document.activeElement.id).toBe(`${now}-title`);
-  }
-});
-
 it('mounts every app example once, in place, in page order, each with unique ids and its own title', async () => {
   await render();
   const ids = [...container.querySelectorAll('[id]')].map((el) => el.id);
   expect(ids.filter((id, i) => ids.indexOf(id) !== i)).toEqual([]);
   const figures = [...container.querySelectorAll('figure.evidence-figure')];
-  // The search opens the page; then the upload (the record), the answer and the report (research),
-  // the bundle, the discussion on one email (collaboration) and the activity log (integrity). One
-  // copy of each at every width: none sits in a phone or desktop copy, or behind a disclosure.
+  // The search opens the page and the quick questions follow it (the focal points); then the
+  // upload and the reader, the report and the bundle built from it, the discussion on one email and
+  // in lanes, the rebuttal, the drafting and the exported report, then the argument and the
+  // activity log. One copy of each at every width: none sits in
+  // a phone or desktop copy, or behind a disclosure.
   expect(figures.map((f) => f.getAttribute('aria-labelledby'))).toEqual(
-    ['search', 'upload', 'analysis', 'report', 'bundle', 'item', 'activity'].map((name) => `${name}-example-title`),
+    ['search', 'analysis', 'upload', 'reader', 'report', 'bundle', 'item', 'lanes', 'rebuttal', 'drafting', 'export', 'argument', 'activity'].map((name) => `${name}-example-title`),
   );
   for (const figure of figures) {
     expect(figure.classList.contains('app-example')).toBe(true);
@@ -97,7 +90,7 @@ it.each([['/cookies', Cookies], ['/missing-page', NotFound]])('sends section nav
 it('expands every profile and question for print and restores each prior state afterwards', async () => {
   await render();
   const disclosures = [...container.querySelectorAll('#about details, details.clarity-question')];
-  expect(disclosures).toHaveLength(10);
+  expect(disclosures).toHaveLength(13);
   disclosures[1].open = true;
   disclosures[7].open = true;
   const previous = disclosures.map((details) => details.open);
