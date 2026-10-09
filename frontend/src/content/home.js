@@ -531,6 +531,26 @@ export const LESSONS = {
   ],
 };
 
+// The difference (from the reference William sent on 09 October 2026, "Why teams stop reading the
+// archive by hand"): what VeriCase does that files and spreadsheets do not, limited to what the
+// page shows. Each row links to nothing; the sections below show each one.
+export const DIFFERENCE = {
+  kicker: 'The difference',
+  h2Lead: 'Why teams stop reading',
+  h2Emphasis: 'the archive by hand.',
+  columns: ['What you need', 'Files and spreadsheets', 'VeriCase'],
+  rows: [
+    'Find every email and attachment on an issue',
+    'Ask a question and get an answer with its sources',
+    'Read the events in date order, from the records',
+    'Test a position you have received',
+    'Draft a claim or response from the records',
+    'Build an indexed, numbered bundle',
+  ],
+  no: 'Not on its own',
+  yes: 'Yes',
+};
+
 export const IN_BRIEF = {
   // Each job links to the section that explains it.
   jobs: [

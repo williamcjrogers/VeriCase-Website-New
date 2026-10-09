@@ -1,10 +1,11 @@
 /* The working record: paper, green ink and measured brass rules. */
 .clarity-hero { padding: clamp(2.5rem, 5vw, 5rem) 0 3rem; }
-.section-kicker { margin-bottom: 1.5rem; font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--vc-brass-700); }
+.section-kicker { display: inline-flex; align-items: center; gap: 0.625rem; width: fit-content; max-width: 100%; margin-bottom: 1.5rem; padding: 0.4375rem 1rem; border: 1px solid rgb(21 24 31 / 0.06); border-radius: 999px; background: #fff; box-shadow: 0 1px 2px rgb(21 24 31 / 0.05), 0 4px 14px -6px rgb(40 59 100 / 0.18); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--vc-brass-700); }
+.section-kicker::before { content: ''; width: 0.4375rem; height: 0.4375rem; flex: none; border-radius: 999px; background: var(--vc-copper); }
 .clarity-hero-grid { display: grid; gap: 2rem; align-items: end; }
-.clarity-title { max-width: 13ch; font-size: clamp(2.75rem, 5.2vw, 4.875rem); font-weight: 500; letter-spacing: -0.025em; line-height: 1.02; text-wrap: initial; }
+.clarity-title { max-width: 13ch; font-size: clamp(2.75rem, 5.6vw, 5.25rem); font-weight: 800; letter-spacing: -0.035em; line-height: 0.98; text-wrap: initial; }
 .clarity-title > span, .clarity-title > em { display: block; }
-.clarity-title em { color: var(--vc-brass-700); font-weight: 450; }
+.clarity-title em { font-style: normal; font-weight: 800; padding-bottom: 0.08em; }
 /* The emphasised line takes two lines in the hero's column; Hero.jsx keeps all but its first word together (it breaks only where the phrase is wider than the line, as with enlarged text on a phone), and balance evens the lines. */
 .clarity-title > em { text-wrap: balance; }
 .hero-action .vc-btn svg { display: none; }
@@ -26,7 +27,7 @@
 /* The quoted line in display italic, its opening mark hung in the margin so the words align. */
 .hero-motto-words { font-size: clamp(2.25rem, 4vw, 3.75rem); font-style: italic; font-weight: 400; line-height: 1.04; letter-spacing: -0.015em; color: var(--vc-ink); }
 .motto-word { display: inline-block; }
-.motto-brand, .motto-quote { color: var(--vc-brass-700); }
+.motto-brand, .motto-quote { color: var(--vc-azure-700); }
 .motto-quote-open { margin-left: -0.36em; }
 /* "VeriCase." takes the second line, beneath "Records, records,". */
 .motto-word-last { display: block; width: fit-content; }
@@ -62,25 +63,22 @@
 .hero-proof { margin-top: 1.5rem; padding-left: 1rem; border-left: 2px solid var(--vc-brass-400); max-width: 42ch; font-size: 0.9375rem; line-height: 1.6; color: var(--vc-graphite); }
 .mobile-details-toggle { display: none; }
 .clarity-section { padding: clamp(3.5rem, 6.4vw, 6rem) 0; }
-.clarity-heading { max-width: 22ch; font-size: clamp(2.125rem, 3.6vw, 3.25rem); line-height: 1.1; letter-spacing: -0.016em; }
+.clarity-heading { max-width: 22ch; font-size: clamp(2.125rem, 3.6vw, 3.25rem); line-height: 1.08; font-weight: 800; letter-spacing: -0.035em; }
 .clarity-link { display: inline-flex; gap: 0.75rem; align-items: center; min-height: 44px; font-size: 0.9375rem; font-weight: 500; color: var(--vc-azure-700); text-decoration: underline; text-underline-offset: 5px; }
 .clarity-link:hover { color: var(--vc-ink); text-decoration-thickness: 2px; }
 .clarity-jobs { display: grid; gap: 2rem; }
-.capability-group { padding: 1.5rem; border: 1px solid var(--vc-rule); border-radius: 12px; background: var(--vc-paper); box-shadow: 0 1px 2px rgb(35 42 56 / 0.06); }
+.capability-group { padding: 1.5rem; border: 1px solid rgb(21 24 31 / 0.06); border-radius: 20px; background: #fff; box-shadow: var(--vc-shadow-card); }
 /* The application's workspace cards: a blue tile with a white icon above the title. */
-.capability-tile { display: inline-flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem; margin-bottom: 1rem; border-radius: 10px; background: linear-gradient(135deg, #2C5690, #3E6CA6); color: #fff; }
+.capability-tile { display: inline-flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem; margin-bottom: 1rem; border-radius: 12px; background: linear-gradient(135deg, #2F6BC4, #4A83D6); color: #fff; box-shadow: 0 8px 18px -8px rgb(47 107 196 / 0.7); }
+/* The reference's three tile colours, in turn: blue, indigo, copper. */
+.capability-group:nth-child(3n + 2) .capability-tile { background: linear-gradient(135deg, #3B4A93, #5673D2); box-shadow: 0 8px 18px -8px rgb(64 80 151 / 0.7); }
+.capability-group:nth-child(3n) .capability-tile { background: linear-gradient(135deg, #B9783C, #D7954E); box-shadow: 0 8px 18px -8px rgb(191 128 67 / 0.7); }
 .capability-tile svg { width: 1.375rem; height: 1.375rem; stroke-width: 1.75; }
-/* The opening on the application's blue: white type, the italic in a pale blue, the example's window
-   straight on the blue. */
-.clarity-hero.on-blue .section-kicker { color: var(--vc-on-blue-soft); }
-.clarity-hero.on-blue :is(.clarity-title em, .motto-brand, .motto-quote) { color: #CFE0F5; }
-.clarity-hero.on-blue :is(.hero-motto-words, .hero-motto-line) { color: #fff; }
-.clarity-hero.on-blue .hero-motto-source { color: var(--vc-on-blue-soft); }
-.clarity-hero.on-blue .hero-motto-source a { color: #fff; }
-.clarity-hero.on-blue .hero-motto-source::before { background: rgb(255 255 255 / 0.5); }
-.clarity-hero.on-blue .hero-motto .motto-key::after, .clarity-hero.on-blue .hero-motto-line::before { background: #fff; }
-.clarity-hero.on-blue .hero-introduction .vc-btn { background: #fff; border-color: #fff; color: var(--vc-brass-700); }
-.clarity-hero.on-blue .live-figure.app-example { background: none; padding-inline: 0; }
+/* The opening as the reference sets it: a cool light ground warming to off-white under a faint
+   grid, near-black type and the emphasis in the blue running to indigo. */
+.hero-grid { background-color: #EEEDF2; background-image: linear-gradient(rgb(21 24 31 / 0.035) 1px, transparent 1px), linear-gradient(90deg, rgb(21 24 31 / 0.035) 1px, transparent 1px), linear-gradient(180deg, #E4E3EC 0%, #F3F1ED 70%, #F6F2EC 100%); background-size: 56px 56px, 56px 56px, 100% 100%; }
+.text-gradient, .clarity-title em { background: var(--vc-gradient-text); -webkit-background-clip: text; background-clip: text; color: var(--vc-azure-700); -webkit-text-fill-color: transparent; }
+.clarity-hero .live-figure.app-example { background: none; border: 0; box-shadow: none; padding-inline: 0; }
 .capability-group h3 { font-size: 1.875rem; }
 .time-advantage { border-top: 0; }
 .time-advantage-grid, .capability-explanation-grid, .workspace-detail { display: grid; gap: 2.5rem; }
@@ -202,18 +200,18 @@
   .clarity-hero > .container, .clarity-section > .container { padding-inline: 24px; }
   .clarity-hero { padding: 2.5rem 0 3rem; }
   .section-kicker { margin-bottom: 1rem; font-size: 0.625rem; line-height: 1.6; letter-spacing: 0.12em; }
-  .clarity-title { max-width: none; font-size: clamp(2.25rem, 11vw, 3rem); line-height: 1.05; font-weight: 450; letter-spacing: -0.035em; text-wrap: initial; overflow-wrap: anywhere; }
+  .clarity-title { max-width: none; font-size: clamp(2.25rem, 11vw, 3rem); line-height: 1.05; font-weight: 800; letter-spacing: -0.035em; text-wrap: initial; overflow-wrap: anywhere; }
   .clarity-title em { color: inherit; font-style: normal; font-weight: inherit; }
   .clarity-hero-grid { gap: 1.5rem; }
   .clarity-hero-grid > * { min-width: 0; }
   .clarity-lead { font-size: 1rem; line-height: 1.6; color: var(--vc-graphite); max-width: 34ch; }
   .hero-introduction { padding: 0; }
   .hero-introduction > .mt-6 { margin-top: 1.5rem; }
-  .hero-introduction .vc-btn { width: auto; max-width: 100%; min-height: 48px; white-space: normal; padding-inline: 1.25rem; background: var(--vc-navy); border-color: var(--vc-navy); }
+  .hero-introduction .vc-btn { width: auto; max-width: 100%; min-height: 48px; white-space: normal; padding-inline: 1.25rem; }
   .hero-introduction .text-caption { font-size: 0.75rem; line-height: 1.5; }
   .hero-action { gap: 0.625rem; }
   .clarity-section { padding-block: 3rem; }
-  .clarity-heading, #demonstration .clarity-heading { max-width: 22ch; font-size: 1.875rem; line-height: 1.15; font-weight: 450; letter-spacing: -0.02em; text-wrap: initial; overflow-wrap: anywhere; }
+  .clarity-heading, #demonstration .clarity-heading { max-width: 22ch; font-size: 1.875rem; line-height: 1.15; font-weight: 700; letter-spacing: -0.03em; text-wrap: initial; overflow-wrap: anywhere; }
   .clarity-section .text-body { font-size: 0.9375rem; line-height: 1.65; }
   .clarity-section .text-lead { font-size: 1rem; line-height: 1.6; }
   .time-advantage-grid, .capability-explanation-grid, .workspace-detail { gap: 1.25rem; }
@@ -278,3 +276,30 @@
   /* The illustrations print in their end state. */
   .evidence-figure { break-inside: avoid; }
 }
+
+/* The difference: a comparison table in the reference's manner. */
+.difference-head { display: grid; justify-items: center; text-align: center; }
+.difference-head .clarity-heading { max-width: 18ch; margin-inline: auto; font-size: clamp(2.25rem, 4.6vw, 4rem); font-weight: 800; letter-spacing: -0.035em; line-height: 1.05; }
+.difference-card { max-width: 60rem; margin: 3rem auto 0; overflow: hidden; border: 1px solid rgb(21 24 31 / 0.08); border-radius: 24px; background: #fff; box-shadow: var(--vc-shadow-card); }
+.difference-table { width: 100%; border-collapse: collapse; font-size: 1.0625rem; }
+.difference-table thead th { padding: 1.25rem 1rem; background: #F8F6F0; border-bottom: 1px solid var(--vc-rule); text-align: center; font-weight: 600; color: var(--vc-graphite); }
+.difference-table thead th:first-child { text-align: left; }
+.difference-table thead th.is-us { color: var(--vc-brass-700); font-weight: 700; }
+.difference-table tbody tr:nth-child(even) { background: #FAF9F6; }
+.difference-table tbody th { padding: 1.25rem 1.5rem; text-align: left; font-weight: 500; color: var(--vc-navy); }
+.difference-table td { width: 24%; padding: 1rem; text-align: center; }
+.difference-no { display: inline-flex; color: #9499A3; }
+.difference-no svg { width: 1.375rem; height: 1.375rem; stroke-width: 1.5; }
+.difference-yes { display: inline-flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: 999px; background: var(--vc-azure-50); color: var(--vc-azure-700); }
+.difference-yes svg { width: 1.25rem; height: 1.25rem; stroke-width: 2; }
+@media (max-width: 639px) {
+  .difference-card { margin-top: 1.75rem; border-radius: 18px; }
+  .difference-table { font-size: 0.9375rem; }
+  .difference-table thead th, .difference-table tbody th { padding: 0.875rem 0.75rem; }
+  .difference-table thead th { font-size: 0.8125rem; }
+  .difference-table td { width: 4.5rem; padding: 0.5rem; }
+  .difference-yes { width: 2rem; height: 2rem; }
+}
+
+.section-kicker { align-self: start; height: fit-content; }
+.live-figure.app-example > .section-kicker { color: var(--vc-brass-700); }

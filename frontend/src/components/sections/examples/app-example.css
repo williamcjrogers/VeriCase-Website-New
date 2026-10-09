@@ -7,27 +7,32 @@
   --app-line: var(--vc-rule);
   --app-card: #fff;
   --app-main: #F3F3EF;
-  /* The ground is the application's blue (index.css, .on-blue), with the light window on it. */
-  background: linear-gradient(120deg, #2C5690 0%, #3E6CA6 100%);
-  border: 0;
-  border-radius: 14px;
+  /* As the reference sets its product window: a light, softly shadowed panel with the white
+     window on it, rounded generously. */
+  background: rgb(255 255 255 / 0.6);
+  border: 1px solid rgb(21 24 31 / 0.06);
+  border-radius: 28px;
+  box-shadow: var(--vc-shadow-card);
   color: var(--vc-ink);
 }
-.live-figure.app-example > .section-kicker { color: #E8EFF8; }
-.live-figure.app-example > .evidence-figure-title { color: #fff; }
-.live-figure.app-example > figcaption { border-top-color: rgb(255 255 255 / 0.25); color: #E8EFF8; }
+.live-figure.app-example > .evidence-figure-title { color: var(--vc-navy); }
+.live-figure.app-example > figcaption { border-top-color: var(--vc-rule); color: var(--vc-graphite); }
 .live-figure.app-example .text-graphite { color: var(--vc-graphite); }
-.live-figure.app-example .live-replay { color: #fff; }
-.live-figure.app-example .live-replay:hover { color: #E8EFF8; }
-.live-figure.app-example :focus-visible { outline-color: #fff; }
+.live-figure.app-example .live-replay { color: var(--vc-brass-700); }
+.live-figure.app-example .live-replay:hover { color: var(--vc-navy); }
 .live-figure.app-example .typed { --caret: var(--vc-ink); }
 
-.app-window { margin-top: 1.25rem; overflow: hidden; border: 1px solid var(--app-line); border-radius: 12px; background: var(--vc-paper); box-shadow: var(--shadow-paper); font-size: 0.875rem; line-height: 1.5; }
+.app-window { margin-top: 1.25rem; overflow: hidden; border: 1px solid rgb(21 24 31 / 0.08); border-radius: 20px; background: #fff; box-shadow: 0 30px 60px -30px rgb(40 59 100 / 0.35), 0 1px 2px rgb(21 24 31 / 0.05); font-size: 0.875rem; line-height: 1.5; }
 .app-window svg { width: 1rem; height: 1rem; flex: none; stroke-width: 1.75; }
 
 /* The bar: the mark, the project, and the view on the right. */
-.app-bar { display: flex; align-items: center; gap: 0.75rem; min-height: 3rem; padding: 0.5rem 1rem; border-bottom: 1px solid var(--app-line); background: var(--vc-paper); }
-.app-mark { display: inline-flex; align-items: center; justify-content: center; width: 1.75rem; height: 1.75rem; border-radius: 6px; background: var(--vc-azure-700); color: #fff; font-weight: 600; font-size: 0.9375rem; }
+.app-bar { display: flex; align-items: center; gap: 0.75rem; min-height: 3.25rem; padding: 0.5rem 1rem; border-bottom: 1px solid var(--app-line); background: #F9F9FB; }
+/* The window's three dots, as the reference draws them. */
+.app-dots { display: inline-flex; gap: 0.375rem; }
+.app-dots > span { width: 0.6875rem; height: 0.6875rem; border-radius: 999px; background: #C9A08A; }
+.app-dots > span:nth-child(2) { background: #E0B866; }
+.app-dots > span:nth-child(3) { background: #7FC7A0; }
+.app-mark { display: inline-flex; align-items: center; justify-content: center; width: 1.75rem; height: 1.75rem; border-radius: 8px; background: var(--vc-azure-700) var(--vc-gradient-button); color: #fff; font-weight: 700; font-size: 0.9375rem; }
 .app-project { display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.25rem 0.625rem; border: 1px solid var(--app-line); border-radius: 6px; font-weight: 500; color: var(--vc-ink); white-space: nowrap; }
 .app-bar-view { min-width: 0; margin-left: auto; overflow: hidden; font-size: 0.8125rem; color: var(--vc-graphite); text-overflow: ellipsis; white-space: nowrap; }
 
@@ -45,9 +50,9 @@
 @media (min-width: 1024px) { .app-main { min-height: 22rem; } }
 
 /* Shared parts: cards, drawn buttons, badges, headings and quiet text. */
-.app-card { border: 1px solid var(--app-line); border-radius: 10px; background: var(--app-card); }
+.app-card { border: 1px solid var(--app-line); border-radius: 14px; background: var(--app-card); box-shadow: 0 1px 2px rgb(21 24 31 / 0.04); }
 .app-btn { display: inline-flex; align-items: center; gap: 0.375rem; min-height: 2rem; padding: 0.25rem 0.75rem; border: 1px solid var(--vc-rule-strong); border-radius: 6px; background: var(--app-card); font-weight: 500; color: var(--vc-ink); white-space: nowrap; }
-.app-btn.is-primary { border-color: var(--vc-azure-700); background: var(--vc-azure-700); color: #fff; }
+.app-btn.is-primary { border-color: transparent; background: var(--vc-azure-700) var(--vc-gradient-button); color: #fff; }
 .app-badge { display: inline-flex; align-items: center; padding: 0.0625rem 0.5rem; border-radius: 999px; background: var(--vc-parchment-300); font-size: 0.75rem; font-weight: 500; color: var(--vc-ink); white-space: nowrap; }
 .app-badge.is-good { background: #E3F1E6; color: #24603A; }
 .app-badge.is-warn { background: #FBEFD9; color: #7A4B0E; }
