@@ -57,11 +57,12 @@ it('mounts every app example once, in place, in page order, each with unique ids
   expect(ids.filter((id, i) => ids.indexOf(id) !== i)).toEqual([]);
   const figures = [...container.querySelectorAll('figure.evidence-figure')];
   // The search opens the page and the quick questions follow it (the focal points); then the
-  // upload, the report and the bundle built from it, the discussion on one email and in lanes, the
-  // rebuttal and the drafting, and the activity log. One copy of each at every width: none sits in
+  // upload and the reader, the report and the bundle built from it, the discussion on one email and
+  // in lanes, the rebuttal, the drafting and the exported report, then the argument and the
+  // activity log. One copy of each at every width: none sits in
   // a phone or desktop copy, or behind a disclosure.
   expect(figures.map((f) => f.getAttribute('aria-labelledby'))).toEqual(
-    ['search', 'analysis', 'upload', 'report', 'bundle', 'item', 'lanes', 'rebuttal', 'drafting', 'activity'].map((name) => `${name}-example-title`),
+    ['search', 'analysis', 'upload', 'reader', 'report', 'bundle', 'item', 'lanes', 'rebuttal', 'drafting', 'export', 'argument', 'activity'].map((name) => `${name}-example-title`),
   );
   for (const figure of figures) {
     expect(figure.classList.contains('app-example')).toBe(true);
@@ -89,7 +90,7 @@ it.each([['/cookies', Cookies], ['/missing-page', NotFound]])('sends section nav
 it('expands every profile and question for print and restores each prior state afterwards', async () => {
   await render();
   const disclosures = [...container.querySelectorAll('#about details, details.clarity-question')];
-  expect(disclosures).toHaveLength(11);
+  expect(disclosures).toHaveLength(13);
   disclosures[1].open = true;
   disclosures[7].open = true;
   const previous = disclosures.map((details) => details.open);

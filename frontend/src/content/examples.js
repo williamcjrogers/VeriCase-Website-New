@@ -275,3 +275,79 @@ export const DRAFTING_EXAMPLE = {
   actions: ['Export Word', 'Export PDF'],
   caption: 'Illustrative claim section from a fictional construction matter.',
 };
+
+// Restored on 09 October 2026 (owner: "forgotten about a lot of the stuff that we had in there
+// before"): the reader, the argument and the exported report from the site before PR #14, redrawn
+// as the application shows them, with the same fictional records.
+
+// The reader: a document read beside its file record, the find term typed and the passage marked.
+export const READER_EXAMPLE = {
+  title: 'The document beside its file record.',
+  view: 'Chronology Lens',
+  recordsLabel: 'Evidence, in date order',
+  records: [
+    { document: 'Façade instruction', date: '21 Oct 2024', folder: 'Instructions' },
+    { document: 'RFI 112', date: '14 Nov 2024', folder: 'RFIs' },
+    { document: 'Risk register', date: '25 Nov 2024', folder: 'Reports' },
+    { document: 'Monthly report 11', date: '30 Apr 2025', folder: 'Reports' },
+    { document: 'Road authority comments', date: '19 May 2025', folder: 'Correspondence' },
+    { document: 'Answer to RFI 112', date: '21 Aug 2025', folder: 'Correspondence' },
+  ],
+  selected: 5,
+  detailsLabel: 'File record',
+  details: [['From', 'Employer’s Agent'], ['To', 'Design manager'], ['Date', '21 August 2025'], ['Folder', 'Correspondence']],
+  views: ['Document', 'Details', 'Text', 'Notes'],
+  findLabel: 'Find in document',
+  findTerm: 'police adviser',
+  page: 'Page 1 of 1',
+  email: {
+    header: [['From', 'Employer’s Agent'], ['Sent', '21 August 2025'], ['To', 'Design manager'], ['Subject', 'RFI 112: access control and cameras']],
+    before: 'In answer to RFI 112 of 14 November 2024, please comply with the ',
+    found: 'police adviser',
+    after: '’s requirements for the access control and camera works.',
+  },
+  caption: 'Illustrative records from a fictional construction matter.',
+};
+
+// The argument: the drafted points, each citing its record, and the records arriving beside them.
+export const ARGUMENT_EXAMPLE = {
+  title: 'An argument with its sources.',
+  view: 'Drafting',
+  heading: 'Section 4. The road works',
+  // One point for each record, in the same order; each point cites its record by name.
+  points: [
+    'Before contract, the Employer kept the road agreement and its approvals',
+    'The Contractor priced the road works at nil',
+    'The Employer’s road design pack arrived after the Date for Completion',
+  ],
+  recordsLabel: 'Supporting records',
+  records: [
+    { document: 'Agreed items schedule', date: '09 September 2024', excerpt: 'The Employer retains the road agreement and its approvals; the Contractor supplies supporting information only.' },
+    { document: 'Contract sum analysis', date: '30 September 2024', excerpt: 'Off-site road works, footways and street lighting: nil.' },
+    { document: 'Road design pack', date: '05 March 2025', excerpt: 'The Contractor is to design the drainage and levels and obtain technical approval.' },
+  ],
+  caption: 'Illustrative argument from a fictional construction matter. Each point is linked to the record behind it.',
+};
+
+// The exported report: a short report as it comes out, with its structure and its sources.
+export const EXPORT_EXAMPLE = {
+  title: 'A report exported with its structure and sources.',
+  view: 'Drafting',
+  context: 'A short note for the project director on how the forecast completion date moved.',
+  file: 'Forecast completion.pdf',
+  reportTitle: 'Forecast completion: the monthly reports',
+  heading: 'How the date moved',
+  paragraph: 'By monthly report 13 the forecast completion date had moved to 12 December 2025, more than nine months after the Date for Completion',
+  source: 'Monthly report 13',
+  quote: 'Forecast completion: 12 December 2025, subject to technical approval of the road works.',
+  quoteSource: 'Monthly report 13, 30 June 2025',
+  tableCaption: 'Table 1. Forecast completion, by report',
+  columns: ['Forecast completion', 'Record', 'Date'],
+  rows: [
+    ['28 February 2025', 'Monthly report 7', '31 December 2024'],
+    ['25 July 2025', 'Monthly report 9', '28 February 2025'],
+    ['12 December 2025', 'Monthly report 13', '30 June 2025'],
+  ],
+  folio: 'Page 1 of 1',
+  caption: 'Illustrative report from a fictional construction matter.',
+};

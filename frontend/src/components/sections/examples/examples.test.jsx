@@ -10,7 +10,10 @@ import { ActivityExample, ACTIVITY_DURATION } from './ActivityExample';
 import { LanesExample, LANES_DURATION } from './LanesExample';
 import { RebuttalExample, REBUTTAL_DURATION } from './RebuttalExample';
 import { DraftingExample, DRAFTING_DURATION } from './DraftingExample';
-import { ANALYSIS_EXAMPLE, BUNDLE_EXAMPLE, DRAFTING_EXAMPLE, LANES_EXAMPLE, RAIL, REBUTTAL_EXAMPLE, SEARCH_EXAMPLE } from '@/content/examples';
+import { ReaderExample, READER_DURATION } from './ReaderExample';
+import { ArgumentExample, ARGUMENT_DURATION } from './ArgumentExample';
+import { ExportExample, EXPORT_DURATION } from './ExportExample';
+import { ANALYSIS_EXAMPLE, ARGUMENT_EXAMPLE, BUNDLE_EXAMPLE, DRAFTING_EXAMPLE, EXPORT_EXAMPLE, READER_EXAMPLE, LANES_EXAMPLE, RAIL, REBUTTAL_EXAMPLE, SEARCH_EXAMPLE } from '@/content/examples';
 
 let container;
 let root;
@@ -36,6 +39,9 @@ const EXAMPLES = [
   ['lanes', LanesExample, LANES_DURATION],
   ['rebuttal', RebuttalExample, REBUTTAL_DURATION],
   ['drafting', DraftingExample, DRAFTING_DURATION],
+  ['reader', ReaderExample, READER_DURATION],
+  ['argument', ArgumentExample, ARGUMENT_DURATION],
+  ['export', ExportExample, EXPORT_DURATION],
 ];
 
 describe.each(EXAMPLES)('the %s example', (name, Example, duration) => {
@@ -104,4 +110,22 @@ it('cites a record for every drafted paragraph and leaves the draft for review',
   act(() => root.render(<DraftingExample />));
   expect(container.querySelectorAll('.drafting-source')).toHaveLength(DRAFTING_EXAMPLE.paragraphs.length);
   expect(container.textContent).toContain(DRAFTING_EXAMPLE.status);
+});
+
+it('reads the selected document beside its file record, the passage found marked in it', () => {
+  act(() => root.render(<ReaderExample />));
+  expect(container.querySelector('.reader-record[aria-current="true"]').textContent).toContain(READER_EXAMPLE.records[READER_EXAMPLE.selected].document);
+  expect(container.querySelector('.reader-body mark').textContent).toBe(READER_EXAMPLE.email.found);
+});
+
+it('cites a record for every point of the argument and sets each record beside it', () => {
+  act(() => root.render(<ArgumentExample />));
+  expect(container.querySelectorAll('.argument-cite')).toHaveLength(ARGUMENT_EXAMPLE.points.length);
+  expect(container.querySelectorAll('.argument-record')).toHaveLength(ARGUMENT_EXAMPLE.records.length);
+});
+
+it('exports the report with its source, its quotation and a row for every record', () => {
+  act(() => root.render(<ExportExample />));
+  expect(container.querySelector('.export-source').textContent).toBe(EXPORT_EXAMPLE.source);
+  expect(container.querySelectorAll('.export-table tbody tr')).toHaveLength(EXPORT_EXAMPLE.rows.length);
 });

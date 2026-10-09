@@ -18,8 +18,9 @@ export const CHAPTERS = [
   { id: 'chronology-lens', numeral: 'II', title: 'The Chronology Lens™', nav: 'Chronology Lens' },
   { id: 'research', numeral: 'III', title: 'Just ask', nav: 'Ask' },
   { id: 'worked-example', numeral: 'IV', title: 'A report, then the bundle', nav: 'Bundles' },
-  { id: 'case-room', numeral: 'IV', title: 'Answer a claim, draft your own', nav: 'Rebuttal and drafting' },
-  { id: 'integrity', numeral: 'V', title: 'The record holds', nav: 'Integrity' },
+  { id: 'case-room', numeral: 'V', title: 'Test the other side’s account', nav: 'Rebuttal' },
+  { id: 'claims', numeral: 'VI', title: 'Develop the argument', nav: 'Develop the argument' },
+  { id: 'integrity', numeral: 'VII', title: 'The record holds', nav: 'Integrity' },
 ];
 export const HOME_NAV = [
   { id: 'platform', title: 'How it works', nav: 'How it works' },
@@ -234,9 +235,17 @@ export const LENS_CHAPTER = {
     {
       "title": "Find it fast",
       "text": "Search the text of every email and attachment, in date order, and narrow it by dates and keywords."
+    },
+    {
+      "title": "Read each date for what it is",
+      "text": "Compare the dates and the records behind them, so that a forecast is not taken for an instruction or a confirmation."
+    },
+    {
+      "title": "Take the key records forward",
+      "text": "Select the records the case will rely on, and keep them with the issue they concern."
     }
   ],
-  leadIn: "Watch a site manager’s mailbox go in and come out ready to search.",
+  leadIn: "Watch a site manager’s mailbox go in and come out ready to search, then a document read beside its file record.",
   plate: {
     number: 2,
     caption: 'Plate 2. The record as it is often kept. Illustrative image (computer-generated). See note B.',
@@ -338,6 +347,35 @@ export const CLAIMS = {
   },
 };
 
+// Develop the argument: the section as it stood before PR #14 (Chapter V, "Claims builder"),
+// restored on the owner's word of 09 October 2026. Drafting a claim or response from its records
+// (product source E5, gate G5_claims), then a short report as exported.
+export const ARGUMENT = {
+  h2: "Develop the argument.",
+  issue: "The narrative is drafted in one file and the evidence kept in another. By the fifth draft, which document does paragraph 5.2 rely on?",
+  method: "Write the claim or response in VeriCase, with the records each paragraph relies on in the same workspace as the wording.",
+  methodGate: 'G5_claims',
+  steps: [
+    {
+      "title": "Structure the argument",
+      "text": "Set out the points you need to establish, with a section for each."
+    },
+    {
+      "title": "Find the evidence",
+      "text": "Search the record for the section you are drafting, including material that tells against your position."
+    },
+    {
+      "title": "Cite the record",
+      "text": "Use source references to check each factual point against the record it rests on."
+    },
+    {
+      "title": "Finalise the draft",
+      "text": "Go through it with its source references, add any qualification it needs, then export it to Word or PDF, or share it."
+    }
+  ],
+  leadIn: "Watch section 5 take shape beside its records, then see a short report as exported.",
+};
+
 // The collaboration section (owner, 06 October 2026; revised 09 October 2026 to the application as
 // seen that day): a discussion on a single record, opened by mentioning someone on it, people from
 // different organisations, tags, and the history kept with the record. Lanes were not seen in the
@@ -388,12 +426,12 @@ export const CASE_ROOM = {
   numeral: 'III',
   kicker: 'Project time ends. Case time begins.',
   cut: 'Case time',
-  // Restored on the owner's word of 09 October 2026, in plain terms for contractors: answering the
-  // other side point by point (product source E4, gate G5_rebuttalReview) and drafting a claim from
-  // its records (E5, gate G5_claims). Every reply and draft is for the team to review.
-  h2: "Answer a claim. Draft your own.",
-  issue: "A claim or a response arrives with dozens of points to answer. Or you need to put your own claim together from years of correspondence.",
-  method: "Set the records beside each point the other side makes, with proposed replies, and draft your own claim section by section from the evidence. Every reply and draft is for your team to review.",
+  // The section as it stood before PR #14, restored on the owner's word of 09 October 2026: answering
+  // the other side point by point (product source E4, gate G5_rebuttalReview), every reply for the
+  // team to review. Drafting has its own section again (ARGUMENT).
+  h2: "Test the other side’s account.",
+  issue: "The other side’s claim or response describes an event one way; your team remembers it another. Before you respond, you need to know which account the documents bear out.",
+  method: "Answer it in VeriCase from the record, with proposed replies for your team to review.",
   methodGate: 'G5_rebuttalReview',
   steps: [
     {
@@ -401,20 +439,15 @@ export const CASE_ROOM = {
       "text": "Add the other side’s claim or response and set out the points it makes."
     },
     {
-      "title": "See what the records say",
-      "text": "Records that support or challenge each point sit beside it, so you can see where it holds and where it does not."
+      "title": "Test the assertions",
+      "text": "Set records that support or challenge each point beside it, and see where the account holds, where it is challenged and what needs further investigation before you respond."
     },
     {
-      "title": "Review the proposed replies",
-      "text": "Accept or edit each reply, with the records it relies on, before anything is sent."
-    },
-    {
-      "title": "Draft your own claim",
-      "text": "Write a claim section by section, each paragraph built from its records, then export it to Word or PDF.",
-      "gate": "G5_claims"
+      "title": "Prepare the reply",
+      "text": "Accept or edit the proposed replies, with the records they rely on, before anything is sent."
     }
   ],
-  leadIn: "Watch a point from the other side’s response meet the records, then a claim section drafted from them.",
+  leadIn: "Watch a point from the other side’s response meet the records.",
   plate: {
     number: 3,
     caption: 'Plate 3. A meeting room with the bundles, on a wet evening. Illustrative image and video (computer-generated). See note B.',
@@ -451,11 +484,15 @@ export const INTEGRITY = {
       "text": "See the extract in place, with what comes before and after it and any qualification it carries."
     },
     {
+      "title": "Choose the output",
+      "text": "A report, a selection of evidence and a bundle serve different purposes; know what yours contains before it goes out."
+    },
+    {
       "title": "See who did what",
       "text": "The Activity Log records every upload, tag, message and access change in a project, with who made it and when."
     }
   ],
-  leadIn: "See a project’s Activity Log, one entry at a time.",
+  leadIn: "Watch the points of an argument marked, one by one, with the records behind them, then see a project’s Activity Log.",
   declaration: {
     label: 'Your judgement. Supported by the record.',
     text: 'Findings and drafts require professional review. Your team assesses the evidence, develops the argument and approves the final work.',
@@ -499,7 +536,7 @@ export const IN_BRIEF = {
   jobs: [
     {
       "title": "Search everything.",
-      "text": "Find any email or attachment by what it says, in date order.",
+      "text": "Bring every email and document together, find anything by what it says, and follow events in date order.",
       "section": "chronology-lens"
     },
     {
@@ -511,6 +548,16 @@ export const IN_BRIEF = {
       "title": "Build the bundle.",
       "text": "Turn a report into a bundle with a cover page, an index and page numbers.",
       "section": "worked-example"
+    },
+    {
+      "title": "Test the competing accounts.",
+      "text": "See the records that support a position and those that challenge it, with references back to the sources.",
+      "section": "case-room"
+    },
+    {
+      "title": "Develop the argument.",
+      "text": "Draft the claim or response with the evidence alongside the wording, each point cited to its record.",
+      "section": "claims"
     },
     {
       "title": "Work on it together.",
@@ -589,8 +636,16 @@ export const IN_BRIEF = {
       "a": "Yes. Create a bundle from a Deep Research report: the report goes on top, followed by the evidence it cites, with a cover page, an index and page numbers. Change the order if you need to, then download it as a PDF."
     },
     {
+      "q": "Can VeriCase help draft a claim or response?",
+      "a": "Yes. Use drafting tools to develop the wording and identify supporting material, with the evidence alongside the argument. Your team revises the work and approves the final document before it is issued."
+    },
+    {
+      "q": "Will the output be accepted by the tribunal?",
+      "a": "Admissibility and weight are for the tribunal. Review the underlying records, the source references and the final document with the professionals responsible for the matter."
+    },
+    {
       "q": "Can we rely on what VeriCase finds?",
-      "a": "Every answer shows its sources, so you can read them yourself. Review the records and the final document with the people responsible for the matter; if it goes to a tribunal, admissibility and weight are for the tribunal."
+      "a": "Every answer shows its sources, so you can read them yourself. Review the records and the final document with the people responsible for the matter."
     },
     {
       "q": "How can our team work together?",

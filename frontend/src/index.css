@@ -99,6 +99,17 @@
   .on-ink .on-paper { color: var(--vc-ink); --ring: 207 61% 45%; }
   .on-ink .on-paper :is(h1, h2, h3, h4) { color: var(--vc-navy); }
   .on-ink .on-paper :focus-visible { outline-color: var(--vc-azure-500); }
+  /* The application's blue (app.veri-case.com, the project card on its workspace, seen 09 October
+     2026), a shade deeper so that white text keeps 4.5:1 across the whole gradient. Used for the
+     opening, the clock, the demonstration, the footer and the ground of every app example. */
+  .on-blue { --vc-on-blue-soft: #E8EFF8; background: linear-gradient(120deg, #2C5690 0%, #3E6CA6 100%); }
+  .on-blue.is-deep { background: #23466F; }
+  .on-ink.on-blue, .on-blue :is(h1, h2, h3, h4) { color: #fff; }
+  .on-blue :focus-visible { outline-color: #fff; }
+  /* The application's windows keep their own light colours on the blue. */
+  .on-ink .app-window { color: var(--vc-ink); }
+  .on-ink .app-window :is(h1, h2, h3, h4) { color: var(--vc-navy); }
+  .on-ink .app-window :focus-visible { outline-color: var(--vc-azure-500); }
 }
 
 @layer components {
@@ -473,3 +484,14 @@
   .lens:not([data-user]) .lens-field { --lens-x: 100%; }
   .lens:not([data-user]) :is(.row, .stamp, .hash, .lens-cite) { opacity: 1 !important; transform: none !important; }
 }
+
+/* On the application's blue (.on-blue, above). Unlayered, so that it also wins over the Tailwind
+   colour utilities used on dark grounds: a white button with blue text, as the app sets its own on
+   white, and quieter text in a pale blue. */
+.on-blue .vc-btn-primary.vc-btn-on-ink { background: #fff; border-color: #fff; color: var(--vc-brass-700); }
+.on-blue .vc-btn-primary.vc-btn-on-ink:hover { background: var(--vc-azure-50); border-color: var(--vc-azure-50); }
+.on-blue .vc-btn-secondary.vc-btn-secondary-on-ink { border-color: rgb(255 255 255 / 0.6); color: #fff; }
+.on-blue .vc-btn-secondary.vc-btn-secondary-on-ink:hover { background: rgb(255 255 255 / 0.12); border-color: #fff; }
+.on-blue :is(.eyebrow, .text-mist), .on-blue .on-blue-soft { color: var(--vc-on-blue-soft); }
+.on-blue .text-azure-300 { color: #fff; }
+.on-blue :is(.border-mist\/20, .border-mist\/25) { border-color: rgb(255 255 255 / 0.22); }

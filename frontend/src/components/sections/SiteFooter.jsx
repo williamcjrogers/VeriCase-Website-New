@@ -48,7 +48,7 @@ export const SiteFooter = () => {
   const about = HOME_NAV.find((m) => m.id === 'about');
 
   return (
-    <footer className="on-ink bg-navy text-parchment border-t border-mist/20">
+    <footer className="on-ink on-blue is-deep text-parchment border-t border-mist/20">
       <div className="container py-16 md:py-20">
         <div className="grid gap-10 md:grid-cols-12 md:gap-6">
           <div className="md:col-span-12 lg:col-span-5">

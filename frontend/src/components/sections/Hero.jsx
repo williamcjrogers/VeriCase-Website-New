@@ -8,7 +8,7 @@ import { SearchExample } from './examples/SearchExample';
 const [emphasisFirst, ...emphasisRest] = COVER.h1Emphasis.split(' ');
 
 export const Hero = () => (
-  <section id="top" aria-labelledby="top-title" className="clarity-hero bg-parchment">
+  <section id="top" aria-labelledby="top-title" className="clarity-hero on-ink on-blue">
     <div className="container">
       <p className="section-kicker">{COVER.eyebrow}</p>
       {/* Two columns from 1024px: the heading, and the motto level with its first line, with the
@@ -20,7 +20,7 @@ export const Hero = () => (
         <div className="hero-side">
           <HeroMotto />
           <div className="hero-introduction">
-            <DemoCTA placement="hero" section="top" className="hero-action" microcopy="By email. Please use sample material." />
+            <DemoCTA placement="hero" section="top" onInk className="hero-action" microcopy="By email. Please use sample material." />
           </div>
         </div>
       </div>

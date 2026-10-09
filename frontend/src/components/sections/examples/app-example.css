@@ -7,17 +7,19 @@
   --app-line: var(--vc-rule);
   --app-card: #fff;
   --app-main: #F3F3EF;
-  background: var(--vc-parchment-300);
+  /* The ground is the application's blue (index.css, .on-blue), with the light window on it. */
+  background: linear-gradient(120deg, #2C5690 0%, #3E6CA6 100%);
   border: 0;
   border-radius: 14px;
   color: var(--vc-ink);
 }
-.live-figure.app-example .section-kicker { color: var(--vc-brass-700); }
-.live-figure.app-example .evidence-figure-title { color: var(--vc-navy); }
-.live-figure.app-example > figcaption { border-top-color: var(--vc-rule); color: var(--vc-graphite); }
+.live-figure.app-example > .section-kicker { color: #E8EFF8; }
+.live-figure.app-example > .evidence-figure-title { color: #fff; }
+.live-figure.app-example > figcaption { border-top-color: rgb(255 255 255 / 0.25); color: #E8EFF8; }
 .live-figure.app-example .text-graphite { color: var(--vc-graphite); }
-.live-figure.app-example .live-replay { color: var(--vc-brass-700); }
-.live-figure.app-example .live-replay:hover { color: var(--vc-navy); }
+.live-figure.app-example .live-replay { color: #fff; }
+.live-figure.app-example .live-replay:hover { color: #E8EFF8; }
+.live-figure.app-example :focus-visible { outline-color: #fff; }
 .live-figure.app-example .typed { --caret: var(--vc-ink); }
 
 .app-window { margin-top: 1.25rem; overflow: hidden; border: 1px solid var(--app-line); border-radius: 12px; background: var(--vc-paper); box-shadow: var(--shadow-paper); font-size: 0.875rem; line-height: 1.5; }
@@ -261,9 +263,82 @@
 .drafting-source svg { width: 0.875rem; height: 0.875rem; }
 .drafting-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; margin-top: 0.875rem; font-size: 0.8125rem; }
 
+/* A passage or citation marked as the example plays: the highlight comes in on its turn and stays. */
+.app-found { padding: 0 0.125rem; border-radius: 3px; background: #FFE9A8; color: inherit; }
+
+/* The reader: the evidence in date order beside the document and its file record. */
+.reader-grid { display: grid; gap: 1rem; }
+.reader-records { display: grid; gap: 0.25rem; margin: 0.5rem 0 0; padding: 0; list-style: none; }
+.reader-record { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 0.5rem; padding: 0.5rem 0.625rem; border: 1px solid transparent; border-radius: 8px; }
+.reader-record svg { margin-top: 0.1875rem; color: var(--vc-graphite); }
+.reader-record-name { font-weight: 500; }
+.reader-record-meta { grid-column: 2; font-size: 0.75rem; color: var(--vc-graphite); }
+.reader-record.is-selected { border-color: var(--vc-azure-300); background: var(--vc-azure-50); }
+.reader-record.is-selected svg, .reader-record.is-selected .reader-record-name { color: var(--vc-brass-700); }
+@media (max-width: 1023px) { .reader-record:not(.is-selected):nth-child(-n+3) { display: none; } }
+.reader-doc { padding: 1rem 1.125rem; }
+.reader-doc-head { display: flex; align-items: center; gap: 0.625rem; }
+.reader-details { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; margin: 0.75rem 0 0; font-size: 0.8125rem; }
+.reader-details > div { display: flex; gap: 0.375rem; }
+.reader-details dt { color: var(--vc-graphite); }
+.reader-details dd { margin: 0; }
+.reader-strip { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; margin-top: 0.875rem; padding: 0.5rem 0; border-top: 1px solid var(--app-line); border-bottom: 1px solid var(--app-line); }
+.reader-views { display: flex; flex-wrap: wrap; gap: 0.25rem; margin: 0; font-size: 0.8125rem; color: var(--vc-graphite); }
+.reader-views > span { padding: 0.125rem 0.5rem; border-radius: 6px; }
+.reader-views > .is-current { background: var(--vc-azure-50); color: var(--vc-brass-700); font-weight: 500; }
+.reader-find { display: inline-flex; align-items: center; gap: 0.375rem; min-width: 12rem; margin: 0; padding: 0.25rem 0.625rem; border: 1px solid var(--vc-rule-strong); border-radius: 6px; background: var(--app-card); }
+.reader-find svg { color: var(--vc-graphite); }
+.reader-page { margin-top: 0.875rem; }
+.reader-mailhead { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.125rem 0.75rem; margin: 0; font-size: 0.8125rem; }
+.reader-mailhead > div { display: contents; }
+.reader-mailhead dt { color: var(--vc-graphite); }
+.reader-mailhead dd { margin: 0; }
+.reader-body { margin: 0.75rem 0 0; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1rem; line-height: 1.55; }
+.reader-found { margin: 0.5rem 0 0; font-size: 0.8125rem; }
+@media (min-width: 1024px) { .reader-grid { grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); } }
+
+/* The argument: the drafted points with their citations, and the records they cite. */
+.argument-grid { display: grid; gap: 1rem; }
+.argument-sheet { padding: 1rem 1.125rem; align-self: start; }
+.argument-text { margin: 0.625rem 0 0; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1.0625rem; line-height: 1.6; }
+.argument-cite { white-space: nowrap; }
+.argument-records { display: grid; gap: 0.625rem; margin: 0.5rem 0 0; padding: 0; list-style: none; }
+.argument-record { padding: 0.75rem 0.875rem; border-left: 3px solid var(--vc-azure-700); }
+.argument-quote { margin: 0; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 0.9375rem; line-height: 1.5; }
+.argument-source { display: flex; align-items: center; gap: 0.25rem; margin: 0.375rem 0 0; font-size: 0.75rem; }
+.argument-source svg { width: 0.875rem; height: 0.875rem; }
+@media (min-width: 1024px) { .argument-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); } }
+
+/* The exported report: a page as it comes out, with its structure and sources. */
+.export-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 1rem; font-size: 0.8125rem; }
+.export-page { max-width: 40rem; margin: 1rem auto 0; padding: 1.5rem 1.75rem 1rem; box-shadow: var(--shadow-paper); }
+.export-title { margin: 0; font-size: 1.125rem; font-weight: 600; color: var(--vc-navy); text-wrap: balance; }
+.export-heading { margin: 0.875rem 0 0.25rem; font-weight: 600; }
+.export-para { margin: 0; }
+.export-source { display: inline-flex; align-items: center; gap: 0.1875rem; color: var(--vc-brass-700); text-decoration: underline; text-underline-offset: 2px; }
+.export-source svg { width: 0.8125rem; height: 0.8125rem; }
+.export-quote { margin: 0.875rem 0 0; padding: 0.125rem 0 0.125rem 0.875rem; border-left: 3px solid var(--vc-azure-700); }
+.export-quote p { margin: 0; font-family: 'Newsreader', 'Newsreader Fallback', Georgia, serif; font-size: 1rem; }
+.export-quote footer { margin-top: 0.25rem; font-size: 0.75rem; color: var(--vc-graphite); }
+.export-table { width: 100%; margin-top: 1rem; border-collapse: collapse; font-size: 0.8125rem; }
+.export-table caption { padding-bottom: 0.375rem; text-align: left; font-weight: 600; }
+.export-table th { padding: 0.375rem 0.5rem 0.375rem 0; border-bottom: 1px solid var(--vc-rule-strong); text-align: left; font-weight: 600; }
+.export-table td { padding: 0.375rem 0.5rem 0.375rem 0; border-bottom: 1px solid var(--app-line); }
+.export-folio { margin: 0.875rem 0 0; text-align: right; font-size: 0.75rem; color: var(--vc-graphite); }
+@media (max-width: 639px) {
+  .export-page { padding: 1rem; }
+  .export-table thead { display: none; }
+  .export-table tr { display: grid; padding: 0.375rem 0; border-bottom: 1px solid var(--app-line); }
+  .export-table td { padding: 0; border: 0; }
+  .export-table td:first-child { font-weight: 600; }
+}
+
 /* The meter and the progress steps fill as the example plays (once; reduced motion shows them full). */
 @media (prefers-reduced-motion: no-preference) {
   .live-figure.app-example.is-in:not(.is-settled) .chat-meter > span { animation: app-fill 900ms var(--ease-settle) both; animation-delay: calc(var(--typed-ms, 0ms) + var(--after) + var(--i, 0) * var(--step)); }
+  .js .live-figure.app-example:not(.is-in) .app-found { background: transparent; }
+  .live-figure.app-example.is-in:not(.is-settled) .app-found { animation: app-found 500ms var(--ease-settle) both; animation-delay: calc(var(--typed-ms, 0ms) + var(--after, 320ms) + var(--i, 0) * var(--step, 380ms)); }
+  @keyframes app-found { from { background: transparent; } to { background: #FFE9A8; } }
   @keyframes app-fill { from { transform: scaleX(0); transform-origin: left; } to { transform: scaleX(1); transform-origin: left; } }
 }
 @media print {

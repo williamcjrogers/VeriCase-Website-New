@@ -1,4 +1,4 @@
-import { CASE_ROOM, INTEGRITY, LENS_CHAPTER, RESEARCH } from '@/content/home';
+import { ARGUMENT, CASE_ROOM, INTEGRITY, LENS_CHAPTER, RESEARCH } from '@/content/home';
 import { CALCULATOR_GATE, CALCULATOR_LINKS } from '@/content/calculatorLinks';
 import { Gated } from '@/components/editorial/Gated';
 import { cn } from '@/lib/utils';
@@ -9,6 +9,9 @@ import { AnalysisExample } from './examples/AnalysisExample';
 import { RebuttalExample } from './examples/RebuttalExample';
 import { DraftingExample } from './examples/DraftingExample';
 import { ActivityExample } from './examples/ActivityExample';
+import { ReaderExample } from './examples/ReaderExample';
+import { ArgumentExample } from './examples/ArgumentExample';
+import { ExportExample } from './examples/ExportExample';
 
 // Each capability section reads as a journey: its heading; the issue, the problem as the reader
 // meets it in a dispute, set large; the method, what VeriCase does about it; the steps, marked on
@@ -33,8 +36,9 @@ export const CapabilityFeatures = ({ steps, label, mobileLabel = 'Explore the to
   </MobileDetails>
 );
 
-// Getting the evidence in. The lead-in promises a mailbox going in and coming out searchable: the
-// upload example, in place at every width, after the steps. (The search itself is the opening
+// Getting the evidence in. The lead-in promises a mailbox going in and coming out searchable, then
+// a document read beside its file record: the upload and reader examples, in place at every width,
+// after the steps. (The search itself is the opening
 // example, under the heading.) It follows the quick questions, the page's focal point after search.
 export const RecordExplanation = () => {
   const L = LENS_CHAPTER;
@@ -46,6 +50,7 @@ export const RecordExplanation = () => {
         <CapabilityFeatures steps={L.steps} label="Getting the evidence in" mobileLabel="How it goes in" leadIn={L.leadIn} />
       </div>
       <UploadExample />
+      <ReaderExample />
     </div>
   </section>
   );
@@ -74,17 +79,32 @@ export const EvidenceExplanation = () => (
     </section>
 );
 
-// Answering the other side and drafting a claim (restored on the owner's word of 09 October 2026):
-// the rebuttal, then the drafting, both in place at every width, after the steps.
+// Answering the other side (restored on the owner's word of 09 October 2026): the rebuttal, in place
+// at every width, after the steps.
 export const CaseExplanation = () => (
   <section id="case-room" aria-labelledby="case-room-title" className="clarity-section capability-explanation rebuttal-section bg-parchment">
     <div className="container">
       <div className="capability-explanation-grid">
-        <SectionIntroduction id="case-room" kicker="Claims and responses" h2={CASE_ROOM.h2} issue={CASE_ROOM.issue} method={CASE_ROOM.method} methodGate={CASE_ROOM.methodGate} />
+        <SectionIntroduction id="case-room" kicker="Rebuttal" h2={CASE_ROOM.h2} issue={CASE_ROOM.issue} method={CASE_ROOM.method} methodGate={CASE_ROOM.methodGate} />
         <CapabilityFeatures steps={CASE_ROOM.steps} label="Answering and drafting" mobileLabel="How answering works" leadIn={CASE_ROOM.leadIn} />
       </div>
       <RebuttalExample />
+    </div>
+  </section>
+);
+
+// Develop the argument (the section as it stood before PR #14, restored on the owner's word of
+// 09 October 2026): a claim section drafted from its records, then a short report as exported. It
+// carries the claims anchor, which links made before still use.
+export const ArgumentExplanation = () => (
+  <section id="claims" aria-labelledby="claims-title" className="clarity-section capability-explanation bg-paper">
+    <div className="container">
+      <div className="capability-explanation-grid">
+        <SectionIntroduction id="claims" kicker="Claims and responses" h2={ARGUMENT.h2} issue={ARGUMENT.issue} method={ARGUMENT.method} methodGate={ARGUMENT.methodGate} />
+        <CapabilityFeatures steps={ARGUMENT.steps} label="Claims preparation" mobileLabel="Explore drafting tools" leadIn={ARGUMENT.leadIn} />
+      </div>
       <DraftingExample />
+      <ExportExample />
     </div>
   </section>
 );
@@ -96,6 +116,7 @@ export const IntegrityExplanation = () => (
         <SectionIntroduction id="integrity" h2={INTEGRITY.h2} issue={INTEGRITY.issue} method={INTEGRITY.method} methodGate={INTEGRITY.methodGate} />
         <CapabilityFeatures steps={INTEGRITY.steps} label="Source review and activity" mobileLabel="Explore source review" leadIn={INTEGRITY.leadIn} />
       </div>
+      <ArgumentExample />
       <ActivityExample />
       <div id="notes" role="region" className="workspace-detail capability-positioning" aria-labelledby="notes-title">
         <div>
