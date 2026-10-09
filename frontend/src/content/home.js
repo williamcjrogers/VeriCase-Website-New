@@ -81,8 +81,12 @@ export const COVER = {
   h1: "Transform complex evidence into compelling arguments.",
   h1Lead: "Transform complex evidence into",
   h1Emphasis: "compelling arguments.",
-  // Search and quick questions stay the focal point (owner, 09 October 2026).
-  lead: "Search every email and document on your project and ask it questions in plain English. Every answer comes with its sources, ready for the report, the bundle or the claim.",
+  // Search and quick questions stay the focal point (owner, 09 October 2026). Rewritten the same
+  // evening after the owner found the first version "so basic": it opens on the reader's problem
+  // (the facts are there, but buried), then the answer, then where it leads.
+  lead: "The facts that win a dispute are already in your records, buried in years of emails and attachments. Ask VeriCase in plain English and get the answer with its source, ready for the report, the bundle or the claim.",
+  heroSecondary: { label: 'See it answer a question', section: 'research' },
+  heroMicrocopy: "We arrange it by email. Please bring sample material, not live client files.",
   practitionerProof: "Founded by construction claims and dispute resolution practitioners.",
   audience: "For contractors, subcontractors and commercial teams, and the consultants and advisers they work with.",
   fastPath: "Explore how it works",

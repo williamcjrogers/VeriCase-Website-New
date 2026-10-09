@@ -21,10 +21,10 @@
     --vc-azure-50: #EAF0F9; --vc-azure-300: #9DBBEA; --vc-azure-500: #4A83D6; --vc-azure-700: #2F6BC4;
     --vc-parchment: #F3F1ED; --vc-parchment-300: #ECEAE4; --vc-paper: #FBFAF7;
     --vc-rule: #DEDCD6; --vc-rule-strong: #74766D; --vc-brass-400: #C38446; --vc-brass-700: #2359A8;
-    --vc-indigo: #5673D2; --vc-copper: #C38446; --vc-copper-300: #D7954E;
-    --vc-gradient-text: linear-gradient(95deg, #2F6BC4 0%, #4A83D6 45%, #6A6FD8 100%);
+    --vc-indigo: #3D5E96; --vc-copper: #C38446; --vc-copper-300: #D7954E;
+    --vc-gradient-text: linear-gradient(95deg, #1D4A93 0%, #2F6BC4 60%, #3F7BD0 100%);
     --vc-gradient-button: linear-gradient(135deg, #2D62B4 0%, #4A83D6 100%);
-    --vc-shadow-card: 0 1px 2px rgb(21 24 31 / 0.04), 0 12px 32px -12px rgb(40 59 100 / 0.18);
+    --vc-shadow-card: 0 1px 2px rgb(21 24 31 / 0.04), 0 12px 32px -12px rgb(52 44 30 / 0.18);
     --vc-signal: #A8352A; --vc-signal-300: #EE8E7E;
     /* The records on the ink panels: the app's warm white sheet with a very faint grain (fibres
        and mottling drawn by SVG noise, so it tiles without seams and costs no request), a lighter
@@ -109,8 +109,12 @@
   .on-ink .on-paper :focus-visible { outline-color: var(--vc-azure-500); }
   /* The deep blue band of the reference (its "Forensic timeline" card), white text keeping 4.5:1
      across it. Used for the clock and the demonstration; the footer is the near-black. */
-  .on-blue { --vc-on-blue-soft: #E3EAF6; background: linear-gradient(120deg, #283B64 0%, #3367B6 100%); }
+  .on-blue { --vc-on-blue-soft: #E3EAF6; background: linear-gradient(120deg, #1F3A6E 0%, #2C5FAE 60%, #3570C4 100%); }
   .on-blue.is-deep { background: #15181F; }
+  /* The near-black of the footer, carried up into the page (owner, 09 October 2026: "the black at
+     the bottom just looks really sophisticated ... it just needs mixing up"), lit by the brand
+     blue and a touch of copper so that it keeps its vibrancy. */
+  .on-blue.is-ink { --vc-on-blue-soft: #D9DEE7; background: radial-gradient(46rem 28rem at 88% 0%, rgb(47 107 196 / 0.42), transparent 70%), radial-gradient(34rem 22rem at 0% 100%, rgb(195 132 70 / 0.16), transparent 70%), #15181F; }
   .on-ink.on-blue, .on-blue :is(h1, h2, h3, h4) { color: #fff; }
   .on-blue :focus-visible { outline-color: #fff; }
   /* The application's windows keep their own light colours on the blue. */

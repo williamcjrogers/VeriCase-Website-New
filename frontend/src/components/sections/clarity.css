@@ -1,6 +1,6 @@
 /* The working record: paper, green ink and measured brass rules. */
 .clarity-hero { padding: clamp(2.5rem, 5vw, 5rem) 0 3rem; }
-.section-kicker { display: inline-flex; align-items: center; gap: 0.625rem; width: fit-content; max-width: 100%; margin-bottom: 1.5rem; padding: 0.4375rem 1rem; border: 1px solid rgb(21 24 31 / 0.06); border-radius: 999px; background: #fff; box-shadow: 0 1px 2px rgb(21 24 31 / 0.05), 0 4px 14px -6px rgb(40 59 100 / 0.18); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--vc-brass-700); }
+.section-kicker { display: inline-flex; align-items: center; gap: 0.625rem; width: fit-content; max-width: 100%; margin-bottom: 1.5rem; padding: 0.4375rem 1rem; border: 1px solid rgb(21 24 31 / 0.06); border-radius: 999px; background: #fff; box-shadow: 0 1px 2px rgb(21 24 31 / 0.05), 0 4px 14px -6px rgb(52 44 30 / 0.18); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--vc-brass-700); }
 .section-kicker::before { content: ''; width: 0.4375rem; height: 0.4375rem; flex: none; border-radius: 999px; background: var(--vc-copper); }
 .clarity-hero-grid { display: grid; gap: 2rem; align-items: end; }
 .clarity-title { max-width: 16ch; font-size: clamp(2.75rem, 4.6vw, 4.375rem); font-weight: 800; letter-spacing: -0.035em; line-height: 0.98; text-wrap: initial; }
@@ -28,7 +28,7 @@
 /* The motto as a card in the reference's manner: a window bar, a deep blue panel for the quoted
    line, the typed line on white beneath it, and two notes floating at its corners. */
 .hero-motto { position: relative; max-width: 34rem; }
-.motto-card { padding: 0.875rem 0.875rem 3rem; border: 1px solid rgb(21 24 31 / 0.06); border-radius: 28px; background: rgb(255 255 255 / 0.92); box-shadow: 0 1px 2px rgb(21 24 31 / 0.04), 0 30px 60px -24px rgb(40 59 100 / 0.32); }
+.motto-card { padding: 0.875rem 0.875rem 3rem; border: 1px solid rgb(21 24 31 / 0.06); border-radius: 28px; background: rgb(255 255 255 / 0.92); box-shadow: 0 1px 2px rgb(21 24 31 / 0.04), 0 30px 60px -24px rgb(52 44 30 / 0.32); }
 .motto-card-bar { display: flex; align-items: center; gap: 0.875rem; padding: 0.25rem 0.5rem 0.875rem; }
 .motto-card-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--vc-graphite); }
 .hero-motto-text { margin: 0; }
@@ -47,10 +47,10 @@
 .motto-key { position: relative; }
 .hero-motto-source { position: relative; margin: 1.25rem 1.25rem 0; padding-top: 1rem; font-size: 0.9375rem; line-height: 1.55; color: var(--vc-graphite); text-wrap: pretty; }
 .hero-motto-source::before { content: ''; position: absolute; top: 0; left: 0; width: 2.5rem; height: 1px; background: var(--vc-brass-400); transform-origin: left; }
-.motto-chip { position: absolute; z-index: 1; display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1.125rem 0.75rem 0.75rem; border: 1px solid rgb(21 24 31 / 0.06); border-radius: 16px; background: #fff; box-shadow: 0 1px 2px rgb(21 24 31 / 0.05), 0 18px 36px -14px rgb(40 59 100 / 0.35); white-space: nowrap; }
+.motto-chip { position: absolute; z-index: 1; display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1.125rem 0.75rem 0.75rem; border: 1px solid rgb(21 24 31 / 0.06); border-radius: 16px; background: #fff; box-shadow: 0 1px 2px rgb(21 24 31 / 0.05), 0 18px 36px -14px rgb(52 44 30 / 0.35); white-space: nowrap; }
 .motto-chip strong { display: block; font-size: 0.9375rem; font-weight: 700; color: var(--vc-navy); }
 .motto-chip small { display: block; font-size: 0.8125rem; color: var(--vc-graphite); }
-.motto-chip-tile { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; flex: none; border-radius: 12px; background: linear-gradient(135deg, #3B4A93 0%, #5673D2 100%); color: #fff; }
+.motto-chip-tile { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; flex: none; border-radius: 12px; background: linear-gradient(135deg, #22385F 0%, #3D5E96 100%); color: #fff; }
 .motto-chip-tile.is-copper { background: linear-gradient(135deg, #B9783C 0%, #D7954E 100%); }
 .motto-chip-answer { top: -1.75rem; right: -1.75rem; }
 .motto-chip-bundle { bottom: -1.75rem; right: 2rem; }
@@ -93,12 +93,15 @@
 /* The application's workspace cards: a blue tile with a white icon above the title. */
 .capability-tile { display: inline-flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem; margin-bottom: 1rem; border-radius: 12px; background: linear-gradient(135deg, #2F6BC4, #4A83D6); color: #fff; box-shadow: 0 8px 18px -8px rgb(47 107 196 / 0.7); }
 /* The reference's three tile colours, in turn: blue, indigo, copper. */
-.capability-group:nth-child(3n + 2) .capability-tile { background: linear-gradient(135deg, #3B4A93, #5673D2); box-shadow: 0 8px 18px -8px rgb(64 80 151 / 0.7); }
+.capability-group:nth-child(3n + 2) .capability-tile { background: linear-gradient(135deg, #22385F, #3D5E96); box-shadow: 0 8px 18px -8px rgb(34 56 95 / 0.5); }
 .capability-group:nth-child(3n) .capability-tile { background: linear-gradient(135deg, #B9783C, #D7954E); box-shadow: 0 8px 18px -8px rgb(191 128 67 / 0.7); }
 .capability-tile svg { width: 1.375rem; height: 1.375rem; stroke-width: 1.75; }
 /* The opening as the reference sets it: a cool light ground warming to off-white under a faint
    grid, near-black type and the emphasis in the blue running to indigo. */
-.hero-grid { background-color: #EEEDF2; background-image: linear-gradient(rgb(21 24 31 / 0.035) 1px, transparent 1px), linear-gradient(90deg, rgb(21 24 31 / 0.035) 1px, transparent 1px), linear-gradient(180deg, #E4E3EC 0%, #F3F1ED 70%, #F6F2EC 100%); background-size: 56px 56px, 56px 56px, 100% 100%; }
+/* The opening's ground (owner, 09 October 2026: the lilac "lost a lot of sophistication"): warm
+   stone, the page's own parchment family, with the grid drawn in a warm hairline and a faint
+   light of the brand blue behind the motto card. */
+.hero-grid { background-color: #F3F0E9; background-image: radial-gradient(52rem 32rem at 82% 18%, rgb(47 107 196 / 0.07), transparent 70%), linear-gradient(rgb(70 58 38 / 0.045) 1px, transparent 1px), linear-gradient(90deg, rgb(70 58 38 / 0.045) 1px, transparent 1px), linear-gradient(180deg, #EEEAE1 0%, #F4F1EA 65%, #F6F3EE 100%); background-size: 100% 100%, 56px 56px, 56px 56px, 100% 100%; }
 .text-gradient, .clarity-title em { background: var(--vc-gradient-text); -webkit-background-clip: text; background-clip: text; color: var(--vc-azure-700); -webkit-text-fill-color: transparent; }
 .clarity-hero .live-figure.app-example { background: none; border: 0; box-shadow: none; padding-inline: 0; }
 .capability-group h3 { font-size: 1.875rem; }
