@@ -3,11 +3,13 @@
 .section-kicker { display: inline-flex; align-items: center; gap: 0.625rem; width: fit-content; max-width: 100%; margin-bottom: 1.5rem; padding: 0.4375rem 1rem; border: 1px solid rgb(21 24 31 / 0.06); border-radius: 999px; background: #fff; box-shadow: 0 1px 2px rgb(21 24 31 / 0.05), 0 4px 14px -6px rgb(40 59 100 / 0.18); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--vc-brass-700); }
 .section-kicker::before { content: ''; width: 0.4375rem; height: 0.4375rem; flex: none; border-radius: 999px; background: var(--vc-copper); }
 .clarity-hero-grid { display: grid; gap: 2rem; align-items: end; }
-.clarity-title { max-width: 13ch; font-size: clamp(2.75rem, 5.6vw, 5.25rem); font-weight: 800; letter-spacing: -0.035em; line-height: 0.98; text-wrap: initial; }
+.clarity-title { max-width: 16ch; font-size: clamp(2.75rem, 4.6vw, 4.375rem); font-weight: 800; letter-spacing: -0.035em; line-height: 0.98; text-wrap: initial; }
 .clarity-title > span, .clarity-title > em { display: block; }
 .clarity-title em { font-style: normal; font-weight: 800; padding-bottom: 0.08em; }
 /* The emphasised line takes two lines in the hero's column; Hero.jsx keeps all but its first word together (it breaks only where the phrase is wider than the line, as with enlarged text on a phone), and balance evens the lines. */
 .clarity-title > em { text-wrap: balance; }
+/* The opening heading runs on as one sentence, "into compelling" sharing a line as in the reference. */
+.clarity-hero .clarity-title > span, .clarity-hero .clarity-title > em { display: inline; }
 .hero-action .vc-btn svg { display: none; }
 /* A word wider than its column (enlarged text in three columns) breaks rather than widen the page. */
 .capability-title-link { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 44px; text-decoration: none; overflow-wrap: anywhere; }
@@ -21,21 +23,39 @@
 /* The motto (HeroMotto): level with the heading's first line from 1024px, the demonstration
    action beneath it. */
 .hero-side { display: flex; flex-direction: column; gap: 2.25rem; min-width: 0; }
-.hero-motto { max-width: 34rem; }
+.hero-lead { margin-top: 1.75rem; max-width: 34rem; font-size: 1.1875rem; line-height: 1.6; color: var(--vc-graphite); text-wrap: pretty; }
+.hero-main .hero-introduction { margin-top: 2rem; }
+/* The motto as a card in the reference's manner: a window bar, a deep blue panel for the quoted
+   line, the typed line on white beneath it, and two notes floating at its corners. */
+.hero-motto { position: relative; max-width: 34rem; }
+.motto-card { padding: 0.875rem 0.875rem 3rem; border: 1px solid rgb(21 24 31 / 0.06); border-radius: 28px; background: rgb(255 255 255 / 0.92); box-shadow: 0 1px 2px rgb(21 24 31 / 0.04), 0 30px 60px -24px rgb(40 59 100 / 0.32); }
+.motto-card-bar { display: flex; align-items: center; gap: 0.875rem; padding: 0.25rem 0.5rem 0.875rem; }
+.motto-card-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--vc-graphite); }
 .hero-motto-text { margin: 0; }
 .hero-motto-visual, .hero-motto-words { display: block; }
 /* The quoted line in display italic, its opening mark hung in the margin so the words align. */
-.hero-motto-words { font-size: clamp(2.25rem, 4vw, 3.75rem); font-style: italic; font-weight: 400; line-height: 1.04; letter-spacing: -0.015em; color: var(--vc-ink); }
+.hero-motto-words { position: relative; overflow: hidden; padding: 1.75rem 1.75rem 1.875rem 2.25rem; border-radius: 20px; background: linear-gradient(130deg, #24365E 0%, #2F5DA8 70%, #3E6FC4 100%); font-family: 'Plus Jakarta Sans', 'Plus Jakarta Sans Fallback', sans-serif; font-size: clamp(2rem, 3.3vw, 3.125rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.035em; color: #fff; }
+.hero-motto-words::after { content: ''; position: absolute; right: -3.5rem; top: -3.5rem; width: 11rem; height: 11rem; border-radius: 999px; background: radial-gradient(closest-side, rgb(255 255 255 / 0.16), transparent); pointer-events: none; }
 .motto-word { display: inline-block; }
-.motto-brand, .motto-quote { color: var(--vc-azure-700); }
-.motto-quote-open { margin-left: -0.36em; }
+.motto-brand, .motto-quote { color: #A9C6F7; }
+.motto-quote-open { margin-left: -0.42em; }
 /* "VeriCase." takes the second line, beneath "Records, records,". */
 .motto-word-last { display: block; width: fit-content; }
-.hero-motto-line { position: relative; display: block; margin-top: 0.75rem; font-size: clamp(1.375rem, 2.35vw, 2.125rem); font-style: italic; line-height: 1.3; color: var(--vc-ink); }
+.hero-motto-line { position: relative; display: block; margin: 1.375rem 1.25rem 0; font-family: 'Plus Jakarta Sans', 'Plus Jakarta Sans Fallback', sans-serif; font-size: clamp(1.25rem, 1.9vw, 1.625rem); font-weight: 700; line-height: 1.25; letter-spacing: -0.02em; color: var(--vc-navy); }
+.hero-motto-line-row:last-child { color: var(--vc-azure-700); }
 .hero-motto-line-row { display: block; }
 .motto-key { position: relative; }
-.hero-motto-source { position: relative; margin-top: 1.5rem; padding-top: 1rem; font-size: 0.9375rem; line-height: 1.55; color: var(--vc-graphite); text-wrap: pretty; }
+.hero-motto-source { position: relative; margin: 1.25rem 1.25rem 0; padding-top: 1rem; font-size: 0.9375rem; line-height: 1.55; color: var(--vc-graphite); text-wrap: pretty; }
 .hero-motto-source::before { content: ''; position: absolute; top: 0; left: 0; width: 2.5rem; height: 1px; background: var(--vc-brass-400); transform-origin: left; }
+.motto-chip { position: absolute; z-index: 1; display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1.125rem 0.75rem 0.75rem; border: 1px solid rgb(21 24 31 / 0.06); border-radius: 16px; background: #fff; box-shadow: 0 1px 2px rgb(21 24 31 / 0.05), 0 18px 36px -14px rgb(40 59 100 / 0.35); white-space: nowrap; }
+.motto-chip strong { display: block; font-size: 0.9375rem; font-weight: 700; color: var(--vc-navy); }
+.motto-chip small { display: block; font-size: 0.8125rem; color: var(--vc-graphite); }
+.motto-chip-tile { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; flex: none; border-radius: 12px; background: linear-gradient(135deg, #3B4A93 0%, #5673D2 100%); color: #fff; }
+.motto-chip-tile.is-copper { background: linear-gradient(135deg, #B9783C 0%, #D7954E 100%); }
+.motto-chip-answer { top: -1.75rem; right: -1.75rem; }
+.motto-chip-bundle { bottom: -1.75rem; right: 2rem; }
+@media (max-width: 1279px) { .motto-chip-answer { right: -0.5rem; } }
+@media (max-width: 767px) { .motto-chip { display: none; } .motto-card { padding-bottom: 1.5rem; } .hero-lead { margin-top: 1.25rem; font-size: 1rem; } .hero-motto-words { padding: 1.375rem 1.25rem 1.5rem 1.75rem; } .motto-card { border-radius: 22px; } }
 .hero-motto-source a { color: var(--vc-brass-700); text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
 /* It plays once, from first paint, in CSS alone, so the prerendered page needs no script to start
    it: each word settles at its time (--at), then each letter appears at its own (--d) with the
@@ -52,6 +72,8 @@
   .hero-motto-line::before { left: 0; top: 0.22em; bottom: auto; height: 0.95em; animation: motto-blink 1000ms step-end var(--caret-from); }
   .hero-motto-source::before { animation: motto-rule 400ms var(--ease-settle) calc(var(--typed-end) + 300ms) both; }
   .hero-motto-source > * { animation: motto-fade 500ms var(--ease-settle) calc(var(--typed-end) + 500ms) both; }
+  .hero-motto .motto-chip-answer { animation: motto-word 500ms var(--ease-settle) calc(var(--typed-end) + 700ms) both; }
+  .hero-motto .motto-chip-bundle { animation: motto-word 500ms var(--ease-settle) calc(var(--typed-end) + 1000ms) both; }
   html:not(.fonts-ready) .hero-motto *, html:not(.fonts-ready) .hero-motto *::before, html:not(.fonts-ready) .hero-motto *::after { animation-play-state: paused; }
 }
 @keyframes motto-word { from { opacity: 0; transform: translateY(0.22em); } to { opacity: 1; transform: none; } }
@@ -183,10 +205,7 @@
   .capability-group { display: grid; grid-row: span 3; grid-template-rows: subgrid; row-gap: 0; align-content: start; }
 }
 @media (min-width: 1024px) {
-  .clarity-hero-grid { grid-template-columns: 1.3fr 1fr; gap: 5rem; align-items: start; }
-  /* The motto on the same baseline as "Evidence in order." (owner, 06 October 2026: "move it
-     down more" after its capitals were set level with the heading's). */
-  .hero-motto-words { margin-top: 0.2em; }
+  .clarity-hero-grid { grid-template-columns: 1.25fr 1fr; gap: 4.5rem; align-items: center; }
   .time-advantage-grid, .capability-explanation-grid { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 5rem; }
   .clarity-team { gap: 3.5rem 4rem; }
   .clarity-jobs { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }

@@ -64,14 +64,25 @@ export const COVER = {
     lines: ['Making Time Your Ally,', 'Not Your Enemy.'],
     whole: '“Records, records, VeriCase.” Making Time Your Ally, Not Your Enemy.',
     attribution: 'Adapted from Max W. Abrahamson.',
+    // The card's bar, and two illustrative notes floating beside it, as in the owner's reference.
+    label: 'Records first',
+    chips: [
+      { title: 'Answer found', text: 'With its sources' },
+      { title: 'Bundle ready', text: 'Indexed and numbered' },
+    ],
     toPassage: 'Read the passage',
   },
   // Market-agnostic and simple (owner, 08 and 09 October 2026): for contractors, subcontractors and
   // any client, with search and quick questions to the evidence as the focal point.
-  eyebrow: "For contractors, subcontractors and commercial teams",
-  h1: "All your project evidence. Search it. Ask it.",
-  h1Lead: "All your project evidence.",
-  h1Emphasis: "Search it. Ask it.",
+  // The owner, 09 October 2026: "The Dispute Intelligence Platform was better."
+  eyebrow: "The Dispute Intelligence Platform",
+  // The reference headline the owner preferred (09 October 2026: "transforming compelling
+  // arguments ... was better"), without "legal", so that it still speaks to any client.
+  h1: "Transform complex evidence into compelling arguments.",
+  h1Lead: "Transform complex evidence into",
+  h1Emphasis: "compelling arguments.",
+  // Search and quick questions stay the focal point (owner, 09 October 2026).
+  lead: "Search every email and document on your project and ask it questions in plain English. Every answer comes with its sources, ready for the report, the bundle or the claim.",
   practitionerProof: "Founded by construction claims and dispute resolution practitioners.",
   audience: "For contractors, subcontractors and commercial teams, and the consultants and advisers they work with.",
   fastPath: "Explore how it works",

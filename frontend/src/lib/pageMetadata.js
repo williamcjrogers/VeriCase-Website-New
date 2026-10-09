@@ -1,7 +1,7 @@
 export const PAGE_METADATA = {
   '/': {
     title: 'VeriCase | Search and question your project evidence',
-    description: 'All your project evidence. Search it. Ask it. Search, questions, reports, bundles and discussion for contractors, subcontractors and commercial teams.',
+    description: 'Transform complex evidence into compelling arguments. Search, questions, reports, bundles and discussion for contractors, subcontractors and commercial teams.',
     url: 'https://veri-case.com/',
   },
   '/cookies': {
