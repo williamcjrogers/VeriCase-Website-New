@@ -19,7 +19,7 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
 
 const INK = '#232A38'; // --vc-ink, the header ground and the page's theme colour
 const PARCHMENT = '#E6E8EC'; // the wordmark's "VERI"
-const BRASS = '#9CC4EA'; // the wordmark's rule and "CASE"
+const BRASS = '#BF9B58'; // the reversed wordmark's rule and "CASE", the old brass on black
 
 // The wordmark's first path is the V and its fifth the C; their boxes, measured in the
 // wordmark's own units, place them.

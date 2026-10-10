@@ -18,10 +18,14 @@ export const Hero = () => (
           them the motto set as a card. On narrower screens they follow one another. */}
       <div className="clarity-hero-grid">
         <div className="hero-main">
-          <h1 id="top-title" tabIndex={-1} className="clarity-title"><span>{COVER.h1Lead}</span> <em>{emphasisFirst} {emphasisRest.join('\u00a0')}</em></h1>
+          <h1 id="top-title" tabIndex={-1} className="clarity-title">
+            <span>{COVER.h1Lead}</span>
+            {' '}
+            <em>{emphasisFirst}{'\u00a0'}{emphasisRest.join('\u00a0')}</em>
+          </h1>
           <p className="hero-lead">{COVER.lead}</p>
           <div className="hero-introduction">
-            <DemoCTA placement="hero" section="top" className="hero-action" microcopy={COVER.heroMicrocopy} secondary={heroSecondary} />
+            <DemoCTA placement="hero" section="top" className="hero-action" microcopy="" secondary={heroSecondary} />
           </div>
         </div>
         <div className="hero-side">

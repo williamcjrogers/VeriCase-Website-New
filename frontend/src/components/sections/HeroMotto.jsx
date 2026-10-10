@@ -66,13 +66,17 @@ export const HeroMotto = () => {
         <span className="sr-only">{motto.whole}</span>
         <span className="hero-motto-visual" aria-hidden="true">
           <span className="hero-motto-words">
-            {motto.words.map((word, i) => (
-              <span key={word}>
-                <span className="motto-word" style={{ '--at': ms(WORD_AT[i]) }}>
-                  {i === 0 && <span className="motto-quote motto-quote-open">{motto.open}</span>}{word}
-                </span>{' '}
-              </span>
-            ))}
+            <span className="motto-line">
+              {motto.words.map((word, i) => (
+                <span key={i}>
+                  <span className="motto-word" style={{ '--at': ms(WORD_AT[i]) }}>
+                    {i === 0 && <span className="motto-quote motto-quote-open">{motto.open}</span>}{word}
+                  </span>
+                  {i < motto.words.length - 1 ? ' ' : null}
+                </span>
+              ))}
+            </span>
+            {' '}
             <span className="motto-word motto-word-last" style={{ '--at': ms(WORD_AT[2]) }}>
               <span className="motto-brand">{motto.brand}</span><span className="motto-quote">{motto.close}</span>
             </span>

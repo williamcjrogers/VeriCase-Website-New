@@ -41,7 +41,8 @@ test('the two lines are typed briskly, one key at a time, with the longest beat 
 test('assistive technology reads the whole motto once; the copy that plays is hidden from it', () => {
   const el = html();
   expect(motto.whole).toBe(`“${motto.words.join(' ')} ${motto.brand}” ${motto.lines.join(' ')}`);
-  expect(motto.lines).toEqual(['Making Time Your Ally,', 'Not Your Enemy.']);
+  expect(motto.lines).toEqual(['Making Time Your Ally.', 'Not Your Enemy.']);
+  expect(motto.words).toEqual(['Records,', 'Records,']);
   expect(el.querySelector('.sr-only').textContent).toBe(motto.whole);
   const visual = el.querySelector('.hero-motto-visual');
   expect(visual.getAttribute('aria-hidden')).toBe('true');

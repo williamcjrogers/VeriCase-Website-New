@@ -6,15 +6,18 @@ import { isShown } from '@/components/editorial/Gated';
 export const Lessons = () => {
   if (!isShown('G11_attribution')) return null;
   const [before, title, after] = LESSONS.intro;
-  const [quoted, emphasised, end] = LESSONS.quote;
   return (
     <section id="lessons" aria-labelledby="lessons-title" className="clarity-section lessons">
       <div className="container lessons-inner">
         <h2 id="lessons-title" tabIndex={-1} className="section-kicker">{LESSONS.kicker}</h2>
         <figure className="lessons-figure">
           <figcaption className="lessons-intro">{before}<cite>{title}</cite>{after}</figcaption>
-          <blockquote className="lessons-quote font-display">
-            <p>“{quoted}<em>{emphasised}</em>{end}” <span className="lessons-emphasis">{LESSONS.emphasis}</span></p>
+          <blockquote className="lessons-quote">
+            <p>“{LESSONS.quote.map((part, i) => {
+              if (part.em) return <em key={i}>{part.text}</em>;
+              if (part.stress) return <span key={i} className="lessons-stress">{part.text}</span>;
+              return <span key={i}>{part.text}</span>;
+            })}” <span className="lessons-emphasis">{LESSONS.emphasis}</span></p>
           </blockquote>
         </figure>
         <div className="lessons-close">

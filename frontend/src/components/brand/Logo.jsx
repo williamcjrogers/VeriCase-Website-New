@@ -9,7 +9,7 @@ export const Logo = ({ tone = 'positive', className, title = 'VeriCase', decorat
   <img
     src={tone === 'reversed' ? '/logo-reversed.svg' : '/logo-positive.svg'}
     alt={decorative ? '' : title}
-    width="408"
+    width="392"
     height="83"
     decoding="async"
     className={cn('block h-auto', className)}

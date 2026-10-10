@@ -506,3 +506,11 @@
 .on-blue :is(.eyebrow, .text-mist), .on-blue .on-blue-soft { color: var(--vc-on-blue-soft); }
 .on-blue .text-azure-300 { color: #fff; }
 .on-blue :is(.border-mist\/20, .border-mist\/25) { border-color: rgb(255 255 255 / 0.22); }
+
+/* The bar takes the footer's near-black once the page has moved. Unlayered so it wins over the
+   light-ground colour utilities on the links. */
+.site-header.is-scrolled { background: #15181F; color: #fff; border-bottom-color: rgb(255 255 255 / 0.12); }
+.site-header.is-scrolled :is(nav a, .header-sign-in, .header-menu) { color: #E4E1DA; }
+.site-header.is-scrolled :is(nav a, .header-sign-in, .header-menu):hover { color: #fff; }
+.site-header.is-scrolled :focus-visible { outline-color: #fff; }
+@media (prefers-reduced-motion: reduce) { .site-header { transition: none; } }

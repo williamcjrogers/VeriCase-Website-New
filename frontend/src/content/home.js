@@ -54,15 +54,15 @@ export const COVER = {
   // Abrahamson's three lessons, whose wording and source are checked in
   // docs/source-check-2026-09-25.md (item 10).
   motto: {
-    // Set in italic within quotation marks (owner, 06 October 2026).
+    // Set in italic within quotation marks (owner, 06 October 2026). Both words of the first
+    // line are capitalised and stay on one line (owner, 10 October 2026).
     open: '“',
-    words: ['Records,', 'records,'],
+    words: ['Records,', 'Records,'],
     brand: 'VeriCase.',
     close: '”',
-    // Typed in two lines (owner, 06 October 2026), with a comma where the owner wrote a dash,
-    // which the house style does not use.
-    lines: ['Making Time Your Ally,', 'Not Your Enemy.'],
-    whole: '“Records, records, VeriCase.” Making Time Your Ally, Not Your Enemy.',
+    // Typed in two lines (owner, 06 October 2026; restored 10 October 2026).
+    lines: ['Making Time Your Ally.', 'Not Your Enemy.'],
+    whole: '“Records, Records, VeriCase.” Making Time Your Ally. Not Your Enemy.',
     attribution: 'Adapted from Max W. Abrahamson.',
     // The card's bar, and two illustrative notes floating beside it, as in the owner's reference.
     label: 'Records first',
@@ -86,7 +86,6 @@ export const COVER = {
   // (the facts are there, but buried), then the answer, then where it leads.
   lead: "The facts that win a dispute are already in your records, buried in years of emails and attachments. Ask VeriCase in plain English and get the answer with its source, ready for the report, the bundle or the claim.",
   heroSecondary: { label: 'See it answer a question', section: 'research' },
-  heroMicrocopy: "We arrange it by email. Please bring sample material, not live client files.",
   practitionerProof: "Founded by construction claims and dispute resolution practitioners.",
   audience: "For contractors, subcontractors and commercial teams, and the consultants and advisers they work with.",
   fastPath: "Explore how it works",
@@ -534,10 +533,15 @@ export const INTEGRITY = {
 export const LESSONS = {
   kicker: 'Why VeriCase exists',
   intro: ['As Max W. Abrahamson observed in ', 'Engineering Law and the I.C.E. Contracts', ' (first published in 1965):'],
+  // The book text is unchanged. stress and em mark the phrases the page enlarges (owner, 10 October 2026).
   quote: [
-    'A party to a dispute, particularly if there is arbitration, will learn three lessons (often too late): the importance of records, the importance of records and the importance of records. It is impossible to exaggerate the extent to which lawyers can find unexpected grounds, often quite real, on which to cast doubt on evidence if it is not backed by ',
-    'meticulously established records',
-    '.',
+    { text: 'A party to a dispute, particularly if there is arbitration, will learn three lessons (often too late): ' },
+    { text: 'the importance of records, the importance of records and the importance of records', stress: true },
+    { text: '. It is impossible to exaggerate the extent to which lawyers can find unexpected grounds, ' },
+    { text: 'often quite real', stress: true },
+    { text: ', on which to cast doubt on evidence if it is not backed by ' },
+    { text: 'meticulously established records', em: true },
+    { text: '.' },
   ],
   emphasis: '[Emphasis added]',
   close: [
