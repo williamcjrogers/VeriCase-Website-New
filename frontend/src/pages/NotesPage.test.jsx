@@ -5,7 +5,7 @@ import { NotesPage } from './NotesPage';
 import { LandingPage } from './LandingPage';
 import { NOTES_PAGE } from '@/content/home';
 import { noteByNumber } from '@/content/notes';
-import { RESEARCH_SOURCES } from '@/content/researchSources';
+import { RESEARCH_SOURCES, UNUSED_DATA_SOURCE } from '@/content/researchSources';
 
 // The notes have a page of their own: every note cited on the home page is there in full, each
 // marker on the home page points to it, and each note links back to the section citing it.
@@ -46,8 +46,9 @@ it('retains numbered research round trips and the collaboration note beside the 
   await render(<LandingPage />, '/');
   expect(container.querySelector('[id^="note-"]')).toBeNull();
   const markers = [...container.querySelectorAll('.record-context-source[role="doc-noteref"]')];
-  expect(markers).toHaveLength(RESEARCH_SOURCES.length);
-  for (const source of RESEARCH_SOURCES) {
+  const sources = [...RESEARCH_SOURCES, UNUSED_DATA_SOURCE];
+  expect(markers).toHaveLength(sources.length);
+  for (const source of sources) {
     const marker = container.querySelector(`#research-ref-${source.number}`);
     const reference = container.querySelector(`#research-source-${source.number}`);
     expect(marker.getAttribute('href')).toBe(`#research-source-${source.number}`);

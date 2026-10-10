@@ -1,6 +1,8 @@
 import { renderToStaticMarkup } from 'react-dom/server';
 import { ChapterHeader } from './ChapterHeader';
 import { GATES } from '@/content/gates';
+import { CLAIMS } from '@/content/home';
+import { plainText } from './Rich';
 
 const render = (props) => {
   const container = document.createElement('div');
@@ -42,4 +44,24 @@ it('keeps spaces between visual sentence lines so the accessible heading reads t
   const heading = chapter.querySelector('h3');
   expect(heading.querySelectorAll('span.block')).toHaveLength(2);
   expect(heading.textContent).toBe(title);
+});
+
+it('preserves bold report copy within its publication gate and removes it when struck', () => {
+  const previous = GATES.G5_research.status;
+  const props = { id: 'worked-example', title: CLAIMS.h2, lead: CLAIMS.lead, leadGate: CLAIMS.leadGate };
+  try {
+    expect(CLAIMS.leadGate).toBe('G5_research');
+    GATES.G5_research.status = 'confirmed';
+    const confirmed = render(props);
+    expect(confirmed.querySelector('.text-lead strong').textContent).toBe('Deep Research');
+    expect(confirmed.querySelector('.text-lead').textContent).toBe(plainText(CLAIMS.lead));
+
+    GATES.G5_research.status = 'struck';
+    const struck = render(props);
+    expect(struck.querySelector('strong')).toBeNull();
+    expect(struck.textContent).not.toContain(plainText(CLAIMS.lead));
+    expect(struck.querySelector('h2').textContent).toBe(CLAIMS.h2);
+  } finally {
+    GATES.G5_research.status = previous;
+  }
 });

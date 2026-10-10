@@ -1,0 +1,12 @@
+[WARN] This project is configured to use yarn
+$ node --test scripts/lint-copy.test.mjs
+✔ the approved sector list does not exempt restricted names elsewhere (948.096458ms)
+✔ rejects superseded promises while allowing qualified construction-task copy (2266.157708ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3252.906208

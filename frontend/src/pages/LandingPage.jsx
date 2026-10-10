@@ -4,6 +4,7 @@ import { SiteHeader } from '@/components/sections/SiteHeader';
 import { Hero } from '@/components/sections/Hero';
 import { RecordContext, ResearchSources } from '@/components/sections/RecordContext';
 import { HeroMotto } from '@/components/sections/HeroMotto';
+import { Lessons } from '@/components/sections/Lessons';
 import { TimeAdvantage } from '@/components/sections/TimeAdvantage';
 import { SharedWorkspace } from '@/components/sections/SharedWorkspace';
 import { Collaboration, CollaborationAudience } from '@/components/sections/Collaboration';
@@ -23,7 +24,7 @@ export const LandingPage = () => {
     let before = null;
     const openForPrint = () => {
       if (before) return;
-      before = new Map([...document.querySelectorAll('#about details, #questions details, .lessons-disclosure, .record-context-research')]
+      before = new Map([...document.querySelectorAll('#about details, #questions details, .record-context-research')]
         .map((details) => [details, details.open]));
       before.forEach((_, details) => { details.open = true; });
     };
@@ -60,6 +61,7 @@ export const LandingPage = () => {
       <main id="main" tabIndex={-1} className="outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azure-500">
         <Hero />
         <div className="container"><HeroMotto /></div>
+        <Lessons />
         <TimeAdvantage />
         <div className="container"><RecordContext /></div>
         <InBrief>

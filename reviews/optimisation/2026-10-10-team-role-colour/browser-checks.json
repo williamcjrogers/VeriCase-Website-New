@@ -1,0 +1,146 @@
+[
+  {
+    "chapterReference": "rgb(130, 90, 42)",
+    "documentWidth": 1359,
+    "reference": "rgb(130, 90, 42)",
+    "roles": [
+      {
+        "colour": "rgb(130, 90, 42)",
+        "left": 79.5,
+        "name": "William Rogers",
+        "right": 647.5,
+        "text": "Co-Founder · Claims Advisory and Forensic Quantum Expert"
+      },
+      {
+        "colour": "rgb(130, 90, 42)",
+        "left": 711.5,
+        "name": "Warren Kemp",
+        "right": 1279.5,
+        "text": "Co-Founder · Dispute Resolution"
+      },
+      {
+        "colour": "rgb(130, 90, 42)",
+        "left": 79.5,
+        "name": "Malcolm Brechin",
+        "right": 647.5,
+        "text": "Managing Director · Commercial Strategy & Go-to-Market"
+      },
+      {
+        "colour": "rgb(130, 90, 42)",
+        "left": 711.5,
+        "name": "Sam Whisker",
+        "right": 1279.5,
+        "text": "Chief Technology Officer · Automation & Product Engineering"
+      }
+    ],
+    "width": 1359
+  },
+  {
+    "chapterReference": "rgb(130, 90, 42)",
+    "documentWidth": 768,
+    "reference": "rgb(130, 90, 42)",
+    "roles": [
+      {
+        "colour": "rgb(130, 90, 42)",
+        "left": 24,
+        "name": "William Rogers",
+        "right": 360,
+        "text": "Co-Founder · Claims Advisory and Forensic Quantum Expert"
+      },
+      {
+        "colour": "rgb(130, 90, 42)",
+        "left": 408,
+        "name": "Warren Kemp",
+        "right": 744,
+        "text": "Co-Founder · Dispute Resolution"
+      },
+      {
+        "colour": "rgb(130, 90, 42)",
+        "left": 24,
+        "name": "Malcolm Brechin",
+        "right": 360,
+        "text": "Managing Director · Commercial Strategy & Go-to-Market"
+      },
+      {
+        "colour": "rgb(130, 90, 42)",
+        "left": 408,
+        "name": "Sam Whisker",
+        "right": 744,
+        "text": "Chief Technology Officer · Automation & Product Engineering"
+      }
+    ],
+    "width": 768
+  },
+  {
+    "chapterReference": "rgb(130, 90, 42)",
+    "documentWidth": 390,
+    "reference": "rgb(130, 90, 42)",
+    "roles": [
+      {
+        "colour": "rgb(130, 90, 42)",
+        "left": 104,
+        "name": "William Rogers",
+        "right": 366,
+        "text": "Co-Founder · Claims Advisory and Forensic Quantum Expert"
+      },
+      {
+        "colour": "rgb(130, 90, 42)",
+        "left": 104,
+        "name": "Warren Kemp",
+        "right": 366,
+        "text": "Co-Founder · Dispute Resolution"
+      },
+      {
+        "colour": "rgb(130, 90, 42)",
+        "left": 104,
+        "name": "Malcolm Brechin",
+        "right": 366,
+        "text": "Managing Director · Commercial Strategy & Go-to-Market"
+      },
+      {
+        "colour": "rgb(130, 90, 42)",
+        "left": 104,
+        "name": "Sam Whisker",
+        "right": 366,
+        "text": "Chief Technology Officer · Automation & Product Engineering"
+      }
+    ],
+    "width": 390
+  },
+  {
+    "chapterReference": "rgb(130, 90, 42)",
+    "documentWidth": 320,
+    "reference": "rgb(130, 90, 42)",
+    "roles": [
+      {
+        "colour": "rgb(130, 90, 42)",
+        "left": 100,
+        "name": "William Rogers",
+        "right": 300,
+        "text": "Co-Founder · Claims Advisory and Forensic Quantum Expert"
+      },
+      {
+        "colour": "rgb(130, 90, 42)",
+        "left": 100,
+        "name": "Warren Kemp",
+        "right": 300,
+        "text": "Co-Founder · Dispute Resolution"
+      },
+      {
+        "colour": "rgb(130, 90, 42)",
+        "left": 100,
+        "name": "Malcolm Brechin",
+        "right": 300,
+        "text": "Managing Director · Commercial Strategy & Go-to-Market"
+      },
+      {
+        "colour": "rgb(130, 90, 42)",
+        "left": 100,
+        "name": "Sam Whisker",
+        "right": 300,
+        "text": "Chief Technology Officer · Automation & Product Engineering"
+      }
+    ],
+    "width": 320
+  }
+]

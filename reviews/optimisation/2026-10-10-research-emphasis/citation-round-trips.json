@@ -1,0 +1,58 @@
+[
+  {
+    "source": 4,
+    "arrival": {
+      "active": "research-source-4",
+      "hash": "#research-source-4",
+      "text": "Autodesk, Democratizing AECO data, 24 June 2024Autodesk reported that over 95% of data created in design and construction goes unused, citing FMI’s 2018 white paper. A published industry claim, with no sampling or calculation method stated. FMI cites a 2017 Xpera article that concerns data not analysed and gives a different percentage. This is not an established measurement from the joint Autodesk/FMI study, or a measure of unused dispute evidence.Earlier sources: FMI, Big Data white paper, 2018, p. 2; Original Xpera article, 31 October 2017, republished by Vertex.Back to figure 4",
+      "top": 95.78125
+    },
+    "back": {
+      "active": "research-ref-4",
+      "hash": "#research-ref-4",
+      "top": 80.1015625
+    }
+  },
+  {
+    "source": 1,
+    "arrival": {
+      "active": "research-source-1",
+      "hash": "#research-source-1",
+      "text": "KCL / Adjudication Society, Construction Adjudication in the United Kingdom: Tracing trends and guiding reform, 2024, p. 28, Figure 1650% of respondents cited inadequate contract administration as a leading cause of adjudicated disputes. There were 165 answers to the causes question; multiple selections allowed. The survey covered 166 people involved in UK statutory adjudication, including quantity surveyors, solicitors and claims consultants. The reporting period was 01 May 2023 to 30 April 2024. These are respondents’ assessments, not a measured proportion of disputes.Back to figure 1",
+      "top": 96.0078125
+    },
+    "back": {
+      "active": "research-ref-1",
+      "hash": "#research-ref-1",
+      "top": 80.125
+    }
+  },
+  {
+    "source": 2,
+    "arrival": {
+      "active": "research-source-2",
+      "hash": "#research-source-2",
+      "text": "HKA, CRUX Insight Eighth Annual Report, From Insight to Foresight, November 2025Sums in dispute averaged 33.4% of contract budgets in the investigated projects. More than 2,200 distressed construction and engineering projects in 114 countries investigated by HKA consultants. Claimed, not awarded. This investigated sample is not an industry-wide average. Both HKA figures use the same dataset.Back to figure 2",
+      "top": 95.796875
+    },
+    "back": {
+      "active": "research-ref-2",
+      "hash": "#research-ref-2",
+      "top": 80.125
+    }
+  },
+  {
+    "source": 3,
+    "arrival": {
+      "active": "research-source-3",
+      "hash": "#research-source-3",
+      "text": "HKA, CRUX Insight Eighth Annual Report, From Insight to Foresight, November 2025Extensions of time sought averaged 65.8% of planned schedules in the investigated projects. More than 2,200 distressed construction and engineering projects in 114 countries investigated by HKA consultants. Claimed, not awarded. This investigated sample is not an industry-wide average. Both HKA figures use the same dataset.Back to figure 3",
+      "top": 95.7890625
+    },
+    "back": {
+      "active": "research-ref-3",
+      "hash": "#research-ref-3",
+      "top": 80.125
+    }
+  }
+]

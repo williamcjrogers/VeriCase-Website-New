@@ -4,7 +4,6 @@ import { COVER } from '@/content/home';
 import { Gated } from '@/components/editorial/Gated';
 import { onSectionClick } from '@/lib/navigate';
 import { useInViewOnce } from '@/hooks/useInViewOnce';
-import { Lessons } from './Lessons';
 
 const { motto } = COVER;
 export const WORD_AT = [0, 1050, 2100];
@@ -56,7 +55,6 @@ export const HeroMotto = () => {
         </Gated>
         <button type="button" className="motto-replay" onClick={() => setReplay((value) => value + 1)}><RotateCcw size={14} aria-hidden="true" />Replay lettering</button>
       </div>
-      <Lessons />
     </div>
   );
 };

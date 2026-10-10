@@ -1,0 +1,1203 @@
+    T H E D I S P U T E I N T E L L I G E N C E P L AT FO R M
+
+
+
+
+When the story changes,the
+records matter.
+Bring scattered emails and documents into focus with Chronology Lens™.
+Follow the correspondence, ask questions of the record and prepare a
+report, claim or response with the evidence beside you.
+
+
+Know what happened.
+Show why it matters.
+
+  Request a demonstration                                Explore Chronology Lens
+  The Chronology Lens™ · Sample matter (fictional)
+
+  DATE               TIME     PARTIES                                                    EXHIBIT
+
+
+  03 March 2025      09:14    Employer’s Agent to Contractor
+                                                                                         EV-0131
+
+                              ‘Please proceed with bracket type B. This is an instruc…   92ff3993…
+
+
+
+  12 March 2025      16:42    Façade Sub-Contractor to Contractor
+                                                                                         EV-0138
+
+                              ‘Stainless brackets are ten weeks from order.’             2140b328…
+
+
+
+  13 March 2025      07:55    Site Manager to Commercial Manager
+                                                                                         EV-0139
+
+                              ‘Can we get a firm date before we notify?’                 e6e15df6…
+
+
+
+  21 March 2025               Site diary, page 41 (OCR)
+                                                                                         EV-0144
+
+                              ‘Type A brackets returned to store.’                       f8c219e0…
+
+
+
+  26 March 2025      11:20    Supplier via Façade Sub-Contractor to Contractor
+                                                                                         EV-0147
+                              ‘Confirmed delivery: week commencing 19 May 2025.’         582a43c0…
+
+
+
+  28 March 2025      15:48    Contractor to Employer’s Agent
+                                                                                         EV-0151
+                              ‘Notice under clause 2.24.’                                894c0a15…
+
+
+  SET ASIDE: 1 near-duplicate · 1 automatic reply · 1 other project
+
+
+  Notice was given on 28 March 2025 [EV-0151] : sixteen days after the lead-time email [EV-0138]
+  and two days after delivery was confirmed [EV-0147] .
+  6 entries · 4 parties · 3 set aside ·           6 of 6 linked to source
+
+
+The Chronology Lens™ in action. Drag the lens or choose a stage. This is a fictional
+illustration; names, message IDs and exhibit references are invented.
+
+
+
+
+                       “Records, records, VeriCase.” -
+                   Making Time Your Ally, Not Your Enemy.
+                           Adapted from Max W. Abrahamson. Read the passage
+
+
+
+
+THE REASON WE BUILT VERICASE
+
+
+
+Your case begins
+with the record.
+As Max W. Abrahamson observed in Engineering Law and the I.C.E. Contracts (first
+published in 1965):
+
+
+   “A party to a dispute, particularly if there is arbitration, will learn
+   three lessons (often too late): the importance of records, the
+   importance of records and the importance of records. It is
+   impossible to exaggerate the extent to which lawyers can find
+   unexpected grounds, often quite real, on which to cast doubt
+   on evidence if it is not backed by meticulously established
+   records.” [Emphasis added]
+
+VeriCase exists so these lessons need not be learned the
+hard way.
+
+
+Time is your ally. Not your enemy.
+Time is what every practice is trying to keep. The advantage lies with the
+people who can see what the record shows before the timetable runs out.
+
+VeriCase turns a disordered project record into arguments that can be
+checked against their sources. It is for the people who prepare claims, and
+for the lawyers and consultants who work with them.
+It is most useful at the start of a matter. A factual chronology used to mean
+reading tens of thousands of emails by hand. VeriCase puts that
+correspondence in order, and each entry keeps its source.
+
+The firms that work this way advise from the record. The others are still
+reading it.
+
+
+
+
+Thousands of records.
+One question that matters.
+
+
+   40,000                  [1]
+
+
+
+   emails, one project, five months
+
+
+
+
+   5.5         [2]
+
+
+
+   hours a week looking for project data
+
+
+
+
+   18%               [3]
+
+
+
+   of project time searching for data in the
+   UK and Ireland
+
+
+
+
+THE VERICASE SOLUTION
+
+
+Bring the records together                              Ask a question
+Build the bundle                                      Test an account
+
+
+
+Develop the argument                                  Work together
+
+
+
+
+I   The Chronology Lens™
+
+
+Many threads.
+One order of events.
+Bring emails, attachments and project documents into one searchable record. Read the
+correspondence in date order, with each entry linked to its source.
+
+
+
+Where the record fails
+An instruction sits in an email. The qualification is in its attachment. A later reply changes
+the picture.
+
+
+Where VeriCase comes in
+Search emails and attachments together. See matching passages in date order, then open
+the records behind them.
+
+
+
+    Bring the files together
+    Upload mailboxes, emails, attachments, documents, spreadsheets and images. Text
+    recognition makes scanned pages searchable.
+
+
+    Read each reply
+    Threading and quoted-text handling separate new replies from the history beneath them.
+ Review in context
+ Filter by dates and keywords, check what was set aside, and distinguish forecasts from
+ instructions and confirmations.
+
+
+
+
+The Chronology Lens™
+              V           Sample project                                               Chronology Lens ™
+
+
+
+         time impact                                                                   time impact
+
+
+   2 of 1,084 results                                                                      In date order
+
+
+             21 Oct 2024
+             Façade change: brick-slip panels
+             From Employer’s Agent to Contractor
+
+            Found in: Facade instruction.pdf
+        Change from render to brick-slip panels. Cost: a saving; time impact : none.
+
+         Facade instruction.pdf                                                               212 KB
+
+
+
+             25 Nov 2024
+             Risk register, November
+             From Package manager to Commercial manager
+
+            Found in: Risk register.xlsx
+        Brick-slip panels: bespoke sizes required; time impact six to eight weeks.
+
+         Risk register.xlsx                                                                    96 KB
+
+
+
+
+Illustrative search from a fictional construction matter.
+II    Ask your evidence
+
+
+Ask a question.
+Read a cited answer.
+Ask a focused question in plain English. Executive Analysis answers from the evidence and
+lets you follow up as new points emerge.
+
+
+
+Where the record fails
+A summary reaches you without its sources. Before you can rely on it, the checking
+starts again.
+
+
+Where VeriCase comes in
+Read the answer alongside its supporting records. Follow the citations and check what the
+material establishes.
+
+
+
+   Follow the question
+   Ask follow-up questions as new points emerge.
+
+
+   Check the evidence
+   Open the cited records, keep the relevant material and note what was not found.
+   Answers depend on the material in scope; they are not a
+   complete account of events.
+  Just ask.
+
+                V           Sample project                                                               Research
+
+
+
+     Executive Analysis                                                              1,084 evidence items in scope
+
+
+
+                                               When did the client first ask for early access to the nursery?
+
+
+
+        On 12 March 2025. The client’s project manager asked for fit-out access
+        by 01 September 2025.
+
+
+
+                                                                         Did they ever confirm it as a change?
+
+
+
+        Not before completion. Two weeks later their representative said later access was not
+        acceptable to the nursery’s funder, but the change request for early access only came
+        on 14 January 2026.
+
+        SUPPORTING EVIDENCE
+           Email of 26 March 2025: later access not acceptable to the funder.
+           Change request 21, 14 January 2026: early access to the nursery.
+
+        CONFIDENCE SCORE
+
+        78/100
+        Consistent across both sources.
+
+              View 2 sources
+
+
+
+
+  Illustrative questions and answers from a fictional construction matter. The score is illustrative.
+
+
+
+
+COST CALCULATOR
+
+
+What does the evidence cost your team?
+Estimate the professional time spent finding, reading, discussing and
+bundling evidence. Every rate and reduction shows its basis.
+Open the evidence cost calculator
+
+
+
+
+III     Reports and bundles
+
+
+A report.
+Its evidence.
+One bundle.
+Deep Research produces a report with its sources. Create a bundle containing the report
+and cited records, with a cover, index and page numbers.
+
+
+   Set the order
+   Arrange the evidence around the report. The cover page stays first.
+
+
+   Prepare the PDF
+   Complete the cover, choose the numbering and download the indexed bundle.
+A bundle, built and downloaded.
+
+               V             Sample project                                              Bundles
+
+
+
+ Loading bay: notice of delay                                         Deep Research   Download
+
+ Built from the report in one step: the report on top, then every item it cites.
+
+ BUNDLE CONTENTS
+
+
+    1          Cover page                                                                Fixed
+
+
+               VeriCase Analysis Report
+    2                                                                                   Report
+               Deep Research, 09 October 2026
+
+
+               Monthly report 11
+    3                                                                                 Document
+               30 April 2025
+
+
+               Loading bay: delay assessment
+    4                                                                                    Email
+               11 June 2025
+
+
+               Re: Loading bay: delay assessment
+    5                                                                                    Email
+               13 June 2025
+
+
+               Road authority comments
+    6                                                                                 Document
+               19 May 2025
+
+
+
+   PDF SETTINGS
+
+   Include cover page
+
+   Page numbering
+     1, 2, 3       a, b, c    I, II, III   1, 1a, 2
+
+   COVER PAGE
+
+   Case / matter Sample project
+   Prepared by          Contractor
+   Bundle date          09 October 2026
+
+
+
+        Download ready
+        Loading bay notice of delay.pdf
+
+
+ AS DOWNLOADED
+       EVIDENCE BUNDLE                       Index                                   ITEM 1 · REPORT
+
+       Loading bay: notice                   NO. TITLE             DATE       PAGE   VeriCase Analysis Report
+       of delay                              1   VeriCase          09            3   QUESTION          What notice did
+                                                 Analysis          October                             the Contractor
+       CASE / MATTER   Sample project
+                                                 Report            2026                                give of delay
+       BUNDLE DATE     09 October
+                                             2   Monthly           30 April      7                     from the loading
+                       2026
+                                                 report 11         2025                                bay reduction?
+                                                                                     SOURCES CITED 14
+                                             3   Loading bay:      11 June     11
+                                                 delay             2025              VALIDATION        Passed
+                                                 assessment
+                                                                                     Executive summary
+                                             4   Re: Loading       13 June     15
+                                                 bay: delay        2025              The Contractor’s first warning
+                                                 assessment                          came in monthly report 11, its
+                                                                                     effect still being assessed. Six
+                                             5   Road              19 May      19
+                                                                                     weeks later its commercial
+                                                 authority         2025
+                                                                                     manager put the delay at two
+                                                 comments
+                                                                                     months. The Employer’s Agent
+                                                                                     replied by asking which clause it
+                                                                                     relied on.
+                       1                                       2                                      3
+
+
+
+
+  Illustrative bundle from a fictional construction matter.
+
+
+
+
+IV        The case room
+
+
+Their points, numbered.
+Your replies, cited.
+Examine the other side’s account point by point. Bring supporting and conflicting records
+alongside each assertion, with proposed replies for your team to review.
+Where the record fails
+Under time pressure, the easiest points to answer can take attention from the assertions
+that need further investigation.
+
+
+Where VeriCase comes in
+Consider the evidence beside each point. Review the proposed reply, its references and
+any gaps before developing your response.
+
+
+
+   Test each assertion
+   Set supporting and conflicting records beside each point. Identify what still
+   needs investigation.
+
+
+   Prepare the response
+   Review and edit the proposed replies with their sources before anything is sent.
+  Answer the other side, point by point.
+
+                 V          Sample project                                                        Rebuttal
+
+
+
+
+        THEIR RESPONSE · PARAGRAPH 31
+        The courtyard paving revisions were design development by the Contractor’s
+        landscape architect.
+
+     EVIDENCE
+
+
+               Change request 14 16 June 2025                                             Challenges
+               Revise the courtyard paving to the layout attached.
+
+
+               Drawing issue sheet 22 July 2025                                           Challenges
+               Revision C: courtyard paving, following change request 14.
+
+
+        PROPOSED REPLY
+        The paving was revised in answer to the client’s change request of 16 June 2025, not as
+        design development (Change request 14; Drawing issue sheet, 22 July 2025).
+
+        For your team to review                                                 Accept            Edit
+
+
+
+
+  Illustrative rebuttal from a fictional construction matter.
+
+
+
+
+V      Develop the argument
+
+
+Develop the argument.
+Keep the evidence beside it.
+Structure your claim or response in sections. Draft with the relevant records beside the
+wording, including material that challenges your position.
+ Build each point
+ Structure the argument and find the relevant records, including material that challenges
+ your position.
+
+
+ Review and finalise
+ Check the references, add necessary qualifications and export the draft to Word or PDF.
+
+
+
+Draft the claim from the records.
+
+               V            Sample project                                                    Drafting
+
+
+
+   Claim for additional security works
+
+
+      Section 5. Access control and cameras
+
+      5.1    We asked for an instruction on the police adviser’s additional security works.
+                   RFI 112, 14 November 2024
+
+      5.2    The client answered nine months later: comply.
+                   Answer to RFI 112, 21 August 2025
+
+      5.3    We confirmed the same day that we would carry out the works as a variation.
+                   Our reply, 21 August 2025
+
+
+
+   Draft, for review before export                                 Export Word        Export PDF
+
+
+
+
+Illustrative claim section from a fictional construction matter.
+VI       Work together
+
+
+Keep the discussion
+with the evidence.
+Discuss the email or document where it sits. Bring your team, consultants and advisers into
+the conversation, with the history kept alongside the record.
+
+
+    Bring people into the discussion
+    Mention a colleague on a record. Consultants, experts and advisers can join from their own
+    organisations, with access agreed for the project.
+
+
+    Keep separate conversations apart
+    Use lanes to discuss the same record with different groups. Each lane is read only by the
+    people added to it.
+
+
+    Return to the context
+    Tag records by issue and return to the discussion alongside the evidence.
+
+
+
+
+One round of discussion adds up.
+Illustrative professional-time cost, not a
+measured saving.
+
+
+6                                   40 min                         £153
+people involved                     combined                       cost per discussion
+                                    professional time              round
+
+
+See the rates and assumptions
+
+
+Adjust the example to your team
+ Separate conversations, one email.
+
+                 V            Sample project                                                    Collaboration
+
+
+
+
+                Road works: early notice                                                       14 Feb 2025
+
+
+
+
+      Site team
+             Project manager, Site manager
+
+       PM      Project manager
+
+               Our revised forecast went with monthly report 9, two weeks after this email.
+
+       SM      Site manager
+
+               The road closure started on 03 March. The site diary has it.
+
+
+
+      Commercial
+             Commercial manager, Quantity surveyor
+
+       CM      Commercial manager
+
+               Put report 9 and the site diary in the bundle with this email.
+Skip to content
+
+      With the delay expert
+             Commercial manager, Delay expert                                             Sign in         Menu
+
+        DE     Delay expert
+
+               I will need the road design pack too, to see when the works could start.
+
+
+        Each lane is read only by the people added to it.
+
+
+
+ Illustrative discussion in lanes, from a fictional construction matter.
+
+
+
+
+Review the sources. Trace the
+work.
+An extract can read differently in the
+full document.
+Check the wording, date and context before relying on it.
+The Activity Log also shows who uploaded, tagged and
+discussed the evidence, or changed access, and when.
+
+
+    Read in context
+    Open the source and check the surrounding text and any qualifications.
+
+    Check the final output
+    Review what the report or bundle contains before it goes out.
+
+
+
+  Every step, on the record.
+
+                 V           Sample project                                                 Activity Log
+
+
+
+     Activity Log
+     Every upload, tag, message and access change in this project.
+
+       ACTIVITY                                                 TYPE               DATE
+
+
+       Commercial manager uploaded Site manager                  File upload       03 Feb 2026, 08:41
+       mailbox.pst
+
+
+       Commercial manager tagged evidence with “Notice”          Evidence tagged   04 Feb 2026, 10:15
+
+
+       Claims consultant added a collaboration message           Message           04 Feb 2026, 11:02
+
+
+       Project lead granted the delay expert member access       Access granted    05 Feb 2026, 16:30
+
+
+
+
+  Illustrative activity from a fictional construction matter.
+
+
+
+
+Work alongside your existing systems.
+Use VeriCase alongside your existing document and disclosure systems.
+Your team decides which records to take forward.
+Your judgement. Supported by the record.
+Findings and drafts require professional review. Your team assesses the
+evidence, develops the argument and approves the final work.
+
+
+
+
+                                             WHO WE SERVE
+
+
+
+
+                       Accessible forevery dispute
+             For the people building the case and the people running the job.
+
+
+
+
+      Law firms & arbitrators
+      Test competing accounts against the record. Find the documents that support or
+      contradict a position, with the sources ready to review.
+
+
+
+
+      Claims consultants & experts
+      Build the factual chronology, uncover pivotal details and connect each point of your
+      analysis to its supporting evidence.
+
+
+
+
+      Contractors & in-house counsel
+       Understand what the record shows while the project is live. Keep instructions,
+       correspondence and the developing claim connected.
+
+
+
+
+Built on experience.
+Founded by construction claims and dispute resolution practitioners. Built
+around the demands of real casework.
+
+
+
+
+             William Rogers
+             Co-Founder · Claims Advisory and Forensic Quantum Expert
+
+
+
+  MCIArb, Chartered Institute of Arbitrators
+  Forensic quantum expert
+  Live instructions in excess of £100m
+
+William brings more than 15 years of construction claims and disputes
+experience across infrastructure, water, power, rail and residential
+projects. A quantity surveying and commercial management specialist and
+Member of the Chartered Institute of Arbitrators, he acts as a testifying
+quantum expert. His work spans adjudication, arbitration and TCC
+litigation. He brings the practical demands of preparing evidence,
+developing claims and briefing experts and counsel into VeriCase’s
+product direction.
+
+Full profile and experience
+
+
+
+A construction claims and disputes specialist with over 15 years across the
+water, power, rail, infrastructure and residential sectors, qualified in
+quantity surveying and commercial management and a Member of the
+Chartered Institute of Arbitrators. He founded his first commercial
+management consultancy in 2016 and has since built Meritus Group,
+Orrery Group, Peak Developments and VeriCase, a legal technology
+platform combining forensic evidence review with a chronology engine
+built to the SCL Protocol. His portfolio spans adjudication, arbitration and
+TCC litigation under NEC, JCT, FIDIC and IChemE forms, with live
+instructions in excess of £100m across residential, regeneration and
+infrastructure schemes, and prior roles on international arbitrations
+exceeding $600m. He acts as a testifying quantum expert and leads claims
+and recovery across a national contractor’s distressed portfolio, preparing
+each case in house so that experts and counsel are instructed only when it
+is ready.
+
+CREDENTIALS AND TRACK RECORD
+
+
+  Member of the Chartered Institute of Arbitrators (MCIArb)
+
+  RICS Level 5 Diploma, Adjudication in the Construction Industry
+
+  BSc (Hons) Quantity Surveying and Commercial Management
+
+  Testifying quantum expert
+
+  NEC, JCT, FIDIC and IChemE dispute specialist
+
+  Founder, Meritus Group
+
+  Founder, Orrery Group
+
+  Founder, Peak Developments
+
+REPRESENTATIVE MATTERS
+
+
+Mixed-use residential regeneration scheme, London
+Adjudication (JCT D&B 2016), £30m, ongoing
+
+
+Residential development, Wales
+Adjudication (JCT D&B 2016), £2.49m counterclaim, 2026
+
+
+Residential tower block refurbishment, Dorset
+Adjudication and final account (JCT ICD 2016), £25.3m, 2026
+
+
+Residential development, Yorkshire
+Structural design dispute, ongoing
+
+
+Guided busway infrastructure, East of England
+TCC litigation, £37m
+
+
+Petrochemical facility explosion, Middle East
+Arbitration, $340m
+
+
+Airport design and construction, Middle East
+Arbitration, $260m
+
+
+Sewage treatment works, Wiltshire
+Adjudication (NEC3), £4m
+
+
+
+
+             Warren Kemp
+             Co-Founder · Dispute Resolution
+
+
+
+  Partner, gunnercooke LLP
+  Co-founded DAC Beachcroft’s construction practice (2013), circa 50 lawyers
+  Former Joint Head of Construction & Engineering, DAC Beachcroft
+  Ranked in Chambers UK and The Legal 500
+
+Warren is a construction and engineering disputes solicitor and a partner at
+gunnercooke LLP. His practice spans adjudication, arbitration, mediation
+and TCC litigation, advising contractors, developers, consultants and
+insurers. Previously joint head of construction and engineering at DAC
+Beachcroft, he brings more than twenty years of legal practice to VeriCase.
+His contribution centres on the commercial judgement, evidential
+discipline and clear argument that construction disputes require.
+
+Full profile and experience
+
+
+
+Warren is a construction and engineering disputes solicitor of more than
+twenty years’ standing, admitted in 2002, who advises developers,
+contractors, subcontractors, professional consultants and their insurers
+across the public and private sectors. He trained and built his practice in
+Newcastle, first at Watson Burton and then at DAC Beachcroft, which he
+joined as a partner on 01 November 2013 and where he and James
+Harrison set up the firm’s construction practice that year. He went on to
+lead DAC Beachcroft’s national construction and engineering team jointly
+with Mark Roach, a practice of circa 50 lawyers in the United Kingdom and
+internationally, until joining gunnercooke LLP in February 2024. His work
+spans adjudication, arbitration, mediation and Technology and
+Construction Court litigation, together with the professional indemnity
+dimension of construction claims and the non-contentious drafting that
+prevents them. He is ranked in Chambers UK and The Legal 500, which has
+described him as “simply the best around”, and he writes regularly on
+construction law, including on CC Construction Limited v Mincione and on
+the contractual treatment of anaerobic digestion plants. Warren acts,
+among his various roles, as General Counsel to United Living, a business
+approaching £1bn turnover with a telecoms division, and previously spent
+18 months in house on secondment at the global consultancy WS Atkins.
+He combines a pragmatic, commercial approach with the tenacity to see a
+dispute through to decision.
+
+CREDENTIALS AND TRACK RECORD
+
+
+  Dispute Resolution Partner, gunnercooke LLP
+
+  Former Joint Head of Construction & Engineering, DAC Beachcroft
+
+  Co-founded DAC Beachcroft’s construction practice with James Harrison (2013)
+
+  General Counsel, United Living Group
+
+  Admitted as a solicitor, 15 August 2002
+
+  Ranked, Chambers UK, Construction (North East)
+
+  Ranked, The Legal 500, Construction
+
+  Adjudication, arbitration, mediation and TCC litigation
+
+  Professional indemnity and construction insurance disputes
+
+  Former In-House Counsel (Secondment), WS Atkins, 18 months
+
+REPORTED AUTHORITIES AND COMMENTARY
+
+
+Van Elle Limited v Keynvor Morlift Limited
+[2023] EWHC 3137 (TCC)
+
+
+Celtic Bioenergy Limited v Knowles Limited
+[2017] EWHC 472 (TCC)
+
+
+CC Construction Limited v Mincione
+[2021] EWHC 2502 (TCC), published commentary
+
+
+Anaerobic digestion plants: contractual risk
+Published commentary, DAC Beachcroft Construction Professionals Newsletter
+
+
+The Legal 500, Construction, Newcastle
+“Simply the best around”
+
+
+Chambers UK 2021, Construction, North East
+Ranked individual, client endorsed
+             Malcolm Brechin
+             Managing Director · Commercial Strategy & Go-to-Market
+
+
+
+  CEO, Invent Group
+  Former Director of Strategic Development, Mobile Rocket
+  Over 25 years in commercial strategy and go-to-market
+
+Malcolm brings more than 25 years of experience in commercial strategy
+and taking technology products to market. His career includes leadership
+roles at OfficeTeam, OT Group and Mobile Rocket, working across sectors
+including healthcare, recruitment and government. As Managing Director,
+he focuses on understanding customers’ operational needs and translating
+them into practical products, working with the team to make VeriCase
+useful and commercially relevant to the organisations adopting it.
+
+Full profile and experience
+
+
+
+Malcolm is a commercial strategist with more than 25 years’ experience
+building and scaling technology businesses across finance, retail,
+healthcare, hospitality and government. His career has centred on taking
+products to market: as business development director at OfficeTeam he led
+a national sales team and secured the William Hill distribution outsourcing
+contract; as National Director of New Business at OT Group he positioned
+the business on the Crown Commercial Service Tail Spend Solution
+framework; and as Director of Strategic Development at Mobile Rocket he
+led the go-to-market for its recruitment and healthcare platforms, now
+used by Amazon, Waitrose and the NHS, during the period in which the
+company was shortlisted for Recruitment Technology Innovation of the
+Year at the Recruiter Awards 2023. In 2025 he established NE Tech in
+County Durham, rebranded as Invent Group in 2026, which has since
+released VeriCase, Bid King and Schools-safe. Malcolm’s focus is on
+identifying real operational challenges and turning them, in partnership
+with clients, into practical and commercially viable technology.
+
+CREDENTIALS AND TRACK RECORD
+
+
+   CEO, NE Tech, rebranded Invent Group (2025)
+
+   Director of Strategic Development, Mobile Rocket
+
+   National Director of New Business, OT Group
+   Business Development Director, OfficeTeam
+
+   Over 25 years in commercial strategy and go-to-market leadership
+
+   Published on technology adoption, Invent Group (18 August 2026)
+
+NOTABLE PRODUCTS
+
+
+VeriCase
+Legal dispute and complex casework platform
+
+
+Bid King
+Bid, tender and proposal response tool
+
+
+Rocket Healthcare
+Mobile Rocket; featured in Open Access Government, 2023
+
+
+
+
+             Sam Whisker
+             Chief Technology Officer · Automation & Product Engineering
+
+
+
+  CTO, Invent Group
+  Former Chief Technology Officer, Mobile Rocket
+  Shortlisted, Recruiter Awards 2023
+
+Sam is a software engineer and automation specialist with experience
+taking products from early ideas to working systems. A Teesside University
+graduate and former Chief Technology Officer at Mobile Rocket, he has
+worked on recruitment and workforce platforms and, since 2024, focused
+on automation. As Chief Technology Officer, he leads the engineering
+behind VeriCase, bringing software development and automation together
+around the needs of complex casework.
+
+Full profile and experience
+
+
+
+Sam is a software engineer and automation specialist who has spent his
+entire career writing code that changes how organisations operate. A
+Teesside University graduate, he began as a senior PHP developer at
+Stockton-based web development firm Koodoo Creative before becoming
+Chief Technology Officer of Mobile Rocket, the Newton Aycliffe company
+whose recruitment and workforce platforms are now used by organisations
+including Amazon, Waitrose and the NHS. During his time as CTO, Mobile
+Rocket was shortlisted for Recruitment Technology Innovation of the Year
+at the Recruiter Awards 2023. Since 2024 he has concentrated on
+automation, advising businesses in sectors from manufacturing to
+recruitment on process automation, custom GPT systems and automated
+workflows. In 2025 he started NE Tech, now Invent Group, with Malcolm
+Brechin and leads its technology, building software products including
+VeriCase, for managing complex legal disputes, and Bid King, for
+tenders and proposals. Sam’s strength lies in moving ideas from
+prototype to working, scalable systems that deliver measurable gains in
+operational efficiency.
+
+CREDENTIALS AND TRACK RECORD
+
+
+  CTO, NE Tech, rebranded Invent Group (2025)
+
+  Chief Technology Officer, Mobile Rocket, from 2013
+
+  Shortlisted, Recruiter Awards 2023 (Mobile Rocket, as CTO)
+
+  Independent automation consultant since 2024
+
+  Teesside University graduate; developer since 2008
+
+NOTABLE PRODUCTS
+
+
+VeriCase
+Legal dispute product for complex casework
+
+
+Bid King
+Intelligent information processing for bids and tenders
+
+
+Schools-safe
+Secure parental communications app for academy schools
+
+
+
+Practitioners from law firms and claims consultancies hold equity in
+VeriCase Ltd. Their involvement is not an endorsement by the firms they
+work for.
+
+
+
+
+Common questions
+  We already have a document system. Where does VeriCase fit?
+
+VeriCase is for working with the project record: searching it, asking it
+questions, discussing it and building bundles. It works alongside your
+existing document systems.
+
+
+
+  What can we work with?
+
+Mailboxes (PST), individual emails (EML and MSG), PDFs, Word documents,
+spreadsheets and images. Text recognition helps make scanned pages
+searchable. We can discuss your record types and preparation needs
+during a demonstration.
+
+
+
+  Will the output be accepted by the tribunal?
+
+Admissibility and weight are for the tribunal. Review the underlying
+records, the source references and the final document with the
+professionals responsible for the matter.
+
+
+
+  Can we rely on what VeriCase finds?
+
+Every answer shows its sources, so you can read them yourself. Review the
+records and the final document with the people responsible for the matter.
+
+
+
+  How will you handle our project and client material?
+
+Demonstrations use sample material. Before introducing your own records,
+discuss your organisation’s requirements for hosting, access, retention and
+automated processing with us.
+
+
+
+
+See VeriCase in practice.
+See search, questions and bundles on sample material. Tell us what
+matters most to your team.
+Please use sample material until confidentiality and data arrangements for
+your organisation have been agreed.
+
+
+
+       Request a demonstration                Copy email address
+
+
+Opens an email to enquiries@veri-case.com. Please do not include
+confidential details of a live matter.
+
+Or write to enquiries@veri-case.com.
+
+
+
+
+Research sources
+These studies describe the information problem in construction. They do not measure VeriCase
+results or savings.
+
+
+1. Mail Manager customer account, 2026
+    40,000 emails filed in five months on one Mercury Engineering project. One project, not an
+    industry average.
+
+    Back to figure 1
+
+
+2. PlanGrid / FMI, Construction Disconnected, 2018, p. 12
+    5.5 hours a week spent looking for project data, as reported by construction professionals. Vendor-
+    sponsored survey of 599 leaders, mostly in the US.
+
+    Back to figure 2
+
+
+3. Procore / Dodge findings, reported in Building Design & Construction Magazine, 2026
+    18% of project time estimated to be spent searching for data by surveyed UK and Ireland construction
+    professionals. Vendor-commissioned survey of 688 professionals. A separate study from the 5.5-
+    hour finding.
+
+    Back to figure 3
+
+
+
+
+  Read the wider research: queries, rework and decisions
+
+
+1,083,807 requests for information. 1,362 projects.
+Navigant’s 2013 analysis of Aconex records found an average of about 796 RFIs per project.
+Projects began between 2001 and 2012; each had at least 100 RFIs. Around 79% were in Australia and
+New Zealand.
+Navigant Construction Forum, April 2013, p. 5
+48% of US rework attributed to poor data and miscommunication.
+The 2018 PlanGrid / FMI research used respondents’ estimates to model the impact of
+disconnected information.
+
+A vendor-sponsored US estimate, not a measured cause across every project.
+PlanGrid / FMI, Construction Disconnected, 2018
+One in three poor decisions attributed to bad data.
+Autodesk / FMI’s global research linked poor decisions to inaccurate, incomplete or inconsistent
+project information.
+
+Vendor-sponsored research published in 2021, surveying over 3,900 leaders. This estimate underpins the
+report’s modelled rework costs.
+Autodesk / FMI, Harnessing the Data Advantage, pp. 14 and 15
+
+
+
+
+Evidence investigation and case preparation for construction claims
+and disputes.
+
+
+
+
+Contents
+
+
+Company
+
+
+Calculators
+
+
+Cookies
+
+
+
+
+VeriCase Ltd is registered in England and Wales (company number 16562435). Registered office: 85 Great Portland
+Street, London, England, W1W 7LT.
+
+The Chronology Lens™ is a trade mark of VeriCase Ltd. VeriCase is software and does not give legal advice. Illustrations
+on this site use a fictional matter.
+© 2026 VeriCase Ltd.
+

@@ -316,7 +316,7 @@ export const CLAIMS = {
   // Create bundle on it builds the bundle from the evidence it cites, the report on top; the PDF has
   // a cover sheet, an index and page numbers, and the report inside it.
   h2: "A report. Its evidence. One bundle.",
-  lead: "Deep Research produces a report with its sources. Create a bundle containing the report and cited records, with a cover, index and page numbers.",
+  lead: "**Deep Research** produces a report with its sources. Select Create bundle to automatically bring the report and cited records together.",
   leadGate: 'G5_research',
   issue: "The report is ready. Its supporting evidence needs to be ready too.",
   method: "Deep Research produces a report with its sources. Create a bundle containing the report and cited records, with a cover, index and page numbers.",
@@ -501,7 +501,8 @@ export const INTEGRITY = {
 // and 1979 editions (docs/source-check-2026-09-25.md, item 10 and its addendum); the passage is
 // confirmed from 1975, and the book was first published in 1965. The emphasis is VeriCase's.
 export const LESSONS = {
-  kicker: 'Why VeriCase exists',
+  kicker: 'THE REASON WE BUILT VERICASE',
+  h2: 'Your case begins with the record.',
   intro: ['As Max W. Abrahamson observed in ', 'Engineering Law and the I.C.E. Contracts', ' (first published in 1965):'],
   // The book text is unchanged. stress and em mark the phrases the page enlarges (owner, 10 October 2026).
   quote: [
@@ -514,9 +515,7 @@ export const LESSONS = {
     { text: '.' },
   ],
   emphasis: '[Emphasis added]',
-  close: [
-    'They are the very grounds on which VeriCase was built.',
-  ],
+  close: 'VeriCase exists so these lessons need not be learned the hard way.',
 };
 
 // The difference (from the reference William sent on 09 October 2026, "Why teams stop reading the
@@ -701,7 +700,7 @@ export const FOUNDER = {
       name: 'Malcolm Brechin',
       summary: "Malcolm brings more than 25 years of experience in commercial strategy and taking technology products to market. His career includes leadership roles at OfficeTeam, OT Group and Mobile Rocket, working across sectors including healthcare, recruitment and government. As Managing Director, he focuses on understanding customers’ operational needs and translating them into practical products, working with the team to make VeriCase useful and commercially relevant to the organisations adopting it.",
       role: 'Managing Director · Commercial Strategy & Go-to-Market',
-      photo: { src: '/assets/team/malcolm-brechin.jpg', alt: 'Malcolm Brechin' },
+      photo: { src: '/assets/team/malcolm-brechin-editorial.jpg', alt: 'Malcolm Brechin' },
       accolades: ['CEO, Invent Group', 'Former Director of Strategic Development, Mobile Rocket', 'Over 25 years in commercial strategy and go-to-market'],
       bio:
         'Malcolm is a commercial strategist with more than 25 years’ experience building and scaling technology businesses across finance, retail, healthcare, hospitality and government. His career has centred on taking products to market: as business development director at OfficeTeam he led a national sales team and secured the William Hill distribution outsourcing contract; as National Director of New Business at OT Group he positioned the business on the Crown Commercial Service Tail Spend Solution framework; and as Director of Strategic Development at Mobile Rocket he led the go-to-market for its recruitment and healthcare platforms, now used by Amazon, Waitrose and the NHS, during the period in which the company was shortlisted for Recruitment Technology Innovation of the Year at the Recruiter Awards 2023. In 2025 he established NE Tech in County Durham, rebranded as Invent Group in 2026, which has since released VeriCase, Bid King and Schools-safe. Malcolm’s focus is on identifying real operational challenges and turning them, in partnership with clients, into practical and commercially viable technology.',

@@ -1,0 +1,50 @@
+[
+  {
+    "direction": "source",
+    "focus": "research-source-1",
+    "hash": "#research-source-1",
+    "headerBottom": 65,
+    "number": 1,
+    "text": "KCL / Adjudication Society, Construction Adjudication in the United Kingdom: Tracing trends and guiding reform, 2024, p. 28, Figure 1650% of respondents cited inadequate contract administration as a leading cause of adjudicated disputes. There were 165 answers to the causes question; multiple selections allowed. The survey covered 166 people involved in UK statutory adjudication, including quantity surveyors, solicitors and claims consultants. The reporting period was 01 May 2023 to 30 April 2024. These are respondents’ assessments, not a measured proportion of disputes.Back to figure 1",
+    "top": 96.328125
+  },
+  {
+    "direction": "return",
+    "focus": "research-ref-1",
+    "hash": "#research-ref-1",
+    "number": 1,
+    "top": 79.75
+  },
+  {
+    "direction": "source",
+    "focus": "research-source-2",
+    "hash": "#research-source-2",
+    "headerBottom": 65,
+    "number": 2,
+    "text": "HKA, CRUX Insight Eighth Annual Report, From Insight to Foresight, November 2025Sums in dispute averaged 33.4% of contract budgets in the investigated projects. More than 2,200 distressed construction and engineering projects in 114 countries investigated by HKA consultants. Claimed, not awarded. This investigated sample is not an industry-wide average. Both HKA figures use the same dataset.Back to figure 2",
+    "top": 95.578125
+  },
+  {
+    "direction": "return",
+    "focus": "research-ref-2",
+    "hash": "#research-ref-2",
+    "number": 2,
+    "top": 79.75
+  },
+  {
+    "direction": "source",
+    "focus": "research-source-3",
+    "hash": "#research-source-3",
+    "headerBottom": 65,
+    "number": 3,
+    "text": "HKA, CRUX Insight Eighth Annual Report, From Insight to Foresight, November 2025Extensions of time sought averaged 65.8% of planned schedules in the investigated projects. More than 2,200 distressed construction and engineering projects in 114 countries investigated by HKA consultants. Claimed, not awarded. This investigated sample is not an industry-wide average. Both HKA figures use the same dataset.Back to figure 3",
+    "top": 96.265625
+  },
+  {
+    "direction": "return",
+    "focus": "research-ref-3",
+    "hash": "#research-ref-3",
+    "number": 3,
+    "top": 79.75
+  }
+]

@@ -1,0 +1,81 @@
+{
+  "band": {
+    "bottom": 727.046875,
+    "height": 568,
+    "left": 16,
+    "right": 374,
+    "top": 159.046875,
+    "width": 358
+  },
+  "colours": {
+    "background": "rgb(21, 24, 31)",
+    "label": "rgb(243, 240, 233)",
+    "value": "rgb(42, 47, 56)"
+  },
+  "columns": "356px",
+  "details": 10,
+  "duplicateIds": [],
+  "label": "reduced-motion-390",
+  "labels": [
+    "of respondents cited inadequate contract administration as a leading cause of adjudicated disputes",
+    "average sums in dispute as a share of contract budgets in HKA’s sample",
+    "average time extensions claimed as a share of planned schedules in HKA’s sample"
+  ],
+  "overflow": [],
+  "pageWidth": 390,
+  "passageVisible": true,
+  "reels": [
+    {
+      "end": "5",
+      "transform": "matrix(1, 0, 0, 1, 0, -400)"
+    },
+    {
+      "end": "0",
+      "transform": "matrix(1, 0, 0, 1, 0, -400)"
+    },
+    {
+      "end": "3",
+      "transform": "matrix(1, 0, 0, 1, 0, -400)"
+    },
+    {
+      "end": "3",
+      "transform": "matrix(1, 0, 0, 1, 0, -400)"
+    },
+    {
+      "end": "4",
+      "transform": "matrix(1, 0, 0, 1, 0, -400)"
+    },
+    {
+      "end": "6",
+      "transform": "matrix(1, 0, 0, 1, 0, -400)"
+    },
+    {
+      "end": "5",
+      "transform": "matrix(1, 0, 0, 1, 0, -400)"
+    },
+    {
+      "end": "8",
+      "transform": "matrix(1, 0, 0, 1, 0, -400)"
+    }
+  ],
+  "references": [
+    {
+      "href": "#research-source-1",
+      "id": "research-ref-1"
+    },
+    {
+      "href": "#research-source-2",
+      "id": "research-ref-2"
+    },
+    {
+      "href": "#research-source-3",
+      "id": "research-ref-3"
+    }
+  ],
+  "values": [
+    "50%",
+    "33.4%",
+    "65.8%"
+  ],
+  "width": 390
+}

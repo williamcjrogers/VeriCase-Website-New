@@ -1,6 +1,7 @@
 import { act } from 'react';
 import { createRoot } from 'react-dom/client';
-import { MemoryRouter } from 'react-router-dom';
+import { renderToString } from 'react-dom/server';
+import { MemoryRouter, StaticRouter } from 'react-router-dom';
 import { LandingPage } from './LandingPage';
 import { Cookies } from './Cookies';
 import { NotFound } from './NotFound';
@@ -9,6 +10,7 @@ import { GATES } from '@/content/gates';
 import { TIME_ADVANTAGE } from '@/content/marketing';
 import { RESEARCH_SOURCES } from '@/content/researchSources';
 import { focusSection } from '@/lib/navigate';
+import { plainText } from '@/components/editorial/Rich';
 
 let container;
 let root;
@@ -33,17 +35,17 @@ const render = async (page = <LandingPage />, path = '/') => act(async () => {
   root.render(<MemoryRouter initialEntries={[path]}>{page}</MemoryRouter>);
 });
 
-it('composes the opening, motto, time and figures before the full-width solution and audience', async () => {
+it('composes the opening, motto, founding reason, time and figures before the full-width solution and audience', async () => {
   await render();
   const main = container.querySelector('main');
   expect([...main.children].map((el) => el.id || el.firstElementChild?.classList[0] || el.classList[0])).toEqual([
-    'top', 'hero-motto', 'clock', 'record-context', 'platform',
+    'top', 'hero-motto', 'lessons', 'clock', 'record-context', 'platform',
     'container', 'about', 'questions', 'demonstration', 'research-sources',
   ]);
   const hero = main.querySelector('#top');
   expect(hero.querySelector('.hero-motto, .record-context, #platform, .search-example')).toBeNull();
   expect(main.children[1].classList.contains('container')).toBe(true);
-  expect(main.children[3].classList.contains('container')).toBe(true);
+  expect(main.children[4].classList.contains('container')).toBe(true);
   const platform = main.querySelector('#platform');
   expect(platform.parentElement).toBe(main);
   expect(platform.firstElementChild.classList.contains('container')).toBe(true);
@@ -53,7 +55,55 @@ it('composes the opening, motto, time and figures before the full-width solution
   ]);
   expect(main.querySelector('.collaboration-audience-section').previousElementSibling).toBe(platform);
   expect(platform.querySelector('.collaboration-audience')).toBeNull();
-  expect(main.querySelector('.record-context').textContent).toContain('emails, one project, five months');
+  expect(main.querySelector('.record-context').textContent).toContain('of respondents cited inadequate contract administration as a leading cause of adjudicated disputes');
+});
+
+it('renders the founding reason as a visible, unnumbered section before hydration and after mount', async () => {
+  const serverPage = document.createElement('div');
+  serverPage.innerHTML = renderToString(<StaticRouter><LandingPage /></StaticRouter>);
+  await render();
+  for (const page of [serverPage, container]) {
+    const section = page.querySelector('#lessons');
+    expect(section).not.toBeNull();
+    expect(page.querySelectorAll('#lessons, #lessons-title')).toHaveLength(2);
+    expect(section.parentElement.tagName).toBe('MAIN');
+    expect(section.previousElementSibling.querySelector('.hero-motto')).not.toBeNull();
+    expect(section.nextElementSibling.id).toBe('clock');
+    expect(section.closest('details, [hidden], [aria-hidden="true"]')).toBeNull();
+    expect(section.querySelector('details, summary, .ch-numeral')).toBeNull();
+    expect(section.getAttribute('aria-labelledby')).toBe('lessons-title');
+    const heading = section.querySelector('#lessons-title');
+    expect(heading.tagName).toBe('H2');
+    expect(heading.getAttribute('tabindex')).toBe('-1');
+    expect(heading.textContent).toBe('Your case begins with the record.');
+    expect(section.querySelector('blockquote').textContent).toContain('meticulously established records');
+    expect(section.querySelector('.lessons-close').tagName).toBe('P');
+  }
+});
+
+it('focuses the founding heading from the motto attribution link', async () => {
+  await render();
+  await act(async () => container.querySelector('.hero-motto-source a[href="#lessons"]').click());
+  expect(document.activeElement.id).toBe('lessons-title');
+  expect(window.location.hash).toBe('#lessons');
+  expect(Element.prototype.scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth', block: 'start' });
+});
+
+it('removes both the full passage and its motto attribution link when G11 is struck', async () => {
+  const previous = GATES.G11_attribution.status;
+  try {
+    GATES.G11_attribution.status = 'confirmed';
+    await render();
+    expect(container.querySelector('#lessons')).not.toBeNull();
+    expect(container.querySelector('.hero-motto-source a[href="#lessons"]')).not.toBeNull();
+    GATES.G11_attribution.status = 'struck';
+    await render();
+    expect(container.querySelector('#lessons, #lessons-title, .hero-motto-source')).toBeNull();
+    expect(container.querySelector('a[href="#lessons"]')).toBeNull();
+    expect(container.querySelector('.hero-motto .sr-only').textContent).toBe(COVER.motto.whole);
+  } finally {
+    GATES.G11_attribution.status = previous;
+  }
 });
 
 it('uses the shared registry for six linked h3 chapters and unnumbered source-review support', async () => {
@@ -139,12 +189,12 @@ it('mounts every app example once, in place, in page order, each with unique ids
   }
 });
 
-it('follows an initial legacy fragment to its mounted heading', async () => {
-  window.history.replaceState(null, '', '/#research');
+it.each(['research', 'lessons'])('follows an initial %s fragment to its mounted heading', async (id) => {
+  window.history.replaceState(null, '', `/#${id}`);
   await render();
   const initialFrames = frames.splice(0);
   act(() => initialFrames.forEach((callback) => callback()));
-  expect(document.activeElement.id).toBe('research-title');
+  expect(document.activeElement.id).toBe(`${id}-title`);
   expect(Element.prototype.scrollIntoView).toHaveBeenCalledWith({ behavior: 'auto', block: 'start' });
 });
 
@@ -155,10 +205,12 @@ it.each([['/cookies', Cookies], ['/missing-page', NotFound]])('sends section nav
   for (const link of links) expect(link.getAttribute('href')).toMatch(/^\/#.+/);
 });
 
-it('expands research, profiles, questions and the motto source for print and restores their prior states', async () => {
+it('expands the ten research, profile and question disclosures for print, then restores their prior states', async () => {
   await render();
-  const disclosures = [...container.querySelectorAll('#about details, details.clarity-question, .lessons-disclosure, .record-context-research')];
-  expect(disclosures).toHaveLength(11);
+  const disclosures = [...container.querySelectorAll('#about details, details.clarity-question, .record-context-research')];
+  expect(disclosures).toHaveLength(10);
+  const passage = container.querySelector('#lessons');
+  expect(passage.closest('details')).toBeNull();
   const research = container.querySelector('.record-context-research');
   expect(disclosures).toContain(research);
   expect(research.open).toBe(false);
@@ -167,17 +219,19 @@ it('expands research, profiles, questions and the motto source for print and res
   const previous = disclosures.map((details) => details.open);
   act(() => window.dispatchEvent(new Event('beforeprint')));
   expect(disclosures.every((details) => details.open)).toBe(true);
+  expect(passage.querySelector('blockquote')).not.toBeNull();
   // Some browsers repeat beforeprint while the print preview is open.
   act(() => window.dispatchEvent(new Event('beforeprint')));
   act(() => window.dispatchEvent(new Event('afterprint')));
   expect(disclosures.map((details) => details.open)).toEqual(previous);
+  expect(passage.closest('details')).toBeNull();
 });
 
 it('removes print handlers on unmount and restores disclosures if printing is interrupted', async () => {
   const add = jest.spyOn(window, 'addEventListener');
   const remove = jest.spyOn(window, 'removeEventListener');
   await render();
-  const disclosures = [...container.querySelectorAll('#about details, details.clarity-question, .lessons-disclosure, .record-context-research')];
+  const disclosures = [...container.querySelectorAll('#about details, details.clarity-question, .record-context-research')];
   disclosures[0].open = true;
   const previous = disclosures.map((details) => details.open);
   act(() => window.dispatchEvent(new Event('beforeprint')));
@@ -197,10 +251,10 @@ it('links the compact figures to numbered sources at the page end and returns ke
   const main = container.querySelector('main');
   expect(main.lastElementChild.id).toBe('research-sources');
   const figures = container.querySelector('.record-context');
-  expect(figures.querySelectorAll('a')).toHaveLength(3);
+  expect(figures.querySelectorAll('a')).toHaveLength(4);
   expect(figures.querySelector('a[href^="https:"]')).toBeNull();
   expect(figures.querySelector('details')).toBeNull();
-  for (const number of [1, 2, 3]) {
+  for (const number of [1, 2, 3, 4]) {
     const ref = container.querySelector(`#research-ref-${number}`);
     const source = container.querySelector(`#research-source-${number}`);
     expect(ref.getAttribute('href')).toBe(`#research-source-${number}`);
@@ -211,9 +265,9 @@ it('links the compact figures to numbered sources at the page end and returns ke
     expect(document.activeElement).toBe(ref);
     expect(ref.tabIndex).toBe(0);
   }
-  expect(container.querySelector('#research-source-1').textContent).toContain('One project, not an industry average.');
-  expect(container.querySelector('#research-source-2').textContent).toContain('599 leaders, mostly in the US.');
-  expect(container.querySelector('#research-source-3').textContent).toContain('A separate study from the 5.5-hour finding.');
+  expect(container.querySelector('#research-source-1').textContent).toContain('165 answers');
+  expect(container.querySelector('#research-source-2').textContent).toContain('Claimed, not awarded');
+  expect(container.querySelector('#research-source-3').textContent).toContain('not an industry-wide average');
 });
 
 
@@ -229,7 +283,7 @@ it('renders the exact approved opening and leads, with only the three approved c
   const copy = [
     ['chronology-lens', 'Many threads. One order of events.', 'Bring emails, attachments and project documents into one searchable record. Read the correspondence in date order, with each entry linked to its source.'],
     ['research', 'Ask a question. Read a cited answer.', 'Ask a focused question in plain English. Executive Analysis answers from the evidence and lets you follow up as new points emerge.'],
-    ['worked-example', 'A report. Its evidence. One bundle.', 'Deep Research produces a report with its sources. Create a bundle containing the report and cited records, with a cover, index and page numbers.'],
+    ['worked-example', 'A report. Its evidence. One bundle.', 'Deep Research produces a report with its sources. Select Create bundle to automatically bring the report and cited records together.'],
     ['case-room', 'Their points, numbered. Your replies, cited.', 'Examine the other side’s account point by point. Bring supporting and conflicting records alongside each assertion, with proposed replies for your team to review.'],
     ['claims', 'Develop the argument. Keep the evidence beside it.', 'Structure your claim or response in sections. Draft with the relevant records beside the wording, including material that challenges your position.'],
     ['collaboration', 'Keep the discussion with the evidence.', 'Discuss the email or document where it sits. Bring your team, consultants and advisers into the conversation, with the history kept alongside the record.'],
@@ -243,6 +297,7 @@ it('renders the exact approved opening and leads, with only the three approved c
     expect(section.classList.contains('solution-chapter')).toBe(true);
     expect([...section.querySelectorAll('.thread-title')].every((heading) => heading.tagName === 'H4')).toBe(true);
   }
+  expect(container.querySelector('#worked-example .text-lead strong').textContent).toBe('Deep Research');
   const comparisons = [...container.querySelectorAll('.solution-comparison')];
   expect(comparisons.map((comparison) => comparison.closest('section').id)).toEqual(['chronology-lens', 'research', 'case-room']);
   expect(comparisons.map((comparison) => [...comparison.querySelectorAll('h4')].map((heading) => heading.textContent))).toEqual(Array(3).fill(['Where the record fails', 'Where VeriCase comes in']));
@@ -266,12 +321,12 @@ it.each([
     GATES[gate].status = 'confirmed';
     await render();
     let section = container.querySelector(`#${id}`);
-    expect(section.textContent).toContain(lead);
+    expect(section.textContent).toContain(plainText(lead));
     if (recovery) expect(section.textContent).toContain(recovery);
     GATES[gate].status = 'struck';
     await render();
     section = container.querySelector(`#${id}`);
-    expect(section.textContent).not.toContain(lead);
+    expect(section.textContent).not.toContain(plainText(lead));
     if (recovery) expect(section.textContent).not.toContain(recovery);
     expect(section.querySelector(`#${id}-title`)).not.toBeNull();
     if (id === 'case-room') expect(section.textContent).toContain(CASE_ROOM.fail);
@@ -305,7 +360,7 @@ it('preserves the motto, four Time paragraphs, research figures, cost qualificat
   expect(container.querySelector('.hero-motto-source').textContent).toContain('Adapted from Max W. Abrahamson.');
   expect([...container.querySelectorAll('.time-advantage-copy > p')].map((paragraph) => paragraph.textContent)).toEqual(TIME_ADVANTAGE.paragraphs);
   expect(TIME_ADVANTAGE.paragraphs).toHaveLength(4);
-  expect([...container.querySelectorAll('.record-context-number > .sr-only')].map((value) => value.textContent.trim())).toEqual(['40,000', '5.5', '18%']);
+  expect([...container.querySelectorAll('.record-context-number > .sr-only')].map((value) => value.textContent.trim())).toEqual(['50%', '33.4%', '65.8%']);
   for (const source of RESEARCH_SOURCES) {
     expect(container.querySelector(`#research-source-${source.number} > a`).getAttribute('href')).toBe(source.url);
   }

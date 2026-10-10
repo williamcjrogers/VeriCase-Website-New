@@ -6,8 +6,8 @@ import { keepDates } from '@/lib/format';
 
 // Renders copy-deck strings with their inline markup:
 //   [[note:n]] site note · [[ev:EV-0131]] citation chip · [[c:EV-0131]] numbered citation
-//   (the number comes from `cites`, a map of exhibit to citation number) · *italic* · {{TOKEN}}
-const TOKEN = /(\[\[(?:note|ev|c):[^\]]+\]\]|\*[^*\n]+\*|\{\{[A-Z0-9_]+\}\})/g;
+//   (the number comes from `cites`, a map of exhibit to citation number) · **bold** · *italic* · {{TOKEN}}
+const TOKEN = /(\[\[(?:note|ev|c):[^\]]+\]\]|\*\*[^*\n]+\*\*|\*[^*\n]+\*|\{\{[A-Z0-9_]+\}\})/g;
 
 // Punctuation that must stay on the line of the chip before it (a line never starts ", and").
 const TRAILING = /^[.,;:]/;
@@ -42,6 +42,8 @@ export function Rich({ text, cites, citeList, onInk = false }) {
           const n = cites ? cites[m[1]] : undefined;
           return n ? <EvidenceChip key={i} id={m[1]} variant="superscript" n={n} list={citeList} /> : null;
         }
+        m = part.match(/^\*\*([^*]+)\*\*$/);
+        if (m) return <strong key={i}>{keepDates(m[1])}</strong>;
         m = part.match(/^\*([^*]+)\*$/);
         if (m) return <em key={i}>{keepDates(m[1])}</em>;
         m = part.match(/^\{\{([A-Z0-9_]+)\}\}$/);
@@ -57,4 +59,5 @@ export const plainText = (text) =>
   String(text)
     .replace(/\[\[note:\d+\]\]/g, '')
     .replace(/\[\[(?:ev|c):(EV-\d{4})\]\]/g, '$1')
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
     .replace(/\*([^*]+)\*/g, '$1');

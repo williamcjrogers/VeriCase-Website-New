@@ -1,0 +1,39 @@
+[WARN] This project is configured to use yarn
+$ node scripts/compute-sample-hashes.mjs && node scripts/lint-copy.mjs && craco build && node scripts/prerender.mjs && node scripts/lint-copy.mjs --built
+Sample hashes: 8 records (unchanged).
+Copy check passed, with 0 warning(s).
+◇ injected env (0) from .env // tip: ◈ secrets for agents [www.dotenvx.com]
+◇ injected env (0) from .env // tip: ⌁ auth for agents [www.vestauth.com]
+(node:25512) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Creating an optimized production build...
+Compiled successfully.
+
+File sizes after gzip:
+
+  151.94 kB (+28 B)  build/static/js/main.ec62ed07.js
+  36.75 kB (-150 B)  build/static/css/main.0c0e4203.css
+  22.26 kB           build/static/js/579.bc25a7db.chunk.js
+  10.09 kB           build/static/js/884.81e044f1.chunk.js
+  3.47 kB            build/static/css/579.b6f2cf3f.chunk.css
+  2.79 kB            build/static/js/lens-controller.23ae4362.chunk.js
+  2.3 kB             build/static/js/plate-shelf.b712c9e6.chunk.js
+  1.74 kB            build/static/css/plate-shelf.1ba6cc8b.chunk.css
+  1.5 kB             build/static/js/535.862123ff.chunk.js
+  386 B              build/static/js/509.439b987d.chunk.js
+
+The project was built assuming it is hosted at /.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+You may serve it with a static server:
+
+  yarn global add serve
+  serve -s build
+
+Find out more about deployment here:
+
+  https://cra.link/deployment
+
+Prerendered build/index.html (171.5 KB), the cookie notice, the notes, the calculators (/discussion-cost, /evidence-cost) and build/404.html (24.4 KB).
+Copy check passed on the prerendered pages, with 0 warning(s).

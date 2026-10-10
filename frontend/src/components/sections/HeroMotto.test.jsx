@@ -61,8 +61,17 @@ test('the passage is quoted word for word, with the added emphasis marked and th
   expect(quote.querySelector('em').textContent).toBe('meticulously established records');
   expect(el.querySelector('figcaption cite').textContent).toBe('Engineering Law and the I.C.E. Contracts');
   expect(el.querySelector('figcaption').textContent).toContain('(first published in 1965)');
-  expect(el.querySelector('#lessons-title').textContent).toBe(LESSONS.kicker);
-  expect(el.querySelector('.lessons-close').textContent).toContain('the very grounds on which VeriCase was built');
+  expect([...quote.querySelectorAll('.lessons-stress')].map((part) => part.textContent)).toEqual([
+    'the importance of records, the importance of records and the importance of records',
+    'often quite real',
+  ]);
+  expect(el.querySelector('.lessons-label').textContent).toBe('THE REASON WE BUILT VERICASE');
+  expect(el.querySelector('#lessons-title').textContent).toBe('Your case begins with the record.');
+  expect(el.querySelector('.lessons-close').textContent).toBe('VeriCase exists so these lessons need not be learned the hard way.');
+  expect(el.querySelector('#lessons-title').textContent).toBe(LESSONS.h2);
+  expect(el.querySelector('#lessons').closest('details')).toBeNull();
+  expect(el.querySelector('summary')).toBeNull();
+  expect(html().querySelector('#lessons')).toBeNull();
 });
 
 test('the approved opening stands beside the original interactive correspondence illustration', () => {

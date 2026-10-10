@@ -1,0 +1,67 @@
+{
+  "result": {
+    "type": "object",
+    "value": {
+      "after": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "before": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "events": [
+        {
+          "noDisclosure": true,
+          "states": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "type": "beforeprint",
+          "visible": true
+        },
+        {
+          "noDisclosure": true,
+          "states": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          "type": "afterprint",
+          "visible": true
+        }
+      ]
+    }
+  }
+}

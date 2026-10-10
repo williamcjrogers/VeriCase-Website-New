@@ -1,0 +1,684 @@
+[
+  {
+    "active": "",
+    "documentWidth": 1024,
+    "finalValues": [],
+    "heading": "What goes unread can change the case.",
+    "label": "statistics-1024",
+    "nodes": [
+      {
+        "color": "rgb(42, 47, 56)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "17px",
+        "right": 984,
+        "selector": ".record-context-unused",
+        "text": "95%+[4]of design and construction data reported as unusedAutodesk, 24 June 2024, citing FMI (2018)",
+        "width": 944,
+        "x": 40
+      },
+      {
+        "color": "rgb(130, 90, 42)",
+        "font": "\"Plus Jakarta Sans\", sans-serif",
+        "fontSize": "71.68px",
+        "right": 280.71875,
+        "selector": ".record-context-unused-value",
+        "text": "95%+[4]",
+        "width": 240.71875,
+        "x": 40
+      },
+      {
+        "color": "rgb(26, 37, 80)",
+        "font": "Newsreader, \"Newsreader Fallback\", Georgia, serif",
+        "fontSize": "24.576px",
+        "right": 810.109375,
+        "selector": ".record-context-unused-label",
+        "text": "of design and construction data reported as unused",
+        "width": 481.390625,
+        "x": 328.71875
+      },
+      {
+        "color": "rgb(85, 91, 102)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "14px",
+        "right": 984,
+        "selector": ".record-context-unused-attribution",
+        "text": "Autodesk, 24 June 2024, citing FMI (2018)",
+        "width": 655.28125,
+        "x": 328.71875
+      },
+      {
+        "color": "rgb(42, 47, 56)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "18px",
+        "right": 935.7265625,
+        "selector": "#worked-example .text-lead",
+        "text": "Deep Research produces a report with its sources. Select Create bundle to automatically bring the report and cited records together.",
+        "width": 734.3984375,
+        "x": 201.328125
+      }
+    ],
+    "scrollY": 2904.5,
+    "strongWeight": "700",
+    "width": 1024
+  },
+  {
+    "active": "",
+    "documentWidth": 1024,
+    "finalValues": [],
+    "heading": "What goes unread can change the case.",
+    "label": "bundle-1024",
+    "nodes": [
+      {
+        "color": "rgb(42, 47, 56)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "17px",
+        "right": 984,
+        "selector": ".record-context-unused",
+        "text": "95%+[4]of design and construction data reported as unusedAutodesk, 24 June 2024, citing FMI (2018)",
+        "width": 944,
+        "x": 40
+      },
+      {
+        "color": "rgb(130, 90, 42)",
+        "font": "\"Plus Jakarta Sans\", sans-serif",
+        "fontSize": "71.68px",
+        "right": 280.71875,
+        "selector": ".record-context-unused-value",
+        "text": "95%+[4]",
+        "width": 240.71875,
+        "x": 40
+      },
+      {
+        "color": "rgb(26, 37, 80)",
+        "font": "Newsreader, \"Newsreader Fallback\", Georgia, serif",
+        "fontSize": "24.576px",
+        "right": 810.109375,
+        "selector": ".record-context-unused-label",
+        "text": "of design and construction data reported as unused",
+        "width": 481.390625,
+        "x": 328.71875
+      },
+      {
+        "color": "rgb(85, 91, 102)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "14px",
+        "right": 984,
+        "selector": ".record-context-unused-attribution",
+        "text": "Autodesk, 24 June 2024, citing FMI (2018)",
+        "width": 655.28125,
+        "x": 328.71875
+      },
+      {
+        "color": "rgb(42, 47, 56)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "18px",
+        "right": 935.7265625,
+        "selector": "#worked-example .text-lead",
+        "text": "Deep Research produces a report with its sources. Select Create bundle to automatically bring the report and cited records together.",
+        "width": 734.3984375,
+        "x": 201.328125
+      }
+    ],
+    "scrollY": 6988,
+    "strongWeight": "700",
+    "width": 1024
+  },
+  {
+    "active": "",
+    "documentWidth": 883,
+    "finalValues": [],
+    "heading": "What goes unread can change the case.",
+    "label": "statistics-883",
+    "nodes": [
+      {
+        "color": "rgb(42, 47, 56)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "17px",
+        "right": 859,
+        "selector": ".record-context-unused",
+        "text": "95%+[4]of design and construction data reported as unusedAutodesk, 24 June 2024, citing FMI (2018)",
+        "width": 835,
+        "x": 24
+      },
+      {
+        "color": "rgb(130, 90, 42)",
+        "font": "\"Plus Jakarta Sans\", sans-serif",
+        "fontSize": "61.81px",
+        "right": 237.6328125,
+        "selector": ".record-context-unused-value",
+        "text": "95%+[4]",
+        "width": 213.6328125,
+        "x": 24
+      },
+      {
+        "color": "rgb(26, 37, 80)",
+        "font": "Newsreader, \"Newsreader Fallback\", Georgia, serif",
+        "fontSize": "24px",
+        "right": 755.3203125,
+        "selector": ".record-context-unused-label",
+        "text": "of design and construction data reported as unused",
+        "width": 469.6875,
+        "x": 285.6328125
+      },
+      {
+        "color": "rgb(85, 91, 102)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "14px",
+        "right": 859,
+        "selector": ".record-context-unused-attribution",
+        "text": "Autodesk, 24 June 2024, citing FMI (2018)",
+        "width": 573.3671875,
+        "x": 285.6328125
+      },
+      {
+        "color": "rgb(42, 47, 56)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "18px",
+        "right": 758.3984375,
+        "selector": "#worked-example .text-lead",
+        "text": "Deep Research produces a report with its sources. Select Create bundle to automatically bring the report and cited records together.",
+        "width": 734.3984375,
+        "x": 24
+      }
+    ],
+    "scrollY": 2916.5,
+    "strongWeight": "700",
+    "width": 883
+  },
+  {
+    "active": "",
+    "documentWidth": 883,
+    "finalValues": [],
+    "heading": "What goes unread can change the case.",
+    "label": "bundle-883",
+    "nodes": [
+      {
+        "color": "rgb(42, 47, 56)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "17px",
+        "right": 859,
+        "selector": ".record-context-unused",
+        "text": "95%+[4]of design and construction data reported as unusedAutodesk, 24 June 2024, citing FMI (2018)",
+        "width": 835,
+        "x": 24
+      },
+      {
+        "color": "rgb(130, 90, 42)",
+        "font": "\"Plus Jakarta Sans\", sans-serif",
+        "fontSize": "61.81px",
+        "right": 237.6328125,
+        "selector": ".record-context-unused-value",
+        "text": "95%+[4]",
+        "width": 213.6328125,
+        "x": 24
+      },
+      {
+        "color": "rgb(26, 37, 80)",
+        "font": "Newsreader, \"Newsreader Fallback\", Georgia, serif",
+        "fontSize": "24px",
+        "right": 755.3203125,
+        "selector": ".record-context-unused-label",
+        "text": "of design and construction data reported as unused",
+        "width": 469.6875,
+        "x": 285.6328125
+      },
+      {
+        "color": "rgb(85, 91, 102)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "14px",
+        "right": 859,
+        "selector": ".record-context-unused-attribution",
+        "text": "Autodesk, 24 June 2024, citing FMI (2018)",
+        "width": 573.3671875,
+        "x": 285.6328125
+      },
+      {
+        "color": "rgb(42, 47, 56)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "18px",
+        "right": 758.3984375,
+        "selector": "#worked-example .text-lead",
+        "text": "Deep Research produces a report with its sources. Select Create bundle to automatically bring the report and cited records together.",
+        "width": 734.3984375,
+        "x": 24
+      }
+    ],
+    "scrollY": 7217.5,
+    "strongWeight": "700",
+    "width": 883
+  },
+  {
+    "active": "",
+    "documentWidth": 768,
+    "finalValues": [],
+    "heading": "What goes unread can change the case.",
+    "label": "statistics-768",
+    "nodes": [
+      {
+        "color": "rgb(42, 47, 56)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "17px",
+        "right": 744,
+        "selector": ".record-context-unused",
+        "text": "95%+[4]of design and construction data reported as unusedAutodesk, 24 June 2024, citing FMI (2018)",
+        "width": 720,
+        "x": 24
+      },
+      {
+        "color": "rgb(130, 90, 42)",
+        "font": "\"Plus Jakarta Sans\", sans-serif",
+        "fontSize": "56px",
+        "right": 221.6875,
+        "selector": ".record-context-unused-value",
+        "text": "95%+[4]",
+        "width": 197.6875,
+        "x": 24
+      },
+      {
+        "color": "rgb(26, 37, 80)",
+        "font": "Newsreader, \"Newsreader Fallback\", Georgia, serif",
+        "fontSize": "24px",
+        "right": 739.375,
+        "selector": ".record-context-unused-label",
+        "text": "of design and construction data reported as unused",
+        "width": 469.6875,
+        "x": 269.6875
+      },
+      {
+        "color": "rgb(85, 91, 102)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "14px",
+        "right": 744,
+        "selector": ".record-context-unused-attribution",
+        "text": "Autodesk, 24 June 2024, citing FMI (2018)",
+        "width": 474.3125,
+        "x": 269.6875
+      },
+      {
+        "color": "rgb(42, 47, 56)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "18px",
+        "right": 744,
+        "selector": "#worked-example .text-lead",
+        "text": "Deep Research produces a report with its sources. Select Create bundle to automatically bring the report and cited records together.",
+        "width": 720,
+        "x": 24
+      }
+    ],
+    "scrollY": 2839,
+    "strongWeight": "700",
+    "width": 768
+  },
+  {
+    "active": "",
+    "documentWidth": 768,
+    "finalValues": [],
+    "heading": "What goes unread can change the case.",
+    "label": "bundle-768",
+    "nodes": [
+      {
+        "color": "rgb(42, 47, 56)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "17px",
+        "right": 744,
+        "selector": ".record-context-unused",
+        "text": "95%+[4]of design and construction data reported as unusedAutodesk, 24 June 2024, citing FMI (2018)",
+        "width": 720,
+        "x": 24
+      },
+      {
+        "color": "rgb(130, 90, 42)",
+        "font": "\"Plus Jakarta Sans\", sans-serif",
+        "fontSize": "56px",
+        "right": 221.6875,
+        "selector": ".record-context-unused-value",
+        "text": "95%+[4]",
+        "width": 197.6875,
+        "x": 24
+      },
+      {
+        "color": "rgb(26, 37, 80)",
+        "font": "Newsreader, \"Newsreader Fallback\", Georgia, serif",
+        "fontSize": "24px",
+        "right": 739.375,
+        "selector": ".record-context-unused-label",
+        "text": "of design and construction data reported as unused",
+        "width": 469.6875,
+        "x": 269.6875
+      },
+      {
+        "color": "rgb(85, 91, 102)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "14px",
+        "right": 744,
+        "selector": ".record-context-unused-attribution",
+        "text": "Autodesk, 24 June 2024, citing FMI (2018)",
+        "width": 474.3125,
+        "x": 269.6875
+      },
+      {
+        "color": "rgb(42, 47, 56)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "18px",
+        "right": 744,
+        "selector": "#worked-example .text-lead",
+        "text": "Deep Research produces a report with its sources. Select Create bundle to automatically bring the report and cited records together.",
+        "width": 720,
+        "x": 24
+      }
+    ],
+    "scrollY": 7391.5,
+    "strongWeight": "700",
+    "width": 768
+  },
+  {
+    "active": "",
+    "documentWidth": 390,
+    "finalValues": [],
+    "heading": "What goes unread can change the case.",
+    "label": "statistics-390",
+    "nodes": [
+      {
+        "color": "rgb(42, 47, 56)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "17px",
+        "right": 374,
+        "selector": ".record-context-unused",
+        "text": "95%+[4]of design and construction data reported as unusedAutodesk, 24 June 2024, citing FMI (2018)",
+        "width": 358,
+        "x": 16
+      },
+      {
+        "color": "rgb(130, 90, 42)",
+        "font": "\"Plus Jakarta Sans\", sans-serif",
+        "fontSize": "56px",
+        "right": 374,
+        "selector": ".record-context-unused-value",
+        "text": "95%+[4]",
+        "width": 358,
+        "x": 16
+      },
+      {
+        "color": "rgb(26, 37, 80)",
+        "font": "Newsreader, \"Newsreader Fallback\", Georgia, serif",
+        "fontSize": "24px",
+        "right": 374,
+        "selector": ".record-context-unused-label",
+        "text": "of design and construction data reported as unused",
+        "width": 358,
+        "x": 16
+      },
+      {
+        "color": "rgb(85, 91, 102)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "14px",
+        "right": 374,
+        "selector": ".record-context-unused-attribution",
+        "text": "Autodesk, 24 June 2024, citing FMI (2018)",
+        "width": 358,
+        "x": 16
+      },
+      {
+        "color": "rgb(42, 47, 56)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "16px",
+        "right": 366,
+        "selector": "#worked-example .text-lead",
+        "text": "Deep Research produces a report with its sources. Select Create bundle to automatically bring the report and cited records together.",
+        "width": 342,
+        "x": 24
+      }
+    ],
+    "scrollY": 3358.5,
+    "strongWeight": "700",
+    "width": 390
+  },
+  {
+    "active": "",
+    "documentWidth": 390,
+    "finalValues": [],
+    "heading": "What goes unread can change the case.",
+    "label": "bundle-390",
+    "nodes": [
+      {
+        "color": "rgb(42, 47, 56)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "17px",
+        "right": 374,
+        "selector": ".record-context-unused",
+        "text": "95%+[4]of design and construction data reported as unusedAutodesk, 24 June 2024, citing FMI (2018)",
+        "width": 358,
+        "x": 16
+      },
+      {
+        "color": "rgb(130, 90, 42)",
+        "font": "\"Plus Jakarta Sans\", sans-serif",
+        "fontSize": "56px",
+        "right": 374,
+        "selector": ".record-context-unused-value",
+        "text": "95%+[4]",
+        "width": 358,
+        "x": 16
+      },
+      {
+        "color": "rgb(26, 37, 80)",
+        "font": "Newsreader, \"Newsreader Fallback\", Georgia, serif",
+        "fontSize": "24px",
+        "right": 374,
+        "selector": ".record-context-unused-label",
+        "text": "of design and construction data reported as unused",
+        "width": 358,
+        "x": 16
+      },
+      {
+        "color": "rgb(85, 91, 102)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "14px",
+        "right": 374,
+        "selector": ".record-context-unused-attribution",
+        "text": "Autodesk, 24 June 2024, citing FMI (2018)",
+        "width": 358,
+        "x": 16
+      },
+      {
+        "color": "rgb(42, 47, 56)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "16px",
+        "right": 366,
+        "selector": "#worked-example .text-lead",
+        "text": "Deep Research produces a report with its sources. Select Create bundle to automatically bring the report and cited records together.",
+        "width": 342,
+        "x": 24
+      }
+    ],
+    "scrollY": 8580,
+    "strongWeight": "700",
+    "width": 390
+  },
+  {
+    "active": "",
+    "documentWidth": 320,
+    "finalValues": [],
+    "heading": "What goes unread can change the case.",
+    "label": "statistics-320",
+    "nodes": [
+      {
+        "color": "rgb(42, 47, 56)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "17px",
+        "right": 304,
+        "selector": ".record-context-unused",
+        "text": "95%+[4]of design and construction data reported as unusedAutodesk, 24 June 2024, citing FMI (2018)",
+        "width": 288,
+        "x": 16
+      },
+      {
+        "color": "rgb(130, 90, 42)",
+        "font": "\"Plus Jakarta Sans\", sans-serif",
+        "fontSize": "56px",
+        "right": 304,
+        "selector": ".record-context-unused-value",
+        "text": "95%+[4]",
+        "width": 288,
+        "x": 16
+      },
+      {
+        "color": "rgb(26, 37, 80)",
+        "font": "Newsreader, \"Newsreader Fallback\", Georgia, serif",
+        "fontSize": "24px",
+        "right": 304,
+        "selector": ".record-context-unused-label",
+        "text": "of design and construction data reported as unused",
+        "width": 288,
+        "x": 16
+      },
+      {
+        "color": "rgb(85, 91, 102)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "14px",
+        "right": 304,
+        "selector": ".record-context-unused-attribution",
+        "text": "Autodesk, 24 June 2024, citing FMI (2018)",
+        "width": 288,
+        "x": 16
+      },
+      {
+        "color": "rgb(42, 47, 56)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "16px",
+        "right": 300,
+        "selector": "#worked-example .text-lead",
+        "text": "Deep Research produces a report with its sources. Select Create bundle to automatically bring the report and cited records together.",
+        "width": 280,
+        "x": 20
+      }
+    ],
+    "scrollY": 3660,
+    "strongWeight": "700",
+    "width": 320
+  },
+  {
+    "active": "",
+    "documentWidth": 320,
+    "finalValues": [],
+    "heading": "What goes unread can change the case.",
+    "label": "bundle-320",
+    "nodes": [
+      {
+        "color": "rgb(42, 47, 56)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "17px",
+        "right": 304,
+        "selector": ".record-context-unused",
+        "text": "95%+[4]of design and construction data reported as unusedAutodesk, 24 June 2024, citing FMI (2018)",
+        "width": 288,
+        "x": 16
+      },
+      {
+        "color": "rgb(130, 90, 42)",
+        "font": "\"Plus Jakarta Sans\", sans-serif",
+        "fontSize": "56px",
+        "right": 304,
+        "selector": ".record-context-unused-value",
+        "text": "95%+[4]",
+        "width": 288,
+        "x": 16
+      },
+      {
+        "color": "rgb(26, 37, 80)",
+        "font": "Newsreader, \"Newsreader Fallback\", Georgia, serif",
+        "fontSize": "24px",
+        "right": 304,
+        "selector": ".record-context-unused-label",
+        "text": "of design and construction data reported as unused",
+        "width": 288,
+        "x": 16
+      },
+      {
+        "color": "rgb(85, 91, 102)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "14px",
+        "right": 304,
+        "selector": ".record-context-unused-attribution",
+        "text": "Autodesk, 24 June 2024, citing FMI (2018)",
+        "width": 288,
+        "x": 16
+      },
+      {
+        "color": "rgb(42, 47, 56)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "16px",
+        "right": 300,
+        "selector": "#worked-example .text-lead",
+        "text": "Deep Research produces a report with its sources. Select Create bundle to automatically bring the report and cited records together.",
+        "width": 280,
+        "x": 20
+      }
+    ],
+    "scrollY": 9304.5,
+    "strongWeight": "700",
+    "width": 320
+  },
+  {
+    "active": "research-ref-3",
+    "documentWidth": 1359,
+    "finalValues": [],
+    "heading": "What goes unread can change the case.",
+    "label": "statistics-1359",
+    "nodes": [
+      {
+        "color": "rgb(42, 47, 56)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "17px",
+        "right": 1279.5,
+        "selector": ".record-context-unused",
+        "text": "95%+[4]of design and construction data reported as unusedAutodesk, 24 June 2024, citing FMI (2018)",
+        "width": 1200,
+        "x": 79.5
+      },
+      {
+        "color": "rgb(130, 90, 42)",
+        "font": "\"Plus Jakarta Sans\", sans-serif",
+        "fontSize": "95.13px",
+        "right": 384.578125,
+        "selector": ".record-context-unused-value",
+        "text": "95%+[4]",
+        "width": 305.078125,
+        "x": 79.5
+      },
+      {
+        "color": "rgb(26, 37, 80)",
+        "font": "Newsreader, \"Newsreader Fallback\", Georgia, serif",
+        "fontSize": "32px",
+        "right": 1066.890625,
+        "selector": ".record-context-unused-label",
+        "text": "of design and construction data reported as unused",
+        "width": 634.3125,
+        "x": 432.578125
+      },
+      {
+        "color": "rgb(85, 91, 102)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "14px",
+        "right": 1279.5,
+        "selector": ".record-context-unused-attribution",
+        "text": "Autodesk, 24 June 2024, citing FMI (2018)",
+        "width": 846.921875,
+        "x": 432.578125
+      },
+      {
+        "color": "rgb(42, 47, 56)",
+        "font": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", Arial, sans-serif",
+        "fontSize": "18px",
+        "right": 1017.8984375,
+        "selector": "#worked-example .text-lead",
+        "text": "Deep Research produces a report with its sources. Select Create bundle to automatically bring the report and cited records together.",
+        "width": 734.3984375,
+        "x": 283.5
+      }
+    ],
+    "scrollY": 2736.5,
+    "strongWeight": "700",
+    "width": 1359
+  }
+]
