@@ -45,6 +45,16 @@ it('shows the page’s figures as the note’s, rounded to the nearest £100', (
   expect(stat.text).toContain(`between about ${roundedTo100((perRound * 300) / 2)} and ${roundedTo100(perRound * 900)}`);
 });
 
+it('keeps the collaboration example consistent with the six-person model, without presenting a saving', () => {
+  const [people, time, cost] = COLLABORATION.costExample.figures;
+  expect(people.value).toBe(String(ROLES.length));
+  expect(time.value).toBe(`${ROLES.reduce((sum, role) => sum + role.minutes, 0)} min`);
+  expect(time.label).toContain('combined');
+  expect(cost.value).toBe(`£${Math.round(perRound / 100)}`);
+  expect(cost.label).toContain('per discussion round');
+  expect(COLLABORATION.costExample.basis).toMatch(/Illustrative professional-time cost, not a measured saving/);
+});
+
 it('renders a note of several paragraphs, each date on one line', () => {
   const container = document.createElement('div');
   const root = createRoot(container);

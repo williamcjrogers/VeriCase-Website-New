@@ -1,7 +1,9 @@
+import { COVER } from '@/content/home';
+
 export const PAGE_METADATA = {
   '/': {
     title: 'VeriCase | Search and question your project evidence',
-    description: 'Transform complex evidence into compelling arguments. Search, questions, reports, bundles and discussion for contractors, subcontractors and commercial teams.',
+    description: `${COVER.h1} Search, questions, reports, bundles and discussion for contractors, subcontractors and commercial teams.`,
     url: 'https://veri-case.com/',
   },
   '/cookies': {

@@ -36,6 +36,8 @@ test('rejects superseded promises while allowing qualified construction-task cop
   try {
     for (const [copy, rule] of [
       ['We reconstruct truth.', 'truth guarantee'],
+      ['We reconstruct the truth.', 'truth guarantee'],
+      ['We don’t just manage documents; we connect the records to reconstruct the truth. We reconstruct truth.', 'truth guarantee'],
       ['Forensic-grade AI turns records into winning strategies.', 'outcome claim'],
       ['There is a gold rush around AI.', 'fear-based urgency'],
       ['VeriCase does that not in days, weeks, or months, but in minutes.', 'unsubstantiated speed claim'],

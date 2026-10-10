@@ -12,7 +12,7 @@ import '@/components/lens/lens.css';
 
 const FIG = COVER.fig;
 const INITIAL_STAGE = stageOf(INITIAL_X);
-// The prerendered state is the mid state: everything the lens has passed at 40% is processed.
+// The opening starts with the scattered record; reduced motion and print expose the cited result.
 const done = (t) => (t <= INITIAL_X ? '' : undefined);
 const cast = (variant) => (variant === 'desktop' ? { 'data-desktop-only': '' } : { 'data-mobile-only': '' });
 const Sep = ({ text = ', ' }) => <span className="sr-only">{text}</span>;
@@ -37,7 +37,8 @@ export const LensStage = () => {
           if (!cancelled && fig) destroy = mountLens(fig, { valueText: FIG.valueText });
         })
         .catch(() => {
-          // The figure stays at its prerendered mid state if the controller cannot load.
+          // A failed controller must leave the ordered result readable rather than hide it behind raw records.
+          if (!cancelled && fig) fig.setAttribute('data-fallback', '');
         });
     const idle = typeof window.requestIdleCallback === 'function';
     const id = idle ? window.requestIdleCallback(start, { timeout: 1500 }) : window.setTimeout(start, 200);

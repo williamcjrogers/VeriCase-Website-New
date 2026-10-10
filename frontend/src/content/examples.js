@@ -37,7 +37,8 @@ export const UPLOAD_EXAMPLE = {
 
 // Chronology Lens: a search that finds the passage inside an attachment, in date order.
 export const SEARCH_EXAMPLE = {
-  title: 'The passage, wherever it sits.',
+  title: 'The Chronology Lens™',
+  intro: 'Find the passage that changes the picture. Search emails and attachments together, with matching passages in date order and their sources alongside.',
   view: 'Chronology Lens',
   placeholder: 'Search evidence',
   term: 'time impact',
@@ -178,7 +179,12 @@ export const BUNDLE_EXAMPLE = {
   pdfLabel: 'As downloaded',
   pdfCover: { kicker: 'Evidence bundle', fields: [['Case / matter', 'Sample project'], ['Bundle date', '09 October 2026']] },
   pdfIndex: { title: 'Index', columns: ['No.', 'Title', 'Date', 'Page'] },
-  pdfItem: { kicker: 'Item 1 · Report', page: 3, title: 'VeriCase Analysis Report', fields: [['Question', 'What notice did the Contractor give of delay from the loading bay reduction?'], ['Sources cited', '14'], ['Validation', 'Passed']] },
+  pdfItem: {
+    kicker: 'Item 1 · Report', page: 3, title: 'VeriCase Analysis Report',
+    fields: [['Question', 'What notice did the Contractor give of delay from the loading bay reduction?'], ['Sources cited', '14'], ['Validation', 'Passed']],
+    summaryHeading: REPORT_EXAMPLE.summaryHeading,
+    summary: REPORT_EXAMPLE.summary,
+  },
   ready: 'Download ready',
   file: 'Loading bay notice of delay.pdf',
   caption: 'Illustrative bundle from a fictional construction matter.',

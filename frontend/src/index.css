@@ -21,6 +21,12 @@
     --vc-azure-50: #EAF0F9; --vc-azure-300: #9DBBEA; --vc-azure-500: #4A83D6; --vc-azure-700: #2F6BC4;
     --vc-parchment: #F3F1ED; --vc-parchment-300: #ECEAE4; --vc-paper: #FBFAF7;
     --vc-rule: #DEDCD6; --vc-rule-strong: #74766D; --vc-brass-400: #C38446; --vc-brass-700: #2359A8;
+    --vc-gold: #BF9B58; --vc-gold-light: #E2C18A; --vc-gold-ink: #825A2A;
+    --vc-divider: var(--vc-gold); --vc-divider-major: 2px; --vc-divider-minor: 1px;
+    --vc-divider-ornament:
+      linear-gradient(var(--vc-gold), var(--vc-gold)) left center / calc(50% - 1rem) 2px no-repeat,
+      linear-gradient(var(--vc-gold), var(--vc-gold)) right center / calc(50% - 1rem) 2px no-repeat,
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='7' viewBox='0 0 7 7'%3E%3Cpath fill='%23BF9B58' d='M3.5 0 7 3.5 3.5 7 0 3.5Z'/%3E%3C/svg%3E") center / 7px 7px no-repeat;
     --vc-indigo: #3D5E96; --vc-copper: #C38446; --vc-copper-300: #D7954E;
     --vc-gradient-text: linear-gradient(95deg, #1D4A93 0%, #2F6BC4 60%, #3F7BD0 100%);
     --vc-gradient-button: linear-gradient(135deg, #2D62B4 0%, #4A83D6 100%);

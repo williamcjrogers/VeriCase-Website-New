@@ -2,6 +2,7 @@ import { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import { LiveFigure, Typed, keepDates, typedMs, useIllustrationPlay } from './illustrationKit';
 import { typedSoFar } from './liveTestUtils';
+import { Thread } from './Thread';
 
 let container;
 let root;
@@ -98,4 +99,13 @@ it('times typing from the text alone, and keeps dates and the bracket designatio
   expect(keepDates('On 12 March 2025, bracket type B.')).toBe('On 12 March 2025, bracket type B.');
   // A type B elsewhere in a word is not touched.
   expect(keepDates('subtype Bravo')).toBe('subtype Bravo');
+});
+
+it('keeps the shared step headings at h3 by default and accepts h4 inside solution chapters', () => {
+  const steps = [{ title: 'Check the source', text: 'Read its surrounding context.' }];
+  act(() => root.render(<Thread steps={steps} label="Source review" />));
+  expect(container.querySelector('h3.thread-title').textContent).toBe(steps[0].title);
+  act(() => root.render(<Thread steps={steps} label="Source review" headingAs="h4" />));
+  expect(container.querySelector('h4.thread-title').textContent).toBe(steps[0].title);
+  expect(container.querySelector('h3')).toBeNull();
 });

@@ -1,56 +1,68 @@
-import { ARGUMENT, CASE_ROOM, INTEGRITY, LENS_CHAPTER, RESEARCH } from '@/content/home';
+import { ARGUMENT, CASE_ROOM, INTEGRITY, LENS_CHAPTER, RESEARCH, SOLUTION_CHAPTERS } from '@/content/home';
 import { CALCULATOR_GATE, CALCULATOR_LINKS } from '@/content/calculatorLinks';
 import { Gated } from '@/components/editorial/Gated';
+import { ChapterHeader } from '@/components/editorial/ChapterHeader';
 import { cn } from '@/lib/utils';
 import { MobileDetails } from './MobileDetails';
 import { Thread } from './Thread';
-import { UploadExample } from './examples/UploadExample';
 import { AnalysisExample } from './examples/AnalysisExample';
 import { RebuttalExample } from './examples/RebuttalExample';
 import { DraftingExample } from './examples/DraftingExample';
 import { ActivityExample } from './examples/ActivityExample';
-import { ReaderExample } from './examples/ReaderExample';
-import { ArgumentExample } from './examples/ArgumentExample';
-import { ExportExample } from './examples/ExportExample';
+import { SearchExample } from './examples/SearchExample';
 
-// Each capability section reads as a journey: its heading; the issue, the problem as the reader
-// meets it in a dispute, set large; the method, what VeriCase does about it; the steps, marked on
-// a brass thread; and a line that introduces the illustration, into which the thread runs on.
-// Publication gates still govern each passage.
-export const SectionIntroduction = ({ id, kicker, h2, issue, method, methodGate, className, children }) => (
-  <div className={cn('capability-introduction', className)}>
-    {kicker && <p className="section-kicker">{kicker}</p>}
-    <h2 id={`${id}-title`} tabIndex={-1} className="clarity-heading">{h2}</h2>
-    <p className="section-issue">{issue}</p>
-    <p className="section-method">{methodGate ? <Gated id={methodGate}>{method}</Gated> : method}</p>
-    {children}
-  </div>
-);
+// Chapter leads and comparison recoveries keep the publication gate of the promise they carry.
+// The issue/method form remains available to unnumbered source-review support.
+export const SectionIntroduction = ({ id, kicker, h2, lead, leadGate, fail, recover, recoverGate, issue, method, methodGate, headingAs = 'h3', onInk = false, className, children }) => {
+  const chapter = SOLUTION_CHAPTERS.find((item) => item.id === id);
+  const Heading = headingAs;
+  return (
+    <div className={cn('capability-introduction', chapter && 'solution-chapter-introduction', className)}>
+      {chapter ? <ChapterHeader id={id} numeral={chapter.numeral} label={chapter.label} title={h2} lead={lead} leadGate={leadGate} as={headingAs} onInk={onInk} className="solution-chapter-header" /> : (
+        <>
+          {kicker && <p className="section-kicker">{kicker}</p>}
+          <Heading id={`${id}-title`} tabIndex={-1} className="clarity-heading">{h2}</Heading>
+        </>
+      )}
+      {fail && recover && (
+        <div className="solution-comparison">
+          <div className="solution-comparison-fail">
+            <h4 className="solution-comparison-label">Where the record fails</h4>
+            <p>{fail}</p>
+          </div>
+          <div className="solution-comparison-recover">
+            <h4 className="solution-comparison-label">Where VeriCase comes in</h4>
+            <p>{recoverGate ? <Gated id={recoverGate}>{recover}</Gated> : recover}</p>
+          </div>
+        </div>
+      )}
+      {issue && <p className="section-issue">{issue}</p>}
+      {method && <p className="section-method">{methodGate ? <Gated id={methodGate}>{method}</Gated> : method}</p>}
+      {children}
+    </div>
+  );
+};
 
 // The steps on the thread. On phones they sit in a disclosure, which the section's phone copy of
 // its illustration closes; elsewhere they stand beside or below the introduction.
-export const CapabilityFeatures = ({ steps, label, mobileLabel = 'Explore the tools', leadIn, illustration }) => (
+export const CapabilityFeatures = ({ steps, label, mobileLabel = 'Explore the tools', leadIn, illustration, headingAs = 'h3' }) => (
   <MobileDetails label={mobileLabel}>
-    <Thread steps={steps} label={label} leadIn={leadIn} />
+    <Thread steps={steps} label={label} leadIn={leadIn} headingAs={headingAs} className="solution-steps" />
     {illustration && <div className="mobile-context">{illustration}</div>}
   </MobileDetails>
 );
 
-// Getting the evidence in. The lead-in promises a mailbox going in and coming out searchable, then
-// a document read beside its file record: the upload and reader examples, in place at every width,
-// after the steps. (The search itself is the opening
-// example, under the heading.) It follows the quick questions, the page's focal point after search.
+// Search introduces the first chapter; supporting steps retain the ingestion workflow.
 export const RecordExplanation = () => {
   const L = LENS_CHAPTER;
   return (
-  <section id="chronology-lens" aria-labelledby="chronology-lens-title" className="clarity-section capability-explanation bg-paper">
+  <section id="chronology-lens" aria-labelledby="chronology-lens-title" className="clarity-section capability-explanation solution-chapter solution-surface-paper bg-paper">
     <div className="container">
       <div className="capability-explanation-grid">
-        <SectionIntroduction id="chronology-lens" kicker="Getting started" h2={L.h2} issue={L.issue} method={L.method} />
-        <CapabilityFeatures steps={L.steps} label="Getting the evidence in" mobileLabel="How it goes in" leadIn={L.leadIn} />
+        <SectionIntroduction id="chronology-lens" h2={L.h2} lead={L.lead} leadGate={L.leadGate} fail={L.fail} recover={L.recover} recoverGate={L.recoverGate} />
+        <CapabilityFeatures steps={L.steps} label="Getting the evidence in" mobileLabel="How it goes in" leadIn={L.leadIn} headingAs="h4" />
       </div>
-      <UploadExample />
-      <ReaderExample />
+      <SearchExample headingAs="h4" showIntro={false} showOverview={false} />
     </div>
   </section>
   );
@@ -60,17 +72,17 @@ export const RecordExplanation = () => {
 // way to understand the system"): Executive Analysis as a short chat, first after the overview.
 // Deep Research, the full report, now leads the bundle section it feeds.
 export const EvidenceExplanation = () => (
-    <section id="research" aria-labelledby="research-title" className="clarity-section capability-explanation research-section bg-parchment">
+    <section id="research" aria-labelledby="research-title" className="clarity-section capability-explanation research-section solution-chapter solution-surface-ivory bg-parchment">
       <div className="container capability-explanation-grid">
-        <SectionIntroduction id="research" kicker="Search and ask" h2={RESEARCH.h2} issue={RESEARCH.issue} method={RESEARCH.method} />
-        <CapabilityFeatures steps={RESEARCH.steps} label="Asking your evidence" mobileLabel="How to ask" leadIn={RESEARCH.leadIn} />
+        <SectionIntroduction id="research" h2={RESEARCH.h2} lead={RESEARCH.lead} leadGate={RESEARCH.leadGate} fail={RESEARCH.fail} recover={RESEARCH.recover} recoverGate={RESEARCH.recoverGate} />
+        <CapabilityFeatures steps={RESEARCH.steps} label="Asking your evidence" mobileLabel="How to ask" leadIn={RESEARCH.leadIn} headingAs="h4" />
       </div>
       <div className="container">
-        <AnalysisExample />
+        <AnalysisExample headingAs="h4" />
         <Gated id={CALCULATOR_GATE} block>
           <aside className="calculator-aside" aria-labelledby="evidence-calculator-title">
             <p className="eyebrow">{CALCULATOR_LINKS.research.eyebrow}</p>
-            <h3 id="evidence-calculator-title" className="calculator-aside-title">{CALCULATOR_LINKS.research.title}</h3>
+            <h4 id="evidence-calculator-title" className="calculator-aside-title">{CALCULATOR_LINKS.research.title}</h4>
             <p className="calculator-aside-text">{CALCULATOR_LINKS.research.text}</p>
             <a className="vc-link calculator-aside-link" href={CALCULATOR_LINKS.research.href}>{CALCULATOR_LINKS.research.link}</a>
           </aside>
@@ -82,49 +94,48 @@ export const EvidenceExplanation = () => (
 // Answering the other side (restored on the owner's word of 09 October 2026): the rebuttal, in place
 // at every width, after the steps.
 export const CaseExplanation = () => (
-  <section id="case-room" aria-labelledby="case-room-title" className="clarity-section capability-explanation rebuttal-section bg-parchment">
+  <section id="case-room" aria-labelledby="case-room-title" className="clarity-section capability-explanation rebuttal-section solution-chapter solution-surface-ink">
     <div className="container">
-      <div className="capability-explanation-grid">
-        <SectionIntroduction id="case-room" kicker="Rebuttal" h2={CASE_ROOM.h2} issue={CASE_ROOM.issue} method={CASE_ROOM.method} methodGate={CASE_ROOM.methodGate} />
-        <CapabilityFeatures steps={CASE_ROOM.steps} label="Answering and drafting" mobileLabel="How answering works" leadIn={CASE_ROOM.leadIn} />
+      <div className="case-room-editorial-copy relative">
+        <div className="case-room-texture" aria-hidden="true" />
+        <div className="capability-explanation-grid">
+          <SectionIntroduction id="case-room" h2={CASE_ROOM.h2} lead={CASE_ROOM.lead} leadGate={CASE_ROOM.leadGate} fail={CASE_ROOM.fail} recover={CASE_ROOM.recover} recoverGate={CASE_ROOM.recoverGate} onInk />
+          <CapabilityFeatures steps={CASE_ROOM.steps} label="Answering and drafting" mobileLabel="How answering works" leadIn={CASE_ROOM.leadIn} headingAs="h4" />
+        </div>
       </div>
-      <RebuttalExample />
+      <RebuttalExample headingAs="h4" />
     </div>
   </section>
 );
 
-// Develop the argument (the section as it stood before PR #14, restored on the owner's word of
-// 09 October 2026): a claim section drafted from its records, then a short report as exported. It
-// carries the claims anchor, which links made before still use.
+// Show drafting once, with a source for each paragraph. The bundle section demonstrates export.
 export const ArgumentExplanation = () => (
-  <section id="claims" aria-labelledby="claims-title" className="clarity-section capability-explanation bg-paper">
+  <section id="claims" aria-labelledby="claims-title" className="clarity-section capability-explanation solution-chapter solution-surface-paper bg-paper">
     <div className="container">
       <div className="capability-explanation-grid">
-        <SectionIntroduction id="claims" kicker="Claims and responses" h2={ARGUMENT.h2} issue={ARGUMENT.issue} method={ARGUMENT.method} methodGate={ARGUMENT.methodGate} />
-        <CapabilityFeatures steps={ARGUMENT.steps} label="Claims preparation" mobileLabel="Explore drafting tools" leadIn={ARGUMENT.leadIn} />
+        <SectionIntroduction id="claims" h2={ARGUMENT.h2} lead={ARGUMENT.lead} leadGate={ARGUMENT.leadGate} />
+        <CapabilityFeatures steps={ARGUMENT.steps} label="Claims preparation" mobileLabel="Explore drafting tools" leadIn={ARGUMENT.leadIn} headingAs="h4" />
       </div>
-      <DraftingExample />
-      <ExportExample />
+      <DraftingExample headingAs="h4" />
     </div>
   </section>
 );
 
 export const IntegrityExplanation = () => (
-  <section id="integrity" aria-labelledby="integrity-title" className="clarity-section capability-explanation bg-paper">
+  <section id="integrity" aria-labelledby="integrity-title" className="clarity-section capability-explanation solution-support solution-surface-paper bg-paper">
     <div className="container">
       <div className="capability-explanation-grid">
         <SectionIntroduction id="integrity" h2={INTEGRITY.h2} issue={INTEGRITY.issue} method={INTEGRITY.method} methodGate={INTEGRITY.methodGate} />
-        <CapabilityFeatures steps={INTEGRITY.steps} label="Source review and activity" mobileLabel="Explore source review" leadIn={INTEGRITY.leadIn} />
+        <CapabilityFeatures steps={INTEGRITY.steps} label="Source review and activity" mobileLabel="Explore source review" leadIn={INTEGRITY.leadIn} headingAs="h4" />
       </div>
-      <ArgumentExample />
-      <ActivityExample />
+      <ActivityExample headingAs="h4" contentHeadingAs="h5" />
       <div id="notes" role="region" className="workspace-detail capability-positioning" aria-labelledby="notes-title">
         <div>
-          <h3 id="notes-title" tabIndex={-1} className="text-[1.625rem] leading-tight">{INTEGRITY.positioning.h3}</h3>
+          <h4 id="notes-title" tabIndex={-1} className="text-[1.625rem] leading-tight">{INTEGRITY.positioning.h3}</h4>
           <p className="mt-4 max-w-measure text-body">{INTEGRITY.positioning.text}</p>
         </div>
         <div>
-          <h3 className="text-[1.625rem] leading-tight">{INTEGRITY.declaration.label}</h3>
+          <h4 className="text-[1.625rem] leading-tight">{INTEGRITY.declaration.label}</h4>
           <p className="mt-4 max-w-measure text-body">{INTEGRITY.declaration.text}</p>
         </div>
       </div>

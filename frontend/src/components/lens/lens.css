@@ -25,7 +25,7 @@
   align-items: center;
   min-height: 32px;
   padding: 7px var(--pad);
-  background: var(--vc-azure-500);
+  background: var(--vc-brass-700);
   color: #fff;
   font-size: 0.875rem;
   font-weight: 500;
@@ -37,8 +37,8 @@
 
 /* ---- The field ------------------------------------------------------------------------ */
 .lens-field {
-  --lx: 40;
-  --lens-x: 40%;
+  --lx: 0;
+  --lens-x: 0%;
   position: relative;
   aspect-ratio: 5 / 4;
   overflow: hidden;
@@ -655,4 +655,29 @@
   .lens:not([data-user]) .lens-stop[aria-current]::after { transform: scaleX(0); }
   .lens:not([data-user]) .lens-stop[data-stop='100'] { color: var(--vc-azure-700); }
   .lens:not([data-user]) .lens-stop[data-stop='100']::after { transform: none; }
+}
+
+/* Phones use readable stacked entries. Never scale the whole demonstration down. */
+@media (max-width: 639px) {
+  .lens-field { aspect-ratio: auto; height: 560px; }
+  .lens-head { display: none; }
+  .lens .row { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: 'date stamp' 'parties parties' 'excerpt excerpt'; grid-template-rows: auto auto auto; row-gap: 4px; }
+  .lens .row .row-time, .lens .row .hash { display: none; }
+  .lens .row .row-date, .lens .row .row-parties { font-size: 0.8125rem; }
+  .lens .row .row-excerpt { font-size: 0.9375rem; line-height: 20px; }
+  .lens-tray { height: 56px; padding-right: 8rem; }
+}
+/* A blocked controller or absent JavaScript still shows the complete answer. */
+html:not(.js) .lens .lens-field, .lens[data-fallback] .lens-field { --lens-x: 100%; --lx: 100; }
+html:not(.js) .lens .lens-raw, .lens[data-fallback] .lens-raw,
+html:not(.js) .lens .lens-stage-chip, .lens[data-fallback] .lens-stage-chip,
+html:not(.js) .lens .lens-narration, .lens[data-fallback] .lens-narration { display: none; }
+html:not(.js) .lens :is(.row, .stamp, .hash, .lens-cite, .lens-tray-seg),
+.lens[data-fallback] :is(.row, .stamp, .hash, .lens-cite, .lens-tray-seg) { opacity: 1; transform: none; visibility: visible; }
+@media print {
+  .lens .lens-field { --lens-x: 100% !important; --lx: 100 !important; }
+  .lens .lens-ordered { clip-path: none !important; }
+  .lens :is(.lens-raw, .lens-track, .lens-rail, .lens-narration) { display: none !important; }
+  .lens :is(.row, .stamp, .hash, .lens-cite, .lens-tray-seg) { opacity: 1 !important; transform: none !important; visibility: visible !important; }
+  .lens { break-inside: avoid; }
 }

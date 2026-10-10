@@ -8,23 +8,34 @@ export const MarketingProgress = () => {
     let observer;
     const start = () => {
       observer?.disconnect();
+      observer = undefined;
       if (!hasAnalyticsConsent() || typeof IntersectionObserver === 'undefined') return;
       const seen = new Set();
-      observer = new IntersectionObserver((entries) => {
+      const sections = new Map();
+      document.querySelectorAll('main section[id][aria-labelledby]').forEach((section) => {
+        const heading = section.getAttribute('aria-labelledby').split(/\s+/)
+          .map((id) => document.getElementById(id))
+          .find((element) => element?.matches('h1,h2,h3,h4,h5,h6') && element.closest('section[id]') === section);
+        if (heading) sections.set(heading, section.id);
+      });
+      const current = new IntersectionObserver((entries) => {
+        if (observer !== current || !hasAnalyticsConsent()) return;
         for (const entry of entries) {
-          const section = entry.target.closest('section[id]')?.id;
+          const section = sections.get(entry.target);
           if (entry.isIntersecting && section && !seen.has(section)) {
             seen.add(section);
             captureMarketingEvent('marketing_section_viewed', { section });
           }
         }
       }, { threshold: 1 });
-      document.querySelectorAll('main section[id] h1, main section[id] h2').forEach((heading) => observer.observe(heading));
+      observer = current;
+      sections.forEach((_, heading) => observer.observe(heading));
     };
     start();
     window.addEventListener('vc-consent-change', start);
     return () => {
       observer?.disconnect();
+      observer = undefined;
       window.removeEventListener('vc-consent-change', start);
     };
   }, []);

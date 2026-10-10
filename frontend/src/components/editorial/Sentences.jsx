@@ -6,9 +6,9 @@ export const Sentences = ({ text }) => {
     .replace(/([.!?])\s+(?=[A-Z])/g, '$1\n')
     .split('\n');
   if (parts.length < 2) return text;
-  return parts.map((s) => (
+  return parts.map((s, index) => (
     <span key={s} className="block">
-      {s}
+      {s}{index < parts.length - 1 ? ' ' : ''}
     </span>
   ));
 };

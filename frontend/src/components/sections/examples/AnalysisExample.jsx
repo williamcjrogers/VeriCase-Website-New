@@ -15,12 +15,12 @@ const SECOND_DELAY = FIRST_MS + 320 + 820;
 const SECOND_MS = typedMs(SECOND.question, { delay: SECOND_DELAY });
 export const ANALYSIS_DURATION = SECOND_MS + 320 + 3 * 380 + 900 + 300;
 
-export const AnalysisExample = ({ id = 'analysis-example', play: shared }) => {
+export const AnalysisExample = ({ id = 'analysis-example', play: shared, headingAs = 'h3' }) => {
   const [ref, playClass, play] = useFigurePlay(shared, { duration: ANALYSIS_DURATION });
   // The last answer's parts wait for the follow-up, measured from the first question's end.
   const later = (i) => ({ '--i': i, '--after': `${SECOND_MS - FIRST_MS + 320}ms` });
   return (
-    <AppFrame id={id} className="analysis-example" title={A.title} view={A.view} caption={A.caption} play={play} playClass={playClass} figureRef={ref} style={{ '--typed-ms': `${FIRST_MS}ms` }}>
+    <AppFrame id={id} headingAs={headingAs} className="analysis-example" title={A.title} view={A.view} caption={A.caption} play={play} playClass={playClass} figureRef={ref} style={{ '--typed-ms': `${FIRST_MS}ms` }}>
       <div className="chat-head">
         <p className="app-h">{A.mode}</p>
         <p className="app-quiet" style={{ margin: 0 }}>{A.scope}</p>

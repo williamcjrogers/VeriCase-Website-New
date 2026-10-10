@@ -48,7 +48,7 @@ export const nextStop = (x) => STOPS.find((s) => s > x + 0.5) ?? 100;
 // A user move takes 240 ms for one stop, rising to 400 ms across the whole field.
 export const moveDuration = (from, to) => Math.min(400, Math.max(240, 160 + 2.4 * Math.abs(to - from)));
 
-// The one-time glide runs 40 to 100 in 2.4 s; Play keeps that pace; Replay is 3.6 s end to end.
+// Play takes up to 3.6 seconds from the raw record to the cited chronology.
 export const playDuration = (from) => Math.min(3600, Math.max(600, (100 - from) * 40));
 
 export function mountLens(fig, { valueText }) {
@@ -193,7 +193,7 @@ export function mountLens(fig, { valueText }) {
     halt();
     setMode('pause');
     if (!reduced) {
-      startGlide(100, kind === 'auto' ? 2400 : playDuration(x), GLIDE, kind);
+      startGlide(100, playDuration(x), GLIDE, kind);
       return;
     }
     stepper = setInterval(() => {
@@ -213,7 +213,7 @@ export function mountLens(fig, { valueText }) {
   };
 
   // The one-time glide: only without reduced motion, while the page is visible, with half the
-  // figure in view and before any interaction. It waits 800 ms, then runs from 40 to 100.
+  // figure in view and before any interaction. It waits 800 ms, then runs from the rendered starting point to 100.
   const canAuto = () => !reduced && !interacted && !autoDone && inView && document.visibilityState === 'visible';
   const armAuto = () => {
     if (!canAuto()) {

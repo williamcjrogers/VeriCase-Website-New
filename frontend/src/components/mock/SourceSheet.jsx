@@ -110,12 +110,12 @@ function SourceSheet({ state, setState, onClose, invoker }) {
                 <Row k="Source path">
                   <span className="font-mono text-[0.8125rem]">{r.sourcePath}</span>
                 </Row>
-                <Row k="Hash">
-                  <Gated id="G5_hash">
+                <Gated id="G5_hash">
+                  <Row k="Hash">
                     <span className="font-mono text-[0.8125rem]">
                       SHA-256 {fullHash ? HASHES[r.id] : truncateHash(HASHES[r.id])}
                     </span>
-                  </Gated>{' '}
+                  {' '}
                   <button
                     type="button"
                     className="ml-1 text-[0.8125rem] font-medium text-azure-700 underline underline-offset-2"
@@ -124,7 +124,8 @@ function SourceSheet({ state, setState, onClose, invoker }) {
                   >
                     {fullHash ? 'Hide full hash' : 'Show full hash'}
                   </button>
-                </Row>
+                  </Row>
+                </Gated>
               </dl>
 
               <h3 className="mt-6 eyebrow">{r.kind === 'email' ? 'Authored text' : 'Text read by OCR'}</h3>
@@ -161,11 +162,12 @@ function SourceSheet({ state, setState, onClose, invoker }) {
                 className="vc-btn vc-btn-quiet"
                 onClick={() => go(-1)}
                 disabled={index <= 0}
+                aria-label="Previous citation"
               >
                 <ChevronLeft className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
-                Previous citation
+                <span>Previous<span className="hidden sm:inline"> citation</span></span>
               </button>
-              <span className="font-mono text-[0.75rem] text-graphite">
+              <span className="whitespace-nowrap font-mono text-[0.75rem] text-graphite">
                 {index + 1} of {list.length}
               </span>
               <button
@@ -173,8 +175,9 @@ function SourceSheet({ state, setState, onClose, invoker }) {
                 className="vc-btn vc-btn-quiet"
                 onClick={() => go(1)}
                 disabled={index >= list.length - 1}
+                aria-label="Next citation"
               >
-                Next citation
+                <span>Next<span className="hidden sm:inline"> citation</span></span>
                 <ChevronRight className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
               </button>
             </div>

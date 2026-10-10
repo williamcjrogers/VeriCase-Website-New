@@ -44,6 +44,8 @@ const TEXT_RULES = [
 
 // Sentences that may use a banned word because they disclaim it.
 const ALLOWED_SENTENCES = [/We do not describe VeriCase’s outputs as court-ready or admissible/];
+// Exact opening sentence approved by the owner's browser annotation on 10 October 2026.
+const APPROVED_TRUTH_SENTENCE = 'We don’t just manage documents; we connect the records to reconstruct the truth.';
 
 // Terms that must not appear in the fictional sample matter (they belong to other forms).
 const SAMPLE_RULES = [{ name: 'term from another contract form', pattern: /compensation event|\bEngineer\b|SI-017/g }];
@@ -102,6 +104,7 @@ const applyRules = (where, text, rules) => {
       const start = Math.max(0, text.lastIndexOf('.', m.index) + 1);
       const end = text.indexOf('.', m.index);
       const sentence = text.slice(start, end < 0 ? undefined : end + 1);
+      if (rule.name === 'truth guarantee' && sentence.trim() === APPROVED_TRUTH_SENTENCE) continue;
       if (!(rule.name === 'admissibility claim' && ALLOWED_SENTENCES.some((a) => a.test(sentence)))) fail(where, `${rule.name}: "${m[0]}"`);
     }
   }

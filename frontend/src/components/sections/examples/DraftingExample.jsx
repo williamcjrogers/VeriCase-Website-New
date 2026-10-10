@@ -9,10 +9,10 @@ import { AppButton, AppFrame } from './AppFrame';
 const TYPED_MS = typedMs(D.section);
 export const DRAFTING_DURATION = TYPED_MS + 320 + D.paragraphs.length * 380 + 420 + 300;
 
-export const DraftingExample = ({ id = 'drafting-example', play: shared }) => {
+export const DraftingExample = ({ id = 'drafting-example', play: shared, headingAs = 'h3' }) => {
   const [ref, playClass, play] = useFigurePlay(shared, { duration: DRAFTING_DURATION });
   return (
-    <AppFrame id={id} className="drafting-example" title={D.title} view={D.view} caption={D.caption} play={play} playClass={playClass} figureRef={ref} style={{ '--typed-ms': `${TYPED_MS}ms` }}>
+    <AppFrame id={id} headingAs={headingAs} className="drafting-example" title={D.title} view={D.view} caption={D.caption} play={play} playClass={playClass} figureRef={ref} style={{ '--typed-ms': `${TYPED_MS}ms` }}>
       <p className="app-quiet drafting-doc">{D.documentTitle}</p>
       <div className="drafting-sheet app-card">
         <span className="sr-only">{D.sectionLabel}: </span>

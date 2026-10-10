@@ -11,15 +11,21 @@ export const CTA_LABEL = 'Request a demonstration';
 export const CTA_MICROCOPY = 'Opens an email to enquiries@veri-case.com. Please do not include confidential details of a live matter.';
 export const CTA_MICROCOPY_SHORT = 'Opens an email. Please do not include confidential details of a live matter.';
 
-// Chapters, in page order. Used by the Contents sheet, the footer and the 404 page.
+// One registry owns the solution chapter order, margin labels and overview links.
+export const SOLUTION_CHAPTERS = [
+  { id: 'chronology-lens', numeral: 'I', label: 'The Chronology Lens™', indexTitle: 'Bring the records together', nav: 'Chronology Lens' },
+  { id: 'research', numeral: 'II', label: 'Ask your evidence', indexTitle: 'Ask a question', nav: 'Ask' },
+  { id: 'worked-example', numeral: 'III', label: 'Reports and bundles', indexTitle: 'Build the bundle', nav: 'Bundles' },
+  { id: 'case-room', numeral: 'IV', label: 'The case room', indexTitle: 'Test an account', nav: 'Rebuttal' },
+  { id: 'claims', numeral: 'V', label: 'Develop the argument', indexTitle: 'Develop the argument', nav: 'Develop the argument' },
+  { id: 'collaboration', numeral: 'VI', label: 'Work together', indexTitle: 'Work together', nav: 'Collaboration' },
+];
+
+// Compatible metadata for older editorial sections and auxiliary navigation.
 export const CHAPTERS = [
   { id: 'top', numeral: '', title: 'Records, records, records.', sheetLabel: 'Cover', nav: null },
   { id: 'clock', numeral: 'I', title: 'The clock', nav: 'The clock' },
-  { id: 'chronology-lens', numeral: 'II', title: 'The Chronology Lens™', nav: 'Chronology Lens' },
-  { id: 'research', numeral: 'III', title: 'Just ask', nav: 'Ask' },
-  { id: 'worked-example', numeral: 'IV', title: 'A report, then the bundle', nav: 'Bundles' },
-  { id: 'case-room', numeral: 'V', title: 'Test the other side’s account', nav: 'Rebuttal' },
-  { id: 'claims', numeral: 'VI', title: 'Develop the argument', nav: 'Develop the argument' },
+  ...SOLUTION_CHAPTERS.map(({ id, numeral, label, nav }) => ({ id, numeral, title: label, nav })),
   { id: 'integrity', numeral: 'VII', title: 'The record holds', nav: 'Integrity' },
 ];
 export const HOME_NAV = [
@@ -49,20 +55,19 @@ export const HEADER = {
 };
 
 export const COVER = {
-  // The motto beside the heading (owner, 06 October 2026): "Records," and "records," then, where a
-  // third "records" is expected, "VeriCase.", with the line typed patiently beneath it. It adapts
+  // The motto reveals "Records," and "records," then, where a third "records" is expected,
+  // "VeriCase.", followed by the tagline in the same horizontal banner. It adapts
   // Abrahamson's three lessons, whose wording and source are checked in
   // docs/source-check-2026-09-25.md (item 10).
   motto: {
-    // Set in italic within quotation marks (owner, 06 October 2026). Both words of the first
-    // line are capitalised and stay on one line (owner, 10 October 2026).
+    // Set in italic within quotation marks; all lettering shares one size (owner, 10 October 2026).
     open: '“',
-    words: ['Records,', 'Records,'],
+    words: ['Records,', 'records,'],
     brand: 'VeriCase.',
     close: '”',
-    // Typed in two lines (owner, 06 October 2026; restored 10 October 2026).
-    lines: ['Making Time Your Ally.', 'Not Your Enemy.'],
-    whole: '“Records, Records, VeriCase.” Making Time Your Ally. Not Your Enemy.',
+    // Two reveal steps in one continuous sentence, not separate display lines.
+    lines: ['Making Time Your Ally,', 'Not Your Enemy.'],
+    whole: '“Records, records, VeriCase.” - Making Time Your Ally, Not Your Enemy.',
     attribution: 'Adapted from Max W. Abrahamson.',
     // The card's bar, and two illustrative notes floating beside it, as in the owner's reference.
     label: 'Records first',
@@ -76,16 +81,13 @@ export const COVER = {
   // any client, with search and quick questions to the evidence as the focal point.
   // The owner, 09 October 2026: "The Dispute Intelligence Platform was better."
   eyebrow: "The Dispute Intelligence Platform",
-  // The reference headline the owner preferred (09 October 2026: "transforming compelling
-  // arguments ... was better"), without "legal", so that it still speaks to any client.
-  h1: "Transform complex evidence into compelling arguments.",
-  h1Lead: "Transform complex evidence into",
-  h1Emphasis: "compelling arguments.",
-  // Search and quick questions stay the focal point (owner, 09 October 2026). Rewritten the same
-  // evening after the owner found the first version "so basic": it opens on the reader's problem
-  // (the facts are there, but buried), then the answer, then where it leads.
-  lead: "The facts that win a dispute are already in your records, buried in years of emails and attachments. Ask VeriCase in plain English and get the answer with its source, ready for the report, the bundle or the claim.",
-  heroSecondary: { label: 'See it answer a question', section: 'research' },
+  // Approved editorial opening, 10 October 2026. Features follow in the six chapters.
+  h1: "When the story changes, the records matter.",
+  h1Lead: "When the story changes,",
+  h1Emphasis: "the records matter.",
+  lead: "Bring scattered emails and documents into focus with Chronology Lens™. Follow the correspondence, ask questions of the record and prepare a report, claim or response with the evidence beside you.",
+  outcome: "Know what happened. Show why it matters.",
+  heroSecondary: { label: 'Explore Chronology Lens', section: 'chronology-lens' },
   practitionerProof: "Founded by construction claims and dispute resolution practitioners.",
   audience: "For contractors, subcontractors and commercial teams, and the consultants and advisers they work with.",
   fastPath: "Explore how it works",
@@ -102,7 +104,7 @@ export const COVER = {
     number: 1,
     bar: 'The Chronology Lens™ · Sample matter (fictional)',
     caption:
-      'Fig. 1. The Chronology Lens™, illustrated with the sample matter. Names, message IDs and exhibit references are fictional. See note A.',
+      'The Chronology Lens™ in action. Drag the lens or choose a stage. This is a fictional illustration; names, message IDs and exhibit references are invented.',
     summaryDesktop:
       'Illustration: nine items of fictional correspondence and records are threaded, stripped of quoted history and, where they are a near-duplicate, an automatic reply or another project’s email, set aside. Six remain and take their places in date order, each with a citation to its source.',
     summaryMobile:
@@ -227,39 +229,30 @@ export const CLOCK = {
 export const LENS_CHAPTER = {
   numeral: 'II',
   eyebrow: 'Chapter II · The Chronology Lens™',
-  h2: "Get it all in.",
+  h2: "Many threads. One order of events.",
+  lead: "Bring emails, attachments and project documents into one searchable record. Read the correspondence in date order, with each entry linked to its source.",
+  fail: "An instruction sits in an email. The qualification is in its attachment. A later reply changes the picture.",
+  recover: "Search emails and attachments together. See matching passages in date order, then open the records behind them.",
   // The section reads as a journey: the issue (the problem, in the reader's world), the method
   // (what VeriCase does), the steps on the thread, and the line that introduces the example.
-  issue: "The evidence is spread across mailboxes, attachments, drawings, spreadsheets and site photos, kept by different people.",
-  method: "Upload it to one project in VeriCase. It is read, sorted and made searchable, so anyone on the team can find what they need.",
+  issue: "Don't fret the gigabytes. Where others see data graveyards. We see evidence gold mines.",
+  method: "Bring the records into one searchable project, with the correspondence in date order.",
   steps: [
     {
-      "title": "Upload everything",
-      "text": "Mailboxes, individual emails and their attachments, PDFs, Word documents, spreadsheets and images. Scanned pages are read so that they can be searched too."
+      "title": "Bring the files together",
+      "text": "Upload mailboxes, emails, attachments, documents, spreadsheets and images. Text recognition makes scanned pages searchable."
     },
     {
-      "title": "Follow the correspondence",
-      "text": "Threading and quoted-text handling help you tell a new reply from the history beneath it.",
+      "title": "Read each reply",
+      "text": "Threading and quoted-text handling separate new replies from the history beneath them.",
       "gate": "G5_quoted"
     },
     {
-      "title": "Cut the noise",
-      "text": "Repeated messages are set aside in the working view, and you can check what was set aside."
-    },
-    {
-      "title": "Find it fast",
-      "text": "Search the text of every email and attachment, in date order, and narrow it by dates and keywords."
-    },
-    {
-      "title": "Read each date for what it is",
-      "text": "Compare the dates and the records behind them, so that a forecast is not taken for an instruction or a confirmation."
-    },
-    {
-      "title": "Take the key records forward",
-      "text": "Select the records the case will rely on, and keep them with the issue they concern."
+      "title": "Review in context",
+      "text": "Filter by dates and keywords, check what was set aside, and distinguish forecasts from instructions and confirmations."
     }
   ],
-  leadIn: "Watch a site manager’s mailbox go in and come out ready to search, then a document read beside its file record.",
+  leadIn: '',
   plate: {
     number: 2,
     caption: 'Plate 2. The record as it is often kept. Illustrative image (computer-generated). See note B.',
@@ -282,35 +275,31 @@ export const LENS_CHAPTER = {
 export const RESEARCH = {
   numeral: 'IV',
   eyebrow: 'Chapter IV · Research',
-  h2: "Ask your evidence.",
-  issue: "You need one answer from thousands of emails. When did the client first ask for it? Did anyone confirm it? Who said what, and when?",
+  h2: "Ask a question. Read a cited answer.",
+  lead: "Ask a focused question in plain English. Executive Analysis answers from the evidence and lets you follow up as new points emerge.",
+  leadGate: 'G5_research',
+  fail: "A summary reaches you without its sources. Before you can rely on it, the checking starts again.",
+  recover: "Read the answer alongside its supporting records. Follow the citations and check what the material establishes.",
+  recoverGate: 'G5_research',
+  issue: "When did the client first ask for it? Who confirmed it?",
   // Executive Analysis (owner, 06 October 2026): questions and answers back and forth, each answer
   // with its sources and a confidence score. A focal point with search (owner, 09 October 2026).
   // No claim of completeness or accuracy.
-  method: "Type a question in Executive Analysis, the way you would ask a colleague. VeriCase answers from your evidence, with its sources and a confidence score, and you can follow up straight away.",
+  method: "Ask in plain English. VeriCase answers from your evidence, with sources and a confidence score.",
   steps: [
     {
-      title: 'Ask in plain English',
-      text: 'No search terms to work out. Ask the question the way you would say it.',
+      title: 'Follow the question',
+      text: 'Ask follow-up questions as new points emerge.',
       gate: 'G5_research',
     },
     {
-      title: 'Follow up',
-      text: 'Ask the next question, and the next, as you would with a colleague.',
+      title: 'Check the evidence',
+      text: 'Open the cited records, keep the relevant material and note what was not found.',
       gate: 'G5_research',
-    },
-    {
-      title: 'Check the source',
-      text: 'Each answer lists its supporting evidence and a confidence score. Open the sources and read them yourself.',
-      gate: 'G5_research',
-    },
-    {
-      title: 'Note the gaps',
-      text: 'Keep the records you need, and note what was not found.',
       note: 'Answers depend on the material in scope; they are not a complete account of events.',
     },
   ],
-  leadIn: 'Watch two quick questions about early access to the nursery, answered from the evidence.',
+  leadIn: '',
   fig: {
     number: 4,
     summary:
@@ -326,30 +315,22 @@ export const CLAIMS = {
   // Deep Research and bundles (owner, 06 and 09 October 2026): a full report on one question, and
   // Create bundle on it builds the bundle from the evidence it cites, the report on top; the PDF has
   // a cover sheet, an index and page numbers, and the report inside it.
-  h2: "A full report, then the bundle.",
-  issue: "Some questions need more than a quick answer. And the deadline still needs a bundle: every email found, put in order, numbered and indexed.",
-  method: "Deep Research works through one question and writes a report with its sources. Create a bundle from it in one step: the report on top, every item it cites in order, a cover page and an index, ready to download.",
+  h2: "A report. Its evidence. One bundle.",
+  lead: "Deep Research produces a report with its sources. Create a bundle containing the report and cited records, with a cover, index and page numbers.",
+  leadGate: 'G5_research',
+  issue: "The report is ready. Its supporting evidence needs to be ready too.",
+  method: "Deep Research produces a report with its sources. Create a bundle containing the report and cited records, with a cover, index and page numbers.",
   steps: [
     {
-      "title": "Ask for a full report",
-      "text": "Deep Research works through the question and reports, with an executive summary and the sources it cites, ready to download as a PDF.",
-      "gate": "G5_research"
-    },
-    {
-      "title": "Create the bundle",
-      "text": "Create bundle on the report gathers the evidence it cites, with the report itself on top.",
-      "gate": "G5_research"
-    },
-    {
       "title": "Set the order",
-      "text": "Drag items or use the arrows to change the order. The cover page always stays first."
+      "text": "Arrange the evidence around the report. The cover page stays first."
     },
     {
-      "title": "Download it",
-      "text": "Fill in the cover page, choose how the pages are numbered, and download the PDF with its index."
+      "title": "Prepare the PDF",
+      "text": "Complete the cover, choose the numbering and download the indexed bundle."
     }
   ],
-  leadIn: "Watch a report on a notice of delay, then the bundle built from it, as it downloads.",
+  leadIn: '',
   fig: {
     caption: 'Fig. 5. The claims builder, illustrated with the sample matter. See note A.',
     summary:
@@ -365,49 +346,49 @@ export const CLAIMS = {
 // restored on the owner's word of 09 October 2026. Drafting a claim or response from its records
 // (product source E5, gate G5_claims), then a short report as exported.
 export const ARGUMENT = {
-  h2: "Develop the argument.",
-  issue: "The narrative is drafted in one file and the evidence kept in another. By the fifth draft, which document does paragraph 5.2 rely on?",
-  method: "Write the claim or response in VeriCase, with the records each paragraph relies on in the same workspace as the wording.",
+  h2: "Develop the argument. Keep the evidence beside it.",
+  lead: "Structure your claim or response in sections. Draft with the relevant records beside the wording, including material that challenges your position.",
+  leadGate: 'G5_claims',
+  issue: "By the fifth draft, which record supports paragraph 5.2?",
+  method: "Develop the claim or response with its supporting evidence beside the wording.",
   methodGate: 'G5_claims',
   steps: [
     {
-      "title": "Structure the argument",
-      "text": "Set out the points you need to establish, with a section for each."
+      "title": "Build each point",
+      "text": "Structure the argument and find the relevant records, including material that challenges your position."
     },
     {
-      "title": "Find the evidence",
-      "text": "Search the record for the section you are drafting, including material that tells against your position."
-    },
-    {
-      "title": "Cite the record",
-      "text": "Use source references to check each factual point against the record it rests on."
-    },
-    {
-      "title": "Finalise the draft",
-      "text": "Go through it with its source references, add any qualification it needs, then export it to Word or PDF, or share it."
+      "title": "Review and finalise",
+      "text": "Check the references, add necessary qualifications and export the draft to Word or PDF."
     }
   ],
-  leadIn: "Watch section 5 take shape beside its records, then see a short report as exported.",
+  leadIn: '',
 };
 
-// The collaboration section (owner, 06 October 2026; revised 09 October 2026 to the application as
-// seen that day): a discussion on a single record, opened by mentioning someone on it, people from
-// different organisations, tags, and the history kept with the record. Lanes were not seen in the
-// application on 09 October 2026 and are no longer shown (owner's decision). Nothing here
-// claims privilege protection, court-rule compliance, legal hold, audit trails or notifications.
+// Collaboration keeps discussion, tags, mentions and history alongside each record. The approved
+// editorial homepage, 10 October 2026, retains the lanes example and its existing visibility gate.
 export const COLLABORATION = {
+  costExample: {
+    title: 'One round of discussion adds up.',
+    figures: [
+      { value: '6', label: 'people involved' },
+      { value: '40 min', label: 'combined professional time' },
+      { value: '£153', label: 'cost per discussion round' },
+    ],
+    // Rounded from £152.655. The six-person model and rate bases are already published in note 3.
+    basis: 'Illustrative professional-time cost, not a measured saving.',
+    sourceLabel: 'See the rates and assumptions',
+    linkLabel: 'Adjust the example to your team',
+  },
   h2: 'Keep the discussion with the evidence.',
-  issue: 'An email is forwarded to the commercial manager, then the consultant, then the expert, and the replies split into separate chains. Before long, no single inbox holds the whole conversation.',
-  method: 'In VeriCase the conversation happens on the email or document itself, and the people who need it join there, each from their own organisation.',
+  lead: 'Discuss the email or document where it sits. Bring your team, consultants and advisers into the conversation, with the history kept alongside the record.',
+  leadGate: 'G5_collab',
+  issue: 'Forward the same email to five people and the discussion soon splits into separate chains.',
+  method: 'Discuss the record where it sits, with your team and advisers working from the same material.',
   steps: [
     {
-      title: 'Mention a colleague',
-      text: 'Mention someone on an email or document and a discussion opens with them, on that record.',
-      gate: 'G5_collab',
-    },
-    {
-      title: 'Bring in the people who need it',
-      text: 'Consultants, experts and advisers can join from their own organisations, with access agreed for each project. Nothing needs attaching or forwarding.',
+      title: 'Bring people into the discussion',
+      text: 'Mention a colleague on a record. Consultants, experts and advisers can join from their own organisations, with access agreed for the project.',
       gate: 'G5_collab',
     },
     {
@@ -416,16 +397,12 @@ export const COLLABORATION = {
       gate: 'G14_laneAccess',
     },
     {
-      title: 'Tag what matters',
-      text: 'Tag evidence as you go, so that the team can find it again by issue.',
-    },
-    {
-      title: 'Come back to it later',
-      text: 'The discussion stays with the record, so nothing has to be pieced together from old email.',
+      title: 'Return to the context',
+      text: 'Tag records by issue and return to the discussion alongside the evidence.',
       gate: 'G5_collab',
     },
   ],
-  leadIn: 'Watch an email tagged and discussed, then the same email discussed in separate lanes.',
+  leadIn: '',
   // What the email relay costs. The second and third figures come from a model (notes 2 and 3, the
   // rates verified by the owner on 06 October 2026) and are labelled as modelled on the page.
   statsName: 'What discussion by email costs',
@@ -443,25 +420,26 @@ export const CASE_ROOM = {
   // The section as it stood before PR #14, restored on the owner's word of 09 October 2026: answering
   // the other side point by point (product source E4, gate G5_rebuttalReview), every reply for the
   // team to review. Drafting has its own section again (ARGUMENT).
-  h2: "Test the other side’s account.",
-  issue: "The other side’s claim or response describes an event one way; your team remembers it another. Before you respond, you need to know which account the documents bear out.",
-  method: "Answer it in VeriCase from the record, with proposed replies for your team to review.",
+  h2: "Their points, numbered. Your replies, cited.",
+  lead: "Examine the other side’s account point by point. Bring supporting and conflicting records alongside each assertion, with proposed replies for your team to review.",
+  leadGate: 'G5_rebuttalReview',
+  fail: "Under time pressure, the easiest points to answer can take attention from the assertions that need further investigation.",
+  recover: "Consider the evidence beside each point. Review the proposed reply, its references and any gaps before developing your response.",
+  recoverGate: 'G5_rebuttalReview',
+  issue: "Their account differs from yours. What do the records support?",
+  method: "Examine each point alongside the evidence and a proposed reply for your team to review.",
   methodGate: 'G5_rebuttalReview',
   steps: [
     {
-      "title": "Take their document point by point",
-      "text": "Add the other side’s claim or response and set out the points it makes."
+      "title": "Test each assertion",
+      "text": "Set supporting and conflicting records beside each point. Identify what still needs investigation."
     },
     {
-      "title": "Test the assertions",
-      "text": "Set records that support or challenge each point beside it, and see where the account holds, where it is challenged and what needs further investigation before you respond."
-    },
-    {
-      "title": "Prepare the reply",
-      "text": "Accept or edit the proposed replies, with the records they rely on, before anything is sent."
+      "title": "Prepare the response",
+      "text": "Review and edit the proposed replies with their sources before anything is sent."
     }
   ],
-  leadIn: "Watch a point from the other side’s response meet the records.",
+  leadIn: '',
   plate: {
     number: 3,
     caption: 'Plate 3. A meeting room with the bundles, on a wet evening. Illustrative image and video (computer-generated). See note B.',
@@ -484,36 +462,28 @@ export const CASE_ROOM = {
 
 export const INTEGRITY = {
   numeral: 'VI',
-  h2: "Keep the source in sight.",
-  issue: "An extract can read differently once the whole document is in front of you.",
-  method: "Before you rely on an answer, a paragraph or a reply, read it against the document it cites: its wording, its date and its context.",
+  h2: "Review the sources. Trace the work.",
+  issue: "An extract can read differently in the full document.",
+  method: "Check the wording, date and context before relying on it. The Activity Log also shows who uploaded, tagged and discussed the evidence, or changed access, and when.",
   methodGate: 'G5_sourceReview',
   steps: [
     {
-      "title": "Open the source",
-      "text": "Go from the reference to the document it points to."
+      "title": "Read in context",
+      "text": "Open the source and check the surrounding text and any qualifications."
     },
     {
-      "title": "Read the whole document",
-      "text": "See the extract in place, with what comes before and after it and any qualification it carries."
-    },
-    {
-      "title": "Choose the output",
-      "text": "A report, a selection of evidence and a bundle serve different purposes; know what yours contains before it goes out."
-    },
-    {
-      "title": "See who did what",
-      "text": "The Activity Log records every upload, tag, message and access change in a project, with who made it and when."
+      "title": "Check the final output",
+      "text": "Review what the report or bundle contains before it goes out."
     }
   ],
-  leadIn: "Watch the points of an argument marked, one by one, with the records behind them, then see a project’s Activity Log.",
+  leadIn: '',
   declaration: {
     label: 'Your judgement. Supported by the record.',
     text: 'Findings and drafts require professional review. Your team assesses the evidence, develops the argument and approves the final work.',
   },
   positioning: {
     h3: 'Work alongside your existing systems.',
-    text: 'Use VeriCase to investigate the project record and develop the case, alongside your existing document and disclosure systems. Your team decides which material to take forward into each stage of the matter.',
+    text: 'Use VeriCase alongside your existing document and disclosure systems. Your team decides which records to take forward.',
     stages: [
       'The project record: mailboxes, archives, site diaries, drawings and reports',
       'VeriCase: evidence, search, research, bundles and discussion',
@@ -545,7 +515,6 @@ export const LESSONS = {
   ],
   emphasis: '[Emphasis added]',
   close: [
-    'Those words have been in print for half a century, yet the industry has still to learn the three lessons.',
     'They are the very grounds on which VeriCase was built.',
   ],
 };
@@ -572,40 +541,9 @@ export const DIFFERENCE = {
 
 export const IN_BRIEF = {
   // Each job links to the section that explains it.
-  jobs: [
-    {
-      "title": "Search everything.",
-      "text": "Bring every email and document together, find anything by what it says, and follow events in date order.",
-      "section": "chronology-lens"
-    },
-    {
-      "title": "Just ask.",
-      "text": "Ask your evidence a question and get an answer with its sources.",
-      "section": "research"
-    },
-    {
-      "title": "Build the bundle.",
-      "text": "Turn a report into a bundle with a cover page, an index and page numbers.",
-      "section": "worked-example"
-    },
-    {
-      "title": "Test the competing accounts.",
-      "text": "See the records that support a position and those that challenge it, with references back to the sources.",
-      "section": "case-room"
-    },
-    {
-      "title": "Develop the argument.",
-      "text": "Draft the claim or response with the evidence alongside the wording, each point cited to its record.",
-      "section": "claims"
-    },
-    {
-      "title": "Work on it together.",
-      "text": "Discuss an email or document with your team and advisers, on the record itself.",
-      "section": "collaboration"
-    }
-  ],
+  jobs: SOLUTION_CHAPTERS.map(({ id, indexTitle }) => ({ section: id, title: indexTitle, text: '' })),
   eyebrow: 'In brief',
-  h2: 'From evidence to answers.',
+  h2: 'The VeriCase Solution',
   sub: "Your project records in one place, ready to search, question, discuss and bundle.",
   ledger: [
     {
@@ -649,12 +587,17 @@ export const IN_BRIEF = {
     gate: 'G4_benchmarks',
     text: 'In benchmark testing, VeriCase processed more than 50,000 documents per hour[[note:9]] and extracted dates with 99.7% accuracy.[[note:10]] The notes describe how each figure was measured, so that you can judge them for yourself.',
   },
-  // Set as the collaboration section's closing statement, in two lines: who uses VeriCase, then
-  // who they work with (revised 09 October 2026 to be market-agnostic, at the owner's request).
+  // Audience presentation follows the owner's three-group reference.
   audience: {
-    label: 'Who it is for',
-    lead: 'For contractors, subcontractors and commercial teams,',
-    rest: 'and the consultants, experts and advisers they work with.',
+    label: 'Who we serve',
+    title: 'Accessible for',
+    emphasis: 'every dispute',
+    introduction: 'For the people building the case and the people running the job.',
+    groups: [
+      { title: 'Law firms & arbitrators', text: 'Test competing accounts against the record. Find the documents that support or contradict a position, with the sources ready to review.' },
+      { title: 'Claims consultants & experts', text: 'Build the factual chronology, uncover pivotal details and connect each point of your analysis to its supporting evidence.' },
+      { title: 'Contractors & in-house counsel', text: 'Understand what the record shows while the project is live. Keep instructions, correspondence and the developing claim connected.' },
+    ],
   },
   questionsLabel: 'Questions',
   questions: [
@@ -663,20 +606,8 @@ export const IN_BRIEF = {
       "a": "VeriCase is for working with the project record: searching it, asking it questions, discussing it and building bundles. It works alongside your existing document systems."
     },
     {
-      "q": "Do we need to learn how to search?",
-      "a": "No. Search by the words in the email or attachment, or ask a question in plain English and follow up on the answer."
-    },
-    {
       "q": "What can we work with?",
       "a": "Mailboxes (PST), individual emails (EML and MSG), PDFs, Word documents, spreadsheets and images. Text recognition helps make scanned pages searchable. We can discuss your record types and preparation needs during a demonstration."
-    },
-    {
-      "q": "Can VeriCase build the bundle?",
-      "a": "Yes. Create a bundle from a Deep Research report: the report goes on top, followed by the evidence it cites, with a cover page, an index and page numbers. Change the order if you need to, then download it as a PDF."
-    },
-    {
-      "q": "Can VeriCase help draft a claim or response?",
-      "a": "Yes. Use drafting tools to develop the wording and identify supporting material, with the evidence alongside the argument. Your team revises the work and approves the final document before it is issued."
     },
     {
       "q": "Will the output be accepted by the tribunal?",
@@ -685,10 +616,6 @@ export const IN_BRIEF = {
     {
       "q": "Can we rely on what VeriCase finds?",
       "a": "Every answer shows its sources, so you can read them yourself. Review the records and the final document with the people responsible for the matter."
-    },
-    {
-      "q": "How can our team work together?",
-      "a": "Discuss each record where it sits. Your team, consultants, experts and advisers can join from their own organisations, and mentioning someone on a record opens a discussion with them there. Lanes keep separate conversations about the same record apart. We can go through the access arrangements in the demonstration."
     },
     {
       "q": "How will you handle our project and client material?",

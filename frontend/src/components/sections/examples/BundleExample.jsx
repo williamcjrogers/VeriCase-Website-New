@@ -11,12 +11,12 @@ import { AppButton, AppFrame, Badge } from './AppFrame';
 const PARTS = B.items.length + 3;
 export const BUNDLE_DURATION = 320 + (PARTS - 1) * 300 + 420 + 300;
 
-export const BundleExample = ({ id = 'bundle-example', play: shared }) => {
+export const BundleExample = ({ id = 'bundle-example', play: shared, headingAs = 'h3', contentHeadingAs: ContentHeading = 'h4' }) => {
   const [ref, playClass, play] = useFigurePlay(shared, { duration: BUNDLE_DURATION });
   return (
-    <AppFrame id={id} className="bundle-example" title={B.title} view={B.view} caption={B.caption} play={play} playClass={playClass} figureRef={ref} style={{ '--step': '300ms' }}>
+    <AppFrame id={id} headingAs={headingAs} className="bundle-example" title={B.title} view={B.view} caption={B.caption} play={play} playClass={playClass} figureRef={ref} style={{ '--step': '300ms' }}>
       <div className="bundle-head">
-        <h4 className="app-h">{B.bundleTitle}</h4>
+        <ContentHeading className="app-h">{B.bundleTitle}</ContentHeading>
         <Badge tone="azure">{B.source}</Badge>
         <AppButton icon={Download} primary>Download</AppButton>
       </div>
@@ -85,6 +85,10 @@ export const BundleExample = ({ id = 'bundle-example', play: shared }) => {
             <span className="bundle-page-kicker">{B.pdfItem.kicker}</span>
             <span className="bundle-page-title">{B.pdfItem.title}</span>
             <dl>{B.pdfItem.fields.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
+            <div className="bundle-report-summary">
+              <strong>{B.pdfItem.summaryHeading}</strong>
+              <p>{B.pdfItem.summary}</p>
+            </div>
             <span className="bundle-page-n">{B.pdfItem.page}</span>
           </li>
         </ol>

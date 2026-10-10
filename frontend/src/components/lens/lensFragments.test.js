@@ -59,9 +59,9 @@ describe('Fig. 1 chronology', () => {
     ROWS.forEach((r) => expect(r.t).toBe(t[r.ev]));
   });
 
-  it('shows rows 1 to 4 processed in the prerendered mid state', () => {
-    expect(stageOf(INITIAL_X)).toBe(2);
-    expect(ROWS.filter((r) => r.t <= INITIAL_X).map((r) => r.n)).toEqual([1, 2, 3, 4]);
+  it('starts with the raw record before any item has been processed', () => {
+    expect(stageOf(INITIAL_X)).toBe(0);
+    expect(ROWS.filter((r) => r.t <= INITIAL_X)).toEqual([]);
   });
 
   it('states the counts of each cast in its footer and tray', () => {

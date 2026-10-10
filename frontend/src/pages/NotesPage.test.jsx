@@ -5,6 +5,7 @@ import { NotesPage } from './NotesPage';
 import { LandingPage } from './LandingPage';
 import { NOTES_PAGE } from '@/content/home';
 import { noteByNumber } from '@/content/notes';
+import { RESEARCH_SOURCES } from '@/content/researchSources';
 
 // The notes have a page of their own: every note cited on the home page is there in full, each
 // marker on the home page points to it, and each note links back to the section citing it.
@@ -41,20 +42,25 @@ it('sets out each note in full, with its way back to the text', async () => {
   }
 });
 
-it('takes the notes off the home page, and points every marker there', async () => {
+it('retains numbered research round trips and the collaboration note beside the separate audience', async () => {
   await render(<LandingPage />, '/');
   expect(container.querySelector('[id^="note-"]')).toBeNull();
-  const markers = [...container.querySelectorAll('[data-note-ref]')];
-  expect(markers.length).toBeGreaterThan(0);
-  const listed = NOTES_PAGE.groups.flatMap((g) => g.notes);
-  for (const marker of markers) {
-    const n = Number(marker.getAttribute('data-note-ref'));
-    expect(marker.getAttribute('href')).toBe(`/notes#note-${n}`);
-    expect(listed).toContain(n);
+  const markers = [...container.querySelectorAll('.record-context-source[role="doc-noteref"]')];
+  expect(markers).toHaveLength(RESEARCH_SOURCES.length);
+  for (const source of RESEARCH_SOURCES) {
+    const marker = container.querySelector(`#research-ref-${source.number}`);
+    const reference = container.querySelector(`#research-source-${source.number}`);
+    expect(marker.getAttribute('href')).toBe(`#research-source-${source.number}`);
+    expect(reference.querySelector('a').getAttribute('href')).toBe(source.url);
+    expect(reference.querySelector('[role="doc-backlink"]').getAttribute('href')).toBe(`#research-ref-${source.number}`);
   }
-  // Who it is for closes the collaboration section, after its illustrations.
-  const audience = container.querySelector('#collaboration .collaboration-audience');
+  expect(container.querySelector('#collaboration .discussion-cost-links a[href="/notes#note-3"]')).not.toBeNull();
+  expect(NOTES_PAGE.groups.flatMap((group) => group.notes)).toContain(3);
+  // The audience follows the entire solution, with its own semantic section.
+  const platform = container.querySelector('#platform');
+  const audience = container.querySelector('.collaboration-audience-section');
   expect(audience).not.toBeNull();
-  expect(audience.previousElementSibling.matches('figure, .live-figure')).toBe(true);
-  expect(audience.nextElementSibling).toBeNull();
+  expect(platform.querySelector('.collaboration-audience')).toBeNull();
+  expect(audience.previousElementSibling).toBe(platform);
+  expect(audience.querySelector('#collaboration-audience-title').tagName).toBe('H2');
 });

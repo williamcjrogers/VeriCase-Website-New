@@ -8,10 +8,10 @@ import { AppFrame } from './AppFrame';
 // settling 420 later, and the note follows; the duration adds 300.
 export const LANES_DURATION = 320 + L.lanes.length * 380 + 420 + 300;
 
-export const LanesExample = ({ id = 'lanes-example', play: shared }) => {
+export const LanesExample = ({ id = 'lanes-example', play: shared, headingAs = 'h3' }) => {
   const [ref, playClass, play] = useFigurePlay(shared, { duration: LANES_DURATION });
   return (
-    <AppFrame id={id} className="lanes-example" title={L.title} view={L.view} caption={L.caption} play={play} playClass={playClass} figureRef={ref}>
+    <AppFrame id={id} headingAs={headingAs} className="lanes-example" title={L.title} view={L.view} caption={L.caption} play={play} playClass={playClass} figureRef={ref}>
       <p className="lanes-record app-card">
         <span className="app-icon-tile"><Mail aria-hidden="true" /></span>
         <span className="lanes-record-subject">{L.record.subject}</span>

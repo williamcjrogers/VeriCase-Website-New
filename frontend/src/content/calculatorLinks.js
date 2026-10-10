@@ -8,7 +8,7 @@ export const CALCULATOR_LINKS = {
   research: {
     eyebrow: 'Cost calculator',
     title: 'What does the evidence cost your team?',
-    text: 'Price the hours your counsel, solicitors, experts and project team spend discussing, finding, reading and bundling the evidence on a matter, with the basis of every rate and reduction shown.',
+    text: 'Estimate the professional time spent finding, reading, discussing and bundling evidence. Every rate and reduction shows its basis.',
     link: 'Open the evidence cost calculator',
     href: '/evidence-cost',
   },

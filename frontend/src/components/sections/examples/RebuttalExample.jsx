@@ -10,10 +10,10 @@ const ACTION_ICONS = [Check, Pencil];
 // the reply take a turn of 420, the last settling 420 later; the duration adds 300.
 export const REBUTTAL_DURATION = 320 + R.records.length * 420 + 420 + 300;
 
-export const RebuttalExample = ({ id = 'rebuttal-example', play: shared }) => {
+export const RebuttalExample = ({ id = 'rebuttal-example', play: shared, headingAs = 'h3' }) => {
   const [ref, playClass, play] = useFigurePlay(shared, { duration: REBUTTAL_DURATION });
   return (
-    <AppFrame id={id} className="rebuttal-example" title={R.title} view={R.view} caption={R.caption} play={play} playClass={playClass} figureRef={ref} style={{ '--step': '420ms' }}>
+    <AppFrame id={id} headingAs={headingAs} className="rebuttal-example" title={R.title} view={R.view} caption={R.caption} play={play} playClass={playClass} figureRef={ref} style={{ '--step': '420ms' }}>
       <div className="rebuttal-point app-card">
         <span className="app-label">{R.documentLabel} · {R.pointLabel}</span>
         <p>{R.point}</p>

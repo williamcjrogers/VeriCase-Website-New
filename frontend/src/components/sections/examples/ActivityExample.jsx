@@ -6,11 +6,11 @@ import { AppFrame, Badge } from './AppFrame';
 // turn of 300, the last settling 420 later; the duration adds 300.
 export const ACTIVITY_DURATION = 320 + (L.rows.length - 1) * 300 + 420 + 300;
 
-export const ActivityExample = ({ id = 'activity-example', play: shared }) => {
+export const ActivityExample = ({ id = 'activity-example', play: shared, headingAs = 'h3', contentHeadingAs: ContentHeading = 'h4' }) => {
   const [ref, playClass, play] = useFigurePlay(shared, { duration: ACTIVITY_DURATION });
   return (
-    <AppFrame id={id} className="activity-example" title={L.title} view={L.view} caption={L.caption} play={play} playClass={playClass} figureRef={ref} style={{ '--step': '300ms' }}>
-      <h4 className="app-h">{L.heading}</h4>
+    <AppFrame id={id} headingAs={headingAs} className="activity-example" title={L.title} view={L.view} caption={L.caption} play={play} playClass={playClass} figureRef={ref} style={{ '--step': '300ms' }}>
+      <ContentHeading className="app-h">{L.heading}</ContentHeading>
       <p className="app-quiet" style={{ margin: '0.125rem 0 0' }}>{L.intro}</p>
       <div className="activity-wrap" style={{ marginTop: '0.875rem' }}>
         <table className="activity-table" style={{ marginTop: 0 }}>

@@ -1,6 +1,7 @@
 import { FileSpreadsheet, FileText, Mail, Paperclip, Search, X } from 'lucide-react';
 import { SEARCH_EXAMPLE as S } from '@/content/examples';
 import { Typed, typedMs, useFigurePlay } from '../illustrationKit';
+import { LensOverview } from '../LensOverview';
 import { AppFrame } from './AppFrame';
 
 // Chronology Lens: a term typed into the search; it becomes a chip, the count appears, and the
@@ -12,10 +13,10 @@ export const SEARCH_DURATION = TYPED_MS + 320 + S.results.length * 380 + 420 + 3
 
 const fileIcon = (name) => (/\.xlsx$/.test(name) ? FileSpreadsheet : FileText);
 
-export const SearchExample = ({ id = 'search-example', play: shared, className }) => {
+export const SearchExample = ({ id = 'search-example', play: shared, className, headingAs = 'h3', showIntro = true, showOverview = true }) => {
   const [ref, playClass, play] = useFigurePlay(shared, { duration: SEARCH_DURATION });
   return (
-    <AppFrame id={id} className={['search-example', className].filter(Boolean).join(' ')} title={S.title} view={S.view} caption={S.caption} play={play} playClass={playClass} figureRef={ref} style={{ '--typed-ms': `${TYPED_MS}ms` }}>
+    <AppFrame id={id} headingAs={headingAs} className={['search-example', className].filter(Boolean).join(' ')} title={<>The Chronology Lens<sup>™</sup></>} intro={showIntro && S.intro} overview={showOverview && <LensOverview />} view={S.view} caption={S.caption} play={play} playClass={playClass} figureRef={ref} style={{ '--typed-ms': `${TYPED_MS}ms` }}>
       <div className="search-bar">
         <p className="search-box" style={{ margin: 0 }}>
           <Search aria-hidden="true" />
